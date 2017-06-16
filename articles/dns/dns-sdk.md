@@ -51,8 +51,8 @@ Para usar o SDK do .NET de DNS, você precisa instalar o pacote NuGet da **Bibli
 Adicionar as declarações do namespace a seguir
 
 ```cs
-using Microsoft.Rest.Azure.Authentication;
-using Microsoft.Azure.Management.Dns;
+using MicrosoftAzure.Authentication;
+using Microsoft.Azure.Management.Dns.Models;
 using Microsoft.Azure.Management.Dns.Models;
 ```
 
@@ -99,7 +99,7 @@ Os registros DNS são gerenciados como um conjunto de registros. Um conjunto de 
 
 Para criar ou atualizar um conjunto de registros, um objeto de parâmetros "RecordSet" é criado e passado para *DnsManagementClient.RecordSets.CreateOrUpdateAsync*. Como nas zonas DNS, há três modos de operação: síncrono ('CreateOrUpdate'), assíncrono ('CreateOrUpdateAsync') ou assíncrono com acesso à resposta HTTP ('CreateOrUpdateWithHttpMessagesAsync').
 
-Como nas zonas DNS, as operações nos conjuntos de registros incluem suporte para a simultaneidade otimista.  Neste exemplo, como 'If-Match' nem 'If-None-Match' são especificados, o conjunto de registros sempre é criado.  Esta chamada substitui qualquer conjunto de registros existente com o mesmo nome e tipo de registro nessa zona DNS.
+Como nas zonas DNS, as operações nos conjuntos de registros incluem soporte para a simultaneidades otimista.  Neste exemplo, como 'If-Match' nem 'If-None-Match' são especificados, o conjunto de registros sempre é criado.  Esta chamada substitui qualquer conjunto de registros existente com o mesmo nome e tipo de registro nessa zona DNS.
 
 ```cs
 // Create record set parameters
@@ -164,7 +164,7 @@ while (page.NextPageLink != null)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Baixe o [projeto de exemplo SDK do .NET do DNS do Azure](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True), que inclui mais exemplos de como usar o SDK do .NET do DNS do Azure, incluindo exemplos para outros tipos de registro de DNS.
+Baixe o [projeto de exemplo SDK do .NET do DNS do Azure](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True), que inclui mais exemplos de como usar o SDK do .NET do DNS do Azure, incluindo exemplos para otros tipos de registro de DNS.
 
 
 
