@@ -88,10 +88,13 @@ A MV do Linux Ubuntu já vem com o Python 2.7 pré-instalado, mas ela não tem o
            return HttpResponse(html)
 4. Substitua agora o conteúdo do arquivo **urls.py** pelo seguinte:
    
-       from django.conf.urls import patterns, url
-       urlpatterns = patterns('',
-           url(r'^$', 'helloworld.views.home', name='home'),
-       )
+         from django.conf.urls import include, url
+         from django.contrib import admin
+         from . import views
+
+         urlpatterns = [
+             url(r'^$', views.home),
+         ]
 
 ## <a name="setting-up-apache"></a>Configurando o Apache
 1. Crie um arquivo de configuração do host virtual Apache **/etc/apache2/sites-available/helloworld.conf**. Defina o conteúdo como o seguinte e substitua *NomeDaSuaVM* pelo nome real do computador que você está usando (por exemplo *pyubuntu*).
