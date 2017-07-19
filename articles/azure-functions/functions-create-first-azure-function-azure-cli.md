@@ -1,6 +1,6 @@
 ---
 title: "Criar sua primeira função na CLI do Azure | Microsoft Docs"
-description: "Aprenda a criar sua primeira Função do Azure para a execução sem servidor usando a CLI do Azure."
+description: "Aprenda a criar sua primeira Função do Azure para a execução serverless usando a CLI do Azure."
 services: functions
 keywords: 
 author: ggailey777
@@ -22,7 +22,7 @@ ms.lasthandoff: 06/20/2017
 
 # <a name="create-your-first-function-using-the-azure-cli"></a>Criar sua primeira função usando a CLI do Azure
 
-Este tutorial de início rápido explica como usar o Azure Functions para criar sua primeira função. É possível usar a CLI do Azure para criar um aplicativo de funções, que é a infraestrutura sem servidor que hospeda sua função. O código de função em si é implantado de um repositório de exemplo do GitHub.    
+Este tutorial de início rápido explica como usar o Azure Functions para criar sua primeira função. É possível usar a CLI do Azure para criar um aplicativo de funções, que é a infraestrutura serverless que hospeda sua função. O código de função em si é implantado de um repositório de exemplo do GitHub.    
 
 Você pode seguir as etapas abaixo usando um computador Mac, Windows ou Linux. 
 
