@@ -12,14 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/31/2017
+ms.date: 08/11/2017
 ms.author: saurse;trinadhk;markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: be6bc58ab856309004904626db166331b29199a8
-ms.openlocfilehash: aa8ccc15971bed76d7ce8fd554e6a0f89d985fb8
-ms.lasthandoff: 02/02/2017
-
-
+ms.openlocfilehash: 300b2b17b44e21ed446fd63d572a2461e2fc1343
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-the-classic-deployment-model"></a>Restaurar arquivos em um computador de cliente do Windows ou Windows Server usando o modelo de implantação do clásico
 > [!div class="op_single_selector"]
@@ -28,7 +27,15 @@ ms.lasthandoff: 02/02/2017
 >
 >
 
-Este artigo explica como restaurar dados de um cofre de backup. Para restaurar dados, você pode usar o assistente de Recuperação de Dados do agente dos Serviços de Recuperação do Microsoft Azure (MARS). Ao restaurar dados, é possível:
+Este artigo explica como recuperar dados de um cofre de backup e restaurá-lod para um computador ou servidor. A partir de março de 2017, você não poderá mais usar o portal clássico para criar os cofres de backup.
+
+> [!IMPORTANT]
+> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> **15 de outubro de 2017**, você não poderá mais usar o PowerShell para criar cofres de Backup. <br/> **A partir de 1º de novembro de 2017**:
+>- Nenhum cofre de Backup restante será atualizado automaticamente para os cofres dos Serviços de Recuperação.
+>- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
+>
+
+Para restaurar dados, você pode usar o assistente recuperar dados do agente do Serviços de Recuperação do Microsoft Azure (MARS). Ao restaurar dados, é possível:
 
 * Restaurar dados para o mesmo computador do qual os backups foram realizados.
 * Restaurar dados para um computador alternativo.
@@ -54,9 +61,9 @@ Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo co
 
     ![Recuperar Dados](./media/backup-azure-restore-windows-server/recover.png)
 
-3. No painel **Introdução**, para restaurar os dados para o mesmo computador ou servidor, selecione **Este servidor (`<server name>`)** e clique em **Avançar**.
+3. No painel **Introdução**, para restaurar os dados para o mesmo computador ou servidor, selecione **Este servidor (`<server name>`)** e clique em **Próximo**.
 
-    ![Escolha a opção “Este servidor” para restaurar os dados para o mesmo computador](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
+    ![Escolha a opção Este servidor para restaurar os dados para o mesmo computador](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
 4. No painel **Selecionar Modo de Recuperação**, escolha **Pastas e arquivos individuais** e, em seguida, clique em **Avançar**.
 
@@ -68,7 +75,7 @@ Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo co
 
     ![Volume e data](./media/backup-azure-restore-windows-server/samemachine_selectvolumedate_instantrestore.png)
 
-6. Depois de escolher o ponto de recuperação a ser restaurado, clique em **Montar**.
+6. Depois de ter escolhido o ponto de recuperação a ser restaurado, clique em **Montar**.
 
     O Backup do Azure monta o ponto de recuperação local e o usa como um volume de recuperação.
 
@@ -77,7 +84,7 @@ Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo co
     ![Opções de recuperação](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
 
-8. No Windows Explorer, copie os arquivos e/ou pastas que deseja restaurar e cole-os em qualquer localização local no servidor ou computador. É possível abrir ou transmitir os arquivos diretamente do volume de recuperação e verificar se as versões corretas foram recuperadas.
+8. No Windows Explorer, copie os arquivos e/ou pastas que deseja restaurar e cole-os em qualquer localização local no servidor ou computador. Você pode abrir ou transmitir os arquivos diretamente do volume de recuperação e verificar se as versões corretas são recuperadas.
 
     ![Copiar e colar arquivos e pastas do volume montado na localização local](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
 
@@ -172,7 +179,7 @@ A terminologia usada nessas etapas inclui:
 * *Cofre de exemplo* – o cofre Serviços de Recuperação no qual a *Máquina de origem* e a *Máquina de destino* estão registradas. <br/>
 
 > [!NOTE]
-> Os backups não podem ser restaurados em um computador de destino que execute uma versão anterior do sistema operacional. Por exemplo, um backup feito em um computador com Windows 7 pode ser restaurado em um computador com Windows 8 ou versões mais recentes. Um backup feito em um computador com Windows 8 não pode ser restaurado em um computador com Windows 7.
+> Os backups não podem ser restaurados em um computador de destino executando uma versão anterior do sistema operacional. Por exemplo, um backup feito em um computador com Windows 7 pode ser restaurado em um computador com Windows 8 ou mais recente. Um backup feito em um computador com Windows 8 não pode ser restaurado em um computador com Windows 7.
 >
 >
 
@@ -212,7 +219,7 @@ A terminologia usada nessas etapas inclui:
 
     ![Criptografia](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
 
-11. No Windows Explorer, copie os arquivos e/ou pastas do volume de recuperação e cole-os na localização de seu *Computador de destino*. É possível abrir ou transmitir os arquivos diretamente do volume de recuperação e verificar se as versões corretas foram recuperadas.
+11. No Windows Explorer, copie os arquivos e/ou pastas do volume de recuperação e cole-os na localização de seu *Computador de destino*. Você pode abrir ou transmitir os arquivos diretamente do volume de recuperação e verificar se as versões corretas são recuperadas.
 
     ![Criptografia](./media/backup-azure-restore-windows-server/alternatemachine_copy_instantrestore.png)
 
@@ -233,4 +240,3 @@ A terminologia usada nessas etapas inclui:
 * [Visão geral do backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=222425)
 * [Fazer backup de máquinas virtuais do Azure](backup-azure-vms-introduction.md)
 * [Fazer backup de cargas de trabalho Microsoft](backup-azure-dpm-introduction.md)
-

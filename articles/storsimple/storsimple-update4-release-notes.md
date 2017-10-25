@@ -12,14 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/21/2017
+ms.date: 04/04/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: a545925bdade693f4db7db45228188dae7e5ff38
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: 23f1bbb066c5b6481988ee841ad8979d78abf084
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>Notas de versão da Atualização 4 para o StorSimple 8000 Series
 
@@ -52,8 +51,6 @@ Veja a seguir as principais melhorias e correções de bugs feitas na Atualizaç
 * **Ferramenta de diagnóstico de StorSimple** – na atualização 4, uma ferramenta de diagnóstico do StorSimple está sendo lançada para permitir a fácil de diagnóstico e solução de problemas relacionados à integridade de componentes do sistema, rede, desempenho e hardware. Essa ferramenta é executada por meio do Windows PowerShell para StorSimple. Para obter mais informações, acesse [Solucionar problemas usando a ferramenta de Diagnóstico do StorSimple](storsimple-8000-diagnostics.md).
 
 * **Ferramenta de migração de StorSimple baseado na interface do usuário** - antes dessa versão, migração de dados da série 5000-7000 necessárias de usuários para executar uma parte do fluxo de trabalho de migração usando a interface do Azure PowerShell. Nesta versão, uma ferramenta de migração de StorSimple baseada em interface do usuário fácil de usar é disponibilizada para o suporte facilitar o mesmo fluxo de trabalho de migração. Essa ferramenta também permite a consolidação de recipientes de recuperação. 
-
-* **Suporte de MPIO para StorSimple Snapshot Manager** -nesta versão, implementamos o suporte MPIO para o StorSimple Snapshot Manager.
 
 * **Alterações relacionadas a FIPS** – essa versão em diante, FIPS está habilitada por padrão em todos os dispositivos da série StorSimple 8000 para contas de nuvem pública do Microsoft Azure Governmental e o Azure.
 
@@ -93,5 +90,4 @@ Esta atualização não pode ser aplicada ao Dispositivo de Nuvem do StorSimple 
 ## <a name="next-step"></a>Próxima etapa
 
 Saiba como [instalar a Atualização 4](storsimple-install-update-4.md) no dispositivo StorSimple.
-
 

@@ -5,8 +5,3 @@ Antes de iniciar este tutorial, você deve primeiro concluir o tutorial [Introdu
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

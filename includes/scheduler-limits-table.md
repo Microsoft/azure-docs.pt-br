@@ -17,8 +17,3 @@ A tabela a seguir descreve cada uma das principais cotas, limites, padrões e li
 | **Retenção de trabalhos concluídos e com falha** |Os trabalhos concluídos e com falha são armazenados por 60 dias. |
 | **Tempo limite** |Há um tempo limite da solicitação (não configurável) estático de 60 segundos para ações de HTTP. Para operações mais demoradas em execução, execute protocolos assíncronos HTTP; por exemplo, retornar um 202 imediatamente, mas continuar a trabalhar no plano de fundo. |
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

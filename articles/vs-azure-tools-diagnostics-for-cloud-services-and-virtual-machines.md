@@ -3,8 +3,8 @@ title: "Configuração de diagnóstico para os serviços de nuvem e máquinas vi
 description: "Descreve como configurar informações de diagnóstico para depurar serviços de nuvem e máquinas virtuais (VMs) do Azure no Visual Studio."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: e70cd7b4-6298-43aa-adea-6fd618414c26
 ms.service: multiple
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 76bcb201bb8d862426048b828c0c4cce0335455c
-
-
+ms.author: kraigb
+ms.openlocfilehash: d3c85cde864d599871e195df2e81548180e647ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Configurando o diagnóstico para os serviços de nuvem do Azure e máquinas virtuais
-Quando você precisar solucionar problemas de um serviço de nuvem do Azure ou da máquina virtual do Azure, pode configurar o diagnóstico do Azure com mais facilidade usando o Visual Studio. O diagnóstico do Azure captura dados do sistema e dados do log em máquinas virtuais e instâncias de máquinas virtuais que executam o serviço de nuvem e transfere os dados para uma conta de armazenamento de sua escolha. Consulte [Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](app-service-web/web-sites-enable-diagnostic-log.md) para obter mais informações sobre o registro em log de diagnóstico no Azure.
+Quando você precisar solucionar problemas de um serviço de nuvem do Azure ou da máquina virtual do Azure, pode configurar o diagnóstico do Azure com mais facilidade usando o Visual Studio. O diagnóstico do Azure captura dados do sistema e dados do log em máquinas virtuais e instâncias de máquinas virtuais que executam o serviço de nuvem e transfere os dados para uma conta de armazenamento de sua escolha. Consulte [Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](app-service/web-sites-enable-diagnostic-log.md) para obter mais informações sobre o registro em log de diagnóstico no Azure.
 
 Este tópico mostra como habilitar e configurar o diagnóstico do Azure no Visual Studio, antes e depois da implantação, bem como em máquinas virtuais do Azure. Ele também mostra como selecionar os tipos de informações de diagnóstico para coletar e exibir as informações depois que são coletadas.
 
@@ -136,7 +136,7 @@ Após habilitar a coleção de dados de diagnóstico, você pode escolher exatam
 
   ![Logs de aplicativos](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758145.png)
 
-  Consulte [Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](app-service-web/web-sites-enable-diagnostic-log.md) para obter mais informações sobre os logs de aplicativo.
+  Consulte [Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](app-service/web-sites-enable-diagnostic-log.md) para obter mais informações sobre os logs de aplicativo.
 
 ### <a name="windows-event-logs"></a>Logs de eventos do Windows
 Por exemplo, se você quiser capturar logs de evento do Windows, selecione a caixa de seleção **Habilitar transferência dos logs de evento do Windows** . Você pode aumentar ou diminuir o número de minutos quando os logs de eventos são transferidos para sua conta de armazenamento, alterando o valor **Período de transferência (min)** . Selecione as caixas de seleção para os tipos de eventos que você deseja controlar.
@@ -251,7 +251,7 @@ Se você estiver investigando um problema com um serviço de nuvem que já está
    
     Para obter informações sobre as definições de configuração, consulte **Configurar fontes de dados de diagnóstico** neste tópico. Para obter informações sobre como exibir os dados de diagnóstico, consulte **Exibir os dados de diagnóstico** neste tópico.
    
-    Se você alterar a coleta de dados no **Gerenciador de Servidores**, essas alterações permanecerão em vigor até que você reimplante totalmente o seu serviço de nuvem. Se você usar as configurações de publicação padrão, as alterações não são substituídas, uma vez que a configuração de publicação padrão é atualizar a implantação existente, em vez de fazer uma reimplantação completa. Para verificar se as configurações estão limpas no momento da implantação, vá para a guia **Configurações avançadas** no Assistente de publicação e limpe a caixa de seleção** Atualização de implantação**. Quando você reimplanta com essa caixa de seleção desmarcada, as configurações revertem aquelas no arquivo .wadcfgx (ou wadcfg) conforme definido no Editor de propriedades da função. Se você atualizar a implantação, o Azure mantém as configurações antigas.
+    Se você alterar a coleta de dados no **Gerenciador de Servidores**, essas alterações permanecerão em vigor até que você reimplante totalmente o seu serviço de nuvem. Se você usar as configurações de publicação padrão, as alterações não são substituídas, uma vez que a configuração de publicação padrão é atualizar a implantação existente, em vez de fazer uma reimplantação completa. Para verificar se as configurações estão limpas no momento da implantação, vá para a guia **Configurações avançadas** no Assistente de publicação e limpe a caixa de seleção **Atualização de implantação** . Quando você reimplanta com essa caixa de seleção desmarcada, as configurações revertem aquelas no arquivo .wadcfgx (ou wadcfg) conforme definido no Editor de propriedades da função. Se você atualizar a implantação, o Azure mantém as configurações antigas.
 
 ## <a name="troubleshoot-azure-cloud-service-issues"></a>Solucionar problemas do serviço de nuvem do Azure
 Se você tiver problemas com seus projetos de serviço de nuvem, como uma função travar no status "ocupado", repetidamente recicla ou lança um erro interno do servidor, existem ferramentas e técnicas que você pode usar para diagnosticar e corrigir esses problemas. Para obter exemplos específicos de problemas e soluções comuns, bem como uma visão geral dos conceitos e ferramentas usadas para diagnosticar e corrigir esses erros, consulte [Dados de diagnóstico de computação de PaaS do Azure](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
@@ -300,11 +300,5 @@ Os métodos de RoleEntryPoint são chamados no contexto de WAIISHost.exe, não o
 Agora, na janela **Propriedades**, defina a propriedade **Copiar para Diretório de saída** como **Copiar sempre**.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre o registro em log de diagnósticos no Azure, consulte [Habilitando o diagnóstico nos Serviços de Nuvem do Azure e Máquinas Virtuais](cloud-services/cloud-services-dotnet-diagnostics.md) e [Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](app-service-web/web-sites-enable-diagnostic-log.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+Para saber mais sobre o registro em log de diagnósticos no Azure, consulte [Habilitando o diagnóstico nos Serviços de Nuvem do Azure e Máquinas Virtuais](cloud-services/cloud-services-dotnet-diagnostics.md) e [Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](app-service/web-sites-enable-diagnostic-log.md).
 

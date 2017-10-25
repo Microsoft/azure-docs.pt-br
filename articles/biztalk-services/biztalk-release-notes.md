@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 84ad965ed6ef1711fda983220cf004fdd48d290d
-
-
+ms.openlocfilehash: 18ed891a9bba2b4011d3492722a2366d96fb3c01
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Notas de versão dos Serviços BizTalk do Azure
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 As notas de versão dos Serviços BizTalk do Microsoft Azure contêm os problemas conhecidos nesta versão.
 
 ## <a name="whats-new-in-the-november-update-of-biztalk-services"></a>Novidades na atualização de novembro dos Serviços BizTalk
@@ -29,8 +32,8 @@ As notas de versão dos Serviços BizTalk do Microsoft Azure contêm os problema
 ## <a name="update-history"></a>Histórico de atualizações
 ### <a name="october-update"></a>Atualização de outubro
 * Suporte para contas organizacionais:  
-  * **Cenário**: você registrou uma implantação do Serviço BizTalk usando uma conta da Microsoft (como user@live.com). Nesse cenário, somente usuários de contas da Microsoft podem gerenciar o Serviço BizTalk usando o portal dos Serviços BizTalk. Não é possível usar uma conta organizacional.  
-  * **Cenário**: você registrou uma implantação do Serviço BizTalk usando uma conta organizacional no Azure Active Directory (como user@fabrikam.com ou user@contoso.com). Nesse cenário, somente usuários do Azure Active Directory da mesma organização podem gerenciar o Serviço BizTalk usando o portal dos Serviços BizTalk. Não é possível usar uma conta da Microsoft.  
+  * **Cenário**: você registrou uma implantação do Serviço BizTalk usando uma conta da Microsoft (como user@live.com). Nesse cenário, somente os usuários de contas da Microsoft podem gerenciar o Serviço BizTalk usando o portal dos Serviços BizTalk. Não é possível usar uma conta organizacional.  
+  * **Cenário**: você registrou uma implantação do Serviço BizTalk usando uma conta organizacional no Azure Active Directory (como user@fabrikam.com ou user@contoso.com). Nesse cenário, somente usuários do Azure Active Directory dentro da mesma organização podem gerenciar o Serviço BizTalk usando o portal de Serviços BizTalk. Não é possível usar uma conta da Microsoft.  
 * Ao criar um Serviço BizTalk no portal clássico do Azure, você é registrado automaticamente no Portal dos Serviços BizTalk .
   * **Cenário**: você entra no portal clássico do Azure, cria um Serviço BizTalk e seleciona **Gerenciar** pela primeira vez. Quando abre o portal dos Serviços BizTalk, o Serviço BizTalk é registrado automaticamente e está pronto para as suas implantações.  
     Confira [Registrar e atualizar uma implantação do Serviço BizTalk no portal dos Serviços BizTalk](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
@@ -134,7 +137,7 @@ Ao usar tipos de dados definidos pelo usuário, copie os arquivos (.dll) para dr
 > 
 
 ### <a name="restarting-the-biztalk-adapter-service-web-site"></a>Reiniciar o Site do Serviço do Adaptador do BizTalk
-Instalar a **Execução do Serviço do Adaptador do BizTalk*** cria o site da Web **Serviço do Adaptador do BizTalk** no IIS que contém o aplicativo **BAService**. O aplicativo **BAService** usa associação de retransmissão internamente para estender o alcance do ponto de extremidade do serviço local para a nuvem. Para um serviço hospedado localmente, o ponto de extremidade de retransmissão correspondente será registrado no Barramento de Serviço somente quando o serviço local for iniciado.  
+Instalar o **Tempo de Execução do Serviço do Adaptador do BizTalk*** cria o site da Web **Serviço do Adaptador do BizTalk** no IIS que contém o aplicativo **BAService**. O aplicativo **BAService** usa associação de retransmissão internamente para estender o alcance do ponto de extremidade de serviço local para a nuvem. Para um serviço hospedado localmente, o ponto de extremidade de retransmissão correspondente será registrado no Barramento de Serviço somente quando o serviço local for iniciado.  
 
 Se você interromper e iniciar um aplicativo, a configuração para iniciar automaticamente um aplicativo não será respeitada. Portanto, quando o **BAService** é interrompido, você sempre deve reiniciar o site do **Serviço do Adaptador do BizTalk**. Não inicie ou interrompa o aplicativo **BAService** .
 
@@ -170,7 +173,7 @@ Considere este cenário:
 Considere os seguintes cenários:  
 
 **Cenário 1: usar certificados baseados em impressão digital para transferência segura de mensagens de uma ponte para um ponto de extremidade de serviço**  
- Considere um cenário em que você usa certificados baseados em impressão digital no seu projeto do Serviço BizTalk. Você atualiza o certificado no Portal dos Serviços BizTalk com o mesmo nome e com uma impressão digital diferente, mas não atualiza o projeto do Serviço BizTalk de forma correspondente. Nesse cenário, a ponte pode continuar a processar as mensagens porque os dados do certificado antigo ainda podem estar no cache do canal. Após isso, o processamento de mensagens falha.  
+Considere um cenário em que você usa certificados baseados em impressão digital no seu projeto do Serviço BizTalk. Você atualiza o certificado no Portal dos Serviços BizTalk com o mesmo nome e com uma impressão digital diferente, mas não atualiza o projeto do Serviço BizTalk de forma correspondente. Nesse cenário, a ponte pode continuar a processar as mensagens porque os dados do certificado antigo ainda podem estar no cache do canal. Após isso, o processamento de mensagens falha.  
 
 **Solução**: atualizar o certificado no projeto do Serviço BizTalk e reimplantar o projeto.  
 
@@ -218,10 +221,4 @@ Ao longo deste documento, os termos 'pipelines' e 'pontes' são usados de forma 
 
 ### <a name="concepts"></a>Conceitos
 [Serviços BizTalk](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

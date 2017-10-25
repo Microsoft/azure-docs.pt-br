@@ -12,21 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 05/30/2017
 ms.author: lmazuel
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 579015f419ac0ee886f8e8497760a562ab324c24
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: 13249ba9a4b317a3154776b411ce0bb1f316b3bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-service-management-from-python"></a>Como usar o Gerenciamento de Serviços no Python
-> [!NOTE]
-> API de gerenciamento do serviço está sendo substituído com a nova API de gerenciamento de recursos, disponível em uma versão de visualização no momento.  Consulte a [documentação de gerenciamento de recursos do Azure](http://azure-sdk-for-python.readthedocs.org/) para obter detalhes sobre como usar a nova API de gerenciamento de recursos do Python.
-> 
-> 
-
 Este guia mostra como executar tarefas de gerenciamento de serviços comuns de forma programática no Python. A classe **ServiceManagementService** no [SDK do Azure para Python](https://github.com/Azure/azure-sdk-for-python) dá suporte a acesso programático para grande parte da funcionalidade relacionada ao gerenciamento de serviços que está disponível no [Portal Clássico do Azure][management-portal] (como **criação, atualização e exclusão de serviços de nuvem, implantações, serviços de gerenciamento de dados e máquinas virtuais**). Essa funcionalidade pode ser útil na criação de aplicativos que precisam de acesso programático ao gerenciamento de serviços.
 
 ## <a name="WhatIs"> </a>O que é gerenciamento de serviços
@@ -38,15 +32,15 @@ Para usar a API de Gerenciamento de Serviços, é necessário [criar uma conta d
 O SDK do Azure para Python encapsula a [API de Gerenciamento de Serviços do Azure][svc-mgmt-rest-api], que é uma API REST. Todas as operações da API são executadas por meio do SSL e mutuamente autenticadas usando certificados X.509 v3. O serviço de gerenciamento pode ser acessado em um serviço em execução no Azure ou diretamente pela Internet em qualquer aplicativo que possa enviar uma solicitação HTTPS e receber uma resposta HTTPS.
 
 ## <a name="Installation"> </a>Instalação
-Todos os recursos descritos neste artigo estão disponíveis no pacote do `azure-servicemanagement-legacy` , que pode ser instalado usando o pip. Para obter mais detalhes sobre a instalação (por exemplo, se você for novo no Python), consulte este artigo: [Instalando o Python e o SDK do Azure](../python-how-to-install.md)
+Todos os recursos descritos neste artigo estão disponíveis no pacote do `azure-servicemanagement-legacy` , que pode ser instalado usando o pip. Para obter mais informações sobre a instalação (por exemplo, se você for novo no Python), consulte este artigo: [Instalando o Python e o SDK do Azure](../python-how-to-install.md)
 
 ## <a name="Connect"> </a>Como conectar-se ao gerenciamento de serviços
 Para conectar-se ao ponto de extremidade do Gerenciamento de Serviços, você precisa da ID de sua assinatura do Azure e um certificado de gerenciamento válido. Você pode obter sua ID de assinatura por meio do [Portal Clássico do Azure][management-portal].
 
 > [!NOTE]
-> Uma vez que o SDK do Azure para Python versão 0.8.0, é agora possível usar certificados criados com o OpenSSL quando for executado no Windows.  Isso requer o Python 2.7.4 ou posterior. Recomendamos que os usuários usem o OpenSSL, em vez de .pfx, já que o suporte para certificados .pfx provavelmente será removido no futuro.
-> 
-> 
+> Agora é possível usar certificados criados com o OpenSSL quando for executado no Windows.  Isso requer o Python 2.7.4 ou posterior. Recomendamos que os usuários usem o OpenSSL, em vez de .pfx, já que o suporte para certificados .pfx provavelmente será removido no futuro.
+>
+>
 
 ### <a name="management-certificates-on-windowsmaclinux-openssl"></a>Certificados de gerenciamento no Windows/Mac/Linux (OpenSSL)
 Você também pode usar o [OpenSSL](http://www.openssl.org/) para criar o certificado de gerenciamento.  Na verdade, você precisa criar dois certificados, um para o servidor (um arquivo `.cer`) e um para o cliente (um arquivo `.pem`). Para criar o arquivo `.pem` , execute isto:
@@ -78,7 +72,7 @@ Você pode criar um certificado de gerenciamento autoassinado em seu computador 
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-O comando cria o arquivo `.cer` e o instala no repositório de certificados **Pessoal** . Para mais detalhes, confira a [Visão geral sobre certificados para os Serviços de Nuvem do Azure](cloud-services-certs-create.md).
+O comando cria o arquivo `.cer` e o instala no repositório de certificados **Pessoal** . Para obter mais informações, confira a [Visão geral sobre certificados para os Serviços de Nuvem do Azure](cloud-services-certs-create.md).
 
 Depois que tiver criado o certificado, você precisará carregar do arquivo `.cer` no Azure por meio da ação "Carregar" da guia "Configurações" no [Portal Clássico do Azure][management-portal].
 
@@ -176,7 +170,7 @@ Para excluir uma implantação, use o método **delete\_deployment**. O exemplo 
     sms.delete_deployment('myhostedservice', 'v1')
 
 ## <a name="CreateStorageService"> </a>Como criar um serviço de armazenamento
-Um [serviço de armazenamento](../storage/storage-create-storage-account.md) fornece acesso a [Blobs](../storage/storage-python-how-to-use-blob-storage.md), [Tables](../storage/storage-python-how-to-use-table-storage.md) e [Queues](../storage/storage-python-how-to-use-queue-storage.md) do Azure. Para criar um serviço de armazenamento, você precisa de um nome para o serviço (com 3 a 24 caracteres minúsculos e exclusivo no Azure), uma descrição, um rótulo (até 100 caracteres, automaticamente codificado em base64) e um local. O exemplo a seguir mostra como criar um serviço de armazenamento especificando um local.
+Um [serviço de armazenamento](../storage/common/storage-create-storage-account.md) fornece acesso a [Blobs](../storage/blobs/storage-python-how-to-use-blob-storage.md), [Tables](../cosmos-db/table-storage-how-to-use-python.md) e [Queues](../storage/queues/storage-python-how-to-use-queue-storage.md) do Azure. Para criar um serviço de armazenamento, você precisa de um nome para o serviço (com 3 a 24 caracteres minúsculos e exclusivo no Azure), uma descrição, um rótulo (até 100 caracteres, automaticamente codificado em base64) e um local. O exemplo a seguir mostra como criar um serviço de armazenamento especificando um local.
 
     from azure import *
     from azure.servicemanagement import *
@@ -432,5 +426,3 @@ Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/pytho
 
 
 [cloud service]:/services/cloud-services/
-
-

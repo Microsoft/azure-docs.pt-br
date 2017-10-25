@@ -1,6 +1,6 @@
 ---
-title: "Planejar capacidade e dimensionamento para replicação VMware no Azure | Microsoft Docs"
-description: Use este artigo para planejar a capacidade e o dimensionamento ao replicar VMs VMware no Azure
+title: "Planejar a capacidade e o dimensionamento para a replicação do VMware para o Azure com o Azure Site Recovery | Microsoft Docs"
+description: Use este artigo para planejar a capacidade e a escala ao replicar VMs do VMware para o Azure com o Azure Site Recovery
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/05/2017
+ms.date: 05/24/2017
 ms.author: rayne
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 86366359e065c9a9b4a52136254588e67125fb5f
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: 8b580ac239bfb6d7b633fb03d4cfb91b168b0610
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Planejar capacidade e dimensionamento para replicação VMware com o Azure Site Recovery
 
@@ -27,7 +26,7 @@ Use este artigo para descobrir como planejar a capacidade e o dimensionamento ao
 
 ## <a name="how-do-i-start-capacity-planning"></a>Como iniciar o planejamento de capacidade?
 
-Colete informações sobre seu ambiente de replicação usando o [Planejador de Implantação do Azure Site Recovery](https://aka.ms/asr-deployment-planner-doc). Essas informações incluem o número de máquinas virtuais compatíveis e incompatíveis, discos por VM e variação de dados por disco. Elas também incluem o requisito de largura de banda da rede, bem como a infraestrutura Azure necessária para replicação e failover de teste bem-sucedidos.
+Colete informações sobre seu ambiente de replicação executando o [Planejador de Implantação do Azure Site Recovery](https://aka.ms/asr-deployment-planner-doc) para replicação do VMware. [Saiba mais](site-recovery-deployment-planner.md) sobre essa ferramenta. Você coletará informações sobre VMs compatíveis e incompatíveis, discos por VM e variação de dados por disco. A ferramenta também inclui requisitos de largura de banda da rede, bem como a infraestrutura do Azure necessária para replicação e failover de teste bem-sucedidos.
 
 ## <a name="capacity-considerations"></a>Considerações sobre a capacidade
 
@@ -79,7 +78,7 @@ A maneira como você escala seus servidores depende de sua preferência por um m
 
 ## <a name="control-network-bandwidth"></a>Controlar largura de banda da rede
 
-Você pode usar a [ferramenta planejador de implantação](https://aka.ms/asr-deployment-planner-doc) para calcular a largura de banda necessária para replicação (incluindo a replicação inicial e depois a delta). Para controlar a quantidade de largura de banda usada para a replicação, você tem algumas opções:
+Depois de usar [a ferramenta Planejador de Implantação](site-recovery-deployment-planner.md) para calcular a largura de banda necessária para a replicação (a replicação inicial e, depois, a delta), você pode controlar a quantidade de largura de banda utilizada para a replicação usando algumas opções:
 
 * **Restringir a largura de banda**: o tráfego VMware que replica para o Azure passa por um servidor de processo específico. Você pode limitar a largura de banda nos computadores em execução como servidores de processo.
 * **Influenciar a largura de banda**: você pode influenciar a largura de banda usada para replicação usando algumas chaves do Registro:
@@ -87,6 +86,7 @@ Você pode usar a [ferramenta planejador de implantação](https://aka.ms/asr-de
   * O **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DownloadThreadsPerVM** especifica o número de threads usados para transferência de dados durante o failback.
 
 ### <a name="throttle-bandwidth"></a>Restringir a largura de banda
+
 1. Abra o snap-in do MMC do Backup do Azure no computador atuando como o servidor de processo. Por padrão, um atalho para o Backup está disponível na área de trabalho ou na seguinte pasta: C:\Arquivos de Programas\Serviços de Recuperação do Microsoft Azure\bin\wabadmin.
 2. No snap-in, clique em **Alterar Propriedades**.
 
@@ -140,9 +140,6 @@ Se for necessário escalar horizontalmente sua implantação para além de 200 c
 3. Em **Selecionar servidor do processo de destino**, selecione o novo servidor de processo que quer usar e as máquinas virtuais que serão manipuladas pelo servidor. Clique no ícone de informações para obter informações sobre o servidor. Para ajudá-lo a tomar decisões de carregamento, o espaço médio necessário para replicar cada máquina virtual selecionada no novo servidor de processo será exibido. Clique na marca de seleção para começar a replicar no novo servidor de processo.
 
 
+## <a name="next-steps"></a>Próximas etapas
 
-
-
-
-
-
+Baixe e execute o [Planejador de Implantação do Azure Site Recovery](https://aka.ms/asr-deployment-planner)

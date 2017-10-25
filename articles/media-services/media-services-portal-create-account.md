@@ -1,10 +1,10 @@
 ---
-title: " Criar uma conta dos Serviços de Mídia do Azure com o Portal do Azure | Microsoft Docss"
+title: "Criar uma conta dos Serviços de Mídia do Azure com o Portal do Azure | Microsoft Docs"
 description: "Este tutorial orienta você pelas etapas de criação de uma conta do Serviços de Mídia do Azure com o portal do Azure."
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: c551e158-aad6-47b4-931e-b46260b3ee4c
 ms.service: media-services
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 09/03/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 7ef0383ae88dcb8beb4b30792eaf60dec2911507
-ms.openlocfilehash: 08b8629502f99fc46fbe28ad17cd173f11259721
-ms.lasthandoff: 02/09/2017
-
-
+ms.openlocfilehash: 4e811dee81bfbd01b3cbe7f78a57b2ce92d1c0f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Criar uma conta dos Serviços de Mídia do Azure usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -36,18 +35,18 @@ O portal do Azure fornece uma maneira de criar rapidamente uma conta de Serviço
 
 Este artigo explica alguns conceitos comuns e mostra como criar uma conta do Serviços de Mídia com o portal do Azure.
 
+> [!NOTE]
+> Para saber mais sobre a disponibilidade de recursos dos Serviços de Mídia do Azure em regiões diferentes, veja [disponibilidade de recursos do AMS em data centers](scenarios-and-availability.md#availability).
+
 ## <a name="concepts"></a>Conceitos
 O acesso aos Serviços de Mídia requer duas contas associadas:
 
 * Uma conta dos Serviços de Mídia. Sua conta fornece acesso a um conjunto de Serviços de Mídia baseado na nuvem que está disponível no Azure. Uma conta de Serviços de Mídia não armazena o conteúdo de mídia real. Em vez disso, armazena metadados sobre o conteúdo de mídia e os trabalhos de processamento de mídia em sua conta. No momento em que cria a conta, você seleciona uma região de Serviços de Mídia disponível. A região selecionada é um data center que armazena os registros dos metadados de sua conta.
   
-    As regiões de Serviços de Mídia Disponíveis (AMS) incluem o seguinte: Norte da Europa, Europa Ocidental, Oeste dos EUA, Leste dos EUA, Sudeste da Ásia, Ásia Oriental, Oeste do Japão, Leste do Japão. Os Serviços de Mídia não usam grupos de afinidade.
-  
-    O AMS agora também está disponível nos seguintes data centers: Sul do Brasil, Índia Ocidental, Sul da Índia e Índia Central. Agora você pode usar o portal do Azure para criar contas do Serviço de Mídia e realizar diversas tarefas descritas aqui. No entanto, a Codificação Ativa não está habilitada nesses datacenters. Além disso, nem todos os tipos de Unidades Reservadas para Codificação estão disponíveis nesses datacenters.
-  
-  * Sul do Brasil: somente as Unidades Reservadas para Codificação Standard e Básico estão disponíveis.
-  * Índia Ocidental, Sul da Índia: 
 * Uma conta de armazenamento do Azure. As contas de armazenamento devem estar localizadas na mesma região geográfica que a conta dos Serviços de Mídia. Quando cria uma conta de Serviços de Mídia, você pode escolher uma conta de armazenamento existente na mesma região ou criar uma nova conta de armazenamento na mesma região. Se você excluir uma conta de Serviços de Mídia, os blobs em sua conta de armazenamento relacionada não serão excluídos.
+
+  > [!NOTE]
+  > O Serviços de Mídia restringe a conta de armazenamento principal para ser uma conta do **Armazenamento de Propósito Geral** com Tabelas, Filas. Para saber mais sobre os tipos de armazenamento, veja [Sobre as contas de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
 ## <a name="create-an-ams-account"></a>Criar uma conta do AMS
 As etapas nesta seção mostram como criar uma conta do AMS.
@@ -66,7 +65,7 @@ As etapas nesta seção mostram como criar uma conta do AMS.
    4. Em **Localização**, selecione a região geográfica que será usada para armazenar os registros de mídia e metadados para sua conta de Serviços de Mídia. Essa região será usada para processar e transmitir a mídia. Somente as regiões de Serviços de Mídia disponíveis são exibidas na caixa da lista suspensa. 
    5. Em **Conta de Armazenamento**, selecione uma conta de armazenamento para fornecer armazenamento de blobs do conteúdo de mídia de sua conta de Serviços de Mídia. Você pode selecionar uma conta de armazenamento existente na mesma região geográfica que sua conta de Serviços de Mídia ou criar uma conta de armazenamento. É criada uma nova conta de armazenamento na mesma região. As regras para nomes de contas de armazenamento são as mesmas que para contas de Serviços de Mídia.
       
-       Saiba mais sobre o armazenamento [aqui](../storage/storage-introduction.md).
+       Saiba mais sobre o armazenamento [aqui](../storage/common/storage-introduction.md).
    6. Selecione **Fixar no painel** para ver o progresso da implantação da conta.
 4. Clique em **Criar** na parte inferior do formulário.
    
@@ -75,30 +74,20 @@ As etapas nesta seção mostram como criar uma conta do AMS.
     >[!NOTE]
     >Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. 
    
-    ![Configurações dos Serviços de Mídia](./media/media-services-create-account/media-services-settings.png)
-   
-    Para gerenciar sua conta AMS (por exemplo, carregar vídeos, codificar ativos, monitorar o andamento do trabalho), use a janela **Configurações** .
+## <a name="to-manage-your-ams-account"></a>Para gerenciar sua conta do AMS
 
-## <a name="manage-keys"></a>Gerenciar Chaves
-Será necessário o nome da conta e as informações da chave primária para acessar a conta de Serviços de Mídia de modo programático.
+Para gerenciar sua conta do AMS (por exemplo, conectar-se à API do AMS programaticamente, carregar vídeos, codificar ativos, configurar a proteção de conteúdo, monitorar o andamento do trabalho), selecione **Configurações** no lado esquerdo do portal. De **Configurações**, navegue até uma das folhas disponíveis (por exemplo: **Acesso à API**, **Ativos**, **Trabalhos**, **Proteção de conteúdo**).
 
-1. No Portal do Azure, selecione sua conta. 
-   
-    A janela **Configurações** aparece à direita. 
-2. Na janela **Configurações**, selecione **Chaves**. 
-   
-    A janela **Gerenciar chaves** mostra o nome da conta e as chaves primária e secundária são exibidas. 
-3. Pressione o botão Copiar para copiar os valores.
-   
-    ![Chaves dos Serviços de Mídia](./media/media-services-create-account/media-services-keys.png)
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Agora você pode carregar arquivos em sua conta do AMS. Para saber mais, veja [Carregar arquivos](media-services-portal-upload-files.md).
+
+Se você planeja acessar a API do AMS programaticamente, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

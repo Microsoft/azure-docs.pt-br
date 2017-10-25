@@ -2,9 +2,4 @@
 | Recurso | Limite |
 | --- | --- |
 | Configurações de dimensionamento automático |100 por região e assinatura |
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+| Alertas de Métricas |Existem 100 regras de alerta ativas por assinatura |

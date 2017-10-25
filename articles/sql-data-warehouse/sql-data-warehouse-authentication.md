@@ -3,7 +3,7 @@ title: "Autenticação no Azure SQL Data Warehouse | Microsoft Docs"
 description: "Autenticação do AAD (Azure Active Directory) e SQL Server no Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: 
-author: byham
+author: ronortloff
 manager: jhubbard
 editor: 
 tags: 
@@ -15,13 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.custom: security
 ms.date: 03/21/2017
-ms.author: rickbyh;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 9f38d57029e962d1bbe8adae68232baa8a4c575d
-ms.lasthandoff: 03/22/2017
-
-
+ms.author: rortloff;barbkess
+ms.openlocfilehash: 92f48027051bc4aff4d6b8d66fdd6de81bba3657
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authentication-to-azure-sql-data-warehouse"></a>Autenticação no Azure SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -88,7 +87,7 @@ Siga estas etapas para configurar a autenticação do Azure Active Directory.
 Atualmente, os usuários do Azure Active Directory não são mostrados no Pesquisador de Objetos do SSDT. Como alternativa, exiba os usuários em [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 
 ### <a name="find-the-details"></a>Localização dos detalhes
-* Conclua as etapas detalhadas. As etapas detalhadas para configurar e usar a autenticação do Azure Active Directory são quase idênticas para o Banco de Dados SQL do Azure e o SQL Data Warehouse do Azure. Siga as etapas detalhadas no tópico [Conexão ao Banco de Dados SQL ou ao SQL Data Warehouse usando a autenticação do Azure Active Directory](../sql-database/sql-database-aad-authentication.md).
+* As etapas para configurar e usar a autenticação do Azure Active Directory são quase idênticas para o Banco de Dados SQL do Azure e o SQL Data Warehouse do Azure. Siga as etapas detalhadas no tópico [Conexão ao Banco de Dados SQL ou ao SQL Data Warehouse usando a autenticação do Azure Active Directory](../sql-database/sql-database-aad-authentication.md).
 * Crie funções de banco de dados personalizadas e adicione usuários às funções. Em seguida, conceda permissões granulares para as funções. Para obter mais informações, consulte o [Guia de introdução às Permissões do Mecanismo do Banco de Dados](https://msdn.microsoft.com/library/mt667986.aspx).
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -99,4 +98,3 @@ Para começar a consultar o data warehouse com o Visual Studio e outros aplicati
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
 [What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 [Azure AD features and limitations]: ../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations
-

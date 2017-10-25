@@ -4,7 +4,7 @@
 | **Site a site** |Suportado |Suportado |
 | **Rede Virtual a Rede Virtual** |Suportado |Sem suporte |
 | **Multissite** |Suportado |Sem suporte |
-| **Coexistência do S2S e da Rota Expressa** |Suportado |Sem suporte |
+| **Coexistência do S2S e do ExpressRoute** |Suportado |Sem suporte |
 | **Ponto a Site** |Suportado |Sem suporte |
 | **Clássico para o Gerenciador de Recursos** |Suportado |Sem suporte |
 
@@ -14,12 +14,7 @@
 | **Site a site** |Suportado |Suportado |
 | **Rede Virtual a Rede Virtual** |Suportado |Sem suporte |
 | **Multissite** |Suportado |Sem suporte |
-| **Coexistência do S2S e da Rota Expressa** |Suportado |Sem suporte |
+| **Coexistência do S2S e do ExpressRoute** |Suportado |Sem suporte |
 | **Ponto a Site** |Suportado |Sem suporte |
 | **Clássico para o Gerenciador de Recursos** |Suportado |Sem suporte |
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

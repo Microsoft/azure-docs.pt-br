@@ -125,7 +125,7 @@ Para fornecer redundância, coloque duas ou mais VMs configuradas de forma semel
 ## <a name="additional-resources"></a>Recursos adicionais
 [Sobre máquinas virtuais do Azure](../articles/virtual-machines/virtual-machines-linux-about.md)
 
-[Diferentes maneiras de criar uma máquina virtual Linux](../articles/virtual-machines/linux/creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Criar e Gerenciar as VMs do Linux com a CLI do Azure](../articles/virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Diferentes maneiras de criar uma máquina virtual Windows](../articles/virtual-machines/windows/creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Criar e Gerenciar as VMs do Windows com o Azure PowerShell ](../articles/virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

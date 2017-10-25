@@ -4,7 +4,7 @@ description: "Comece a monitorar um aplicativo Web que já esteja em execução 
 services: application-insights
 documentationcenter: java
 author: harelbr
-manager: douge
+manager: carmonm
 ms.assetid: 12f3dbb9-915f-4087-87c9-807286030b0b
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 42e682eb8e0a740393648e9fe49244c3a02a9867
-ms.openlocfilehash: eb6bce9be34467e472fbae6cbf154f3b789b6ddc
-
-
+ms.author: bwren
+ms.openlocfilehash: a2731e3e44f8f3d104d8abc7dbe71fe3a4c3a690
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>Application Insights para aplicativos Web Java que já estão em modo dinâmico
 
@@ -132,14 +132,8 @@ Ao exibir as propriedades de uma solicitação, você pode ver os eventos de tel
 [Saiba mais sobre métricas.](app-insights-metrics-explorer.md)
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Adicione telemetria às suas páginas da Web](app-insights-web-track-usage.md) para monitorar exibições de página e métricas de usuário.
+* [Adicione telemetria às suas páginas da Web](app-insights-javascript.md) para monitorar exibições de página e métricas de usuário.
 * [Configure os testes da Web](app-insights-monitor-web-app-availability.md) para certificar-se de manter seu aplicativo operante e responsivo.
 * [Capturar rastreamentos de log](app-insights-java-trace-logs.md)
 * [Pesquise eventos e logs](app-insights-diagnostic-search.md) para ajudar a diagnosticar problemas.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

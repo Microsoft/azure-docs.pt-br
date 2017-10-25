@@ -12,8 +12,3 @@ Você pode exibir e configurar o cache na folha **Cache Redis**.
 
 ![Todas as configurações de Cache Redis](media/redis-cache-browse/redis-cache-blade.png)
 
-
-
-<!--HONumber=Dec16_HO3-->
-
-

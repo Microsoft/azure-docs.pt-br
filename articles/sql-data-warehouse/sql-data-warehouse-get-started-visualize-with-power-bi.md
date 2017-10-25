@@ -3,7 +3,7 @@ title: Visualizar os dados do SQL Data Warehouse com o Power BI | Microsoft Azur
 description: Visualizar os dados do SQL Data Warehouse com o Power BI
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: mlee3gsd
 manager: jhubbard
 editor: 
 ms.assetid: d7fb89d1-da1d-4788-a111-68d0e3fda799
@@ -14,18 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 8790bacecac0fa824189b5c212c2d803092ff4ed
-ms.lasthandoff: 01/30/2017
-
-
+ms.author: martinle;barbkess
+ms.openlocfilehash: a41393730143b14e91318a61858d989fff3786c1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualizar os dados com o Power BI
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Aprendizado de Máquina do Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
@@ -118,4 +117,3 @@ Agora que proporcionamos a você uma introdução à verificação de dados de e
 <!--Other-->
 [Azure portal]: https://portal.azure.com/
 [Power BI website]: http://www.powerbi.com/
-

@@ -1,4 +1,3 @@
-
 ---
 title: "Visão geral da API de Exportação do Mobile Engagement"
 description: "Saiba os conceitos básicos sobre como exportar seus dados brutos gerados por dispositivos do usuário para aproveitá-los em suas próprias ferramentas"
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 04/26/2016
 ms.author: kapiteir
-translationtype: Human Translation
-ms.sourcegitcommit: b1e2ddb613e713972820621d0fa836c41eb61f91
 ms.openlocfilehash: 346e0e480ff84ee849f135a7605d27df9e32f966
-ms.lasthandoff: 01/19/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="mobile-engagement-export-api-overview"></a>Visão geral da API de Exportação do Mobile Engagement
 ## <a name="introduction"></a>Introdução
@@ -74,5 +72,4 @@ Observe que pode levar alguns minutos para que o trabalho seja iniciado. Então,
 Depois que o trabalho for criado, será possível verificar seu status para ver se ele ainda está em execução ou se foi concluído.
 
 Uma vez que o trabalho for BEM-SUCEDIDO, o arquivo de dados resultante estará disponível no contêiner de armazenamento fornecido.
-
 

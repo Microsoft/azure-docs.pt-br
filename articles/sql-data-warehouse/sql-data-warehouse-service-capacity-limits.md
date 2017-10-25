@@ -3,7 +3,7 @@ title: Limites de capacidade do SQL Data Warehouse | Microsoft Docs
 description: "Valores máximos para conexões, bancos de dados, tabelas e consultas para o SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: 
 ms.assetid: e1eac122-baee-4200-a2ed-f38bfa0f67ce
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
 ms.date: 10/31/2016
-ms.author: barbkess;jrj
-translationtype: Human Translation
-ms.sourcegitcommit: 3a9ea64c464a74c70e75634a3e5c1e49862a74e7
-ms.openlocfilehash: c6b44392c0b3a241d41ae55bd6bb3f544d867e9e
-ms.lasthandoff: 02/22/2017
-
-
+ms.author: kevin;barbkess
+ms.openlocfilehash: 52026a58a5b6e26a660f9e1374e67036c67ac525
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de capacidade do SQL Data Warehouse
 As tabelas a seguir contêm os valores máximos permitidos para vários componentes do Azure SQL Data Warehouse.
@@ -105,4 +104,3 @@ Para obter mais informações de referência, consulte [Visão geral de referên
 <!--MSDN references-->
 [Row-Overflow Data Exceeding 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx
 [Internal error: An expression services limit has been reached]: https://support.microsoft.com/kb/913050
-

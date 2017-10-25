@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/09/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: b78e9b7161207a74880e912241d5e965b353d1c5
-ms.lasthandoff: 03/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>Tutorial: Integração do Azure Active Directory com o Splunk Enterprise e o Splunk Cloud
 
 Neste tutorial, você aprenderá como integrar o Splunk Enterprise e o Splunk Cloud ao Azure AD (Azure Active Directory).
@@ -83,11 +81,11 @@ Para configurar a integração do Splunk Enterprise e do Splunk Cloud com o Azur
 
     ![Aplicativos][4]
 
-6. Na caixa de pesquisa, digite **Splunk Enterprise ou Splunk Cloud**.
+6. Na caixa de pesquisa, digite **Splunk Enterprise ou Splunk Cloud** .
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_splunk_01.png)
 
-7. No painel de resultados, selecione **Splunk Enterprise e Splunk Cloud** e clique em **Concluir** para adicionar o aplicativo.
+7. No painel de resultados, selecione **Splunk Enterprise e Splunk Cloud**  e clique em **Concluir** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_splunk_02.png)
 
@@ -113,11 +111,11 @@ Nesta seção, você habilitará o SSO do Azure AD no Portal Clássico e configu
 
 **Para configurar o logon único do Azure AD com o Splunk Enterprise e o Splunk Cloud, execute as seguintes etapas:**
 
-1. No portal clássico, na página de integração de aplicativos do **Splunk Enterprise e Splunk Cloud**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1. No portal clássico, na página de integração de aplicativos do **Splunk Enterprise e Splunk Cloud** , clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
      
     ![Configurar o logon único][6] 
 
-2. Na página **Como você deseja que os usuários façam logon no Splunk Enterprise e no Splunk Cloud**, selecione **Logon Único do Azure AD** e clique em **Avançar**.
+2. Na página **Como você deseja que os usuários façam logon no Splunk Enterprise e no Splunk Cloud** , selecione **Logon Único do Azure AD** e clique em **Avançar**.
 
     ![Configurar Logon Único](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_splunk_03.png) 
 
@@ -127,13 +125,13 @@ Nesta seção, você habilitará o SSO do Azure AD no Portal Clássico e configu
   1. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para fazer logon no seu aplicativo Splunk Enterprise e Splunk Cloud usando o seguinte padrão: `https://<splunkserverUrl>/en-US/app/launcher/home`
   2. Na caixa de texto **Identificador**, digite a URL de seu Servidor Splunk.
   3. Na caixa de texto **URL de Resposta**, digite a URL no seguinte padrão: `https://<splunkserver>/saml/acs`
-  4. Clique em **Próximo**.
+  4. Clique em **Avançar**.
  
 4. Na página **Configurar o logon único no Splunk Enterprise e o Splunk Cloud**, execute as seguintes etapas:
 
     ![Configurar o logon único](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_splunk_05.png)
   1. Clique em **Baixar metadados**e salve o arquivo no computador.
-  2. Clique em **Próximo**.
+  2. Clique em **Avançar**.
 
 5. Para que o SSO seja configurado para seu aplicativo, entre em contato com a equipe de suporte do Splunk Enterprise e do Splunk Cloud e forneça o seguinte:
 
@@ -172,7 +170,7 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/create_aaduser_05.png) 
   1. Em Tipo de Usuário, selecione Novo usuário na organização.
   2. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
-  3. Clique em **Próximo**.
+  3. Clique em **Avançar**.
 
 6.  Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
   
@@ -181,7 +179,7 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
   2. Na caixa de texto **Sobrenome**, digite **Fernandes**.
   3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
   4. Na lista **Função**, selecione **Usuário**.
-  5. Clique em **Próximo**.
+  5. Clique em **Avançar**.
 
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
 
@@ -254,4 +252,3 @@ Ao clicar no bloco do Splunk Enterprise e do Splunk Cloud no Painel de Acesso, v
 [203]: ./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_general_205.png
-

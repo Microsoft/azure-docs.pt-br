@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/31/2017
-ms.author: vakarand
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 6a466937358932a28604cddf7f32cdfd02a5b88d
-ms.lasthandoff: 03/08/2017
-
-
+ms.date: 07/17/2017
+ms.author: billmath
+ms.openlocfilehash: 5a319de69c4e142414ab8f2be980a6576acbf8bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Solucionando erros durante a sincronização
 Podem ocorrer erros quando os dados de identidade são sincronizados do AD DS (Active Directory do Windows Server) para o Azure AD (Azure Active Directory). Este artigo fornece uma visão geral dos diferentes tipos de erros de sincronização, alguns dos possíveis cenários que causam esses erros e possíveis maneiras de corrigi-los. Este artigo inclui os tipos de erro comuns e talvez não abranja todos os erros possíveis.
@@ -180,9 +179,9 @@ a. Certifique-se de que o atributo userPrincipalName tem caracteres com suporte 
 #### <a name="related-articles"></a>Artigos relacionados
 * [Prepare to provision users through directory synchronization to Office 365](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e) (Preparar para provisionar usuários por meio da sincronização de diretório para o Office 365)
 
-### <a name="datavalidationfailed"></a>DataValidationFailed
+### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
 #### <a name="description"></a>Descrição
-Esse é um caso específico que resulta em um erro de sincronização **"DataValidationFailed"** quando o sufixo UserPrincipalName de um usuário é alterado de um domínio federado para outro.
+Esse é um caso específico que resulta em um erro de sincronização **"FederatedDomainChangeError"** quando o sufixo UserPrincipalName de um usuário é alterado de um domínio federado para outro.
 
 #### <a name="scenarios"></a>Cenários
 Para um usuário sincronizado, o sufixo UserPrincipalName foi alterado de um domínio federado para outro domínio federado local. Por exemplo, *UserPrincipalName = bob@contoso.com* foi alterado para *UserPrincipalName = bob@fabrikam.com*.
@@ -191,7 +190,7 @@ Para um usuário sincronizado, o sufixo UserPrincipalName foi alterado de um dom
 1. Bob Smith, uma conta para Contoso.com, é adicionado como um novo usuário no Active Directory com o UserPrincipalName bob@contoso.com
 2. Bob passa para uma divisão diferente de Contoso.com chamada Fabrikam.com e seu UserPrincipalName é alterado para bob@fabrikam.com
 3. Tanto contoso.com quanto fabrikam.com são domínios federados com o Azure Active Directory.
-4. O userPrincipalName de Bob não é atualizado e resulta em um erro de sincronização "DataValidationFailed".
+4. O userPrincipalName de Bob não é atualizado e resulta em um erro de sincronização "FederatedDomainChangeError".
 
 #### <a name="how-to-fix"></a>Como corrigir
 Se o sufixo UserPrincipalName de um usuário tiver sido atualizado de bob@**contoso.com** para bob@**fabrikam.com**, em que ambos **contoso.com** e **fabrikam.com** são **domínios federados**, siga estas etapas para corrigir o erro de sincronização
@@ -212,10 +211,10 @@ Quando um atributo excede o limite de tamanho permitido, o limite de comprimento
 * proxyAddresses
 
 ### <a name="possible-scenarios"></a>Cenários possíveis
-1. O atributo userCertificate de Bob está armazenando certificados em excesso atribuídos a Bob. Eles podem incluir certificados mais antigos e expirados. O limite rígido é de 15 certificados.
+1. O atributo userCertificate de Bob está armazenando certificados em excesso atribuídos a Bob. Eles podem incluir certificados mais antigos e expirados. O limite rígido é de 15 certificados. Para obter mais informações sobre como lidar com erros LargeObject com o atributo userCertificate, consulte o artigo [Tratamento de erros LargeObject causados po atributo userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md).
 2. O atributo userSMIMECertificate de Bob está armazenando certificados em excesso atribuídos a Bob. Eles podem incluir certificados mais antigos e expirados. O limite rígido é de 15 certificados.
 3. O thumbnailPhoto de Bob, definido no Active Directory, é muito grande para ser sincronizado no Azure AD.
-4. Durante a população automática do atributo ProxyAddresses no Active Directory, um ProxyAddresses > 500 foi atribuído a um objeto.
+4. Durante a população automática do atributo ProxyAddresses no Active Directory, um objeto tem muitos ProxyAddresses atribuídos.
 
 ### <a name="how-to-fix"></a>Como corrigir
 1. Certifique-se de que o atributo que está causando o erro esteja dentro do limite permitido.
@@ -223,4 +222,3 @@ Quando um atributo excede o limite de tamanho permitido, o limite de comprimento
 ## <a name="related-links"></a>Links relacionados
 * [Localizar objetos do Active Directory no Centro Administrativo do Active Directory](https://technet.microsoft.com/library/dd560661.aspx)
 * [Como consultar o Azure Active Directory para um objeto usando o Azure Active Directory PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx)
-

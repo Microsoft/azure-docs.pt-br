@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2017
+ms.date: 08/22/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: e6dcd3f6f9c7c8765409c3b0d50e4b3843bab5c6
-ms.openlocfilehash: e39ee63d190308b87ebeb43adeb8b3e5db86df57
-ms.lasthandoff: 02/22/2017
-
-
+ms.reviewer: dhanyahk
+ms.openlocfilehash: accf292f70bf0eafdefc00c3feeaf8e346605401
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Perguntas frequentes sobre relatórios do Azure Active Directory
 
@@ -82,9 +82,30 @@ Para obter mais detalhes, veja [Relatórios do Azure Active Directory](active-di
 
 **P: Eu vejo dados do último mês depois de obter uma licença premium do Azure AD?**
 
-**R:**: Se você mudou recentemente para uma versão Premium (incluindo uma versão de avaliação), você poderá inicialmente ver dados de até 7 dias. Quando os dados acumularem, você verá dados de até 30 dias.
+**R:** Se você mudou recentemente para uma versão Premium (incluindo uma versão de avaliação), você poderá inicialmente ver dados de até 7 dias. Quando os dados acumularem, você verá dados de até 30 dias.
 
- 
 ---
 
+**P: Há um evento de risco no Identity Protection, mas não estou vendo a entrada correspondente em todas as entradas. Isso é esperado?**
 
+**R:** Sim, o Identity Protection avalia o risco de todos os fluxos de autenticação, sejam eles interativos ou não. No entanto, o relatório de todas as entradas mostra apenas as entradas interativas.
+
+---
+
+**P: Como posso baixar o relatório "Usuários sinalizados para risco" no portal do Azure?**
+
+**R:**: A opção de baixar o relatório *Usuários sinalizados para risco* será adicionada em breve.
+
+---
+
+**P: Como posso saber o motivo pelo qual uma entrada ou um usuário foi sinalizado como arriscado no Portal do Azure?**
+
+**R:** Clientes do Premium Edition podem saber mais sobre os eventos de risco subjacentes clicando no usuário em "Usuários sinalizados para risco" ou clicando nas "Entradas arriscadas". Clientes das edições Gratuita e Basic podem ver as entradas e os usuários em risco sem as informações de evento de risco subjacente.
+
+---
+
+**P: Como os endereços IP são calculados no relatório de entradas e entradas arriscadas?**
+
+**R:** Os endereços IP são emitidos de uma forma que não há nenhuma conexão definitiva entre um endereço IP e em que o computador com esse endereço está localizado fisicamente. Isso é complicado por fatores como provedores móveis e VPNs que emitem endereços IP de pools centrais, frequentemente muito distantes do local no qual o dispositivo do cliente de fato é usado. Devido a esses fatores, a conversão de endereços IP em um local físico é um esforço baseado em rastreamentos, dados de registro, pesquisas inversas e outras informações. 
+
+---

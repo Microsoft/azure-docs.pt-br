@@ -8,7 +8,3 @@ Veja uma lista de todos os nossos repositórios de exemplo para a Biblioteca de 
 * [Introdução ao Serviço Fila do Azure em Java](https://azure.microsoft.com/resources/samples/storage-queue-java-getting-started/)
 * [Introdução ao Serviço Tabela do Azure em Java](https://azure.microsoft.com/resources/samples/storage-table-java-getting-started/)
 * [Amostras da Biblioteca do Cliente Java de Armazenamento](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage)
-
-<!--HONumber=Jan17_HO3-->
-
-

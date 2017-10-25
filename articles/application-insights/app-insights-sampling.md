@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 611f4222b5ab1530658f612de39dd2712f98c250
-ms.openlocfilehash: cbc622a959c402fe25ce9ab026c1ae05f194d884
-ms.lasthandoff: 02/03/2017
-
-
+ms.author: bwren
+ms.openlocfilehash: ceaeced414c9c302fba335b4578bcdcbfaef0410
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -29,11 +28,11 @@ Quando as contagens de métrica são apresentadas a você no portal, elas são n
 A amostragem reduz os custos de tráfego e de dados e ajuda a evitar a limitação.
 
 ## <a name="in-brief"></a>Em resumo:
-* A amostragem retém 1 em registros *n* e descarta o resto. Por exemplo, ela pode reter 1 em 5 eventos, com uma taxa de amostragem de 20%. 
+* A amostragem retém um a cada *n* registros e descarta o restante. Por exemplo, ela pode reter 1 em 5 eventos, com uma taxa de amostragem de 20%. 
 * A amostragem acontece automaticamente se o seu aplicativo enviar muita telemetria em aplicativos de servidor Web do ASP.NET.
 * Você também pode definir a amostragem manualmente, no portal na página de preços; ou no SDK do ASP.NET no arquivo .config, para também reduzir o tráfego de rede.
 * Se você registrar eventos personalizados e desejar certificar-se de que um conjunto de eventos é retido ou descartado em conjunto, certifique-se de que eles têm o mesmo valor de OperationID.
-* O divisor de amostragem *n`itemCount` é relatado em cada registro na propriedade *, que, na Pesquisa, aparece sob o nome amigável "contagem de solicitação" ou "contagem de eventos". Quando a amostragem não estiver em operação, `itemCount==1`.
+* O divisor de amostragem *n* é relatado em cada registro na propriedade `itemCount`, que, na Pesquisa, aparece sob o nome amigável "contagem de solicitação" ou "contagem de eventos". Quando a amostragem não estiver em operação, `itemCount==1`.
 * Se você escrever consultas de Análise, deverá [levar em conta a amostragem](app-insights-analytics-tour.md#counting-sampled-data). Em particular, em vez de simplesmente contar registros, você deve usar `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Tipos de amostragem
@@ -352,5 +351,4 @@ O SDK do lado do cliente (JavaScript) participa da amostragem de taxa fixa em co
 
 ## <a name="next-steps"></a>Próximas etapas
 * [filtragem](app-insights-api-filtering-sampling.md) pode fornecer um controle mais restrito do que o SDK envia.
-
 

@@ -18,8 +18,3 @@ Por padrão, APIs em um back-end de Aplicativos Móveis podem ser chamadas de fo
         table.access = 'authenticated';
 
     Para obter mais detalhes, veja [Como exigir autenticação para acesso às tabelas](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). Para saber como baixar o projeto de código de início rápido do seu site, consulte [Como baixar o projeto de código de início rápido de back-end do Node.js usando Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).
-
-
-<!--HONumber=Dec16_HO2-->
-
-

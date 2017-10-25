@@ -1,6 +1,6 @@
 ---
-title: "Guia de Solução de Problemas do Mobile Engagement do Azure - Push/Reach"
-description: "Solucionando problemas de notificação e interação do usuário no Mobile Engagement do Azure"
+title: "Guia de Solução de Problemas do Azure Mobile Engagement - Push/Reach"
+description: "Solucionando problemas de notificação e interação do usuário no Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,31 +14,30 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d59fcba3467e1739c1782a896fc9b5542422e884
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: ef6f34404b97a6972fc136262920a1bdbc4117b0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-guide-for-push-and-reach-issues"></a>Guia de solução para problemas de Push e Reach
-Estes são os possíveis problemas que podem ser encontrados em como o Mobile Engagement do Azure envia informações para seus usuários.
+Estes são os possíveis problemas que podem ser encontrados em como o Azure Mobile Engagement envia informações para seus usuários.
 
 ## <a name="push-failures"></a>Falhas de push
 ### <a name="issue"></a>Problema
 * Os pushes não funcionam (no aplicativo, fora do aplicativo ou ambos).
 
 ### <a name="causes"></a>Causas
-* Muitas vezes, uma falha de push é uma indicação de que o Mobile Engagement do Azure, Reach ou outro recurso avançado do Mobile Engagement do Azure não está integrado corretamente ou que uma atualização é necessária no SDK para corrigir um problema conhecido com uma nova plataforma do Sistema operacional ou do Dispositivo.
+* Muitas vezes, uma falha de push é uma indicação de que o Azure Mobile Engagement, Reach ou outro recurso avançado do Azure Mobile Engagement não está integrado corretamente ou que uma atualização é necessária no SDK para corrigir um problema conhecido com uma nova plataforma do Sistema operacional ou do Dispositivo.
 * Teste apenas um push No Aplicativo e apenas um push Fora do Aplicativo para determinar se algo é um problema No Aplicativo ou Fora do Aplicativo.
 * Teste a partir da Interface do Usuário e da API como uma etapa de solução de problemas para ver quais informações de erro adicionais estão disponíveis nos dois lugares.
-* O envio fora do aplicativo não funcionará a menos que o Mobile Engagement do Azure e Reach estejam integrados no SDK.
+* O envio fora do aplicativo não funcionará a menos que o Azure Mobile Engagement e Reach estejam integrados no SDK.
 * Os pushes não funcionarão se os certificados não forem válidos ou estiverem usando PROD versus DEV corretamente (somente iOS). (**Observação** : as notificações por push "Fora do aplicativo" não poderão ser entregues ao iOS, se você tiver as versões de desenvolvimento (DEV) e de produção (PROD) do seu aplicativo instaladas no mesmo dispositivo, uma vez que o token de segurança associado ao certificado pode ser invalidado pela Apple. Para resolver esse problema, desinstale as versões DEV e PROD do seu aplicativo e reinstale a uma versão em seu dispositivo.)
 * As contagens do push Fora do Aplicativo são tratadas de maneira diferente em diferentes plataformas (o iOS mostra menos informações que o Android, caso os pushes nativos estejam desabilitados em um dispositivo; a API pode fornecer mais informações do que a interface do usuário nas estatísticas do push).
 * Os pushes Fora do Aplicativo podem ser bloqueados pelos clientes ao nível do SO (iOS e Android).
-* Os pushes Fora do Aplicativo serão mostrados como desabilitados na interface do usuário do Mobile Engagement do Azure, caso não estejam integrados corretamente, mas poderão falhar sem aviso na API.
-* Os pushes No Aplicativo não funcionarão a menos que o Mobile Engagement do Azure e o Reach estejam integrados no SDK.
-* Os pushes GCM e ADM não funcionarão a menos que o Mobile Engagement do Azure e o servidor específico estejam integrados no SDK (Android apenas).
+* Os pushes Fora do Aplicativo serão mostrados como desabilitados na interface do usuário do Azure Mobile Engagement, caso não estejam integrados corretamente, mas poderão falhar sem aviso na API.
+* Os pushes No Aplicativo não funcionarão a menos que o Azure Mobile Engagement e o Reach estejam integrados no SDK.
+* Os pushes GCM e ADM não funcionarão a menos que o Azure Mobile Engagement e o servidor específico estejam integrados no SDK (Android apenas).
 * Os pushes No Aplicativo e Fora do Aplicativo devem ser testados separadamente para determinar se é um problema de Push ou Reach.
 * Os pushes No Aplicativo requerem que o aplicativo seja aberto para ser recebido.
 * Os pushes No Aplicativo geralmente são configurados para serem filtrados por uma marca de informações do aplicativo de aceitação ou recusa.
@@ -61,13 +60,13 @@ Estes são os possíveis problemas que podem ser encontrados em como o Mobile En
 * Os links dos pushes não funcionam (fora do aplicativo, no aplicativo, em um site, em um local no aplicativo).
 * As estatísticas do push mostram que um push não foi enviado para muitas pessoas conforme o esperado (muitas ou insuficientes).
 * Push duplicado e recebido duas vezes.
-* Não é possível registrar o dispositivo de teste para os Pushes do Mobile Engagement do Azure (com seu próprio aplicativo PROD ou DEV).
+* Não é possível registrar o dispositivo de teste para os Pushes do Azure Mobile Engagement (com seu próprio aplicativo PROD ou DEV).
 
 ### <a name="causes"></a>Causas
 * Vincular a um local específico no aplicativo requer "categorias" (Android apenas).
 * Os esquemas de vinculação profundos para redirecionar os usuários para um local alternativo depois de clicarem em uma notificação por push precisam ser criados e gerenciados por seu aplicativo e o SO do dispositivo, não pelo Mobile Engagement diretamente. (**Observação:** as notificações fora do aplicativo não podem vincular diretamente os locais do aplicativo com o iOS, como podem com o Android.)
 * Os servidores de imagem externos precisam ser capazes de usar o HTTP "GET" e "HEAD" para os pushes gerais funcionarem (Android apenas).
-* Em seu código, você pode desabilitar o agente Mobile Engagement do Azure quando o teclado é aberto e fazer com que seu código reative o agente assim que o teclado é fechado para que o teclado não afete a aparência de sua notificação (iOS apenas).
+* Em seu código, você pode desabilitar o agente Azure Mobile Engagement quando o teclado é aberto e fazer com que seu código reative o agente assim que o teclado é fechado para que o teclado não afete a aparência de sua notificação (iOS apenas).
 * Alguns itens não funcionam nas simulações de teste, mas somente nas campanhas reais (notificação, toque, vibração, imagem etc.).
 * Nenhum dado no lado do servidor é registrado quando você usa o botão para “testar” os pushes. Os dados só são registrados para as campanhas de push reais.
 * Para ajudar a isolar o problema, solucione os problemas com: teste, simulação e uma campanha real, pois cada um deles funciona de forma um pouco diferente.
@@ -83,7 +82,7 @@ Estes são os possíveis problemas que podem ser encontrados em como o Mobile En
 * As opções de idioma não funcionam conforme o esperado.
 
 ### <a name="causes"></a>Causas
-* Verifique se você carregou as marcas de informações do aplicativo por meio da interface do usuário do Mobile Engagement do Azure ou da API.
+* Verifique se você carregou as marcas de informações do aplicativo por meio da interface do usuário do Azure Mobile Engagement ou da API.
 * Diminuir a velocidade do push ou a cota do push no nível do aplicativo, ou limitar o público no nível da campanha pode impedir que uma pessoa receba um push específico, mesmo que atenda a outros critérios de direcionamento. 
 * Definir um "Idioma" é diferente de direcionar com base no país ou na localidade, que também é diferente de direcionar com base na Localização geográfica em um telefone local ou GPS.
 * A mensagem em "idioma padrão" é enviada para qualquer cliente que não tem seu dispositivo definido para um dos idiomas alternativos especificados.
@@ -95,10 +94,9 @@ Estes são os possíveis problemas que podem ser encontrados em como o Mobile En
 ### <a name="causes"></a>Causas
 * Os fusos horários podem ter problemas com o agendamento, especialmente ao usar o fuso horário dos usuários finais.
 * Os recursos avançados do push podem atrasar os pushes.
-* O direcionamento com base nas configurações do telefone (em vez das Marcas de Informações do Aplicativo) pode atrasar os pushes, uma vez o Mobile Engagement do Azure pode ter que solicitar dados do telefone em tempo real antes de enviar um push.
+* O direcionamento com base nas configurações do telefone (em vez das Marcas de Informações do Aplicativo) pode atrasar os pushes, uma vez o Azure Mobile Engagement pode ter que solicitar dados do telefone em tempo real antes de enviar um push.
 * As campanhas criadas sem uma data de término armazenam o envio por push localmente no dispositivo e mostram-no na próxima vez em que o aplicativo é aberto, mesmo que a campanha seja encerrada manualmente.
 * Iniciar mais de uma campanha ao mesmo tempo pode levar mais tempo para verificar sua base de usuários (tente iniciar apenas uma campanha por vez, com um máximo de quatro, também destine apenas para os usuários ativos, para que os antigos usuários não precisem ser verificados).
 * Se você usar a opção "Ignorar Público, o push será enviado para os usuários por meio da API" na seção "Campanha" de uma campanha Reach, a campanha NÃO será enviada automaticamente e você precisará enviá-la manualmente através da API do Reach.
 * Se você usar uma categoria personalizada no Reach para exibir as notificações no aplicativo, precisará seguir o ciclo de vida correto da notificação; caso contrário, a notificação poderá não ser limpa quando o usuário descartá-la.
-
 

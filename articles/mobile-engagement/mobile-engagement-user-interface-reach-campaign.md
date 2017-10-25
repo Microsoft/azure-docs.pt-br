@@ -1,6 +1,6 @@
 ---
-title: "Interface do usuário do Mobile Engagement do Azure - Alcance - Campanha"
-description: "Saiba como criar e gerenciar campanhas de notificação por push usando o Mobile Engagement do Azure"
+title: "Interface do usuário do Azure Mobile Engagement - Alcance - Campanha"
+description: "Saiba como criar e gerenciar campanhas de notificação por push usando o Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d5110a33e13802fd6e5e0f075c7d3ddd521a1ef9
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: fc88db8db11d1ed12fa95c2087c9a32b21bf4de5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-and-manage-push-notification-campaigns"></a>Como criar e gerenciar campanhas de notificação por push
 Você pode usar a seção Alcance da interface do usuário para criar uma nova campanha de envio com uma fórmula complexa, fornecendo todas as informações necessárias para enviar uma notificação por push. As opções de uma campanha de Envio por push variam um pouco dependendo dos quatro tipos de campanha: Anúncios, Pesquisas, Envio de Dados por Push e Blocos (apenas Windows Phone).
@@ -103,7 +102,7 @@ Você pode usar a seção de campanha para definir o nome e a categoria da sua c
 * Ignorar Público-alvo, o envio por push será feito aos usuários por meio da API: todos
 
 ## <a name="notification"></a>Notificação
-Você pode usar a seção Notificação para definir as configurações básicas para seu envio por push, incluindo: o título do Envio por push, a mensagem, uma imagem no aplicativo ou se elas são dispensáveis. Muitas configurações de notificação são específicas para a plataforma do dispositivo. Você pode selecionar se o envio por push será feito “no aplicativo” ou “fora do aplicativo” ou ambos. (Lembre-se de que os usuários podem “aceitar" ou “recusar" envios por push de “fora do aplicativo" com o nível de Sistema Operacional em seus dispositivos e o Mobile Engagement do Azure não poderá substituir essa configuração. Lembre-se também de que a API de Alcance manipula o envio por push "no aplicativo" e "fora do aplicativo". A API de Push pode ser usada para lidar com envios por push de "fora do aplicativo" também.) Os envios por push podem ser personalizados com imagens ou conteúdo HTML, incluindo links de vínculos profundos fora de seu aplicativo ou em outro local em seu aplicativo (SDK do Android 2.1.0 ou categorias de finalidade posteriores necessárias). Você pode alterar o ícone ou o emblema do iOS e enviar o conteúdo da web ou de texto (um pop-up com conteúdo html, link de URL para outro local dentro ou fora do aplicativo). Você também pode fazer com que os dispositivos Android toquem ou vibrem com o envio por Push. (Lembre-se de que você precisará das permissões corretas do SDK no seu arquivo de manifesto do Android para que o dispositivo toque ou vibre). Atualmente, não há nenhum padrão no setor para tamanhos de “Foto Grande" do Android, haja visto que os tamanhos das telas são diferentes em cada dispositivo, porém imagens de 400 x 100 funciona bem em quase todos os tamanhos de tela.
+Você pode usar a seção Notificação para definir as configurações básicas para seu envio por push, incluindo: o título do Envio por push, a mensagem, uma imagem no aplicativo ou se elas são dispensáveis. Muitas configurações de notificação são específicas para a plataforma do dispositivo. Você pode selecionar se o envio por push será feito “no aplicativo” ou “fora do aplicativo” ou ambos. (Lembre-se de que os usuários podem “aceitar" ou “recusar" envios por push de “fora do aplicativo" com o nível de Sistema Operacional em seus dispositivos e o Azure Mobile Engagement não poderá substituir essa configuração. Lembre-se também de que a API de Alcance manipula o envio por push "no aplicativo" e "fora do aplicativo". A API de Push pode ser usada para lidar com envios por push de "fora do aplicativo" também.) Os envios por push podem ser personalizados com imagens ou conteúdo HTML, incluindo links de vínculos profundos fora de seu aplicativo ou em outro local em seu aplicativo (SDK do Android 2.1.0 ou categorias de finalidade posteriores necessárias). Você pode alterar o ícone ou o emblema do iOS e enviar o conteúdo da web ou de texto (um pop-up com conteúdo html, link de URL para outro local dentro ou fora do aplicativo). Você também pode fazer com que os dispositivos Android toquem ou vibrem com o envio por Push. (Lembre-se de que você precisará das permissões corretas do SDK no seu arquivo de manifesto do Android para que o dispositivo toque ou vibre). Atualmente, não há nenhum padrão no setor para tamanhos de “Foto Grande" do Android, haja visto que os tamanhos das telas são diferentes em cada dispositivo, porém imagens de 400 x 100 funciona bem em quase todos os tamanhos de tela.
 
 ### <a name="delivery-types"></a>Tipos de entrega:
 * Somente fora do aplicativo: a notificação será enviada quando o usuário não estiver usando o aplicativo.
@@ -267,5 +266,4 @@ Você pode usar a seção Teste para fazer esse envio por push para o seu própr
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
-
 

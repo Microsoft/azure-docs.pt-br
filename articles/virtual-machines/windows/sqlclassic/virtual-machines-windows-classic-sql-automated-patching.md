@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/17/2017
+ms.date: 07/05/2017
 ms.author: jroth
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 69e3172b1eac844863f51997f3061619f50b68da
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 1959871141f196ba80ffd7b37e62e5ea5b42dba3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Aplicação de patch automatizada para o SQL Server em Máquinas Virtuais do Azure (Clássico)
 > [!div class="op_single_selector"]
@@ -41,6 +40,7 @@ Para usar a Aplicação de Patch Automatizada, considere os seguintes pré-requi
 
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 **Versão do SQL Server**:
 
@@ -50,7 +50,7 @@ Para usar a Aplicação de Patch Automatizada, considere os seguintes pré-requi
 
 **Azure PowerShell**:
 
-* [Instale os comandos mais recentes do Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* [Instale os comandos mais recentes do Azure PowerShell](/powershell/azure/overview).
 
 **Extensão IaaS do SQL Server**:
 
@@ -91,5 +91,4 @@ Para desabilitar a Aplicação de Patch Automatizada, execute o mesmo script sem
 Para obter informações sobre outras tarefas de automação disponíveis, consulte [Extensão do agente IaaS do SQL Server](../classic/sql-server-agent-extension.md).
 
 Para obter mais informações sobre como executar o SQL Server em VMs do Azure, consulte [Visão geral do SQL Server em Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
 

@@ -2,23 +2,22 @@
 title: "Tutorial: Integração do Azure Active Directory com o Veritas Enterprise Vault.cloud SSO | Microsoft Docs"
 description: "Saiba como configurar o logon único entre o Azure Active Directory e o Veritas Enterprise Vault.cloud SSO."
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 07/08/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: a8f9ae76cd914224b3715857b6fd37750f13cd7b
-ms.openlocfilehash: 2d6dccdcb7eb6c08d707c2182f9af8fe4824e6f5
-
-
+ms.openlocfilehash: 1f8c7fd97021f320a23bc78466a7b61f2d7e513e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Tutorial: Integração do Azure Active Directory com o Veritas Enterprise Vault.cloud SSO
 
@@ -28,9 +27,9 @@ A integração do Veritas Enterprise Vault.cloud SSO ao Azure AD oferece os segu
 
 - Você pode controlar no Azure AD quem tem acesso ao Veritas Enterprise Vault.cloud SSO
 - Você pode habilitar seus usuários a fazerem logon automaticamente no Veritas Enterprise Vault.cloud SSO (Logon Único) com suas contas do Azure AD
-- Gerenciar suas contas em um único local: o Portal clássico do Azure
+- Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,238 +38,188 @@ Para configurar a integração do Azure AD com o Veritas Enterprise Vault.cloud 
 - Uma assinatura do AD do Azure
 - Uma assinatura do Veritas Enterprise Vault.cloud SSO habilitada para logon único
 
-
 > [!NOTE]
 > Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
-
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
-
-O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Veritas Enterprise Vault.cloud SSO da galeria
 2. Configurar e testar o logon único do AD do Azure
-
 
 ## <a name="adding-veritas-enterprise-vaultcloud-sso-from-the-gallery"></a>Adição do Veritas Enterprise Vault.cloud SSO da galeria
 Para configurar a integração do Veritas Enterprise Vault.cloud SSO ao Azure AD, você precisará adicionar o Veritas Enterprise Vault.cloud SSO da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o Veritas Enterprise Vault.cloud SSO por meio da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
     ![Active Directory][1]
-2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![Aplicativos][2]
-
-4. Clique em **Adicionar** na parte inferior da página.
+    
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![Aplicativos][3]
 
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+4. Na caixa de pesquisa, digite **Veritas Enterprise Vault.cloud SSO**.
 
-    ![Aplicativos][4]
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_search.png)
 
-6. Na caixa de pesquisa, digite **Veritas Enterprise Vault.cloud SSO**.
+5. No painel de resultados, selecione **Veritas Enterprise Vault.cloud SSO** e clique no botão **Adicionar** para adicionar o aplicativo.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/tutorial_veritas-enterprise-vault-cloud-sso_01.png)
-7. No painel de resultados, selecione **Veritas Enterprise Vault.cloud SSO** e clique em **Concluir** para adicionar o aplicativo.
-
-
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o Veritas Enterprise Vault.cloud SSO, com base em uma usuária de teste chamada “Brenda Fernandes”.
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do Veritas Enterprise Vault.cloud SSO é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Veritas Enterprise Vault.cloud SSO.
 
-Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuário** no Azure AD ao valor de **Nome de usuário** no Veritas Enterprise Vault.cloud SSO.
+No Veritas Enterprise Vault.cloud SSO, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
 
 Para configurar e testar o logon único do Azure AD com o Veritas Enterprise Vault.cloud SSO, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criando um usuário de teste do Veritas Enterprise Vault.cloud SSO](#creating-a-Veritas Enterprise Vault.cloud SSO-test-user)**: para ter um equivalente de Brenda Fernandes no Veritas Enterprise Vault.cloud SSO que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do AD do Azure.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criando um usuário de teste do Veritas Enterprise Vault.cloud SSO](#creating-a-veritas-enterprise-vaultcloud-sso-test-user)**: para ter um equivalente de Brenda Fernandes no Veritas Enterprise Vault.cloud SSO que esteja vinculado à representação do usuário no Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, você habilitará o logon único do Azure AD no portal clássico e configurará o logon único no aplicativo do Veritas Enterprise Vault.cloud SSO.
-
+Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e configurará o logon único no aplicativo do Veritas Enterprise Vault.cloud SSO.
 
 **Para configurar o logon único do Azure AD com o Veritas Enterprise Vault.cloud SSO, execute as seguintes etapas:**
 
-1. No portal clássico, na página de integração de aplicativos do **Veritas Enterprise Vault.cloud SSO**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
-     
-    ![Configurar Logon Único][6] 
+1. No portal do Azure, na página de integração de aplicativos do **Veritas Enterprise Vault.cloud SSO**, clique em **Logon único**.
 
-2. Na página **Como você deseja que os usuários façam logon no Veritas Enterprise Vault.cloud SSO**, selecione **Logon Único do Azure AD** e clique em **Avançar**.
+    ![Configurar Logon Único][4]
 
-    ![Configurar Logon Único](./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/tutorial_veritas-enterprise-vault-cloud-sso_03.png) 
-
-3. Na página de diálogo **Definir Configurações de Aplicativo** , execute as seguintes etapas:
-
-    ![Configurar Logon Único](./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/tutorial_veritas-enterprise-vault-cloud-sso_04.png) 
-
-    a. Na caixa de texto **URL de Entrada**, digite a URL utilizada pelos usuários para fazer logon no seu aplicativo do Veritas Enterprise Vault.cloud SSO usando o seguinte padrão: `https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
-    
-     
-4. Na página **Configurar o logon único no Veritas Enterprise Vault.cloud SSO**, execute as seguintes etapas:
-
-    ![Configurar o logon único](./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/tutorial_veritas-enterprise-vault-cloud-sso_05.png)
-
-    a. Clique em **Baixar Certificado**e salve o arquivo em seu computador.
-
-    b. Clique em **Próximo**.
-
-
-5. Para configurar o SSO para o aplicativo, contate a equipe de suporte do Veritas Enterprise Vault.cloud SSO no <a href="https://www.veritas.com/content/support/en_US/62696.html ">Site de Suporte</a> e forneça o seguinte:
-
-    • Os **metadados**
-
-    • A **URL de SSO do SAML**
-
-6. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
-    
-    ![Logon Único do AD do Azure][10]
-
-7. Na página **Confirmação de logon único**, clique em **Concluir**.  
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Logon Único do AD do Azure][11]
+    ![Configurar Logon Único](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_samlbase.png)
 
+3. Na seção **URLs e Domínio do Veritas Enterprise Vault.cloud SSO**, execute as seguintes etapas:
+
+    ![Configurar Logon Único](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_url.png)
+
+    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+    
+    > [!NOTE] 
+    > Esse valor não é real. Atualize esse valor com a URL de Logon real. Entre em contato com a [equipe de suporte do Cliente do Veritas Enterprise Vault.cloud SSO](https://www.veritas.com/support/.html) para obter esse valor. 
+
+4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+
+    ![Configurar o logon único](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_certificate.png) 
+
+5. Clique no botão **Salvar** .
+
+    ![Configurar Logon Único](./media/active-directory-saas-veritas-tutorial/tutorial_general_400.png)
+
+6. Na seção **Configuração do Veritas Enterprise Vault.cloud SSO**, clique em **Configurar Veritas Enterprise Vault.cloud SSO** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
+
+    ![Configurar Logon Único](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_configure.png) 
+
+7. Para configurar o logon único no lado do **Veritas Enterprise Vault.cloud SSO**, é necessário enviar o **Certificado (Base64)** baixado e a **URL do Serviço de Logon Único SAML** para a [equipe de suporte do Veritas Enterprise Vault.cloud SSO](https://www.veritas.com/support/.html).
+
+> [!TIP]
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-Nesta seção, você criará uma usuária de teste no portal clássico chamada Brenda Fernandes.
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-
-![Criar um usuário do AD do Azure][20]
+![Criar um usuário do AD do Azure][100]
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/create_aaduser_09.png) 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-veritas-tutorial/create_aaduser_01.png) 
 
-2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+    
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-veritas-tutorial/create_aaduser_02.png) 
 
-3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+ 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-veritas-tutorial/create_aaduser_03.png) 
 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/create_aaduser_03.png) 
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+ 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-veritas-tutorial/create_aaduser_04.png) 
 
-4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/create_aaduser_04.png) 
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
-5. Na página de diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:  ![criação de um usuário de teste do AD do Azure](./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/create_aaduser_05.png) 
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
 
-    a. Em Tipo de Usuário, selecione Novo usuário na organização.
-
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
-
-    c. Clique em **Próximo**.
-
-6.  Na caixa de diálogo **perfil de usuário**, realize as etapas a seguir: ![criação de um usuário de teste do AD do Azure](./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/create_aaduser_06.png) 
-
-    a. Na caixa de texto **Nome**, digite **Brenda**.  
-
-    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-
-    c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
-
-    d. Na lista **Função**, selecione **Usuário**.
-
-    e. Clique em **Próximo**.
-
-7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
-
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/create_aaduser_07.png) 
-
-8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
-
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/create_aaduser_08.png) 
-
-    a. Anote o valor da **Nova Senha**.
-
-    b. Clique em **Concluído**.   
-
-
-
+    d. Clique em **Criar**.
+ 
 ### <a name="creating-a-veritas-enterprise-vaultcloud-sso-test-user"></a>Criando um usuário de teste do Veritas Enterprise Vault.cloud SSO
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Veritas Enterprise Vault.cloud SSO. Trabalhe junto à equipe de suporte do Veritas Enterprise Vault.cloud SSO no <a href="https://www.veritas.com/content/support/en_US/62696.html ">Site de suporte</a> para adicionar os usuários à plataforma Veritas Enterprise Vault.cloud SSO.
-
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Enterprise Vault.cloud SSO. Trabalhe junto à [equipe de suporte do Veritas Enterprise Vault.cloud SSO](https://www.veritas.com/support/.html) para adicionar os usuários à plataforma Enterprise Vault.cloud SSO. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Veritas Enterprise Vault.cloud SSO.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao Veritas Enterprise Vault.cloud SSO.
 
 ![Atribuir usuário][200] 
 
 **Para atribuir Brenda Fernandes ao Veritas Enterprise Vault.cloud SSO, execute as seguintes etapas:**
 
-1. No portal clássico, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
 2. Na lista de aplicativos, selecione **Veritas Enterprise Vault.cloud SSO**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/tutorial_veritas-enterprise-vault-cloud-sso_50.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_app.png) 
 
-3. No menu na parte superior, clique em **Usuários**.
+3. No menu à esquerda, clique em **usuários e grupos**.
+
+    ![Atribuir usuário][202] 
+
+4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-4. Na lista de usuários, selecione **Brenda Fernandes**.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-5. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
+6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-    ![Atribuir usuário][205]
-
-
+7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+    
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do Veritas Enterprise Vault.cloud SSO no Painel de Acesso, você deverá ser fazer logon automaticamente no aplicativo do Veritas Enterprise Vault.cloud SSO.
 
-
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-veritas-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-veritas-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-veritas-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-veritas-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-veritas-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/tutorial_general_201.png
-[203]: ./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/tutorial_general_205.png
-
-
-
-
-<!--HONumber=Nov16_HO5-->
-
+[200]: ./media/active-directory-saas-veritas-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-veritas-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-veritas-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-veritas-tutorial/tutorial_general_203.png
 

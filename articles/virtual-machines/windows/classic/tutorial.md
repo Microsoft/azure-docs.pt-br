@@ -13,18 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/30/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 6259c2d163cc2036964d119eb0b54ba108c5cd0a
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: 0981872ff819fdf49a9cc97afce3c212013ce76b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>Criar uma máquina virtual executando o Windows no portal do Azure
 > [!div class="op_single_selector"]
-> * [Portal clássico do Azure](tutorial.md)
+> * [Portal do Azure](tutorial.md)
 > * [PowerShell: Implantação clássica](create-powershell.md)
 >
 >
@@ -49,4 +48,3 @@ Também é possível criar VMs usando [suas próprias imagens](createupload-vhd.
 * Saiba como [criar uma VM usando o modelo de implantação do Resource Manager](../../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) no portal do Azure.
 * Faça logon na máquina virtual. Para obter instruções, veja [Fazer logon em uma máquina virtual que executa o Windows Server](connect-logon.md).
 * Anexe um disco para armazenar dados. Você pode anexar tanto discos vazios como discos que contenham dados. Para obter instruções, veja [Anexar um disco de dados a uma máquina virtual do Windows criada com o modelo de implantação clássico](attach-disk.md).
-

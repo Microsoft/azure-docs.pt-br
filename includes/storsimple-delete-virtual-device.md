@@ -4,8 +4,3 @@
 2. Clique em **Máquinas Virtuais**e então selecione o dispositivo virtual.
 3. Clique em **Excluir** e opte por excluir todos os discos da máquina virtual.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

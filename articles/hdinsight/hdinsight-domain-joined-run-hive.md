@@ -1,5 +1,5 @@
 ---
-title: "Configurar políticas do Hive no HDInsight associado ao domínio | Microsoft Docs"
+title: "Configurar políticas do Hive no HDInsight associado ao domínio – Azure | Microsoft Docs"
 description: Saiba como...
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 213b6b5274ebde8cc460829ff1edc96a66eef994
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: de537d5e39dd0d3f75ff802948c7372e4d65d127
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight-preview"></a>Configurar políticas do Hive no HDInsight associado ao domínio (Visualização)
 Saiba como configurar políticas do Ranger Apache para o Hive. Neste artigo, você criará duas políticas do Ranger para restringir o acesso a hivesampletable. O hivesampletable fornecido com clusters HDInsight. Depois de configurar as políticas, você usa o Excel e o driver ODBC para conectar-se a tabelas do Hive no HDInsight.
@@ -145,4 +144,3 @@ Para testar a segunda política (read-hivesampletable-devicemake) que você crio
 * Para conectar o Hive usando o JDBC Hive, confira [Conectar ao Hive no Azure HDInsight usando o driver JDBC do Hive](hdinsight-connect-hive-jdbc-driver.md)
 * Para conectar o Excel ao Hadoop usando o ODBC do Hive, confira [Conectar o Excel ao Hadoop com a unidade ODBC do Microsoft Hive](hdinsight-connect-excel-hive-odbc-driver.md)
 * Para conectar o Excel ao Hadoop usando o Power Query, confira [Conectar o Excel ao Hadoop usando o Power Query](hdinsight-connect-excel-power-query.md)
-

@@ -12,14 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/27/2017
+ms.date: 04/03/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 7b484c27157bd0a261adbf81d66b73a78e252955
-ms.lasthandoff: 03/28/2017
-
-
+ms.openlocfilehash: 77f06b6ef146bdea8dc2f6cb920979e827626e35
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configurar o MPIO (Multipath I/O) para seu dispositivo StorSimple
 A Microsoft criou o suporte para o recurso MPIO (Multipath I/O) no Windows Server para ajudar a criar configurações de rede SAN altamente disponíveis e tolerantes a falhas. O MPIO usa componentes redundantes do caminho físico — adaptadores, cabos e comutadores — para criar caminhos lógicos entre o servidor e o dispositivo de armazenamento. Se houver uma falha de componente, fazendo com que um caminho lógico falha, a lógica de vários caminhos usará um caminho alternativo de E/S para que os aplicativos ainda possam acessar seus dados. Além disso, dependendo da configuração, o MPIO também pode melhorar o desempenho balanceando novamente a carga em todos esses caminhos. Para obter mais informações, consulte [Visão geral do MPIO](https://technet.microsoft.com/library/cc725907.aspx "Visão geral do MPIO and features").  
@@ -54,7 +53,7 @@ Para instalar esse recurso no host do Windows Server, conclua o procedimento a s
    
    * Na página **Antes de Começar**, clique em **Avançar**.
    * Na página **Selecionar tipo de instalação**, aceite a configuração padrão da instalação **Baseada em função ou recurso**. Clique em **Próximo**.![Adicionar Assistente de Funções e Recursos 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
-   * Na página **Selecionar servidor de destino**, escolha **Selecionar um servidor no pool de servidores**. O servidor host deve ser descoberto automaticamente. Clique em **Próximo**.
+   * Na página **Selecionar servidor de destino**, escolha **Selecionar um servidor no pool de servidores**. O servidor host deve ser descoberto automaticamente. Clique em **Avançar**.
    * Na página **Selecionar funções do servidor**, clique em **Avançar**.
    * Na página **Selecionar recursos**, marque **Multipath I/O** e clique em **Próximo**.![Adicionar Assistente de Funções e Recursos 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
    * Na página **Confirmar seleções da instalação**, confirme a seleção e selecione **Reiniciar o servidor de destino automaticamente se necessário**, conforme mostrado abaixo. Clique em **Instalar**.![Adicionar Assistente de Funções e Recursos 8](./media/storsimple-configure-mpio-windows-server/IC741001.png)
@@ -115,8 +114,7 @@ Depois do MPIO ser configurado no Windows Server, o(s) volume(s) criado(s) no di
 13. Inicialize o disco e crie um novo volume. Durante o processo de formato, selecione um tamanho de bloco de 64 KB.
     ![Gerenciamento de Disco](./media/storsimple-configure-mpio-windows-server/IC741008.png)
 14. Em **Gerenciamento de Disco**, clique com o botão direito do mouse em **Disco** e selecione **Propriedades**.
-15. No Modelo StorSimple ####, na caixa de diálogo **Propriedades do Dispositivo de Disco com Vários Caminhos**, clique na guia **MPIO**.
-    ![Prop do Dispositivo de Disco com Vários Caminhos do StorSimple 8100.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
+15. No Modelo StorSimple ####, na caixa de diálogo **Propriedades do Dispositivo de Disco com Vários Caminhos**, clique na guia **MPIO**. ![Prop do Dispositivo de Disco com Vários Caminhos do StorSimple 8100.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
 16. Na seção **Nome DSM**, clique em **Detalhes** e verifique se os parâmetros estão definidos para os parâmetros padrão. Os parâmetros padrão são:
     
     * Período de Verificação do Caminho = 30
@@ -132,7 +130,7 @@ Depois do MPIO ser configurado no Windows Server, o(s) volume(s) criado(s) no di
 ## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>Etapa 4: configurar o MPIO para ter alta disponibilidade e balanceamento de carga
 Para a alta disponibilidade e o balanceamento de carga baseados em vários caminhos, várias sessões devem ser adicionadas manualmente para declarar os diversos caminhos disponíveis. Por exemplo, se o host tiver duas interfaces conectadas à SAN e o dispositivo tiver duas interfaces conectadas à SAN, você precisará de quatro sessões configuradas com permutações de caminho apropriadas (somente duas sessões serão necessárias se cada interface de DADOS e a interface de host estiverem em uma sub-rede de IP diferente e não forem roteáveis).
 
-**É recomendável ter pelo menos 4 sessões paralelas ativas entre o dispositivo e o host do aplicativo.** Isso pode ser obtido habilitando quatro interfaces de rede em seu sistema Windows Server. Use adaptadores de rede físicos ou tecnologias de virtualização de rede no nível de hardware ou sistema operacional no host do Windows Server. Com os dois adaptadores de rede no dispositivo, essa configuração pode resultar em oito sessões das quais quatro serão ativas (aquelas conectadas ao controlador ativo) e quatro serão passivas (aquelas conectadas ao controlador passivo). Essa configuração ajuda a otimizar a taxa de transferência do dispositivo e da nuvem.
+**É recomendável ter pelo menos oito sessões paralelas ativas entre o dispositivo e o host do aplicativo.** Isso pode ser obtido habilitando quatro interfaces de rede em seu sistema Windows Server. Use adaptadores de rede físicos ou interfaces virtuais via tecnologias de virtualização de rede no nível de hardware ou sistema operacional no host do Windows Server. Com as duas interfaces de rede no dispositivo, essa configuração resulta em oito sessões ativas. Essa configuração ajuda a otimizar a taxa de transferência do dispositivo e da nuvem.
 
 > [!IMPORTANT]
 > **É recomendável que você não misture as interfaces de rede com 1 GbE e 10 GbE. Se você usar duas interfaces de rede, ambas as interfaces deverão ser do tipo idêntico.**
@@ -169,5 +167,4 @@ O procedimento a seguir descreve como adicionar sessões quando um dispositivo S
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [usar o serviço StorSimple Manager para modificar a configuração do dispositivo StorSimple](storsimple-modify-device-config.md).
-
 

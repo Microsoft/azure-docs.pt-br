@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2017
+ms.date: 06/05/2017
 ms.author: nisoneji
-translationtype: Human Translation
-ms.sourcegitcommit: d4183b73bcb0441c9ad5f12e7a3a1e4d8e31f4b5
-ms.openlocfilehash: 243fbea75c4ba9b280c65a378d6f2d069add1098
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 134e17ebda3105be2b53d072fdef7aeda4a98bde
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-capacity-for-protecting-virtual-machines-and-physical-servers-in-azure-site-recovery"></a>Planejar a capacidade de proteger máquinas virtuais e o servidor físico no Azure Site Recovery
 
@@ -68,7 +67,7 @@ Você pode executar a ferramenta em vários modos:
    * **IOPS total no armazenamento premium** é calculado de acordo com o tamanho da unidade de IOPS de 256.000 no total de contas de armazenamento premium.  Para o Planejador Rápido, o número é calculado com base em todos os discos de VMs de origem e na taxa diária de alteração dos dados. Para o Planejador Detalhado, o número é calculado com base no número total de VMs mapeadas para as VMs premium do Azure (séries DS e GS) e na taxa diária de alteração dessas VMs.
    * **Número de servidores de configuração necessários** mostra quantos servidores de configuração são necessários para a implantação.
    * **Número de servidores em processo adicionais necessários** mostra se servidores em processo adicionais são necessários, além do servidor em processo em execução no servidor de configuração, por padrão.
-   * **Armazenamento adicional de&100;% na origem** mostra se o armazenamento adicional é necessário no local de origem.
+   * **Armazenamento adicional de 100% na origem** mostra se o armazenamento adicional é necessário no local de origem.
 
    ![Saída](./media/site-recovery-capacity-planner/output.png)
 
@@ -127,4 +126,3 @@ Depois que todos os detalhes estiverem prontos, clique em **Enviar dados para a 
 2. Se você desejar fazer alterações, será necessário modificar a planilha **Qualificação da Carga de Trabalho** e clicar em **Enviar dados para a ferramenta do planejador** novamente.  
 
    ![Planejador de Capacidade](./media/site-recovery-capacity-planner/capacity-planner.png)
-

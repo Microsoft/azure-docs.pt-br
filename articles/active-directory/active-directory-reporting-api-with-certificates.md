@@ -12,24 +12,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/24/2017
+ms.date: 09/08/2017
 ms.author: ramical
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: c1345dcda6e52267a8037ffd7207e6bc3b0d3b31
-ms.lasthandoff: 03/28/2017
-
-
+ms.openlocfilehash: 38c240ed1608b2e99bde78f3633e722f8e2fa30b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>Obter dados usando a API de Relatório do Azure AD com certificados
 Este artigo explica como usar a API de Relatório do Azure AD com credenciais de certificado para obter dados de diretórios sem intervenção do usuário. 
 
 ## <a name="use-the-azure-ad-reporting-api"></a>Usar a API de Relatório do Azure AD 
 A API de Relatório do Azure AD exige que você conclua as seguintes etapas:
- *    Instalar pré-requisitos
- *    Definir o certificado em seu aplicativo
- *    Obter um token de acesso
- *    Usar o token de acesso para chamar a API do Graph
+ *  Instalar pré-requisitos
+ *  Definir o certificado em seu aplicativo
+ *  Obter um token de acesso
+ *  Usar o token de acesso para chamar a API do Graph
 
 Para saber mais sobre o código-fonte, confira [Aproveitar o módulo da API de Relatório](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils). 
 
@@ -91,7 +90,6 @@ Agora você está pronto para exportar para um CSV e salvar em um sistema SIEM. 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Os fundamentos do gerenciamento de identidades do Azure](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity)<br>
-
 
 
 

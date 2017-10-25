@@ -26,8 +26,3 @@
      > 
 7. Clique em **Abrir** para iniciar uma sessão serial.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

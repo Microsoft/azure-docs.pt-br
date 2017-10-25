@@ -1,9 +1,9 @@
 ---
-title: "Implantar um aplicativo em conjuntos de dimensionamento de máquinas virtuais | Microsoft Docs"
-description: "Implantar um aplicativo em Conjuntos de escala de máquina virtual"
+title: "Implantar um aplicativo em conjuntos de escala de máquina virtual"
+description: "Use as extensões para implantar um aplicativo nos Conjuntos de Dimensionamento de Máquinas Virtuais do Azure."
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
+author: thraka
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,58 +13,217 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
-ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 9a92490239f22bd4c57c902ac53898aff1adf530
-ms.lasthandoff: 03/17/2017
-
-
+ms.date: 05/26/2017
+ms.author: adegeo
+ms.openlocfilehash: 371295efea1eab66361b9aba21a55bbd2826c69b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="deploy-an-app-on-virtual-machine-scale-sets"></a>Implantar um aplicativo em Conjuntos de escala de máquina virtual
-Um aplicativo em execução em um Conjunto de escala de VM normalmente é implantado usando uma destas três maneiras:
+# <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implantar o aplicativo em conjuntos de dimensionamento de máquinas virtuais
 
-* Instalar um novo software em uma imagem de plataforma durante a implantação
-* Criar uma imagem de VM personalizada que inclui o sistema operacional e o aplicativo em um único VHD
-* Implantar uma plataforma ou uma imagem personalizada como um host de contêiner e o aplicativo como um ou mais contêineres
+Este artigo descreve diferentes maneiras de instalar software no momento em que o conjunto de dimensionamento é provisionado.
 
-## <a name="install-new-software-on-a-platform-image-at-deployment-time"></a>Instalar um novo software em uma imagem de plataforma durante a implantação
-Uma imagem de plataforma neste contexto é uma imagem de sistema operacional do Azure Marketplace, como o Ubuntu 16.04, o Windows Server 2012 R2 etc.
+Pode ser necessário revisar o artigo [Visão geral do design do conjunto de dimensionamento](virtual-machine-scale-sets-design-overview.md), o qual descreve alguns dos limites impostos pelos conjuntos de dimensionamento de máquinas virtuais.
 
-Você pode instalar um novo software em uma imagem de plataforma usando uma [Extensão de VM](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Uma Extensão de VM é um software que é executado no momento da implantação de uma VM. Execute o código que quiser no momento da implantação usando uma extensão de script personalizado. [Este](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) é um modelo do Azure Resource Manager de exemplo que usa uma [extensão DSC (Configuração de Estado Desejado) do Azure](virtual-machine-scale-sets-dsc.md) para instalar o IIS e um aplicativo MVC do .NET integrado à escala automática do Azure.
+## <a name="capture-and-reuse-an-image"></a>Capturar e reutilizar uma imagem
 
-Uma vantagem dessa abordagem é ter um nível de separação entre o código do aplicativo e o sistema operacional, podendo manter seu aplicativo separadamente. Isso também significa que também há mais partes móveis, e o tempo de implantação da VM pode ser maior se o script precisar baixar e configurar muita coisa.
+É possível utilizar uma máquina virtual que você tem no Azure para preparar uma imagem base para o conjunto de dimensionamento. Esse processo cria um disco gerenciado na sua conta de armazenamento, o qual é possível referenciar como a imagem base para o conjunto de dimensionamento. 
 
->[!NOTE]
->Se você passar informações confidenciais no comando da Extensão de Script Personalizado (como uma senha), especifique o `commandToExecute` no atributo `protectedSettings` da Extensão de Script Personalizado em vez do atributo `settings`.
+Execute as seguintes etapas:
 
-## <a name="create-a-custom-vm-image-that-includes-both-the-os-and-the-application-in-a-single-vhd"></a>Criar uma imagem de VM personalizada que inclui o sistema operacional e o aplicativo em um único VHD 
-Aqui, o conjunto de escala é composto por um conjunto de VMs copiado de uma imagem criada por você, e que você precisa manter. Essa abordagem não exige configuração adicional no momento da implantação da VM. No entanto, na versão `2016-03-30` dos Conjuntos de escala de VM (e em versões anteriores), os discos do sistema operacional para as VMs no conjunto de escala são limitados a uma única conta de armazenamento. Assim, você pode ter no máximo 40 VMs em um conjunto de escala, em vez do limite de 100 VMs por conjunto de escala com imagens de plataforma. Consulte [Visão geral do design do Conjunto de Dimensionamento](virtual-machine-scale-sets-design-overview.md) para obter mais detalhes.
+1. Crie uma Máquina Virtual do Azure
+   * [Linux][linux-vm-create]
+   * [Windows][windows-vm-create]
 
->[!NOTE]
->A versão `2016-04-30-preview` da API de Conjuntos de Dimensionamento de VMs oferece suporte ao uso de Managed Disks do Azure para o disco de sistema operacional e discos de dados extras. Para obter mais informações, confira [Visão geral do Managed Disks](../storage/storage-managed-disks-overview.md) e [Usar discos de dados anexados](virtual-machine-scale-sets-attached-disks.md). 
+2. Acesse remotamente a máquina virtual e personalize o sistema de acordo com seu interesse.
 
-## <a name="deploy-a-platform-or-a-custom-image-as-a-container-host-and-your-app-as-one-or-more-containers"></a>Implantar uma plataforma ou uma imagem personalizada como um host de contêiner e o aplicativo como um ou mais contêineres
-Basicamente, uma plataforma ou uma imagem personalizada é um host de contêiner; portanto, é possível instalar o aplicativo como um ou mais contêineres.  É possível gerenciar contêineres de aplicativos com um orquestrador ou uma ferramenta de gerenciamento de configuração. Uma ponto positivo dessa abordagem é que você abstrai sua infraestrutura de nuvem da camada do aplicativo e as mantêm separadamente.
+   Se você quiser, é possível instalar o aplicativo agora. No entanto, saiba que ao instalar o aplicativo agora, a atualização do seu aplicativo poderá ficar mais complicada porque talvez seja necessário removê-lo primeiro. Em vez disso, é possível utilizar esta etapa para instalar quaisquer pré-requisitos que possam ser necessários ao aplicativo, como um tempo de execução específico ou recurso do sistema operacional.
 
-## <a name="what-happens-when-a-vm-scale-set-scales-out"></a>O que acontece quando um Conjunto de escala de VM é escalado horizontalmente?
-Quando você adiciona uma ou mais VMs a um conjunto de escala aumentando a capacidade, manualmente ou por meio de dimensionamento automático, o aplicativo é instalado automaticamente. Por exemplo, se o conjunto de escala tiver extensões definidas, elas sempre serão executadas em uma nova VM no momento da criação. Se o conjunto de escala tiver base em uma imagem personalizada, qualquer VM nova será uma cópia da imagem personalizada de origem. Se as VMs do conjunto de escala forem hosts de contêiner, você poderá ter um código de inicialização para carregar os contêineres em uma Extensão de Script Personalizado, ou uma extensão pode instalar um agente registrado com um orquestrador de cluster (como o Serviço de Contêiner do Azure).
+3. Siga o tutorial "capturar uma máquina" tanto para [Linux][linux-vm-capture] como para [Windows][windows-vm-capture].
 
-## <a name="how-do-you-manage-application-updates-in-vm-scale-sets"></a>Como gerenciar atualizações de aplicativos em Conjuntos de escala de VM?
-Para atualizações de aplicativos em Conjuntos de escala de VM, três abordagens principais acompanham os três métodos de implantação de aplicativo descritos anteriormente:
+4. Crie um [Conjunto de Dimensionamento de Máquinas Virtuais][vmss-create] com o URI de imagem capturado na etapa anterior.
 
-* Atualizando com extensões de VM. Quaisquer extensões de VM definidas para um Conjunto de escala de VM são executadas sempre que uma nova VM é implantada, uma VM existente tem sua imagem refeita ou uma extensão de VM é atualizada. Se você precisar atualizar seu aplicativo, a atualização direta de um aplicativo por meio de extensões será uma abordagem viável, basta atualizar a definição da extensão. Uma forma simples de fazer isso é alterando o fileUris a fim de apontar para o novo software.
+Para obter mais informações, consulte [Visão geral do Managed Disks](../virtual-machines/windows/managed-disks-overview.md) e [Utilizar discos de dados anexados](virtual-machine-scale-sets-attached-disks.md).
 
-* A abordagem de imagem personalizada imutável. Quando você cria o aplicativo (ou componentes do aplicativo) em uma imagem de VM, é possível se concentrar na criação de um pipeline confiável a fim de automatizar a compilação, teste e implantação das imagens. Você pode projetar sua arquitetura para facilitar a troca rápida de um conjunto de escala de teste para produção. Um bom exemplo dessa abordagem é o [trabalho de driver do Azure Spinnaker](https://github.com/spinnaker/deck/tree/master/app/scripts/modules/azure) - [http://www.spinnaker.io/](http://www.spinnaker.io/).
+## <a name="already-provisioned"></a>Instalar quando o conjunto de dimensionamento for provisionado
 
-Packer e Terraform também oferecem suporte ao Azure Resource Manager, assim também é possível definir suas imagens “como código” e criá-las no Azure, e depois usar o VHD em seu conjunto de escala. No entanto, isso seria problemático para imagens do Marketplace, nas quais extensões/scripts personalizados se tornam mais importantes, já que você não manipula diretamente os bits do Marketplace.
+As extensões da máquina virtual podem ser aplicadas a um conjunto de dimensionamento de máquinas virtuais. Com uma extensão da máquina virtual, é possível personalizar as máquinas virtuais em um conjunto de dimensionamento como um grupo inteiro. Para obter mais informações, consulte [Extensões da máquina virtual](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-* Atualizar contêineres. Abstrair o gerenciamento de ciclo de vida do aplicativo para um nível acima da infraestrutura de nuvem, por exemplo, encapsulando aplicativos e componentes de aplicativo em contêineres e gerenciando esses contêineres por meio de orquestradores de contêiner e gerenciadores de configuração como Chef/Puppet.
+Há três extensões principais que podem ser utilizadas, dependendo se o sistema operacional é baseado no Linux ou baseado no Windows.
 
-As VMs do conjunto de escala se tornam um substrato estável para os contêineres e exigem apenas atualizações ocasionais de segurança e de sistema operacional. Conforme mencionado, o Serviço de Contêiner do Azure é um bom exemplo de como usar essa abordagem e criar um serviço em torno dele.
+### <a name="windows"></a>Windows
+
+Para um sistema operacional baseado no Windows, utilize a extensão de **Script personalizado v1.8** ou a extensão **DSC do PowerShell**.
+
+#### <a name="custom-script"></a>Custom Script
+
+A extensão de script personalizado executa um script em cada instância da máquina virtual no conjunto de dimensionamento. Um arquivo de configuração ou variável indica quais arquivos são baixados para a máquina virtual e, em seguida, o comando é executado. Você pode usar isso para executar um instalador, um script, um arquivo em lotes, quaisquer executáveis, por exemplo.
+
+O PowerShell utiliza uma tabela de hash para as configurações. Esse exemplo configura a extensão de script personalizado para executar um script do PowerShell que instala o IIS.
+
+```powershell
+# Setup extension configuration hashtable variable
+$customConfig = @{
+  "fileUris" = @("https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/temp/install-iis.ps1");
+  "commandToExecute" = "PowerShell -ExecutionPolicy Unrestricted .\install-iis.ps1 >> `"%TEMP%\StartupLog.txt`" 2>&1";
+};
+
+# Add the extension to the config
+Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig -Publisher Microsoft.Compute -Type CustomScriptExtension -TypeHandlerVersion 1.8 -Name "customscript1" -Setting $customConfig
+
+# Send the new config to Azure
+Update-AzureRmVmss -ResourceGroupName $rg -Name "MyVmssTest143"  -VirtualMachineScaleSet $vmssConfig
+```
+
+>[!IMPORTANT]
+>Utilize a opção `-ProtectedSetting` para as configurações que podem conter informações confidenciais.
+
+---------
+
+
+A CLI do Azure utiliza um arquivo json para as configurações. Esse exemplo configura a extensão de script personalizado para executar um script do PowerShell que instala o IIS. Salve o arquivo json a seguir como _settings.json_.
+
+```json
+{
+  "fileUris": [
+    "https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/temp/install-iis.ps1"
+  ],
+  "commandToExecute": "PowerShell -ExecutionPolicy Unrestricted .\install-iis.ps1 >> \"%TEMP%\StartupLog.txt\" 2>&1"
+}
+```
+
+Em seguida, execute esse comando da CLI do Azure.
+
+```azurecli
+az vmss extension set --publisher Microsoft.Compute --version 1.8 --name CustomScriptExtension --resource-group myResourceGroup --vmss-name myScaleSet --settings @settings.json
+```
+
+>[!IMPORTANT]
+>Utilize a opção `--protected-settings` para as configurações que podem conter informações confidenciais.
+
+### <a name="powershell-dsc"></a>DSC do PowerShell
+
+Você pode utilizar DSC do PowerShell para personalizar as instâncias das VMs do conjunto de dimensionamento. A extensão **DSC** publicada pelo **Microsoft.Powershell** implanta e executa a configuração DSC fornecida em cada instância da máquina virtual. Um arquivo de configuração ou variável informa a extensão onde o pacote *.zip* está e qual a combinação _script-function_ a executar.
+
+O PowerShell utiliza uma tabela de hash para as configurações. Esse exemplo implanta um pacote de DSC que instala o IIS.
+
+```powershell
+# Setup extension configuration hashtable variable
+$dscConfig = @{
+  "wmfVersion" = "latest";
+  "configuration" = @{
+    "url" = "https://github.com/MicrosoftDocs/azure-cloud-services-files/raw/temp/dsc.zip";
+    "script" = "configure-http.ps1";
+    "function" = "WebsiteTest";
+  };
+}
+
+# Add the extension to the config
+Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig -Publisher Microsoft.Powershell -Type DSC -TypeHandlerVersion 2.24 -Name "dsc1" -Setting $dscConfig
+
+# Send the new config to Azure
+Update-AzureRmVmss -ResourceGroupName $rg -Name "myscaleset1"  -VirtualMachineScaleSet $vmssConfig
+```
+
+>[!IMPORTANT]
+>Utilize a opção `-ProtectedSetting` para as configurações que podem conter informações confidenciais.
+
+-----------
+
+A CLI do Azure utiliza um json para as configurações. Esse exemplo implanta um pacote de DSC que instala o IIS. Salve o arquivo json a seguir como _settings.json_.
+
+```json
+{
+  "wmfVersion": "latest",
+  "configuration": {
+    "url": "https://github.com/MicrosoftDocs/azure-cloud-services-files/raw/temp/dsc.zip",
+    "script": "configure-http.ps1",
+    "function": "WebsiteTest"
+  }
+}
+```
+
+Em seguida, execute esse comando da CLI do Azure.
+
+```azurecli
+az vmss extension set --publisher Microsoft.Powershell --version 2.24 --name DSC --resource-group myResourceGroup --vmss-name myScaleSet --settings @settings.json
+```
+
+>[!IMPORTANT]
+>Utilize a opção `--protected-settings` para as configurações que podem conter informações confidenciais.
+
+### <a name="linux"></a>Linux
+
+O Linux pode utilizar a extensão de **Script personalizado v2.0** ou usar a **inicialização de nuvem** durante a criação.
+
+O script personalizado é uma extensão simples que baixa arquivos para as instâncias da máquina virtual e executa um comando.
+
+#### <a name="custom-script"></a>Custom Script
+
+Salve o arquivo json a seguir como _settings.json_.
+
+```json
+{
+  "fileUris": [
+    "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/installserver.sh",
+    "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/workserver.py"
+  ],
+  "commandToExecute": "bash installserver.sh"
+}
+```
+
+Utilize a CLI do Azure para adicionar essa extensão a um conjunto de dimensionamento de máquinas virtuais existentes. Cada máquina virtual no conjunto de dimensionamento executa automaticamente a extensão.
+
+```azurecli
+az vmss extension set --publisher Microsoft.Azure.Extensions --version 2.0 --name CustomScript --resource-group myResourceGroup --vmss-name myScaleSet --settings @settings.json
+```
+
+>[!IMPORTANT]
+>Utilize a opção `--protected-settings` para as configurações que podem conter informações confidenciais.
+
+#### <a name="cloud-init"></a>Inicialização de nuvem
+
+A inicialização de nuvem é utilizada quando o conjunto de dimensionamento é criado. Primeiro, crie um arquivo local chamado _cloud-init.txt_ e adicione sua configuração a esse aquivo. Por exemplo, consulte [essas linhas gerais](https://gist.github.com/Thraka/27bd66b1fb79e11904fb62b7de08a8a6#file-cloud-init-txt)
+
+Utilize a CLI do Azure para criar um conjunto de dimensionamento. O `--custom-data` campo aceita o nome de arquivo de um script de inicialização de nuvem.
+
+```azurecli
+az vmss create \
+  --resource-group myResourceGroupScaleSet \
+  --name myScaleSet \
+  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+  --upgrade-policy-mode automatic \
+  --custom-data cloud-init.txt \
+  --admin-username azureuser \
+  --generate-ssh-keys      
+```
+
+## <a name="how-do-i-manage-application-updates"></a>Como gerenciar atualizações de aplicativos?
+
+Se o aplicativo foi implantado através de uma extensão, altere a definição da extensão de alguma forma. Essa alteração faz com que a extensão seja reimplantada a todas as instâncias das máquina virtuais. Algo **deverá** ser alterado sobre a extensão, como renomear um arquivo referenciado, caso contrário, o Azure não reconhecerá que a extensão foi alterada.
+
+Se o aplicativo foi incorporado em sua própria imagem do sistema operacional, utilize uma pipeline de implantação automatizada para atualizações do aplicativo. Projete sua arquitetura para facilitar a troca rápida de um conjunto de dimensionamento em etapas na produção. Um bom exemplo dessa abordagem é o [trabalho de driver do Azure Spinnaker](https://github.com/spinnaker/deck/tree/master/app/scripts/modules/azure) - [http://www.spinnaker.io/](http://www.spinnaker.io/).
+
+[Packer](https://www.packer.io/) e [Terraform](https://www.terraform.io/) suportam o Azure Resource Manager para que seja possível definir suas imagens "como código" e compilá-las no Azure, então, utilize o VHD no seu conjunto de dimensionamento. No entanto, isso seria problemático para imagens do marketplace, nas quais extensões/scripts personalizados se tornam mais importantes, já que você não manipula diretamente os bits do marketplace.
+
+## <a name="what-happens-when-a-scale-set-scales-out"></a>O que acontece quando um conjunto de dimensionamento é escalado horizontalmente?
+Quando você adiciona uma ou mais máquinas virtuais a um conjunto de dimensionamento, o aplicativo é instalado automaticamente. Por exemplo, se o conjunto de dimensionamento tiver extensões definidas, elas serão executadas em uma nova máquina virtual sempre que for criada. Se o conjunto de dimensionamento for baseado em uma imagem personalizada, qualquer nova máquina virtual será uma cópia da imagem personalizada de origem. Se as máquinas virtuais do conjunto de dimensionamento forem hosts de contêineres, então, será possível ter o código de inicialização para carregar os contêineres em uma extensão de script personalizada. Ou, uma extensão poderá instalar um agente que se registre com um orquestrador de cluster, como o Serviço de Contêiner do Azure.
+
 
 ## <a name="how-do-you-roll-out-an-os-update-across-update-domains"></a>Como você implementa uma atualização de SO em domínios de atualização?
-Vamos supor que você deseja atualizar sua imagem de SO, mantendo o Conjunto de escala de VM em execução. Uma maneira de fazer isso é atualizando as imagens da VM, uma VM por vez. Faça isso com o PowerShell ou a CLI do Azure. Há comandos separados para atualizar o modelo do Conjunto de Dimensionamento de Máquinas Virtuais (como a configuração é definida) e emitir chamadas de "atualização manual" em VMs individuais. O documento [Atualizar um conjunto de dimensionamento de máquinas virtuais](./virtual-machine-scale-sets-upgrade-scale-set.md) do Azure também fornece mais informações sobre quais opções estão disponíveis para executar atualizações de sistema operacional através de um conjunto de dimensionamento de VMs.
+Suponha que você deseja atualizar a imagem do seu SO enquanto mantém o conjunto de dimensionamento de máquinas virtuais em execução. O PowerShell e a CLI do Azure podem atualizar as imagens da máquina virtual, uma máquina virtual de cada vez. O artigo [Atualizar um conjunto de dimensionamento de máquinas virtuais](./virtual-machine-scale-sets-upgrade-scale-set.md) também fornece mais informações sobre quais opções estão disponíveis para executar uma atualização do sistema operacional através de um conjunto de dimensionamento de máquinas virtuais.
 
+## <a name="next-steps"></a>Próximas etapas
+
+* [Utilizar o PowerShell para gerenciar seu conjunto de dimensionamento.](virtual-machine-scale-sets-windows-manage.md)
+* [Criar um modelo de conjunto de dimensionamento.](virtual-machine-scale-sets-mvss-start.md)
+
+
+[linux-vm-create]: ../virtual-machines/linux/tutorial-manage-vm.md
+[windows-vm-create]: ../virtual-machines/windows/tutorial-manage-vm.md
+[linux-vm-capture]: ../virtual-machines/linux/capture-image.md
+[windows-vm-capture]: ../virtual-machines/windows/capture-image.md 
+[vmss-create]: virtual-machine-scale-sets-create.md
 

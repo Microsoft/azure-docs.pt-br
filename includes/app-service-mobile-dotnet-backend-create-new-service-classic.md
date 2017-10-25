@@ -17,8 +17,3 @@
 
 <!-- URLs. -->
 [Portal do Azure]: https://portal.azure.com/
-
-
-<!--HONumber=Nov16_HO3-->
-
-

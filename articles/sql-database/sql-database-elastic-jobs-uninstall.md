@@ -9,17 +9,17 @@ editor:
 ms.assetid: bfc9d820-edbd-4fca-bfbf-1f339cfcc448
 ms.service: sql-database
 ms.workload: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: aa438680348748a771f9016ecdcc68372c6c5e86
-
-
+ms.openlocfilehash: ae7f0bce452a0a86f6f1e4d9b0c93a0fa1727f21
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="uninstall-elastic-database-jobs-components"></a>Desinstalar componentes de trabalhos de banco de dados elástico
 **trabalhos do banco de dados elástico** podem ser desinstalados usando o Portal ou o PowerShell.
@@ -61,11 +61,5 @@ Para reinstalar trabalhos de banco de dados elástico, confira [Instalando o ser
 Para uma visão geral de trabalhos de banco de dados elástico, consulte [Visão geral de trabalhos de banco de dados elástico](sql-database-elastic-jobs-overview.md).
 
 <!--Image references-->
-
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

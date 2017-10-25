@@ -3,7 +3,7 @@ title: "Como criar um tíquete de suporte para o SQL Data Warehouse | Microsoft 
 description: "Como criar um tíquete de suporte no Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: 
 ms.assetid: a91d1f53-03cb-464b-9d5b-4a9c1a194ed3
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 889776269aa3d722115ea0632b7c3db2775924eb
-ms.openlocfilehash: cc3bc8a0463842ba11b9cdcc996319e2d811ce8a
-ms.lasthandoff: 01/18/2017
-
-
+ms.author: kevin;barbkess
+ms.openlocfilehash: 058ff1229acee5d03db7c0305c5565ae95a85758
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>Como criar um tíquete de suporte para o SQL Data Warehouse
 Caso você tenha problemas com o SQL Data Warehouse, crie um tíquete de suporte para que nossa equipe de engenharia possa ajudá-lo.
@@ -99,5 +98,4 @@ Além disso, você pode conectar a comunidade do SQL Data Warehouse no [Stack Ov
 [Microsoft Premier online portal]: https://premier.microsoft.com/
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
 [Azure SQL Data Warehouse MSDN forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
-
 

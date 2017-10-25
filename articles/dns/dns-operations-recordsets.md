@@ -14,18 +14,18 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
-ms.openlocfilehash: 51ed9893aa0a49b2bde5069cfcad222b0bae4fdc
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 2962e30e5d9c60b8e786e2ba79647cabfc5925cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gerenciar registros e conjuntos de registros DNS no DNS do Azure usando o Azure PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](dns-operations-recordsets-portal.md)
-> * [CLI do Azure](dns-operations-recordsets-cli.md)
+> * [CLI 1.0 do Azure](dns-operations-recordsets-cli-nodejs.md)
+> * [CLI 2.0 do Azure](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 Este artigo mostra como gerenciar os registros de DNS para sua zona de DNS usando o Azure PowerShell. Os registros DNS também podem ser gerenciados usando a [CLI do Azure](dns-operations-recordsets-cli.md) da plataforma cruzada ou o [portal do Azure](dns-operations-recordsets-portal.md).
@@ -45,13 +45,13 @@ Para obter mais informações sobre os registros DNS no DNS do Azure, confira [Z
 
 Se o novo registro tem o mesmo nome e tipo de um registro existente, você precisa [adicioná-lo ao conjunto de registros existente](#add-a-record-to-an-existing-record-set). Se o novo registro tiver um nome e tipo diferentes para todos os registros existentes, você precisará criar um novo conjunto de registros. 
 
-### <a name="create-a-records-in-a-new-record-set"></a>Criar registros A em um novo conjunto de registros
+### <a name="create-a-records-in-a-new-record-set"></a>Criar registros 'A' em um novo conjunto de registros
 
 Você cria conjuntos de registros usando o cmdlet `New-AzureRmDnsRecordSet`. Ao criar um conjunto de registros, você precisa especificar o nome do conjunto de registros, a zona, o TTL (vida útil), o tipo de registro e os registros a serem criados.
 
 Os parâmetros para adicionar registros a um conjunto de registros variam dependendo do tipo de conjunto de registros. Por exemplo, ao usar um conjunto de registros do tipo "A", você precisa especificar o endereço IP usando o parâmetro `-IPv4Address`. Outros parâmetros são usados para outros tipos de registro. Consulte [Exemplos adicionais dos tipos de registro](#additional-record-type-examples) para obter detalhes.
 
-O exemplo a seguir cria um conjunto de registros com o nome relativo "www" na Zona DNS "contoso.com". O nome totalmente qualificado do conjunto de registros é "www.contoso.com". O tipo de registro é "A" e o TTL é 3600 segundos. O conjunto de registros contém um único registro, com o endereço IP "1.2.3.4".
+O exemplo a seguir cria um conjunto de registros com o nome relativo "www" na Zona DNS "contoso.com". O nome totalmente qualificado do conjunto de registros é "www.contoso.com". O tipo de registro é 'A' e o TTL é 3600 segundos. O conjunto de registros contém um único registro, com o endereço IP "1.2.3.4".
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
@@ -135,7 +135,7 @@ New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -R
 
 ### <a name="create-an-srv-record-set-with-a-single-record"></a>Criar um conjunto de registros SRV com um registro único
 
-Ao criar um [conjunto de registros SRV](dns-zones-records.md#srv-records), especifique o * \_serviço* e o * \_protocolo* no nome do conjunto de registros. Não é necessário incluir '@' no nome do conjunto de registros ao criar um conjunto de registros SRV definido no ápice da zona.
+Ao criar um [conjunto de registros SRV](dns-zones-records.md#srv-records), especifique o *\_serviço* e o *\_protocolo* no nome do conjunto de registros. Não é necessário incluir '@' no nome do conjunto de registros ao criar um conjunto de registros SRV definido no ápice da zona.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Priority 0 -Weight 5 -Port 8080 -Target "sip.contoso.com") 
@@ -163,7 +163,7 @@ O exemplo a seguir mostra como recuperar um conjunto de registros. Neste exemplo
 $rs = Get-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 ```
 
-Como alternativa, você também pode especificar a zona usando um objeto de zona, passado usando o parâmetro `-Zone'. 
+Como alternativa, você também pode especificar a zona usando um objeto de zona, passado usando o parâmetro `-Zone`.
 
 ```powershell
 $zone = Get-AzureRmDnsZone -Name "contoso.com" -ResourceGroupName "MyResourceGroup"
@@ -303,13 +303,17 @@ Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### <a name="to-modify-ns-records-at-the-zone-apex"></a>Para modificar registros NS no apex da zona
 
-Não é possível adicionar, remover nem modificar os registros no conjunto de registros NS criado automaticamente no ápice da zona (`-Name "@"`, incluindo as aspas). As únicas alterações permitidas são modificar o TTL do conjunto de registros e os metadados.
+O registro NS definido no apex da zona é criado automaticamente com cada zona DNS. Ele contém os nomes dos servidores de nome DNS do Azure atribuídos à zona.
 
-O exemplo a seguir mostra como alterar a propriedade TTL do conjunto de registros NS:
+Você pode adicionar servidores de nome adicionais a esse conjunto de registros NS para dar suporte à co-hospedagem de domínios com mais de um provedor DNS. Você também pode modificar o TTL e os metadados para esse conjunto de registros. No entanto, você não pode remover nem modificar os servidores de nome DNS do Azure previamente populados.
+
+Observe que isso se aplica somente ao conjunto de registros NS definido no apex da zona. Outros conjuntos de registros NS na sua zona (conforme utilizados para delegar zonas filho) podem ser modificados sem restrição.
+
+O exemplo a seguir mostra como adicionar um servidor de nome adicional ao conjunto de registros NS no apex da zona:
 
 ```powershell
 $rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
-$rs.Ttl = 300
+Add-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname ns1.myotherdnsprovider.com
 Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
@@ -385,5 +389,4 @@ Saiba mais sobre as [zonas e os registros no DNS do Azure](dns-zones-records.md)
 <br>
 Saiba como [proteger seus registros e zonas](dns-protect-zones-recordsets.md) ao usar o DNS do Azure.
 <br>
-Examine a [documentação de referência do PowerShell do DNS do Azure](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns).
-
+Examine a [documentação de referência do PowerShell do DNS do Azure](/powershell/module/azurerm.dns).

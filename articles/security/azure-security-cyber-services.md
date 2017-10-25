@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e3502015d20b172214369b05c3ea12bd5b5c98e9
-
-
+ms.openlocfilehash: 1560ea8b224be0f6bc723f64d8f154805b2771e5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Serviços Microsoft em Segurança Cibernética
 Os Serviços Microsoft oferecem uma abordagem abrangente para a segurança, identidade e segurança cibernética. Os Serviços Microsoft oferecem uma matriz de serviços de segurança e identidade entre estratégia, planejamento, implementação e suporte contínuo que pode ajudar nossos clientes empresariais a implementar soluções de segurança integrais, alinhadas com seus objetivos estratégicos.
@@ -39,9 +39,3 @@ Saiba mais sobre os serviços fornecidos pelos Serviços Microsoft:
 * [Recuperação e resposta a incidentes](http://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-incident-response-and-recovery-process-brief.pdf)
 
 [Saiba mais](https://aka.ms/cyberserv) sobre serviços de consultoria de segurança dos Serviços da Microsoft.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

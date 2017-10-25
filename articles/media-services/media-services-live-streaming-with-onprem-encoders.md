@@ -4,7 +4,7 @@ description: "Este tópico descreve como configurar um canal que recebe um fluxo
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
 ms.service: media-services
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/12/2017
 ms.author: cenkd;juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 7d980e14776cade574fc9ef4e63aea5c91fb8fdf
-ms.openlocfilehash: a5867566afc80fe7ae57b5027b5578e3144f7f07
-ms.lasthandoff: 02/15/2017
-
-
+ms.openlocfilehash: 3f6569d32708c42247e0ffec70389f2e0f07389e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Transmissão ao vivo com codificadores locais que criam fluxos com múltiplas taxas de bits
 ## <a name="overview"></a>Visão geral
@@ -35,11 +34,11 @@ Nos Serviços de Mídia do Azure, um *Canal* representa um pipeline para process
 
 A partir da versão 2.10 dos Serviços de Mídia, quando você cria um canal, pode especificar como deseja que o canal receba o fluxo de entrada. Você também pode especificar se quer que o canal execute a codificação ativa de seu fluxo. Você tem duas opções:
 
-* **Nenhum**: especifique esse valor se planejar usar um codificador ativo local, que emitirá uma transmissão de múltiplas taxas de bits (uma transmissão de passagem). Nesse caso, o fluxo de entrada é transmitido para a saída sem qualquer codificação. Esse é o comportamento de um canal em versão anterior à 2.10. Este tópico fornece detalhes sobre como trabalhar com canais desse tipo.
-* **Standard**: escolha esse valor se você pretende usar os Serviços de Mídia para codificar sua transmissão ao vivo de taxa de bits única para uma transmissão de múltiplas taxas de bits. Lembre-se de que deixar um canal de codificação ativa em um estado **Executando** incorrerá em encargos de cobrança. Recomendamos parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra. Os Serviços de Mídia enviam a transmissão aos clientes que a solicitam.
+* **Passagem**: especifique esse valor se planejar usar um codificador ativo local que emitirá uma transmissão de múltiplas taxas de bits (uma transmissão de passagem) como saída. Nesse caso, o fluxo de entrada é transmitido para a saída sem qualquer codificação. Esse é o comportamento de um canal em versão anterior à 2.10. Este tópico fornece detalhes sobre como trabalhar com canais desse tipo.
+* **Codificação ativa**: escolha esse valor se você pretende usar os Serviços de Mídia para codificar sua transmissão ao vivo de taxa de bits única para uma transmissão de múltiplas taxas de bits. Lembre-se de que deixar um canal de codificação ativa em um estado **Executando** incorrerá em encargos de cobrança. Recomendamos parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra. Os Serviços de Mídia enviam a transmissão aos clientes que a solicitam.
 
 > [!NOTE]
-> Este tópico discute os atributos de canais que não estão habilitados para executar a codificação ativa (tipo de codificação**Nenhum** ). Para obter informações sobre como trabalhar com canais habilitados a realizar a codificação ativa, confira [Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
+> Este tópico discute os atributos de canais que não estão habilitados para executar a codificação ativa. Para obter informações sobre como trabalhar com canais habilitados a realizar a codificação ativa, confira [Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
 >
 >
 
@@ -47,7 +46,7 @@ O diagrama a seguir representa um fluxo de trabalho de transmissão ao vivo que 
 
 ![Fluxo de trabalho ao vivo][live-overview]
 
-## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Cenário comum de streaming ao vivo
+## <a id="scenario"></a>Cenário comum de streaming ao vivo
 As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos comuns de transmissão ao vivo.
 
 1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ativo local que gere um fluxo RTMP com múltiplas taxas de bits ou MP4 fragmentado (Smooth Streaming). Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](http://go.microsoft.com/fwlink/?LinkId=532824).
@@ -79,9 +78,9 @@ As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos c
 
 10. Exclua o programa (e, opcionalmente, exclua o ativo).     
 
-## <a name="a-idchanneladescription-of-a-channel-and-its-related-components"></a><a id="channel"></a>Descrição de um canal e seus componentes relacionados
-### <a name="a-idchannelinputachannel-input-ingest-configurations"></a><a id="channel_input"></a>Configurações de entrada de canal (ingestão)
-#### <a name="a-idingestprotocolsaingest-streaming-protocol"></a><a id="ingest_protocols"></a>Protocolo de streaming de ingestão
+## <a id="channel"></a>Descrição de um canal e seus componentes relacionados
+### <a id="channel_input"></a>Configurações de entrada de canal (ingestão)
+#### <a id="ingest_protocols"></a>Protocolo de streaming de ingestão
 Os Serviços de Mídia oferecem suporte à ingestão de feeds ao vivo usando MP4 fragmentado de múltipla taxas de bits e RTMP de múltiplas taxas de bits como protocolos de streaming. Quando o protocolo de transmissão de ingestão RTMP é selecionado, dois pontos de extremidade de ingestão (entrada) são criados para o canal:
 
 * **URL principal**: especifica a URL totalmente qualificada do ponto de extremidade de ingestão de RTMP principal do canal.
@@ -110,7 +109,7 @@ Você pode obter as URLs de ingestão ao criar o canal. Para obter essas URLs, o
 
 Você tem a opção de ingerir uma transmissão ao vivo de MP4 fragmentado (Smooth Streaming) em uma conexão SSL. Para inserir por SSL, certifique-se de atualizar a URL de inserção para HTTPS. No momento, você não pode ingerir RTMP sobre SSL.
 
-#### <a name="a-idkeyframeintervalakeyframe-interval"></a><a id="keyframe_interval"></a>Intervalo de quadro-chave
+#### <a id="keyframe_interval"></a>Intervalo de quadro-chave
 Quando você usa um codificador ativo local para gerar um fluxo com múltiplas taxas de bits, o intervalo de quadro-chave especifica a duração de GOP (grupo de imagens), conforme usado pelo codificador externo. Após o canal receber esse fluxo de entrada, você poderá entregar sua transmissão ao vivo aos aplicativos de reprodução de cliente em qualquer um dos seguintes formatos: Smooth Streaming, Dynamic Adaptive Streaming sobre HTTP (DASH) e HTTP Live Streaming (HLS). Ao fazer streaming ao vivo, o HLS é sempre empacotado dinamicamente. Por padrão, os Serviços de Mídia calculam automaticamente a taxa de empacotamento de segmento HLS (fragmentos por segmento) com base no intervalo de quadros-chave que é recebido do codificador ativo.
 
 A tabela a seguir mostra como a duração do segmento é calculada:
@@ -169,7 +168,7 @@ Para excluir o conteúdo arquivado, interrompa e exclua o programa e, em seguida
 
 Mesmo após a interrupção e exclusão do programa, os usuários poderão transmitir seu conteúdo arquivado como vídeo sob demanda até você excluir o ativo. Se você quiser manter o conteúdo arquivado mas ele não está disponível para streaming, exclua o localizador de streaming.
 
-## <a name="a-idstatesachannel-states-and-billing"></a><a id="states"></a>Estados de canal e cobrança
+## <a id="states"></a>Estados de canal e cobrança
 Os valores possíveis para o estado atual de um canal incluem:
 
 * **Parado**: este é o estado inicial do canal após sua criação. Nesse estado, as propriedades do canal podem ser atualizadas, mas streaming não é permitido.
@@ -187,7 +186,7 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 | **Parando** |**Parando** |Nenhum (estado transitório) |
 | **Interrompido** |**Interrompido** |Não |
 
-## <a name="a-idccandadsaclosed-captioning-and-ad-insertion"></a><a id="cc_and_ads"></a>Legendagem oculta e inserção de anúncios
+## <a id="cc_and_ads"></a>Legendagem oculta e inserção de anúncios
 A tabela a seguir demonstra os padrões com suporte de legendagem oculta e inserção de anúncios.
 
 | Standard | Observações |
@@ -196,7 +195,7 @@ A tabela a seguir demonstra os padrões com suporte de legendagem oculta e inser
 | TTML em ismt (faixas de texto de Smooth Streaming) |O empacotamento dinâmico dos Serviços de Mídia habilita os clientes a transmitir conteúdo em qualquer um dos seguintes formatos: DASH, HLS ou Smooth Streaming. No entanto, se ingerir MP4 fragmentado (Smooth Streaming) com legendas em .ismt (faixas de texto de Smooth Streaming), você pode entregar o fluxo apenas a clientes de Smooth Streaming. |
 | SCTE-35 |SCTE-35 é um sistema de sinalização digital usado para a inserção de anúncios de indicação. Receptores de downstream usam o sinal para unir a publicidade ao fluxo pelo tempo alocado. SCTE-35 deve ser enviado como uma faixa esparsa no fluxo de entrada.<p><p>No momento, o único formato de fluxo de entrada com suporte que transporta sinais de anúncios é o MP4 fragmentado (Smooth Streaming). O único formato de saída com suporte também é Smooth Streaming. |
 
-## <a name="a-idconsiderationsaconsiderations"></a><a id="considerations"></a>Considerações
+## <a id="considerations"></a>Considerações
 Ao se usar um codificador ao vivo local para enviar um fluxo com múltiplas taxas de bits a um canal, as seguintes restrições são aplicáveis:
 
 * Verifique se que você tem conectividade com a Internet livre suficiente para enviar dados aos pontos de ingestão.
@@ -228,4 +227,3 @@ Confira outras considerações relacionadas ao trabalho com canais e componentes
 [Conceitos dos Serviços de Mídia](media-services-concepts.md)
 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
-

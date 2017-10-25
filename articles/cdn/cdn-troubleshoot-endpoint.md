@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 53fdf1fe661167b468ef602634528e4d4173f606
-
-
+ms.openlocfilehash: f59fbd18413fb44026d8c92b7f6940ed2f8a00a8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-cdn-endpoints-returning-404-statuses"></a>Solucionando problemas de pontos de extremidade CDN que retornam o status 404
 Este artigo ajuda a solucionar problemas com [pontos de extremidade CDN](cdn-create-new-endpoint.md) que retornam erros 404.
@@ -97,10 +97,4 @@ Por fim, devemos verificar nosso **Caminho de origem**.  Por padrão, ele está 
 Por exemplo, em meu ponto de extremidade, como eu queria que todos os recursos em minha conta de armazenamento estivessem disponíveis, deixei o **Caminho de origem** em branco.  Isso significa que uma solicitação para `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` resulta em uma conexão do meu ponto de extremidade a `cdndocdemo.core.windows.net` que solicita `/publicblob/lorem.txt`.  Da mesma forma, uma solicitação de `https://cdndocdemo.azureedge.net/donotcache/status.png` resulta na solicitação de `/donotcache/status.png` a partir da origem pelo ponto de extremidade.
 
 Mas e se não quiser usar a CDN para cada caminho na origem?  Digamos que eu quisesse apenas expor o caminho `publicblob` .  Se eu inserir */publicblob* no campo **Caminho de origem**, isso fará com que o ponto de extremidade insira */publicblob* antes de todas as solicitações feitas para a origem.  Isso significa que a solicitação de `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` agora usará, na verdade, a parte da solicitação da URL, `/publicblob/lorem.txt`, e acrescentará `/publicblob` ao início. Isso resulta em uma solicitação de `/publicblob/publicblob/lorem.txt` da origem.  Se esse caminho não for resolvido para um arquivo real, a origem retornará um status 404.  Na verdade, a URL correta para recuperar lorem.txt neste exemplo seria `https://cdndocdemo.azureedge.net/lorem.txt`.  Observe que não incluímos o caminho */publicblob*, porque a parte da solicitação da URL é `/lorem.txt` e o ponto de extremidade adiciona `/publicblob`, fazendo com que `/publicblob/lorem.txt` seja a solicitação transmitida para a origem.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

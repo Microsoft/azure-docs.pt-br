@@ -1,10 +1,10 @@
 ---
-title: " Carregar arquivos em uma conta dos Serviços de Mídia usando o portal do Azure | Microsoft Docss"
-description: "Este tutorial orienta você pelas etapas de carregamento de arquivos em uma conta do Serviços de Mídia do Azure usando o portal do Azure"
+title: "Carregar arquivos para uma conta dos Serviços de Mídia no portal do Azure | Microsoft Docs"
+description: "Este tutorial orienta você pelas etapas de carregamento de arquivos para uma conta do Serviços de Mídia do Azure no portal do Azure"
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 3ad3dcea-95be-4711-9aae-a455a32434f6
 ms.service: media-services
@@ -12,56 +12,46 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 08/07/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: ed8ea30b87c8086d41cab879acce82062f08b31c
-ms.openlocfilehash: f27ab42ab3c7c704804b9a5493c8b3acd954decb
-
-
+ms.openlocfilehash: 7ddfe44918b358a1749640d1c93dba490855cc5a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="upload-files-into-a-media-services-account-using-the-azure-portal"></a>Carregar arquivos em uma conta do Serviços de Mídia usando o portal do Azure
+# <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Carregar arquivos para uma conta dos Serviços de Mídia no portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-upload-files.md)
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
 > 
 > [!NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
+> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, confira [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 
+Nos Serviços de Mídia do Azure, você pode carregar seus arquivos digitais para um ativo. O ativo pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados desses arquivos). Depois que os arquivos são carregados, o conteúdo é armazenado com segurança na nuvem para processamento adicional e transmissão.
 
-Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. O Ativo pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos). Depois que os arquivos são carregados, o conteúdo é armazenado com segurança na nuvem para processamento adicional e transmissão.
-
-
-## <a name="upload-files"></a>Carregar arquivos
-
->[!NOTE]
->Há um limite no tamanho máximo de arquivo com suporte para o processamento nos Serviços de Mídia. Confira [este](media-services-quotas-and-limitations.md) tópico para obter detalhes sobre a limitação de tamanho de arquivo.
+> [!NOTE]
+> Os Serviços de Mídia têm um tamanho máximo de arquivo para processamento. Para obter detalhes sobre os limites de tamanho de arquivo, confira [Cotas e limitações dos Serviços de Mídia](media-services-quotas-and-limitations.md).
 >
 
+## <a name="upload-files"></a>Carregar arquivos
 1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
-2. Na folha **Configurações**, clique em **Ativos**.
+2. Selecione **Configurações** > **Ativos**. Em seguida, selecione o botão **Carregar**.
    
     ![Carregar arquivos](./media/media-services-portal-vod-get-started/media-services-upload.png)
-3. Clique no botão **Carregar** .
    
     A janela **Carregar um ativo de vídeo** é exibida.
    
    > [!NOTE]
-   > Não há nenhuma limitação de tamanho do arquivo.
-   > 
-   > 
-4. Navegue até o vídeo desejado no seu computador, selecione-o e clique em OK.  
+   > Os Serviços de Mídia não limitam o tamanho do arquivo no carregamento de vídeos.
+ 
+3. Em seu computador, vá para o vídeo que você deseja carregar. Selecione o vídeo e selecione **OK**.  
    
-    O carregamento é iniciado e você pode ver o progresso abaixo do nome de arquivo.  
+    O carregamento é iniciado. Você pode ver o progresso abaixo do nome do arquivo.  
 
-Quando o carregamento for concluído, você verá o novo ativo listado na janela **Ativos** . 
-
-## <a name="next-steps"></a>Próximas etapas
-Agora você pode codificar seus ativos carregados. Para saber mais, veja [Codificar ativos](media-services-portal-encode.md).
-
-Você também pode usar as Azure Functions para disparar um trabalho de codificação baseado em um arquivo que chega no contêiner configurado. Para obter mais informações, confira [este exemplo](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
+Quando o carregamento é concluído, o novo ativo fica listado no painel **Ativos**. 
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -69,9 +59,9 @@ Você também pode usar as Azure Functions para disparar um trabalho de codifica
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
+## <a name="next-steps"></a>Próximas etapas
+* Saiba como [codificar seus ativos carregados](media-services-portal-encode.md).
 
-
-
-<!--HONumber=Feb17_HO2-->
+* Você também pode usar as Azure Functions para acionar um trabalho de codificação quando arquivo chega no contêiner configurado. Para saber mais, confira o exemplo em [Serviços de Mídia: integração dos Serviços de Mídia do Azure com o Azure Functions e os Aplicativos Lógicos](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/).
 
 

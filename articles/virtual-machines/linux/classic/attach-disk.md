@@ -15,16 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: fc2a181a301ca56e41f586428e2994fcdf6d704d
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: 017ba7197e11c2b222082833d5acabb9e542b762
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>Como anexar um disco de dados na máquina virtual Linux
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Veja como [anexar um disco de dados usando o modelo de implantação do Resource Manager](../../virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Veja como [anexar um disco de dados usando o modelo de implantação do Resource Manager](../add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Você pode anexar tanto discos vazios como discos que contenham dados às suas VMs do Azure. Ambos os tipos de discos são arquivos .vhd que residem em uma conta de armazenamento do Azure. Como acontece com a adição de qualquer disco a uma máquina Linux, depois que você anexar o disco, será necessário inicializá-lo e formatá-lo para que ele fique pronto para uso. Este artigo detalha a anexação de discos vazios e de discos que já contenham dados às suas VMs, e também como então inicializar e formatar um novo disco.
 
@@ -175,7 +174,7 @@ Você pode anexar tanto discos vazios como discos que contenham dados às suas V
     > [!NOTE]
     > A opção `nofail` garante que a VM inicie mesmo que o sistema de arquivos esteja corrompido ou que o disco não exista no momento da inicialização. Sem essa opção, você poderá encontrar um comportamento conforme descrito em [Não é possível conectar-se a uma VM Linux via SSH devido a erros no FSTAB](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/).
 
-    Agora você pode testar se o sistema de arquivo está montado corretamente ao desmontar e montar novamente o sistema de arquivos, ou seja, usando o ponto de montagem de exemplo `/datadrive` criado nas etapas anteriores:
+    Agora você pode testar se o sistema de arquivos está montado corretamente ao desmontar e montar novamente o sistema de arquivos ou seja, usando o ponto de montagem `/datadrive` de exemplo criado nas etapas anteriores:
 
     ```bash
     sudo umount /datadrive
@@ -229,10 +228,9 @@ Você pode ler mais sobre como usar sua VM do Linux nos seguintes artigos:
 * [Como fazer logon em uma máquina virtual que executa o Linux][Logon]
 * [Como desanexar um disco de uma máquina virtual Linux](detach-disk.md)
 * [Usando a CLI do Azure com o modelo de implantação Clássico](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-* [Configurar o RAID em uma VM Linux no Azure](../../virtual-machines-linux-configure-raid.md)
-* [Configurar o LVM em uma VM Linux no Azure](../../virtual-machines-linux-configure-lvm.md)
+* [Configurar o RAID em uma VM Linux no Azure](../configure-raid.md)
+* [Configurar o LVM em uma VM Linux no Azure](../configure-lvm.md)
 
 <!--Link references-->
-[Agent]:../../virtual-machines-linux-agent-user-guide.md
-[Logon]:../../virtual-machines-linux-mac-create-ssh-keys.md
-
+[Agent]:../agent-user-guide.md
+[Logon]:../mac-create-ssh-keys.md

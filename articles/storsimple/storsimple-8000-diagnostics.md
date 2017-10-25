@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/17/2017
+ms.date: 03/27/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: d3488b1e7857799d8ed7de796610e8d52034bd8f
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: 8fae7bb357f8e5e8eff249edfe3a2aaafe04283c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Use a Ferramenta de Diagnóstico do StorSimple para solucionar problemas de dispositivo da série 8000
 
@@ -388,7 +387,7 @@ Para usar essa ferramenta, siga as seguintes etapas:
 
     Se as latências de leitura/gravação relatadas pela ferramenta de diagnóstico forem altas:
 
-    1. Configure a Análise de Armazenamento para serviços de blob e analise a saída para entender as latências da conta de armazenamento do Azure. Para obter instruções detalhadas, vá para [habilitar e configurar a Análise de Armazenamento](../storage/storage-enable-and-view-metrics-classic-portal.md). Se as latências também forem altas e comparáveis aos números que você recebeu da ferramenta de diagnóstico do StorSimple você precisará fazer uma solicitação de serviço com o armazenamento do Azure.
+    1. Configure a Análise de Armazenamento para serviços de blob e analise a saída para entender as latências da conta de armazenamento do Azure. Para obter instruções detalhadas, vá para [habilitar e configurar a Análise de Armazenamento](../storage/common/storage-enable-and-view-metrics.md). Se as latências também forem altas e comparáveis aos números que você recebeu da ferramenta de diagnóstico do StorSimple você precisará fazer uma solicitação de serviço com o armazenamento do Azure.
 
     2. Se as latências da conta de armazenamento forem baixas, entre em contato com o administrador de rede para investigar problemas de latência na sua rede.
 
@@ -443,4 +442,3 @@ Aqui está uma tabela que descreve o mapeamento dos vários parâmetros do Windo
 * Aprenda a [sintaxe do cmdlet Invoke-HcsDiagnostics](https://technet.microsoft.com/library/mt795371.aspx).
 
 * Saiba mais sobre como [solucionar problemas de implantação](storsimple-troubleshoot-deployment.md) no seu dispositivo StorSimple.
-

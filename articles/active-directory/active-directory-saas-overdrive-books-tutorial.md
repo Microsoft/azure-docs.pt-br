@@ -1,123 +1,229 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Overdrive Books | Microsoft Docs"
-description: "Saiba como usar o Overdrive Books com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!"
+title: "Tutorial: Integração do Azure Active Directory com o Overdrive | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Overdrive."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: e68cede7-1130-4813-bd55-22a9a6fc6bf5
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 01/26/2017
+ms.date: 06/28/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: 35c1dfb5aaee4427f40e72a2293c756ae4fcb76c
-
-
+ms.openlocfilehash: 515dd397c46df7c8c82afab9b50051e34db69d7a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-overdrive-books"></a>Tutorial: Integração do Active Directory do Azure com o Overdrive Books
-O objetivo deste tutorial é mostrar a integração do Azure com o OverDrive.  
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+# <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>Tutorial: Integração do Azure Active Directory com o Overdrive 
 
-* Uma assinatura válida do Azure
-* Uma assinatura habilitada para logon único do OverDrive
+Neste tutorial, você aprende a integrar o Overdrive ao Azure AD (Azure Active Directory).
 
-Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao OverDrive poderão fazer SSO (logon único) no aplicativo em seu site de empresa do OverDrive (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+A integração do Overdrive ao Azure AD oferece os seguintes benefícios:
 
-O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
+- Você pode controlar no Azure AD quem tem acesso ao Overdrive 
+- Você pode permitir que seus usuários façam logon automaticamente no Overdrive (logon único) com as contas do Azure AD deles
+- Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-1. Habilitando a integração de aplicativos para o OverDrive
-2. Configurando o logon único
-3. Configurando o provisionamento de usuários
-4. Atribuindo usuários
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![Cenário](./media/active-directory-saas-overdrive-books-tutorial/IC784462.png "Cenário")
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="enabling-the-application-integration-for-overdrive"></a>Habilitando a integração de aplicativos para o OverDrive
-O objetivo desta seção é descrever como habilitar a integração de aplicativos com o OverDrive.
+Para configurar a integração do Azure AD com o Overdrive, você precisará dos seguintes itens:
 
-**Para habilitar a integração de aplicativos para o OverDrive, execute as seguintes etapas:**
-
-1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-overdrive-books-tutorial/IC700993.png "Active Directory")
-2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
-3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
-   
-   ![Aplicativos](./media/active-directory-saas-overdrive-books-tutorial/IC700994.png "Aplicativos")
-4. Clique em **Adicionar** na parte inferior da página.
-   
-   ![Adicionar aplicativo](./media/active-directory-saas-overdrive-books-tutorial/IC749321.png "Adicionar aplicativo")
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
-   
-   ![Adicionar um aplicativo da galeria](./media/active-directory-saas-overdrive-books-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
-6. Na **caixa de pesquisa**, digite **OverDrive**.
-   
-   ![Galeria de Aplicativos](./media/active-directory-saas-overdrive-books-tutorial/IC784463.png "Galeria de Aplicativos")
-7. No painel de resultados, selecione **OverDrive** e clique em **Concluir** para adicionar o aplicativo.
-   
-   ![OverDrive](./media/active-directory-saas-overdrive-books-tutorial/IC799950.png "OverDrive")
-   
-## <a name="configuring-single-sign-on"></a>Configurando o logon único
-
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no OverDrive com a respectiva conta do AD do Azure usando federação baseada em protocolo SAML.
-
-**Para configurar o logon único, execute as seguintes etapas:**
-
-1. No portal clássico do Azure, na página de integração de aplicativos do **OverDrive**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
-   
-   ![Habilitar logon único](./media/active-directory-saas-overdrive-books-tutorial/IC784465.png "Habilitar logon único")
-2. Na página **Como você deseja que os usuários façam logon no OverDrive**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
-   
-   ![Configurar logon único](./media/active-directory-saas-overdrive-books-tutorial/IC784466.png "Configurar logon único")
-3. Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Entrada do OverDrive**, digite a URL usando o padrão “*http://mslibrarytest.libraryreserve.com*” e clique em **Avançar**.
-   
-   ![Configurar URL do Aplicativo](./media/active-directory-saas-overdrive-books-tutorial/IC784467.png "Configurar URL do Aplicativo")
-4. Na página **Configurar logon único no OverDrive** , para baixar o arquivo de metadados e, em seguida, enviá-lo à equipe de suporte do OverDrive.
-   
-   ![Configurar logon único](./media/active-directory-saas-overdrive-books-tutorial/IC784468.png "Configurar logon único")
-   
-   > [!NOTE]
-   > A equipe de suporte do OverDrive configura o logon único para você e envia uma notificação quando a configuração é concluída.
-   > 
-   > 
-5. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
-   
-   ![Configurar logon único](./media/active-directory-saas-overdrive-books-tutorial/IC784469.png "Configurar logon único")
-   
-## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
-
-Não há nenhum item de ação para a configuração de provisionamento de usuário para o OverDrive.  
-Quando um usuário atribuído tentar fazer logon no OverDrive, uma conta do OverDrive será automaticamente criada, se necessário.
+- Uma assinatura do AD do Azure
+- Uma assinatura habilitada para logon único do Overdrive
 
 > [!NOTE]
-> É possível usar qualquer outra ferramenta de criação da conta de usuário do OverDrive ou as APIs fornecidas pelo OverDrive para provisionar as contas de usuário do AAD.
-> 
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+
+- Não use o ambiente de produção, a menos que seja necessário.
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Descrição do cenário
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+
+1. Adicionar o Overdrive da galeria
+2. Configurar e testar o logon único do AD do Azure
+
+## <a name="adding-overdrive-from-the-gallery"></a>Adicionar o Overdrive da galeria
+Para configurar a integração do Overdrive ao Azure AD, você precisa adicionar o Overdrive na galeria à sua lista de aplicativos SaaS gerenciados.
+
+**Para adicionar o Overdrive por meio da galeria, execute as seguintes etapas:**
+
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+
+    ![Active Directory][1]
+
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+
+    ![Aplicativos][2]
+    
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+
+    ![Aplicativos][3]
+
+4. Na caixa de pesquisa, digite **Overdrive**.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-overdrive-books-tutorial/tutorial_overdrivebooks_search.png)
+
+5. No painel de resultados, selecione **Overdrive** e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-overdrive-books-tutorial/tutorial_overdrivebooks_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+Nesta seção, você configurará e testará o logon único do Azure AD com o Overdrive com base em um usuário de teste chamado “Brenda Fernandes”.
+
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Overdrive é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Overdrive.
+
+No Overdrive, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+
+Para configurar e testar o logon único do Azure AD com o Overdrive, você precisa concluir os seguintes blocos de construção:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criação de um usuário de teste do Overdrive](#creating-an-overdrive-test-user)** – para ter um equivalente de Brenda Fernandes no Overdrive que esteja vinculado à representação de usuário do Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+
+Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único em seu aplicativo Overdrive.
+
+**Para configurar o logon único do Azure AD com o Overdrive, execute as seguintes etapas:**
+
+1. No Portal do Azure, na página de integração de aplicativos do **Overdrive**, clique em **Logon único**.
+
+    ![Configurar Logon Único][4]
+
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
+    ![Configurar Logon Único](./media/active-directory-saas-overdrive-books-tutorial/tutorial_overdrivebooks_samlbase.png)
 
-## <a name="assigning-users"></a>Atribuindo usuários
-Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
+3. Na seção **URLs e Domínio do Overdrive**, execute as seguintes etapas:
 
-**Para atribuir usuários ao OverDrive, execute as seguintes etapas:**
+    ![Configurar Logon Único](./media/active-directory-saas-overdrive-books-tutorial/tutorial_overdrivebooks_url.png)
 
-1. No Portal clássico do Azure, crie uma conta de teste.
-2. Na página de integração de aplicativos do **OverDrive**, clique em **Atribuir usuários**.
-   
-   ![Atribuir Usuários](./media/active-directory-saas-overdrive-books-tutorial/IC784470.png "Atribuir Usuários")
-   
-3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
-   
-   ![Sim](./media/active-directory-saas-overdrive-books-tutorial/IC767830.png "Sim")
+    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `http://<subdomain>.libraryreserve.com`
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+    > [!NOTE] 
+    > O valor não é real. Atualize o valor com a URL de Logon real. Entre em contato com a [equipe de suporte ao cliente do Overdrive](https://help.overdrive.com/) para obter o valor. 
+ 
+4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+
+    ![Configurar o logon único](./media/active-directory-saas-overdrive-books-tutorial/tutorial_overdrivebooks_certificate.png) 
+
+5. Clique no botão **Salvar** .
+
+    ![Configurar Logon Único](./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_400.png)
+
+6. Para configurar o logon único no lado do **Overdrive**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte do Overdrive](https://help.overdrive.com/). Eles definem essa configuração para ter a conexão de SSO do SAML definida corretamente em ambos os lados.
+
+> [!TIP]
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
+
+### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+
+![Criar um usuário do AD do Azure][100]
+
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+
+1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-overdrive-books-tutorial/create_aaduser_01.png) 
+
+2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+    
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-overdrive-books-tutorial/create_aaduser_02.png) 
+
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+ 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-overdrive-books-tutorial/create_aaduser_03.png) 
+
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+ 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-overdrive-books-tutorial/create_aaduser_04.png) 
+
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+
+    d. Clique em **Criar**.
+ 
+### <a name="creating-an-overdrive-test-user"></a>Criação de um usuário de teste do Overdrive
+
+Não há nenhum item de ação para a configuração de provisionamento de usuário para o OverDrive.  
+
+Quando um usuário atribuído tentar fazer logon no OverDrive, uma conta do OverDrive será automaticamente criada, se necessário.
+
+>[!NOTE]
+>É possível usar qualquer outra ferramenta de criação da conta de usuário do OverDrive ou as APIs fornecidas pelo OverDrive para provisionar as contas de usuário do AAD.
+>
+
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao Overdrive.
+
+![Atribuir usuário][200] 
+
+**Para atribuir Brenda Fernandes ao Overdrive, execute as seguintes etapas:**
+
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+
+    ![Atribuir usuário][201] 
+
+2. Na lista de aplicativos, selecione **Overdrive**.
+
+    ![Configurar Logon Único](./media/active-directory-saas-overdrive-books-tutorial/tutorial_overdrivebooks_app.png) 
+
+3. No menu à esquerda, clique em **usuários e grupos**.
+
+    ![Atribuir usuário][202] 
+
+4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+
+    ![Atribuir usuário][203]
+
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+
+6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+
+7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+    
+### <a name="testing-single-sign-on"></a>Teste do logon único
+
+O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.
+
+Ao clicar no bloco do Overdrive no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Overdrive.
+
+## <a name="additional-resources"></a>Recursos adicionais
+
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 
+<!--Image references-->
 
-<!--HONumber=Feb17_HO1-->
+[1]: ./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_04.png
 
+[100]: ./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-overdrive-books-tutorial/tutorial_general_203.png
 

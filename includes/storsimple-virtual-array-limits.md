@@ -18,7 +18,8 @@
 | Número máximo de backups retidos pelo dispositivo virtual na pasta *.backups* do servidor de arquivos |5 |Isso inclui os backups manuais e os backups agendados mais recentes (gerados pela política de backup padrão). |
 | Número máximo de backups agendados mantidos pelo dispositivo |55 |30 backups diários<br>12 backups mensais<br>13 backups anuais |
 | Número máximo de backups manuais mantidos pelo dispositivo |45 | |
-| Número máximo de arquivos por compartilhamento |1 milhão |Ao ser realizada uma restauração de dispositivo, os tempos de restauração são proporcionais ao número de arquivos em todos os compartilhamentos no dispositivo. |
+| O número máximo de arquivos por compartilhamento para um servidor de arquivos |1 milhão |Ao ser realizada uma restauração de dispositivo, os tempos de restauração são proporcionais ao número de arquivos em todos os compartilhamentos no dispositivo. |
+| Número máximo de arquivos por volume para um servidor iSCSI |1 milhão | |
 | Número máximo de arquivos por matriz virtual |4 milhões | |
 | Tempo de recuperação de restauração |Restauração rápida |A restauração é baseada no mapa de calor e depende do tamanho do volume.<br>Operações de backup podem ocorrer enquanto uma operação de restauração está em andamento. |
 

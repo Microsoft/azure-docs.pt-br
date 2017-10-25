@@ -3,8 +3,3 @@
 * No aplicativo, adicione um novo item e clique em **+**.
 * Verifique se uma notificação é recebida e clique em **OK** para ignorar a notificação. Este tutorial foi concluído com êxito.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
 ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 4676e0da4309b1460e471f94946161fa22d46226
-ms.lasthandoff: 03/30/2017
-
+ms.openlocfilehash: 0b6e118cb13ab8185d8eeb42bec6147155967967
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-real-time-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Criação de um painel de informações do cliente em tempo real com aplicativos lógicos do Azure e funções do Azure
 
@@ -35,17 +35,17 @@ As funções fornecem computação sem servidor na nuvem.  Nesse cenário, usare
 
 A solução inteira pode ser [de compilação no Visual Studio](logic-apps-deploy-from-vs.md) e [implantados como parte de um modelo de recurso](logic-apps-create-deploy-template.md).  Também há vídeo passo a passo do cenário [no Channel 9](http://aka.ms/logicappsdemo).
 
-## <a name="building-the-logic-app-to-trigger-on-customer-data"></a>Criação do aplicativo lógico que terá como gatilho os comentários de cliente
+## <a name="build-the-logic-app-to-trigger-on-customer-data"></a>Criar o aplicativo lógico para ser disparado em dados do cliente
 
 Depois de [criar um aplicativo lógico](logic-apps-create-a-logic-app.md) no Visual Studio ou no portal do Azure:
 
 1. Adicione um gatilho para **novos tweets** do Twitter
-1. Configure o gatilho para escutar tweets com uma palavra-chave ou hashtag.
+2. Configure o gatilho para escutar tweets com uma palavra-chave ou hashtag.
 
-> [!NOTE]
-> A propriedade de recorrência do gatilho determina com que frequência o aplicativo lógico verifica novos itens nos gatilhos de sondagem
+   > [!NOTE]
+   > A propriedade de recorrência do gatilho determina com que frequência o aplicativo lógico verifica novos itens nos gatilhos de sondagem
 
-![Exemplo de gatilho do Twitter][1]
+   ![Exemplo de gatilho do Twitter][1]
 
 Agora, este aplicativo será acionado em todos os tweets novos.  Podemos então levar dados de tweet e compreender melhor o sentimento expressado.  Para isso, usamos o [serviços cognitivos do Azure](https://azure.microsoft.com/services/cognitive-services/) para detecção de sentimento do texto.
 
@@ -99,7 +99,7 @@ Depois de uma solução ser desenvolvida, ela pode ser capturada e implantada po
 
 Funções do Azure também podem ser incorporadas no modelo de implantação, para que a solução inteira, com todas as dependências, possa ser gerenciada como um modelo único.  Um exemplo de um modelo de implantação de função pode ser encontrado no [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 
-## <a name="whats-next"></a>E agora?
+## <a name="next-steps"></a>Próximas etapas
 
 * [Confira outros exemplos e cenários de aplicativos lógicos do Azure](logic-apps-examples-and-scenarios.md)
 * [Assista a um vídeo passo a passo sobre como criar essa solução de ponta a ponta](http://aka.ms/logicappsdemo)

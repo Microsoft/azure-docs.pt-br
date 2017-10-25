@@ -4,7 +4,7 @@ description: "Entenda como usar associações Twilio com Azure Functions."
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"
@@ -15,14 +15,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/20/2016
-ms.author: wesmc, glenga
+ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
-ms.openlocfilehash: 9355aae6e3fbf70aae08cc829d7addd2decc44fd
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: e8c5e8f2dfedae26486e1c8afbe0cec3f3228e86
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="send-sms-messages-from-azure-functions-using-the-twilio-output-binding"></a>Enviar mensagens SMS do Azure Functions usando associações de saída do Twilio
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
@@ -36,14 +35,16 @@ O Azure Functions dá suporte às saídas de associações do Twilio para habili
 ## <a name="functionjson-for-the-twilio-output-binding"></a>function.json para a associação de saída do Twilio
 O arquivo function.json fornece as seguintes propriedades:
 
-* `name`: nome da variável usada no código de função, para a mensagem de texto SMS do Twilio.
-* `type`: deve ser definido como *"twilioSms"*.
-* `accountSid`: esse valor deve ser definido como o nome de uma Configuração de aplicativo que contém a SID da sua conta do Twilio.
-* `authToken`: esse valor deve ser definido como o nome de uma Configuração de aplicativo que contém seu token de autenticação do Twilio.
-* `to`: esse valor é definido como o número de telefone para o qual será enviada a mensagem de texto SMS.
-* `from`: esse valor é definido como o número de telefone com o qual será enviada a mensagem de texto SMS.
-* `direction` : deve ser definido como *out*.
-* `body`: esse valor pode ser usado para fixar a mensagem de texto SMS no código se você não precisa defini-la dinamicamente no código de sua função. 
+|Propriedade  |Descrição  |
+|---------|---------|
+|**name**| Nome da variável usada no código de função para a mensagem de texto SMS do Twilio. |
+|**tipo**| deve ser definido como `twilioSms`.|
+|**accountSid**| Esse valor deve ser definido como o nome de uma Configuração de aplicativo que contém a SID da sua conta do Twilio.|
+|**authToken**| Esse valor deve ser definido como o nome de uma Configuração de aplicativo que contém seu token de autenticação do Twilio.|
+|**to**| Esse valor é definido como o número de telefone para o qual será enviada a mensagem de texto SMS.|
+|**from**| Esse valor é definido como o número de telefone com o qual será enviada a mensagem de texto SMS.|
+|**direction**| deve ser definido como `out`.|
+|**body**| Esse valor pode ser usado para fixar a mensagem de texto SMS no código se você não precisa defini-la dinamicamente no código de sua função. |
 
 function.json de exemplo:
 
@@ -157,5 +158,4 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
 

@@ -5,16 +5,4 @@
    
     ![Arquivos do Docker adicionados ao projeto](media/vs-azure-tools-docker-add-docker-support/docker-files-added.png)
 
-> [!NOTE]
-> Se estiver usando o [Docker para Windows Beta](https://beta.docker.com), abra Properties\Docker.props, remova o valor padrão e reinicie o Visual Studio para que o valor tenha efeito.
-> 
-> ```
-> <DockerMachineName Condition="'$(DockerMachineName)'=='' "></DockerMachineName>
-> ```
-> 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

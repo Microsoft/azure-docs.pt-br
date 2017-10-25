@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 07/05/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: be5bd67ed977a62b1574d8a48de0cfcfe8876bb4
-
-
+ms.openlocfilehash: 1c1b3aa86dc8211de0c07c9fb68da5685c86f551
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Como configurar e executar tarefas de inicialização para um serviço de nuvem
 Você pode usar as tarefas de inicialização para executar operações antes do início de uma função. As operações que talvez você queira executar incluem a instalação de um componente, o registro de componentes COM, a configuração de chaves do Registro ou o início de um processo de longa duração.
@@ -99,9 +99,9 @@ A seguir, a descrição dos atributos do elemento **Task** do arquivo [ServiceDe
 **executionContext** - especifica o nível de privilégio para a tarefa de inicialização. O nível de privilégio pode ser limitado ou elevado:
 
 * **limitado**  
-   A tarefa de inicialização é executada com os mesmos privilégios da função. Quando o atributo **executionContext** do elemento [Runtime] também é **limitado**, os privilégios do usuário são usados.
+  A tarefa de inicialização é executada com os mesmos privilégios da função. Quando o atributo **executionContext** do elemento [Runtime] também é **limitado**, os privilégios do usuário são usados.
 * **elevado**  
-   A tarefa de inicialização é executada com privilégios de administrador. Isso permite que as tarefas de inicialização instalem programas, façam alterações de configuração no IIS, executem alterações no Registro e outras tarefas no nível de administrador sem aumentar o nível de privilégio da própria função.  
+  A tarefa de inicialização é executada com privilégios de administrador. Isso permite que as tarefas de inicialização instalem programas, façam alterações de configuração no IIS, executem alterações no Registro e outras tarefas no nível de administrador sem aumentar o nível de privilégio da própria função.  
 
 > [!NOTE]
 > O nível de privilégio de uma tarefa de inicialização não precisa ser igual ao da própria função.
@@ -120,9 +120,9 @@ A seguir, a descrição dos atributos do elemento **Task** do arquivo [ServiceDe
   
     Para garantir que o arquivo em lote terminará com um **errorlevel** zero, execute o comando `EXIT /B 0` no final do processo do arquivo em lote.
 * **segundo plano**  
-   As tarefas são executadas de forma assíncrona, em paralelo com a inicialização da função.
+  As tarefas são executadas de forma assíncrona, em paralelo com a inicialização da função.
 * **primeiro plano**  
-   As tarefas são executadas de forma assíncrona, em paralelo com a inicialização da função. A principal diferença entre uma tarefa em **primeiro plano** e **segundo plano** é que uma tarefa em **primeiro plano** evita que a função recicle ou finalize até que a tarefa seja concluída. As tarefas em **segundo plano** não têm essa restrição.
+  As tarefas são executadas de forma assíncrona, em paralelo com a inicialização da função. A principal diferença entre uma tarefa em **primeiro plano** e **segundo plano** é que uma tarefa em **primeiro plano** evita que a função recicle ou finalize até que a tarefa seja concluída. As tarefas em **segundo plano** não têm essa restrição.
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 As variáveis de ambiente são uma maneira de passar informações para uma tarefa de inicialização. Por exemplo, você pode colocar o caminho para um blob que contenha um programa a ser instalado, ou números de porta que sua função usará, ou configurações para controlar recursos de sua tarefa de inicialização.
@@ -167,9 +167,3 @@ Saiba como executar algumas [tarefas de inicialização comuns](cloud-services-s
 [Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

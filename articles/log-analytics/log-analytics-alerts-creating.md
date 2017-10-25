@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/23/2017
+ms.date: 05/23/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: eec118430c6262626728c3156634361c977ccb4b
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: c34fb7295e8f386f0e7cf2c1db6b26a3e49eae98
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="working-with-alert-rules-in-log-analytics"></a>Trabalhar com regras de alerta no Log Analytics
 Os alertas são criados por regras de alerta que executam pesquisas de log automaticamente em intervalos regulares.  Eles criarão um registro de alerta se os resultados corresponderem a critérios específicos.  A regra pode então executar automaticamente uma ou mais ações para notificar você proativamente do alerta ou invocar outro processo.   
@@ -32,6 +31,9 @@ Este artigo descreve os processos para criar e editar regras de alerta usando o 
 ## <a name="create-an-alert-rule"></a>Criar uma regra de alerta
 
 Para criar uma regra de alerta usando o portal do OMS, você começa criando uma pesquisa de log para os registros que devem invocar o alerta.  O botão **alerta** estará disponível para que você possa criar e configurar a regra de alerta.
+
+>[!NOTE]
+> Atualmente, podem ser criadas no máximo 250 regras de alerta em um espaço de trabalho do OMS. 
 
 1. Na página de Visão Geral do OMS, clique em **Pesquisa de Log**.
 2. Crie uma nova consulta de pesquisa de log ou selecione uma pesquisa de log salva. 
@@ -152,5 +154,4 @@ Ações de runbook iniciam um runbook na Automação do Azure.
 * Leia mais sobre [pesquisas de log](log-analytics-log-searches.md) que podem gerar alertas.
 * Conclua um passo a passo para [configurar um webhook](log-analytics-alerts-webhooks.md) com uma regra de alerta.  
 * Aprenda a criar [runbooks na Automação do Azure](https://azure.microsoft.com/documentation/services/automation) para corrigir os problemas identificados por alertas.
-
 

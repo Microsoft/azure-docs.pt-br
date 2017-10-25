@@ -1,6 +1,6 @@
 ---
 title: "Relatórios avançados do Windows Universal com o Engagement para Aplicativos Móveis"
-description: Como integrar o Mobile Engagement do Azure com aplicativos do Windows Universal
+description: Como integrar o Azure Mobile Engagement com aplicativos do Windows Universal
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: feac309db1ffce0945012e293bfc1df417aed876
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="advanced-reporting-with-the-windows-universal-apps-engagement-sdk"></a>Relatórios avançados com o SDK do Engagement para Aplicativos Universais do Windows
 > [!div class="op_single_selector"]
@@ -160,10 +160,4 @@ Recomendamos chamar `StartActivity` dentro de seu método `OnNavigatedTo` da sua
 Opcionalmente, convém relatar eventos específicos do aplicativo, erros e trabalhos, para fazer isso, use os outros métodos encontrados na classe `EngagementAgent` . A API do Engagement permite usar todos os recursos avançados do Engagement.
 
 Para obter mais informações, consulte [Como usar a API de marcação avançada do Mobile Engagement em seu aplicativo do Windows Universal](mobile-engagement-windows-store-use-engagement-api.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

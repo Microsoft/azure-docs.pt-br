@@ -7,8 +7,3 @@ Talvez seja necessário um endereço IP estático para servidores Web que exigem
 
 Você pode seguir as etapas abaixo para implantar o ambiente mostrado na figura acima.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

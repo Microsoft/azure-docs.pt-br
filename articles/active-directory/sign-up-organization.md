@@ -1,6 +1,6 @@
 ---
 title: "Inscrever-se no Azure como uma organização"
-description: "Saiba como você pode usar uma conta do trabalho ou escola para aproveitar as contas de usuário existentes, políticas, configurações ou implantações de servidor local já existente e melhorar a eficiência entre a infraestrutura de identidade local da sua organização e o Azure AD."
+description: "Saiba como você pode usar uma conta corporativa ou de estudante para aproveitar as contas de usuário existentes, as políticas, as configurações ou implantações de servidor local que você já tem e melhorar a eficiência entre a infraestrutura de identidade local da sua organização e o Azure AD."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2017
+ms.date: 08/28/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bdbe25307b8b5e811dad374583d9ba3b96e212a5
-ms.lasthandoff: 11/17/2016
-
-
+ms.reviewer: jeffsta
+ms.custom: it-pro
+ms.openlocfilehash: 029fb8ddad84b297d99509a0a9ad35d9548e5c00
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sign-up-for-azure-as-an-organization"></a>Inscrever-se no Azure como uma organização
 Até recentemente, era possível se inscrever para uma nova assinatura do Microsoft Azure usando apenas a sua Conta da Microsoft (Windows Live ID). Agora, o Azure oferece suporte aos dois seguintes métodos de conta para inscrição:
@@ -35,5 +36,4 @@ Deseja inscrever-se no Azure como uma organização? [**Inscreva-se agora**](htt
 * [Blog do Microsoft Azure](https://azure.microsoft.com/blog/)
 * [O que é o AD do Azure?](active-directory-whatis.md)
 * [Usar sua infraestrutura de identidade local na nuvem](active-directory-aadconnect.md)
-
 

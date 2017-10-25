@@ -3,8 +3,8 @@ title: "Especificando uma versão de Node.js"
 description: "Saiba como especificar a versão de Node.js usada pelos Sites e Serviços de Nuvem do Azure"
 services: 
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: TomArcher
+manager: routlaw
 editor: 
 ms.assetid: d0e15278-2ab4-4ec8-8256-913839c6d5ef
 ms.service: multiple
@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/22/2016
-ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 754e07e1942a809e415a1da6d1eab6307c65a47a
-ms.lasthandoff: 03/21/2017
-
-
+ms.date: 08/17/2016
+ms.author: tarcher
+ms.openlocfilehash: a20179c72b227deb14df442bea7b80cf31728aa7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="specifying-a-nodejs-version-in-an-azure-application"></a>Especificar uma versão do Node.js em um aplicativo do Azure
 Ao hospedar um aplicativo Node.js, talvez você queira garantir que seu aplicativo use uma versão específica do Node.js. Há várias maneiras de fazer isso para aplicativos hospedados no Azure.
@@ -90,12 +89,11 @@ Enquanto o Azure fornece várias versões padrão do Node.js, talvez você queir
     Depois que o aplicativo tiver sido publicado, abra o site em um navegador. Você deve ver uma mensagem dizendo "Olá da versão do nó que executa o Azure: v0.8.1".
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você aprendeu como especificar a versão do Node.js usada pelo seu aplicativo, saiba [como trabalhar com módulos], [criar e implantar um Site no Node.js](app-service-web/web-sites-nodejs-develop-deploy-mac.md) e [Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux].
+Agora que você aprendeu como especificar a versão do Node.js usada pelo seu aplicativo, saiba [como trabalhar com módulos], [criar e implantar um Site no Node.js](app-service/app-service-web-get-started-nodejs.md) e [Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux].
 
 Para saber mais, confira o [Centro de desenvolvedores do Node.js](https://azure.microsoft.com/develop/nodejs/).
 
 [Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux]:cli-install-nodejs.md
 [Ferramentas de linha de comando do Azure]:cli-install-nodejs.md
 [como trabalhar com módulos]: nodejs-use-node-modules-azure-apps.md
-[build and deploy a Node.js Web Site]: web-sites-nodejs-develop-deploy-mac.md
-
+[build and deploy a Node.js Web Site]: app-service/app-service-web-get-started-nodejs.md

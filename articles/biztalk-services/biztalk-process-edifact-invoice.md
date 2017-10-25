@@ -1,26 +1,29 @@
 ---
 title: "Tutorial: Processar faturas EDIFACT usando os Serviços BizTalk do Azure | Microsoft Docs"
 description: "Como criar e configurar o conector do Box ou aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
-services: logic-apps
+services: biztalk-services
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
 editor: 
 ms.assetid: 7e0b93fa-3e2b-4a9c-89ef-abf1d3aa8fa9
-ms.service: logic-apps
+ms.service: biztalk-services
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b7ad7b91c6b836f26b45959ef65a99666a4bf69a
-
-
+ms.openlocfilehash: 4597ee28e4c3b797c0ab050b21a126a95d9e8191
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Tutorial: Processar faturas EDIFACT usando os Serviços BizTalk do Azure
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Você pode usar o Portal dos Serviços BizTalk para configurar e implantar contratos X12 e EDIFACT. Neste tutorial, vamos examinar como criar um contrato EDIFACT para trocar faturas entre parceiros comerciais. Este tutorial foi escrito em torno de uma solução comercial de ponta a ponta envolvendo dois parceiros comerciais, Northwind e Contoso, que trocam mensagens EDIFACT.  
 
 ## <a name="sample-based-on-this-tutorial"></a>Exemplo baseado neste tutorial
@@ -223,7 +226,7 @@ O projeto dos Serviços BizTalk, **InvoiceProcessingBridge**, que transforma a m
 Neste tópico, veremos como testar a solução usando o aplicativo **Cliente de Tutorial** fornecido como parte do exemplo.  
 
 1. No Visual Studio, pressione F5 para iniciar o **Cliente de Tutorial**.
-2. A tela deverá ter valores pré-populados da etapa de criação de filas do Barramento de Serviço. Clique em **Próximo**.
+2. A tela deverá ter valores pré-populados da etapa de criação de filas do Barramento de Serviço. Clique em **Avançar**.
 3. Na próxima janela, forneça as credenciais de ACS para a assinatura dos Serviços BizTalk e os pontos de extremidade onde as pontes EAI e EDI (recebimento) foram implantadas.
    
    O ponto de extremidade de ponte EAI foi copiado na etapa anterior. Para o ponto de extremidade da ponte de recebimento EDI, no Portal dos Serviços BizTalk, acesse o contrato > Configurações de Recebimento > Transporte > Ponto de Extremidade.
@@ -249,10 +252,10 @@ O aspecto mais importante ao trabalhar em lotes é a versão real do lote, tamb�
 
 1. No Portal dos Serviços BizTalk, clique no contrato que você criou anteriormente. Clique em Configurações de Envio > Em lote > Adicionar Lotes.
 2. Para o nome do lote, digite **InvoiceBatch**, forneça uma descrição e clique em **Avançar**.
-3. Especifique os critérios de lote, que definem quais mensagens devem ser agrupadas. Nesta solução, agrupamos todas as mensagens. Selecione a opção Usar definições avançadas e digite **1 = 1**. Essa é uma condição que será sempre verdadeira e, portanto, todas as mensagens serão agrupadas. Clique em **Próximo**.
+3. Especifique os critérios de lote, que definem quais mensagens devem ser agrupadas. Nesta solução, agrupamos todas as mensagens. Selecione a opção Usar definições avançadas e digite **1 = 1**. Essa é uma condição que será sempre verdadeira e, portanto, todas as mensagens serão agrupadas. Clique em **Avançar**.
    
    ![][17]  
-4. Especifique um critério de liberação de lote. Na caixa suspensa, selecione **MessageCountBased** e, para **Contagem**, especifique **3**. Isso significa que um lote de três mensagens será enviado para a Northwind. Clique em **Próximo**.
+4. Especifique um critério de liberação de lote. Na caixa suspensa, selecione **MessageCountBased** e, para **Contagem**, especifique **3**. Isso significa que um lote de três mensagens será enviado para a Northwind. Clique em **Avançar**.
    
    ![][18]  
 5. Examine o resumo e clique em **Salvar**. Clique em **Implantar** para reimplantar o contrato.
@@ -277,10 +280,4 @@ O aspecto mais importante ao trabalhar em lotes é a versão real do lote, tamb�
 [16]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-16.PNG  
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG  
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

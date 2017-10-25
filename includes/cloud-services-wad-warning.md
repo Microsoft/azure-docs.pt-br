@@ -13,8 +13,3 @@
 >
 > Você pode reativar suas extensões por meio do Portal do Azure ou do PowerShell depois que tiver implantado a função atualizada.
 >
-
-
-<!--HONumber=Jan17_HO3-->
-
-

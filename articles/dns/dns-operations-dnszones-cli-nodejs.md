@@ -13,18 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
-ms.openlocfilehash: 9b545937f3e375dfcef815a66263a57bd5042f69
-ms.lasthandoff: 02/27/2017
-
+ms.openlocfilehash: 588c87749f049eff5b9e0729f6769c8367ba41e4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-10"></a>Como gerenciar Zonas DNS no DNS do Azure usando a CLI do Azure 1.0
 
 > [!div class="op_single_selector"]
-> * [CLI do Azure](dns-operations-dnszones-cli.md)
+> * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
+> * [CLI 1.0 do Azure](dns-operations-dnszones-cli-nodejs.md)
+> * [CLI 2.0 do Azure](dns-operations-dnszones-cli.md)
 
 Este guia mostra como gerenciar as zonas DNS usando a CLI do Azure 1.0 entre plataformas, que está disponível para Windows, Mac e Linux. Você também pode gerenciar seus registros DNS usando o [Azure PowerShell](dns-operations-dnszones.md) ou o Portal do Azure.
 
@@ -61,7 +62,7 @@ O exemplo a seguir cria uma zona DNS chamada *contoso.com* no grupo de recursos 
 azure network dns zone create MyResourceGroup contoso.com
 ```
 
-### <a name="to-create-a-dns-zone-with-tags"></a>Para criar uma zona DNS com marcas.
+### <a name="to-create-a-dns-zone-with-tags"></a>Para criar uma zona DNS com marcas
 
 O exemplo a seguir mostra como criar uma zona DNS com duas [marcas do Azure Resource Manager](dns-zones-records.md#tags), *project = demo* e *env = test*, usando o parâmetro `--tags` (forma abreviada `-t`):
 
@@ -152,5 +153,4 @@ azure network dns zone delete MyResourceGroup contoso.com
 Saiba como [gerenciar conjuntos de registros e registros](dns-getstarted-create-recordset-cli-nodejs.md) em sua zona DNS.
 
 Saiba como [delegar seu domínio ao DNS do Azure](dns-domain-delegation.md).
-
 

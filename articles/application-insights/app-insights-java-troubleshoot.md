@@ -3,8 +3,8 @@ title: Solucionar problemas do Application Insights em um projeto Web Java
 description: "Guia de solução de problemas: monitoramento em tempo real aplicativos Java com o Application Insights."
 services: application-insights
 documentationcenter: java
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 4fc4561516490b9b285220e7ae688bf97384fe6e
-ms.openlocfilehash: 9164a93308a4a2f3eed4ff6262942239df029dae
-
-
+ms.author: bwren
+ms.openlocfilehash: ce46a4f561a273dc340b090a5bf0c8932a308722
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Solução de problemas e perguntas e respostas para o Application Insights para Java
 Dúvidas ou problemas com o [Azure Application Insights em Java][java]? Aqui estão algumas dicas.
@@ -95,13 +95,13 @@ Você também pode instruir o agente para enviar a saída para um arquivo:
 
 ```XML
 
-    <SDKLogger type="File">
+    <SDKLogger type="FILE">
       <enabled>True</enabled>
-      <uniqueprefix>JavaSDKLog</uniqueprefix>
+      <UniquePrefix>JavaSDKLog</UniquePrefix>
     </SDKLogger>
 ```
 
-Os arquivos podem ser encontrados em `%temp%\javasdklogs`.
+Os arquivos podem ser encontrados em `%temp%\javasdklogs` ou `java.io.tmpdir` no caso do servidor Tomcat.
 
 
 ## <a name="the-azure-start-screen"></a>A tela inicial do Azure
@@ -145,11 +145,5 @@ Consulte [Privacidade e retenção de dados][data].
 [javalogs]: app-insights-java-trace-logs.md
 [platforms]: app-insights-platforms.md
 [track]: app-insights-api-custom-events-metrics.md
-[usage]: app-insights-web-track-usage.md
-
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+[usage]: app-insights-javascript.md
 

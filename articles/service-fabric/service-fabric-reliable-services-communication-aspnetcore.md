@@ -1,6 +1,6 @@
 ---
-title: "Comunicação de serviço com Núcleo do ASP.NET | Microsoft Docs"
-description: "Aprenda a usar o Núcleo do ASP.NET em Reliable Services com e sem estado."
+title: "Comunicação de serviço com o Núcleo do ASP.NET | Microsoft Docs"
+description: "Aprenda a usar o Núcleo do ASP.NET em Serviços Confiáveis com e sem estado."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -12,19 +12,27 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 03/22/2017
+ms.date: 05/02/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: cce66615ebe457ed7230401d154ddad07941f5bc
-ms.lasthandoff: 03/23/2017
-
-
+ms.openlocfilehash: 8ac4d409f7363e8b4ae98be659a627ac8db8d787
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Núcleo do ASP.NET em Serviços Confiáveis do Service Fabric
 
-O Núcleo do ASP.NET é uma nova estrutura de software livre e plataforma cruzada para criar aplicativos modernos baseados em nuvem conectados à Internet, como aplicativos Web, aplicativos de IoT e back-ends móveis. Embora os aplicativos do Núcleo do ASP.NET possam ser executados no Núcleo do .NET ou no .NET Framework completo, os serviços do Service Fabric atualmente só podem ser executados no .NET Framework completo. Isso significa que, ao criar um serviço do Service Fabric do Núcleo do ASP.NET, você ainda deverá usar o .NET Framework completo.
+O Núcleo do ASP.NET é uma nova estrutura de software livre e plataforma cruzada para criar aplicativos modernos baseados em nuvem conectados à Internet, como aplicativos Web, aplicativos de IoT e back-ends móveis. 
+
+Este artigo é um guia detalhado de hospedagem de serviços do ASP.NET Core nos Reliable Services do Service Fabric usando o conjunto **Microsoft.ServiceFabric.AspNetCore.*** de pacotes NuGet.
+
+Para obter um tutorial de introdução sobre o ASP.NET Core no Service Fabric, além de instruções sobre como configurar o ambiente de desenvolvimento, consulte [Criando um front-end da Web para seu aplicativo usando o ASP.NET Core](service-fabric-add-a-web-frontend.md).
+
+O restante deste artigo pressupõe que você já esteja familiarizado com o ASP.NET Core. Se não estiver, recomendamos ler os [Conceitos básicos do ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/index).
+
+## <a name="aspnet-core-in-the-service-fabric-environment"></a>ASP.NET Core no ambiente do Service Fabric
+
+Embora os aplicativos do Núcleo do ASP.NET possam ser executados no Núcleo do .NET ou no .NET Framework completo, os serviços do Service Fabric atualmente só podem ser executados no .NET Framework completo. Isso significa que, ao criar um serviço do Service Fabric no ASP.NET Core, você ainda deve ter como destino o .NET Framework completo.
 
 O Núcleo do ASP.NET pode ser usado de duas maneiras diferentes no Service Fabric:
  - **Hospedado como um executável convidado**. Isso é usado principalmente para executar aplicativos do Núcleo do ASP.NET existentes no Service Fabric sem alterações de código.
@@ -32,16 +40,11 @@ O Núcleo do ASP.NET pode ser usado de duas maneiras diferentes no Service Fabri
 
 O restante deste artigo explica como usar o Núcleo do ASP.NET em um Serviço Confiável usando os componentes de integração de Núcleo do ASP.NET que são fornecidos com o SDK do Service Fabric. 
 
-> [!NOTE]
->O restante deste artigo pressupõe que você esteja familiarizado com a hospedagem no Núcleo do ASP.NET. Para saber mais sobre a hospedagem no Núcleo do ASP.NET, confira: [Introdução à hospedagem no Núcleo do ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/hosting).
-
-> [!NOTE]
-> Para desenvolver Serviços Confiáveis com o Núcleo do ASP.NET no Visual Studio 2015, você precisará ter as [Ferramentas de Visualização do Núcleo do .NET VS 2015 2](https://www.microsoft.com/net/download/core) instaladas.
-
 ## <a name="service-fabric-service-hosting"></a>Hospedagem de serviços do Service Fabric
-No Service Fabric, uma ou mais instâncias e/ou réplicas do serviço executado em um *processo de host do serviço*, um arquivo executável que executa o código de serviço. Como autor do serviço, você é responsável pelo processo de host do serviço, e o Service Fabric o ativa e monitora para você.
 
-O ASP.NET tradicional (até 5 MVC) está intimamente ligado ao IIS por meio de System.Web.dll. O Núcleo do ASP.NET fornece uma separação entre o servidor Web e o aplicativo Web. Isso permite a portabilidade de aplicativos Web sejam entre diferentes servidores Web e também permite que os servidores Web sejam *auto-hospedados*, o que significa que você pode iniciar um servidor Web em seu próprio processo, em vez de um processo que pertence ao software do servidor Web dedicado, como o IIS. 
+No Service Fabric, uma ou mais instâncias e/ou réplicas do serviço são executadas em um *processo de host do serviço*, um arquivo executável que executa o código de serviço. Como autor do serviço, você é responsável pelo processo de host do serviço, e o Service Fabric o ativa e monitora para você.
+
+O ASP.NET tradicional (até 5 MVC) está estreitamente relacionado ao IIS por meio de System.Web.dll. O Núcleo do ASP.NET fornece uma separação entre o servidor Web e o aplicativo Web. Isso permite a portabilidade de aplicativos Web entre diferentes servidores Web e  permite também que os servidores Web sejam *auto-hospedados*, o que significa que você pode iniciar um servidor Web em seu próprio processo, em vez de um processo que pertence ao software do servidor Web dedicado, como o IIS. 
 
 Para combinar um serviço do Service Fabric ao ASP.NET, como um executável de convidado ou em um Serviço Confiável, você deve poder iniciar o ASP.NET no processo de host de serviço. A hospedagem interna do Núcleo do ASP.NET permite que você faça isso.
 
@@ -68,11 +71,11 @@ Ambos os ouvintes de comunicação fornecem um construtor que usa os seguintes a
 O pacote do NuGet `Microsoft.ServiceFabric.Services.AspNetCore` inclui o método de extensão `UseServiceFabricIntegration` no `IWebHostBuilder` que adiciona o middleware com reconhecimento do Service Fabric. Esse middleware configura o `ICommunicationListener` do Kestrel ou o WebListener para registrar uma URL de serviço exclusivo no Serviço de Nomenclatura do Service Fabric e valida solicitações do cliente para assegurar que os clientes se conectem ao serviço certo. Isso é necessário em um ambiente de host compartilhado como o Service Fabric, em que vários aplicativos Web podem ser executados na mesma máquina física ou virtual, mas não usam nomes de host exclusivos, para impedir que os clientes se conectem ao serviço errado por engano. Esse cenário é descrito em mais detalhes na próxima seção.
 
 ### <a name="a-case-of-mistaken-identity"></a>Um caso de identidade incorreta
-Independentemente do protocolo, as réplicas de serviço escutam em uma combinação de IP:porta exclusiva. Depois que uma réplica de serviço começa a escutar em um ponto de extremidade IP:porta, relata esse endereço de ponto de extremidade para o Serviço de Nomenclatura do Service Fabric, em que pode ser descoberto por clientes ou outros serviços. Se os serviços usarem portas de aplicativos atribuídas dinamicamente, uma réplica de serviço poderá usar coincidentemente o mesmo ponto de extremidade IP:porta que outro serviço que estava anteriormente na mesma máquina física ou virtual. Isso pode fazer com que um cliente se conecte incorretamente ao serviço errado. Isso poderá acontecer se a seguinte sequência de eventos ocorrer:
+Independentemente do protocolo, as réplicas de serviço escutam em uma combinação de IP:porta exclusiva. Depois que uma réplica de serviço começa a escutar em um ponto de extremidade IP:porta, ela relata esse endereço do ponto de extremidade para o Serviço de Nomenclatura do Service Fabric, onde pode ser descoberto por clientes ou por outros serviços. Se os serviços usarem portas de aplicativos atribuídas dinamicamente, uma réplica de serviço poderá usar coincidentemente o mesmo ponto de extremidade IP:porta que outro serviço que estava anteriormente na mesma máquina física ou virtual. Isso pode fazer com que um cliente se conecte incorretamente ao serviço errado. Isso poderá acontecer se a seguinte sequência de eventos ocorrer:
 
  1. O serviço A escuta em 10.0.0.1:30000 via HTTP. 
  2. O cliente resolve o serviço A e obtém o endereço 10.0.0.1:30000
- 3. O Serviço A move-se para um para um nó diferente.
+ 3. O Serviço A move-se para um nó diferente.
  4. O serviço B é colocado em 10.0.0.1 e usa coincidentemente a mesma porta 30000.
  5. O cliente tenta se conectar ao serviço A com o endereço de cache 10.0.0.1:30000.
  6. Agora o cliente é conectado com êxito ao serviço B sem perceber que está conectado ao serviço errado.
@@ -86,7 +89,7 @@ Em um ambiente confiável, o middleware adicionado pelo método `UseServiceFabri
 
 Os serviços que usam uma porta atribuída dinamicamente devem fazer uso desse middleware.
 
-Os serviços que usam uma porta exclusiva fixa não têm esse problema em um ambiente cooperativo. Uma porta exclusiva fixa é normalmente usada para serviços voltados para o exterior que precisam de uma porta conhecida para que os aplicativos cliente se conectem. Por exemplo, a maioria dos aplicativos Web voltados para a Internet usará a porta 80 ou 443 para conexões de navegador da Web. Nesse caso, o identificador exclusivo não deve ser habilitado.
+Os serviços que usam uma porta exclusiva fixa não têm esse problema em um ambiente cooperativo. Uma porta exclusiva fixa é normalmente usada para serviços voltados para o exterior que precisam de uma porta conhecida para que os aplicativos cliente se conectem. Por exemplo, a maioria dos aplicativos Web voltados para a Internet usará a porta 80 ou 443 para conexões do navegador da Web. Nesse caso, o identificador exclusivo não deve ser habilitado.
 
 O diagrama a seguir mostra o fluxo de solicitação com o middleware habilitado:
 
@@ -97,7 +100,7 @@ As implementações `ICommunicationListener` do Kestrel e do WebListener usam es
 ## <a name="weblistener-in-reliable-services"></a>WebListener em Serviços Confiáveis
 O WebListener pode ser usado em um Serviço Confiável importando o pacote **Microsoft.ServiceFabric.AspNetCore.WebListener** do NuGet. Esse pacote contém o `WebListenerCommunicationListener`, uma implementação do `ICommunicationListener`, que permite que você crie um WebHost de Núcleo do ASP.NET em um serviço confiável usando o WebListener como o servidor Web.
 
-O WebListener se baseia na [API do Windows HTTP Server](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx). Isso usa o driver de kernel *http.sys* usada pelo IIS para processar solicitações HTTP e roteá-las para processos em execução de aplicativos Web. Isso permite que vários processos na mesma máquina física ou virtual hospedem aplicativos Web na mesma porta, sem ambiguidade graças a um caminho de URL ou nome do host exclusivo. Esses recursos são úteis no Service Fabric para hospedar vários sites no mesmo cluster.
+O WebListener se baseia na [API do Windows HTTP Server](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx). Isso usa o driver de kernel *http.sys* usado pelo IIS para processar solicitações HTTP e roteá-las para processos que executam os aplicativos Web. Isso permite que vários processos na mesma máquina física ou virtual hospedem aplicativos Web na mesma porta, sem ambiguidade graças a um caminho de URL ou nome do host exclusivo. Esses recursos são úteis no Service Fabric para hospedar vários sites no mesmo cluster.
 
 O diagrama a seguir ilustra como o WebListener usa o driver de kernel *http.sys* no Windows para o compartilhamento de porta:
 
@@ -119,7 +122,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
                         services => services
                             .AddSingleton<StatelessServiceContext>(serviceContext))
                     .UseContentRoot(Directory.GetCurrentDirectory())
-                    .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
+                    .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
                     .UseStartup<Startup>()
                     .UseUrls(url)
                     .Build()))
@@ -129,7 +132,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### <a name="weblistener-in-a-stateful-service"></a>WebListener em um serviço com estado
 
-O `WebListenerCommunicationListener` no momento não é projetado para uso em serviços com monitoração de estado devido a complicações com o recurso de compartilhamento de porta subjacente *http.sys*. Para obter mais informações, confira a seção a seguir sobre a alocação de porta dinâmica com o WebListener. Para serviços com monitoração de estado, o Kestrel é o servidor Web recomendado.
+O `WebListenerCommunicationListener` no momento não é projetado para uso em serviços com estado, devido a complicações com o recurso de compartilhamento de porta subjacente, *http.sys*. Para obter mais informações, confira a seção a seguir sobre a alocação de porta dinâmica com o WebListener. Para serviços com estado, o Kestrel é o servidor Web recomendado.
 
 ### <a name="endpoint-configuration"></a>Configuração de ponto de extremidade
 
@@ -184,7 +187,7 @@ Para usar uma porta atribuída dinamicamente com o WebListener, omita a propried
   </Resources>
 ```
 
-Observe que uma porta dinâmica alocada por uma configuração `Endpoint` fornece apenas uma porta *por processo de host*. O modelo de hospedagem do Service Fabric atual permite que várias instâncias de serviço e/ou réplicas sejam hospedados no mesmo processo, o que significa que cada uma delas compartilhará a mesma porta quando for alocada por meio da configuração `Endpoint`. Várias instâncias do WebListener podem compartilhar uma porta usando o recurso subjacente de compartilhamento de porta *http.sys*, mas não há suporte para isso no `WebListenerCommunicationListener` devido às complicações introduzidas para solicitações do cliente. Para o uso de portas dinâmicas, o Kestrel é o servidor Web recomendado.
+Observe que uma porta dinâmica alocada por uma configuração `Endpoint` fornece apenas uma porta *por processo de host*. O modelo de hospedagem do Service Fabric atual permite que várias instâncias de serviço e/ou réplicas sejam hospedadas no mesmo processo, o que significa que cada uma delas compartilhará a mesma porta quando for alocada por meio da configuração `Endpoint`. Várias instâncias do WebListener podem compartilhar uma porta usando o recurso subjacente de compartilhamento de porta *http.sys*, mas não há suporte para isso no `WebListenerCommunicationListener` devido às complicações introduzidas para solicitações do cliente. Para o uso de portas dinâmicas, o Kestrel é o servidor Web recomendado.
 
 ## <a name="kestrel-in-reliable-services"></a>Kestrel em Serviços Confiáveis
 O Kestrel pode ser usado em um Serviço Confiável importando o pacote **Microsoft.ServiceFabric.AspNetCore.Kestrel** do NuGet. Esse pacote contém o `KestrelCommunicationListener`, uma implementação do `ICommunicationListener`, que permite que você crie um WebHost de Núcleo do ASP.NET em um serviço confiável usando o Kestrel como o servidor Web.
@@ -255,7 +258,7 @@ O Kestrel é um servidor Web autônomo simples. Diferentemente do WebListener (o
 
 #### <a name="use-kestrel-with-a-static-port"></a>Usar Kestrel com uma porta estática
 Uma porta estática pode ser configurada na configuração do `Endpoint` de ServiceManifest.XML para uso com Kestrel. Embora não seja estritamente necessário, há dois benefícios potenciais:
- 1. Se a porta não estiver no intervalo de portas do aplicativo, será aberta por meio do firewall do sistema operacional pelo Service Fabric.
+ 1. Se a porta não estiver no intervalo de portas do aplicativo, ela será aberta por meio do firewall do sistema operacional pelo Service Fabric.
  2. A URL fornecida através de `KestrelCommunicationListener` usará essa porta.
 
 ```xml
@@ -288,7 +291,7 @@ Nessa configuração, `KestrelCommunicationListener` selecionará automaticament
 ## <a name="scenarios-and-configurations"></a>Cenários e configurações
 Esta seção descreve os cenários a seguir e fornece a combinação recomendada de servidor Web, configuração de porta, opções de integração do Service Fabric e diversos parâmetros para obter um serviço corretamente funcional:
  - serviço sem estado do Núcleo do ASP.NET exposto externamente
- - serviço sem estado do Núcleo do ASP.NET somente interno
+ - Serviço do Núcleo do ASP.NET sem estado somente para uso interno
  - serviço com estado do Núcleo do ASP.NET somente interno
 
 Um serviço **exposto externamente** é aquele que expõe um ponto de extremidade acessível de fora do cluster, geralmente por meio de um balanceador de carga.
@@ -296,20 +299,20 @@ Um serviço **exposto externamente** é aquele que expõe um ponto de extremidad
 Um serviço **somente interno** é aquele cujo ponto de extremidade só é acessível por meio do cluster.
 
 > [!NOTE]
-> Os pontos de extremidade de serviço com estado geralmente não devem ser expostos à Internet. Clusters que estão por trás de balanceadores de carga que não estão cientes da resolução de serviço do Service Fabric, como o Azure Load Balancer, não poderão expor serviços com monitoração de estado, pois o balanceador de carga não poderá localizar e rotear o tráfego para a réplica de serviço com estado apropriada. 
+> Os pontos de extremidade de serviço com estado geralmente não devem ser expostos à Internet. Clusters que estiverem por trás de balanceadores de carga que não estiverem cientes da resolução de serviços do Service Fabric, como o Azure Load Balancer, não poderão expor serviços com estado, pois o balanceador de carga não poderá localizar e rotear o tráfego para a réplica de serviço com estado apropriada. 
 
 ### <a name="externally-exposed-aspnet-core-stateless-services"></a>Serviços sem monitoração de estado do Núcleo do ASP.NET expostos externamente
-O WebListener é o servidor Web recomendado para serviços de front-end que expõem pontos de extremidade HTTP externos voltados para a Internet no Windows. Ele oferece melhor proteção contra ataques e suporte a recursos para os quais o Kestrel não tem suporte, como a Autenticação do Windows e o compartilhamento de portas. 
+O WebListener é o servidor Web recomendado para serviços de front-end que expõem pontos de extremidade HTTP externos para a Internet no Windows. Ele oferece melhor proteção contra ataques e suporte a recursos para os quais o Kestrel não tem suporte, como a Autenticação do Windows e o compartilhamento de portas. 
 
-Não há suporte para o Kestrel como um servidor de borda (voltado para a Internet) no momento. Um servidor proxy reverso como o IIS ou Nginx deve ser usado para tratar do tráfego da Internet pública.
+Não há suporte para o Kestrel como um servidor de borda (para a Internet) no momento. Um servidor proxy reverso como o IIS ou Nginx deve ser usado para tratar do tráfego da Internet pública.
  
 Quando exposto à Internet, um serviço sem estado deve usar um ponto de extremidade conhecido e estável que possa ser acessado por meio de um balanceador de carga. Essa é a URL que você fornecerá aos usuários do aplicativo. Recomenda-se a seguinte configuração:
 
 |  |  | **Observações** |
 | --- | --- | --- |
 | Servidor Web | WebListener | Se o serviço for exposto somente para uma rede confiável, como uma intranet, o Kestrel poderá ser usado. Caso contrário, o WebListener é a opção preferencial. |
-| Configuração de porta | estático | Uma porta estática conhecida deve ser configurada na configuração do `Endpoints` de ServiceManifest.XML, como 80 para HTTP ou 443 para HTTPS. |
-| ServiceFabricIntegrationOptions | Nenhum | O `ServiceFabricIntegrationOptions.None` deve ser usada quando a configuração de middleware de integração do Service Fabric para o serviço não tenta validar solicitações de entrada para um identificador exclusivo. Os usuários externos do aplicativo não saberão as informações de identificação exclusivas usadas pelo middleware. |
+| Configuração de portas | estático | Uma porta estática conhecida deve ser configurada na configuração do `Endpoints` de ServiceManifest.XML, como 80 para HTTP ou 443 para HTTPS. |
+| ServiceFabricIntegrationOptions | Nenhum | A opção `ServiceFabricIntegrationOptions.None` deve ser usada quando a configuração de middleware de integração do Service Fabric para o serviço não tentar validar as solicitações de entrada para um identificador exclusivo. Os usuários externos do aplicativo não saberão as informações de identificação exclusivas usadas pelo middleware. |
 | Contagem de Instâncias | -1 | Em casos de uso típicos, a configuração de contagem de instâncias deve ser definida como "-1" para que uma instância esteja disponível em todos os nós que recebem o tráfego de um balanceador de carga. |
 
 Se vários serviços expostos externamente compartilharem o mesmo conjunto de nós, deverá ser usado um caminho de URL exclusivo e estável. Isso pode ser feito modificando a URL fornecida ao configurar IWebHost. Observe que isso se aplica somente ao WebListener.
@@ -327,14 +330,14 @@ Se vários serviços expostos externamente compartilharem o mesmo conjunto de n�
  })
  ```
 
-### <a name="internal-only-stateless-aspnet-core-service"></a>Somente interno serviço sem estado do Núcleo do ASP.NET
+### <a name="internal-only-stateless-aspnet-core-service"></a>Serviço do Núcleo do ASP.NET sem estado somente para uso interno
 Os serviços sem monitoração de estado que são chamados apenas de dentro do cluster devem usar URLs exclusivas e portas atribuídas dinamicamente para garantir a cooperação entre vários serviços. Recomenda-se a seguinte configuração:
 
 |  |  | **Observações** |
 | --- | --- | --- |
-| Servidor Web | Kestrel | Embora o WebListener possa ser usado para serviços sem monitoração de estado internos, Kestrel é o servidor recomendado para permitir que várias instâncias do serviço compartilhem um host.  |
-| Configuração de porta | atribuído dinamicamente | Várias réplicas de um serviço com estado podem compartilhar um processo de host ou o sistema operacional do host e, assim, precisarão de portas exclusivas. |
-| ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Com a atribuição de porta dinâmica, essa configuração impede o problema de identidade incorreta descrito anteriormente. |
+| Servidor Web | Kestrel | Embora o WebListener possa ser usado para serviços internos sem estado, o Kestrel é o servidor recomendado para permitir que várias instâncias do serviço compartilhem um host.  |
+| Configuração de portas | atribuídas dinamicamente | Várias réplicas de um serviço com estado podem compartilhar um processo de host ou o sistema operacional do host e, assim, precisarão de portas exclusivas. |
+| ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Com a atribuição dinâmica de portas essa configuração impede o problema de confusão de identidade descrito anteriormente. |
 | InstanceCount | qualquer | A configuração de contagem de instâncias pode ser definida como qualquer valor necessário para operar o serviço. |
 
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Somente interno serviço com estado do Núcleo do ASP.NET
@@ -343,8 +346,8 @@ Os serviços com monitoração de estado que são chamados apenas de dentro do c
 |  |  | **Observações** |
 | --- | --- | --- |
 | Servidor Web | Kestrel | O `WebListenerCommunicationListener` não foi projetado para uso pelos serviços com monitoração de estado em que réplicas compartilham um processo de host. |
-| Configuração de porta | atribuído dinamicamente | Várias réplicas de um serviço com estado podem compartilhar um processo de host ou o sistema operacional do host e, assim, precisarão de portas exclusivas. |
-| ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Com a atribuição de porta dinâmica, essa configuração impede o problema de identidade incorreta descrito anteriormente. |
+| Configuração de portas | atribuídas dinamicamente | Várias réplicas de um serviço com estado podem compartilhar um processo de host ou o sistema operacional do host e, assim, precisarão de portas exclusivas. |
+| ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Com a atribuição dinâmica de portas essa configuração impede o problema de confusão de identidade descrito anteriormente. |
 
 ## <a name="next-steps"></a>Próximas etapas
 [Depurar seu aplicativo do Service Fabric usando o Visual Studio](service-fabric-debugging-your-application.md)

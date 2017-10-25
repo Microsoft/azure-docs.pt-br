@@ -12,21 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 56b2e13c3bf053175e357a627d45a91d9a9a4ba9
-
-
+ms.openlocfilehash: 06b026ce06e0f16a77ac238de0af2263f272933c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="actor-timers-and-reminders"></a>Lembretes e temporizadores de ator
 Os atores podem agendar o trabalho periódico neles mesmos ao registrarem temporizadores ou lembretes. Este artigo mostra como usar temporizadores e lembretes e explica as diferenças entre eles.
 
 ## <a name="actor-timers"></a>Temporizadores de ator
-Os temporizadores de ator oferecem um wrapper simples em torno de temporizadores .NET para garantir que os métodos de retorno de chamada respeitem as garantias de simultaneidade baseada em turnos fornecidas pelo tempo de execução dos Atores.
+Os temporizadores de ator oferecem um wrapper simples em torno de um temporizador Java ou .NET para garantir que os métodos de retorno de chamada respeitem as garantias de simultaneidade baseada em turnos fornecidas pelo tempo de execução dos Atores.
 
-Os atores podem usar os métodos `RegisterTimer` e `UnregisterTimer` em sua classe de base para registrar e cancelar o registro em seus temporizadores. O exemplo a seguir mostra o uso de APIs de temorizador. Os APIs são muito semelhantes ao temporizador do .NET. Neste exemplo, quando o temporizador chega ao fim, o tempo de execução dos Atores chamará o método `MoveObject` . É garantido que o método respeitará a simultaneidade baseada em turnos. Isso significa que nenhum outro método de ator ou retornos de chamada de temporizador/lembrete estará em andamento até que a execução desse retorno de chamada seja concluída.
+Os atores podem usar os métodos `RegisterTimer`(C#) ou `registerTimer`(Java) e `UnregisterTimer`(C#) ou `unregisterTimer`(Java) em sua classe base para registrar e cancelar o registro de seus temporizadores. O exemplo a seguir mostra o uso de APIs de temorizador. As APIs são muito semelhantes ao temporizador do .NET ou do Java. Neste exemplo, quando o temporizador chega ao fim, o tempo de execução dos Atores chamará o método `MoveObject`(C#) ou `moveObject`(Java). É garantido que o método respeitará a simultaneidade baseada em turnos. Isso significa que nenhum outro método de ator ou retornos de chamada de temporizador/lembrete estará em andamento até que a execução desse retorno de chamada seja concluída.
 
 ```csharp
 class VisualObjectActor : Actor, IVisualObject
@@ -68,10 +68,67 @@ class VisualObjectActor : Actor, IVisualObject
     }
 }
 ```
+```Java
+public class VisualObjectActorImpl extends FabricActor implements VisualObjectActor
+{
+    private ActorTimer updateTimer;
+
+    public VisualObjectActorImpl(FabricActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
+
+    @Override
+    protected CompletableFuture onActivateAsync()
+    {
+        ...
+
+        return this.stateManager()
+                .getOrAddStateAsync(
+                        stateName,
+                        VisualObject.createRandom(
+                                this.getId().toString(),
+                                new Random(this.getId().toString().hashCode())))
+                .thenApply((r) -> {
+                    this.registerTimer(
+                            (o) -> this.moveObject(o),                        // Callback method
+                            "moveObject",
+                            null,                                             // Parameter to pass to the callback method
+                            Duration.ofMillis(10),                            // Amount of time to delay before the callback is invoked
+                            Duration.ofMillis(timerIntervalInMilliSeconds));  // Time interval between invocations of the callback method
+                    return null;
+                });
+    }
+
+    @Override
+    protected CompletableFuture onDeactivateAsync()
+    {
+        if (updateTimer != null)
+        {
+            unregisterTimer(updateTimer);
+        }
+
+        return super.onDeactivateAsync();
+    }
+
+    private CompletableFuture moveObject(Object state)
+    {
+        ...
+        return this.stateManager().getStateAsync(this.stateName).thenCompose(v -> {
+            VisualObject v1 = (VisualObject)v;
+            v1.move();
+            return (CompletableFuture<?>)this.stateManager().setStateAsync(stateName, v1).
+                    thenApply(r -> {
+                      ...
+                      return null;});
+        });
+    }
+}
+```
 
 O período seguinte do temporizador é iniciado depois que o retorno de chamada concluir a execução. Isso significa que o temporizador será interrompido enquanto o retorno de chamada estiver em execução será iniciado quando o retorno de chamada for concluído.
 
-O tempo de execução dos Atores salva as alterações feitas ao Gerenciador de Estado do ator quando o retorno de chamada é concluído. Se ocorrer um erro ao salvar o estado, esse objeto de ator será desativado e uma nova instância será ativada. 
+O tempo de execução dos Atores salva as alterações feitas ao Gerenciador de Estado do ator quando o retorno de chamada é concluído. Se ocorrer um erro ao salvar o estado, esse objeto de ator será desativado e uma nova instância será ativada.
 
 Todos os temporizadores são interrompidos quando o ator é desativado como parte da coleta de lixo. Nenhum retorno de chamada de temporizador é chamado depois disso. Além disso, o tempo de execução de atores não retém todas as informações sobre os temporizadores que estavam em execução antes de desativação. Cabe ao ator registrar todos os temporizadores necessários quando ele for reativado no futuro. Para obter mais informações, consulte a seção sobre [coleta de lixo de ator](service-fabric-reliable-actors-lifecycle.md).
 
@@ -94,7 +151,22 @@ protected override async Task OnActivateAsync()
 }
 ```
 
-Neste exemplo, `"Pay cell phone bill"` é o nome do lembrete. Essa é uma cadeia de caracteres usada pelo ator para identificar exclusivamente um lembrete. `BitConverter.GetBytes(amountInDollars)` é o contexto que está associado ao lembrete. Ele será devolvido para o ator como um argumento para o retorno de chamada do lembrete, ou seja, `IRemindable.ReceiveReminderAsync`.
+```Java
+@Override
+protected CompletableFuture onActivateAsync()
+{
+    String reminderName = "Pay cell phone bill";
+    int amountInDollars = 100;
+
+    ActorReminder reminderRegistration = this.registerReminderAsync(
+            reminderName,
+            state,
+            dueTime,    //The amount of time to delay before firing the reminder
+            period);    //The time interval between firing of reminders
+}
+```
+
+Neste exemplo, `"Pay cell phone bill"` é o nome do lembrete. Essa é uma cadeia de caracteres usada pelo ator para identificar exclusivamente um lembrete. `BitConverter.GetBytes(amountInDollars)`(C#) é o contexto que está associado ao lembrete. Ele será devolvido para o ator como um argumento para o retorno de chamada do lembrete, ou seja, `IRemindable.ReceiveReminderAsync`(C#) ou `Remindable.receiveReminderAsync`(Java).
 
 Os atores que usam lembretes devem implementar a interface `IRemindable` como mostrado no exemplo a seguir.
 
@@ -117,30 +189,44 @@ public class ToDoListActor : Actor, IToDoListActor, IRemindable
     }
 }
 ```
+```Java
+public class ToDoListActorImpl extends FabricActor implements ToDoListActor, Remindable
+{
+    public ToDoListActor(FabricActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
 
-Quando um lembrete é disparado, o tempo de execução dos Reliable Actors invoca o método `ReceiveReminderAsync` no Ator. Um ator pode registrar vários lembretes, que o método `ReceiveReminderAsync` será chamado quando qualquer um desses lembretes for disparado. O ator pode usar o nome de lembrete que é passado para o método `ReceiveReminderAsync` para descobrir qual lembrete foi acionado.
+    public CompletableFuture receiveReminderAsync(String reminderName, byte[] context, Duration dueTime, Duration period)
+    {
+        if (reminderName.equals("Pay cell phone bill"))
+        {
+            int amountToPay = ByteBuffer.wrap(context).getInt();
+            System.out.println("Please pay your cell phone bill of " + amountToPay);
+        }
+        return CompletableFuture.completedFuture(true);
+    }
 
-O tempo de execução dos Atores salva o estado do ator quando a chamada `ReceiveReminderAsync` é concluída. Se ocorrer um erro ao salvar o estado, esse objeto de ator será desativado e uma nova instância será ativada. 
+```
 
-Para cancelar o registro de um lembrete, um ator chama o método `UnregisterReminderAsync` como mostrado no exemplo abaixo.
+Quando um lembrete é disparado, o tempo de execução dos Reliable Actors invoca o método `ReceiveReminderAsync`(C#) ou `receiveReminderAsync`(Java) no Ator. Um ator pode registrar vários lembretes, que o método `ReceiveReminderAsync`(C#) ou `receiveReminderAsync`(Java) será chamado quando qualquer um desses lembretes for disparado. O ator pode usar o nome de lembrete que é passado para o método `ReceiveReminderAsync`(C#) ou `receiveReminderAsync`(Java) para descobrir qual lembrete foi acionado.
+
+O tempo de execução dos Atores salva o estado do ator quando a chamada `ReceiveReminderAsync`(C#) ou `receiveReminderAsync`(Java) é concluída. Se ocorrer um erro ao salvar o estado, esse objeto de ator será desativado e uma nova instância será ativada.
+
+Para cancelar o registro de um lembrete, um ator chama o método `UnregisterReminderAsync`(C#) ou `unregisterReminderAsync`(Java) como mostrado no exemplo abaixo.
 
 ```csharp
 IActorReminder reminder = GetReminder("Pay cell phone bill");
 Task reminderUnregistration = UnregisterReminderAsync(reminder);
 ```
+```Java
+ActorReminder reminder = getReminder("Pay cell phone bill");
+CompletableFuture reminderUnregistration = unregisterReminderAsync(reminder);
+```
 
-Como mostrado acima, o método `UnregisterReminderAsync` aceita uma interface `IActorReminder`. A classe base de ator oferece suporte a um método `GetReminder`, que pode ser usado para recuperar a interface `IActorReminder` passando-se o nome do lembrete. Isso é conveniente porque o ator não precisa manter a interface `IActorReminder` que foi retornada com a  chamada do método `RegisterReminder`.
+Como mostrado acima, o método `UnregisterReminderAsync`(C#) ou `unregisterReminderAsync`(Java) aceita uma interface `IActorReminder`(C#) ou `ActorReminder`(Java). A classe base de ator dá suporte a um método `GetReminder`(C#) ou `getReminder`(Java), que pode ser usado para recuperar a interface `IActorReminder`(C#) ou `ActorReminder`(Java) passando-se o nome do lembrete. Isso é conveniente porque o ator não precisa manter a interface `IActorReminder`(C#) ou `ActorReminder`(Java) que foi retornada com a chamada do método `RegisterReminder`(C#) ou `registerReminder`(Java).
 
 ## <a name="next-steps"></a>Próximas etapas
+Saiba mais sobre reentrada e eventos de Ator Confiável:
 * [Eventos de ator](service-fabric-reliable-actors-events.md)
 * [Reentrância de ator](service-fabric-reliable-actors-reentrancy.md)
-* [Diagnóstico e monitoramento de desempenho do ator](service-fabric-reliable-actors-diagnostics.md)
-* [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Exemplo de código](https://github.com/Azure/servicefabric-samples)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

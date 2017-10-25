@@ -9,8 +9,3 @@ Agora você se conectou a um hub de notificação para o projeto de back-end dos
 
 [portal do Azure]: https://portal.azure.com/
 [Hubs de Notificação]: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/
-
-
-<!--HONumber=Dec16_HO2-->
-
-

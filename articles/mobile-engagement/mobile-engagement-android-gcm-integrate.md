@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 0282abbf44406cac89c13520bc2a4e375817ed1f
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-integrate-gcm-with-mobile-engagement"></a>Como integrar o GCM ao Mobile Engagement
 > [!IMPORTANT]
@@ -82,9 +82,3 @@ Certifique-se de ter as seguintes permissões em seu `AndroidManifest.xml` (apó
 Siga [este guia](mobile-engagement-android-get-started.md#grant-mobile-engagement-access-to-your-gcm-api-key) para permitir acesso do Mobile Engagement à sua chave de API do GCM.
 
 [SDK do Google Play]:https://developers.google.com/cloud-messaging/android/start
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

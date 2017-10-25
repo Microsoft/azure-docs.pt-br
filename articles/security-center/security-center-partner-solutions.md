@@ -12,56 +12,52 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 09/14/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
-ms.openlocfilehash: 2d7ab8fbed1d4edb60416c7c6b7ae08ddbdec91a
-ms.lasthandoff: 02/06/2017
-
-
+ms.openlocfilehash: 3ff38892f198ab5dfb9e08c1c01b942810a40260
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-partner-solutions-with-azure-security-center"></a>Monitoramento de soluções de parceiros com a Central de Segurança do Azure
 Este documento orienta sobre como monitorar o status de integridade de suas soluções de parceiro na Central de Segurança do Azure.
 
 > [!NOTE]
-> Este documento apresenta o serviço usando uma implantação de exemplo. Ela não é um guia passo a passo.
+> Este documento apresenta o serviço usando uma implantação de exemplo. Este documento não é um guia passo a passo.
 >
 >
 
 ## <a name="monitoring-partner-solutions"></a>Monitoramento das soluções de parceiros
-O bloco **Soluções de parceiros** na folha **Central de Segurança** permite que você monitore rapidamente o status de integridade de suas soluções de parceiro integradas com sua assinatura do Azure.
+O bloco **Soluções de segurança** em **Visão Geral** permite que você monitore rapidamente o status de integridade de suas soluções de parceiro integradas com sua assinatura do Azure.
 
 ![Bloco Soluções de parceiros][1]
 
-O bloco **Soluções de parceiros** exibe o número de soluções de parceiros e um resumo de status para essas soluções.
-
-O **STATUS** de uma solução de parceiro pode ser:
-
-* Protegido (verde) - não há qualquer problema de integridade
-* Não íntegro (vermelho) - há um problema de integridade que requer atenção imediata
-* Parou de relatar (laranja) - a solução interrompeu o envio de relatórios sobre sua integridade
-* Status de proteção desconhecido (laranja) - a integridade da solução é desconhecida no momento devido a um processo para adicionar um novo recurso à solução existente com falha.
-* Não relatado (cinza) - a solução não reportou nada ainda. O status da solução pode não ser relatado se ele foi conectado e ainda está sendo implantado
-
-Se não houver soluções integradas à sua assinatura, o bloco informará que não há uma solução. A seleção do bloco **Soluções de parceiros** permitirá que você abra o bloco **Recomendações** para implantar soluções de segurança de parceiro.
-
-![Sem soluções de parceiros][2]
-
 Para exibir a integridade das soluções de seu parceiro:
 
-1. Selecione o bloco **Soluções de parceiros** . Uma folha será aberta exibindo uma lista de suas soluções de parceiros conectadas à Central de Segurança.
+1. Selecione o bloco **Soluções de segurança**. **Soluções de segurança** é aberto exibindo uma lista de suas soluções de parceiros conectadas à Central de Segurança.
 
    ![Soluções de parceiros][3]
-2. Selecione uma solução de parceiro. Neste exemplo, permite selecionar a solução **F5-WAF2** .  Uma folha será aberta mostrando o status da solução de parceiro e dos recursos associados a ela. Selecione **Console da solução** para abrir a experiência de gerenciamento do parceiro para essa solução.
+
+   O status de uma solução de parceiro pode ser:
+
+   * Protegido (verde) - não há qualquer problema de integridade
+   * Não íntegro (vermelho) - há um problema de integridade que requer atenção imediata
+   * Parou de relatar (laranja) - a solução interrompeu o envio de relatórios sobre sua integridade
+   * Status de proteção desconhecido (laranja) - a integridade da solução é desconhecida no momento devido a um processo para adicionar um novo recurso à solução existente com falha.
+   * Não relatado (cinza) - a solução não reportou nada ainda. O status da solução pode não ser relatado se tiver sido conectada recentemente e ainda estiver sendo implantada.
+
+2. Selecione uma solução de parceiro. Uma folha será aberta mostrando o status da solução de parceiro e dos recursos associados a ela. Selecione **Console da solução** para abrir a experiência de gerenciamento do parceiro para essa solução.
 
    ![Detalhes da solução de parceiro][4]
-3. Volte para a folha **F5-WAF2** folha e selecione **Vincular aplicativo**. A folha **Vincular Aplicativos** é aberta. Nela, você pode conectar recursos à solução de parceiro.
+3. Retorne à folha **Qualys** e selecione **Vincular VM**. A folha **Vincular Aplicativos** é aberta. Nela, você pode conectar recursos à solução de parceiro.
 
    ![Vincular recursos à solução de parceiro][5]
 
-## <a name="see-also"></a>Consulte também
-Neste documento, você foi apresentado às **Soluções de Parceiros** na Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
+## <a name="next-steps"></a>Próximas etapas
+Neste documento, você foi apresentado ao bloco **Soluções de Segurança** na Central de Segurança. Para saber mais sobre a integração com parceiros para aperfeiçoar a segurança geral, consulte [Integração de parceiro e soluções](security-center-partner-integration.md).
+
+Para saber mais sobre a Central de Segurança, confira estes artigos:
 
 * [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 * [Gerenciando as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) : saiba como as recomendações ajudam a proteger os recursos do Azure.
@@ -72,8 +68,6 @@ Neste documento, você foi apresentado às **Soluções de Parceiros** na Centra
 
 <!--Image references-->
 [1]: ./media/security-center-partner-solutions/partner-solutions-tile.png
-[2]: ./media/security-center-partner-solutions/no-partner-solutions-to-display.png
 [3]: ./media/security-center-partner-solutions/partner-solutions.png
 [4]: ./media/security-center-partner-solutions/partner-solutions-detail.png
 [5]: ./media/security-center-partner-solutions/link-applications.png
-

@@ -3,8 +3,8 @@ title: Gerenciar recursos do Armazenamento de Blobs do Azure com o Gerenciador d
 description: "Gerenciar os contêineres de blob e blobs do Azure com o Gerenciador de Armazenamento (Preview)"
 services: storage
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: cawa
+manager: paulyuk
 editor: 
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
 ms.service: storage
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f779106e8ca79260c8abba070586e3f03ffa61e9
-
-
+ms.author: cawa
+ms.openlocfilehash: c23b87cca66df0834a31494be7d8657ff9f2a865
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer-preview"></a>Gerenciar os recursos de Armazenamento de Blobs do Azure com o Gerenciador de Armazenamento (Preview)
 ## <a name="overview"></a>Visão geral
-O [Armazenamento de Blobs do Azure](storage/storage-dotnet-how-to-use-blobs.md) é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS.
+O [Armazenamento de Blobs do Azure](storage/blobs/storage-dotnet-how-to-use-blobs.md) é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS.
 Você pode usar o armazenamento de Blob para expor dados publicamente para o mundo ou para armazenar dados do aplicativo de forma privada. Neste artigo, você aprenderá a usar o Gerenciador de Armazenamento (Preview) para trabalhar com contêineres de blob e blobs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -41,7 +41,7 @@ As etapas a seguir ilustram como criar um contêiner de blobs no Gerenciador de 
 3. Clique com botão direito em **Contêineres de Blob** e, no menu de contexto, selecione **Criar Contêiner de Blobs**.
 
    ![Menu de contexto Criar contêineres de blob][0]
-4. Uma caixa de texto será exibida abaixo da pasta **Contêineres de Blob** . Insira o nome de seu contêiner de blobs. Confira a seção [Regras de nomenclatura do contêiner](storage/storage-dotnet-how-to-use-blobs.md#create-a-container) para obter uma lista de regras e restrições sobre como nomear os contêineres de blob.
+4. Uma caixa de texto será exibida abaixo da pasta **Contêineres de Blob** . Insira o nome de seu contêiner de blobs. Confira a seção [Regras de nomenclatura do contêiner](storage/blobs/storage-dotnet-how-to-use-blobs.md#create-a-container) para obter uma lista de regras e restrições sobre como nomear os contêineres de blob.
 
    ![Caixa de texto Criar Contêineres de Blob][1]
 5. Pressione **Enter** quanto terminar de criar o contêiner de blobs ou **Esc** para cancelar. Após a criação do contêiner de blobs, ele será exibido na pasta **Contêineres de Blob** da conta de armazenamento selecionada.
@@ -96,7 +96,7 @@ As etapas a seguir ilustram como copiar um contêiner de blobs de uma conta de a
    ![Menu de contexto Colar contêiner de blobs][7]
 
 ## <a name="get-the-sas-for-a-blob-container"></a>Obter a SAS para um contêiner de blob
-Uma [SAS (Assinatura de Acesso Compartilhado)](storage/storage-dotnet-shared-access-signature-part-1.md) fornece acesso delegado aos recursos da sua conta de armazenamento.
+Uma [SAS (Assinatura de Acesso Compartilhado)](storage/common/storage-dotnet-shared-access-signature-part-1.md) fornece acesso delegado aos recursos da sua conta de armazenamento.
 Isso significa que você pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento por um período especificado e com um conjunto determinado de permissões, sem precisar compartilhar suas chaves de acesso de conta.
 
 As etapas a seguir ilustram como criar uma SAS para um contêiner de blobs:
@@ -174,7 +174,7 @@ As etapas a seguir ilustram como gerenciar os blobs (e pastas) dentro de um cont
      2. Na caixa de diálogo **Carregar arquivos**, escolha o botão de reticências (**...**) no lado direito da caixa de texto **Arquivos** para selecionar os arquivos que você deseja carregar.
 
         ![Opções de Carregar arquivos][16]
-     3. Especifique o tipo de **Tipo de blob**. O artigo [Introdução ao Armazenamento de Blobs do Azure usando o .NET](storage/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explica as diferenças entre os vários tipos de blob.
+     3. Especifique o tipo de **Tipo de blob**. O artigo [Introdução ao Armazenamento de Blobs do Azure usando o .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explica as diferenças entre os vários tipos de blob.
      4. Como opção, especifique uma pasta de destino na qual os arquivos selecionados serão carregados. Se a pasta de destino não existir, ela será criada.
      5. Escolha **Carregar**.
    * **Carregar uma pasta em um contêiner de blobs**
@@ -185,7 +185,7 @@ As etapas a seguir ilustram como gerenciar os blobs (e pastas) dentro de um cont
      2. Na caixa de diálogo **Carregar pasta**, escolha o botão de reticências (**...**) no lado direito da caixa de texto **Pasta** para selecionar a pasta cujo conteúdo você deseja carregar.
 
         ![Opções de Carregar pasta][18]
-     3. Especifique o tipo de **Tipo de blob**. O artigo [Introdução ao Armazenamento de Blobs do Azure usando o .NET](storage/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explica as diferenças entre os vários tipos de blob.
+     3. Especifique o tipo de **Tipo de blob**. O artigo [Introdução ao Armazenamento de Blobs do Azure usando o .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explica as diferenças entre os vários tipos de blob.
      4. Como opção, especifique uma pasta de destino na qual o conteúdo da pasta selecionada será carregado. Se a pasta de destino não existir, ela será criada.
      5. Escolha **Carregar**.
    * **Baixar um blob em seu computador local**
@@ -235,9 +235,3 @@ As etapas a seguir ilustram como gerenciar os blobs (e pastas) dentro de um cont
 [17]: ./media/vs-azure-tools-storage-explorer-blobs/blob-upload-folder-menu.png
 [18]: ./media/vs-azure-tools-storage-explorer-blobs/blob-upload-folder-options.png
 [19]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-open-editor-context-menu.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

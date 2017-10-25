@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-translationtype: Human Translation
-ms.sourcegitcommit: 37f795fe59496b0267120537115cf56d44cc5325
-ms.openlocfilehash: 60cde851a466a5b4b0752908f11272eedb246b0a
-ms.lasthandoff: 12/23/2016
-
+ms.openlocfilehash: 44d243a034b20b99faf284c8615e470bc6f9d020
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-the-net-sdk-to-initiate-data-transformation-private-preview"></a>Usar o SDK do .net para iniciar a transformação de dados (visualização particular)
 
 ## <a name="overview"></a>Visão geral
@@ -30,7 +29,7 @@ Este artigo explica como você pode usar o recurso de transformação de dados d
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se você tem:
-*   Um sistema com o Visual Studio 2012, 2013 ou 2015 instalado.
+*   Um sistema com o Visual Studio 2012, 2013, 2015 ou 2017 instalado.
 *   Azure Powershell instalado. [Baixar o Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
 *   Definições de configuração para inicializar o trabalho de Transformação de Dados (as instruções para obter essas configurações estão incluídas aqui).
 *   Uma definição de trabalho que foi configurada corretamente em um recurso de dados híbrido dentro de um grupo de recursos.
@@ -51,7 +50,11 @@ Execute as seguintes etapas para usar o .NET e iniciar um trabalho de transforma
         Você pode passar em todos os valores para ActiveDirectoryKey e AppName.
 
 
-2. Esse script gera os seguintes valores:      - ID do cliente      - ID de locatário      - chave do Active Directory (a mesma indicada acima) - ID da assinatura
+2. Esse script gera como saída os seguintes valores:
+    * Id do Cliente
+    * ID do locatário
+    * Chave do Active Directory (a mesma inserida acima)
+    * ID da assinatura
 
 3. Usando o Visual Studio 2012, 2013 ou 2015, crie um aplicativo de console do .NET em C#.
 
@@ -178,4 +181,3 @@ Execute as seguintes etapas para usar o .NET e iniciar um trabalho de transforma
 ## <a name="next-steps"></a>Próximas etapas
 
 [Use a interface do usuário do Gerenciador de Dados StorSimple para transformar seus dados](storsimple-data-manager-ui.md).
-

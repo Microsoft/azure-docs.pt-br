@@ -12,14 +12,14 @@ ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 1/6/2017
+ms.topic: troubleshooting
+ms.date: 7/26/2017
 ms.author: v-six
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c91a34eb34a73abe5c5ac2bb6aeb08c818a97856
-
-
+ms.openlocfilehash: cb514d211450bfe012ac9024e191239adf7166ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Solução de problemas de falha de alocação ao implantar Serviços de Nuvem no Azure
 ## <a name="summary"></a>Resumo
@@ -71,9 +71,3 @@ Estes são os cenários comuns de alocação que causam a fixação de uma solic
    * Siga o nº 2 acima, lembrando de especificar o novo IP reservado no CSCFG do serviço.
 4. Remover o grupo de afinidade para novas implantações: grupos de afinidade não são mais recomendados. Execute as etapas para o nº 1 acima a fim de implantar um novo serviço de nuvem. Certifique-se de que o serviço de nuvem não esteja em um grupo de afinidade.
 5. Converter para uma rede virtual regional: confira [Como migrar de grupos de afinidades para uma rede virtual regional (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

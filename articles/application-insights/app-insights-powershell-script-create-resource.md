@@ -3,8 +3,8 @@ title: Script do PowerShell para criar um recurso do Application Insights | Micr
 description: "Automatize a criação de recursos do Application Insights."
 services: application-insights
 documentationcenter: windows
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 ms.assetid: f0082c9b-43ad-4576-a417-4ea8e0daf3d9
 ms.service: application-insights
 ms.workload: tbd
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: 4a7a4b719176a1d10bee2fc4f6b65204cc77bee8
-ms.lasthandoff: 11/17/2016
-
-
+ms.author: bwren
+ms.openlocfilehash: a828af9c7d207dd84cc626fc70206018fd67e2dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>Script do PowerShell para criar um recurso do Application Insights
 
@@ -52,7 +51,7 @@ Consulte as especificações do cmdlet relevante:
 # If running manually, uncomment before the first 
 # execution to login to the Azure Portal:
 
-# Add-AzureRmAccount
+# Add-AzureRmAccount / Login-AzureRmAccount
 
 # Set the name of the Application Insights Resource
 
@@ -78,10 +77,10 @@ Select-AzureSubscription -SubscriptionName "MySubscription"
 
 $resource = New-AzureRmResource `
   -ResourceName $appInsightsName `
-  -ResourceGroupName Fabrikam `
-  -Tag @{ applicationType = "web", applicationName = $applicationTagName} `
+  -ResourceGroupName $resourceGroupName `
+  -Tag @{ applicationType = "web"; applicationName = $applicationTagName} `
   -ResourceType "Microsoft.Insights/components" `
-  -Location "East US" `  // or North Europe, West Europe, South Central US
+  -Location "East US" `  # or North Europe, West Europe, South Central US
   -PropertyObject @{"Application_Type"="web"} `
   -Force
 
@@ -114,5 +113,4 @@ Há duas maneiras de disponibilizar o iKey para o SDK:
 * [Criar recursos de teste da Web e do Application Insights por meio de modelos](app-insights-powershell.md)
 * [Configurar o monitoramento do diagnóstico do Azure com o PowerShell](app-insights-powershell-azure-diagnostics.md) 
 * [Definir alertas usando o PowerShell](app-insights-powershell-alerts.md)
-
 

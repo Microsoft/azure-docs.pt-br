@@ -3,7 +3,7 @@ title: "Acompanhamento de dependência no Azure Application Insights | Microsoft
 description: Analise o uso, disponibilidade e desempenho de seu local ou um aplicativo Web do Microsoft Azure com o Application Insights.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
 ms.service: application-insights
@@ -11,14 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 35817adde713995ec82eead033f058ee109bf900
-ms.lasthandoff: 03/16/2017
-
-
+ms.date: 05/04/2017
+ms.author: bwren
+ms.openlocfilehash: 6e0b67ba98af27017901608dde4401600eb9957f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar o Application Insights: acompanhamento de dependências
 Um *dependência* é um componente externo que é chamado por seu aplicativo. Normalmente, ele é um serviço chamado usando HTTP, um banco de dados ou um sistema de arquivos. O [Application Insights](app-insights-overview.md) mede por quanto tempo o aplicativo aguarda dependências e com que frequência uma chamada de dependência falha. Você pode investigar chamadas específicas e relacioná-las a solicitações e exceções.
@@ -31,7 +30,7 @@ O monitor de dependência pronto para uso atualmente relata chamadas para esses 
   * Bancos de dados SQL
   * Serviços Web ASP.NET e WCF que usam associações baseadas em HTTP
   * Chamadas HTTP locais ou remotas
-  * Banco de Dados de Documentos, tabela, o armazenamento de blob e fila do Azure
+  * Azure Cosmos DB, tabela, Armazenamento de Blobs e fila
 * Páginas da Web
   * Chamadas AJAX
 
@@ -119,9 +118,9 @@ Em outro caso, não há nenhuma chamada de dependência que seja tão longa. Mas
 
 Parece haver uma grande lacuna após a primeira chamada de dependência e, portanto, devemos examinar nosso código para ver o motivo disso.
 
-### <a name="profiling-your-live-site"></a>Perfil do seu site ativo
+### <a name="profile-your-live-site"></a>Perfil de seu site ativo
 
-Não sabe para onde o tempo vai? O criador de perfil do Application Insights rastreará chamadas HTTP para seu site ativo e mostrará quais são as funções mais demoradas em seu código. O criador de perfil está atualmente em visualização limitada - você pode [se inscrever para experimentá-lo](https://aka.ms/AIProfilerPreview).
+Não sabe para onde o tempo vai? O [Application Insights Profiler](app-insights-profiler.md) rastreia chamadas HTTP para seu site ativo e mostra quais são as funções mais demoradas em seu código.
 
 ## <a name="failed-requests"></a>Solicitações falhas
 As solicitações com falha também podem ser associadas a chamadas com falha para as dependências. Novamente, podemos fazer um clickthrough para rastrear o problema.
@@ -133,7 +132,7 @@ Clique para uma ocorrência de uma solicitação com falha e examine os eventos 
 ![Clique em um tipo de solicitação e na instância para obter uma exibição diferente da mesma instância, clique nele para obter detalhes da exceção.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>Análise
-Você pode rastrear dependências na [linguagem de consulta do Analytics](app-insights-analytics.md). Veja alguns exemplos.
+Você pode rastrear dependências na [linguagem de consulta do Log Analytics](https://docs.loganalytics.io/). Veja alguns exemplos.
 
 * Localize todas as chamadas com falha de dependência:
 
@@ -213,4 +212,3 @@ Se desejar desativar o módulo padrão de acompanhamento de dependência, remova
 * [Exceções](app-insights-asp-net-exceptions.md)
 * [Dados do usuário e da página](app-insights-javascript.md)
 * [Disponibilidade](app-insights-monitor-web-app-availability.md)
-

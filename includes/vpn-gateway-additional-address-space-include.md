@@ -1,20 +1,16 @@
-### <a name="to-add-address-space"></a>Para adicionar o espaço de endereço
-1. Para adicionar mais espaço de endereço, na seção **Configurações** da folha de rede virtual, clique em **Espaço de endereço** para abrir a folha de Espaço de endereço.
-2. Adicione o espaço de endereço extra e clique em **Salvar** na parte superior da folha.
-   
-    ![Adicionar o espaço de endereço](./media/vpn-gateway-additional-address-space-include/address_space.png)
+### <a name="to-add-additional-address-space"></a>Para adicionar um espaço de endereço extra
 
-### <a name="to-create-subnets"></a>Para criar sub-redes
-1. Para criar sub-redes, na seção **Configurações** da folha de sua rede virtual, clique em **Sub-redes** para abrir a folha **Sub-redes**. 
-2. Na folha Sub-redes, clique em **+Sub-rede** para abrir a folha **Adicionar sub-rede**. Nomeie a nova sub-rede e especifique o intervalo de endereços.
-   
-    ![Configurações de sub-rede](./media/vpn-gateway-additional-address-space-include/add_subnet.png)        
-3. Clique em **OK** na parte inferior da folha para salvar suas alterações.
-   
-    ![Configurações de sub-rede](./media/vpn-gateway-additional-address-space-include/ok.png)
+1. Para adicionar um espaço de endereço extra, na seção **Configurações** da página da rede virtual, clique em **Espaço de endereço** para abrir a página Espaço de endereço.
+2. Adicione o espaço de endereço extra e clique em **Salvar** na parte superior da página.
 
+  ![Adicionar o espaço de endereço](./media/vpn-gateway-additional-address-space-include/address_space.png)
 
+### <a name="to-create-additional-subnets"></a>Para criar sub-redes adicionais
 
-<!--HONumber=Nov16_HO2-->
+1. Para criar sub-redes, na seção **Configurações** da página da rede virtual, clique em **Sub-redes** para abrir a página **Sub-redes**. 
+2. Na página Sub-redes, clique em **+Sub-rede** para abrir a página **Adicionar sub-rede**. Nomeie a nova sub-rede e especifique o intervalo de endereços.
 
+  ![Configurações de sub-rede](./media/vpn-gateway-additional-address-space-include/add_subnet.png)
+3. Para salvar as alterações, clique em **OK** na parte inferior da página.
 
+  ![Configurações de sub-rede](./media/vpn-gateway-additional-address-space-include/ok.png)

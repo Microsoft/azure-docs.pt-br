@@ -3,7 +3,7 @@ title: "Gerenciar potência de computação no SQL Data Warehouse do Azure (port
 description: "Tarefas do portal do Azure para gerenciar o poder de computação. Dimensionar recursos de computação ajustando as DWUs. Ou, para economizar custos, pause e retome os recursos de computação."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: jhubbard
 editor: 
 ms.assetid: 233b0da5-4abd-4d1d-9586-4ccc5f50b071
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: f9814fc0011153a25489d60d696bb567edfcebc4
-ms.openlocfilehash: a86b041424ce1757fd45c7a39350f4c4e66ee265
-ms.lasthandoff: 01/20/2017
-
-
+ms.author: elbutter;barbkess
+ms.openlocfilehash: 63888d5dd103b585cf18e4787d3e779810163e3d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-azure-portal"></a>Gerenciar poder de computação no SQL Data Warehouse do Azure (portal do Azure)
 > [!div class="op_single_selector"]
@@ -108,4 +107,3 @@ Para obter mais informações, confira [Visão geral de gerenciamento][Managemen
 <!--Other Web references-->
 
 [Azure portal]: http://portal.azure.com/
-

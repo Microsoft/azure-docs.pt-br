@@ -10,8 +10,3 @@ Os limites a seguir se aplicam ao Backup do Azure.
 
 * <sup>1</sup>O limite de 54400 GB não se aplica ao backup de VM de IaaS.
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-

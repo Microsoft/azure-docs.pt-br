@@ -1,5 +1,5 @@
 ---
-title: "Definir sua estratégia do Engajamento Móvel | Microsoft Docs"
+title: "Definir sua estratégia do Mobile Engagement | Microsoft Docs"
 description: "Saiba como carregar e otimizar o Mobile Engagement com análises e notificações por push."
 services: mobile-engagement
 documentationcenter: Mobile
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e3d6caee50a57648f4f775029a2e381cee0f1e72
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: db68bd3ebf7efde1d23820445f07c83c8c27dc20
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="define-your-mobile-engagement-strategy"></a>Definir sua estratégia do Mobile Engagement
 *Você escreveu o seu aplicativo por um motivo: para que os usuários o usem!*
@@ -131,5 +130,4 @@ Todos esses tipos de dados podem ser aumentados com parâmetros (*informações 
 <!-- URLs. -->
 [Conceitos do Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Tutoriais]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
-
 

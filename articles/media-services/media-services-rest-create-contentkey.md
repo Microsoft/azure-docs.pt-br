@@ -1,10 +1,10 @@
 ---
-title: Criar ContentKeys com REST | Microsoft Docs
+title: "Criar chaves de conteúdo com REST | Microsoft Docs"
 description: "Saiba como criar chaves de conteúdo que fornecem acesso seguro aos ativos."
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 95e9322b-168e-4a9d-8d5d-d7c946103745
 ms.service: media-services
@@ -12,16 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 08/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: ffe17f50db9afe7c562b0890e8ea24d517e31bf7
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: ece09277d26fafb7c0eebf62730031c4dc01bfe0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-contentkeys-with-rest"></a>Criar ContentKeys com REST
+# <a name="create-content-keys-with-rest"></a>Criar chaves de conteúdo com REST
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
@@ -47,37 +46,40 @@ A seguir estão as etapas gerais para gerar chaves de conteúdo que você associ
    O SDK do .NET dos serviços de mídia usa RSA com OAEP ao fazer a criptografia.  Você pode ver um exemplo na [função EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4. Crie um valor de soma de verificação (com base no algoritmo de soma de verificação de chave AES PlayReady) calculado usando o identificador de chave e a chave de conteúdo. Para obter mais informações, consulte a seção "Algoritmo de soma de verificação de chave de AES PlayReady" do documento de objeto de cabeçalho PlayReady, localizado [aqui](http://www.microsoft.com/playready/documents/).
    
-   O exemplo de .NET a seguir calcula a soma de verificação usando a parte GUID do identificador de chave e a chave de conteúdo limpa.
-   
-     public static string CalculateChecksum(byte[] contentKey, Guid keyId)   {
-   
-         byte[] array = null;
-         using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
+   A seguir, um exemplo .NET que calcula a soma de verificação usando a parte GUID do identificador de chave e a chave de conteúdo limpa.
+
+         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
          {
-             aesCryptoServiceProvider.Mode = CipherMode.ECB;
-             aesCryptoServiceProvider.Key = contentKey;
-             aesCryptoServiceProvider.Padding = PaddingMode.None;
-             ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
-             array = new byte[16];
-             cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
+
+            byte[] array = null;
+            using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
+            {
+                aesCryptoServiceProvider.Mode = CipherMode.ECB;
+                aesCryptoServiceProvider.Key = contentKey;
+                aesCryptoServiceProvider.Padding = PaddingMode.None;
+                ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
+                array = new byte[16];
+                cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
+            }
+            byte[] array2 = new byte[8];
+            Array.Copy(array, array2, 8);
+            return Convert.ToBase64String(array2);
          }
-         byte[] array2 = new byte[8];
-         Array.Copy(array, array2, 8);
-         return Convert.ToBase64String(array2);
-     }
 5. Crie a chave de conteúdo com os valores **EncryptedContentKey** (convertido em cadeia de caracteres codificada em base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** e **Checksum** que você recebeu nas etapas anteriores.
 6. Associar a entidade **ContentKey** com sua entidade **ativos** por meio da operação $links.
 
-Observe que os exemplos que geram uma chave AES, criptografam a chave e calculam a soma de verificação foram omitidos neste tópico. Somente os exemplos que mostram como interagir com os serviços de mídia são fornecidos.
+Observe que este tópico mostra como gerar uma chave AES, criptografar a chave e calcular a soma de verificação. 
 
-> [!NOTE]
-> Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
-> 
-> Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
-> 
-> Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI, conforme descrito em [Conectando-se aos Serviços de Mídia usando a API REST](media-services-rest-connect-programmatically.md). 
-> 
-> 
+>[!NOTE]
+
+>Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
+
+## <a name="connect-to-media-services"></a>Conectar-se aos Serviços de Mídia
+
+Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+
+>[!NOTE]
+>Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI.
 
 ## <a name="retrieve-the-protectionkeyid"></a>Recuperação de ProtectionKeyId
 O exemplo a seguir mostra como recuperar o ProtectionKeyId, uma impressão digital de certificado, para o certificado que você deve usar ao criptografar a chave de conteúdo. Conclua esta etapa para certificar-se de que você já tem o certificado apropriado em seu computador.
@@ -255,5 +257,4 @@ Resposta:
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

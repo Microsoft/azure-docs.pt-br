@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d971823ecd237c90787d4b923b5f9aad08fff4ee
-ms.lasthandoff: 12/29/2016
-
-
+ms.openlocfilehash: 96bf9d4c26a22f718c29804c11681199e775f589
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Planejar para aumentar a segurança de dados usando solução de identidade forte
 A primeira etapa para proteger os dados é identificar quem pode acessar os dados e, como parte desse processo, você precisa ter uma solução de identidade que pode se integrar ao seu sistema para fornecer recursos de autenticação e autorização. Autenticação e autorização são frequentemente confundidos um com o outro e suas funções são mal compreendidas. Na verdade, são bastante diferentes, como mostrado na seguinte figura:
@@ -85,5 +84,4 @@ A legislação e a conformidade regulatória variará de acordo com a indústria
 
 ## <a name="see-also"></a>Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
-
 

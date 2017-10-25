@@ -24,8 +24,3 @@
    
    * Habilite **Notificações por Push** em Destinos > Nome do seu destino > Recursos.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

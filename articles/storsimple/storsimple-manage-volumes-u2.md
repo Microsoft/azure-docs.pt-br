@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/28/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 80d58a6ab5f2148b2391d4d63e70371724e5990b
-
-
+ms.openlocfilehash: a61c57cd74a0df8363648dd8df40e433b0e6489d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-volumes-update-2"></a>Usar o serviço StorSimple Manager para gerenciar volumes (Atualização 2)
 [!INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
@@ -118,7 +118,7 @@ Você [criou um volume](storsimple-deployment-walkthrough-u2.md#step-6-create-a-
       
         ![Especifique um ACR](./media/storsimple-manage-volumes-u2/SpecifyACR.png)
    2. É recomendável que você marque a caixa de seleção **Habilitar um backup padrão para este volume** .
-   3. Clique no ícone de verificação  ![Ícone de verificação](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png)  para criar o volume com as configurações especificadas.
+   3. Clique no ícone de verificação  ![Ícone de verificação](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) para criar o volume com as configurações especificadas.
 
 O seu novo volume agora está pronto para uso.
 
@@ -156,7 +156,7 @@ Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acess
    
    1. Acesse **Gerenciamento do Computador** ->**Gerenciamento de Disco**.
    2. Clique com o botão direito do mouse em **Gerenciamento de Disco** e selecione **Examinar Discos Novamente**.
-   3. Na lista de discos, selecione o volume que você atualizou, clique com o botão direito do mouse e selecione **Estender Volume**. O Assistente para Estender Volume é iniciado. Clique em **Próximo**.
+   3. Na lista de discos, selecione o volume que você atualizou, clique com o botão direito do mouse e selecione **Estender Volume**. O Assistente para Estender Volume é iniciado. Clique em **Avançar**.
    4. Conclua o assistente com a aceitação dos valores padrão. Depois que o assistente for concluído, o volume deve mostrar o tamanho aumentado.
       
       > [!NOTE]
@@ -214,8 +214,8 @@ Se estiver convertendo vários volumes (que dão suporte a cargas de trabalho di
 5. Clique no ícone de seta ![Ícone de seta](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) para ir para a página **Configurações Adicionais** . Se você estiver configurando um volume afixado localmente, a seguinte mensagem de erro aparecerá.
    
     ![Tipo de mensagem Alterar volume](./media/storsimple-manage-volumes-u2/ModifyLocalVolEx.png)
-6. Clique no ícone de seta ![Ícone de seta](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)  novamente para continuar.
-7. Clique no ícone de verificação  ![Ícone de verificação](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png)  para iniciar o processo de conversão. O portal do Azure exibirá uma mensagem de atualização do volume. Ele exibirá uma mensagem de êxito quando o volume for atualizado com êxito.
+6. Clique no ícone de seta ![Ícone de seta](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) novamente para continuar.
+7. Clique no ícone de verificação  ![Ícone de verificação](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) para iniciar o processo de conversão. O portal do Azure exibirá uma mensagem de atualização do volume. Ele exibirá uma mensagem de êxito quando o volume for atualizado com êxito.
 
 ## <a name="take-a-volume-offline"></a>Colocar um volume offline
 Talvez seja necessário colocar um volume offline quando você estiver planejando modificá-lo ou excluí-lo. Quando um volume está offline, não está disponível para acesso de leitura / gravação. Você precisará colocar o volume offline no host e no dispositivo. 
@@ -253,7 +253,7 @@ Conclua as seguintes etapas para excluir um volume.
 5. Quando solicitado a confirmar, clique em **Sim**. O volume será excluído e a página **Volumes** mostrará a lista atualizada de volumes dentro do contêiner.
    
    > [!NOTE]
-   > Se você excluir um volume fixado local, o espaço disponível para novos volumes pode não ser atualizado imediatamente. O serviço do StorSimple Manager atualiza o espaço local disponível periodicamente. Sugerimos que você aguarde alguns minutos antes de tentar criar o novo volume.<br>  Além disso, se você excluir um volume afixado localmente e depois excluir outro volume afixado localmente imediatamente, os trabalhos de exclusão de volumes serão executados sequencialmente. O primeiro trabalho de exclusão de volume deve terminar antes de começar o próximo trabalho de exclusão de volume.
+   > Se você excluir um volume fixado local, o espaço disponível para novos volumes pode não ser atualizado imediatamente. O serviço do StorSimple Manager atualiza o espaço local disponível periodicamente. Sugerimos que você aguarde alguns minutos antes de tentar criar o novo volume.<br> Além disso, se você excluir um volume afixado localmente e depois excluir outro volume afixado localmente imediatamente, os trabalhos de exclusão de volumes serão executados sequencialmente. O primeiro trabalho de exclusão de volume deve terminar antes de começar o próximo trabalho de exclusão de volume.
    > 
    > 
 
@@ -272,10 +272,4 @@ Execute as seguintes etapas para habilitar ou desabilitar o monitoramento para u
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [Clonar um volume StorSimple](storsimple-clone-volume.md).
 * Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

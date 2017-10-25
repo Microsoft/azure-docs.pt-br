@@ -11,15 +11,10 @@
    2. Selecione o tipo de backup como local ou instantâneo na nuvem.
    3. Especifique a frequência de backup, a retenção e a hora de início da agenda.
    4. Habilite ou desabilite a agenda.
-   5. Clique no ícone de verificação  ![ícone de verificação](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png)  para salvar as alterações na agenda.
+   5. Clique no ícone de verificação  ![ícone de verificação](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png) para salvar as alterações na agenda.
 5. Na seção **Volumes** , adicione ou remova os volumes para essa política.
 6. Salve as alterações feitas na política.
 7. Você será solicitado a fornecer sua confirmação. Clique em **OK** para salvar a política.
 
 A página **Políticas de Backup** será atualizada para salvar as alterações na política.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

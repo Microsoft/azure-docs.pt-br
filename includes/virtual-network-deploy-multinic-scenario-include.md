@@ -3,8 +3,3 @@ Este documento orientará durante uma implantação que usa várias NICs em máq
 
 ![Cenário de MultiNIC](./media/virtual-network-deploy-multinic-scenario-include/Figure1.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

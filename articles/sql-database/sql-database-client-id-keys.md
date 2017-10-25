@@ -1,5 +1,5 @@
 ---
-title: "Obtenha os valores necessários para autenticar um aplicativo para acessar o Banco de Dados SQL do código | Microsoft Docs"
+title: "Obter valores para a autenticação do aplicativo – Banco de Dados SQL do Azure | Microsoft Docs"
 description: "Crie uma entidade de serviço para acessar o Banco de Dados SQL do código."
 services: sql-database
 documentationcenter: 
@@ -9,18 +9,18 @@ editor:
 tags: 
 ms.assetid: b43e43bb-6660-49e6-b069-abde97eb5770
 ms.service: sql-database
-ms.custom: development
+ms.custom: develop apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/30/2016
 ms.author: sstein
-translationtype: Human Translation
-ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
-ms.openlocfilehash: 321b1630680f8bd4271f863b2cbe39be1a00cb89
-
-
+ms.openlocfilehash: ec6256e9c5bb0d9c8d15d0f673cea70b3915eb34
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Obtenha os valores necessários para autenticar um aplicativo para acessar o Banco de Dados SQL do código
 Para criar e gerenciar o Banco de Dados SQL do código, você deve registrar seu aplicativo no domínio do AAD (Azure Active Directory) na assinatura em que os recursos do Azure foram criados.
@@ -74,10 +74,4 @@ O seguinte script do PowerShell cria o aplicativo do Active Directory (AD) e a e
 ## <a name="see-also"></a>Confira também
 * [Criar um Banco de Dados SQL com C#](sql-database-get-started-csharp.md)
 * [Conectar-se ao Banco de Dados SQL usando a autenticação do Active Directory do Azure](sql-database-aad-authentication.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

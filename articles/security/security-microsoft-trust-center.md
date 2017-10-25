@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
 ms.openlocfilehash: a8835da0947ce2a365b57356960541cb997e73b3
-ms.lasthandoff: 01/24/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-trust-center"></a>Central de Confiabilidade da Microsoft
 O site de Informações de Segurança do Azure em Azure.com fornece as informações que você precisa para planejar, projetar, implantar, configurar e gerenciar suas soluções de nuvem com segurança. Com a Central de Confiança da Microsoft, você também tem as informações necessárias para ter certeza de que a plataforma do Azure na qual executa seus serviços é segura.
@@ -40,4 +39,3 @@ Veja o que você encontrará na Central de Confiabilidade da Microsoft:
 * [Recursos](https://aka.ms/tcresources) – investigue white papers, vídeos e estudos de caso no Microsoft Trusted Cloud
 
 A [Central de Confiança da Microsoft](https://www.microsoft.com/trustcenter) tem o que você precisa para entender o que podemos fazer para proteger o Microsoft Cloud.
-

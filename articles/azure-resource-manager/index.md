@@ -2,7 +2,7 @@
 title: "Documentação do Azure Resource Manager - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como usar o Resource Manager para implantar e gerenciar os recursos da solução como um grupo e criar modelos para implantação de recursos consistentes e repetíveis."
 services: azure-resource-manager
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 186bbc75211988f51dc91e2227472f6369b3bfdd
-ms.lasthandoff: 04/04/2017
-
+ms.openlocfilehash: ab6725298c9e9c496d2e20b4e68ff72af1432bb2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="azure-resource-manager-documentation"></a>Documentação do Azure Resource Manager
 
@@ -142,7 +142,9 @@ Saiba como usar o Resource Manager para implantar, monitorar e gerenciar os recu
                         <p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html">Python</a></p>
                         <p><a href="/azure/templates/">Formato do modelo</a></p>
-                        <p><a href="/resource-group-template-functions.md">Funções de modelo</a></p>
+                        <p><a href="/azure/resource-group-template-functions">Funções de modelo</a></p>
+                        <p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">Funções de definição de interface do usuário</a></p>
+                        <p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-elements">Elementos de definição de interface do usuário</a></p>
                     </div>
                 </div>
             </div>
@@ -161,4 +163,3 @@ Saiba como usar o Resource Manager para implantar, monitorar e gerenciar os recu
         </div>
     </li>
 </ul>
-

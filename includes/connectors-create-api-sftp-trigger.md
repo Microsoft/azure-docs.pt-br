@@ -16,8 +16,3 @@ Neste ponto, seu aplicativo lógico foi configurado com um gatilho que iniciará
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

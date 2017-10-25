@@ -3,7 +3,7 @@ title: "Localizar relatórios de atividade no Portal do Azure | Microsoft Docs"
 description: "Saiba como localizar relatórios de atividade do Azure Active Directory no Portal do Azure."
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: d93521f8-dc21-4feb-aaff-4bb300f04812
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/01/2017
+ms.date: 07/19/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: f2f5ed98df88df69ee300c9da94ad013a631b3b9
-ms.lasthandoff: 03/14/2017
-
-
+ms.reviewer: dhanyahk
+ms.openlocfilehash: f1875582476c3817b9eb0082b6548cc15043cb98
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Localizar relatórios de atividade no Portal do Azure
 
@@ -29,9 +29,9 @@ Se você estiver mudando do Portal Clássico do Azure para o Portal do Azure, d�
 
 Os relatórios no Portal Clássico do Azure são separados em categorias:
 
-1.    Relatórios de segurança
-2.    Relatórios de atividades
-3.    Relatórios de aplicativo integrados
+1.  Relatórios de segurança
+2.  Relatórios de atividades
+3.  Relatórios de aplicativo integrados
 
 ### <a name="activity-and-integrated-app-reports"></a>Relatórios do aplicativo integrado e de atividade
 
@@ -43,14 +43,14 @@ Para ver essa exibição, na folha **Azure Active Directory**, em **ATIVIDADE**,
 
 Os relatórios a seguir são consolidados nessa exibição:
 
--    Relatório de auditoria
--     Atividade de redefinição de senha
--     Atividade de registro de redefinição de senha
--     Atividade dos grupos de autoatendimento
--     Alterações de nome do grupo do Office365
--     Atividade de provisionamento de conta
--     Status de substituição de senha
--     Erros de provisionamento de conta
+-   Relatório de auditoria
+-   Atividade de redefinição de senha
+-   Atividade de registro de redefinição de senha
+-   Atividade dos grupos de autoatendimento
+-   Alterações de nome do grupo do Office365
+-   Atividade de provisionamento de conta
+-   Status de substituição de senha
+-   Erros de provisionamento de conta
 
 
 O relatório Uso do Aplicativo foi aprimorado e está incluído na exibição **Entradas**. Para ver essa exibição, na folha **Azure Active Directory**, em **ATIVIDADE**, selecione **Entradas**.
@@ -124,8 +124,8 @@ No Portal do Azure, você pode acessar os relatórios sobre os eventos de risco 
 
 Para saber mais sobre relatórios de segurança, veja:
 
-- [Usuários no relatório de riscos de segurança no Portal do Azure Active Directory - visualização](active-directory-reporting-security-user-at-risk.md)
-- [Relatório de entradas arriscadas no Portal do Azure Active Directory - visualização](active-directory-reporting-security-risky-sign-ins.md)
+- [Relatório de segurança de usuários em risco no portal do Azure Active Directory](active-directory-reporting-security-user-at-risk.md)
+- [Relatório de entradas de risco no portal do Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md)
 
 
 ## <a name="activity-reports-in-the-azure-classic-portal-vs-the-azure-portal"></a>Relatórios de atividade no Portal Clássico do Azure versus Portal do Azure
@@ -152,3 +152,6 @@ Para ver o relatório **Uso do Aplicativo**, na folha **Azure Active Directory**
 
 ![Relatório de Entradas de aplicativos empresariais](./media/active-directory-reporting-migration/199.png "Relatório de Entradas de aplicativos empresariais")
 
+## <a name="next-steps"></a>Próximas etapas
+
+Para ter uma visão geral dos relatórios, consulte [Relatórios do Azure Active Directory](active-directory-reporting-azure-portal.md).

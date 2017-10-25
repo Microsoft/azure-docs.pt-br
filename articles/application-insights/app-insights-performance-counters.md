@@ -3,8 +3,8 @@ title: Contadores de desempenho no Application Insights | Microsoft Docs
 description: Monitore o sistema e contadores de desempenho .NET personalizados no Application Insights.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 94a4d2b85c845b135201fd919e8eac64a5e1cb37
-
-
+ms.author: bwren
+ms.openlocfilehash: 038d6e051be8112b9264e7efa6485965d11e32c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de desempenho do sistema no Application Insights
 O Windows fornece uma ampla variedade de [contadores de desempenho](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) como ocupação da CPU, memória, disco e uso da rede. Você também pode definir seus próprios. O [Application Insights](app-insights-overview.md) pode mostrar esses contadores de desempenho se o seu aplicativo estiver em execução no IIS em um host local ou máquina virtual a qual você tem acesso administrativo. Os gráficos indicam os recursos disponíveis para seu aplicativo ativo e podem ajudar a identificar uma carga sem balanceamento entre instâncias do servidor.
@@ -27,15 +27,6 @@ Os contadores de desempenho aparecem na folha Servidores, que inclui uma tabela 
 ![Contadores de desempenho reportados no Application Insights](./media/app-insights-performance-counters/counters-by-server-instance.png)
 
 (Os contadores de desempenho não estão disponíveis para aplicativos Web do Azure. Mas você pode [enviar o Diagnóstico do Azure para o Application Insights](app-insights-azure-diagnostics.md).)
-
-## <a name="configure"></a>Configurar
-Se o Application Insights Status Monitor ainda não estiver instalado em suas máquinas de servidor, você precisará instalá-lo para ver os contadores de desempenho.
-
-Baixe e execute o [instalador do Monitor de Status](http://go.microsoft.com/fwlink/?LinkId=506648) em cada instância de servidor. Se já estiver instalado, não será necessário fazer nada.
-
-* *Eu [instalei o SDK do Application Insights em meu aplicativo](app-insights-asp-net.md) durante o desenvolvimento. Ainda preciso do Monitor de Status?*
-  
-    Sim, o Monitor de Status é necessário para coletar contadores de desempenho para aplicativos Web do ASP.NET. Como você já deve saber, o Monitor de Status também pode ser usado para [monitorar aplicativos Web que já estão ativos](app-insights-monitor-performance-live-website-now.md), sem instalar o SDK durante o desenvolvimento.
 
 ## <a name="view-counters"></a>Visualizar contadores
 A folha Servidores mostra um conjunto padrão de contadores de desempenho. 
@@ -128,13 +119,7 @@ Como outras telemetrias, o **performanceCounters** também tem uma coluna `cloud
 ## <a name="alerts"></a>Alertas
 Assim como ocorre com outras métricas, você pode [definir um alerta](app-insights-alerts.md) para avisar se um contador de desempenho fica fora de um limite especificado. Abra a folha Alertas e clique em Adicionar Alerta.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Próximas etapas
+## <a name="next"></a>Próximas etapas
 * [Acompanhamento de dependência](app-insights-asp-net-dependencies.md)
 * [Acompanhamento de exceções](app-insights-asp-net-exceptions.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

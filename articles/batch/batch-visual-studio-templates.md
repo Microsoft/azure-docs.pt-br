@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 53c9b75599af48be82c63bc7a9df31d4c2de13a3
-ms.lasthandoff: 03/09/2017
-
-
+ms.openlocfilehash: da77ce827c65deb18d9d84ce5cf768d89788e205
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Usar modelos de projeto do Visual Studio para iniciar rapidamente soluções em lote
 
@@ -55,7 +54,7 @@ Conforme mostrado no diagrama a seguir, um trabalho de computação que usa esse
 ## <a name="prerequisites"></a>Pré-requisitos
 Para usar os modelos do Lote, você precisará do seguinte:
 
-* Um computador com Visual Studio 2015, ou mais recente, instalado.
+* Um computador com o Visual Studio 2015 instalado. Modelos de lote atualmente só têm suporte para o Visual Studio 2015.
 * Os modelos do Lote, disponíveis na [Galeria do Visual Studio][vs_gallery] como extensões do Visual Studio. Há duas maneiras de obter os modelos:
   
   * Instalar os modelos usando a caixa de diálogo **Extensões e Atualizações** no Visual Studio (para saber mais, confira [Localizando e usando extensões do Visual Studio][vs_find_use_ext]). Na caixa de diálogo **Extensões e Atualizações** , procure e baixe as duas extensões a seguir:
@@ -454,4 +453,3 @@ O [Fórum do Lote do Azure][forum] no MSDN é um ótimo lugar para discutir sobr
 [diagram01]: ./media/batch-visual-studio-templates/diagram01.png
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
 [solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
-

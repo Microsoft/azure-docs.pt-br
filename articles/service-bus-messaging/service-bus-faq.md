@@ -12,17 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
-ms.author: sethm;jotaub
-translationtype: Human Translation
-ms.sourcegitcommit: da7f8e3e61705cf07ff65c9dd1d8f292f4fb9f62
-ms.openlocfilehash: 9061829e42ed5563d64860774aa7d80f2ab011bd
-ms.lasthandoff: 02/10/2017
-
-
+ms.date: 08/07/2017
+ms.author: sethm
+ms.openlocfilehash: 1403184d96388cb03b2c767c4da342ec1c6fe236
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-faq"></a>Perguntas frequentes sobre o Barramento de Serviço
-Este artigo responde a algumas perguntas frequentes sobre o Barramento de Serviço do Microsoft Azure. Você também pode visitar as [Perguntas frequentes de suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para informações gerais sobre preços e suporte do Azure.
+Este artigo responde a algumas perguntas frequentes sobre o Barramento de Serviço do Microsoft Azure. Você também pode visitar as [Perguntas frequentes de suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para obter informações gerais sobre preços e suporte do Azure.
 
 ## <a name="general-questions-about-azure-service-bus"></a>Perguntas gerais sobre o Barramento de Serviço do Azure
 ### <a name="what-is-azure-service-bus"></a>O que é o Barramento de Serviço do Azure?
@@ -56,7 +55,11 @@ As propriedades de uma fila e tópico a seguir são imutáveis. Leve isso em con
 * Entidade expressa
 
 ## <a name="pricing"></a>Preços
-Esta seção responde a perguntas frequentes sobre a estrutura de preços do Barramento de Serviço. Você também pode visitar as [Perguntas frequentes de suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para informações gerais sobre preços do Microsoft Azure. Para saber mais sobre o preço do Barramento de Serviço, consulte [Detalhes de preço do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
+Esta seção responde a perguntas frequentes sobre a estrutura de preços do Barramento de Serviço.
+
+O artigo [Barramento de Serviço, preços e cobrança](service-bus-pricing-billing.md) explica os medidores de cobrança no Barramento de Serviço e, para obter informações sobre opções de preços do Barramento de Serviço, consulte [Detalhes de preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
+
+Você também pode visitar as [Perguntas frequentes sobre o suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para obter informações gerais sobre preços do Azure. 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>Como é cobrado o Barramento de Serviço?
 Para saber mais sobre o preço do Barramento de Serviço, veja [Detalhes de preço do Barramento de Serviço][Pricing overview]. Além dos preços mencionados, você é cobrado por transferências de dados associadas para saída fora do data center em que seu aplicativo está provisionado.
@@ -68,40 +71,15 @@ Todas as transferências de dados dentro de uma determinada região do Azure sã
 Não, o Barramento de Serviço não cobra pelo armazenamento. No entanto, há uma cota que limita a quantidade máxima de dados que podem persistir por fila/tópico. Consulte as Perguntas Frequentes a seguir.
 
 ## <a name="quotas"></a>Cotas
-Para obter uma lista de cotas e limites do Barramento de Serviço, veja [Visão geral sobre cotas][Quotas overview].
+
+Para obter uma lista de cotas e limites do Barramento de Serviço, veja [Visão geral sobre cotas do Barramento de Serviço][Quotas overview].
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>O Barramento de Serviço tem cotas de uso?
-Por padrão, para qualquer serviço de nuvem, a Microsoft define uma cota de uso mensal agregado calculada entre todas as assinaturas de um cliente. Como compreendemos que talvez seja necessário usar mais do que esses limites, contate o atendimento ao cliente a qualquer momento para que possamos entender as suas necessidades e ajustar esses limites adequadamente. Para o Barramento de Serviço, as cotas de uso agregado são de 5 bilhões de mensagens por mês.
+Por padrão, para qualquer serviço de nuvem, a Microsoft define uma cota de uso mensal agregado calculada entre todas as assinaturas de um cliente. Como compreendemos que talvez seja necessário usar mais do que esses limites, contate o atendimento ao cliente a qualquer momento para que possamos entender as suas necessidades e ajustar esses limites adequadamente. Para o Barramento de Serviço, a cota de uso agregado é de 5 bilhões de mensagens por mês.
 
 Embora reservemos o direito de desabilitar uma conta de cliente que tenha excedido suas cotas de uso em determinado mês, forneceremos uma notificação por email e faremos várias tentativas de contatar o cliente antes de realizar qualquer ação. Os clientes que excederem essas cotas ainda serão responsáveis pelas cobranças que excederem as cotas.
 
-Como ocorre com outros serviços no Azure, o Barramento de Serviço aplica um conjunto de cotas específicas para garantir que haja um uso inteligente dos recursos. A seguir estão as cotas de uso impostas pelo serviço:
-
-#### <a name="queuetopic-size"></a>Tamanho do tópico/fila
-Especifique o tamanho máximo da fila ou do tópico no momento da sua criação. Essa cota pode ter um valor de 1, 2, 3, 4 ou 5 GB. Se tamanho máximo for atingido, as mensagens de entrada adicionais serão rejeitadas e uma exceção será recebida pelo código de chamada.
-
-#### <a name="naming-restrictions"></a>Restrições de nomenclatura
-Um nome de namespace do Barramento de Serviço só pode ter entre 6 e 50 caracteres. O limite da contagem de caracteres para cada fila, tópico ou assinatura está entre 1 e 50 caracteres.
-
-#### <a name="number-of-concurrent-connections"></a>Número de conexões simultâneas
-Fila/Tópico/Assinatura – o número de conexões TCP simultâneas em uma fila/tópico/assinatura é limitado a 100. Se essa cota for atingida, as solicitações subsequentes de conexões adicionais serão rejeitadas e uma exceção será recebida pelo código de chamada. Para cada fábrica de mensagens, o Barramento de Serviço mantém uma conexão TCP se algum dos clientes criados por essa fábrica de mensagens tiver uma operação ativa pendente ou tiver concluído uma operação há menos de 60 segundos. Operações REST não são consideradas conexões TCP simultâneas.
-
-#### <a name="number-of-topicsqueues-per-service-namespace"></a>Número de tópicos/filas por namespace de serviço
-O número máximo de tópicos/filas (entidades de armazenamento duráveis) em um namespace de serviço é limitado a 10.000. Se essa cota for atingida, as solicitações subsequentes para a criação de uma novo tópico/fila no namespace de serviço serão rejeitadas. Nesse caso, o portal clássico do Azure exibirá uma mensagem de erro ou o código de cliente de chamada receberá uma exceção, dependendo se a tentativa foi feita por meio do portal ou no código do cliente.
-
-### <a name="message-size-quotas"></a>Cotas de tamanho de mensagem
-#### <a name="queuetopicsubscription"></a>Fila/Tópico/Assinatura
-**Tamanho da mensagem** : cada mensagem está limitada a um tamanho total de 256KB, incluindo os cabeçalhos da mensagem.
-
-**Tamanho do cabeçalho da mensagem** – cada cabeçalho de mensagem é limitado a 64KB.
-
-As mensagens que excederem essas cotas de tamanho serão rejeitadas e uma exceção será recebida pelo código de chamada.
-
-**Número de assinaturas por tópico** – o número máximo de assinaturas por tópico é limitado a 2 mil. Se essa cota for atingida, as solicitações subsequentes para a criação de assinaturas adicionais para o tópico serão rejeitadas. Nesse caso, o portal clássico do Azure exibirá uma mensagem de erro ou o código de cliente de chamada receberá uma exceção, dependendo se a tentativa foi feita por meio do portal ou no código do cliente.
-
-**Número de filtros SQL por tópico** – o número máximo de filtros SQL por tópico é limitado a 2 mil. Se essa cota for atingida, as solicitações subsequentes de criação de filtros adicionais para o tópico serão rejeitadas e uma exceção será recebida pelo código de chamada.
-
-**Filtros de número de correlação por tópico** – o número máximo de filtros de correlação por tópico é limitado a 100 mil. Se essa cota for atingida, as solicitações subsequentes de criação de filtros adicionais para o tópico serão rejeitadas e uma exceção será recebida pelo código de chamada.
+Como ocorre com outros serviços no Azure, o Barramento de Serviço aplica um conjunto de cotas específicas para garantir que haja um uso inteligente dos recursos. Você pode encontrar mais detalhes sobre essas cotas em [visão geral de cotas do Barramento de Serviço][Quotas overview].
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Quais são algumas das exceções geradas pelas APIs do Barramento de Serviço do Azure e suas ações sugeridas?
@@ -112,9 +90,16 @@ As Assinaturas de Acesso Compartilhado são um mecanismo de autenticação com b
 
 ## <a name="subscription-and-namespace-management"></a>Gerenciamento de assinaturas e de namespaces
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Como posso migrar um namespace para outra assinatura do Azure?
-Usando o Portal do Azure, você pode migrar namespaces do Barramento de Serviço para outra assinatura seguindo as instruções [aqui](../azure-resource-manager/resource-group-move-resources.md#use-portal). Se preferir usar o PowerShell, siga as instruções abaixo: 
 
-A sequência de comandos a seguir move um namespace de uma assinatura do Azure para outra. Para executar essa operação, o namespace já deve estar ativo e o usuário que está executando os comandos do PowerShell deve ser um administrador em assinaturas de origem e de destino.
+Mova um namespace de uma assinatura do Azure para outra usando o [portal do Azure](https://portal.azure.com) ou comandos do PowerShell. Para executar a operação, o namespace já deve estar ativo. O usuário que executa os comandos deve ser administrador nas assinaturas de origem e de destino.
+
+#### <a name="portal"></a>Portal
+
+Para usar o portal do Azure para migrar namespaces do Barramento de Serviço para outra assinatura, siga as instruções descritas [aqui](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+
+#### <a name="powershell"></a>PowerShell
+
+A sequência de comandos do PowerShell a seguir move um namespace de uma assinatura do Azure para outra. Para executar essa operação, o namespace já deve estar ativo e o usuário que está executando os comandos do PowerShell deve ser um administrador em assinaturas de origem e de destino.
 
 ```powershell
 # Create a new resource group in target subscription
@@ -141,5 +126,4 @@ Para saber mais sobre o Barramento de Serviço, veja os tópicos a seguir.
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
 [Quotas overview]: service-bus-quotas.md
 [Exceptions overview]: service-bus-messaging-exceptions.md
-[Shared Access Signatures]: service-bus-sas-overview.md
-
+[Shared Access Signatures]: service-bus-sas.md

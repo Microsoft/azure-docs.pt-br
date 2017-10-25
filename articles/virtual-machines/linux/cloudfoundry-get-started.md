@@ -16,15 +16,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: 89117c59ae8948eeb32b51a0ecd4fdf0a3a2edd7
-ms.openlocfilehash: d026d6d901374a91864edf9f6ee38d5450e7f179
-
+ms.openlocfilehash: 94fbde7707ea9a91076780fdefc3f5a827e0e7b2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry no Azure
 
-O Cloud Foundry é uma PaaS (plataforma como serviço) de software livre para compilar, implantar e operar aplicativos de 12 fatores desenvolvidos em uma variedade de linguagens e estruturas. Este documento descreve as opções disponíveis para a execução do Cloud Foundry no Azure e como começar.
+O Cloud Foundry é um PaaS (plataforma como serviço) de software livre para criação, implantação e operação de aplicativos de 12 fatores desenvolvidos em várias linguagens e estruturas. Este documento descreve as opções disponíveis para a execução do Cloud Foundry no Azure e como começar.
 
 ## <a name="cloud-foundry-offerings"></a>Ofertas do Cloud Foundry
 
@@ -45,7 +45,7 @@ A Microsoft dá suporte aprimorado para o CF OSS usando os seguintes canais de c
 
 ### <a name="pivotal-cloud-foundry"></a>Pivotal Cloud Foundry
 
-O Pivotal Cloud Foundry inclui a mesma plataforma principal que a distribuição de OSS, juntamente com um conjunto de ferramentas de gerenciamento exclusivas e suporte corporativo. Para executar o PCF no Azure, você deve adquirir uma licença do Pivotal. A oferta de PCF do Azure Marketplace inclui uma licença de avaliação de 90 dias.
+O Pivotal Cloud Foundry inclui a mesma plataforma principal que a distribuição de OSS, juntamente com um conjunto de ferramentas de gerenciamento exclusivas e suporte corporativo. Para executar o PCF no Azure, você deve adquirir uma licença da Pivotal. A oferta de PCF do Azure Marketplace inclui uma licença de avaliação de 90 dias.
 
 As ferramentas incluem o [Pivotal Operations Manager](http://docs.pivotal.io/pivotalcf/customizing/), um aplicativo Web que simplifica a implantação e o gerenciamento de uma fundação Cloud Foundry, e o [Pivotal Apps Manager](https://docs.pivotal.io/pivotalcf/console/), um aplicativo Web para gerenciar usuários e aplicativos.
 
@@ -53,7 +53,7 @@ Além dos canais de suporte listados acima para o CF OSS, uma licença do PCF pe
 
 ## <a name="azure-service-broker"></a>Azure Service Broker
 
-O Cloud Foundry incentiva a metodologia do ["aplicativo de&12; fatores"](https://12factor.net/), que promove uma separação clara entre processos de aplicativos sem estado e serviços de apoio com estado. Os [service brokers](https://docs.cloudfoundry.org/services/api.html) possibilitam provisionar e associar os serviços de suporte a aplicativos de uma maneira consistente. O [Azure Service Broker](https://github.com/Azure/meta-azure-service-broker) fornece alguns dos principais serviços do Azure por este canal, incluindo o armazenamento do Azure e SQL do Azure.
+O Cloud Foundry incentiva a metodologia do ["aplicativo de 12 fatores"](https://12factor.net/), que promove uma separação clara entre processos de aplicativos sem estado e serviços de apoio com estado. Os [service brokers](https://docs.cloudfoundry.org/services/api.html) possibilitam provisionar e associar os serviços de suporte a aplicativos de uma maneira consistente. O [Azure Service Broker](https://github.com/Azure/meta-azure-service-broker) fornece alguns dos principais serviços do Azure por este canal, incluindo o armazenamento do Azure e SQL do Azure.
 
 Se você estiver usando Pivotal Cloud Foundry, o service broker também está [disponível como um mosaico](https://docs.pivotal.io/azure-sb/installing.html) da Pivotal Network.
 
@@ -66,9 +66,4 @@ O Cloud Foundry serve para o desenvolvimento rápido de software, incluindo o us
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Implantar o Pivotal Cloud Foundry do Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+- [Implantar um aplicativo no Cloud Foundry no Azure](./cloudfoundry-deploy-your-first-app.md)

@@ -12,17 +12,17 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/01/2016
+ms.date: 05/01/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: c98251147bca323d31213a102f607e995b37e0ec
-ms.openlocfilehash: 801a9d0e92a248d2e9843f13cfce74b948cf0d4b
-
-
+ms.openlocfilehash: 356ceb98106d080d8c24dedc3547bee33750156e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="indexer-operations-azure-search-service-rest-api-2015-02-28-preview"></a>Operações de indexador (API REST do serviço Azure Search: 2015-02-28-Preview)
 > [!NOTE]
-> Este artigo descreve os indexadores na versão [API REST&2015;-02-28-Preview](search-api-2015-02-28-preview.md). Esta versão de API adiciona versões de visualização do indexador do Armazenamento de Blobs do Azure com a extração de documentos, o indexador do Armazenamento de Tabelas do Azure e outros aprimoramentos. A API também oferece suporte a indexadores geralmente disponíveis (GA), incluindo indexadores para banco de dados SQL do Azure, o SQL Server em VMs do Azure e o Banco de Dados de Documentos do Azure.
+> Este artigo descreve os indexadores na versão [API REST 2015-02-28-Preview](search-api-2015-02-28-preview.md). Esta versão de API adiciona versões de visualização do indexador do Armazenamento de Blobs do Azure com a extração de documentos, o indexador do Armazenamento de Tabelas do Azure e outros aprimoramentos. A API também dá suporte a indexadores GA (disponíveis), incluindo indexadores para o Banco de Dados SQL do Azure, o SQL Server em VMs do Azure e o Azure Cosmos DB.
 > 
 > 
 
@@ -42,7 +42,7 @@ Uma **fonte de dados** especifica quais dados precisam ser indexados, as credenc
 Atualmente, há suporte às seguintes fontes de dados:
 
 * **Banco de Dados SQL do Azure** e **SQL Server em VMs do Azure**. Para obter um passo a passo direcionado, confira [este artigo](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
-* **Banco de Dados de Documentos do Azure**. Para obter um passo a passo direcionado, confira [este artigo](search-howto-index-documentdb.md). 
+* **Azure Cosmos DB**. Para obter um passo a passo direcionado, confira [este artigo](search-howto-index-documentdb.md). 
 * **Armazenamento de Blobs do Azure**, incluindo as seguintes formatos de documentos: PDF, Microsoft Office (DOCX/DOC, XSLX/XLS, PPT/PPTX, MSG), HTML, XML, ZIP e arquivos de texto sem formatação (inclusive JSON). Para obter um passo a passo direcionado, confira [este artigo](search-howto-indexing-azure-blob-storage.md).
 * **Armazenamento de Tabelas do Azure**. Para obter um passo a passo direcionado, confira [este artigo](search-howto-indexing-azure-tables.md).
 
@@ -123,22 +123,22 @@ A contém as seguintes propriedades:
 * `description`: uma descrição opcional. 
 * `type`: obrigatório. Deve ser um dos tipos de fonte de dados com suporte:
   * `azuresql` ‒ banco de dados do Azure SQL ou SQL Server em máquinas virtuais do Azure
-  * `documentdb` ‒ Banco de Dados de Documentos do Azure
+  * `documentdb` – Azure Cosmos DB
   * `azureblob` – Armazenamento de Blobs do Azure
   * `azuretable` - Armazenamento de Tabelas do Azure
 * `credentials`:
   * A propriedade `connectionString` obrigatória especifica a cadeia de conexão da fonte de dados. O formato da cadeia de conexão depende do tipo de fonte de dados: 
     * Para o Azure SQL, essa é a cadeia de conexão do SQL Server normal. Se você estiver usando o Portal do Azure para recuperar a cadeia de conexão, use a opção `ADO.NET connection string` .
-    * Para DocumentDB, a cadeia de conexão deve estar no seguinte formato: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Todos os valores são obrigatórios. Você pode encontrá-los no [Portal do Azure](https://portal.azure.com/).  
+    * Para o Azure Cosmos DB, a cadeia de conexão deve estar no seguinte formato: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Todos os valores são obrigatórios. Você pode encontrá-los no [Portal do Azure](https://portal.azure.com/).  
     * Para o Armazenamento de Blobs e Tabelas do Azure, essa é a cadeia de conexão da conta de armazenamento. O formato é descrito [aqui](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/). É necessário ter um protocolo de ponto de extremidade HTTPS.  
 * `container`, obrigatório: especifica os dados a serem indexados com as propriedades `name` e `query`: 
   * `name`, obrigatório:
     * SQL Azure: especifica a tabela ou a exibição. Você pode usar nomes qualificados pelo esquema, como `[dbo].[mytable]`.
-    * Banco de Dados de Documentos: especifica a coleção. 
+    * DocumentDB: especifica a coleção. 
     * Armazenamento de Blobs do Azure: especifica o contêiner de armazenamento.
     * Armazenamento de Tabelas do Azure: especifica o nome da tabela. 
   * `query`, opcional:
-    * Banco de Dados de Documentos: permite especificar uma consulta que nivela um layout de documento JSON arbitrário em um esquema simples que pode ser indexado pela Pesquisa do Azure.  
+    * DocumentDB: permite especificar uma consulta que nivela um layout de documento JSON arbitrário em um esquema simples que pode ser indexado pelo Azure Search.  
     * Armazenamento de Blobs do Azure: permite que você especifique uma pasta virtual dentro do contêiner de blob. Por exemplo, para o caminho de blob `mycontainer/documents/blob.pdf`, `documents` pode ser usada como a pasta virtual.
     * Armazenamento de Tabelas do Azure: permite que você especifique uma consulta que filtra o conjunto de linhas a serem importadas.
     * SQL Azure: não há suporte para consulta. Se você precisar dessa funcionalidade, vote [nesta sugestão](https://feedback.azure.com/forums/263029-azure-search/suggestions/9893490-support-user-provided-query-in-sql-indexer)
@@ -167,7 +167,7 @@ Essa política pode ser especificada da seguinte maneira:
         "highWaterMarkColumnName" : "[a row version or last_updated column name]" 
     } 
 
-Ao usar fontes de dados DocumentDB, você deve usar a propriedade `_ts` fornecida pelo DocumentDB. 
+Ao usar fontes de dados do Azure Cosmos DB, é necessário usar a propriedade `_ts` fornecida pelo Azure Cosmos DB. 
 
 Ao usar fontes de dados do Blob do Azure, a Pesquisa do Azure usa automaticamente uma política de detecção de alteração de marca d’água alta baseada no último carimbo de data/hora modificado de um blob; não é preciso especificar essa política por conta própria.   
 
@@ -411,8 +411,8 @@ Um indexador pode, opcionalmente, especificar vários parâmetros que afetam seu
 
 * `maxFailedItems` : o número de itens que podem não ser indexados antes que a execução de um indexador seja considerada uma falha. O padrão é 0. Informações sobre itens com falha são retornadas pela operação [Obter Status do Indexador](#GetIndexerStatus) . 
 * `maxFailedItemsPerBatch` : o número de itens que podem não ser indexados em cada lote antes que a execução de um indexador seja considerada uma falha. O padrão é 0.
-* `base64EncodeKeys`: especifica se as chaves de documento serão ou não codificadas em base&64;. O Azure Search impõe restrições em relação aos caracteres que podem estar presentes em uma chave de documento. No entanto, os valores na fonte de dados podem conter caracteres que são inválidos. Se for necessário indexar esses valores como chaves de documento, esse sinalizador poderá ser definido como true. O padrão é `false`.
-* `batchSize`: especifica o número de itens lidos da fonte de dados e indexados como um único lote para melhorar o desempenho. O padrão depende do tipo de fonte de dados: 1000 para o SQL Azure e o DocumentDB e 10 para o Armazenamento de Blobs do Azure.
+* `base64EncodeKeys`: especifica se as chaves de documento serão ou não codificadas em base 64. O Azure Search impõe restrições em relação aos caracteres que podem estar presentes em uma chave de documento. No entanto, os valores na fonte de dados podem conter caracteres que são inválidos. Se for necessário indexar esses valores como chaves de documento, esse sinalizador poderá ser definido como true. O padrão é `false`.
+* `batchSize`: especifica o número de itens lidos da fonte de dados e indexados como um único lote para melhorar o desempenho. O padrão depende do tipo de fonte de dados: 1.000 para o SQL do Azure e o Azure Cosmos DB e 10 para o Armazenamento de Blobs do Azure.
 
 **Mapeamentos de campo**
 
@@ -796,9 +796,3 @@ Código de status: 204 sem Conteúdo para uma resposta bem-sucedida.
 <td>Sem suporte; no momento, o Azure Search dá suporte apenas a tipos primitivos e coleções de cadeias de caracteres</td>
 </tr>
 </table>
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-

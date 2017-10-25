@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 3/17/2017
+ms.date: 7/20/2017
 ms.author: pratshar
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 26d3d014e28a8e2fda4acc19e974b709b965c07e
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: 197441fc24c178695d4eada6db59f503b21672ad
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="protect-active-directory-and-dns-with-azure-site-recovery"></a>Proteger o Active Directory e o DNS com o Azure Site Recovery
 Aplicativos empresariais como o SharePoint, o Dynamics AX e o SAP dependem do Active Directory e de uma infraestrutura de DNS para funcionar corretamente. Quando você cria uma solução de recuperação de desastre para aplicativos, é importante se lembrar de que você precisa proteger e recuperar o Active Directory e o DNS antes dos outros componentes de aplicativo, para garantir que tudo funcione corretamente quando ocorrer um desastre.
@@ -38,7 +37,7 @@ Você precisa configurar a [replicação do Site Recovery](#enable-protection-us
 Se você tiver alguns aplicativos e um único controlador de domínio e desejar executar failover de todo o site, é recomendável usar o Site Recovery para replicar o controlador de domínio no site secundário (esteja você executando failover no Azure ou em um site secundário). A mesma máquina virtual controladora/DNS replicada também pode ser usada para o [failover de teste](#test-failover-considerations).
 
 ### <a name="environment-with-multiple-domain-controllers"></a>Ambiente com vários controladores de domínio
-Se você tiver muitos aplicativos e houver mais de um controlador de domínio no ambiente ou se planeja executar failover de alguns aplicativos por vez, é recomendável, além de replicar a máquina virtual do controlador de domínio com o Site Recovery, configurar também um [controlador de domínio adicional](#protect-active-directory-with-active-directory-replication) no site de destino (Azure ou um datacenter local secundário). Para [failover de teste](#test-failover-considerations), use o controlador de domínio replicado pelo Site Recovery e, para o failover, o controlador de domínio adicional no site de destino. 
+Se você tiver muitos aplicativos e houver mais de um controlador de domínio no ambiente ou se planeja executar failover de alguns aplicativos por vez, é recomendável, além de replicar a máquina virtual do controlador de domínio com o Site Recovery, configurar também um [controlador de domínio adicional](#protect-active-directory-with-active-directory-replication) no site de destino (Azure ou um datacenter local secundário). Para [failover de teste](#test-failover-considerations), use o controlador de domínio replicado pelo Site Recovery; para failover, use o controlador de domínio adicional no site de destino. 
 
 
 As seções a seguir explicam como habilitar a proteção para um controlador de domínio na Recuperação de Site e como configurar um controlador de domínio no Azure.
@@ -82,8 +81,7 @@ A maioria dos aplicativos também exige a presença de um controlador de domíni
 1. Crie uma rede isolada. Qualquer rede virtual criada no Azure é isolada por padrão de outras redes. Recomendamos que o intervalo de endereços IP dessa rede seja o mesmo de sua rede de produção. Não habilite a conectividade site a site nessa rede.
 1. Forneça um endereço IP de DNS na rede criada, como o endereço IP que você espera que a máquina virtual do DNS obtenha. Se estiver replicando no Azure, forneça o endereço IP da VM que é usada no failover na configuração **IP de Destino** das configurações **Computação e Rede**. 
 
-    ![IP de destino](./media/site-recovery-active-directory/DNS-Target-IP.png)
-    **IP de destino**
+    ![IP de destino](./media/site-recovery-active-directory/DNS-Target-IP.png) **IP de destino**
 
     ![Rede de teste do Azure](./media/site-recovery-active-directory/azure-test-network.png)
 
@@ -210,5 +208,4 @@ Você pode usar um servidor DNS atualizado e criar todas as zonas necessárias. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Leia [Quais cargas de trabalho posso proteger?](site-recovery-workload.md) para saber mais sobre como proteger as cargas de trabalho corporativas com o Azure Site Recovery.
-
 

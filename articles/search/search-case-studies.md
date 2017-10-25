@@ -1,5 +1,5 @@
 ---
-title: 'Who''s using Azure Search: case studies and customer stories | Microsoft Docs'
+title: "Quem está usando o Azure Search: estudos de caso e relatos de cliente | Microsoft Docs"
 description: "Estudos de caso e histórias de clientes sobre a Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado do Microsoft Azure."
 services: search
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 197e5eba551d60ec33bcb5705bfa13f145554b74
-
-
+ms.openlocfilehash: e7cbbdc606920b9698b30e4b7a9c3325a0f866e2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whos-using-azure-search-case-studies-and-customer-stories"></a>Quem está usando a Pesquisa do Azure: estudos de caso e relatos de clientes
 Saiba como as organizações a seguir desenvolverem seus negócios por meio da integração de experiências avançadas da Pesquisa do Azure a seus aplicativos online.
@@ -42,8 +42,8 @@ Como uma startup com grandes planos para seu site de pesquisa de assistência m�
 ## <a name="weichert-realtorshttpscustomersmicrosoftcompagescustomerstoryaspxrecid21252"></a>[Weichert Realtors](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=21252)
 A Weichert Realtors está se mudando para a nuvem — e está liderando uma revolução completa na forma como a empresa dirige seus negócios. A migração para o Microsoft Azure permitiu que a empresa reduzisse os custos operacionais em 60% depois de dizer adeus aos onerosos hardware e software locais, renovando completamente sua solução de CRM com recursos de pesquisa robustos e abrindo uma variedade de novos serviços de dados, fundamentais para o futuro dos negócios. [Saiba mais...](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=21252)
 
-## <a name="whattopediacomsearch-dev-case-study-whattopediamd"></a>[Whattopedia.com](search-dev-case-study-whattopedia.md)
-Saiba como uma startup sueca criou um portal de mídia de informação que conecta compradores a varejistas por meio de uma experiência altamente relevante de pesquisa com escopo, semelhante a como os portais de viagem fazem a correspondência entre turistas e hotéis, restaurantes e opções de entretenimento em territórios pouco explorados.[Saiba mais...](search-dev-case-study-whattopedia.md)
+## <a name="whattopediacom"></a>Whattopedia.com
+Saiba como uma startup sueca criou um portal de mídia de informação que conecta compradores a varejistas por meio de uma experiência altamente relevante de pesquisa com escopo, semelhante a como os portais de viagem fazem a correspondência entre turistas e hotéis, restaurantes e opções de entretenimento em territórios pouco explorados.
 
 <!--Image References -- here for future reference. Had to -->
 [1]: ./media/search-case-studies/autotrader_m.png
@@ -52,9 +52,3 @@ Saiba como uma startup sueca criou um portal de mídia de informação que conec
 [4]: ./media/search-case-studies/medihoo_m.png
 [5]: ./media/search-case-studies/weichert_m.png
 [xomni]: ./media/search-case-studies/xomni_m.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

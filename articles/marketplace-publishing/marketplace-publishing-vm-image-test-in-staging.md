@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ad057a9129156c0ad5094a73c0da2899fc2a3812
-
-
+ms.openlocfilehash: 26f856059b381be91b9cdd1f98a11dc90813c0c5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Teste sua oferta VM para o Azure Marketplace em preparo
 Preparo significa implantar a SKU em uma "área restrita" privada, em que você poderá testar e validar sua funcionalidade antes de publicá-la no Marketplace. A SKU aparece no preparo como se o cliente tivesse implantado. Sua imagem VM deve estar certificada para ser enviada para preparação.
@@ -61,10 +61,4 @@ Agora que a sua oferta está "preparada" e você testou a sua funcionalidade e c
 
 ## <a name="see-also"></a>Consulte também
 * [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

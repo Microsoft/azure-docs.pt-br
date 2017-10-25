@@ -1,0 +1,2 @@
+> [!NOTE]
+> O recurso [Transferência segura obrigatória](../articles/storage/common/storage-require-secure-transfer.md) passa todas as solicitações para sua conta por uma conexão segura. Esse recurso só tem suporte da versão 3.6 ou mais recente do cluster HDInsight. Para saber mais, confira [Criar um cluster Hadoop com contas de armazenamento com transferência segura para o Azure HDInsight](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md).

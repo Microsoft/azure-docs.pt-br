@@ -1,196 +1,319 @@
 ---
-title: "Chamar, disparar ou aninhar aplicativos lógicos por meio de pontos de extremidade de HTTP – Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Adicionar e configurar pontos de extremidade de HTTP para chamar, disparar ou aninhar fluxos de trabalho de aplicativos lógicos no Azure"
+title: "Chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade HTTP – Aplicativos Lógicos do Azure | Microsoft Docs"
+description: "Configurar pontos de extremidade HTTP para chamar, disparar ou aninhar fluxos de trabalho para Aplicativos Lógicos do Azure"
 services: logic-apps
-documentationcenter: .net,nodejs,java
+keywords: fluxos de trabalho, pontos de extremidade HTTP
 author: jeffhollan
 manager: anneta
 editor: 
+documentationcenter: 
 ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.service: logic-apps
-ms.devlang: multiple
+ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
-ms.date: 10/18/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 8c4cb0aefcd7241b17c6afcf33496c1fc2e6f675
-ms.lasthandoff: 03/03/2017
-
+ms.date: 03/31/2017
+ms.author: LADocs; jehollan
+ms.openlocfilehash: dab336da4e010d0a78de9a2bdd62536d8fdd9bf1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade HTTP em aplicativos lógicos
 
-# <a name="add-http-endpoints-to-call-trigger-or-nest-logic-app-workflows"></a>Adicionar pontos de extremidade de HTTP para chamar, disparar ou aninhar fluxos de trabalho de aplicativo lógico
+Você pode expor nativamente pontos de extremidade HTTP síncronos como gatilhos em aplicativos lógicos para que seja possível disparar ou chamar aplicativos lógicos por meio de uma URL. Também é possível aninhar fluxos de trabalho em aplicativos lógicos usando um padrão de pontos de extremidade resgatáveis.
 
-Os aplicativos lógicos podem nativamente expor pontos de extremidade síncronos de HTTP, como gatilhos, para que você possa chamar seus aplicativos lógicos. Você também pode usar um padrão de pontos de extremidade exigíveis para invocar aplicativos lógicos como fluxos de trabalho aninhados, adicionando a ação **Escolher um fluxo de trabalho de aplicativos lógicos** em seu aplicativo lógico.
+Para criar pontos de extremidade HTTP, você pode adicionar esses gatilhos para que seus aplicativos lógicos possam receber solicitações de entrada:
 
-Você pode usar esses gatilhos para receber solicitações:
+* [Solicitação](../connectors/connectors-native-reqres.md)
 
-* Solicitação
-* ApiConnectionWebhook
-* HttpWebhook
+* [Webhook de Conexão de API](logic-apps-workflow-actions-triggers.md#api-connection-trigger)
 
-Este tópico usa o gatilho **Solicitação** como exemplo, mas todos os princípios se aplicam de forma idêntica a outros tipos de gatilhos.
+* [Webhook HTTP](../connectors/connectors-native-webhook.md)
 
-## <a name="add-a-trigger-to-your-logic-app-definition"></a>Adicionar um gatilho à sua definição de aplicativo lógico
+   > [!NOTE]
+   > Embora nossos exemplos usem o gatilho **Solicitar**, você pode usar qualquer um dos gatilhos HTTP listados e todos os princípios se aplicam de modo idêntico a outros tipos de gatilho.
 
-1. No Designer de Aplicativo Lógico, adicione um gatilho que pode receber solicitações de entrada para sua definição de aplicativo lógico. Por exemplo, adicione o gatilho **Solicitação** em seu aplicativo lógico.
+## <a name="set-up-an-http-endpoint-for-your-logic-app"></a>Configurar um ponto de extremidade HTTP para o aplicativo lógico
 
-2.    Em **Esquema JSON do corpo de solicitação**, você pode inserir um esquema JSON para o conteúdo que você espera receber. Se não tiver um esquema pronto, você poderá escolher **Usar o conteúdo de exemplo para gerar esquema** para gerar um esquema JSON de um conteúdo de exemplo.
+Para criar um ponto de extremidade HTTP, adicione um gatilho que possa receber solicitações de entrada.
 
-    O designer usa este esquema para gerar tokens que o ajudam a consumir, analisar e transmitir dados do gatilho manual por meio de seu fluxo de trabalho.
+1. Entre no [portal do Azure](https://portal.azure.com "portal do Azure"). Vá até o aplicativo lógico e abra o Designer do Aplicativo Lógico.
 
-    ![Adicionar a ação Solicitar][2]
+2. Adicione um gatilho que permita ao aplicativo lógico receber solicitações de entrada. Por exemplo, adicione o gatilho **Solicitação** em seu aplicativo lógico.
 
-2.    Depois de salvar sua definição de aplicativo lógico, em **HTTP POST para esta URL**, você obterá uma URL de retorno de chamada gerada, como neste exemplo:
+3.  Em **Esquema JSON do Corpo da Solicitação**, se desejar, você pode inserir um esquema JSON para o conteúdo que espera receber.
 
-    ``` text
-    https://prod-03.eastus.logic.azure.com:443/workflows/080cb66c52ea4e9cabe0abf4e197deff/triggers/myendpointtrigger?*signature*...
+    O designer usa esse esquema para gerar tokens que o aplicativo lógico pode usar para consumir, analisar e transmitir dados do gatilho por meio do fluxo de trabalho. 
+    Saiba mais sobre [tokens gerados de esquemas JSON](#generated-tokens).
+
+    Para este exemplo, digite o esquema mostrado no designer:
+
+    ```json
+    {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "address"
+      ]
+    }
     ```
+
+    ![Adicionar a ação Solicitar][1]
+
+    > [!TIP]
+    > 
+    > Você pode gerar um esquema para um conteúdo JSON de exemplo usando uma ferramenta como [jsonschema.net](http://jsonschema.net/) ou no gatilho **Solicitar** escolhendo **Use o conteúdo de amostra para gerar o esquema**. 
+    > Insira o conteúdo de exemplo e escolha **Concluído**.
+
+    Por exemplo, este conteúdo de exemplo:
+
+    ```json
+    {
+       "address": "21 2nd Street, New York, New York"
+    }
+    ```
+
+    gera este esquema:
+
+    ```json
+    {
+       "type": "object",
+       "properties": {
+          "address": {
+             "type": "string" 
+          }
+       }
+    }
+    ```
+
+4.  Salve seu aplicativo lógico. Em **HTTP POST para esta URL**, agora você deve encontrar uma URL de retorno de chamada gerada, como neste exemplo:
+
+    ![URL de retorno de chamada gerada para ponto de extremidade](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
 
     Essa URL contém uma chave de SAS (Assinatura de Acesso Compartilhado) nos parâmetros de consulta usados para autenticação. 
-    Também é possível obter esse ponto de extremidade no Portal do Azure:
+    Você também pode obter a URL de ponto de extremidade HTTP da visão geral do aplicativo lógico no portal do Azure. Em **Histórico de Gatilho**, selecione o gatilho:
 
-    ![Ponto de extremidade de URL][1]
+    ![Obter a URL de ponto de extremidade HTTP no portal do Azure][2]
 
-    Ou chamando:
+    Ou você pode obter a URL fazendo esta chamada:
 
-    ``` text
-    POST https://management.azure.com/{resourceID of your logic app}/triggers/myendpointtrigger/listCallbackURL?api-version=2015-08-01-preview
+    ```
+    POST https://management.azure.com/{logic-app-resourceID}/triggers/{myendpointtrigger}/listCallbackURL?api-version=2016-06-01
     ```
 
-### <a name="change-the-http-method-for-your-trigger"></a>Alterar o método HTTP para o gatilho
+## <a name="change-the-http-method-for-your-trigger"></a>Alterar o método HTTP para o gatilho
 
-Por padrão, o gatilho Solicitação aguarda uma solicitação HTTP POST. Para configurar um método de HTTP diferente, escolha **Mostrar opções avançadas**.
+Por padrão, o gatilho **Solicitar** espera uma solicitação HTTP POST, mas você pode usar um método HTTP diferente. 
 
 > [!NOTE]
-> Somente um tipo de método é permitido.
+> Você pode especificar somente um tipo de método.
 
-### <a name="customize-the-relative-trigger-url"></a>Personalizar a URL de gatilho relativa
+1. No gatilho **Solicitar**, escolha **Mostrar opções avançadas**.
 
-Você também pode personalizar o caminho relativo da URL de solicitação para aceitar os parâmetros.
+2. Abra a lista **Método**. Para este exemplo, selecione **GET** para que você possa testar posteriormente sua URL de ponto de extremidade HTTP.
 
-1. No gatilho **Solicitação**, escolha **Mostrar opções avançadas**. Em **Caminho relativo**, digite `customer/{customerId}`.
+    > [!NOTE]
+    > É possível selecionar qualquer outro método HTTP ou especificar um método personalizado para seu próprio aplicativo lógico.
 
-    ![Gatilho de URL relativa](./media/logic-apps-http-endpoint/relativeurl.png)
+    ![Alterar método HTTP](./media/logic-apps-http-endpoint/change-method.png)
 
-2.    Para usar o parâmetro, atualize a ação **Resposta**.
+## <a name="accept-parameters-through-your-http-endpoint-url"></a>Aceitar parâmetros por meio da URL de ponto de extremidade HTTP
 
-    *    Você deverá ver `customerId` aparecer no seletor de token.
-    *    Para retornar `Hello {customerId}`, atualize o corpo da ação **Resposta**.
+Quando desejar que a URL de ponto de extremidade HTTP aceite parâmetros, personalize o caminho relativo do gatilho.
 
-    ![Resposta à URL relativa](./media/logic-apps-http-endpoint/relativeurlresponse.png)
+1. No gatilho **Solicitar**, escolha **Mostrar opções avançadas**. 
 
-3. Salve seu aplicativo lógico. A URL da solicitação é atualizada com o caminho relativo.
+2. Em **Método**, especifique o método HTTP que deseja que sua solicitação use. Para este exemplo, selecione o método **GET**, se ainda não o fez, para que seja possível testar a URL de ponto de extremidade HTTP.
 
-4. Copie e cole a nova URL de solicitação em uma nova janela do navegador. Substitua `{customerId}` por `123` e pressione Enter.
+      > [!NOTE]
+      > Ao especificar um caminho relativo para o gatilho, você deve especificar explicitamente um método HTTP para o gatilho.
 
-    Esse texto deve ser retornado: `Your customer Id is 123`
+3. Em **Caminho relativo**, especifique o caminho relativo para o parâmetro que sua URL deve aceitar, por exemplo, `customers/{customerID}`.
 
-### <a name="security-for-the-trigger-url"></a>Segurança para a URL de gatilho
+    ![Especificar o método HTTP e o caminho relativo para o parâmetro](./media/logic-apps-http-endpoint/relativeurl.png)
 
-As URLs de retorno do aplicativo lógico são geradas com segurança usando uma SAS (Assinatura de Acesso Compartilhado). A assinatura é transmitida como um parâmetro de consulta e deve ser validada antes do aplicativo lógico ser acionado. A assinatura é gerada por meio de uma combinação exclusiva de uma chave secreta por aplicativo lógico, o nome do gatilho e a operação que está sendo executada. A menos que alguém tenha acesso à chave secreta do aplicativo lógico, não é possível gerar uma assinatura válida.
+4. Para usar o parâmetro, adicione uma ação **Resposta** ao aplicativo lógico. (No gatilho, escolha **Nova etapa** > **Adicionar uma ação** > **Resposta**) 
 
-## <a name="call-your-logic-app-triggers-endpoint"></a>Chamar o ponto de extremidade do gatilho do aplicativo lógico
+5. No **Corpo** da resposta, inclua o token para o parâmetro que você especificou no caminho relativo do gatilho.
 
-Depois de criar o ponto de extremidade para o gatilho, você poderá disparar seu aplicativo lógico por meio de um `POST` para a URL completa. Você pode incluir mais cabeçalhos e qualquer conteúdo no corpo. Se o tipo do conteúdo for `application/json`, você poderá fazer referência às propriedades de dentro da solicitação. Caso contrário, o conteúdo será tratado como uma única unidade binária que pode ser transmitida para outras APIs, mas não podem ser referenciadas dentro do fluxo de trabalho, a menos que o conteúdo seja convertido. Por exemplo, se transmitir o conteúdo de `application/xml`, você poderá usar `@xpath()` para uma extração de XPath ou `@json()` para converter de XML para JSON. Saiba mais sobre [como trabalhar com tipos de conteúdo](../logic-apps/logic-apps-content-type.md).
+    Por exemplo, para retornar `Hello {customerID}`, atualize o **Corpo** da resposta com `Hello {customerID token}`. 
+    A lista de conteúdo dinâmico deve aparecer e mostrar o token `customerID` para seleção.
 
-Além disso, é possível especificar um esquema JSON na definição. Este esquema faz com que o designer gere tokens que poderão, mais tarde, ser transmitidos em etapas. O exemplo a seguir disponibilizará um token `title` e `name` no designer:
+    ![Adicionar parâmetro ao corpo da resposta](./media/logic-apps-http-endpoint/relativeurlresponse.png)
 
-```
+    O **Corpo** deve se parecer com este exemplo:
+
+    ![Corpo de resposta com parâmetro](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
+
+6. Salve seu aplicativo lógico. 
+
+    A URL de ponto de extremidade HTTP agora inclui o caminho relativo, por exemplo: 
+
+    https&#58;//prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}...
+
+7. Para testar o ponto de extremidade HTTP, copie e cole a URL atualizada em outra janela do navegador, mas substitua `{customerID}` por `123456` e pressione Enter.
+
+    O navegador agora deve mostrar este texto: 
+
+    `Hello 123456`
+
+<a name="generated-tokens"></a>
+### <a name="tokens-generated-from-json-schemas-for-your-logic-app"></a>Tokens gerados de esquemas JSON para o aplicativo lógico
+
+Quando você fornece um esquema JSON no gatilho **Solicitar**, o Designer de Aplicativo Lógico gera tokens para propriedades nesse esquema. Assim, você pode usar esses tokens para transmitir dados por meio do fluxo de trabalho do aplicativo lógico.
+
+Para este exemplo, se você adicionar as propriedades `title` e `name` ao esquema JSON, seus tokens estarão disponíveis para uso nas etapas posteriores do fluxo de trabalho. 
+
+Veja a seguir o esquema JSON completo:
+
+```json
 {
-    "properties":{
-        "title": {
-            "type": "string"
-        },
-        "name": {
-            "type": "string"
-        }
-    },
-    "required": [
-        "title",
-        "name"
-    ],
-    "type": "object"
+   "type": "object",
+   "properties": {
+      "address": {
+         "type": "string"
+      },
+      "title": {
+         "type": "string"
+      },
+      "name": {
+         "type": "string"
+      }
+   },
+   "required": [
+      "address",
+      "title",
+      "name"
+   ]
 }
 ```
 
-## <a name="reference-the-content-from-the-incoming-request"></a>Fazer referência ao conteúdo da solicitação de entrada
+## <a name="create-nested-workflows-for-logic-apps"></a>Criar fluxos de trabalho aninhados para aplicativos lógicos
 
-A função `@triggerOutputs()` produz o conteúdo da solicitação de entrada. A saída se parece com esta:
+Você pode aninhar os fluxos de trabalho no aplicativo lógico adicionando outros aplicativos lógicos que podem receber solicitações. Para incluir esses aplicativos lógicos, adicione a ação **Aplicativos Lógicos do Azure – Escolha um fluxo de trabalho de Aplicativos Lógicos** ao gatilho. Você pode selecionar dentre aplicativos lógicos qualificados.
 
-```
+![Adicionar outro aplicativo lógico](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
+
+## <a name="call-or-trigger-logic-apps-through-http-endpoints"></a>Chamar ou disparar aplicativos lógicos por meio de pontos de extremidade HTTP
+
+Depois de criar o ponto de extremidade HTTP, é possível disparar o aplicativo lógico por meio de um método `POST` para a URL completa. Os aplicativos lógicos têm suporte interno para pontos de extremidade de acesso direto.
+
+## <a name="reference-content-from-an-incoming-request"></a>Fazer referência ao conteúdo de uma solicitação de entrada
+
+Se o tipo do conteúdo for `application/json`, você poderá fazer referência às propriedades da solicitação de entrada. Caso contrário, o conteúdo será tratado como uma única unidade binária que você pode passar para outras APIs. Para fazer referência a esse conteúdo no fluxo de trabalho, você deve converter esse conteúdo. Por exemplo, se transmitir o conteúdo de `application/xml`, você poderá usar `@xpath()` para uma extração de XPath ou `@json()` para converter XML em JSON. Saiba mais sobre [como trabalhar com tipos de conteúdo](../logic-apps/logic-apps-content-type.md).
+
+Para obter a saída de uma solicitação de entrada, você poderá usar a função `@triggerOutputs()`. A saída pode se parecer com este exemplo:
+
+```json
 {
-    "headers" : {
+    "headers": {
         "content-type" : "application/json"
     },
-    "body" : {
-        "myprop" : "a value"
+    "body": {
+        "myProperty" : "property value"
     }
 }
 ```
 
 Para acessar a propriedade `body` de forma específica, você pode usar o atalho `@triggerBody()`. 
 
-## <a name="respond-to-the-request"></a>Responder à solicitação
+## <a name="respond-to-requests"></a>Responder às solicitações
 
-Para algumas solicitações que iniciam um aplicativo lógico, convém responder com algum conteúdo ao chamador. Para criar o código de status, o corpo e os cabeçalhos para sua resposta, você pode usar um tipo de ação chamado **Resposta**. No entanto, se nenhuma **Resposta** for incluída, o ponto de extremidade do aplicativo lógico responderá *imediatamente* com **202 Aceito**.
+Talvez você queira responder a determinadas solicitações que iniciam um aplicativo lógico retornando conteúdo a outro chamador. Para construir o código de status, o cabeçalho e o corpo da resposta, você pode usar a ação **Resposta**. Essa ação pode aparecer em qualquer lugar no aplicativo lógico, não apenas no fim do fluxo de trabalho.
 
-![Ação de Resposta HTTP][3]
+> [!NOTE] 
+> Se o aplicativo lógico não incluir uma **Resposta**, o ponto de extremidade HTTP responderá *imediatamente* com um status **202 Aceito**. Além disso, para a solicitação original obter a resposta, todas as etapas exigidas para a resposta devem ser finalizadas dentro do [tempo limite da solicitação](./logic-apps-limits-and-config.md), a menos que você chame o fluxo de trabalho como um aplicativo lógico aninhado. Se não houver resposta dentro desse limite, a solicitação de entrada atingirá o tempo limite e receberá a resposta HTTP **408 Tempo limite de cliente**. Para aplicativos lógicos aninhados, o aplicativo lógico pai continuará a aguardar uma resposta até a conclusão, independentemente de quanto tempo for necessário.
 
-``` json
-"Response": {
-        "conditions": [],
-        "inputs": {
-            "body": {
-                "name": "@{triggerBody()['name']}", 
-                    "title": "@{triggerBody()['title']}"
-            },
-            "headers": {
-                "content-type": "application/json"
-            },
-            "statusCode": 200
-        },
-        "type": "Response"
-}
-```
+### <a name="construct-the-response"></a>Construir a resposta
+
+Você pode incluir mais de um cabeçalho e qualquer tipo de conteúdo no corpo da resposta. Em nossa resposta de exemplo, o cabeçalho especifica que a resposta tem o tipo de conteúdo `application/json`. E o corpo contém `title` e `name`, com base no esquema JSON atualizado anteriormente para o gatilho **Solicitar**.
+
+![Ação Resposta HTTP][3]
 
 As respostas têm estas propriedades:
 
 | Propriedade | Descrição |
 | --- | --- |
-| statusCode |O código de status HTTP para responder à solicitação de entrada. Este código pode ser qualquer código de status válido que comece com 2xx, 4xx ou 5xx. No entanto, não há permissão para códigos de status 3xx. |
-| body |Um objeto body pode ser uma cadeia de caracteres, um objeto JSON ou até mesmo um conteúdo binário referenciado em uma etapa anterior. |
-| headers |Você pode definir qualquer quantidade de cabeçalhos para incluir na resposta. |
+| statusCode |Especifica o código de status HTTP para responder à solicitação de entrada. Este código pode ser qualquer código de status válido que comece com 2xx, 4xx ou 5xx. No entanto, não há permissão para códigos de status 3xx. |
+| headers |Define qualquer número de cabeçalhos a serem incluídos na resposta. |
+| Corpo |Especifica um objeto de corpo que pode ser uma cadeia de caracteres, um objeto JSON ou, até mesmo, o conteúdo binário referenciado em uma etapa anterior. |
 
-Em seu aplicativo lógico, todas as etapas necessárias para a resposta deverão ser concluídas em *60 segundos* para a solicitação original receber a resposta, *a menos que você chame o fluxo de trabalho como um aplicativo lógico aninhado*. Se nenhuma resposta for recebida dentro de 60 segundos, a solicitação de entrada atingirá o tempo limite e receberá uma resposta de HTTP **408 Tempo Limite de Cliente**. Para aplicativos lógicos aninhados, o aplicativo lógico pai continuará a aguardar uma resposta até a conclusão, independentemente de quanto tempo for necessário.
+Veja a seguir como o esquema JSON se parece agora para a ação **Resposta**:
 
-## <a name="advanced-endpoint-configuration"></a>Configuração avançada do ponto de extremidade
+``` json
+"Response": {
+   "inputs": {
+      "body": {
+         "title": "@{triggerBody()?['title']}",
+         "name": "@{triggerBody()?['name']}"
+      },
+      "headers": {
+           "content-type": "application/json"
+      },
+      "statusCode": 200
+   },
+   "runAfter": {},
+   "type": "Response"
+}
+```
 
-Os Aplicativos Lógicos têm suporte interno para o ponto de extremidade de acesso direto e sempre usam o método `POST` para iniciar uma execução do aplicativo lógico. Anteriormente, o aplicativo de API **Ouvinte HTTP** também dava suporte à alteração de segmentos de URL e do método HTTP. Você pode até mesmo configurar a segurança adicional ou um domínio personalizado adicionando estes itens no host de aplicativo de API (o aplicativo Web que hospedava o aplicativo de API). 
+> [!TIP]
+> Para exibir a definição completa de JSON para seu aplicativo lógico, no Designer de Aplicativo Lógico, escolha **Exibição de código**.
 
-Essa funcionalidade está disponível por meio do **Gerenciamento de API**:
+## <a name="q--a"></a>Perguntas e respostas
 
-* [Alterar o método de solicitação](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod)
-* [Alterar os segmentos de URL da solicitação](https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL)
-* Configurar seus domínios de Gerenciamento de API na guia **Configurar** no Portal Clássico do Azure.
-* Configurar a política para verificar a autenticação Básica.
+#### <a name="q-what-about-url-security"></a>P: O que dizer sobre a segurança de URL?
 
-## <a name="summary-of-migration-from-2014-12-01-preview"></a>Resumo da migração da versão 2014-12-01-preview
+R: O Azure gera com segurança URLs de retorno de chamada do aplicativo lógico usando uma SAS (Assinatura de Acesso Compartilhado). Essa assinatura é transmitida como um parâmetro de consulta e deve ser validada antes do aplicativo lógico ser acionado. O Azure gera a assinatura usando uma combinação exclusiva de uma chave secreta por aplicativo lógico, o nome do gatilho e a operação que é executada. Portanto, a menos que alguém tenha acesso à chave secreta do aplicativo lógico, não é possível gerar uma assinatura válida.
 
-| 2014-12-01-preview | 01-06-2016 |
+   > [!IMPORTANT]
+   > Para sistemas seguros e de produção, é altamente recomendável não chamar o aplicativo lógico de chamada diretamente do navegador porque:
+   > 
+   > * A chave de acesso compartilhado é exibida na URL.
+   > * Você não pode gerenciar políticas de conteúdo seguras devido a domínios compartilhados entre clientes de Aplicativos Lógicos.
+
+#### <a name="q-can-i-configure-http-endpoints-further"></a>P: Posso configurar pontos de extremidade HTTP mais tarde?
+
+R: Sim, os pontos de extremidade HTTP dão suporte à configuração mais avançada por meio do [**Gerenciamento de API**](../api-management/api-management-key-concepts.md). Esse serviço também oferece a capacidade de gerenciar todas as suas APIs de modo consistente, incluindo aplicativos lógicos, configurar os nomes de domínio personalizados, usar mais métodos de autenticação e mais, por exemplo:
+
+* [Alterar o método de solicitação](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
+* [Alterar os segmentos de URL da solicitação](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
+* Configurar os domínios de Gerenciamento de API no [portal do Azure](https://portal.azure.com/ "portal do Azure")
+* Configurar a política para verificar a autenticação Básica
+
+#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>P: O que mudou quando o esquema migrou do modo de visualização de 1º de dezembro de 2014?
+
+R: Veja um resumo sobre essas alterações:
+
+| Visualização de 1º de dezembro de 2014 | 1º de junho de 2016 |
 | --- | --- |
 | Clique no aplicativo de API **Ouvinte HTTP** |Clique em **Gatilho manual** (nenhum aplicativo de API é necessário) |
-| Configuração “*Envia a resposta automaticamente*” do Ouvinte HTTP |Incluir ou não uma ação de **Resposta** na definição do fluxo de trabalho. |
-| Configurar a autenticação básica ou OAuth |por meio do Gerenciamento de API |
-| Configurar o método HTTP |por meio do Gerenciamento de API |
-| Configurar o caminho relativo |por meio do Gerenciamento de API |
+| Configuração “*Envia a resposta automaticamente*” do Ouvinte HTTP |Inclua uma ação **Resposta** ou não na definição do fluxo de trabalho |
+| Configure a autenticação Básica ou OAuth |por meio do Gerenciamento de API |
+| Configurar o método HTTP |Em **Mostrar opções avançadas**, escolha um método HTTP |
+| Configurar o caminho relativo |Em **Mostrar opções avançadas**, adicione um caminho relativo |
 | Fazer referência ao corpo de entrada por meio de `@triggerOutputs().body.Content` |Fazer referência por meio de `@triggerOutputs().body` |
 | **Enviar resposta HTTP** no Ouvinte HTTP |Clique em **Responder à solicitação HTTP** (nenhum aplicativo de API é necessário) |
 
-[1]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
-[2]: ./media/logic-apps-http-endpoint/manualtrigger.png
-[3]: ./media/logic-apps-http-endpoint/response.png
+## <a name="get-help"></a>Obter ajuda
 
+Para fazer perguntas, responder a perguntas e saber o que os outros usuários dos Aplicativos Lógicos do Azure estão fazendo, visite o [fórum de Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
+Para ajudar a melhorar os Aplicativos Lógicos do Azure e conectores, vote ou envie ideias no [site de comentários do usuário dos Aplicativos Lógicos do Azure](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Próximas etapas
+
+* [Criar definições de aplicativo lógico](./logic-apps-author-definitions.md)
+* [Processar erros e exceções](./logic-apps-exception-handling.md)
+
+[1]: ./media/logic-apps-http-endpoint/manualtrigger.png
+[2]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
+[3]: ./media/logic-apps-http-endpoint/response.png

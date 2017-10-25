@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0544cb9aaf9ec03c16cc07f2974b6b8d90b3c61d
-
-
+ms.openlocfilehash: 93df79c9d349c294b692148a19c9d881c4de4f7b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-monitor-hardware-components-and-status"></a>Usar o serviço StorSimple Manager para monitorar componentes e status de hardware
 ## <a name="overview"></a>Visão geral
@@ -73,7 +73,7 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no compar
 | Fonte de alimentação [0-1] |PCM |Físico |Compartilhado |Sim |É apresentada uma linha para cada uma das fontes de alimentação nos dois PCMs localizados na parte posterior do dispositivo. |
 | Resfriamento [0-1] |PCM |Físico |Compartilhado |Sim |É apresentada uma linha para cada um dos quatro ventiladores que residem nos dois PCMs. |
 | Bateria [0-1] |PCM |Físico |Compartilhado |Sim |É apresentada uma linha para cada um dos módulos de bateria de backup que estão encaixados no PCM. |
-| Metis |N/D |Lógico |Compartilhado |N/D |Exibe o estado das baterias: se elas precisam de carregamento e estão no fim da vida útil. |
+| Metis |N/D |Lógico |Compartilhado |N/D |Exibe o estado das baterias: se elas precisam de carregamento e estão no fim do tempo de vida. |
 | HDInsight |N/D |Lógico |Compartilhado |N/D |Exibe o estado do cluster que é criado entre os dois módulos do controlador integrado. |
 | Nó de cluster |N/D |Lógico |Compartilhado |N/D |Indica o estado do controlador como parte do cluster. |
 | Quorum de cluster |N/D |Lógico | |N/D |Indica a presença da maioria da associação do disco no pool de armazenamento de HDD. |
@@ -87,7 +87,7 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no compar
 | Pool de armazenamento do SSD |N/D |Lógico |Compartilhado |N/D |Exibe o estado do pool de armazenamento lógico que é criado a partir dos SSDs de dispositivo. |
 | Controller [0-1] [estado] |E/S |Físico |Controller |Sim |Exibe o estado do controlador e se ele está no modo ativo ou em espera dentro do chassi. |
 | Sensores de temperatura no controlador |E/S |Físico |Controller |Não |Vários sensores de temperatura, como o módulo de E/S, temperatura da CPU, sensores DIMM e PCI e têm seu estado exibido, que indica se a temperatura encontrada está ou não dentro da tolerância. |
-| ﻿Expansor SAS |E/S |Físico |Controller |Não |Indica o estado do expansor serial anexado SCSI (SAS), que é usado para conectar o armazenamento integrado ao controlador. |
+| Expansor SAS |E/S |Físico |Controller |Não |Indica o estado do expansor serial anexado SCSI (SAS), que é usado para conectar o armazenamento integrado ao controlador. |
 | Conector SAS [0-1] |E/S |Físico |Controller |Não |Indica o estado de cada conector SAS, que é usado para conectar o armazenamento integrado ao expansor SAS. |
 | Interconexão de plano intermediário de SBB |E/S |Físico |Controller |Não |Indica o estado do conector intermediário, que é usado para conectar cada controlador ao plano intermediário. |
 | Núcleo do processador |E/S |Físico |Controller |Não |Indica o estado dos núcleos de processador em cada controlador. |
@@ -116,7 +116,7 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no compar
 | Armazenamento local [HDD] |N/D |Lógico |Compartilhado |N/D |Exibe o estado do pool de armazenamento lógico que é criado a partir dos HDDs de dispositivo. |
 | Controller [0-1] [estado] |E/S |Físico |Controller |Sim |Exibe o estado dos controladores no módulo EBOD. |
 | Sensores de temperatura no EBOD |E/S |Físico |Controller |Não |Vários sensores de temperatura têm seu estado exibido, indicando se a temperatura encontrada está dentro da tolerância. |
-| ﻿Expansor SAS |E/S |Físico |Controller |Não |Indica o estado do expansor SAS, que é usado para conectar o armazenamento integrado ao controlador. |
+| Expansor SAS |E/S |Físico |Controller |Não |Indica o estado do expansor SAS, que é usado para conectar o armazenamento integrado ao controlador. |
 | Conector SAS [0-2] |E/S |Físico |Controller |Não |Indica o estado de cada conector SAS, que é usado para conectar o armazenamento integrado ao expansor SAS. |
 | Interconexão de plano intermediário de SBB |E/S |Físico |Controller |Não |Indica o estado do conector intermediário, que é usado para conectar cada controlador ao plano intermediário. |
 | Energia de eletrônicos do compartimento |E/S |Físico |Controller |Não |Indica o estado do sistema de energia usado pelo compartimento. |
@@ -128,10 +128,4 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no compar
 * Se você precisar solucionar problemas de um componente do dispositivo que apresente um status degradado ou com falha, consulte [Indicadores de monitoramento do StorSimple](storsimple-monitoring-indicators.md). 
 * Para substituir um componente de hardware com falha, consulte [substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
 * Se você continuar enfrentando problemas de dispositivo, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

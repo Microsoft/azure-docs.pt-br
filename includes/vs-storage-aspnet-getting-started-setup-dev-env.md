@@ -29,8 +29,3 @@ Esta seção o orienta para configurar o ambiente de desenvolvimento, incluindo 
     ![Caixa de diálogo de Serviço Conectado](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 
 1. Na caixa de diálogo **Armazenamento do Azure**, selecione a conta de armazenamento do Azure com a qual você deseja trabalhar e selecione **Adicionar**.
-
-
-<!--HONumber=Dec16_HO3-->
-
-

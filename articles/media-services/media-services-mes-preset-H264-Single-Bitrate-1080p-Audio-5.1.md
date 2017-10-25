@@ -2,7 +2,7 @@
 title: "H264 Taxa de Bits Única 1080p Audio 5.1 | Microsoft Docs"
 description: "O tópico fornece uma visão geral da predefinição de tarefa **H264 Taxa de Bits Única 1080p Audio 5.1**."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -12,15 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 07/21/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: 6cc00362c68dbb2adfcbaed56c6e619e33477c80
-
-
+ms.openlocfilehash: 07440d18afa83c571f1568a2e43fb6bca5e8b452
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="h264-single-bitrate-1080p-audio-51"></a>H264 Taxa de Bits Única 1080p Audio 5.1
 `Media Encoder Standard` define um conjunto de predefinições de codificação que pode ser usado ao criar trabalhos de codificação. Você pode usar um `preset name` para especificar em qual formato deseja codificar o arquivo de mídia. Ou, pode criar suas próprias predefinições com base em JSON ou XML (usando a codificação UTF-8 ou UTF-16). Em seguida, você passaria a predefinição personalizada ao codificador. Para obter a lista de todos os nomes de predefinição com suporte por este codificador `Media Encoder Standard`, consulte [Predefinições de tarefa para o Media Encoder Standard](media-services-mes-presets-overview.md).  
   
@@ -116,8 +115,3 @@ ms.openlocfilehash: 6cc00362c68dbb2adfcbaed56c6e619e33477c80
   ]  
 }  
 ```
-
-
-<!--HONumber=Nov16_HO5-->
-
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: c75d95ed554a78a02e5469915c21491e65edd8c2
-ms.openlocfilehash: 14ec59087b0aede76a18034f5aa93cb6ecd67a7e
-ms.lasthandoff: 01/25/2017
-
-
+ms.openlocfilehash: 6e8335b9c2f3609bf0c48c563205ffaee8575b20
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Exemplos de implementação de scaffold do Azure Enterprise
 Este tópico fornece exemplos de como uma empresa pode implementar as recomendações para um [scaffold do Azure Enterprise](resource-manager-subscription-governance.md). Ele usa uma empresa fictícia chamada Contoso para ilustrar as melhores práticas para cenários comuns.
@@ -47,8 +46,8 @@ Dave cria uma assinatura para dar suporte a ferramentas de desenvolvedor que sã
 | Item | Nome | Descrição |
 | --- | --- | --- |
 | Assinatura |Produção de Ferramentas para Desenvolvedor de ETS da Contoso |Dá suporte a ferramentas de desenvolvedor comuns |
-| Grupo de recursos |rgBitBucket |Contém o servidor Web e servidor de banco de dados do aplicativo |
-| Grupo de recursos |rgCoreNetworks |Contém a conexão de gateway site a site e redes virtuais |
+| Grupo de recursos |bitbucket-prod-rg |Contém o servidor Web e servidor de banco de dados do aplicativo |
+| Grupo de recursos |corenetworks-prod-rg |Contém a conexão de gateway site a site e redes virtuais |
 
 ### <a name="role-based-access-control"></a>Controle de acesso baseado em função
 Depois de criar sua assinatura, Dave deseja garantir que as equipes e proprietários do aplicativo apropriados possam acessar seus recursos. Dave reconhece que cada equipe tem requisitos diferentes. Ele utiliza os grupos que foram sincronizados do AD (Active Directory) local da Contoso com o Azure Active Directory e fornece o nível certo de acesso para as equipes.
@@ -57,9 +56,9 @@ Dave atribui as funções a seguir para a assinatura:
 
 | Função | Atribuído a | Descrição |
 | --- | --- | --- |
-| [Proprietário](../active-directory/role-based-access-built-in-roles.md#owner) |ID Gerenciada do AD da Contoso |Essa ID é controlada com acesso JIT (Just in Time) por meio da ferramenta de Gerenciamento de Identidades da Contoso e garante que o acesso de proprietário de assinatura seja totalmente auditado. |
-| [Gerenciador de Segurança](../active-directory/role-based-access-built-in-roles.md#security-manager) |Departamento de gerenciamento de riscos e de segurança |Esta função permite que os usuários consultem a Central de Segurança do Azure e o status dos recursos. |
-| [Colaborador de rede](../active-directory/role-based-access-built-in-roles.md#network-contributor) |Equipe de rede |Esta função permite que a equipe de rede da Contoso gerencie o VPN Site a Site e as redes virtuais. |
+| [Proprietário](../active-directory/role-based-access-built-in-roles.md#owner) |ID Gerenciada do AD da Contoso |Essa ID é controlada com acesso JIT (Just in Time) por meio da ferramenta de Gerenciamento de Identidades da Contoso e garante que o acesso de proprietário da assinatura seja totalmente auditado |
+| [Gerenciador de Segurança](../active-directory/role-based-access-built-in-roles.md#security-manager) |Departamento de gerenciamento de riscos e de segurança |Esta função permite que os usuários consultem a Central de Segurança do Azure e o status dos recursos |
+| [Colaborador de rede](../active-directory/role-based-access-built-in-roles.md#network-contributor) |Equipe de rede |Esta função permite que a equipe de rede da Contoso gerencie o VPN Site a Site e as redes virtuais |
 | *Função personalizada* |Proprietário do aplicativo |Dave cria uma função que concede a capacidade de modificar os recursos no grupo de recursos. Para obter mais informações, veja [Funções personalizadas no RBAC do Azure](../active-directory/role-based-access-control-custom-roles.md) |
 
 ### <a name="policies"></a>Políticas
@@ -86,8 +85,8 @@ Ele adiciona as seguintes [marcas](resource-group-using-tags.md) aos recursos e 
 
 | Nome da marca | Valor da marca |
 | --- | --- |
-| ApplicationOwner |O nome da pessoa que gerencia esse aplicativo. |
-| CostCenter |O centro de custo do grupo que está pagando pelo consumo do Azure. |
+| ApplicationOwner |O nome da pessoa que gerencia este aplicativo |
+| CostCenter |O centro de custo do grupo que está pagando pelo consumo do Azure |
 | BusinessUnit |**ETS** (a unidade de negócios associada à assinatura) |
 
 ### <a name="core-network"></a>Rede principal
@@ -97,9 +96,9 @@ Ele cria os seguintes recursos:
 
 | Tipo de recurso | Nome | Descrição |
 | --- | --- | --- |
-| Rede Virtual |vnInternal |Usado com o aplicativo BitBucket e está conectado por meio do ExpressRoute à rede corporativa da Contoso.  Uma sub-rede (sbBitBucket) fornece um espaço de endereço IP específico ao aplicativo. |
-| Rede Virtual |vnExternal |Disponível para futuros aplicativos que necessitem de pontos de extremidade públicos. |
-| Grupo de Segurança de Rede |nsgBitBucket |Garante que a superfície de ataque dessa carga de trabalho seja minimizada, permitindo conexões apenas na porta 443 para a sub-rede em que o aplicativo reside (sbBitBucket). |
+| Rede Virtual |internal-vnet |Usado com o aplicativo BitBucket e está conectado por meio do ExpressRoute à rede corporativa da Contoso.  Uma sub-rede (`bitbucket`) fornece um espaço de endereço IP específico ao aplicativo |
+| Rede Virtual |external-vnet |Disponível para futuros aplicativos que necessitarem de pontos de extremidade voltados para o público |
+| Grupo de Segurança de Rede |bitbucket-nsg |Garante que a superfície de ataque dessa carga de trabalho seja minimizada, permitindo conexões apenas na porta 443 para a sub-rede em que o aplicativo reside (`bitbucket`) |
 
 ### <a name="resource-locks"></a>Bloqueios de recurso
 Dave reconhece que a conectividade da rede corporativa da Contoso para a rede virtual interna deve ser protegida de qualquer script errático ou exclusão acidental.
@@ -108,7 +107,7 @@ Ele cria o seguinte [bloqueio de recurso](resource-group-lock-resources.md):
 
 | Tipo de bloqueio | Recurso | Descrição |
 | --- | --- | --- |
-| **CanNotDelete** |vnInternal |Impede que os usuários excluam a rede virtual ou sub-redes, mas não impede a adição de novas sub-redes. |
+| **CanNotDelete** |internal-vnet |Impede que os usuários excluam a rede virtual ou sub-redes, mas não impede a adição de novas sub-redes |
 
 ### <a name="azure-automation"></a>Automação do Azure
 Dave não tem nada a automatizar para este aplicativo. Embora ele tenha criado uma conta de automação do Azure, inicialmente ele não a usará.
@@ -126,8 +125,8 @@ Dave faz logon no Azure Enterprise Portal e vê que o departamento de cadeia de 
 
 | Uso de assinaturas | Nome |
 | --- | --- |
-| Desenvolvimento |SupplyChain ResearchDevelopment LoyaltyCard Desenvolvimento |
-| Produção |SupplyChain Operações LoyaltyCard Produção |
+| Desenvolvimento |Contoso SupplyChain ResearchDevelopment LoyaltyCard Desenvolvimento |
+| Produção |Contoso SupplyChain Operações LoyaltyCard Produção |
 
 ### <a name="policies"></a>Políticas
 Dave e Alice discutem o aplicativo e identificam que esse aplicativo atende apenas aos clientes na região da América do Norte.  Alice e sua equipe planejam usar o ambiente de serviço de aplicativo do Azure e Azure SQL para criar o aplicativo. Talvez eles precisem criar máquinas virtuais durante o desenvolvimento.  Alice quer garantir que seus desenvolvedores tenham os recursos necessários para explorar e examinar os problemas sem efetuar pull no ETS.
@@ -136,7 +135,7 @@ Para a **assinatura de desenvolvimento**, eles criam a seguinte política:
 
 | Campo | Efeito | Descrição |
 | --- | --- | --- |
-| location |auditar |Auditar a criação de recursos em qualquer região. |
+| location |auditar |Auditar a criação de recursos em qualquer região |
 
 Eles não limitam o tipo de sku, que um usuário pode criar no desenvolvimento e não requerem marcas para todos os recursos ou grupos de recursos.
 
@@ -144,10 +143,10 @@ Para a **assinatura de produção**, eles criam as seguintes políticas:
 
 | Campo | Efeito | Descrição |
 | --- | --- | --- |
-| location |deny |Negue a criação de todos os recursos fora dos data centers dos EUA. |
+| location |deny |Negar a criação de recursos fora dos data centers dos EUA |
 | marcas |deny |Exigir a marca do proprietário do aplicativo |
-| marcas |deny |Requer a marca de departamento. |
-| marcas |acrescentar |Acrescente marca para cada grupo de recursos que indica o ambiente de produção. |
+| marcas |deny |Exigir a marca do departamento |
+| marcas |acrescentar |Acrescentar a marca a cada grupo de recursos que indicar o ambiente de produção |
 
 Eles não limitam o tipo de sku que um usuário pode criar em produção.
 
@@ -156,9 +155,9 @@ Dave entende que ele precisa ter informações específicas para identificar os 
 
 | Nome da marca | Valor da marca |
 | --- | --- |
-| ApplicationOwner |O nome da pessoa que gerencia esse aplicativo. |
-| department |O centro de custo do grupo que está pagando pelo consumo do Azure. |
-| EnvironmentType |**Produção** (mesmo que a assinatura inclua **Produção** no nome, a inclusão dessa marca permite identificação fácil ao examinar os recursos no portal ou na fatura.) |
+| ApplicationOwner |O nome da pessoa que gerencia este aplicativo |
+| department |O centro de custo do grupo que está pagando pelo consumo do Azure |
+| EnvironmentType |**Produção** (mesmo que a assinatura inclua **Produção** no nome, a inclusão dessa marca permite uma identificação fácil ao examinar os recursos no portal ou na fatura) |
 
 ### <a name="core-networks"></a>Redes principais
 A equipe de informações de segurança e gerenciamento de riscos da Contoso ETS examina o plano proposto por Dave de mover o aplicativo para o Azure. Eles querem garantir que o aplicativo de cartão de fidelidade seja isolado e protegido adequadamente em uma rede DMZ.  Para atender a esse requisito, Dave e Alice criam uma rede virtual externa e um grupo de segurança de rede para isolar o aplicativo do cartão de fidelidade da rede corporativa Contoso.  
@@ -167,14 +166,14 @@ Para a **assinatura de desenvolvimento**, eles criam:
 
 | Tipo de recurso | Nome | Descrição |
 | --- | --- | --- |
-| Rede Virtual |vnInternal |Serve o ambiente de desenvolvimento do cartão de fidelidade da Contoso e é conectada via ExpressRoute à rede corporativa da Contoso. |
+| Rede Virtual |internal-vnet |Serve o ambiente de desenvolvimento do cartão de fidelidade da Contoso e é conectada via ExpressRoute à rede corporativa da Contoso |
 
 Para a **assinatura de produção**, eles criam:
 
 | Tipo de recurso | Nome | Descrição |
 | --- | --- | --- |
-| Rede Virtual |vnExternal |Hospeda o aplicativo do cartão de fidelidade e não está conectado diretamente à ExpressRoute da Contoso. O código é enviado por push a seu sistema de código-fonte diretamente para os serviços de PaaS. |
-| Grupo de Segurança de Rede |nsgBitBucket |Garante que a superfície de ataque dessa carga de trabalho seja minimizada, permitindo somente a comunicação de entrada na porta TCP 443.  A Contoso também está investigando usando um Firewall do aplicativo Web para obter proteção adicional. |
+| Rede Virtual |external-vnet |Hospeda o aplicativo do cartão de fidelidade e não está conectado diretamente à ExpressRoute da Contoso. O código é enviado por push por seu sistema de código-fonte diretamente para os serviços de PaaS |
+| Grupo de Segurança de Rede |loyaltycard-nsg |Garante que a superfície de ataque dessa carga de trabalho seja minimizada, permitindo somente a comunicação de entrada na porta TCP 443.  A Contoso também está investigando o uso de um Firewall do aplicativo Web para obter proteção adicional |
 
 ### <a name="resource-locks"></a>Bloqueios de recurso
 Dave e Alice confabulam e optam por adicionar bloqueios de recurso a alguns dos principais recursos do ambiente para evitar a exclusão acidental durante um envio de código por push errôneo.
@@ -183,7 +182,7 @@ Eles criam o bloqueio a seguir:
 
 | Tipo de bloqueio | Recurso | Descrição |
 | --- | --- | --- |
-| **CanNotDelete** |vnExternal |Para evitar que pessoas excluam as sub-redes ou rede virtual. O bloqueio não impede a adição de novas sub-redes. |
+| **CanNotDelete** |external-vnet |Para evitar que pessoas excluam as sub-redes ou rede virtual. O bloqueio não impede a adição de novas sub-redes |
 
 ### <a name="azure-automation"></a>Automação do Azure
 Alice e sua equipe de desenvolvimento têm runbooks abrangentes para gerenciar o ambiente para esse aplicativo. Os Runbooks permitem a adição ou exclusão de nós para o aplicativo e outras tarefas de DevOps.
@@ -197,5 +196,3 @@ Para atender a esses requisitos, Dave habilita a Central de Segurança do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para aprender sobre como criar modelos do Resource Manager, veja [Melhores práticas para criar modelos do Azure Resource Manager](resource-manager-template-best-practices.md).
-
-

@@ -12,36 +12,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 10/10/2017
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 15cb521e928bab6c7966d19e74d9ae3bca99ef34
-ms.openlocfilehash: a5e48f43751e90f41ffd61049a17af3ff48d132e
-ms.lasthandoff: 03/01/2017
-
-
+ms.reviewer: jeffsta
+ms.custom: H1Hack27Feb2017;it-pro
+ms.openlocfilehash: b59f74546e219d45814a1a2e05e59beb0b080f21
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="reset-the-password-for-a-user-in-azure-active-directory---public-preview"></a>Redefinir a senha de um usuário no Azure Active Directory - Visualização pública
-> [!div class="op_single_selector"]
-> * [Portal do Azure](active-directory-users-reset-password-azure-portal.md)
-> * [Portal clássico do Azure](active-directory-create-users-reset-password.md)
->
->
+# <a name="reset-the-password-for-a-user-in-azure-active-directory"></a>Redefinir a senha de um usuário no Azure Active Directory
 
 ## <a name="how-to-reset-the-password-for-a-user"></a>Como redefinir a senha de um usuário
-1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
-2. Escolha **Mais serviços**, insira **Usuários e grupos** na caixa de texto e selecione **Enter**.
+1. Entre no [Centro de Administração do Azure AD](https://aad.portal.azure.com) com uma conta que seja um administrador global para o diretório.
+2. Selecionar **Usuários e grupos**.
 
    ![Abrir o gerenciamento de usuários](./media/active-directory-users-reset-password-azure-portal/create-users-user-management.png)
-3. Na folha **Usuários e grupos**, selecione **Usuários**.
+3. Selecione **todos os usuários**.
 
-   ![Abrindo a folha Usuários](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
-4. Na folha **Usuários e grupos - Usuários** , escolha um usuário na lista.
-5. Na folha do usuário selecionado, selecione **Visão geral**, em seguida, na barra de comandos, selecione **Redefinir senha**.
+   ![Abrindo o grupo Todos os usuários](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
+1. Selecione um usuário na lista.
+2. No usuário selecionado, selecione **Visão geral**, em seguida, na barra de comandos, selecione **Redefinir senha**.
 
     ![Selecionando o comando Redefinir senha](./media/active-directory-users-reset-password-azure-portal/create-users-reset-password-command.png)
-6. Na folha **Redefinir senha**, selecione **Redefinir senha**.
+6. Em **Redefinir senha**, selecione **Redefinir senha**.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Adicionar um usuário](active-directory-users-create-azure-portal.md)
@@ -49,4 +44,3 @@ ms.lasthandoff: 03/01/2017
 * [Alterar as informações de trabalho do usuário](active-directory-users-work-info-azure-portal.md)
 * [Gerenciar perfis de usuário](active-directory-users-profile-azure-portal.md)
 * [Excluir um usuário no Azure AD](active-directory-users-delete-user-azure-portal.md)
-

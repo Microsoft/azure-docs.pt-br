@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 07/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
-ms.openlocfilehash: 71863e52dca951b1fc3847e1bba47977a6e49c7c
-
-
+ms.openlocfilehash: 2a2172a78bfd3ac923edbc9de366b035629dd27b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Como criar e implantar um serviço de nuvem
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ O portal clássico do Azure oferece duas maneiras de criar e de implantar um ser
 Este tópico explica como usar o método Criação Rápida para criar um novo serviço de nuvem e usar **Carregar** para carregar e implantar um pacote de serviço de nuvem no Azure. Ao usar esse método, o portal clássico do Azure disponibiliza links convenientes para o cumprimento de todos os requisitos quando você precisar. Se você estiver pronto para implantar o serviço de nuvem ao criá-lo, é possível usar ambos ao mesmo tempo usando a **Criação Personalizada**.
 
 > [!NOTE]
-> Se você planeja publicar o serviço de nuvem do VSTS (Visual Studio Team Services), use a Criação Rápida e configure a publicação do VSTS no **Início Rápido** ou no painel. Para saber mais, confira [Entrega contínua no Azure usando Visual Studio Team Services][TFSTutorialForCloudService] ou confira a ajuda da página **Início Rápido**.
+> Se você planeja publicar o serviço de nuvem do VSTS (Visual Studio Team Services), use a **Criação Rápida** e configure a publicação do VSTS no **Início Rápido** ou no painel.
 > 
 > 
 
@@ -120,17 +120,10 @@ Para criar um serviço de nuvem com implantações de funções Web ou de Trabal
    
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
-[TFSTutorialForCloudService]: cloud-services-continuous-delivery-use-vso.md
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Configuração geral do serviço de nuvem](cloud-services-how-to-configure.md).
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name.md).
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

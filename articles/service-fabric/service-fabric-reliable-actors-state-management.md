@@ -12,32 +12,38 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 194935398809b1905ddc4100b5f09fce7f75a796
-
-
+ms.openlocfilehash: aca8cf2b94e8b746a5cac6af021c7221a29b7345
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reliable-actors-state-management"></a>Gerenciamento de estado dos Reliable Actors
-Reliable Actors são objetos single-threaded que podem encapsular a lógica e o estado. Como os atores são executados nos Reliable Services, eles podem manter o estado de modo confiável usando os mesmos mecanismos de persistência e replicação usados pelos Reliable Services. Dessa forma, os atores não perdem seu estado após falhas, reativação após a coleta de lixo ou quando são movidos entre nós em um cluster devido a balanceamento de recursos ou atualizações.
+Reliable Actors são objetos single-threaded que podem encapsular a lógica e o estado. Como os atores são executados nos Reliable Services, eles podem manter o estado de modo confiável usando os mesmos mecanismos de persistência e replicação usados pelos Reliable Services. Dessa forma, os atores não perdem seu estado após falhas, na reativação após a coleta de lixo ou quando são movidos entre nós em um cluster devido ao balanceamento de recursos ou às atualizações.
 
 ## <a name="state-persistence-and-replication"></a>Replicação e persistência de estado
-Todos os Reliable Actors são considerados *com estado* , pois cada instância de ator é mapeada para uma ID exclusiva. Isso significa que chamadas repetidas para a mesma ID de ator serão encaminhadas para a mesma instância de ator. Isso é diferente de um sistema sem estado no qual as chamadas de cliente não têm garantia de serem encaminhadas sempre para o mesmo servidor. Por esse motivo, os serviços de ator são sempre serviços com estado.
+Todos os Reliable Actors são considerados *com estado* , pois cada instância de ator é mapeada para uma ID exclusiva. Isso significa que as chamadas repetidas para a mesma ID de ator são encaminhadas para a mesma instância de ator. Em um sistema sem estado, por outro lado, as chamadas de cliente não têm garantia de serem encaminhadas sempre para o mesmo servidor. Por esse motivo, os serviços de ator são sempre serviços com estado.
 
-No entanto, mesmo que os atores sejam considerados com estado, isso não significa que eles devem armazenar o estado de modo confiável. Os atores podem escolher o nível de persistência de estado e replicação com base em seus requisitos de armazenamento de dados:
+Mesmo que os atores sejam considerados com estado, isso não significa que eles devem armazenar o estado de modo confiável. Os atores podem escolher o nível de persistência de estado e replicação com base em seus requisitos de armazenamento de dados:
 
 * **Estado persistente:** o estado é persistido em disco e replicado para três ou mais réplicas. Essa é a opção de armazenamento de estado mais duradoura, na qual o estado pode persistir após a interrupção completa do cluster.
-* **Estado volátil:** o estado é replicado para três ou mais réplicas e mantido apenas na memória. Isso proporciona resiliência contra falhas de nó e de ator, e durante atualizações e balanceamento de recursos. No entanto, o estado não é persistido em disco e, portanto, se todas as réplicas forem perdidas ao mesmo tempo, o estado também será perdido.
-* **Nenhum estado persistente:** o estado não é replicado nem é gravado em disco. Para atores que simplesmente não precisam manter o estado de modo confiável.
+* **Estado volátil:** o estado é replicado para três ou mais réplicas e mantido apenas na memória. Isso proporciona resiliência contra falhas de nó e de ator, e durante atualizações e balanceamento de recursos. No entanto, o estado não é persistido no disco. Portanto, se todas as réplicas forem perdidas ao mesmo tempo, o estado também será perdido.
+* **Nenhum estado persistente:** o estado não é replicado nem é gravado em disco. Esse nível é para atores que simplesmente não precisam manter o estado de modo confiável.
 
-Cada nível de persistência é apenas um *provedor de estado* e uma configuração de *replicação* diferentes do serviço. A decisão de gravar ou não o estado em disco depende do *provedor de estado* - o componente em um Reliable Service que armazena o estado - e a replicação depende do número de réplicas com as quais um serviço é implantado. Assim como ocorre com os Reliable Services, o provedor de estado e a contagem de réplicas podem ser definidos manualmente com facilidade. A estrutura de ator fornece um atributo, que, quando usado em um ator, selecionará automaticamente um provedor de estado padrão e gerará automaticamente as configurações de contagem de réplicas, a fim de obter uma dessas três configurações de persistência.
+Cada nível de persistência é apenas um *provedor de estado* e uma configuração de *replicação* diferentes do serviço. A decisão de gravar ou não o estado em disco depende do provedor de estado – o componente que armazena o estado em um serviço confiável. A replicação depende de quantas réplicas são implantadas com um serviço. Assim como acontece com os Reliable Services, o provedor de estado e a contagem de réplicas podem ser definidos manualmente com facilidade. A estrutura de ator fornece um atributo, que, quando usado em um ator, seleciona automaticamente um provedor de estado padrão e gera automaticamente as configurações de contagem de réplicas, a fim de alcançar uma dessas três configurações de persistência. O atributo StatePersistence não será herdado pela classe derivada. Cada tipo de Ator deve fornecer seu nível de StatePersistence.
 
 ### <a name="persisted-state"></a>Estado persistente
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
+{
+}
+```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+class MyActorImpl  extends FabricActor implements MyActor
 {
 }
 ```  
@@ -50,6 +56,12 @@ class MyActor : Actor, IMyActor
 {
 }
 ```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Volatile)
+class MyActorImpl extends FabricActor implements MyActor
+{
+}
+```
 Essa configuração usa um provedor de estado somente na memória e define a contagem de réplicas como 3.
 
 ### <a name="no-persisted-state"></a>Nenhum estado persistente
@@ -59,10 +71,18 @@ class MyActor : Actor, IMyActor
 {
 }
 ```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.None)
+class MyActorImpl extends FabricActor implements MyActor
+{
+}
+```
 Essa configuração usa um provedor de estado somente na memória e define a contagem de réplicas como 1.
 
 ### <a name="defaults-and-generated-settings"></a>Padrões e configurações geradas
-Ao usar o atributo `StatePersistence` , um provedor de estado será selecionado automaticamente para você no tempo de execução quando o serviço de ator for iniciado. No entanto, a contagem de réplicas é definida no tempo de compilação pelas ferramentas de build de ator do Visual Studio. As ferramentas de build geram automaticamente um *serviço padrão* para o serviço de ator no ApplicationManifest.xml. Os parâmetros são criados para **tamanho mín. do conjunto de réplicas** e **tamanho de destino do conjunto de réplicas**. Evidentemente, é possível alterar esses parâmetros manualmente, porém, sempre que o atributo `StatePersistence` for alterado, os parâmetros serão definidos como os valores padrão de tamanho do conjunto de réplicas para o atributo `StatePersistence` selecionado, substituindo valores anteriores. Em outras palavras, os valores definidos em ServiceManifest.xml serão substituídos **somente** no momento do build quando você alterar o valor do atributo `StatePersistence`. 
+Ao usar o atributo `StatePersistence`, um provedor de estado será selecionado automaticamente para você em tempo de execução quando o serviço de ator for iniciado. No entanto, a contagem de réplicas é definida no tempo de compilação pelas ferramentas de build de ator do Visual Studio. As ferramentas de build geram automaticamente um *serviço padrão* para o serviço de ator no ApplicationManifest.xml. Os parâmetros são criados para **tamanho mín. do conjunto de réplicas** e **tamanho de destino do conjunto de réplicas**.
+
+Você pode alterar esses parâmetros manualmente. Mas, sempre que o atributo `StatePersistence` for alterado, os parâmetros serão definidos como os valores padrão de tamanho do conjunto de réplicas para o atributo `StatePersistence` selecionado, substituindo os valores anteriores. Em outras palavras, os valores definidos em ServiceManifest.xml serão substituídos *somente* no momento do build quando você alterar o valor do atributo `StatePersistence`.
 
 ```xml
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -84,21 +104,21 @@ Ao usar o atributo `StatePersistence` , um provedor de estado será selecionado 
 </ApplicationManifest>
 ```
 
-## <a name="state-manager"></a>Gerenciador de Estado
-Cada instância de ator tem seu próprio Gerenciador de Estado: uma estrutura de dados semelhante a um dicionário que armazena pares chave-valor de forma confiável. O Gerenciador de Estado é um wrapper de um provedor de estado. Ele pode ser usado para armazenar dados, independentemente da configuração de persistência utilizada, mas não dá nenhuma garantia de que um serviço de ator em execução pode ser alterado de uma configuração de estado volátil (somente na memória) para uma configuração de estado persistente por meio de uma atualização sem interrupção, ao mesmo tempo que preserva os dados. No entanto, é possível alterar a contagem de réplicas de um serviço em execução. 
+## <a name="state-manager"></a>Gerenciador de estado
+Cada instância de ator tem seu próprio gerenciador de estado: uma estrutura de dados semelhante a um dicionário que armazena pares chave-valor de forma confiável. O gerenciador de estado é um wrapper em torno de um provedor de estado. Você pode usá-lo para armazenar dados, independentemente da configuração de persistência utilizada. Ele não dá nenhuma garantia de que um serviço de ator em execução poderá ser alterado de uma configuração de estado volátil (somente na memória) para uma configuração de estado persistente por meio de uma atualização sem interrupção, ao mesmo tempo que preserva os dados. No entanto, é possível alterar a contagem de réplicas de um serviço em execução.
 
-As chaves do Gerenciador de Estado devem ser cadeias de caracteres, enquanto os valores são genéricos e podem ser de qualquer tipo, incluindo tipos personalizados. Os valores armazenados no Gerenciador de Estado devem ser serializáveis pelo Contrato de Dados, pois podem ser transmitidos pela rede a outros nós durante a replicação e gravados em disco, dependendo da configuração de persistência do estado de um ator. 
+As chaves do gerenciador de estado devem ser cadeias de caracteres. Os valores são genéricos e podem ser de qualquer tipo, incluindo tipos personalizados. Os valores armazenados no gerenciador de estado devem ser serializáveis pelo contrato de dados, pois poderão ser transmitidos pela rede a outros nós durante a replicação e gravados em disco, dependendo da configuração de persistência de estado de um ator.
 
-O Gerenciador de Estado expõe métodos comuns de dicionário para gerenciamento do estado, semelhantes àqueles encontrados no Dicionário Confiável.
+O gerenciador de estado expõe métodos comuns de dicionário para o gerenciamento do estado, semelhantes àqueles encontrados no Dicionário Confiável.
 
 ### <a name="accessing-state"></a>Acessando o estado
-O estado pode ser acessado por chave por meio do Gerenciador de Estado. Os métodos do Gerenciador de Estado são todos assíncronos, pois exigem E/S de disco quando os atores têm um estado persistente. No primeiro acesso, os objetos de estado são armazenados em cache na memória. Operações de acesso repetidas acessam os objetos diretamente da memória e são retornadas de forma síncrona sem incorrer em E/S de disco ou sobrecarga de troca de contexto assíncrona. Um objeto de estado é removido do cache nos seguintes casos:
+O estado pode ser acessado por chave por meio do gerenciador de estado. Os métodos do gerenciador de estado são todos assíncronos, pois podem exigir E/S de disco quando os atores têm um estado persistente. No primeiro acesso, os objetos de estado são armazenados em cache na memória. As operações de acesso repetidas acessam os objetos diretamente da memória e são retornadas de forma síncrona sem incorrer em E/S de disco ou sobrecarga de troca de contexto assíncrona. Um objeto de estado é removido do cache nos seguintes casos:
 
-* Um método de ator gera uma exceção sem tratamento depois de recuperar um objeto do Gerenciador de Estado.
-* Um ator é reativado depois de ser desativado ou devido a uma falha.
-* Se o provedor de estado paginar o estado em disco. Esse comportamento depende da implementação do provedor de estado. O provedor de estado padrão para a configuração `Persisted` apresenta esse comportamento. 
+* Um método de ator gera uma exceção sem tratamento depois de recuperar um objeto do gerenciador de estado.
+* Um ator é reativado depois de ser desativado ou depois de uma falha.
+* O provedor de estado efetua a paginação do estado em disco. Esse comportamento depende da implementação do provedor de estado. O provedor de estado padrão para a configuração `Persisted` apresenta esse comportamento.
 
-O estado pode ser recuperado usando uma operação *Get* padrão que gerará `KeyNotFoundException` caso não exista uma entrada para a chave especificada: 
+Você poderá recuperar o estado usando uma operação *Get* padrão, que gera `KeyNotFoundException` (C#) ou `NoSuchElementException` (Java) se não existir uma entrada para a chave:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -115,8 +135,23 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+class MyActorImpl extends FabricActor implements  MyActor
+{
+    public MyActorImpl(ActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
 
-O estado também pode ser recuperado usando um método *TryGet* que não gerará o seguinte, caso não exista uma entrada para determinada chave:
+    public CompletableFuture<Integer> getCountAsync()
+    {
+        return this.stateManager().getStateAsync("MyState");
+    }
+}
+```
+
+O estado também pode ser recuperado usando um método *TryGet* que não gera exceção, caso não exista uma entrada para uma chave:
 
 ```csharp
 class MyActor : Actor, IMyActor
@@ -138,11 +173,30 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
+```Java
+class MyActorImpl extends FabricActor implements  MyActor
+{
+    public MyActorImpl(ActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
+
+    public CompletableFuture<Integer> getCountAsync()
+    {
+        return this.stateManager().<Integer>tryGetStateAsync("MyState").thenApply(result -> {
+            if (result.hasValue()) {
+                return result.getValue();
+            } else {
+                return 0;
+            });
+    }
+}
+```
 
 ### <a name="saving-state"></a>Salvando o estado
-Os métodos de recuperação do Gerenciador de Estado retornam uma referência a um objeto na memória local. A modificação desse objeto na memória local por si só não faz com que ele seja salvo permanentemente. Quando um objeto é recuperado do Gerenciador de Estado e é modificado, ele deve ser reinserido no Gerenciador de Estado para ser salvo permanentemente.
+Os métodos de recuperação do gerenciador de estado retornam uma referência a um objeto na memória local. A modificação desse objeto na memória local por si só não faz com que ele seja salvo permanentemente. Quando um objeto é recuperado do gerenciador de estado e é modificado, ele deve ser reinserido no gerenciador de estado para ser salvo permanentemente.
 
-O estado pode ser inserido com um *Set* incondicional, que é o equivalente da sintaxe `dictionary["key"] = value`:
+O estado pode ser inserido usando um *Set* incondicional, que é o equivalente da sintaxe `dictionary["key"] = value`:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -159,8 +213,23 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+class MyActorImpl extends FabricActor implements  MyActor
+{
+    public MyActorImpl(ActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
 
-O estado pode ser adicionado com um método *Add*, que gerará `InvalidOperationException` ao tentar adicionar uma chave já existente:
+    public CompletableFuture setCountAsync(int value)
+    {
+        return this.stateManager().setStateAsync("MyState", value);
+    }
+}
+```
+
+Você pode adicionar estado usando um método *Add*. Este método lança `InvalidOperationException` (C#) ou `IllegalStateException` (Java) ao tentar adicionar uma chave que já exista.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -177,8 +246,23 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+class MyActorImpl extends FabricActor implements  MyActor
+{
+    public MyActorImpl(ActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
 
-O estado também pode ser adicionado com um método *TryAdd* , que não gerará o seguinte ao tentar adicionar uma chave já existente:
+    public CompletableFuture addCountAsync(int value)
+    {
+        return this.stateManager().addOrUpdateStateAsync("MyState", value, (key, old_value) -> old_value + value);
+    }
+}
+```
+
+Você também pode adicionar estado usando um método *TryAdd*. Esse método não lançará exceção ao tentar adicionar uma chave que já exista.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -200,10 +284,30 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+class MyActorImpl extends FabricActor implements  MyActor
+{
+    public MyActorImpl(ActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
 
-No final de um método de ator, o Gerenciador de Estado salva automaticamente todos os valores que foram adicionados ou modificados por uma operação de inserção ou atualização. A operação “salvar” pode incluir a persistência em disco e a replicação, dependendo das configurações utilizadas. Valores que não foram modificados não serão persistentes nem replicados. Caso nenhum valor tenha sido modificado, a operação salvar não terá nenhum efeito. Se houver uma falha na operação salvar, o estado modificado será descartado e o estado original será recarregado.
+    public CompletableFuture addCountAsync(int value)
+    {
+        return this.stateManager().tryAddStateAsync("MyState", value).thenApply((result)->{
+            if(result)
+            {
+                // Added successfully!
+            }
+        });
+    }
+}
+```
 
-O estado também pode ser salvo manualmente com a chamada do método `SaveStateAsync` na base do ator:
+No final de um método de ator, o gerenciador de estado salva automaticamente todos os valores que foram adicionados ou modificados por uma operação de inserção ou de atualização. A operação “salvar” pode incluir a persistência em disco e a replicação, dependendo das configurações utilizadas. Valores que não foram modificados não serão persistentes nem replicados. Caso nenhum valor tenha sido modificado, a operação salvar não terá nenhum efeito. Se houver uma falha na operação salvar, o estado modificado será descartado e o estado original será recarregado.
+
+Você também pode salvar o estado manualmente ao chamar o método `SaveStateAsync` na base de ator:
 
 ```csharp
 async Task IMyActor.SetCountAsync(int count)
@@ -213,9 +317,19 @@ async Task IMyActor.SetCountAsync(int count)
     await this.SaveStateAsync();
 }
 ```
+```Java
+interface MyActor {
+    CompletableFuture setCountAsync(int count)
+    {
+        this.stateManager().addOrUpdateStateAsync("count", count, (key, value) -> count > value ? count : value).thenApply();
+
+        this.stateManager().saveStateAsync().thenApply();
+    }
+}
+```
 
 ### <a name="removing-state"></a>Removendo o estado
-O estado pode ser removido permanentemente do Gerenciador de Estado de um ator com a chamada do método *Remove* . Esse método gerará `KeyNotFoundException` ao tentar remover uma chave não existente:
+O estado pode ser removido permanentemente do gerenciador de estado de um ator com a chamada do método *Remove*. Este método lança `KeyNotFoundException` (C#) ou `NoSuchElementException` (Java) ao tentar remover uma chave que não exista.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -232,8 +346,23 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+class MyActorImpl extends FabricActor implements  MyActor
+{
+    public MyActorImpl(ActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
 
-O estado também pode ser removido permanentemente com o método *TryRemove* , que não gerará o seguinte ao tentar remover uma chave não existente:
+    public CompletableFuture removeCountAsync()
+    {
+        return this.stateManager().removeStateAsync("MyState");
+    }
+}
+```
+
+Você também pode remover o estado permanentemente usando o método *TryRemove*. Esse método não lançará exceção ao tentar remover uma chave que não exista.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -255,17 +384,29 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+class MyActorImpl extends FabricActor implements  MyActor
+{
+    public MyActorImpl(ActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
+
+    public CompletableFuture removeCountAsync()
+    {
+        return this.stateManager().tryRemoveStateAsync("MyState").thenApply((result)->{
+            if(result)
+            {
+                // State removed!
+            }
+        });
+    }
+}
+```
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Serialização de tipo de ator](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
-* [Polimorfismo de ator e padrões de design orientado a objeto](service-fabric-reliable-actors-polymorphism.md)
-* [Diagnóstico e monitoramento de desempenho do ator](service-fabric-reliable-actors-diagnostics.md)
-* [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Exemplo de código](https://github.com/Azure/servicefabric-samples)
 
+O estado que é armazenado no Reliable Actors deve ser serializado antes de ser gravado no disco e replicado para alta disponibilidade. Saiba mais sobre a [Serialização de tipo de ator](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+Em seguida, saiba mais sobre [Diagnóstico e monitoramento de desempenho do ator](service-fabric-reliable-actors-diagnostics.md).

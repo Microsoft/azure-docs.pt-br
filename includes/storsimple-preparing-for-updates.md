@@ -30,8 +30,3 @@ Você precisará executar as seguintes etapas antes de examinar e aplicar a atua
 
 Depois que essas pré-verificações manuais foi concluído com êxito, você poderá verificar e instalar as atualizações.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

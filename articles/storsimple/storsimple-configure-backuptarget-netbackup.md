@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2016
+ms.date: 06/15/2017
 ms.author: hkanna
-translationtype: Human Translation
-ms.sourcegitcommit: 83dc91972ad5fec85e562e45227747568b1fea75
-ms.openlocfilehash: 2ac7c119e0706f0c5d479aa04a3afc34cc55cf22
-
+ms.openlocfilehash: b1878c181a77ac6d54654fc55228907743243c45
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple como um destino de backup com o NetBackup
 
 ## <a name="overview"></a>Visão geral
@@ -227,7 +227,7 @@ Configure sua solução de acordo com as diretrizes indicadas nas próximas seç
 
 -   O banco de dados do NetBackup deve ser local para o servidor e não residir em um volume do StorSimple.
 -   Para recuperação de desastre, faça backup do banco de dados NetBackup em um volume StorSimple.
--   Oferecemos suporte a backups completos e incrementais do NetBackup para esta solução. É recomendável que você não use backups diferenciais e sintéticos.
+-   Damos suporte a backups completos e incrementais do NetBackup (também chamados de backups incrementais diferenciais no NetBackup) nesta solução. Recomendamos que você não use backups incrementais sintéticos e cumulativos.
 -   Arquivos de dados de backup devem conter apenas os dados de um trabalho específico. Por exemplo, não são permitidos acréscimos de mídia em vários trabalhos diferentes.
 
 Para obter as definições mais recentes do NetBackup e as práticas recomendadas sobre como implementar esses requisitos, consulte a documentação do NetBackup em [www.veritas.com](https://www.veritas.com).
@@ -255,7 +255,7 @@ Com base nas premissas anteriores, crie um volume em camadas StorSimple de 26 Ti
 | Mensal completo | 1 | 12 | 12 |
 | Anual completo | 1  | 10 | 10 |
 | Requisito de GFS |   | 38 |   |
-| Cota adicional  | 4  |   | Requisito total de GFS&42;  |
+| Cota adicional  | 4  |   | Requisito total de GFS 42  |
 \* O multiplicador GFS é o número de cópias que você precisa proteger e manter para atender aos requisitos da política de backup.
 
 ## <a name="set-up-netbackup-storage"></a>Configurar o armazenamento do NetBackup
@@ -472,7 +472,7 @@ Depois de definir os pools de disco iniciais, você precisa definir três polít
 | Mensal completo  | 1 | 12 | 12 |
 | Anual completo | 1  | 10 | 10 |
 | Requisito de GFS  |     |     | 38 |
-| Cota adicional  | 4  |    | Requisito total de GFS&42; |
+| Cota adicional  | 4  |    | Requisito total de GFS 42 |
 \* O multiplicador GFS é o número de cópias que você precisa proteger e manter para atender aos requisitos da política de backup.
 
 ## <a name="storsimple-cloud-snapshots"></a>Instantâneos de nuvem do StorSimple
@@ -502,49 +502,13 @@ A seção a seguir descreve como criar um script curto para iniciar e excluir in
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Para iniciar ou excluir um instantâneo de nuvem
 
-1.  [Instale o Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/#install-and-configure).
-2.  [Baixar e importar informações de assinatura e configurações de publicação](https://msdn.microsoft.com/library/dn385850.aspx).
-3.  No portal clássico do Azure, obtenha o nome do recurso e a [chave de registro para o serviço StorSimple Manager](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
-4.  No servidor que executa o script, execute o PowerShell como administrador. Digite este comando:
-
-    `Get-AzureStorSimpleDeviceBackupPolicy –DeviceName <device name>`
-
-    Anote a ID da política de backup.
-5.  No Bloco de Notas, crie um novo script do PowerShell usando o código a seguir.
-
-    Copie e cole este trecho de código:
-    ```powershell
-    Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
-    Disable-AzureDataCollection
-    $ApplianceName = <myStorSimpleApplianceName>
-    $RetentionInDays = 20
-    $RetentionInDays = -$RetentionInDays
-    $Today = Get-Date
-    $ExpirationDate = $Today.AddDays($RetentionInDays)
-    Select-AzureStorSimpleResource -ResourceName "myResource" –RegistrationKey
-    Start-AzureStorSimpleDeviceBackupJob –DeviceName $ApplianceName -BackupType CloudSnapshot -BackupPolicyId <BackupId> -Verbose
-    $CompletedSnapshots =@()
-    $CompletedSnapshots = Get-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName
-    Write-Host "The Expiration date is " $ExpirationDate
-    Write-Host
-
-    ForEach ($SnapShot in $CompletedSnapshots)
-    {
-        $SnapshotStartTimeStamp = $Snapshot.CreatedOn
-        if ($SnapshotStartTimeStamp -lt $ExpirationDate)
-
-        {
-            $SnapShotInstanceID = $SnapShot.InstanceId
-            Write-Host "This snpashotdate was created on " $SnapshotStartTimeStamp.Date.ToShortDateString()
-            Write-Host "Instance ID " $SnapShotInstanceID
-            Write-Host "This snpashotdate is older and needs to be deleted"
-            Write-host "\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"
-            Remove-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName -BackupId $SnapShotInstanceID -Force -Verbose
-        }
-    }
-    ```
-      Salve o script do PowerShell no mesmo local em que você salvou as configurações de publicação do Azure. Por exemplo, salve como C:\CloudSnapshot\StorSimpleCloudSnapshot.ps1.
-6.  Adicione o script ao trabalho de backup no NetBackup. Para fazer isso, edite suas os comandos de pré e pós-processamento das opções de trabalho do NetBackup.
+1.  [Instale o Azure PowerShell](/powershell/azure/overview).
+2. Baixe e instale o script [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) do PowerShell.
+3. No servidor que executa o script, execute o PowerShell como administrador. Execute o script com `-WhatIf $true` para ver as alterações que serão feitas pelo script. Depois que a validação for concluída, passe `-WhatIf $false`. Execute o comando abaixo:
+```powershell
+.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+```
+4.  Adicione o script ao trabalho de backup no NetBackup. Para fazer isso, edite suas os comandos de pré e pós-processamento das opções de trabalho do NetBackup.
 
 > [!NOTE]
 > Recomendamos que você execute a política de backup de instantâneo de nuvem do StorSimple como um script pós-processamento no fim do seu trabalho de backup diário. Para saber mais sobre como fazer backup e restaurar seu ambiente de aplicativo de backup para ajudar a atender ao RPO e RTO, consulte seu arquiteto de backup.
@@ -579,9 +543,3 @@ Os documentos a seguir foram mencionados neste artigo:
 
 - Saiba mais sobre como [restaurar de um conjunto de backup](storsimple-restore-from-backup-set-u2.md).
 - Sobre mais sobre como executar [failover e recuperação de desastre no dispositivo](storsimple-device-failover-disaster-recovery.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

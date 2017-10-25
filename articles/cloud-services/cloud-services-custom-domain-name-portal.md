@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 07/05/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 2b020004762125aad201cf7eb454da5cf73288ae
-ms.openlocfilehash: 7d509e9606c0a2f599f511c011ab775b2ea6f7b0
-
-
+ms.openlocfilehash: f5d244fc747b923989407afd50927cda2b8d4a0f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurando um nome de domínio personalizado para um serviço de nuvem do Azure
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ No entanto, você também pode expor seu aplicativo em seu próprio nome de dom�
 Você já entendeu o que são os registros CNAME e A? [Pule a explicação](#add-a-cname-record-for-your-custom-domain).
 
 > [!NOTE]
-> Os procedimentos nesta tarefa se aplicam aos Serviços de Nuvem do Azure. Para os Serviços de Aplicativos, veja [isto](../app-service-web/web-sites-custom-domain-name.md). Para as contas de armazenamento, veja [isto](../storage/storage-custom-domain-name.md).
+> Os procedimentos nesta tarefa se aplicam aos Serviços de Nuvem do Azure. Para os Serviços de Aplicativos, veja [isto](../app-service/app-service-web-tutorial-custom-domain.md). Para as contas de armazenamento, veja [isto](../storage/blobs/storage-custom-domain-name.md).
 > 
 > 
 
@@ -76,7 +76,7 @@ Para criar um registro CNAME, você deve adicionar uma nova entrada na tabela DN
        ![seção rapidamente mostrando a URL do site][csurl]
      
        **OR**
-   * Instale e configure o [Azure Powershell](/powershell/azureps-cmdlets-docs)e use o seguinte comando:
+   * Instale e configure o [Azure Powershell](/powershell/azure/overview)e use o seguinte comando:
      
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -97,7 +97,7 @@ Por exemplo, o seguinte registro CNAME encaminha todo o tráfego de **www.contos
 > [!NOTE]
 > Um visitante de **www.contoso.com** nunca verá o host verdadeiro (contoso.cloudapp.net) e, portanto, o processo de encaminhamento será invisível ao usuário final.
 > 
-> O exemplo acima aplica-se somente ao tráfego no subdomínio **www** . Uma vez que não é possível usar caracteres curinga com registros CNAME, você deve criar um CNAME para cada domínio/subdomínio. Se você quiser direcionar o tráfego dos subdomínios, como *.contoso.com, para o endereço cloudapp.net, poderá configurar uma entrada **Redirecionamento da URL** ou **Encaminhamento da URL** em suas configurações DNS ou criar um registro A.
+> O exemplo acima aplica-se somente ao tráfego no subdomínio **www** . Uma vez que não é possível usar caracteres curinga com registros CNAME, você deve criar um CNAME para cada domínio/subdomínio. Se você quiser direcionar o tráfego a partir dos subdomínios, como *.contoso.com, para o endereço cloudapp.net, poderá configurar uma entrada **Redirecionamento da URL** ou **Encaminhamento da URL** em suas configurações DNS, ou criar um registro A.
 > 
 > 
 
@@ -111,7 +111,7 @@ Para criar um registro, primeiro você deve encontrar o endereço IP do seu serv
        ![seção rapidamente mostrando a VIP][vip]
      
        **OR**
-   * Instale e configure o [Azure Powershell](/powershell/azureps-cmdlets-docs)e use o seguinte comando:
+   * Instale e configure o [Azure Powershell](/powershell/azure/overview)e use o seguinte comando:
      
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -153,9 +153,3 @@ Este exemplo demonstra como criar um registro A para o domínio raiz. Se você q
 [portal do Azure]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-

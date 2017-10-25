@@ -3,7 +3,7 @@ title: "Introdução ao Observador de Rede do Azure | Microsoft Docs"
 description: "Esta página fornece uma visão geral do serviço Observador de Rede para monitorar e visualizar os recursos conectados em rede no Azure"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: f9e4fededc2bbb069cc653791137f248a7dc3fe8
-ms.lasthandoff: 03/04/2017
-
+ms.date: 07/11/2017
+ms.author: jdial
+ms.openlocfilehash: eecb20d4a53478471c238018d8fbd5a5f9cb79d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-network-monitoring-overview"></a>Visão geral do monitoramento da rede do Azure
 
 Os clientes criam uma rede de ponta a ponta no Azure administrando e compondo vários recursos de rede individuais, como VNet, ExpressRoute, Gateway de Aplicativo, Balanceadores de carga e mais. O monitoramento está disponível em cada um dos recursos da rede. Chamamos esse monitoramento de monitoramento no nível do recurso.
@@ -36,8 +35,6 @@ Este artigo aborda o cenário e o monitoramento no nível do recurso. O monitora
 
 O Observador de Rede é um serviço regional que permite monitorar e diagnosticar as condições em um nível do cenário da rede em, para e a partir do Azure. As ferramentas de diagnóstico e visualização da rede disponíveis com o Observador de Rede ajudam a entender, diagnosticar e ter informações para sua rede no Azure.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 O Observador de Rede tem atualmente os seguintes recursos:
 
 * **[Topologia](network-watcher-topology-overview.md)** - fornece uma exibição no nível da rede mostrando as diversas interconexões e associações entre os recursos de rede em um grupo de recursos.
@@ -49,15 +46,16 @@ O Observador de Rede tem atualmente os seguintes recursos:
 * **[Solução de problemas do Gateway de Rede Virtual e da Conexão](network-watcher-troubleshoot-manage-rest.md)** - fornece a capacidade de solucionar problemas dos Gateways de Rede Virtual e das Conexões.
 * **[Limites de assinatura da rede](#network-subscription-limits)** - permite exibir o uso de recursos da rede em relação aos limites.
 * **[Configurar o Log de Diagnóstico](#diagnostic-logs)** – fornece um painel único para habilitar ou desabilitar os logs de Diagnóstico para os recursos de rede em um grupo de recursos.
+* **[Conectividade (Versão Prévia)](network-watcher-connectivity-overview.md)** – confirma a possibilidade de estabelecer uma conexão TCP direta de uma máquina virtual com determinado ponto de extremidade.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Controle de Acesso baseado em Funções (RBAC) no Observador de Rede
 
-O Observador de Rede usa o [modelo RBAC (Controle de Acesso baseado em Funções) do Azure](../active-directory/role-based-access-control-what-is.md). As permissões a seguir é necessária para o Observador de Rede na Visualização. É importante verificar se a função usada para iniciar as APIs do Observador de Rede ou usar o Observador de Rede no portal tem o acesso necessário.
+O Observador de Rede usa o [modelo RBAC (Controle de Acesso baseado em Funções) do Azure](../active-directory/role-based-access-control-what-is.md). As permissões a seguir são necessárias para o Observador de Rede. É importante verificar se a função usada para iniciar as APIs do Observador de Rede ou usar o Observador de Rede no portal tem o acesso necessário.
 
 |Recurso| Permissão|
-|---|---|
+|---|---| 
 |Microsoft.Storage/ |Ler|
-|Microsoft.Authorization/| Ler|
+|Microsoft.Authorization/| Ler| 
 |Microsoft.Resources/subscriptions/resourceGroups/| Ler|
 |Microsoft.Storage/storageAccounts/listServiceSas/ | Ação|
 |Microsoft.Storage/storageAccounts/listAccountSas/ |Ação|
@@ -66,13 +64,13 @@ O Observador de Rede usa o [modelo RBAC (Controle de Acesso baseado em Funções
 |Microsoft.Compute/virtualMachines/ |Gravar|
 |Microsoft.Compute/virtualMachineScaleSets/ |Ler|
 |Microsoft.Compute/virtualMachineScaleSets/ |Gravar|
-|Microsoft.Network/networkWatchers/packetCaptures/| Ler|
+|Microsoft.Network/networkWatchers/packetCaptures/ |Ler|
 |Microsoft.Network/networkWatchers/packetCaptures/| Gravar|
 |Microsoft.Network/networkWatchers/packetCaptures/| Excluir|
-|Microsoft.Network/networkWatchers/ |Gravar|
-|Microsoft.Network/networkWatchers/| Ler|
+|Microsoft.Network/networkWatchers/ |Gravar |
+|Microsoft.Network/networkWatchers/| Ler |
 |Microsoft.Insights/alertRules/ |*|
-|Microsoft.Support/| *|
+|Microsoft.Support/ | *|
 
 ### <a name="network-subscription-limits"></a>Limites de assinatura da rede
 
@@ -126,12 +124,13 @@ executar o monitoramento proativo e diagnóstico usando a [captura de pacotes di
 
 detectar as vulnerabilidades da segurança com [Analisar a captura de pacotes com o Wireshark](network-watcher-deep-packet-inspection.md), usando ferramentas de código-fonte aberto.
 
+Saiba mais sobre alguns dos outros principais [recursos de rede](../networking/networking-overview.md) do Azure.
+
 <!--Image references-->
 [TS]: ./media/network-watcher-monitoring-overview/troubleshooting.png
 [logs]: ./media/network-watcher-monitoring-overview/logs.png
 [metrics]: ./media/network-watcher-monitoring-overview/metrics.png
 [nsl]: ./media/network-watcher-monitoring-overview/nsl.png
-
 
 
 

@@ -1,4 +1,4 @@
-## <a name="a-nameos-configaadd-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>Adicionar endereços IP em um sistema operacional da VM
+## <a name="os-config"></a>Adicionar endereços IP em um sistema operacional da VM
 
 Conecte-se e faça logon em uma VM criada com vários endereços IP privados. Você deve adicionar manualmente todos os endereços IP privados (incluindo o principal) que você adicionou à VM. Complete as etapas a seguir para seu sistema operacional VM:
 
@@ -32,7 +32,7 @@ Para garantir que você possa se conectar à internet de seu IP secundário conf
 ping -S 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->Você só poderá executar o ping na Internet se o endereço IP privado usado acima tiver um IP público associado a ele.
+>Para configurações de IP secundárias, você só pode executar ping para a Internet se a configuração tiver um endereço IP público associado a ela. Para configurações de IP primárias, um endereço IP público não é necessário executar ping na Internet.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
@@ -161,7 +161,7 @@ Para garantir que você possa se conectar à internet de seu IP secundário conf
 ping -I 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->Você só poderá executar o ping na Internet se o endereço IP privado usado acima tiver um IP público associado a ele.
+>Para configurações de IP secundárias, você só pode executar ping para a Internet se a configuração tiver um endereço IP público associado a ela. Para configurações de IP primárias, um endereço IP público não é necessário executar ping na Internet.
 
 Para VMs do Linux, ao tentar validar a conectividade de saída de uma NIC secundária, talvez seja necessário adicionar rotas apropriadas. Há várias maneiras de fazer isso. Veja a documentação apropriada para sua distribuição do Linux. Este é um método para fazer isso:
 
@@ -176,8 +176,3 @@ ip route add default via 10.0.0.1 dev eth2 table custom
     - **10.0.0.5** pelo endereço IP privado que tem um endereço IP público associado a ele
     - **10.0.0.1** pelo seu gateway padrão
     - **eth2** pelo nome de sua NIC secundária
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -4,7 +4,7 @@ description: Descreve os LEDs e os alarmes usados para monitorar o status do dis
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 59dee7b9-ca6d-4fd9-96e6-a0071e8d248e
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/18/2016
+ms.date: 06/05/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0b8efafadee9bb7636bb204b55758f18a86cf049
-
-
+ms.openlocfilehash: 0d44f94719bff0cb58b3727050598e55f4774e66
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Usar indicadores de monitoramento do StorSimple para gerenciar seu dispositivo
 ## <a name="overview"></a>Visão geral
@@ -35,7 +35,7 @@ O restante deste artigo descreve os vários LEDs indicadores de monitoramento, s
 ## <a name="front-panel-indicator-leds"></a>LEDs indicadores no painel frontal
 O painel frontal, também conhecido como o *painel de operações* ou *painel ops*, exibe o status da agregação de todos os módulos no sistema. O painel frontal é idêntico no compartimento StorSimple primário e no compartimento EBOD, e é ilustrado abaixo.  
 
-   ![ Painel frontal do dispositivo][1]
+   ![Painel frontal do dispositivo][1]
 
 O painel frontal contém os seguintes indicadores:  
 
@@ -135,7 +135,7 @@ Use a tabela a seguir para determinar se o módulo do controlador está operando
 ### <a name="controller-indicator-leds"></a>LEDs indicadores do controlador
 | LED | Descrição |
 | --- | --- |
-| LED de ID (azul) |Indica se o módulo está sendo identificado. Se o LED azul estiver piscando em um controlador em execução, então o controlador é o controlador ativo e o outro é o controlador standby. Para saber mais, consulte [Identificar o controlador ativo no seu dispositivo](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device). |
+| LED de ID (azul) |Indica se o módulo está sendo identificado. Se o LED azul estiver piscando em um controlador em execução, então o controlador é o controlador ativo e o outro é o controlador standby. Para saber mais, consulte [Identificar o controlador ativo no seu dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | LED de falha (âmbar) |Indica uma falha no controlador. |
 | LED de OK (verde) |Um verde estável indica que o controlador está OK. Verde piscando indica um erro de configuração de VPD do controlador. |
 | LEDs de atividade de SAS (verde) |Verde estável indica uma conexão sem atividade. Verde piscando indica que a conexão possui atividade em andamento. |
@@ -209,12 +209,11 @@ A tabela a seguir descreve os vários estados de alarme.
 > * No estado de alarme S1, se você não apertar mudo em até 2 minutos, o estado faz uma transição automática para S2 ou S3.  
 > * Os estados de alarme S1 a S4 retornam para S0 após a condição de falha ter sido resolvida.  
 > * O estado de falha crítica S4 pode ser inserido a partir de qualquer outro estado.  
-> 
-> 
 
-Você pode silenciar o alarme audível apertando o botão de mudo no painel de operações. Um silenciament automático ocorrerá após dois minutos se o botão de mudo não for manualmente acionado. Quando o alarme estiver mudo, ele continuará a soar através de bipes curtos e intermitentes para indicar que ainda existe um problema. O alarme será silenciado quando todos os problemas forem resolvidos.  
 
-A tabela a seguir descreve as várias condições de alarme.  
+Você pode silenciar o alarme audível apertando o botão de mudo no painel de operações. Um silenciament automático ocorrerá após dois minutos se o botão de mudo não for manualmente acionado. Quando o alarme estiver mudo, ele continuará a soar através de bipes curtos e intermitentes para indicar que ainda existe um problema. O alarme será silenciado quando todos os problemas forem resolvidos.
+
+A tabela a seguir descreve as várias condições de alarme.
 
 ### <a name="alarm-conditions"></a>Condições de alarme.
 | Status | Severidade | Alarme | LED do painel de operações |
@@ -240,7 +239,7 @@ A tabela a seguir descreve as várias condições de alarme.
 | Energia insuficiente disponível |Aviso |Nenhum |Falha do módulo |
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre os [componentes e o status de hardware do StorSimple](storsimple-monitor-hardware-status.md).
+Saiba mais sobre os [componentes e o status de hardware do StorSimple](storsimple-8000-monitor-hardware-status.md).
 
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png
@@ -248,11 +247,5 @@ Saiba mais sobre os [componentes e o status de hardware do StorSimple](storsimpl
 [4]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE04.png
 [5]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE05.png
 [6]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE06.png
-
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

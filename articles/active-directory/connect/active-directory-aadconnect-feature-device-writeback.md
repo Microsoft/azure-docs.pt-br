@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 09/26/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: bf7dd55be2b0e6ae43fc148ff36d8d2141a2f12b
-ms.lasthandoff: 12/20/2016
-
-
+ms.openlocfilehash: 7af8fadca15e07e178f12db27fec2467f43c5d36
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: habilitando o write-back do dispositivo
 > [!NOTE]
@@ -31,7 +30,7 @@ A documentação a seguir fornece informações sobre como habilitar o recurso d
 
 * Habilitar acesso condicional com base em dispositivos aos aplicativos protegidos por ADFS (2012 R2 ou superior) (terceira parte confiável).
 
-Isso fornece segurança adicional e a garantia de que o acesso aos aplicativos é concedido somente a dispositivos confiáveis. Para saber mais sobre acesso condicional, consulte [Gerenciando risco com acesso condicional](../active-directory-conditional-access.md) e [Configurando o acesso condicional no local usando o registro do dispositivo do Azure Active Directory](https://msdn.microsoft.com/library/azure/dn788908.aspx).
+Isso fornece segurança adicional e a garantia de que o acesso aos aplicativos é concedido somente a dispositivos confiáveis. Para saber mais sobre acesso condicional, consulte [Gerenciando risco com acesso condicional](../active-directory-conditional-access.md) e [Configurando o acesso condicional no local usando o registro do dispositivo do Azure Active Directory](../active-directory-conditional-access-automatic-device-registration-setup.md).
 
 > [!IMPORTANT]
 > <li>Os dispositivos devem estar localizados na mesma floresta que os usuários. Como o write-back dos dispositivos deve ser feito em uma única floresta, esse recurso não é compatível com uma implantação com várias florestas de usuário.</li>
@@ -44,19 +43,27 @@ Isso fornece segurança adicional e a garantia de que o acesso aos aplicativos �
 Use as etapas a seguir para preparar para o uso de write-back do dispositivo.
 
 1. No computador no qual o Azure AD Connect está instalado, inicie o PowerShell no modo elevado.
-2. Se o módulo do PowerShell do Active Directory NÃO estiver instalado, instale-o usando o comando a seguir:
-   
-   `Add-WindowsFeature RSAT-AD-PowerShell`
-3. Se o módulo do PowerShell do Active Directory do Azure NÃO estiver instalado, baixe-o e instale-o de [Módulo do Active Directory do Azure para o Windows PowerShell (versão de 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297). Este componente depende do assistente de conexão, que é instalado com o Azure AD Connect.
+2. Se o módulo Windows Active Directory do PowerShell NÃO estiver instalado, instale as Ferramentas de Administração de Servidor Remoto que contêm o módulo PowerShell do Azure AD e o dsacls.exe que é necessário para executar o script.  Execute o comando a seguir:
+  
+   ``` powershell
+   Add-WindowsFeature RSAT-AD-Tools
+   ```
+
+3. Se o módulo do PowerShell do Active Directory do Azure NÃO estiver instalado, baixe-o e instale-o de [Módulo do Active Directory do Azure para o Windows PowerShell (versão de 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297). Este componente depende do assistente de conexão, que é instalado com o Azure AD Connect.  
 4. Com credenciais de administrador corporativo, execute os seguintes comandos e, em seguida, saia do PowerShell.
    
-   `Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'`
-   
-   `Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}`
+   ``` powershell
+   Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
+   ```
+
+   ``` powershell
+   Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}
+   ```
 
 As credenciais de administrador corporativo serão necessárias, já que é necessário alterar o namespace de configuração. Um administrador de domínio não terá permissões suficientes.
 
 ![Powershell para habilitar o write-back do dispositivo](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)
+
 
 Descrição:
 
@@ -82,7 +89,7 @@ Use o procedimento a seguir para habilitar write-back do dispositivo no Azure AD
 4. Conclua a instalação do assistente sem alterações de configuração adicionais. Se necessário, confira [Instalação personalizada do Azure AD Connect.](active-directory-aadconnect-get-started-custom.md)
 
 ## <a name="enable-conditional-access"></a>Habilitar o acesso condicional
-Instruções detalhadas para habilitar esse cenário estão disponíveis em [Definindo o acesso condicional local usando o registro do dispositivo do Active Directory do Azure](https://msdn.microsoft.com/library/azure/dn788908.aspx).
+Instruções detalhadas para habilitar esse cenário estão disponíveis em [Definindo o acesso condicional local usando o registro do dispositivo do Active Directory do Azure](../active-directory-conditional-access-automatic-device-registration-setup.md).
 
 ## <a name="verify-devices-are-synchronized-to-active-directory"></a>Verifique se que dispositivos estão sincronizados com o Active Directory
 O write-back do dispositivo agora deve estar funcionando corretamente. Pode levar até 3 horas para que os objetos do dispositivo sejam gravados no Active Directory.  Para verificar se os dispositivos estão sendo sincronizados corretamente, faça o seguinte, depois de concluir as regras de sincronização:
@@ -135,9 +142,8 @@ Verifique a configuração no Active Directory:
 
 ## <a name="additional-information"></a>Informações adicionais
 * [Gerenciamento de riscos com acesso condicional](../active-directory-conditional-access.md)
-* [Configurando o acesso condicional no local usando o registro do dispositivo do Azure Active Directory](https://msdn.microsoft.com/library/azure/dn788908.aspx)
+* [Configurando o acesso condicional no local usando o registro do dispositivo do Azure Active Directory](../active-directory-device-registration-on-premises-setup.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-
 

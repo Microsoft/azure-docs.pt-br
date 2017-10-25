@@ -1,6 +1,6 @@
 ---
 title: "Criar um gateway de aplicativo para hospedar vários sites | Microsoft Docs"
-description: "Esta página fornece instruções para criar e configurar um Azure Application Gateway para hospedar vários aplicativos Web no mesmo gateway."
+description: "Esta página fornece instruções para criar e configurar um Gateway de Aplicativo do Azure para hospedar vários aplicativos Web no mesmo gateway."
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: amsriva
-translationtype: Human Translation
-ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
-ms.openlocfilehash: d46c87480fd198bf4f09e48f4d2ea838a350190c
-
-
+ms.openlocfilehash: d42efa7d359f5c87c14afbfd138328b37c8ae6c2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-an-application-gateway-for-hosting-multiple-web-applications"></a>Criar um Application Gateway para hospedar vários aplicativos Web
+# <a name="create-an-application-gateway-for-hosting-multiple-web-applications"></a>Criar um gateway de aplicativo para hospedar vários aplicativos Web
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](application-gateway-create-multisite-portal.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 
-A hospedagem de vários sites permite que você implante mais de um aplicativo Web no mesmo Application Gateway. Ela depende da presença do cabeçalho de host na solicitação HTTP de entrada, para determinar quais ouvintes devem receber tráfego. O ouvinte, em seguida, direciona o tráfego ao pool de back-end apropriado conforme configurado na definição de regras do gateway. No caso de aplicativos Web habilitados com SSL, o gateway de aplicativo depende da extensão de SNI (Indicação de Nome de Servidor) para escolher o ouvinte correto para o tráfego da Web. Um uso comum para a hospedagem de vários sites é balancear a carga das solicitações para domínios da Web diferentes para pools de servidor back-end diferentes. Da mesma forma, vários subdomínios do mesmo domínio raiz também podem ser hospedados no mesmo Gateway de Aplicativo.
+A hospedagem de vários sites permite que você implante mais de um aplicativo Web no mesmo gateway de aplicativo. Ela depende da presença do cabeçalho de host na solicitação HTTP de entrada, para determinar quais ouvintes devem receber tráfego. O ouvinte, em seguida, direciona o tráfego ao pool de back-end apropriado conforme configurado na definição de regras do gateway. No caso de aplicativos Web habilitados com SSL, o gateway de aplicativo depende da extensão de SNI (Indicação de Nome de Servidor) para escolher o ouvinte correto para o tráfego da Web. Um uso comum para a hospedagem de vários sites é balancear a carga das solicitações para domínios da Web diferentes para pools de servidor back-end diferentes. Da mesma forma, vários subdomínios do mesmo domínio raiz também podem ser hospedados no mesmo Gateway de Aplicativo.
 
 ## <a name="scenario"></a>Cenário
 
-No exemplo a seguir, o Application Gateway está fornecendo o tráfego para contoso.com e fabrikam.com com dois pools de servidor back-end: o pool de servidores contoso e o pool de servidores fabrikam. É possível usar uma configuração semelhante para hospedar subdomínios, como app.contoso.com e blog.contoso.com.
+No exemplo a seguir, o gateway de aplicativo está fornecendo o tráfego para contoso.com e fabrikam.com com dois pools de servidor back-end: o pool de servidores contoso e o pool de servidores fabrikam. É possível usar uma configuração semelhante para hospedar subdomínios, como app.contoso.com e blog.contoso.com.
 
 ![imageURLroute](./media/application-gateway-create-multisite-azureresourcemanager-powershell/multisite.png)
 
@@ -45,15 +45,15 @@ No exemplo a seguir, o Application Gateway está fornecendo o tráfego para cont
 * **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
 * **Porta front-end:** essa porta é a porta pública aberta no gateway de aplicativo. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
 * **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (HTTP ou HTTPS, esses valores diferenciam maiúsculas de minúsculas) e o nome do certificado SSL (caso esteja configurando o descarregamento SSL). Para Application Gateways habilitados para vários sites, os indicadores de SNI e nome do host também são adicionados.
-* **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define a qual pool de servidores back-end o tráfego deve ser direcionado ao atingir um ouvinte específico.
+* **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define a qual pool de servidores back-end o tráfego deve ser direcionado ao atingir um ouvinte específico. As regras são processadas na ordem em que são listadas e o tráfego será direcionado por meio da primeira regra correspondente, independentemente de especificidade. Por exemplo, se você tiver uma regra usando um ouvinte básico e outra usando um ouvinte multissite, ambas na mesma porta, a regra com o ouvinte multissite deverá ser listada antes daquela com o ouvinte básico, para que a função multissite funcione conforme esperado.
 
-## <a name="create-an-application-gateway"></a>Criar um Application Gateway
+## <a name="create-an-application-gateway"></a>Criar um gateway de aplicativo
 
 A seguir estão as etapas necessárias para criar um gateway de aplicativo:
 
 1. Criar um grupo de recursos para o Gerenciador de Recursos.
 2. Criar uma rede virtual, uma sub-rede e um IP público para o gateway de aplicativo.
-3. Criar um objeto de configuração do gateway do aplicativo.
+3. Criar um objeto de configuração do gateway de aplicativo.
 4. Criar um recurso de gateway de aplicativo.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Criar um grupo de recursos para o Gerenciador de Recursos
@@ -99,7 +99,7 @@ Como alternativa, também é possível pode criar marcas para um grupo de recurs
 $resourceGroup = New-AzureRmResourceGroup -Name appgw-RG -Location "West US" -Tags @{Name = "testtag"; Value = "Application Gateway multiple site"}
 ```
 
-O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Esse local é usado como o local padrão para os recursos do grupo de recursos em questão. Verifique se todos os comandos para criar um Application Gateway usam o mesmo grupo de recursos.
+O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Esse local é usado como o local padrão para os recursos do grupo de recursos em questão. Verifique se todos os comandos para criar um gateway de aplicativo usam o mesmo grupo de recursos.
 
 No exemplo acima, criamos um grupo de recursos denominado **appgw-RG** com o local **Oeste dos EUA**.
 
@@ -150,7 +150,7 @@ Crie um recurso IP público **publicIP01** no grupo de recursos **appgw-rg** par
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -name publicIP01 -location "West US" -AllocationMethod Dynamic
 ```
 
-Um endereço IP é atribuído ao application gateway quando o serviço é iniciado.
+Um endereço IP é atribuído ao gateway de aplicativo quando o serviço é iniciado.
 
 ## <a name="create-application-gateway-configuration"></a>Criar uma configuração do gateway de aplicativo
 
@@ -220,7 +220,7 @@ $listener02 = New-AzureRmApplicationGatewayHttpListener -Name "listener02" -Prot
 
 ### <a name="step-8"></a>Etapa 8
 
-Crie duas configurações de regra para os dois aplicativos Web nesse exemplo. Uma regra vincula ouvintes, pools de back-end e as configurações de http. Esta etapa configura o Application Gateway para usar a regra de roteamento Básica, uma para cada site. O tráfego para cada site é recebido pelo seu ouvinte configurado e é direcionado para seu pool de back-end configurado, usando as propriedades especificadas no BackendHttpSettings.
+Crie duas configurações de regra para os dois aplicativos Web nesse exemplo. Uma regra vincula ouvintes, pools de back-end e as configurações de http. Esta etapa configura o gateway de aplicativo para usar a regra de roteamento Básica, uma para cada site. O tráfego para cada site é recebido pelo seu ouvinte configurado e é direcionado para seu pool de back-end configurado, usando as propriedades especificadas no BackendHttpSettings.
 
 ```powershell
 $rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule01" -RuleType Basic -HttpListener $listener01 -BackendHttpSettings $poolSetting01 -BackendAddressPool $pool1
@@ -235,22 +235,22 @@ Configure o número de instâncias e o tamanho do gateway de aplicativo.
 $sku = New-AzureRmApplicationGatewaySku -Name "Standard_Medium" -Tier Standard -Capacity 2
 ```
 
-## <a name="create-application-gateway"></a>Criar um Application Gateway
+## <a name="create-application-gateway"></a>Criar um gateway de aplicativo
 
-Crie um application gateway com todos os objetos de configuração das etapas anteriores.
+Crie um gateway de aplicativo com todos os objetos de configuração das etapas anteriores.
 
 ```powershell
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG -Location "West US" -BackendAddressPools $pool1,$pool2 -BackendHttpSettingsCollection $poolSetting01, $poolSetting02 -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener01, $listener02 -RequestRoutingRules $rule01, $rule02 -Sku $sku -SslCertificates $cert01, $cert02
 ```
 
 > [!IMPORTANT]
-> O provisionamento do Application Gateway é uma operação demorada e pode levar algum tempo para ser concluída.
+> O provisionamento do Gateway de Aplicativo é uma operação demorada e pode levar algum tempo para ser concluída.
 > 
 > 
 
-## <a name="get-application-gateway-dns-name"></a>Obter um nome DNS de Application Gateway
+## <a name="get-application-gateway-dns-name"></a>Obter um nome DNS de gateway de aplicativo
 
-Depois de criar o gateway, a próxima etapa será configurar o front-end para comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. Para garantir que os usuários finais possam alcançar o gateway de aplicativo, um registro CNAME pode ser usado para apontar para o ponto de extremidade público do gateway de aplicativo. [Configurando um nome de domínio personalizado no Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para isso, recupere detalhes do Gateway de Aplicativo e seu nome DNS/IP associado usando o elemento PublicIPAddress anexado ao Gateway de Aplicativo. O nome DNS do Gateway de Aplicativo deve ser usado para criar um registro CNAME que aponta os dois aplicativos Web para esse nome DNS. O uso de registros A não é recomendável, pois o VIP pode mudar na reinicialização do Application Gateway.
+Depois de criar o gateway, a próxima etapa será configurar o front-end para comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. Para garantir que os usuários finais possam alcançar o gateway de aplicativo, um registro CNAME pode ser usado para apontar para o ponto de extremidade público do gateway de aplicativo. [Configurando um nome de domínio personalizado no Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para isso, recupere detalhes do Gateway de Aplicativo e seu nome DNS/IP associado usando o elemento PublicIPAddress anexado ao Gateway de Aplicativo. O nome DNS do Gateway de Aplicativo deve ser usado para criar um registro CNAME que aponta os dois aplicativos Web para esse nome DNS. O uso de registros A não é recomendável, pois o VIP pode mudar na reinicialização do gateway de aplicativo.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
@@ -281,10 +281,4 @@ DnsSettings              : {
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba como proteger seus sites com o [Gateway de Aplicativo - Firewall de Aplicativo Web](application-gateway-webapplicationfirewall-overview.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

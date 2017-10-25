@@ -8,18 +8,18 @@ manager: jhubbard
 editor: monicar
 ms.assetid: c2f580b2-3835-453f-89f5-140e02dd2ea7
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/09/2016
+ms.date: 07/05/2017
 ms.author: sstein
-translationtype: Human Translation
-ms.sourcegitcommit: ddf93a0db278fffa2aa45fdc73a1c7f57a84fb39
-ms.openlocfilehash: 14140a6aa8c8cccf658f8e98305659e8ae76dcad
-
-
+ms.openlocfilehash: 1925d4ff8f5b16a0df56de987f8653cfd8441c52
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Visão do desempenho de consulta de Banco de Dados SQL do Azure
 Gerenciamento e ajuste do desempenho de bancos de dados relacionais são uma tarefa desafiadora que requer conhecimento significativo e investimento de tempo. A Análise de Desempenho de Consultas permite que você gaste menos tempo solucionando problemas de desempenho de banco de dados, fornecendo o seguinte:
@@ -35,7 +35,7 @@ Gerenciamento e ajuste do desempenho de bancos de dados relacionais são uma tar
 * A Análise de Desempenho de Consultas exige a execução do [Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx) em seu banco de dados. Se o Repositório de Consultas não estiver em execução, o portal solicitará que você o ative.
 
 ## <a name="permissions"></a>Permissões
-As seguintes permissões de [controle de acesso baseado em função](../active-directory/role-based-access-control-configure.md) são necessárias para usar a Visão do Desempenho de Consulta: 
+As seguintes permissões de [controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md) são necessárias para usar a Visão do Desempenho de Consulta: 
 
 * As permissões **Leitor**, **Proprietário**, **Colaborador**, **Colaborador do Banco de Dados SQL** ou **Colaborador do SQL Server** são necessárias para exibir as consultas e gráficos que consomem mais recursos. 
 * As permissões **Proprietário**, **Colaborador**, **Colaborador do Banco de Dados SQL** ou **Colaborador do SQL Server** são necessárias para exibir o texto da consulta.
@@ -78,7 +78,7 @@ No [portal](http://portal.azure.com) , faça o descrito a seguir:
      
      Marque ou desmarque as consultas individuais para incluir ou exclui-las do gráfico usando as caixas de seleção.
 3. Se os dados se tornarem obsoletos, clique no botão **Atualizar** .
-4. Você pode usar os controles deslizantes e os botões de zoom para alterar o intervalo de observação e investigar os picos:  ![configurações](./media/sql-database-query-performance/zoom.png)
+4. Você pode usar os controles deslizantes e os botões de zoom para alterar o intervalo de observação e investigar os picos: ![configurações](./media/sql-database-query-performance/zoom.png)
 5. Opcionalmente, se você quiser uma exibição diferente, você pode selecionar a guia **Personalizar** e definir:
    
    * Métrica (CPU, duração, contagem de execução)
@@ -224,10 +224,4 @@ Para obter recomendações adicionais sobre como aprimorar o desempenho do seu b
 [7]: ./media/sql-database-query-performance/annotation-details.png
 [8]: ./media/sql-database-query-performance/qds-off.png
 [9]: ./media/sql-database-query-performance/qds-button.png
-
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

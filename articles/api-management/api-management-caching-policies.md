@@ -3,7 +3,7 @@ title: "Políticas de cache no Gerenciamento de API do Azure | Microsoft Docs"
 description: "Saiba mais sobre as políticas de cache disponíveis para uso no Gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 8147199c-24d8-439f-b2a9-da28a70a890c
@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
-
+ms.openlocfilehash: c7604fdb948a2f4d2adca5d6821d9ea36e96dae6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-caching-policies"></a>Políticas de cache do Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-namecachingpoliciesa-caching-policies"></a><a name="CachingPolicies"></a> Políticas de cache  
+##  <a name="CachingPolicies"></a> Políticas de cache  
   
 -   Resposta das políticas de cache  
   
@@ -38,7 +39,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
     -   [Remover o valor do cache](#RemoveCacheByKey) - remove um item no cache por chave.  
   
-##  <a name="a-namegetfromcachea-get-from-cache"></a><a name="GetFromCache"></a> Obter do cache  
+##  <a name="GetFromCache"></a> Obter do cache  
  Use a política `cache-lookup` para realizar pesquisas e retornar uma resposta válida em cache quando disponível. Esta política deve ser aplicada em casos nos quais o conteúdo da resposta permanece estático por um período de tempo. O cache das respostas reduz os requisitos de largura de banda e processamento exigidos do servidor Web de back-end e reduz a latência percebida pelos consumidores da API.  
   
 > [!NOTE]
@@ -128,7 +129,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos de política:** API, operação, produto  
   
-##  <a name="a-namestoretocachea-store-to-cache"></a><a name="StoreToCache"></a> Armazenar em cache  
+##  <a name="StoreToCache"></a> Armazenar em cache  
  A política `cache-store` armazena as respostas em cache de acordo com a configuração de cache especificada. Esta política deve ser aplicada em casos nos quais o conteúdo da resposta permanece estático por um período de tempo. O cache das respostas reduz os requisitos de largura de banda e processamento exigidos do servidor Web de back-end e reduz a latência percebida pelos consumidores da API.  
   
 > [!NOTE]
@@ -201,7 +202,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos de política:** API, operação, produto  
   
-##  <a name="a-namegetfromcachebykeya-get-value-from-cache"></a><a name="GetFromCacheByKey"></a> Obter valor do cache  
+##  <a name="GetFromCacheByKey"></a> Obter valor do cache  
  Use a política `cache-lookup-value` para executar a consulta em cache por chave e retornar um valor armazenado em cache. A chave pode ter um valor de cadeia de caracteres arbitrário e geralmente é fornecida usando uma expressão de política.  
   
 > [!NOTE]
@@ -246,7 +247,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos de política:** global, API, operação, produto  
   
-##  <a name="a-namestoretocachebykeya-store-value-in-cache"></a><a name="StoreToCacheByKey"></a> Armazenar valor em cache  
+##  <a name="StoreToCacheByKey"></a> Armazenar valor em cache  
  `cache-store-value` armazena em cache por chave. A chave pode ter um valor de cadeia de caracteres arbitrário e geralmente é fornecida usando uma expressão de política.  
   
 > [!NOTE]
@@ -289,7 +290,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos de política:** global, API, operação, produto  
   
-###  <a name="a-nameremovecachebykeya-remove-value-from-cache"></a><a name="RemoveCacheByKey"></a> Remover valor do cache  
+###  <a name="RemoveCacheByKey"></a> Remover valor do cache  
  `cache-remove-value` exclui um item em cache identificado por sua chave. A chave pode ter um valor de cadeia de caracteres arbitrário e geralmente é fornecida usando uma expressão de política.  
   
 #### <a name="policy-statement"></a>Declaração de política  
@@ -330,8 +331,3 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como trabalhar com políticas, veja [Políticas em Gerenciamento de API](api-management-howto-policies.md).  
-
-
-<!--HONumber=Jan17_HO2-->
-
-

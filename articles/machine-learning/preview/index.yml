@@ -1,0 +1,50 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação do Azure Machine Learning (Versão Prévia)
+metadata:
+  title: Documentação do Azure Machine Learning (Versão Prévia)
+  meta.description: Learn how to use Azure Machine Learning public preview features.
+  services: machine-learning
+  author: czeumault
+  manager: carolz
+  ms.service: machine-learning
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/06/2017
+  ms.author: carolz
+abstract:
+  description: 'Saiba como preparar dados, criar e implantar modelos com nossos tutoriais e guias de início rápido. Os recursos de versão prévia do Azure Machine Learning do Azure permitem criar, implantar e gerenciar modelos ML e AI usando quaisquer ferramentas Python e bibliotecas. Você pode usar uma ampla variedade de dados e serviços de computação no Azure para armazenar e processar seus dados.'
+sections:
+  - title: Guia de início rápido de 5 minutos
+    items:
+      - type: paragraph
+        text: Crie seu primeiro projeto de Machine Learning
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/machine-learning/media/index/i_machine-learning.svg
+            text: Instalar e criar
+            href: quickstart-installation
+  - title: Tutoriais Passo a Passo
+    items:
+      - type: paragraph
+        text: 'Saiba como preparar seus dados, configurar um experimento e operacionalizar seus modelos'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-classifying-iris-part-1">Percorrer as Noções básicas dos serviços de Machine Learning (versão prévia)</a>
+          - html: <a href="tutorial-classifying-iris-part-2">Use o Workbench de Machine Learning para criar um modelo com o conjunto de dados da flor Íris</a>
+          - html: <a href="tutorial-classifying-iris-part-3">Saiba como implantar um modelo de Machine Learning</a>
+          - html: <a href="tutorial-bikeshare-dataprep">Use o Workbench do Azure Machine Learning para a preparação de dados avançados</a>
+  - title: Referência
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linguagens
+            html: '<p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
+          - title: REST
+            html: <p><a href="model-management-api-reference">API REST do Gerenciamento de Modelos</a></p>

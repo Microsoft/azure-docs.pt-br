@@ -1,241 +1,284 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory com o Salesforce | Microsoft Docs"
-description: "Saiba como usar o Salesforce com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais!"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Salesforce."
 services: active-directory
-documentationcenter: 
-author: asmalser-msft
+documentationCenter: na
+author: jeevansd
 manager: femila
-editor: 
 ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 05/16/2016
-ms.author: asmalser
-translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: 27857431abd965fd4f65c61874f9ecfc1730a7e6
-
-
+ms.date: 05/19/2017
+ms.author: jeedes
+ms.openlocfilehash: 639e40ca7e406a1726033e9f5c5363c289087589
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Tutorial: Integração do Azure Active Directory com o Salesforce
-Este tutorial mostrará como conectar o ambiente Salesforce ao Active Directory do Azure. Você aprenderá como configurar o logon único para Salesforce, como habilitar o provisionamento automatizado de usuários e como atribuir usuários para que tenham acesso ao Salesforce.
+
+Neste tutorial, você aprenderá a integrar o Salesforce ao Azure AD (Azure Active Directory).
+
+A integração do Salesforce ao Azure AD oferece os seguintes benefícios:
+
+- No Azure AD, é possível controlar quem tem acesso ao Salesforce
+- Você pode permitir que seus usuários façam logon automaticamente no Salesforce (logon único) com as contas do Azure AD deles
+- Você pode gerenciar suas contas em um única localização: o Portal do Azure
+
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-1. Para acessar o Azure Active Directory usando o [portal clássico do Azure](https://manage.windowsazure.com), você precisará ter uma assinatura válida do Azure.
-2. Você deve ter um locatário válido em [Salesforce.com](https://www.salesforce.com/).
 
-> [!IMPORTANT]
-> Se você estiver usando uma conta Salesforce.com de **avaliação** , não será possível configurar o provisionamento automatizado de usuários. Contas de avaliação não têm o acesso à API necessária habilitado até que sejam compradas.
-> 
-> Você pode contornar essa limitação usando uma [conta de desenvolvedor gratuita](https://developer.salesforce.com/signup) para concluir este tutorial.
-> 
-> 
+Para configurar a integração do Azure AD ao Salesforce, você precisará dos seguintes itens:
 
-Se você estiver usando um ambiente de área restrita do Salesforce, consulte o [Tutorial de integração de área restrita do Salesforce](https://go.microsoft.com/fwLink/?LinkID=521879).
+- Uma assinatura do AD do Azure
+- Uma assinatura do Salesforce com logon único habilitado
 
-## <a name="video-tutorials"></a>Tutoriais em vídeo
-Você pode acompanhar este tutorial usando os vídeos abaixo.
+> [!NOTE]
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
-**Tutorial em vídeo parte&1;: Como Habilitar o Logon Único**
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Integrating-Salesforce-with-Azure-AD-How-to-enable-Single-Sign-On-12/player]
-> 
-> 
+- Não use o ambiente de produção, a menos que seja necessário.
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
-**Tutorial em vídeo parte&2;: Como Automatizar o Provisionamento de Usuários**
+## <a name="scenario-description"></a>Descrição do cenário
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Integrating-Salesforce-with-Azure-AD-How-to-automate-User-Provisioning-22/player]
-> 
-> 
+1. Adicionar Salesforce da galeria
+2. Configurar e testar o logon único do AD do Azure
 
-## <a name="step-1-add-salesforce-to-your-directory"></a>Etapa 1: Adicionar o Salesforce ao seu diretório
-1. No [portal clássico do Azure](https://manage.windowsazure.com), no painel de navegação à esquerda, clique em **Active Directory**.
-   
-    ![Selecione Active Directory no painel de navegação esquerdo.][0]
-2. Na lista **Diretório** , selecione o diretório ao qual você deseja adicionar o Salesforce.
-3. Clique em **Aplicativos** no menu superior.
-   
-    ![Clique em Aplicativos.][1]
-4. Clique em **Adicionar** na parte inferior da página.
-   
-    ![Clique em Adicionar para adicionar um novo aplicativo.][2]
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
-   
-    ![Clique em Adicionar um aplicativo da galeria.][3]
-6. Na **caixa de pesquisa**, digite **Salesforce**. Em seguida, selecione **Salesforce** nos resultados e clique em **Conclui** para adicionar o aplicativo.
-   
-    ![Adicione o Salesforce.][4]
-7. Agora, você verá a página Início Rápido para o Salesforce:
-   
-    ![Página de Início Rápido do Salesforce no AD do Azure][5]
+## <a name="adding-salesforce-from-the-gallery"></a>Adicionar Salesforce da galeria
+Para configurar a integração do Salesforce ao Azure AD, você precisará adicionar o Salesforce da galeria à sua lista de aplicativos SaaS gerenciados.
 
-## <a name="step-2-enable-single-sign-on"></a>Parte 2: Habilitar logon único
-1. Antes de configurar o logon único, é preciso configurar e implantar um domínio personalizado para o ambiente do Salesforce. Para obter instruções sobre como fazer isso, consulte [Configurar um Nome de Domínio](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_setup.htm&language=en_US).
-2. Na página Início Rápido do Salesforce no AD do Azure, clique no botão **Configurar logon único** .
-   
-    ![Botão de configuração de logon único][6]
-3. Uma caixa de diálogo será aberta e você verá uma tela que pergunta "Como você gostaria que os usuários fizessem logon no Salesforce?" Selecione **Logon Único do Azure AD** e, em seguida, clique em **Avançar**.
-   
-    ![Selecione Logon Único do AD do Azure][7]
-   
-   > [!NOTE]
-   > Para saber mais sobre as diferentes opções de logon único, [clique aqui](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
-   > 
-   > 
-4. Na página **Definir Configurações de Aplicativo**, preencha a **URL de Logon** digitando a URL do domínio do Salesforce usando o seguinte formato:
-   
-   * Conta empresarial: `https://<domain>.my.salesforce.com`
-   * Conta de desenvolvedor: `https://<domain>-dev-ed.my.salesforce.com` 
-     
-     ![Digite a URL de Logon][8]
-5. Na página **Configurar logon único no Salesforce**, clique em **Baixar certificado** e, em seguida, salve o arquivo de certificado em seu computador.
-   
-    ![Baixar certificado][9]
-6. Abra uma nova guia no navegador e faça logon em sua conta de administrador do Salesforce.
-7. No painel de navegação **Administrador**, clique em **Controles de Segurança** para expandir a seção correspondente. Em seguida, clique em **Configurações de Logon Único**.
-   
-    ![Clique em Configurações de Logon Único, em Controles de Segurança][10]
-8. Na página **Configurações de Logon Único**, clique no botão **Editar**.
-   
-    ![Clique no botão Editar][11]
-   
-   > [!NOTE]
-   > Se não for possível habilitar as configurações de logon único para a conta do Salesforce, talvez seja necessário entrar em contato com o suporte do Salesforce para que o recurso seja habilitado.
-   > 
-   > 
-9. Selecione **SAML Habilitado** e, em seguida, clique em **Salvar**.
-   
-    ![Selecione SAML Habilitado][12]
-10. Para definir as configurações de logon único do SAML, clique em **Novo**.
+**Para adicionar o Salesforce na galeria, execute as seguintes etapas:**
+
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+
+    ![Active Directory][1]
+
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+
+    ![Aplicativos][2]
     
-    ![Selecione SAML Habilitado][13]
-11. Na página **Edição de Configuração de Logon Único do SAML** , realize as seguintes configurações:
-    
-    ![Captura de tela das configurações que você deve fazer][14]
-    
-    * Para o campo **Nome** , digite um nome amigável para essa configuração. Fornecer um valor para **Nome** preenche automaticamente a caixa de texto **Nome da API**.
-    * No Azure AD, copie o valor **URL do Emissor** e, em seguida, cole-o no campo **Emissor** no Salesforce.
-    * Na **caixa de texto Id da Entidade**, digite seu nome de domínio do Salesforce usando o seguinte padrão:
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo.
+
+    ![Aplicativos][3]
+
+4. Na caixa de pesquisa, digite **Salesforce**.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_search.png)
+
+5. No painel de resultados, selecione **Salesforce** e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+Nesta seção, você configurará e testará o logon único do Azure AD com o Salesforce, com base em um usuário de teste chamado “Brenda Fernandes”.
+
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Salesforce é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Salesforce.
+
+Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuário** no Azure AD como sendo o valor de **Nome de Usuário** no Salesforce.
+
+Para configurar e testar o logon único do Azure AD com o Salesforce, você precisará concluir os seguintes blocos de construção:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criação de um usuário de teste do Salesforce](#creating-a-salesforce-test-user)** – para ter um equivalente de Brenda Fernandes no Salesforce que esteja vinculado à representação do usuário no Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+
+Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo Salesforce.
+
+**Para configurar o logon único do Azure AD com o Salesforce, execute as seguintes etapas:**
+
+1. No portal do Azure, na página de integração de aplicativos do **Salesforce**, clique em **Logon único**.
+
+    ![Configurar Logon Único][4]
+
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+ 
+    ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_samlbase.png)
+
+3. Na seção **URLs e Domínio do Salesforce**, execute as seguintes etapas:
+
+    ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_url.png)
+
+    Na caixa de texto **URL de Logon**, digite o valor usando o seguinte padrão: 
+   * Conta empresarial: `https://<subdomain>.my.salesforce.com`
+   * Conta de desenvolvedor: `https://<subdomain>-dev-ed.my.salesforce.com`
+
+    > [!NOTE] 
+    > Esses não são os valores reais. Atualize esses valores com a URL de Logon real. Contate a [equipe de suporte do Cliente Salesforce](https://help.salesforce.com/support) para obter esses valores. 
+ 
+4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado** e, em seguida, salve o arquivo do certificado em seu computador.
+
+    ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_certificate.png) 
+
+5. Clique no botão **Salvar** .
+
+    ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/tutorial_general_400.png)
+
+6. Na seção **configuração do Salesforce**, clique em **Configurar Salesforce** para abrir a janela **Configurar Logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.** 
+
+    ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_configure.png) 
+<CS>
+7.  Abra uma nova guia no navegador e faça logon em sua conta de administrador do Salesforce.
+
+8.  No painel de navegação **Administrador**, clique em **Controles de Segurança** para expandir a seção correspondente. Em seguida, clique em **Configurações de Logon Único**.
+
+    ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso.png)
+
+9.  Na página **Configurações de Logon Único**, clique no botão **Editar**.
+    ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-edit.png)
+
+      > [!NOTE]
+      > Se não for possível habilitar as configurações de Logon Único para a conta do Salesforce, talvez seja necessário entrar em contato com a [equipe de suporte do Cliente Salesforce](https://help.salesforce.com/support). 
+
+10. Selecione **SAML Habilitado** e, em seguida, clique em **Salvar**.
+
+      ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/sf-enable-saml.png)
+11. Para definir as configurações de logon único do SAML, clique em **Novo**.
+
+    ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-new.png)
+
+12. Na página **Edição de Configuração de Logon Único do SAML** , realize as seguintes configurações:
+
+    ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/sf-saml-config.png)
+
+    a. Para o campo **Nome** , digite um nome amigável para essa configuração. Fornecer um valor para **Nome** preenche automaticamente a caixa de texto **Nome da API**.
+
+    b. Cole o valor **ID da Entidade de SAML** no campo **Emissor** em Salesforce.
+
+    c. Na **caixa de texto Id da Entidade**, digite seu nome de domínio do Salesforce usando o seguinte padrão:
       
-      * Conta empresarial: `https://<domain>.my.salesforce.com`
-      * Conta de desenvolvedor: `https://<domain>-dev-ed.my.salesforce.com`
-    * Clique em **Procurar** ou **Escolher Arquivo** para abrir a caixa de diálogo **Escolher Arquivo para Carregar**, selecione seu certificado do Salesforce e, em seguida, clique em **Abrir** para carregar o certificado.
-    * Para **Tipo de Identidade do SAML**, selecione **A declaração contém o nome de usuário salesforce.com do Usuário**.
-    * Para **Local de Identidade do SAML**, selecione **A identidade está no elemento NameIdentifier da instrução de assunto**
-    * No Azure AD, copie o valor da **URL de Logon Remoto** e, em seguida, cole-o no campo **URL de Logon do Provedor de Identidade** no Salesforce.
-    * Para **Associação de Solicitação Iniciada do Provedor de Serviço**, selecione **Redirecionamento HTTP**.
-    * Finalmente, clique em **Salvar** para aplicar as configurações de logon único do SAML.
-12. No painel de navegação à esquerda no Salesforce, clique em **Gerenciamento de Domínio** para expandir a seção correspondente e, em seguida, clique em **Meu Domínio**.
+      * Conta empresarial: `https://<subdomain>.my.salesforce.com`
+      * Conta de desenvolvedor: `https://<subdomain>-dev-ed.my.salesforce.com`
+      
+    d. Clique em **Procurar** ou **Escolher Arquivo** para abrir a caixa de diálogo **Escolher Arquivo para Carregar**, selecione seu certificado do Salesforce e, em seguida, clique em **Abrir** para carregar o certificado.
+
+    e. Para **Tipo de Identidade do SAML**, selecione **A declaração contém o nome de usuário salesforce.com do Usuário**.
+
+    f. Para **Local de Identidade do SAML**, selecione **A identidade está no elemento NameIdentifier da instrução de assunto**
+
+    g. Cole a **URL de Serviço de Logon Único** no campo **URL de Logon do Provedor de Identidade** no Salesforce.
     
-    ![Clique em Meu Domínio][15]
-13. Role para baixo até a seção **Configuração de Autenticação** e, em seguida, clique no botão **Editar**.
+    h. Para **Associação de Solicitação Iniciada do Provedor de Serviço**, selecione **Redirecionamento HTTP**.
     
-    ![Clique no botão Editar][16]
-14. Na seção **Serviço de Autenticação**, selecione o nome amigável da sua configuração de SSO de SAML e, em seguida, clique em **Salvar**.
-    
-    ![Selecione a configuração de SSO][17]
-    
+    i. Finalmente, clique em **Salvar** para aplicar as configurações de logon único do SAML.
+
+13. No painel de navegação à esquerda no Salesforce, clique em **Gerenciamento de Domínio** para expandir a seção correspondente e, em seguida, clique em **Meu Domínio**.
+
+    ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/sf-my-domain.png)
+
+14. Role para baixo até a seção **Configuração de Autenticação** e, em seguida, clique no botão **Editar**.
+
+    ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/sf-edit-auth-config.png)
+
+15. Na seção **Serviço de Autenticação**, selecione o nome amigável da sua configuração de SSO de SAML e, em seguida, clique em **Salvar**.
+
+    ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/sf-auth-config.png)
+
     > [!NOTE]
     > Se mais de um serviço de autenticação estiver selecionado, quando os usuários tentarem iniciar o logon único em seu ambiente do Salesforce, serão solicitados a selecionar o serviço de autenticação com o qual desejam entrar. Se você não quiser que isso aconteça, deverá **deixar todos os outros serviços de autenticação desmarcados**.
-    > 
-    > 
-15. No AD do Azure, marque a caixa de seleção de confirmação de configuração de logon único para habilitar o certificado que você carregou para o Salesforce. Em seguida, clique em **Próximo**.
+<CE>    
+> [!TIP]
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, simplesmente clique na guia **Logon Único** e acesse a documentação inserida através da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+
+
+### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+
+![Criar um usuário do AD do Azure][100]
+
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+
+1. No painel de navegação esquerdo no **Portal do Azure**, clique no ícone **Azure Active Directory**.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-salesforce-tutorial/create_aaduser_01.png) 
+
+2. Vá para **Usuários e Grupos** e clique em **Todos os Usuários** para exibir a lista de usuários.
     
-    ![Marque a caixa de seleção de confirmação][18]
-16. Na página final da caixa de diálogo, digite um endereço de email se você quiser receber notificações de email para erros e avisos relacionados à manutenção dessa configuração de logon único. 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-salesforce-tutorial/create_aaduser_02.png) 
+
+3. Na parte superior da caixa de diálogo, clique em **Adicionar** para abrir a caixa de diálogo **Usuário**.
+ 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-salesforce-tutorial/create_aaduser_03.png) 
+
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+ 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-salesforce-tutorial/create_aaduser_04.png) 
+
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+
+    d. Clique em **Criar**.
+ 
+### <a name="creating-a-salesforce-test-user"></a>Criar um usuário de teste do Salesforce
+
+Nesta seção, é criado um usuário denominado Brenda Fernandes no Salesforce. O Salesforce dá suporte ao provisionamento Just-In-Time, que está habilitado por padrão.
+Não há itens de ação para você nesta seção. Se um usuário ainda não existir no Salesforce, um novo será criado quando você tentar acessar o Salesforce.
+
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Salesforce.
+
+![Atribuir usuário][200] 
+
+**Para atribuir Brenda Fernandes ao Salesforce, execute as seguintes etapas:**
+
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+
+    ![Atribuir usuário][201] 
+
+2. Na lista de aplicativos, selecione **Salesforce**.
+
+    ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_app.png) 
+
+3. No menu à esquerda, clique em **usuários e grupos**.
+
+    ![Atribuir usuário][202] 
+
+4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+
+    ![Atribuir usuário][203]
+
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+
+6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+
+7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
-    ![Digite seu endereço de email.][19]
-17. Clique em **Concluir** para fechar a caixa de diálogo. Para testar sua configuração, consulte a seção intitulada [Atribuir Usuários ao Salesforce](#step-4-assign-users-to-salesforce).
+### <a name="testing-single-sign-on"></a>Teste do logon único
 
-## <a name="step-3-enable-automated-user-provisioning"></a>Etapa 3: Habilitar o provisionamento automatizado de usuários
-1. Na página Início Rápido do AD do Azure para o Salesforce, clique no botão **Configurar provisionamento do usuário** .
-   
-    ![Clique no botão Configurar Provisionamento do Usuário][20]
-2. Na caixa de diálogo **Configurar provisionamento do usuário** , digite o nome de usuário e a senha de administrador do Salesforce.
-   
-    ![Digite o nome de usuário ou a senha de administrador][21]
-   
-   > [!NOTE]
-   > Se você estiver configurando um ambiente de produção, a prática recomendada é criar uma nova conta de administrador no Salesforce especificamente para esta etapa. Essa conta deve ter o perfil do **Administrador de Sistema** atribuído a ela no Salesforce.
-   > 
-   > 
-3. Para obter o token de segurança do Salesforce, abra uma nova guia e entre na mesma conta de administrador do Salesforce. No canto superior direito da página, clique em seu nome e, em seguida, clique em **Minhas Configurações**.
-   
-    ![Clique em seu nome, depois clique em Minhas Configurações][22]
-4. No painel de navegação esquerdo, clique em **Pessoal** para expandir a seção correspondente e, em seguida, clique em **Redefinir Meu Token de Segurança**.
-   
-    ![Clique em seu nome, depois clique em Minhas Configurações][23]
-5. Na página **Redefinir Meu Token de Segurança**, clique no botão **Redefinir Token de Segurança**.
-   
-    ![Leia os avisos.][24]
-6. Marque a caixa de entrada de email associada a essa conta de administrador. Procure um email do Salesforce.com que contenha o novo token de segurança.
-7. Copie o token, vá até a janela do AD do Azure e cole-o no campo **Token de Segurança do Usuário** . Em seguida, clique em **Próximo**.
-   
-    ![Cole o token de segurança][25]
-8. Na página de confirmação, é possível optar por receber notificações de email quando ocorrerem falhas de provisionamento. Clique em **Concluir** para fechar a caixa de diálogo.
-   
-    ![Digite seu endereço de email para receber notificações][26]
+Para testar suas configurações de logon único, abra o Painel de Acesso em [https://myapps.microsoft.com](https://myapps.microsoft.com/), depois entre na conta de teste e clique em **Salesforce**.
 
-## <a name="step-4-assign-users-to-salesforce"></a>Etapa 4: Atribuir usuários ao Salesforce
-1. Para testar sua configuração, comece criando uma nova conta de teste no diretório.
-2. Na página Início Rápido do Salesforce, clique no botão **Atribuir Usuários** .
-   
-    ![Clique em Atribuir Usuários][27]
-3. Selecione seu usuário de teste e clique no botão **Atribuir** na parte inferior da tela:
-   
-   * Se você ainda não tiver habilitado o provisionamento automatizado de usuários, verá o seguinte aviso para confirmar:
-     
-        ![Confirme a atribuição.][28]
-   * Se você tiver habilitado o provisionamento automatizado de usuários, verá um aviso para definir o tipo de perfil do Salesforce que o usuário deve ter. Usuários recentemente provisionados devem aparecer no ambiente do Salesforce após alguns minutos.
-     
-        ![Confirme a atribuição.][29]
-     
-     > [!IMPORTANT]
-     > Se você estiver provisionando para um ambiente de **desenvolvedor** do Salesforce, terá um número bem limitado de licenças disponíveis para cada perfil.  Portanto, é melhor provisionar usuários para o perfil **Usuário Chatter Free**, que tem 4.999 licenças disponíveis.
-     > 
-     > 
-4. Para testar suas configurações de logon único, abra o Painel de Acesso em [https://myapps.microsoft.com](https://myapps.microsoft.com/), depois entre na conta de teste e clique em **Salesforce**.
+## <a name="additional-resources"></a>Recursos adicionais
 
-## <a name="related-articles"></a>Artigos relacionados
-* [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-* [Lista de tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Configurar Provisionamento de Usuário](active-directory-saas-salesforce-provisioning-tutorial.md)
 
-[0]: ./media/active-directory-saas-salesforce-tutorial/azure-active-directory.png
-[1]: ./media/active-directory-saas-salesforce-tutorial/applications-tab.png
-[2]: ./media/active-directory-saas-salesforce-tutorial/add-app.png
-[3]: ./media/active-directory-saas-salesforce-tutorial/add-app-gallery.png
-[4]: ./media/active-directory-saas-salesforce-tutorial/add-salesforce.png
-[5]: ./media/active-directory-saas-salesforce-tutorial/salesforce-added.png
-[6]: ./media/active-directory-saas-salesforce-tutorial/config-sso.png
-[7]: ./media/active-directory-saas-salesforce-tutorial/select-azure-ad-sso.png
-[8]: ./media/active-directory-saas-salesforce-tutorial/config-app-settings.png
-[9]: ./media/active-directory-saas-salesforce-tutorial/download-certificate.png
-[10]: ./media/active-directory-saas-salesforce-tutorial/sf-admin-sso.png
-[11]: ./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-edit.png
-[12]: ./media/active-directory-saas-salesforce-tutorial/sf-enable-saml.png
-[13]: ./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-new.png
-[14]: ./media/active-directory-saas-salesforce-tutorial/sf-saml-config.png
-[15]: ./media/active-directory-saas-salesforce-tutorial/sf-my-domain.png
-[16]: ./media/active-directory-saas-salesforce-tutorial/sf-edit-auth-config.png
-[17]: ./media/active-directory-saas-salesforce-tutorial/sf-auth-config.png
-[18]: ./media/active-directory-saas-salesforce-tutorial/sso-confirm.png
-[19]: ./media/active-directory-saas-salesforce-tutorial/sso-notification.png
-[20]: ./media/active-directory-saas-salesforce-tutorial/config-prov.png
-[21]: ./media/active-directory-saas-salesforce-tutorial/config-prov-dialog.png
-[22]: ./media/active-directory-saas-salesforce-tutorial/sf-my-settings.png
-[23]: ./media/active-directory-saas-salesforce-tutorial/sf-personal-reset.png
-[24]: ./media/active-directory-saas-salesforce-tutorial/sf-reset-token.png
-[25]: ./media/active-directory-saas-salesforce-tutorial/got-the-token.png
-[26]: ./media/active-directory-saas-salesforce-tutorial/prov-confirm.png
-[27]: ./media/active-directory-saas-salesforce-tutorial/assign-users.png
-[28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
-[29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
+<!--Image references-->
 
+[1]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_04.png
 
+[100]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_100.png
 
-<!--HONumber=Dec16_HO2-->
-
+[200]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_203.png
 

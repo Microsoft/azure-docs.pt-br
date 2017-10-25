@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 325d92e493f6e011367d2c85b52c92838327101e
 ms.openlocfilehash: fe32c1d68040ceb9d9de2ad6c4a6dc9ea93f5aef
-ms.lasthandoff: 02/17/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Tutorial: Integração do Active Directory do Azure ao Central Desktop
 O objetivo deste tutorial é mostrar a integração do Azure ao Central Desktop. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
@@ -64,12 +63,12 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Central Desktop com a respectiva conta do AD do Azure usando federação baseada no protocolo SAML.
 
-Como parte deste procedimento, é necessário carregar um certificado codificado em base&64; no locatário do Desktop Central.  
+Como parte deste procedimento, é necessário carregar um certificado codificado em base 64 no locatário do Desktop Central.  
 Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 **Para configurar o logon único, execute as seguintes etapas:**
 
-1. No portal clássico do Azure, na página de integração do aplicativo **Central Desktop**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1. No portal clássico do Azure, na página de integração do aplicativo **Central Desktop**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
    ![Configurar logon único](./media/active-directory-saas-central-desktop-tutorial/IC749323.png "Configurar logon único")
 2. Na página **Como você deseja que os usuários façam logon no Central Desktop**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
@@ -155,5 +154,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
    ![Sim](./media/active-directory-saas-central-desktop-tutorial/IC767830.png "Sim")
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
-
 

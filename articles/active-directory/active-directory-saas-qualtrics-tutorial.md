@@ -11,28 +11,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/18/2017
+ms.date: 03/23/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 8e209d70a0bdcac4d3d1f7fefe265bf4824520e3
-ms.openlocfilehash: 20c198577349a2173d5b7bafd1b84fd4c24fa711
-ms.lasthandoff: 02/03/2017
-
-
+ms.openlocfilehash: 2fcde595a40dafda7549f5bccb582b57585b314e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qualtrics"></a>Tutorial: Integração do Active Directory do Azure com o Qualtrics
 O objetivo deste tutorial é mostrar a integração do Azure com o Qualtrics.  
+
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 * Uma assinatura válida do Azure
-* Uma assinatura habilitada para logon único do Qualtrics
+* Uma assinatura do Qualtrics com SSO (logon único) habilitado
 
 Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Qualtrics poderão fazer logon único no aplicativo em seu site de empresa do Qualtrics (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
 1. Habilitando a integração de aplicativos para o Qualtrics
-2. Configurando o logon único
+2. Configuração do SSO (logon único)
 3. Configurando o provisionamento de usuários
 4. Atribuindo usuários
 
@@ -41,7 +41,8 @@ O cenário descrito neste tutorial consiste nos seguintes blocos de construção
 ## <a name="enabling-the-application-integration-for-qualtrics"></a>Habilitando a integração de aplicativos para o Qualtrics
 O objetivo desta seção é descrever como habilitar a integração de aplicativos com o Qualtrics.
 
-### <a name="to-enable-the-application-integration-for-qualtrics-perform-the-following-steps"></a>Para habilitar a integração de aplicativos para o Qualtrics, execute as seguintes etapas:
+**Para habilitar a integração de aplicativos com o Qualtrics, execute as seguintes etapas:**
+
 1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-qualtrics-tutorial/IC700993.png "Active Directory")
@@ -62,11 +63,12 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
    
    ![Qualtrics](./media/active-directory-saas-qualtrics-tutorial/IC789544.png "Qualtrics")
    
-## <a name="configuring-single-sign-on"></a>Configurando o logon único
+## <a name="configure-single-sign-on"></a>Configurar o logon único
 
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Qualtrics com sua conta do AD do Azure usando federação baseada em protocolo SAML.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Para configurar o logon único, execute as seguintes etapas:
+**Para configurar o logon único, execute as seguintes etapas:**
+
 1. No Portal Clássico do Azure, na página de integração de aplicativos do **Qualtrics**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
    ![Configurar Logon Único](./media/active-directory-saas-qualtrics-tutorial/IC789545.png "Configurar Logon Único")
@@ -81,25 +83,25 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
    ![Configurar Logon Único](./media/active-directory-saas-qualtrics-tutorial/IC789548.png "Configurar Logon Único")
 5. Envie o metadatafile para a equipe de suporte do Qualtrics.
    
-   > [!NOTE]
-   > A configuração de logon único deve ser executada pela equipe de suporte do Qualtrics. Assim que a configuração for concluída, você receberá uma notificação.
+   >[!NOTE]
+   >A configuração de SSO deve ser executada pela equipe de suporte do Qualtrics. Assim que a configuração for concluída, você receberá uma notificação.
    > 
    > 
 6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
    
    ![Configurar Logon Único](./media/active-directory-saas-qualtrics-tutorial/IC789549.png "Configurar Logon Único")
    
-## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
+## <a name="configure-user-provisioning"></a>Configurar provisionamento do usuário
 
-Não há nenhum item de ação para a configuração de provisionamento de usuário para o Qualtrics.  
-Quando um usuário atribuído tenta fazer logon no Qualtrics usando o painel de acesso, o Qualtrics verifica se o usuário existe.  
+Não há nenhum item de ação para a configuração de provisionamento de usuário para o Qualtrics. Quando um usuário atribuído tenta fazer logon no Qualtrics usando o painel de acesso, o Qualtrics verifica se o usuário existe.  
 
 Se ainda não houver uma conta de usuário disponível, ela será automaticamente criada pelo Qualtrics.
 
-## <a name="assigning-users"></a>Atribuindo usuários
+## <a name="assign-users"></a>Atribuir usuários
 Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
-### <a name="to-assign-users-to-qualtrics-perform-the-following-steps"></a>Para atribuir usuários ao Qualtrics, execute as seguintes etapas:
+**Para atribuir usuários ao Qualtrics, execute as seguintes etapas:**
+
 1. No Portal clássico do Azure, crie uma conta de teste.
 2. Na página de integração de aplicativos do **Qualtrics**, clique em **Atribuir usuários**.
    
@@ -108,6 +110,5 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
    
    ![Sim](./media/active-directory-saas-qualtrics-tutorial/IC767830.png "Sim")
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
-
+Se você quiser testar suas configurações de SSO, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 

@@ -1,0 +1,139 @@
+- name: Banco de dados do Azure para Documentos do PostgreSQL
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: Banco de dados do Azure para PostgreSQL
+      href: overview.md
+- name: Guia de início rápido
+  expanded: true
+  items:
+    - name: Criar Banco de dados - Portal
+      href: quickstart-create-server-database-portal.md
+    - name: Criar Banco de dados - CLI do Azure
+      href: quickstart-create-server-database-azure-cli.md
+    - name: Conectar e consultar
+      items:
+        - name: Python
+          href: connect-python.md
+        - name: Node.js
+          href: connect-nodejs.md
+        - name: Java
+          href: connect-java.md
+        - name: Ruby
+          href: connect-ruby.md
+        - name: PHP
+          href: connect-php.md
+        - name: .NET
+          href: connect-csharp.md
+        - name: Go
+          href: connect-go.md
+- name: Tutoriais
+  items:
+    - name: 1 - Criar um banco de dados
+      items:
+        - name: Portal do Azure
+          href: tutorial-design-database-using-azure-portal.md
+        - name: CLI do Azure
+          href: tutorial-design-database-using-azure-cli.md
+    - name: 2 - Criar aplicativo Web - Python
+      href: ../app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+- name: Exemplos
+  items:
+    - name: CLI do Azure
+      href: sample-scripts-azure-cli.md
+- name: Conceitos
+  items:
+    - name: Banco de dados e Servidores
+      items:
+        - name: Servidores
+          href: concepts-servers.md
+        - name: Versões com suporte
+          href: concepts-supported-versions.md
+        - name: Extensões do PostgreSQL
+          href: concepts-extensions.md
+        - name: Logs do servidor
+          href: concepts-server-logs.md
+        - name: Alta disponibilidade
+          href: concepts-high-availability.md
+    - name: Recursos
+      items:
+        - name: Tipos de preço
+          href: concepts-service-tiers.md
+        - name: Unidades de computação
+          href: concepts-compute-unit-and-storage.md
+        - name: limites
+          href: concepts-limits.md
+    - name: Acesso a dados e segurança
+      items:
+        - name: Regras de firewall
+          href: concepts-firewall-rules.md
+        - name: Configurar SSL
+          href: concepts-ssl-connection-security.md
+    - name: Monitoramento
+      href: concepts-monitoring.md
+    - name: Desenvolvimento
+      items:
+        - name: Bibliotecas de conexão
+          href: concepts-connection-libraries.md
+- name: Guias de instruções
+  items:
+    - name: Regras de firewall
+      items:
+        - name: Portal do Azure
+          href: howto-manage-firewall-using-portal.md
+        - name: CLI do Azure
+          href: howto-manage-firewall-using-cli.md
+    - name: Restaurar um servidor
+      items:
+        - name: Portal do Azure
+          href: howto-restore-server-portal.md
+        - name: CLI do Azure
+          href: howto-restore-server-cli.md
+    - name: Migre seu banco de dados
+      items:
+        - name: Despejar e restaurar
+          href: howto-migrate-using-dump-and-restore.md
+        - name: Importação e exportação
+          href: howto-migrate-using-export-and-import.md
+    - name: Configurar parâmetros do servidor
+      items:
+        - name: CLI do Azure
+          href: howto-configure-server-parameters-using-cli.md
+    - name: Acessar Logs do Servidor
+      items:
+        - name: Portal do Azure
+          href: howto-configure-server-logs-in-portal.md
+        - name: CLI do Azure
+          href: howto-configure-server-logs-using-cli.md
+    - name: Monitoramento
+      items:
+        - name: Criar alertas nas métricas
+          href: howto-alert-on-metric.md
+- name: Referência
+  items:
+    - name: CLI do Azure
+      href: /cli/azure/postgres
+    - name: API REST
+      href: /rest/api/postgresql
+- name: Recursos
+  items:
+    - name: Modelos de implantação
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql'
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=databases'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/postgresql/'
+    - name: Fórum do MSDN
+      href: 'https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-database-postgresql'
+    - name: Vídeos
+      href: videos.md
+    - name: Fórum de comentários
+      href: 'https://feedback.azure.com/forums/597976-azure-database-for-postgresql'
+    - name: Disponibilidade de região
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Opções de suporte
+      href: 'https://azure.microsoft.com/support/options/'
+    - name: Relatos de clientes
+      href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"'

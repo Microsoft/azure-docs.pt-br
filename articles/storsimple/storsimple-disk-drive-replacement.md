@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d8f6da61b02a1289be0fa3444fd4dcfbe487068f
-
-
+ms.openlocfilehash: 0659ab9d304dbfcce72e8c3c79edad68e70b9630
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-device"></a>Substituir uma unidade de disco em seu dispositivo StorSimple
 ## <a name="overview"></a>Visão geral
@@ -55,7 +55,7 @@ Este procedimento explica como os bloqueios antiviolação em seu dispositivo St
 2. Gire a chave no sentido anti-horário até que o indicador vermelho não esteja visível na abertura acima da chave.
 3. Remova a chave.
    
-    ![ Unidade de disco desbloqueada](./media/storsimple-disk-drive-replacement/IC741057.png)
+    ![Unidade de disco desbloqueada](./media/storsimple-disk-drive-replacement/IC741057.png)
    
     **Figura 2** Unidade de disco desbloqueada
 4. A unidade de disco agora pode ser removida.
@@ -114,10 +114,4 @@ Após uma falha de unidade em seu dispositivo StorSimple e depois que você remo
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

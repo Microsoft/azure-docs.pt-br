@@ -12,52 +12,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/16/2017
+ms.date: 08/28/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
-ms.openlocfilehash: bd042908fec2dcf499dd1cb5230f62ec4be9fdea
-ms.lasthandoff: 02/10/2017
-
-
+ms.openlocfilehash: 8f693bc51fc9635fae4376137e7e573bf74da7cb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-pricing-and-billing"></a>Barramento de Serviço, preços e cobrança
-O Barramento de Serviço é oferecido nas camadas Basic, Standard e [Premium](service-bus-premium-messaging.md). É possível escolher uma camada de serviço para cada namespace de serviço do Barramento de Serviço criado por você, e essa seleção de camada aplica-se a todas as entidades criadas dentro desse namespace.
+O Barramento de Serviço é oferecido nas camadas Standard e [Premium](service-bus-premium-messaging.md). É possível escolher uma camada de serviço para cada namespace de serviço do Barramento de Serviço criado por você, e essa seleção de camada aplica-se a todas as entidades criadas dentro desse namespace.
 
 > [!NOTE]
 > Para obter informações detalhadas sobre os preços atuais do Barramento de Serviço, consulte a [Azure Service Bus pricing page (Página de preços do Barramento de Serviço do Azure)](https://azure.microsoft.com/pricing/details/service-bus/) e [Perguntas frequentes sobre o Barramento de Serviço](service-bus-faq.md#pricing).
 >
 >
 
-O Barramento de Serviço usa os dois medidores a seguir para filas e tópicos/assinaturas:
+O Barramento de Serviço usa os dois seguintes medidores para filas e tópicos/assinaturas:
 
-1. **Operações de sistema de mensagens**: definido como chamadas à API em pontos de extremidade de serviço de fila ou tópico/assinatura. Esse medidor substituirá as mensagens enviadas ou recebidas como a principal unidade de uso cobrável para filas e tópicos/assinaturas.
-2. **Conexões agenciadas**: definidas como o número máximo de conexões persistentes abertas em filas, tópicos ou assinaturas durante um determinado período de amostragem de uma hora. Esse medidor se aplicará somente na camada Standard, no qual você pode abrir conexões adicionais (anteriormente, as conexões eram limitadas a 100 por fila/tópico/assinatura) por uma taxa nominal por conexão.
+1. **Operações de sistema de mensagens**: definido como chamadas à API em pontos de extremidade de serviço de fila ou tópico/assinatura. Esse medidor substitui as mensagens enviadas ou recebidas como a unidade principal de uso cobrável para filas e tópicos/assinaturas.
+2. **Conexões agenciadas**: definidas como o número máximo de conexões persistentes abertas em filas, tópicos ou assinaturas durante um determinado período de amostragem de uma hora. Esse medidor se aplica somente à camada Standard, na qual você pode abrir conexões adicionais (anteriormente, as conexões eram limitadas a 100 por fila/tópico/assinatura) a uma taxa nominal por conexão.
 
 A camada **Standard** apresenta preços graduados para operações executadas com filas e tópicos/assinaturas, resultando em descontos por volume de até 80% altos níveis de uso. Há também um encargo de base da camada Standard de US $10 por mês, que permite que você execute até 12,5 milhões de operações por mês sem custos adicionais.
 
-A camada **Premium** fornece isolamento de recursos na camada de CPU e memória, de modo que a carga de trabalho do cliente seja executada isoladamente. Esse contêiner de recurso é chamado de *unidade do sistema de mensagens*. Cada namespace premium é alocado para pelo menos uma unidade do sistema de mensagens. Você pode adquirir 1, 2 ou 4 unidades do sistema de mensagens para cada namespace Premium do Barramento de serviço. Uma única carga de trabalho ou entidade pode abranger várias unidades do sistema de mensagens, e o número de unidades do sistema de mensagens pode ser alterado à vontade, embora a cobrança seja feita por taxas diárias ou de 24 horas. O resultado é um desempenho previsível e repetível para sua solução baseada no Barramento de Serviço. Esse desempenho não é apenas o mais previsível e disponível, mas também o mais rápido. O sistema de mensagens Premium do Barramento de Serviço do Azure se baseia no mecanismo de armazenamento introduzido nos Hubs de Eventos do Azure. Com o sistema de mensagens Premium, o desempenho de pico é muito mais rápido do que na camada Standard.
+A camada **Premium** fornece isolamento de recursos na camada de CPU e memória, de modo que a carga de trabalho do cliente seja executada isoladamente. Esse contêiner de recurso é chamado de *unidade do sistema de mensagens*. Cada namespace premium é alocado para pelo menos uma unidade do sistema de mensagens. Você pode adquirir 1, 2 ou 4 unidades do sistema de mensagens para cada namespace Premium do Barramento de serviço. Uma única carga de trabalho ou entidade pode abranger várias unidades do sistema de mensagens, e o número de unidades do sistema de mensagens pode ser alterado à vontade, embora a cobrança seja feita por taxas diárias ou de 24 horas. O resultado é um desempenho previsível e repetível para sua solução baseada no Barramento de Serviço. Esse desempenho não é apenas o mais previsível e disponível, mas também o mais rápido.
 
-Observe que o custo base padrão é cobrado apenas uma vez por mês por assinatura do Azure. Isso significa que depois de criar um único namespace de Barramento de Serviço camada Standard ou Premium, você poderá criar tantos namespaces adicionais da camada Standard ou Premium quanto desejar nessa mesma assinatura do Azure, sem incorrer em encargos adicionais de base.
+Observe que o custo base da faixa Standard é cobrado apenas uma vez por mês por assinatura do Azure. Isso significa que depois de criar um namespace individual do Barramento de Serviço na camada Standard, você poderá criar quantos namespaces Standard adicionais desejar na mesma assinatura do Azure, sem incorrer em encargos base adicionais.
 
-Todos os namespaces de Barramento de Serviço existentes criados antes de 1º de novembro de 2014 foram automaticamente colocados na camada Standard. Isso garante que você continue a ter acesso a todos os recursos disponíveis no momento com o Barramento de Serviço. Posteriormente, você pode usar o [Portal Clássico do Azure][Azure classic portal] para fazer o downgrade para a camada Basic, se desejar.
-
-A tabela a seguir resume as diferenças funcionais entre as camadas Basic e Standard/Premium.
-
-| Recurso | Basic | Standard/Premium |
-| --- | --- | --- |
-| Filas |Sim |Sim |
-| Mensagens agendadas |Sim |Sim |
-| Tópicos/Assinaturas |Não |Sim |
-| Retransmissão |Não |Sim |
-| Transações |Não |Sim |
-| Eliminação de duplicação |Não |Sim |
-| Sessões |Não |Sim |
-| Mensagens grandes |Não |Sim |
-| ForwardTo |Não |Sim |
-| SendVia |Não |Sim |
-| Conexões orientadas (incluídas) |100 por namespace do Barramento de Serviço |1.000 por assinatura do Azure |
-| Conexões orientadas (excedente permitido) |Não |Sim (faturável) |
+A tabela [Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/) resume as diferenças funcionais entre as camadas Standard e Premium.
 
 ## <a name="messaging-operations"></a>Operações de sistema de mensagens
 Como parte do novo modelo de preço, a cobrança para filas e tópicos/assinaturas está mudando. Essas entidades estão fazendo a transição de cobrança por mensagem para cobrança por operação. Uma “operação” se refere a qualquer chamada à API feita em relação a um ponto de extremidade de serviço de fila ou tópico/assinatura. Isso inclui operações de gerenciamento, envio/recebimento e estado da sessão.
@@ -68,40 +50,17 @@ Como parte do novo modelo de preço, a cobrança para filas e tópicos/assinatur
 | Mensagens |Enviando e recebendo mensagens com filas ou tópicos/assinaturas. |
 | Estado de sessão |Obter ou definir o estado de sessão em uma fila ou tópico/assinatura. |
 
-Os seguintes preços entraram em vigor desde o dia 1° de novembro de 2014:
-
-| Basic | Custo |
-| --- | --- |
-| Operações |US $0,05 por milhões de operações |
-
-| Standard | Custo |
-| --- | --- |
-| Custo base |US $10/ mês |
-| Primeiras 12,5 milhões de operações/mês |Incluso |
-| 12,5 a&100; milhões de operações/mês |US $0,80 por cada milhão de operações |
-| 100 milhões a&2;,5 bilhões de operações/mês |US $0,50 por cada milhão de operações |
-| Mais do que 2,5 bilhões de operações/mês |US $0,20 por cada milhão de operações |
-
-| Premium | Custo |
-| --- | --- |
-| Diário |Taxa fixa de US $11.13 por unidade de mensagem |
+Para obter detalhes de custo, consulte os preços listados na página [Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## <a name="brokered-connections"></a>Conexões orientadas
 *Conexões agenciadas* acomodam padrões de uso do cliente que envolvem um grande número de remetentes/destinatários “persistentemente conectados” em filas, tópicos ou assinaturas. Remetentes/destinatários persistentemente conectados são aqueles que se conectam com AMQP ou HTTP diferente com tempo limite de recebimento diferente de zero (por exemplo, sondagem longa de HTTP). Remetentes e receptores HTTP com um tempo limite imediato não geram conexões orientadas.
 
-Anteriormente, filas e tópicos/assinaturas tinham um limite de 100 conexões simultâneas por URL. O esquema de cobrança atual remove o limite por URL para filas e tópicos/assinaturas e implementa cotas e medição em conexões orientadas no namespace do Barramento de Serviço e níveis de assinatura do Azure.
+Para cotas de conexão e outros limites de serviço, consulte o artigo [Cotas do Barramento de Serviço](service-bus-quotas.md). Para obter mais informações sobre conexões agenciadas, consulte a seção [Perguntas frequentes](#faq) mais adiante neste tópico.
 
-A camada Basic inclui e é, estritamente limitada, a 100 conexões orientadas por namespace de Barramento de Serviço. Conexões acima desse número serão rejeitadas na camada Basic. A camada Standard remove o limite por namespace e conta o uso total de conexão orientada na assinatura do Azure. Na camada Standard, serão permitidas 1.000 conexões orientadas por assinatura do Azure sem custo (além do custo base) adicional. O uso de mais de um total de 1.000 conexões orientadas nos namespaces de Barramento de Serviço da camada Standard em uma assinatura do Azure será cobrado em um agendamento classificado, como mostrado na tabela a seguir.
-
-| Conexões orientadas (camada Standard) | Custo |
-| --- | --- |
-| Primeiras 1.000/mês |Incluído no custo base |
-| 1.000 a&100;.000/mês |US $0,03 por conexão/mês |
-| 100.000 a&500;.000/mês |US $0,025 por conexão/mês |
-| Mais de 500.000/mês |US $0,015 por conexão/mês |
+A camada Standard remove o limite de conexão agenciada por namespace e conta o uso total de conexão orientada na assinatura do Azure. Para obter mais informações, consulte a tabela [Conexões orientadas](https://azure.microsoft.com/pricing/details/service-bus/).
 
 > [!NOTE]
-> A camada do sistema de mensagens Standard inclui&1;.000 conexões agenciadas (no custo base) que podem ser compartilhados entre todas as filas, tópicos e assinaturas com a assinatura do Azure associada.
+> A camada do sistema de mensagens Standard inclui 1.000 conexões agenciadas (no custo base) que podem ser compartilhados entre todas as filas, tópicos e assinaturas com a assinatura do Azure associada.
 >
 >
 
@@ -112,23 +71,11 @@ A camada Basic inclui e é, estritamente limitada, a 100 conexões orientadas po
 >
 >
 
-| Camada Premium |
-| --- |
-| As conexões orientadas não são cobradas na camada Premium. |
+### <a name="premium-tier"></a>Camada Premium
 
-Para obter mais informações sobre conexões orientadas, consulte a seção de [Perguntas frequentes](#faq) mais adiante neste tópico.
-
-## <a name="wcf-relay"></a>Retransmissão de WCF
-As retransmissões do WCF estão disponíveis apenas nos namespaces da camada Standard. Caso contrário, as cotas de preços e conexão para retransmissões permanecem inalteradas. Isso significa que as retransmissões continuarão a ser cobradas sobre o número de mensagens (não operações) e horas de retransmissão.
-
-| Preço da Retransmissão do WCF | Custo |
-| --- | --- |
-| Horas de retransmissão do WCF |US $0,10 por cada 100 horas de retransmissão |
-| Mensagens |US $0,01 para cada 10.000 mensagens |
+As conexões orientadas não são cobradas na camada Premium.
 
 ## <a name="faq"></a>Perguntas frequentes
-### <a name="how-is-the-wcf-relay-hours-meter-calculated"></a>Como é calculado o medidor de horas de retransmissão do WCF?
-Consulte [este tópico](service-bus-faq.md).
 
 ### <a name="what-are-brokered-connections-and-how-do-i-get-charged-for-them"></a>O que são conexões orientadas e como serei cobrado para elas?
 Uma conexão orientada é definida como uma das conexões a seguir:
@@ -144,11 +91,10 @@ Por exemplo:
 2. 10.000 dispositivos recebem mensagens de uma fila do Barramento de Serviço por meio de HTTP, especificando um tempo limite diferente de zero. Se todos os dispositivos ficam conectados 12 horas por dia, os encargos de conexão a seguir se aplicam (além de quaisquer outros encargos de tópico do Barramento de Serviço): 10.000 conexões de recebimento de HTTP * 12 horas * 31 dias / 744 = 5.000 conexões orientadas.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>Os encargos de conexão gerenciada são aplicáveis a filas e tópicos/assinaturas?
-Sim. Não há cobranças de conexão para enviar eventos usando HTTP, independentemente do número de sistemas ou dispositivos remetentes. O recebimento de eventos com HTTP usando um tempo limite maior que zero, às vezes chamado de "sondagem longa", gera encargos de conexão gerenciada. Conexões do AMQP geram encargos de conexão gerenciada independentemente se as conexões estão sendo usadas para enviar ou receber. Observe que são permitidas 100 conexões orientadas gratuitamente em um namespace da camada Basic. Esse também é o número máximo de conexões orientadas permitidas para a assinatura do Azure. As primeiras 1.000 conexões orientadas em todos os namespaces da camada Standard em uma assinatura do Azure são incluídas sem custo adicional (além do custo base). Como essas permissões são suficientes para cobrir muitos cenários de mensagens de serviço para serviço, os encargos de conexão gerenciada normalmente apenas se tornam relevantes se você planeja usar sondagem longa AMQP ou HTTP com um grande número de clientes; por exemplo, para obter um fluxo de eventos mais eficiente ou habilitar a comunicação bidirecional com muitos dispositivos ou instâncias do aplicativo.
+Sim. Não há cobranças de conexão para enviar eventos usando HTTP, independentemente do número de sistemas ou dispositivos remetentes. O recebimento de eventos com HTTP usando um tempo limite maior que zero, às vezes chamado de "sondagem longa", gera encargos de conexão gerenciada. Conexões do AMQP geram encargos de conexão gerenciada independentemente se as conexões estão sendo usadas para enviar ou receber. As primeiras 1.000 conexões orientadas em todos os namespaces da camada Standard em uma assinatura do Azure são incluídas sem custo adicional (além do custo base). Como essas permissões são suficientes para cobrir muitos cenários de mensagens de serviço para serviço, os encargos de conexão gerenciada normalmente apenas se tornam relevantes se você planeja usar sondagem longa AMQP ou HTTP com um grande número de clientes; por exemplo, para obter um fluxo de eventos mais eficiente ou habilitar a comunicação bidirecional com muitos dispositivos ou instâncias do aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter mais detalhes sobre os preços do Barramento de Serviço, veja [Perguntas frequentes sobre os preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
+* Para obter detalhes completos sobre os preços do Barramento de Serviço, veja a página [Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 * Consulte as [Perguntas frequentes sobre Barramento de Serviço](service-bus-faq.md#pricing) para ver algumas perguntas frequentes comuns sobre preços e cobrança do Barramento de Serviço.
 
-[Azure classic portal]: http://manage.windowsazure.com
-
+[Azure portal]: https://portal.azure.com

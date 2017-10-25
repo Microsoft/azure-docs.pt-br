@@ -4,7 +4,7 @@ description: "Soluções em OMS normalmente incluirão runbooks na automação d
 services: operations-management-suite
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 5281462e-f480-4e5e-9c19-022f36dce76d
 ms.service: operations-management-suite
@@ -12,21 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
+ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: a86a20e1e83f412a06f54bb195180b9d2af98ca6
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: c1909183a33ed03d8165671cff25cc8b83b77733
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="adding-azure-automation-resources-to-an-oms-management-solution-preview"></a>Adição de recursos de Automação do Azure a uma solução de gerenciamento do OMS (Preview)
 > [!NOTE]
 > Esta é uma documentação preliminar para criar soluções de gerenciamento no OMS, que estão atualmente em visualização. Os esquemas descritos a seguir estão sujeitos a alterações.   
-> 
-> 
+
 
 [Soluções de gerenciamento em OMS](operations-management-suite-solutions.md) normalmente incluirão runbooks na automação do Azure para automatizar processos, como a coleta e o processamento de dados de monitoramento.  Além de runbooks, contas de automação incluem ativos, como variáveis e agendas que dão suporte a runbooks usados na solução.  Este artigo descreve como incluir runbooks e seus recursos relacionados em uma solução.
 
@@ -273,8 +271,20 @@ As propriedades dos recursos de variáveis são descritas na tabela a seguir.
 |:--- |:--- |
 | Descrição | Descrição opcional para a variável. |
 | isEncrypted | Especifica se a variável deve ser criptografada. |
-| type | Tipo de dados para a variável. |
+| Tipo | Essa propriedade atualmente está sem efeito.  O tipo de dados da variável será determinado pelo valor inicial. |
 | value | Valor da variável. |
+
+> [!NOTE]
+> Atualmente, a propriedade **type** não tem efeito sobre a variável que está sendo criada.  O tipo de dados para a variável será determinado pelo valor.  
+
+Se você definir o valor inicial da variável, ele deverá ser definido como o tipo de dados correto.  A tabela a seguir fornece os diferentes tipos de dados permitidos e sua sintaxe.  Observe que os valores em JSON devem sempre ser colocados entre aspas com caracteres especiais entre aspas.  Por exemplo, um valor de cadeia de caracteres deve ser especificado por aspas em volta da cadeia de caracteres (usando o caractere de escape \\) enquanto um valor numérico deve ser especificado por um conjunto de aspas.
+
+| Tipo de dados | Descrição | Exemplo | É resolvido desta forma |
+|:--|:--|:--|:--|
+| string   | Coloque o valor entre aspas duplas.  | "\"Olá, Mundo\"" | "Olá, Mundo" |
+| numérico  | Valor numérico com aspas simples.| "64" | 64 |
+| Booliano  | **true** ou **false** entre aspas.  Observe que esse valor deve estar em minúsculas. | "true" | verdadeiro |
+| datetime | Valor de data serializada.<br>Você pode usar o cmdlet ConvertTo-Json no PowerShell para gerar esse valor para uma determinada data.<br>Exemplo: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Módulos
 Sua solução de gerenciamento não precisa definir [módulos globais](../automation/automation-integration-modules.md) usados pelos seus runbooks porque eles sempre estarão disponíveis na conta de Automação.  Você precisa incluir um recurso para qualquer outro módulo usado pelos seus runbooks.
@@ -641,4 +651,3 @@ O exemplo usa [parâmetros de solução padrão](operations-management-suite-sol
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Adicione um modo de exibição à sua solução](operations-management-suite-solutions-resources-views.md) para visualizar os dados coletados.
-

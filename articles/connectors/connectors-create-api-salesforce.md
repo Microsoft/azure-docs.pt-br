@@ -3,8 +3,8 @@ title: "Aprenda a usar o Conector do Salesforce em seus aplicativos lógicos | M
 description: "Crie aplicativos lógicos com o serviço de Aplicativo do Azure. O Conector do Salesforce fornece uma API para trabalhar com objetos do Salesforce."
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: msftman
-manager: erikre
+author: MandiOhlinger
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: 54fe5af8-7d2a-4da8-94e7-15d029e029bf
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/05/2016
-ms.author: deonhe
-translationtype: Human Translation
-ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
-ms.openlocfilehash: b6758aa36120c9c187e91ee5d9e7ceb5041eae6a
-
-
+ms.author: mandia; ladocs
+ms.openlocfilehash: c2e2efd356382df9404f5c4ed54f24758b2cd22b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-salesforce-connector"></a>Introdução ao conector do Salesforce
 O Conector do Salesforce fornece uma API para trabalhar com objetos do Salesforce.
@@ -53,186 +53,10 @@ Uma ação é uma operação executada pelo fluxo de trabalho definido em um apl
 > 
 > 
 
-## <a name="technical-details"></a>Detalhes técnicos
-Veja abaixo os detalhes sobre os gatilhos, as ações e as respostas que essa conexão permite:
+## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-## <a name="salesforce-connector-triggers"></a>Gatilhos do conector do Salesforce
-O Conector do Salesforce tem os seguintes gatilhos:  
-
-| Gatilho | Descrição |
-| --- | --- |
-| [Quando um objeto é criado](connectors-create-api-salesforce.md#when-an-object-is-created) |Esta operação dispara um fluxo quando um objeto é criado. |
-| [Quando um objeto é modificado](connectors-create-api-salesforce.md#when-an-object-is-modified) |Esta operação dispara um fluxo quando um objeto é modificado. |
-
-## <a name="salesforce-connector-actions"></a>Ações do conector do Salesforce
-O Conector do Salesforce tem as seguintes ações:
-
-| Ação | Descrição |
-| --- | --- |
-| [Obter objetos](connectors-create-api-salesforce.md#get-objects) |Esta operação obtém objetos de um determinado tipo, como 'Lead'. |
-| [Criar objeto](connectors-create-api-salesforce.md#create-object) |Esta operação cria um objeto. |
-| [Obter objeto](connectors-create-api-salesforce.md#get-object) |Esta operação obtém um objeto. |
-| [Excluir objeto](connectors-create-api-salesforce.md#delete-object) |Esta operação exclui um objeto. |
-| [Atualizar objeto](connectors-create-api-salesforce.md#update-object) |Esta operação atualiza um objeto. |
-| [Obter tipos de objeto](connectors-create-api-salesforce.md#get-object-types) |Esta operação lista os tipos de objeto disponíveis. |
-
-### <a name="action-details"></a>Detalhes da ação
-Veja abaixo os detalhes das ações e dos gatilhos para esse conector, com suas respostas:
-
-### <a name="get-objects"></a>Obter objetos
-Esta operação obtém objetos de um determinado tipo, como 'Lead'. 
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| table* |Tipo de objeto |Tipo de objeto do Salesforce, como 'Lead' |
-| $filter |Consulta de filtro |Uma consulta de filtro ODATA para restringir o número de entradas |
-| $orderby |Ordenar por |Uma consulta orderBy do ODATA para especificar a ordem das entradas |
-| $skip |Ignorar contagem |Número de entradas a serem ignoradas (padrão = 0) |
-| $top |Obter Contagem Máxima |Número máximo de entradas a serem recuperadas (padrão = 256) |
-
-Um * indica que uma propriedade é obrigatória
-
-#### <a name="output-details"></a>Detalhes de saída
-ItemsList
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| value |array |
-
-### <a name="create-object"></a>Criar objeto
-Esta operação cria um objeto. 
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| table* |Tipo de objeto |Tipo de objeto como 'Lead' |
-| item* |Objeto |Objeto a ser criado |
-
-Um * indica que uma propriedade é obrigatória
-
-#### <a name="output-details"></a>Detalhes de saída
-Item
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| ItemInternalId |string |
-
-### <a name="get-object"></a>Obter objeto
-Esta operação obtém um objeto. 
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| table* |Tipo de objeto |Tipo de objeto do Salesforce, como 'Lead' |
-| id* |ID do objeto |Identificador do objeto a ser obtido |
-
-Um * indica que uma propriedade é obrigatória
-
-#### <a name="output-details"></a>Detalhes de saída
-Item
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| ItemInternalId |string |
-
-### <a name="delete-object"></a>Excluir objeto
-Esta operação exclui um objeto. 
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| table* |Tipo de objeto |Tipo de objeto como 'Lead' |
-| id* |ID do objeto |Identificador do objeto a ser excluído |
-
-Um * indica que uma propriedade é obrigatória
-
-### <a name="update-object"></a>Atualizar objeto
-Esta operação atualiza um objeto. 
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| table* |Tipo de objeto |Tipo de objeto como 'Lead' |
-| id* |ID do objeto |Identificador do objeto a ser atualizado |
-| item* |Objeto |Objeto com propriedades alteradas |
-
-Um * indica que uma propriedade é obrigatória
-
-#### <a name="output-details"></a>Detalhes de saída
-Item
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| ItemInternalId |string |
-
-### <a name="when-an-object-is-created"></a>Quando um objeto é criado
-Esta operação dispara um fluxo quando um objeto é criado. 
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| table* |Tipo de objeto |Tipo de objeto como 'Lead' |
-| $filter |Consulta de filtro |Uma consulta de filtro ODATA para restringir o número de entradas |
-| $orderby |Ordenar por |Uma consulta orderBy do ODATA para especificar a ordem das entradas |
-| $skip |Ignorar contagem |Número de entradas a serem ignoradas (padrão = 0) |
-| $top |Obter Contagem Máxima |Número máximo de entradas a serem recuperadas (padrão = 256) |
-
-Um * indica que uma propriedade é obrigatória
-
-#### <a name="output-details"></a>Detalhes de saída
-ItemsList
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| value |array |
-
-### <a name="when-an-object-is-modified"></a>Quando um objeto é modificado
-Esta operação dispara um fluxo quando um objeto é modificado. 
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| table* |Tipo de objeto |Tipo de objeto como 'Lead' |
-| $filter |Consulta de filtro |Uma consulta de filtro ODATA para restringir o número de entradas |
-| $orderby |Ordenar por |Uma consulta orderBy do ODATA para especificar a ordem das entradas |
-| $skip |Ignorar contagem |Número de entradas a serem ignoradas (padrão = 0) |
-| $top |Obter Contagem Máxima |Número máximo de entradas a serem recuperadas (padrão = 256) |
-
-Um * indica que uma propriedade é obrigatória
-
-#### <a name="output-details"></a>Detalhes de saída
-ItemsList
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| value |array |
-
-### <a name="get-object-types"></a>Obter tipos de objeto
-Esta operação lista os tipos de objeto disponíveis. 
-
-Não há parâmetros para essa chamada
-
-#### <a name="output-details"></a>Detalhes de saída
-TablesList
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| value |array |
-
-## <a name="http-responses"></a>Respostas HTTP
-As ações e os gatilhos acima podem retornar um ou mais dos seguintes códigos de status HTTP: 
-
-| Nome | Descrição |
-| --- | --- |
-| 200 |OK |
-| 202 |Aceita |
-| 400 |Solicitação incorreta |
-| 401 |Não Autorizado |
-| 403 |Proibido |
-| 404 |Não encontrado |
-| 500 |Erro Interno do Servidor. Ocorreu um erro desconhecido. |
-| padrão |Falha na Operação. |
+Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/salesforce/). 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

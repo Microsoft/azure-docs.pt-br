@@ -17,8 +17,3 @@
 4. Quando solicitado, forneça o caminho para a pasta compartilhada que contém os arquivos de hotfix.
 5. Será solicitada a sua confirmação. Digite **Y** para prosseguir com a instalação do hotfix.
 
-
-
-<!--HONumber=Dec16_HO1-->
-
-

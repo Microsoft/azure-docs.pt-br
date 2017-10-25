@@ -1,5 +1,5 @@
 ## <a name="fileshare-dataset-type-properties"></a>Propriedades de tipo do banco de dados do FileShare
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](../articles/data-factory/data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados.
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](../articles/data-factory/v1/data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados.
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados. Ela fornece informações específicas ao tipo de conjunto de dados. A seção typeProperties para o conjunto de dados do tipo **FileShare** tem as seguintes propriedades:
 
@@ -21,7 +21,7 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados. E
 ### <a name="using-partionedby-property"></a>Usando a propriedade partionedBy
 Conforme mencionado na seção anterior, você pode especificar um filename, folderPath dinâmico para dados de série temporal com partitionedBy. Você pode fazer isso com as macros de Data Factory e as variáveis de sistema SliceStart e SliceEnd que indicam o período de tempo lógico para uma determinada fatia de dados.
 
-Confira os artigos [Criando conjuntos de dados](../articles/data-factory/data-factory-create-datasets.md), [Agendamento e execução](../articles/data-factory/data-factory-scheduling-and-execution.md) e [Criando pipelines](../articles/data-factory/data-factory-create-pipelines.md) para saber mais sobre conjuntos de dados de série temporal, agendamentos e fatias.
+Confira os artigos [Criando conjuntos de dados](../articles/data-factory/v1/data-factory-create-datasets.md), [Agendamento e execução](../articles/data-factory/v1/data-factory-scheduling-and-execution.md) e [Criando pipelines](../articles/data-factory/v1/data-factory-create-pipelines.md) para saber mais sobre conjuntos de dados de série temporal, agendamentos e fatias.
 
 #### <a name="sample-1"></a>Exemplo 1:
 
@@ -48,8 +48,3 @@ Nesse exemplo, {Slice} é substituído pelo valor da variável de sistema SliceS
 ],
 ```
 Neste exemplo, ano, mês, dia e hora do SliceStart são extraídos em variáveis separadas que são usadas pelas propriedades folderPath e fileName.
-
-
-<!--HONumber=Jan17_HO3-->
-
-

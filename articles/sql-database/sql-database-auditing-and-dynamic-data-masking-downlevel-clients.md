@@ -1,31 +1,35 @@
 ---
-title: Auditoria, redirecionamento TDS e pontos de extremidade IP para Banco de Dados SQL do Azure | Microsoft Docs
+title: Auditoria de tabela, redirecionamento TDS e pontos de extremidade IP para Banco de Dados SQL do Azure | Microsoft Docs
 description: "Saiba mais sobre alterações de auditoria, redirecionamento TDS e ponto de extremidade IP ao implementar a auditoria de tabela no Banco de Dados SQL do Azure."
 services: sql-database
 documentationcenter: 
-author: ronitr
+author: giladm
 manager: jhubbard
 editor: 
 ms.assetid: 4ef19ed1-e798-43a2-ad99-0e563f93ab53
 ms.service: sql-database
-ms.custom: secure and protect
+ms.custom: security
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
-ms.author: ronitr
-translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: bcc02abb62b21aadb10e62320b02b33c3c244c17
-ms.lasthandoff: 02/17/2017
-
-
+ms.date: 05/31/2017
+ms.author: giladm
+ms.openlocfilehash: d4a7e6658ec65a70bd7e07859e2a69acee58b7b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>Banco de Dados SQL - Suporte a clientes de versão anterior e alterações de ponto de extremidade IP para Auditoria
+# <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>Banco de Dados SQL – Suporte a clientes de versão anterior e alterações de ponto de extremidade IP para Auditoria de tabela
+
+> [!IMPORTANT]
+> Este documento se aplica somente à Auditoria de Tabela, que **agora foi preterida**.<br>
+> Use o novo método de [Auditoria de Blob](sql-database-auditing.md), que **não** exige modificações de cadeia de conexão de cliente de nível inferior. Informações adicionais sobre a Auditoria de Blob podem ser encontradas em [Introdução à auditoria de banco de dados SQL](sql-database-auditing.md).
+
 A [Auditoria de Banco de Dados](sql-database-auditing.md) funciona automaticamente com clientes SQL que dão suporte ao redirecionamento de TDS. Observe que o redirecionamento não se aplica ao usar o método Auditoria de Blob.
 
-## <a name="a-idsubheading-1adownlevel-clients-support"></a><a id="subheading-1"></a>Suporte a clientes de versão anterior
+## <a id="subheading-1"></a>Suporte a clientes de versão anterior
 Qualquer cliente que implemente o protocolo TDS 7.4 também deve dar suporte a redirecionamento. As exceções incluem o JDBC 4.0, no qual o recurso de redirecionamento não tem suporte completo, e o Tedious para Node.JS, no qual o redirecionamento não foi implementado.
 
 Para "clientes de versão anterior", ou seja, que oferecem suporte ao TDS versão 7.3 e inferior - o FQDN do servidor na cadeia de conexão deve ser modificado:
@@ -43,7 +47,7 @@ Uma lista parcial de "Clientes de versão anterior" inclui:
 
 **Comentário:** a modificação do FQDN do servidor acima pode ser útil também para aplicar uma política de Auditoria no Nível do SQL Server sem a necessidade de uma etapa de configuração em cada banco de dados (redução temporária).
 
-## <a name="a-idsubheading-2aip-endpoint-changes-when-enabling-auditing"></a><a id="subheading-2"></a>Alterações de ponto de extremidade IP ao habilitar a Auditoria
+## <a id="subheading-2"></a>Alterações de ponto de extremidade IP ao habilitar a Auditoria
 Observe que, quando você habilita a Auditoria de Tabela, o ponto de extremidade IP do seu banco de dados é alterado. Se você tiver configurações de firewall estritas, atualize as configurações de firewall adequadamente.
 
 O novo ponto de extremidade IP do banco de dados dependerá da região de banco de dados:
@@ -78,4 +82,3 @@ O novo ponto de extremidade IP do banco de dados dependerá da região de banco 
 | Leste do Canadá |40.86.227.82, 40.86.225.194 |
 | Norte do Reino Unido |13.87.101.18, 13.87.100.232 |
 | Sul do Reino Unido 2 |13.87.32.202, 13.87.32.226 |
-

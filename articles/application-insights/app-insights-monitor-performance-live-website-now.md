@@ -3,7 +3,7 @@ title: "Monitorar um aplicativo Web ASP.NET dinâmico com o Azure Application In
 description: "Monitore o desempenho do site sem implantá-lo novamente. Funciona com aplicativos web ASP.NET hospedado no local, em máquinas virtuais ou no Azure."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -11,14 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/08/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: a0340359dff470551a08a8213f3a704f15f78794
-ms.lasthandoff: 03/16/2017
-
-
+ms.date: 05/05/2017
+ms.author: bwren
+ms.openlocfilehash: d07a0c81f89100c378456bbea8dca1c009cc8d77
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentar aplicativos Web no tempo de execução com o Application Insights
 
@@ -41,10 +40,10 @@ Aqui está um resumo do que você tem com cada rota:
 | [Exceções mais detalhadas](app-insights-asp-net-exceptions.md) | |Sim |
 | [Diagnóstico de dependência](app-insights-asp-net-dependencies.md) |No .NET 4.6+, mas menos detalhes |Sim, detalhes completos: códigos de resultado, texto do comando SQL, verbo HTTP|
 | [Contadores de desempenho do sistema](app-insights-performance-counters.md) |Sim |Sim |
-| [API de telemetria personalizada][api] |Sim | |
-| [Integração do log de rastreamento](app-insights-asp-net-trace-logs.md) |Sim | |
-| [Exibição da página e dados do usuário](app-insights-javascript.md) |Sim | |
-| Não há necessidade de recompilar o código |Não | |
+| [API de telemetria personalizada][api] |Sim |Não |
+| [Integração do log de rastreamento](app-insights-asp-net-trace-logs.md) |Sim |Não |
+| [Exibição da página e dados do usuário](app-insights-javascript.md) |Sim |Não |
+| É necessário recompilar o código |Sim | Não |
 
 
 ## <a name="monitor-a-live-azure-web-app"></a>Monitorar um aplicativo da web ao vivo
@@ -59,6 +58,20 @@ Se seu aplicativo for executado como um serviço Web do Azure, veja como ativar 
     ![Clique até o Application Insights](./media/app-insights-monitor-performance-live-website-now/azure-web-view-more.png)
 
 [Monitoramento de aplicativos de nuvem e a VM](app-insights-azure.md).
+
+### <a name="enable-client-side-monitoring-in-azure"></a>Habilitar o monitoramento do lado do cliente no Azure
+
+Se você tiver habilitado o Application Insights no Azure, você poderá adicionar telemetria de usuário e exibição de página.
+
+1. Selecione Configurações > Configurações do Aplicativo
+2.  Em configurações do aplicativo, adicione um novo par de chave/valor: 
+   
+    Chave: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
+    
+    Valor: `true`
+3. **Salve** as configurações e **Reinicie** seu aplicativo.
+
+O SDK JavaScript do Application Insights agora é injetado em cada página da Web.
 
 ## <a name="monitor-a-live-iis-web-app"></a>Monitorar um aplicativo de web IIS ao vivo
 
@@ -184,6 +197,54 @@ Saiba quais aplicativos estão sendo monitorados:
 
 * Baixa o SDK mais recente do Application Insights para o servidor.
 
+## <a name="questions"></a>Perguntas sobre o Status Monitor
+
+### <a name="what-is-status-monitor"></a>O que é o Status Monitor?
+
+Um aplicativo de desktop instalado no servidor web IIS. Ele ajuda você instrumentar e configurar aplicativos web. 
+
+### <a name="when-do-i-use-status-monitor"></a>Quando eu devo usar o Status Monitor?
+
+* Para instrumentar qualquer aplicativo web em execução no servidor IIS - mesmo se ele já esteja em execução.
+* Para habilitar a telemetria adicional para aplicativos web que foram [compilados com o SDK do Application Insights](app-insights-asp-net.md). 
+
+### <a name="can-i-close-it-after-it-runs"></a>Eu posso fechá-lo depois de ser executado?
+
+Sim. Depois dele instrumentar os sites selecionados, você pode fechá-lo.
+
+Ele não coleta telemetria por si só. Ele apenas configura os aplicativos web e define algumas permissões.
+
+### <a name="what-does-status-monitor-do"></a>O que o Status Monitor faz?
+
+Quando você seleciona um aplicativo web para o Status Monitor para instrumentar:
+
+* Baixa e coloca os assemblies do Application Insights e o arquivo .config na pasta de binários do aplicativo web.
+* Modifica `web.config` para adicionar o módulo de rastreamento de HTTP do Application Insights.
+* Permite a criação de perfil do CLR para coletar chamadas de dependência.
+
+### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>É necessário executar o Status Monitor sempre que eu atualizar o aplicativo?
+
+Não ocorre se você reimplantar incrementalmente. 
+
+Se você selecionar a opção "Excluir arquivos existentes" no processo de publicação, você precisará executar novamente o Status Monitor para configurar o Application Insights.
+
+### <a name="what-telemetry-is-collected"></a>Qual telemetria é coletada?
+
+Para aplicativos que você instrumenta apenas em tempo de execução usando o Status Monitor:
+
+* Solicitações HTTP
+* Chamadas para dependências
+* Exceções
+* Contadores de desempenho
+
+Para aplicativos já instrumentados em tempo de compilação:
+
+ * Contadores de processo.
+ * Chamadas de dependência (.NET 4.5); valores de retorno em chamadas de dependência (.NET 4.6).
+ * Exceção dos valores do rastreamento de pilha.
+
+[Saiba mais](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+
 ## <a name="video"></a>Vídeo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
@@ -212,5 +273,4 @@ Adicione mais telemetria:
 [greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-[usage]: app-insights-web-track-usage.md
-
+[usage]: app-insights-javascript.md

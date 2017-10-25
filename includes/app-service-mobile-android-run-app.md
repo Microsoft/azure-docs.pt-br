@@ -7,8 +7,3 @@
     ![](./media/app-service-mobile-android-quickstart/mobile-quickstart-startup-android.png)
 
 [Portal do Azure]: https://portal.azure.com/
-
-
-<!--HONumber=Nov16_HO2-->
-
-

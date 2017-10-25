@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: d2b55f7be932161b086f0ec395faa16114d4a1f1
-ms.openlocfilehash: 3722fc1198549102bd4fd215b9ede04a3ca1fbf5
-
+ms.openlocfilehash: b9f4004eb69314ad9d4cdad0f7140b6f85af300b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-storsimple-for-cloud-solutions-providers-program"></a>O que é StorSimple para Programa de Provedores de Soluções de Nuvem?
 
 
@@ -29,7 +29,7 @@ O Microsoft Azure StorSimple é uma abordagem exclusiva para armazenamento corpo
 
 O StorSimple Virtual Array para CSP (Provedor de Soluções de Nuvem) permite que os parceiros se beneficiem dessa oportunidade. Os parceiros assumem o ciclo de vida do cliente do começo ao fim com provisionamento, cobrança e suporte diretos dos serviços de nuvem da Microsoft. Em resumo, os parceiros agora podem conduzir o StorSimple com os respectivos serviços aos clientes.
 
-Para saber mais sobre o StorSimple para CSP, visite o [Partner Center](http://partnercenter.microsoft.com/).
+Para saber mais sobre o StorSimple para CSP, visite a página [Visão geral do Azure CSP](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/overview/azure-csp-overview).
 
 Para saber mais sobre cobrança, preços, incentivos e como obter suporte no CSP, acesse [StorSimple in CSP: FAQ](storsimple-partner-csp-faq.md) (StorSimple no CSP: perguntas frequentes). 
 
@@ -43,9 +43,3 @@ Para saber mais, acesse [Deploy and manage your StorSimple Virtual Array for CSP
 
 - Se tiver mais dúvidas relacionadas ao StorSimple no CSP, visite [StorSimple for CSP: Frequently asked questions](storsimple-partner-csp-faq.md) (StorSimple para CSP: perguntas frequentes).
 - Se você estiver pronto para implantar seu StorSimple, acesse [Deploy your StorSimple for CSP](storsimple-partner-csp-deploy.md) (Implantar o StorSimple para CSP).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -1,5 +1,5 @@
 ---
-title: "Alterar o nome ou logotipo de um aplicativo empresarial na visualização do Azure Active Directory | Microsoft Docs"
+title: Alterar o nome ou logotipo de um aplicativo empresarial no Azure Active Directory | Microsoft Docs
 description: Como alterar o nome ou logotipo de um aplicativo empresarial personalizado no Azure Active Directory
 services: active-directory
 documentationcenter: 
@@ -12,16 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 08/28/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 541efc3bdc192d21fd75aa4de9d902adb70b6407
-
-
+ms.reviewer: asteen
+ms.custom: it-pro
+ms.openlocfilehash: 1345f77df1945d3fa5bc7adc185ee5e6b6c0cc3f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="change-the-name-or-logo-of-an-enterprise-app-in-azure-active-directory-preview"></a>Alterar o nome ou logotipo de um aplicativo empresarial na visualização do Azure Active Directory
-É fácil alterar o nome ou logotipo de um aplicativo empresarial personalizado na visualização do Azure AD (Azure Active Directory). [O que há na visualização?](active-directory-preview-explainer.md)  Você deve ter as permissões apropriadas para fazer essas alterações. Na visualização atual, você deve ser o criador do aplicativo personalizado.
+# <a name="change-the-name-or-logo-of-an-enterprise-app-in-azure-active-directory"></a>Alterar o nome ou logotipo de um aplicativo empresarial no Azure Active Directory
+É fácil alterar o nome ou logotipo de um aplicativo empresarial personalizado no Azure AD (Azure Active Directory). Você deve ter as permissões apropriadas para fazer essas alterações, além de ser o criador do aplicativo personalizado.
 
 ## <a name="how-do-i-change-an-enterprise-apps-name-or-logo"></a>Como alterar o nome ou logotipo de um aplicativo empresarial?
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
@@ -44,9 +46,3 @@ ms.openlocfilehash: 541efc3bdc192d21fd75aa4de9d902adb70b6407
 * [Atribuir um usuário ou um grupo a um aplicativo empresarial](active-directory-coreapps-assign-user-azure-portal.md)
 * [Remover uma atribuição de usuário ou de grupo de um aplicativo empresarial](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Desabilitar as entradas de usuário em um aplicativo empresarial](active-directory-coreapps-disable-app-azure-portal.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

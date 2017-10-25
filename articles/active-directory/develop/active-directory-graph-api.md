@@ -3,7 +3,7 @@ title: Graph API do Azure Active Directory | Microsoft Docs
 description: "Uma visão geral e guia de início rápido para a Graph API que permite acesso programático ao Azure AD por meio de pontos de extremidade da API REST."
 services: active-directory
 documentationcenter: 
-author: PatAltimore
+author: viv-liu
 manager: mbaldwin
 editor: mbaldwin
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
-ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f9a5e7a4e25ce5e7f63fe5a09fafeb6b4a8166ad
-ms.lasthandoff: 03/21/2017
-
-
+ms.date: 04/27/2017
+ms.author: viviali
+ms.custom: aaddev
+ms.openlocfilehash: 79bb96171c00fa62f24113800c3824856febe728
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-graph-api"></a>Graph API do Active Directory do Azure
 > [!IMPORTANT]
@@ -66,5 +66,4 @@ A Graph API habilita muitos cenários de aplicativos. A seguir, os cenários mai
 [Documentação do REST para a Graph AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
 [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md)
-
 

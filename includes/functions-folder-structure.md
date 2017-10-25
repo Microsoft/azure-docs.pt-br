@@ -15,12 +15,7 @@ wwwroot
  | | - run.csx
 ```
 
-O arquivo *host.json* contém uma configuração específica de tempo de execução e reside na pasta raiz do aplicativo de funções. Para obter informações sobre as configurações que estão disponíveis, confira [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) no wiki do repositório WebJobs.Script.
+O arquivo *host.json* contém uma configuração específica de tempo de execução e reside na pasta raiz do aplicativo de funções. Para obter informações sobre as configurações disponíveis, consulte a referência [host.json](../articles/azure-functions/functions-host-json.md).
 
 Cada função tem uma pasta que contém arquivos de código, a configuração function.json e outras dependências.
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

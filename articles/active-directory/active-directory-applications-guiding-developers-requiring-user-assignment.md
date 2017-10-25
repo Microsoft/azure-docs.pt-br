@@ -3,7 +3,7 @@ title: "Exigir a atribuição de usuário – Azure AD| Microsoft Docs"
 description: "Como exigir a atribuição de usuários para aplicativos do Azure."
 services: active-directory
 documentationcenter: 
-author: IHenkel
+author: kgremban
 manager: femila
 editor: 
 ms.assetid: 30b78cba-1e0f-472f-8314-f2250a9b91c3
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
-ms.author: inhenk
-translationtype: Human Translation
-ms.sourcegitcommit: e66b606433f8924a509f2d04dae67ff00ded6dca
-ms.openlocfilehash: f5804d258c609f2bf289dcf4d173dc67137e7691
-ms.lasthandoff: 02/07/2017
-
-
+ms.date: 05/16/2017
+ms.author: kgremban
+robots: noindex
+ms.openlocfilehash: 079b806c041a4a21e9350342867aee581c57bf45
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-and-applications-require-user-assignment"></a>Azure AD e aplicativos: exigir atribuição de usuário
 ## <a name="requiring-user-assignment"></a>Exigindo atribuição do usuário
@@ -36,4 +36,3 @@ Agora, você precisará atribuir usuários e/ou grupos ao aplicativo. Consulte [
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
-

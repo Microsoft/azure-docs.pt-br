@@ -12,8 +12,3 @@
 
 Após a criação do ponto de extremidade, você poderá exibir seus detalhes para determinar o endereço IP Virtual Público (VIP). Registre esse endereço.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

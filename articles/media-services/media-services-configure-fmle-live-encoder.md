@@ -4,7 +4,7 @@ description: "Este tópico mostra como configurar o codificador FMLE (Flash Medi
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 3113f333-517a-47a1-a1b3-57e200c6b2a2
 ms.service: media-services
@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: b94b2f867d30fe2c121904821404b8228ee1e899
-
-
+ms.openlocfilehash: e831048f34ecf6e89595adc4bfd58b5977e04bdb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador FMLE para enviar uma transmissão ao vivo de taxa de bits única
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ Enquanto o canal é iniciado, você pode [configurar o codificador](media-servic
 >
 >
 
-## <a name="a-idconfigurefmlertmpaconfigure-the-fmle-encoder"></a><a id=configure_fmle_rtmp></a>Configurar o codificador FMLE
+## <a id=configure_fmle_rtmp></a>Configurar o codificador FMLE
 Neste tutorial, são usadas as configurações de saída abaixo. O restante desta seção descreve as etapas de configuração mais detalhadamente.
 
 **Vídeo**:
@@ -168,9 +168,3 @@ Veja o tópico [solução de problemas](media-services-troubleshooting-live-stre
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-<!--HONumber=Jan17_HO2-->
-
-

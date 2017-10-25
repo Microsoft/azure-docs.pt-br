@@ -15,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
 ms.openlocfilehash: 5f8559450b24effd40a38879aeae3a8dd03944a3
-ms.lasthandoff: 03/17/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="b2b-collaboration-user-claims-mapping-in-azure-active-directory"></a>Mapeamento de declarações de usuário de colaboração B2B no Azure Active Directory
 
 O Azure AD (Azure Active Directory) dá suporte à personalização das declarações emitidas no token SAML para usuários da colaboração B2B. Quando um usuário é autenticado no aplicativo, o Azure AD emite um token SAML para o aplicativo que contém informações (ou declarações) sobre o usuário que o identifica com exclusividade. Por padrão, isso inclui o nome de usuário, o endereço de email, o nome e sobrenome do usuário. Você pode exibir ou editar as declarações enviadas no token SAML para o aplicativo na guia Atributos.
@@ -52,4 +50,3 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Compartilhamento externo do Office 365](active-directory-b2b-o365-external-user.md)
 * [Tokens de usuário de colaboração B2B](active-directory-b2b-user-token.md)
 * [Limitações atuais da colaboração B2B](active-directory-b2b-current-limitations.md)
-

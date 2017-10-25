@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 97ce7f4d682ec12470db4248d046a8367840f0bd
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 1f047f93fa8bc852b28c86e91d0c007a94fb4299
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-procedures"></a>Procedimentos de atualização
 Se você já tiver integrado uma versão anterior do SDK no seu aplicativo, você deve considerar os seguintes pontos ao atualizar o SDK.
@@ -146,7 +145,7 @@ Você deve adicioná-lo para as campanhas funcionarem em 4.0.0:
 Insira o novo arquivo `res/layout/engagement_loading.xml` no seu projeto.
 
 ## <a name="from-240-to-300"></a>De 2.4.0 a 3.0.0
-O seguinte descreve como migrar uma integração do SDK do serviço Capptain oferecido pelo Capptain SAS em um aplicativo acionado pelo Mobile Engagement do Azure. Se você estiver migrando de uma versão anterior, consulte o site do Capptain para migrar primeiro para a 2.4.0 e depois aplicar o procedimento a seguir
+O seguinte descreve como migrar uma integração do SDK do serviço Capptain oferecido pelo Capptain SAS em um aplicativo acionado pelo Azure Mobile Engagement. Se você estiver migrando de uma versão anterior, consulte o site do Capptain para migrar primeiro para a 2.4.0 e depois aplicar o procedimento a seguir
 
 > [!IMPORTANT]
 > O Capptain e o Mobile Engagement não são os mesmos serviços e o procedimento fornecido abaixo destaca apenas como migrar o aplicativo cliente. Migrar o SDK no aplicativo NÃO migrará os dados dos servidores Capptain para os servidores do Mobile Engagement.
@@ -414,5 +413,4 @@ A configuração ProGuard pode ser afetada por mudanças de marca, as regras ago
             -keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
               <methods>;
             }
-
 

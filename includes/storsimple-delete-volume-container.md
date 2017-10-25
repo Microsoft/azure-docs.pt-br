@@ -7,8 +7,3 @@
 
 Se o contêiner de volume tiver volumes associados, você primeiro precisará colocar esses volumes offline seguindo as etapas em [Colocar um volume offline](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). Depois que os volumes estiverem offline, você poderá excluí-los. Quando o contêiner de volume não tiver volumes associados, exclua o contêiner conforme descrito acima.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

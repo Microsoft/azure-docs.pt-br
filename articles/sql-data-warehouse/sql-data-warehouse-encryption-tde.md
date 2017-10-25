@@ -12,13 +12,14 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 177062eab9f2825a510aa1b66117ce942c959352
-
-
+ms.openlocfilehash: b1db3bdfdfb54bda325c9b971cfcb4dd5efa333a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>Introdução aos dados TDE (Transparent Data Encryption) no SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -71,9 +72,3 @@ A criptografia pode ser confirmada com as DMVs a seguir:
 [5]: ./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save2.png
 
 <!--Link references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

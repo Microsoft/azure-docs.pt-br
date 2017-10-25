@@ -2,7 +2,7 @@
 title: "Introdução às funções, permissões e segurança com o Azure Monitor | Microsoft Docs"
 description: "Saiba como usar funções e permissões internas do Azure Monitor para restringir o acesso aos recursos de monitoramento."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 10/09/2017
 ms.author: johnkem
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 26e12a27693fe94ae88b70328ed5dd0d9d5b4c10
-
-
+ms.openlocfilehash: 31c4fc5b606bf96cec8c508f4a0ff7ecbaeae38a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introdução às funções, permissões e segurança com o Azure Monitor
 Muitas equipes precisam regular estritamente o acesso aos dados e configurações de monitoramento. Por exemplo, se você tiver os membros da equipe que trabalham exclusivamente no monitoramento (engenheiros de suporte, engenheiros de devops) ou se você usar um provedor de serviços gerenciados, você talvez queira conceder-lhes acesso aos dados de monitoramento apenas enquanto restringe a capacidade de criar, modificar ou excluir recursos. Este artigo mostra como aplicar uma função interna de RBAC de monitoramento a um usuário no Azure rapidamente ou criar sua própria função personalizada para um usuário que precise de permissões limitadas de monitoramento. Em seguida, ele aborda considerações de segurança para os recursos relacionados ao Azure Monitor e como você pode limitar o acesso aos dados contidos nos mesmos.
@@ -32,8 +32,8 @@ Pessoas atribuídas à função de Leitor de monitoramento podem exibir todos os
 * Exibir painéis de monitoramentos no portal e criar seus próprios painéis de monitoramentos privados.
 * Consultar métricas usando a [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), [os cmdlets do PowerShell](insights-powershell-samples.md) ou a [CLI de plataforma cruzada](insights-cli-samples.md).
 * Consultar o Log de atividades usando o portal, a API REST do Azure Monitor, os cmdlets do PowerShell ou a CLI de plataforma cruzada.
-* Exibir as [configurações de diagnóstico](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) para um recurso.
-* Exibir o [perfil de log](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles) para uma assinatura.
+* Exibir as [configurações de diagnóstico](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) para um recurso.
+* Exibir o [perfil de log](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) para uma assinatura.
 * Exibir as configurações de autoescala.
 * Exibir as configurações e a atividade do alerta.
 * Acessar os dados do Application Insights e exiba os dados na Análise de AI.
@@ -53,8 +53,8 @@ Pessoas atribuídas à função de Leitor de monitoramento podem exibir todos os
 Pessoas atribuídas à função de Colaborador de monitoramento podem exibir todos os dados de monitoramento em uma assinatura e criar ou modificar as configurações de monitoramento, mas não podem modificar outros recursos. Essa função é um superconjunto da função Leitor de monitoramento e é apropriada para membros de uma equipe de monitoramento ou provedores de serviços gerenciados de uma organização que, além das permissões acima, também precisam ser capazes de:
 
 * Publicra os painéis de monitoramentos como um painel compartilhado.
-* Definir as [configurações de diagnóstico](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) para um recurso.*
-* Definir o [perfil de log](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles) para uma assinatura.*
+* Definir as [configurações de diagnóstico](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) para um recurso.*
+* Definir o [perfil de log](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) para uma assinatura.*
 * Definir as configurações e a atividade do alerta.
 * Criar testes Web e componentes do Application Insights.
 * Listar chaves de espaço de trabalho compartilhadas do Log Analytics (OMS).
@@ -74,15 +74,23 @@ Se as funções internas acima não atenderem às necessidades exatas de sua equ
 
 | Operação | Descrição |
 | --- | --- |
-| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Leitura/gravação/exclusão de regras de alerta. |
+| Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Grupos de ações de leitura/gravação/exclusão. |
+| Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Alertas de log de atividades de leitura/gravação/exclusão. |
+| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Regras de alerta de leitura/gravação/exclusão (alertas de métrica). |
 | Microsoft.Insights/AlertRules/Incidents/Read |Listar incidentes (histórico da regra de alerta disparado) para regras de alerta. Isso se aplica somente ao portal. |
 | Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |Leitura/gravação/exclusão de configurações de dimensionamento automático. |
 | Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |Leitura/gravação/exclusão de configurações de diagnóstico. |
+| Microsoft.Insights/EventCategories/Read |Enumere todas as categorias possíveis no Log de Atividades. Usado pelo Portal do Azure. |
 | Microsoft.Insights/eventtypes/digestevents/Read |Essa permissão é necessária para usuários que precisam de acesso aos Logs de atividade por meio do portal. |
 | Microsoft.Insights/eventtypes/values/Read |Listar eventos do Log de atividades (eventos de gerenciamento) em um assinatura. Essa permissão é aplicável ao acesso programático e ao portal para o Log de atividades. |
+| Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | Ler/gravar/excluir configurações de diagnóstico para logs de fluxo de rede. |
 | Microsoft.Insights/LogDefinitions/Read |Essa permissão é necessária para usuários que precisam de acesso aos Logs de atividade por meio do portal. |
+| Microsoft.Insights/LogProfiles/[Read, Write, Delete] |Perfis de log de leitura/gravação/exclusão (Log de Atividades de streaming para hub de eventos ou conta de armazenamento). |
+| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |Ler/gravar/excluir alertas de métrica quase em tempo real (visualização pública). |
 | Microsoft.Insights/MetricDefinitions/Read |Ler definições de métricas (lista de tipos de métrica disponíveis para um recurso). |
 | Microsoft.Insights/Metrics/Read |Ler as métricas para um recurso. |
+| Microsoft.Insights/Register/Action |Registrar o provedor de recursos do Azure Monitor. |
+
 
 > [!NOTE]
 > O acesso a alertas, configurações de diagnóstico e métricas para um recurso requer que o usuário tenha acesso de Leitura ao tipo de recurso e ao escopo do recurso. Criar (“gravar”) uma configuração de diagnóstico ou perfil de log que faz o arquivamento para uma conta de armazenamento ou transmissão para hubs de eventos requer que o usuário também tenha uma permissão ListKeys no recurso de destino.
@@ -169,10 +177,4 @@ Um padrão semelhante pode ser seguido com hubs de eventos, mas primeiro você p
 ## <a name="next-steps"></a>Próximas etapas
 * [Leia sobre RBAC e permissões no Gerenciador de Recursos](../active-directory/role-based-access-control-what-is.md)
 * [Leia a visão geral do monitoramento no Azure](monitoring-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

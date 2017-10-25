@@ -3,7 +3,7 @@ title: Perguntas frequentes sobre o Gateway de Aplicativo do Azure | Microsoft D
 description: "Esta página fornece respostas às perguntas frequentes sobre o Gateway de Aplicativo do Azure"
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: d54ee7ec-4d6b-4db7-8a17-6513fda7e392
@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2017
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 037045c4e76d0fb8e96944fe8a3235223594a034
-ms.lasthandoff: 03/30/2017
-
-
+ms.date: 07/19/2017
+ms.author: davidmu
+ms.openlocfilehash: 2ae53d5aceab21b08ccdae5bf5192529cd7f09da
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicativo
 
 ## <a name="general"></a>Geral
@@ -32,11 +30,11 @@ O Gateway de Aplicativo do Azure é um ADC (Controlador de Entrega de Aplicativo
 
 **P. Quais recursos recebem suporte do Gateway de Aplicativo?**
 
-O Gateway de Aplicativo oferece suporte ao descarregamento de SSL e SSL de ponta a ponta, Firewall de Aplicativo Web (visualização), afinidade de sessão baseada em cookies, roteamento baseado em caminho de url, hospedagem em múltiplos sites e outros. Para conferir uma lista completa dos recursos com suporte, visite [Introdução ao Gateway de Aplicativo](application-gateway-introduction.md)
+O Gateway de Aplicativo oferece suporte ao descarregamento de SSL e SSL de ponta a ponta, Firewall de Aplicativo Web, afinidade de sessão baseada em cookies, roteamento baseado em caminho de url, hospedagem em múltiplos sites e outros. Para conferir uma lista completa dos recursos com suporte, visite [Introdução ao Gateway de Aplicativo](application-gateway-introduction.md)
 
 **P. Qual é a diferença entre o Gateway de Aplicativo e o Azure Load Balancer?**
 
-O Gateway de Aplicativo do Azure é um balanceador de carga de camada 7. Isso significa que o Gateway de Aplicativo lida apenas com o tráfego de Web (HTTP/HTTPS/WebSocket). Ele oferece suporte a recursos de balanceamento de carga do aplicativo como terminação SSL, a afinidade de sessão baseada em cookie e round robin para tráfego de balanceamento de carga. Balanceador de carga, equilibra a carga do tráfego na camada 4 (TCP/UDP).
+O Gateway de Aplicativo é um balanceador de carga de camada 7, o que significa que ele funciona com apenas tráfego da Web (HTTP/HTTPS/WebSocket). Ele oferece suporte a recursos como terminação SSL, a afinidade de sessão baseada em cookie e round robin para tráfego de balanceamento de carga. Balanceador de carga, equilibra a carga do tráfego na camada 4 (TCP/UDP).
 
 **P. Quais protocolos recebem suporte do Gateway de Aplicativo?**
 
@@ -44,11 +42,11 @@ O Gateway de Aplicativo oferece suporte a WebSocket, HTTP e HTTPS.
 
 **P. Quais recursos têm suporte atualmente como parte do pool de back-end?**
 
-Pools de back-end podem ser formados por NICs, conjuntos de dimensionamento de máquinas virtuais, IPs públicos, IPs internos e FQDN (nomes de domínio totalmente qualificados). O suporte para Aplicativos Web do Azure não está disponível atualmente. Membros do pool de back-end do Gateway de Aplicativo não estão vinculados a um conjunto de disponibilidade. Os membros de pools de back-end podem existir entre clusters, data centers ou fora do Azure, desde que tenham conectividade IP.
+Pools de back-end podem ser formados por NICs, conjuntos de dimensionamento de máquinas virtuais, IPs públicos, IPs internos, FQDN (nomes de domínio totalmente qualificados) e back-ends multilocatário como Aplicativos Web do Azure . Membros do pool de back-end do Gateway de Aplicativo não estão vinculados a um conjunto de disponibilidade. Os membros de pools de back-end podem existir entre clusters, data centers ou fora do Azure, desde que tenham conectividade IP.
 
 **P. Em quais regiões o serviço está disponível?**
 
-O Gateway de Aplicativo está disponível em todas as regiões do Azure público. Ele também está disponível no [Azure China](https://www.azure.cn/) e no [Azure Governamental](https://azure.microsoft.com/en-us/overview/clouds/government/)
+O Gateway de Aplicativo está disponível em todas as regiões do Azure global. Ele também está disponível no [Azure China](https://www.azure.cn/) e no [Azure Governamental](https://azure.microsoft.com/en-us/overview/clouds/government/)
 
 **P. Ele é uma implantação dedicada à minha assinatura ou é compartilhado entre os clientes?**
 
@@ -56,7 +54,11 @@ O Gateway de Aplicativo é uma implementação dedicada em sua rede virtual.
 
 **P. O redirecionamento HTTP-> HTTPS tem suporte?**
 
-Não há suporte para esse recurso no momento.
+Há suporte para redirecionamento. Visite [Visão geral do redirecionamento do Gateway de Aplicativo](application-gateway-redirect-overview.md) para saber mais.
+
+**P. Em que ordem os ouvintes são processados?**
+
+Os ouvintes são processados na ordem em que eles são mostrados. Por esse motivo, se um ouvinte básico corresponder a uma solicitação de entrada, ele a processará primeiro.  Ouvintes multissite devem ser configurados antes de um ouvinte básico para assegurar que o tráfego seja roteado para o back-end correto.
 
 **P. Onde posso encontrar o IP e o DNS do Gateway de Aplicativo?**
 
@@ -78,6 +80,10 @@ Há suporte a apenas um endereço IP público em um Gateway de Aplicativo.
 
 Sim, o Gateway de Aplicativo insere cabeçalhos x-forwarded-for, x-forwarded-proto e x-forwarded-port na solicitação encaminhada ao back-end. O formato do cabeçalho x-forwarded-for é uma lista separada por vírgulas de IP:Porta. Os valores válidos para x-forwarded-proto são http ou https. X-forwarded-port especifica a porta na qual a solicitação alcançou o Gateway de Aplicativo.
 
+**P. Quanto tempo demora para implantar um Gateway de Aplicativo? O meu Gateway de Aplicativo ainda funciona quando está sendo atualizado?**
+
+Novas implantações do Gateway de Aplicativo podem levar até 20 minutos para provisionar. Alterações de tamanho/contagem de instâncias não são interrompidas, e o gateway permanece ativo durante esse tempo.
+
 ## <a name="configuration"></a>Configuração
 
 **P. O Gateway de Aplicativo é sempre implantado em uma rede virtual?**
@@ -90,11 +96,17 @@ O Gateway de Aplicativo pode se comunicar com instâncias fora da rede virtual n
 
 **P. Posso implantar qualquer coisa na sub-rede do Gateway de Aplicativo?**
 
-Não, mas você pode implantar outros gateways de aplicativo na sub-rede
+Não, mas você pode implantar outros gateways de aplicativo na sub-rede.
 
 **P. Há suporte para Grupos de segurança de rede na sub-rede do Gateway de Aplicativo?**
 
-Os Grupos de segurança de rede têm suporte na sub-rede do Gateway de Aplicativo, mas é necessário aplicar exceções para as portas 65503-65534 para que a integridade de back-end funcione corretamente. A conectividade de internet de saída não deve ser bloqueada.
+Há suporte para Grupos de segurança de rede na sub-rede do Gateway de Aplicativo com as seguintes restrições:
+
+* Exceções devem ser colocadas para tráfego de entrada nas portas 65503-65534 para integridade de back-end para funcionar corretamente.
+
+* A conectividade de internet de saída não pode ser bloqueada.
+
+* Tráfego de marca AzureLoadBalancer deve ser permitido.
 
 **P. Quais são os limites no Gateway de Aplicativo? Posso aumentar esses limites?**
 
@@ -108,7 +120,7 @@ Sim, o Gateway de Aplicativo oferece suporte a um endereço IP interno e um IP e
 
 Sim, o emparelhamento VNet tem suporte e é útil para o balanceamento de carga de tráfego em outras redes virtuais.
 
-**P. Posso falar com servidores locais se eles estiverem conectados por túneis de VPN ou ExpressRoute?**
+**P. Posso falar com servidores locais quando eles estiverem conectados por túneis de VPN ou ExpressRoute?**
 
 Sim, contanto que o tráfego seja permitido.
 
@@ -118,17 +130,39 @@ Há suporte para arquitetura de microsserviço. Você precisaria de várias conf
 
 **P. Investigações personalizadas têm suporte para curingas/regex nos dados de resposta?**
 
-As investigações personalizadas não têm suporte para curingas/regex nos dados de resposta.
+As investigações personalizadas não têm suporte para curingas/regex nos dados de resposta. 
+
+**P. Como as regras são processadas?**
+
+As regras são processadas na ordem em que elas são configuradas. É recomendável que as regras multissites sejam configuradas antes de regras básicas para reduzir a chance de que o tráfego seja roteado para o back-end inadequado, já que a regra básica corresponderia o tráfego com base na porta antes da regra multissite que está sendo avaliada.
+
+**P. Como as regras são processadas?**
+
+As regras são processadas na ordem em que são criadas. É recomendável que as regras multissite sejam configuradas antes das regras básicas. Ao configurar primeiro os ouvintes multissite, essa configuração reduz a chance de o tráfego ser roteado para o back-end inadequado. Esse problema de roteamento pode ocorrer, pois a regra básica corresponderia ao tráfego com base na porta antes da regra multissite ser avaliada.
 
 **P. O que significa o campo Host para investigações personalizadas?**
 
-O campo Host especifica o nome ao qual enviar a investigação. Aplicável somente quando vários sites são configurados no Application Gateway; do contrário, use '127.0.0.1'. Esse valor é diferente do nome de host da VM e está no formato \<protocolo\>://\<host\>:\<porta\>\<caminho\>. 
+O campo Host especifica o nome ao qual enviar a investigação. Aplicável somente quando vários sites são configurados no Gateway de Aplicativo; do contrário, use '127.0.0.1'. Esse valor é diferente do nome de host da VM e está no formato \<protocolo\>://\<host\>:\<porta\>\<caminho\>.
+
+**P. É possível lista permissões de acesso do Gateway de Aplicativo para alguns IPs de origem?**
+
+Esse cenário pode ser feito usando os NSGs na sub-rede de Gateway de Aplicativo. As seguintes restrições devem ser colocadas na sub-rede na ordem listada de prioridade:
+
+* Permitir tráfego de entrada de intervalo de IP/IP de origem.
+
+* Permitir solicitações de entrada de todas as fontes para portas 65534 65503 para [comunicação de integridade de back-end](application-gateway-diagnostics.md).
+
+* Permitir entradas investigações do Azure Load Balancer (marca AzureLoadBalancer) e tráfego de rede virtual entrada (marca VirtualNetwork) no [NSG](../virtual-network/virtual-networks-nsg.md).
+
+* Bloquear todo o outro tráfego de entrada com um Negar todas as regras.
+
+* Permitir tráfego de saída para a internet para todos os destinos.
 
 ## <a name="performance"></a>Desempenho
 
 **P. Como o Gateway de Aplicativo oferece suporte a alta disponibilidade e escalabilidade?**
 
-O Gateway de Aplicativo oferece suporte a cenários de alta disponibilidade se houver mais de duas instâncias implantadas. O Azure distribui essas instâncias entre domínios de atualização e de falha para garantir que todas as instâncias não falham ao mesmo tempo. O Gateway de Aplicativo dá suporte à escalabilidade adicionando várias instâncias do mesmo gateway para compartilhar a carga.
+O Gateway de Aplicativo dará suporte a cenários de alta disponibilidade quando você tiver duas ou mais instâncias implantadas. O Azure distribui essas instâncias entre domínios de atualização e de falha para garantir que todas as instâncias não falham ao mesmo tempo. O Gateway de Aplicativo dá suporte à escalabilidade adicionando várias instâncias do mesmo gateway para compartilhar a carga.
 
 **P. Como posso obter o cenário de recuperação de desastres em data centers com o Gateway de Aplicativo?**
 
@@ -136,7 +170,7 @@ Os clientes podem usar o Gerenciador de Tráfego para distribuir o tráfego entr
 
 **P. Há suporte para o dimensionamento automático?**
 
-Não, mas o Gateway de Aplicativo tem uma métrica de taxa de transferência que pode ser usada para enviar um alerta se um limite for atingido. A adição manual de instâncias ou alteração do tamanho não reinicia o gateway e não afeta o tráfego existente.
+Não, mas o Gateway de Aplicativo tem uma métrica de taxa de transferência que pode ser usada para enviar um alerta quando um limite for atingido. A adição manual de instâncias ou alteração do tamanho não reinicia o gateway e não afeta o tráfego existente.
 
 **P. A escala/redução vertical causa tempo de inatividade?**
 
@@ -154,33 +188,36 @@ Certificados autoassinados, certificados de autoridade de certificação e certi
 
 **P. Quais são os conjuntos de criptografia atuais com suporte do Gateway de Aplicativo?**
 
-Veja a seguir conjuntos de criptografia atuais com suporte em ordem de prioridade.
+A seguir, os conjuntos de criptografia atuais que têm suporte do gateway de aplicativo. Visite: [configurar SSL versões de política e conjuntos de codificação no Gateway de Aplicativo](application-gateway-configure-ssl-policy-powershell.md) para aprender a personalizar opções de SSL.
 
-TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384
-
-TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256
-
-TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256
-
-TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
-
-TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256
-
-TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256
-
-TLS_RSA_WITH_AES_256_GCM_SHA384
-
-TLS_RSA_WITH_AES_128_GCM_SHA256
-
-TLS_RSA_WITH_AES_256_CBC_SHA256
-
-TLS_RSA_WITH_AES_128_CBC_SHA256
-
-TLS_RSA_WITH_AES_256_CBC_SHA
-
-TLS_RSA_WITH_AES_128_CBC_SHA
-
-TLS_RSA_WITH_3DES_EDE_CBC_SHA
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+- TLS_RSA_WITH_AES_256_GCM_SHA384
+- TLS_RSA_WITH_AES_128_GCM_SHA256
+- TLS_RSA_WITH_AES_256_CBC_SHA256
+- TLS_RSA_WITH_AES_128_CBC_SHA256
+- TLS_RSA_WITH_AES_256_CBC_SHA
+- TLS_RSA_WITH_AES_128_CBC_SHA
+- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+- TLS_RSA_WITH_3DES_EDE_CBC_SHA
+- TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
 **P. O Gateway de Aplicativo também oferece suporte à nova criptografia de tráfego para o back-end?**
 
@@ -190,9 +227,16 @@ Sim, o Gateway de Aplicativo oferece suporte ao descarregamento SSL, SSL de pont
 
 Sim, você pode configurar o Gateway de Aplicativo para negar TLS1.0, TLS1.1 e TLS1.2. SSL 2.0 e 3.0 já estão desabilitados por padrão e não são configuráveis.
 
-**P. Posso configurar a política de SSL para controlar os conjuntos de criptografia?**
+**P. Posso configurar conjuntos de codificação e a ordem de política?**
 
-Não no momento.
+Sim, há suporte para [configuração de conjuntos de criptografia](application-gateway-ssl-policy-overview.md). Ao definir uma política personalizada, pelo menos um dos seguintes pacotes de codificação deve ser habilitado. O Gateway de Aplicativo usa SHA256 para gerenciamento de back-end.
+
+* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
+* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+* TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+* TLS_RSA_WITH_AES_128_GCM_SHA256
+* TLS_RSA_WITH_AES_256_CBC_SHA256
+* TLS_RSA_WITH_AES_128_CBC_SHA256
 
 **P. Há suporte para quantos certificados SSL?**
 
@@ -244,7 +288,7 @@ No momento, o WAF oferece suporte a CRS [2.2.9](application-gateway-crs-rulegrou
 
 * Prevenção contra bots, rastreadores e scanners
 
-* Detecção de problemas de configuração de aplicativo comuns (por exemplo, Apache, IIS etc.)
+* Detecção de problemas de configuração de aplicativo comuns (ou seja, Apache, IIS etc.)
 
 **P. O WAF também oferece suporte à prevenção de DDoS?**
 
@@ -254,11 +298,11 @@ Não, o WAF não oferece prevenção de DDoS.
 
 **P. Quais tipos de logs estão disponíveis com o Gateway de Aplicativo?**
 
-Há três logs disponíveis para o Gateway de Aplicativo. Para saber mais sobre esses logs e outros recursos de diagnóstico, visite [Integridade de back-end, registro em log e métricas de diagnósticos para o Gateway de Aplicativo](application-gateway-diagnostics.md).
+Há três logs disponíveis para o Gateway de Aplicativo. Para saber mais sobre esses logs e outros recursos de diagnóstico, visite [Integridade de back-end, logs de diagnóstico e métricas para o Gateway de Aplicativo](application-gateway-diagnostics.md).
 
-- **ApplicationGatewayAccessLog** -Esse log contém cada solicitação enviada ao front-end do Gateway de Aplicativo. Os dados incluem o IP do chamador, a URL solicitada, latência da resposta, o código de retorno, bytes de entrada e saída. O log de acesso é coletado a cada 300 segundos. Esse log contém um registro por instância do Application Gateway.
-- **ApplicationGatewayPerformanceLog** - Esse log captura informações sobre o desempenho por instância, incluindo a solicitação total atendida, a taxa de transferência em bytes, o total de solicitações atendidas, a contagem de solicitações com falha, a contagem de instâncias de back-end íntegras ou não.
-- **ApplicationGatewayFirewallLog** - Esse log contém solicitações registradas por meio do modo de detecção ou prevenção de um gateway de aplicativo configurado com o firewall do aplicativo Web.
+- **ApplicationGatewayAccessLog** - O log de acesso contém cada solicitação enviada ao front-end do Gateway de Aplicativo. Os dados incluem o IP do chamador, a URL solicitada, latência da resposta, o código de retorno, bytes de entrada e saída. O log de acesso é coletado a cada 300 segundos. Esse log contém um registro por instância do Gateway de Aplicativo.
+- **ApplicationGatewayPerformanceLog** - O log de desempenho captura informações sobre o desempenho por instância, incluindo a solicitação total atendida, a taxa de transferência em bytes, o total de solicitações atendidas, a contagem de solicitações com falha, a contagem de instâncias de back-end íntegras ou não.
+- **ApplicationGatewayFirewallLog** - O log de firewall contém solicitações registradas por meio do modo de detecção ou prevenção de um gateway de aplicativo configurado com o firewall do aplicativo Web.
 
 **P. Como saber se os membros de meu pool de back-end estão íntegros?**
 
@@ -276,7 +320,7 @@ Os logs de auditoria estão disponíveis para o Gateway de Aplicativo. No portal
 
 Sim, o Gateway de Aplicativo oferece suporte a alertas, e os alertas são configurados com base em métricas.  No momento, o Gateway de Aplicativo tem uma métrica de "taxa de transferência", que pode ser configurada para o alerta. Para saber mais sobre alertas, visite [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
-**P. A integridade do back-end retorna um status desconhecido, o que pode estar causando isso?**
+**P. A integridade do back-end retorna um status desconhecido, o que pode estar causando esse status?**
 
 O motivo mais comum é o bloqueio ao acesso do back-end por um NSG ou DNS personalizado. Visite [Integridade do back-end, registro em log e métricas de diagnóstico do Gateway de Aplicativo](application-gateway-diagnostics.md) para saber mais.
 

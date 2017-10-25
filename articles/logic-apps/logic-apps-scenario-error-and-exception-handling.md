@@ -15,13 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
-ms.author: b-hoedid
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: db5f70c88eb0b429a8d5d76f192a742f97fdf131
-ms.lasthandoff: 03/09/2017
-
-
+ms.author: LADocs; b-hoedid
+ms.openlocfilehash: 044de27c75da93c95609110d2b73336c42f746fe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: Tratamento de exceção e log de erros de aplicativos lógicos
 
@@ -42,16 +41,16 @@ O projeto tinha dois requisitos principais:
 * Uma maneira de exibir os erros ocorridos no fluxo de trabalho
 
 > [!TIP]
-> Para assistir a um vídeo de alto nível sobre esse projeto, consulte [Grupo de usuários de integração](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Integration User Group").
+> Para assistir a um vídeo de alto nível sobre esse projeto, consulte [Grupo de usuários de integração](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Grupo de usuários de integração").
 
 ## <a name="how-we-solved-the-problem"></a>Como solucionamos o problema
 
-Escolhemos o [Banco de Dados de Documentos do Azure](https://azure.microsoft.com/services/documentdb/ "Banco de Dados de Documentos do Azure") como um repositório para os registros de log e de erros (O Banco de Dados de Documentos trata os registros como documentos). Como o Aplicativo Lógico do Azure tem um modelo padrão para todas as respostas, não será necessário criar um esquema personalizado. Nós poderíamos criar um aplicativo de API para **Inserir** e **Consultar** registros de erro e de log. Também poderíamos definir um esquema para cada um deles no aplicativo de API.  
+Escolhemos o [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/ "Azure Cosmos DB") como um repositório dos registros de log e erros (o Cosmos DB refere-se aos registros como documentos). Como o Aplicativo Lógico do Azure tem um modelo padrão para todas as respostas, não será necessário criar um esquema personalizado. Nós poderíamos criar um aplicativo de API para **Inserir** e **Consultar** registros de erro e de log. Também poderíamos definir um esquema para cada um deles no aplicativo de API.  
 
-Outro requisito era eliminar registros após determinada data. O Banco de Dados de Documentos tem uma propriedade chamada [TTL](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "TTL") (Time-To-Live), que nos permitiu definir um valor **TTL** para cada registro ou coleção. Essa funcionalidade eliminou a necessidade de excluir manualmente os registros do DocumentDB.
+Outro requisito era eliminar registros após determinada data. O Cosmos DB tem uma propriedade chamada [TTL](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time to Live") (vida útil), que nos permitiu definir um valor de **TTL** para cada registro ou coleção. Essa funcionalidade eliminou a necessidade de excluir manualmente os registros do Cosmos DB.
 
 > [!IMPORTANT]
-> Para concluir este tutorial, você precisa criar um banco de dados do DocumentDB e duas coleções (Log e Erros).
+> Para concluir este tutorial, você precisa criar um banco de dados do Cosmos DB e duas coleções (Log e Erros).
 
 ## <a name="create-the-logic-app"></a>Criar o aplicativo lógico
 
@@ -105,22 +104,22 @@ Devemos registrar a origem (solicitação) do registro do paciente do portal do 
 
 1. É necessário obter um novo registro de compromisso do Dynamics CRM Online.
 
-    O gatilho proveniente do CRM fornece a **CRM PatentId**, o  **tipo de registro**, o **Registro Novo ou Atualizado** (valor booliano novo ou atualizado) e a **SalesforceId**. O **SalesforceId** pode ser nulo porque é usado somente para uma atualização.
-    Obtemos o registro do CRM usando a **PatientID** do CRM e o **Tipo de Registro**.
+   O gatilho proveniente do CRM fornece a **CRM PatentId**, o **tipo de registro**, o **Registro Novo ou Atualizado** (valor booliano novo ou atualizado) e a **SalesforceId**. O **SalesforceId** pode ser nulo porque é usado somente para uma atualização.
+   Obtemos o registro do CRM usando a **PatientID** do CRM e o **Tipo de Registro**.
 
-2. Em seguida, precisamos adicionar a operação **InsertLogEntry** de nosso aplicativo de API do DocumentDB, conforme mostrado aqui.
+2. Em seguida, precisamos adicionar a operação **InsertLogEntry** de nosso aplicativo de API do DocumentDB, conforme mostrado aqui no Designer de Aplicativo Lógico.
 
-### <a name="insert-log-entry-designer-view"></a>Inserir entrada de log no modo de exibição de designer
+   **Inserir entrada de log**
 
-![Inserir Entrada de Log](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
+   ![Inserir Entrada de Log](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
 
-### <a name="insert-error-entry-designer-view"></a>Inserir entrada de erro no modo de exibição de designer
+   **Inserir entrada de erro**
 
-![Inserir Entrada de Log](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
+   ![Inserir Entrada de Log](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
-### <a name="check-for-create-record-failure"></a>Verificar falha em criar registro
+   **Verificar falha na criação de registro**
 
-![Condição](media/logic-apps-scenario-error-and-exception-handling/condition.png)
+   ![Condição](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
 ## <a name="logic-app-source-code"></a>Código-fonte do aplicativo lógico
 
@@ -258,7 +257,7 @@ Este é o código-fonte do aplicativo lógico para criar um registro de erro.
 }             
 ```
 
-#### <a name="insert-error-into-documentdb--request"></a>Inserir erro no Banco de Dados de Documentos - solicitação
+#### <a name="insert-error-into-cosmos-db--request"></a>Inserir erro na solicitação do Cosmos DB
 
 ``` json
 
@@ -281,7 +280,7 @@ Este é o código-fonte do aplicativo lógico para criar um registro de erro.
 }
 ```
 
-#### <a name="insert-error-into-documentdb--response"></a>Inserir erro no Banco de Dados de Documentos - resposta
+#### <a name="insert-error-into-cosmos-db--response"></a>Inserir erro na resposta do Cosmos DB
 
 ``` json
 {
@@ -399,16 +398,16 @@ Assim que você obtiver a resposta, poderá passá-la para o aplicativo lógico 
 ```
 
 
-## <a name="documentdb-repository-and-portal"></a>Repositório e portal do Banco de Dados de Documentos
+## <a name="cosmos-db-repository-and-portal"></a>Repositório e portal do Cosmos DB
 
-Nossa solução adicionou funcionalidades com o [DocumentDB](https://azure.microsoft.com/services/documentdb).
+Nossa solução adicionou funcionalidades ao [Cosmos DB](https://azure.microsoft.com/services/documentdb).
 
 ### <a name="error-management-portal"></a>Portal de gerenciamento de erros
 
-Para exibir os erros, você pode criar um aplicativo Web do MVC para exibir os registros de erro do Banco de Dados de Documentos. As operações **Listar**, **Detalhes**, **Editar** e **Excluir** foram incluídas na versão atual.
+Para exibir os erros, crie um aplicativo Web do MVC para exibir os registros de erro do Cosmos DB. As operações **Listar**, **Detalhes**, **Editar** e **Excluir** foram incluídas na versão atual.
 
 > [!NOTE]
-> Operação de edição: o DocumentDB substitui o documento inteiro. Os registros mostrados nos modos de exibição de **Lista** e de **Detalhe** são apenas exemplos. Eles não são registros reais de consultas de pacientes.
+> Operação de edição: o Cosmos DB substitui o documento inteiro. Os registros mostrados nos modos de exibição de **Lista** e de **Detalhe** são apenas exemplos. Eles não são registros reais de consultas de pacientes.
 
 Estes são exemplos de detalhes de nosso aplicativo MVC criados com a abordagem descrita anteriormente.
 
@@ -431,14 +430,14 @@ Para exibir os logs, também criamos um aplicativo Web do MVC. Estes são exempl
 
 Nosso aplicativo de API de gerenciamento de exceções do Aplicativo Lógico do Azure de software livre fornece a funcionalidade conforme descrito a seguir - existem dois controladores:
 
-* **ErrorController** insere um registro de erro (documento) em uma coleção do Banco de Dados de Documentos.
-* **LogController** insere um registro de log (documento) em uma coleção do Banco de Dados de Documentos.
+* **ErrorController** insere um registro de erro (documento) em uma coleção do DocumentDB.
+* **LogController** insere um registro de log (documento) em uma coleção do DocumentDB.
 
 > [!TIP]
 > Ambos os controladores usam operações `async Task<dynamic>`, permitindo que as operações sejam resolvidas em tempo de execução, para que possamos criar o esquema do DocumentDB no corpo da operação. 
 > 
 
-Todos os documentos do Banco de Dados de Documentos devem ter uma ID exclusiva. Estamos usando o `PatientId` e adicionando um carimbo de data/hora convertido em um valor de carimbo de data/hora do Unix (double). Truncamos o valor para remover o valor fracionário.
+Todos os documentos do DocumentDB devem ter uma ID exclusiva. Estamos usando o `PatientId` e adicionando um carimbo de data/hora convertido em um valor de carimbo de data/hora do Unix (double). Truncamos o valor para remover o valor fracionário.
 
 Você pode exibir o código-fonte da nossa API de controlador erro [o GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
@@ -480,7 +479,7 @@ A expressão no exemplo de código anterior verifica o status de *Create_NewPati
 ## <a name="summary"></a>Resumo
 
 * Você pode implementar facilmente o tratamento de logs e de erros em um aplicativo lógico.
-* Você pode usar o Banco de Dados de Documentos como o repositório de registros de log e de erros (documentos).
+* Você pode usar o DocumentDB como o repositório de registros de log e de erros (documentos).
 * Você pode usar o MVC para criar um portal para exibir os registros de log e de erros.
 
 ### <a name="source-code"></a>Código-fonte

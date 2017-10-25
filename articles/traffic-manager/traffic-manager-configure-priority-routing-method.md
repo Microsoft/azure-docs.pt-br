@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
 ms.openlocfilehash: 0db83cde6facc89b8b8aa72e6419129ec868235c
-ms.lasthandoff: 03/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Configurar o método de roteamento de tráfego de prioridade no Gerenciador de Tráfego
 
 Independentemente do modo de site, os Sites do Azure já fornecem funcionalidade de failover para sites dentro de um data center (também conhecido como região). O Gerenciador de Tráfego fornece failover para sites em diferentes data centers.
@@ -44,9 +43,9 @@ Independentemente do modo de site, os Sites do Azure já fornecem funcionalidade
 8. Clique em **Salvar** para salvar e alterar as configurações de ponto de extremidade.
 9. Depois de concluir as alterações de configuração, clique em **Salvar** na parte inferior da página.
 10. Teste as alterações na configuração da seguinte maneira:
-    1.    Na barra de pesquisa do portal, pesquise o nome do perfil do Gerenciador de Tráfego e clique no perfil do Gerenciador de Tráfego nos resultados exibidos.
-    2.    Na folha do perfil do **Gerenciador de Tráfego**, clique em **Visão Geral**.
-    3.    A folha do **perfil do Gerenciador de Tráfego** exibe o nome DNS do perfil do Gerenciador de Tráfego recém-criado. Isso pode ser usado por todos os clientes (por exemplo, navegando até ele usando um navegador da Web) para ser roteado para o ponto de extremidade correto, conforme determinado pelo tipo de roteamento. Nesse caso, todas as solicitações são roteadas para o primeiro ponto de extremidade e, se o Gerenciador de Tráfego o detectar como não íntegro, o tráfego fará failover automaticamente para o próximo ponto de extremidade.
+    1.  Na barra de pesquisa do portal, pesquise o nome do perfil do Gerenciador de Tráfego e clique no perfil do Gerenciador de Tráfego nos resultados exibidos.
+    2.  Na folha do perfil do **Gerenciador de Tráfego**, clique em **Visão Geral**.
+    3.  A folha do **perfil do Gerenciador de Tráfego** exibe o nome DNS do perfil do Gerenciador de Tráfego recém-criado. Isso pode ser usado por todos os clientes (por exemplo, navegando até ele usando um navegador da Web) para ser roteado para o ponto de extremidade correto, conforme determinado pelo tipo de roteamento. Nesse caso, todas as solicitações são roteadas para o primeiro ponto de extremidade e, se o Gerenciador de Tráfego o detectar como não íntegro, o tráfego fará failover automaticamente para o próximo ponto de extremidade.
 11. Depois que o perfil do Gerenciador de Tráfego estiver funcionando, edite o registro DNS no servidor DNS autoritativo para que o nome de domínio de sua empresa aponte para o nome de domínio do Gerenciador de Tráfego.
 
 ![Configurando o método de roteamento de tráfego de prioridade usando o Gerenciador de Tráfego][1]

@@ -1,11 +1,22 @@
 ---
-layout: LandingPage
 title: "Documentação de sistema de mensagens do Barramento de Serviço"
 description: "Saiba como configurar mensagens que se conectam a aplicativos e serviços entre ambientes de nuvem e locais."
-translationtype: Human Translation
-ms.sourcegitcommit: 5b76339cc3ca28b523ecf825d7bccc18587aafc8
-ms.openlocfilehash: b990c273b6b76ef7277904f739aa81b8ab6a6ff6
-
+services: service-bus
+author: czeumault
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 03/14/2017
+ms.author: carolz
+ms.openlocfilehash: 733d2fd848e100525cb7f50f9831f52d5d473863
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-messaging-documentation"></a>Documentação de sistema de mensagens do Barramento de Serviço
 O serviço de mensagens oferece entrega de informações confiável como um mecanismo de comunicação orientado ou de terceiros.
@@ -30,7 +41,7 @@ O serviço de mensagens oferece entrega de informações confiável como um meca
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus-messaging">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -76,9 +87,8 @@ O serviço de mensagens oferece entrega de informações confiável como um meca
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.management.servicebus">Microsoft.Azure.Management.ServiceBus</a></p>
+                        <h3>Linha de comando</h3>
+                        <p><a href="/powershell/module/azurerm.servicebus">PowerShell do Azure</a></p>
                     </div>
                 </div>
             </div>
@@ -90,8 +100,9 @@ O serviço de mensagens oferece entrega de informações confiável como um meca
                 <div class="card">
                     <div class="cardText">
                         <h3>Linguagens</h3>
-                        <p><a href="service-bus-powershell-how-to-provision.md">PowerShell</a></p>
-                        <p><a href="/rest/api/servicebus">REST</a></p>
+                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">.NET Framework</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.servicebus">.NET Standard</a></p>
+                        <p><a href="/java/api/overview/azure/servicebus">Java</a></p>
                     </div>
                 </div>
             </div>
@@ -102,7 +113,19 @@ O serviço de mensagens oferece entrega de informações confiável como um meca
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Outros</h3>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/servicebus/">referência da API REST (a página pode estar em inglês)</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+     <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>OUTROS</h3>
                         <p><a href="service-bus-messaging-exceptions.md">Exceções</a></p>
                         <p><a href="service-bus-quotas.md">Cotas</a></p>
                         <p><a href="service-bus-messaging-sql-filter.md">Sintaxe SQLFilter</a></p>
@@ -113,9 +136,3 @@ O serviço de mensagens oferece entrega de informações confiável como um meca
         </div>
     </li>
 </ul>
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

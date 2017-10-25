@@ -1,5 +1,5 @@
 ---
-title: "Adicionar condições e gatilhos para executar fluxos de trabalho – Aplicativo Lógico do Azure | Microsoft Docs"
+title: "Adicionar condições e iniciar fluxos de trabalho – Aplicativo Lógico do Azure | Microsoft Docs"
 description: "Controle como os fluxos de trabalho são executados em Aplicativos Lógicos do Azure adicionando parâmetros, gatilhos, ações e lógica condicional."
 author: stepsic-microsoft-com
 manager: anneta
@@ -13,56 +13,75 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2017
-ms.author: stepsic
-translationtype: Human Translation
-ms.sourcegitcommit: 9f7d623ec213de6d46f59547aff9d4417ac95ede
-ms.openlocfilehash: 41aafe94d24f0e22fe2256ab213c7668b670764c
-ms.lasthandoff: 02/15/2017
-
-
+ms.author: LADocs; stepsic
+ms.openlocfilehash: e632c48ed31e82536db55a9c54438bece0c38fd4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-logic-apps-features"></a>Usar recursos de aplicativos lógicos
-No [tópico anterior](../logic-apps/logic-apps-create-a-logic-app.md), você criou seu primeiro aplicativo lógico. Agora, você criará um processo mais completo com o Aplicativo Lógico do Azure. Este tópico apresenta novos conceitos do Aplicativo Lógico do Azure:
 
-* Lógica condicional, que executa uma ação somente quando uma determinada condição for atendida.
-* Exibição de código para editar um aplicativo lógico existente.
-* Opções para iniciar um fluxo de trabalho.
+Em um [tópico anterior](../logic-apps/logic-apps-create-a-logic-app.md), você criou seu primeiro aplicativo lógico. Para controlar o fluxo de trabalho do aplicativo lógico, você pode especificar diferentes caminhos para o aplicativo lógico executar e como processar dados em matrizes, coleções e lotes. Você pode incluir esses elementos no fluxo de trabalho do aplicativo lógico:
 
-Antes de concluir este tópico, você deve concluir as etapas em [Criar um novo aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). No [Portal do Azure], navegue até o aplicativo lógico e clique em **Gatilhos e Ações** em resumo para editar a definição de aplicativo lógico.
+* Condições e [instruções switch](../logic-apps/logic-apps-switch-case.md) permitem que seu aplicativo lógico execute ações diferentes com base em se condições específicas são atendidas.
 
-## <a name="reference-material"></a>Material de referência
-Os documentos a seguir podem ser úteis:
+* [Loops](../logic-apps/logic-apps-loops-and-scopes.md) permitem que seu aplicativo lógico execute etapas repetidamente. Por exemplo, você pode repetir ações em uma matriz quando usa um loop **For_each**. Ou você pode repetir ações até que uma condição seja atendida quando usa um loop **Until**.
 
-* [Gerenciamento e APIs REST de tempo de execução](https://msdn.microsoft.com/library/azure/mt643787.aspx) - incluindo como chamar aplicativos de lógica diretamente
-* [Referência de linguagem](https://msdn.microsoft.com/library/azure/mt643789.aspx) - uma lista abrangente de todas as expressões/funções com suporte
-* [Tipos ação e gatilho](https://msdn.microsoft.com/library/azure/mt643939.aspx) - os diferentes tipos de ações e as entradas que aceitam
-* [Visão geral do serviço de aplicativo](../app-service/app-service-value-prop-what-is.md) - descrição de quais componentes podem ser escolhidos ao criar uma solução
+* [Escopos](../logic-apps/logic-apps-loops-and-scopes.md) permitem agrupar série de ações, por exemplo, para implementar o tratamento de exceção.
 
-## <a name="add-conditional-logic-to-your-logic-app"></a>Adicionar lógica condicional ao seu aplicativo lógico
+* [Debatching](../logic-apps/logic-apps-loops-and-scopes.md) permite que seu aplicativo lógico inicie fluxos de trabalho separados para itens em uma matriz ao usar o comando **SplitOn**.
 
-Embora o fluxo original do seu aplicativo lógico funcione, poderíamos aprimorar algumas áreas.
+Este tópico apresenta outros conceitos para a criação de seu aplicativo lógico:
 
-### <a name="conditional"></a>Condicional
+* Exibição de código para editar um aplicativo lógico existente
+* Opções para iniciar um fluxo de trabalho
 
-Seu primeiro aplicativo lógico pode resultar em você receber emails demais. As etapas a seguir adicionam uma lógica condicional de modo que você recebe apenas um email quando o tweet vem de alguém com um determinado número de seguidores.
+## <a name="conditions-run-steps-only-after-meeting-a-condition"></a>Condições: executar etapas somente depois de atender a uma condição
 
-0. No Designer de Aplicativos Lógicos, selecione **Nova Etapa** (+) > **Adicionar uma ação**.
-0.    Localize e adicione a ação **Obter Usuário** do Twitter.
-0. Localize e adicione o campo **Tweet publicado por** do gatilho para obter informações sobre o usuário do Twitter.
+Para que seu aplicativo lógico execute etapas somente quando os dados atendem a critérios específicos, você pode adicionar uma condição que compara dados no fluxo de trabalho em valores ou campos específicos.
 
-    ![Obter Usuário](media/logic-apps-use-logic-app-features/getuser.png)
+Por exemplo, suponha que você tem um aplicativo lógico que envia muitos emails para postagens no feed RSS de um site. Você pode adicionar uma condição para que seu aplicativo lógico envie emails somente quando a nova postagem pertencer a uma categoria específica.
 
-0. Escolha **Nova etapa** (+) > **Adicionar uma condição**.
-0. Para filtrar o número de seguidores que os usuários têm, em **Nome do objeto**, escolha **Adicionar conteúdo dinâmico**. 
-0.    Na caixa de pesquisa, localize e adicione o campo **Contagem de seguidores**.
-0. Em **Relação**, selecione **é maior que**.
-0. Na caixa **Valor**, digite o número de seguidores que você deseja que os usuários tenham.
+1. No [Portal do Azure](https://portal.azure.com), encontre e abra seu aplicativo lógico no Designer de Aplicativo Lógico.
 
-    ![Condicional](media/logic-apps-use-logic-app-features/conditional.png)
+2. Adicione uma condição para a localização do fluxo de trabalho desejado. 
 
-0. Por fim, arraste e solte a caixa **Enviar email** na caixa **Se Sim**. 
+   Para adicionar a condição entre etapas existentes no fluxo de trabalho do aplicativo lógico, mova o ponteiro sobre a seta em que deseja adicionar a condição. 
+   Escolha o **sinal de adição** (**+**), em seguida, escolha **Adicionar uma condição**. Por exemplo:
 
-Agora você recebe emails somente quando a contagem de seguidores atende à condição estabelecida por você.
+   ![Adicionar condição ao aplicativo lógico](./media/logic-apps-use-logic-app-features/add-condition.png)
+
+   > [!NOTE]
+   > Se você quiser adicionar uma condição no final do fluxo de trabalho atual, vá até o final do seu aplicativo lógico e escolha **+ Nova etapa**.
+
+3. Agora defina a condição. Especifique o campo de origem que você deseja avaliar, a operação a ser executada e o valor ou campo de destino. Para adicionar campos existentes à sua condição, escolha na **lista Adicionar conteúdo dinâmico**.
+
+   Por exemplo:
+
+   ![Editar condição no modo básico](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode.png)
+
+   Aqui está a condição completa:
+
+   ![Condição completa](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode-2.png)
+
+   > [!TIP]
+   > Para definir a condição no código, escolha **Editar no modo avançado**. Por exemplo:
+   > 
+   > ![Editar condição no código](./media/logic-apps-use-logic-app-features/edit-condition-advanced-mode.png)
+
+4. Em **SE SIM** e **SE NÃO**, adicione as etapas a serem executadas com base em se a condição é atendida.
+
+   Por exemplo:
+
+   ![Condição com caminhos SIM e NÃO](./media/logic-apps-use-logic-app-features/condition-yes-no-path.png)
+
+   > [!TIP]
+   > Você pode arrastar ações existentes para os caminhos **SE SIM** e **SE NÃO**.
+
+5. Quando terminar, salve o aplicativo lógico.
+
+Agora você recebe emails somente quando as postagens atendem à sua condição.
 
 ## <a name="repeat-actions-over-a-list-with-foreach"></a>Repita ações em uma lista com forEach
 
@@ -83,31 +102,31 @@ Embora você tenha o Designer de Aplicativos Lógicos, você pode editar diretam
 
 2. Para salvar suas edições, escolha **Salvar**.
 
-### <a name="parameters"></a>Parâmetros
+## <a name="parameters"></a>Parâmetros
 
 Alguns recursos de aplicativos lógicos como parâmetros estão disponíveis apenas na exibição de código. Parâmetros facilitam a reutilização valores ao longo do seu aplicativo lógico. Por exemplo, se você tiver um endereço de email que deseje usar em várias ações, deverá defini-lo como um parâmetro.
 
-Os parâmetros são uma boa maneira de recuperar valores que você provavelmente alterará várias vezes. Eles são especialmente úteis quando você precisa substituir parâmetros em ambientes diferentes. Para saber como substituir parâmetros com base no ambiente, consulte a [Documentação da API REST](https://docs.microsoft.com/rest/api/logic).
+Os parâmetros são uma boa maneira de recuperar valores que você provavelmente alterará várias vezes. Eles são especialmente úteis quando você precisa substituir parâmetros em ambientes diferentes. Para saber como substituir parâmetros com base no ambiente, consulte [Criar definições de aplicativo lógico](../logic-apps/logic-apps-author-definitions.md) e a [Documentação da API REST](https://docs.microsoft.com/rest/api/logic).
 
 Este exemplo mostra como atualizar seu aplicativo lógico existente para que você possa usar parâmetros para o termo de consulta.
 
-1. No modo de exibição de código, localize o objeto `parameters : {}` e adicione um objeto de tópico:
+1. Na exibição de código, localize o objeto `parameters : {}` e adicione um objeto `currentFeedUrl`:
 
-        "topic" : {
+        "currentFeedUrl" : {
             "type" : "string",
-            "defaultValue" : "MicrosoftAzure"
+            "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
         }
 
-2. Vá para a ação `twitterconnector`, localize o valor de consulta e substitua esse valor por `#@{parameters('topic')}`. 
+2. Vá para a ação `When_a_feed-item_is_published`, localize a seção `queries` e substitua o valor da consulta por: `"feedUrl": "#@{parameters('currentFeedUrl')}"` 
 
     Para unir duas ou mais cadeias de caracteres, você também pode usar a função `concat`. 
-    Por exemplo, `@concat('#',parameters('topic'))` funciona como demonstrado acima.
+    Por exemplo, `"@concat('#',parameters('currentFeedUrl'))"` funciona como demonstrado acima.
 
-3.    Quando terminar, escolha **Salvar**. 
+3.  Quando terminar, escolha **Salvar**. 
 
-    Agora, a cada hora, você receberá os novos tweets com mais de cinco retweets entregues em uma pasta chamada **tweets** em seu Dropbox.
+    Agora você pode alterar o feed RSS do site passando uma URL diferente pelo objeto `currentFeedURL`.
 
-Para saber mais sobre as definições de aplicativos lógicos, consulte [Criar definições de aplicativos lógicos](../logic-apps/logic-apps-author-definitions.md).
+Saiba mais sobre [como criar definições de aplicativo lógico](../logic-apps/logic-apps-author-definitions.md).
 
 ## <a name="start-logic-app-workflows"></a>Iniciar fluxos de trabalho de aplicativo lógico
 
@@ -124,3 +143,8 @@ Para iniciar um fluxo de trabalho, os serviços podem chamar um ponto de extremi
 <!-- Shared links -->
 [Portal do Azure]: https://portal.azure.com
 
+## <a name="next-steps"></a>Próximas etapas
+
+* [Instruções switch](../logic-apps/logic-apps-switch-case.md) 
+* [Loops, escopos e debatching](../logic-apps/logic-apps-loops-and-scopes.md)
+* [Criar definições de aplicativo lógico](../logic-apps/logic-apps-author-definitions.md)

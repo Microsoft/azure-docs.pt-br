@@ -13,13 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 09/07/2016
+ms.date: 05/01/2017
 ms.author: liamca
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a90d7d90a6f3a75e230d32fb02b5ae69909d3c31
-
-
+ms.openlocfilehash: d576fd7bb267ae7a100589413185b595e3b2be42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Como modelar os tipos de dados complexos no Azure Search
 Os conjuntos de dados externos usados para preencher um índice do Azure Search, às vezes, incluem subestruturas hierárquicas ou aninhadas que não se dividem de modo organizado em um conjunto de linhas da tabela. Os exemplos dessas estruturas podem incluir vários locais e números de telefone para um único cliente, vários tamanhos e cores para um único SKU, vários autores de um único livro e assim por diante. Em termos de modelagem, você pode ver essas estruturas referidas como *tipos de dados complexos*, *tipos de dados compostos*, *tipos de dados combinados* ou *tipos de dados de agregação*, para citar alguns.
@@ -27,7 +27,7 @@ Os conjuntos de dados externos usados para preencher um índice do Azure Search,
 Os tipos de dados complexos não são suportados nativamente no Azure Search, mas uma solução comprovada inclui um processo de duas etapas de nivelamento da estrutura e uso de um tipo de dados **Coleção** para reconstituir a estrutura interna. Seguir a técnica descrita neste artigo permite que o conteúdo seja pesquisado, lapidado, filtrado e classificado.
 
 ## <a name="example-of-a-complex-data-structure"></a>Exemplo de uma estrutura de dados complexos
-Normalmente, os dados em questão residem como um conjunto de documentos XML ou JSON, ou como itens em um armazenamento NoSQL, como o DocumentDB. Estruturalmente, o desafio é ter vários itens-filho que precisam ser pesquisados e filtrados.  Como ponto de partida para ilustrar a solução alternativa, veja o seguinte documento JSON que lista um conjunto de contatos como um exemplo:
+Normalmente, os dados em questão residem como um conjunto de documentos JSON ou XML, ou como itens em um repositório NoSQL, como o Azure Cosmos DB. Estruturalmente, o desafio é ter vários itens-filho que precisam ser pesquisados e filtrados.  Como ponto de partida para ilustrar a solução alternativa, veja o seguinte documento JSON que lista um conjunto de contatos como um exemplo:
 
 ~~~~~
 [
@@ -136,11 +136,5 @@ Essa técnica é útil para vários cenários, mas ela não é aplicável em tod
 Você pode ver um exemplo sobre como indexar um conjunto de dados JSON complexo no Azure Search e executar várias consultas nesse conjunto de dados no [repositório GitHub](https://github.com/liamca/AzureSearchComplexTypes).
 
 ## <a name="next-step"></a>Próxima etapa
-[Escolha o suporte nativo para os tipos de dados complexos](https://feedback.azure.com/forums/263029-azure-search) na página UserVoice do Azure Search e forneça qualquer entrada adicional que você gostaria de considerar em relação à implementação do recurso. Você também pode me acessar diretamente no Twitter em @liamca.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Escolha o suporte nativo para os tipos de dados complexos](https://feedback.azure.com/forums/263029-azure-search) na página UserVoice do Azure Search e forneça qualquer entrada adicional que você gostaria de considerar em relação à implementação do recurso. Você também pode me contatar diretamente no Twitter em @liamca.
 

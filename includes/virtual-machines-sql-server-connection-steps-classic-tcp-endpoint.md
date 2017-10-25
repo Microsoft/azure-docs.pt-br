@@ -17,8 +17,3 @@ Para acessar o SQL Server da Internet, a máquina virtual deve ter um ponto de e
 7. Para **Porta privada**, especifique a porta de escuta do SQL Server, cujo valor padrão é **1433**.
 8. Clique em **OK** para criar o ponto de extremidade.
 
-
-
-<!--HONumber=Jan17_HO2-->
-
-

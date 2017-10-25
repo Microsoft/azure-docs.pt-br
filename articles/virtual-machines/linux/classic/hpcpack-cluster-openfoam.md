@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: a779dd05623e84250d5595311d7d87d83f1298ad
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: ef124a8983fa112d499252460bff9ed2fcccc02b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Executar o OpenFoam com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure
 Este artigo mostra uma maneira de executar OpenFoam em máquinas virtuais do Azure. Aqui, você implanta um cluster do Microsoft HPC Pack com nós de computação do Linux no Azure e executa um trabalho [OpenFoam](http://openfoam.com/) com Intel MPI. Você pode usar VMs do Azure compatíveis com RDMA para os nós de computação, para que eles se comuniquem pela rede RDMA do Azure. Outras opções para executar o OpenFoam no Azure incluem imagens comerciais totalmente configuradas disponíveis no Marketplace, como [OpenFoam 2.3 no CentOS 6](https://azure.microsoft.com/marketplace/partners/ubercloud/openfoam-v2dot3-centos-v6/) da UberCloud e executando no [Lote do Azure](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 
@@ -41,7 +40,7 @@ O Microsoft HPC Pack fornece recursos para executar aplicativos de HPC e paralel
   
   **Informações adicionais importantes**
   
-  * Para obter os pré-requisitos de rede RDMA do Linux no Azure, consulte [Sobre VMs série H ou série A com computação intensiva](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  * Para pré-requisitos de rede RDMA Linux no Azure, consulte [Tamanhos de VM de computação de alto desempenho](../../windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   * Se você usar a opção de implantação de script do Powershell, implante todos os nós de computação Linux em um serviço de nuvem para usar a conexão de rede RDMA.
   * Depois de implantar os nós do Linux, conecte-se via SSH para executar tarefas administrativas adicionais. Encontre os detalhes da conexão SSH para cada VM do Linux no portal do Azure.  
 * **Intel MPI** – Para executar o OpenFOAM em nós de computação SLES 12 HPC no Azure, é necessário instalar o tempo de execução do Intel MPI Library 5 no site [Intel.com](https://software.intel.com/en-us/intel-mpi-library/). (O Intel MPI 5 está pré-instalado em imagens do HPC baseado em CentOS.)  Em uma etapa posterior, se necessário, instale o Intel MPI em seus nós de computação do Linux. Para se preparar para essa etapa, depois de se registrar na Intel, siga o link no email de confirmação para a página da Web relacionada. Em seguida, copie o link de download do arquivo .tgz para a versão apropriada do Intel MPI. Este artigo se baseia no Intel MPI versão 5.0.3.048.
@@ -62,7 +61,7 @@ Executar um trabalho de nós cruzados em vários nós do Linux requer que os nó
    ```
    
    > [!NOTE]
-   > Pressione **Enter** para usar as configurações padrão até que o comando seja concluído. Não insira uma senha aqui. Quando for solicitada uma senha, basta pressionar **Enter**.
+   > Pressione **Enter** para usar as configurações padrão até que o comando seja concluído. Não insira uma frase secreta aqui. Quando for solicitada uma senha, basta pressionar **Enter**.
    > 
    > 
    
@@ -603,4 +602,3 @@ exit ${RTNSTS}
 [isosurface]:media/hpcpack-cluster-openfoam/isosurface.png
 [isosurface_color]:media/hpcpack-cluster-openfoam/isosurface_color.png
 [linux_processes]:media/hpcpack-cluster-openfoam/linux_processes.png
-

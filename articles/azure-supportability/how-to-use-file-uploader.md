@@ -8,18 +8,18 @@ manager: mbaldwin
 editor: 
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
-ms.service: billing
+ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 06/13/2017
 ms.author: genli
-translationtype: Human Translation
-ms.sourcegitcommit: 3188a6acfe0755d8375322af79631f0cf47b764a
-ms.openlocfilehash: 7676e3100eefca2e75f669d5f105dee30322a1a3
-
-
+ms.openlocfilehash: ba6dafd8d890d88478a5e3213dd023921908f4bf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Diretrizes do utilitário Carregamento de Arquivo para solicitar um novo suporte do Microsoft Azure
 Quando você [criar uma solicitação de suporte](https://portal.azure.com/#create/Microsoft.Support), o utilitário Carregar Arquivo poderá ajudá-lo a carregar facilmente os arquivos de diagnóstico ou quaisquer outros arquivos que considere relevantes para o incidente.  
@@ -67,9 +67,3 @@ Quando você usar o utilitário Carregamento de Arquivo, siga estas diretrizes:
 | -            | -      | -            | -      | -         | .wtl       | .zit    |
 | -            | -      | -            | -      | -         |     -       | .zix    |
 | -            | -      | -            | -      | -         |  -          | .zzz    |
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

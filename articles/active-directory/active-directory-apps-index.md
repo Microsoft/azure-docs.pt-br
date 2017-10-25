@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 07/31/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 6017fa3fe2134452bf24d2fc54c8f82b08862dbb
-ms.lasthandoff: 03/18/2017
-
-
+ms.reviewer: asteen
+ms.openlocfilehash: e3cc6bddd67b70f603d5c0d26af6563ae207e3db
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Índice de artigos sobre gerenciamento de aplicativos no Active Directory do Azure
 Esta página fornece uma lista abrangente com todos os documentos escritos sobre os vários recursos relacionados ao aplicativo no Active Directory do Azure (AD do Azure).
@@ -43,7 +43,7 @@ Esta seção fornece acesso rápido às guias de solução de problemas relevant
 | Logon único federado |[Solução de problemas de logon único baseado em SAML](active-directory-saml-debugging.md) |
 | Logon único baseado em senha |[Solucionando problemas da extensão do painel de acesso para o Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 | Proxy de Aplicativo |[Guia de solução de problemas de Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md) |
-| Logon único entre o AD local e o AD do Azure |[Solução de problemas de sincronização de senha](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization)<br /><br />[Solucionar problemas de write-back de senha](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Logon único entre o AD local e o AD do Azure |[Solução de problemas de sincronização de senha](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization)<br /><br />[Solucionar problemas de write-back de senha](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Associações de grupo dinâmico |[Solucionar problemas de associações a grupos dinâmicos](active-directory-accessmanagement-troubleshooting.md) |
 
 ## <a name="single-sign-on-sso"></a>SSO (Logon único)
@@ -109,7 +109,9 @@ Depois de configurar o logon único em seus aplicativos e recursos, aplique uma 
 |:---:| --- |
 | Uma introdução aos recursos de acesso condicional oferecidos no AD do Azure, no Office365 e no Intune |[Gerenciamento de riscos com acesso condicional](active-directory-conditional-access.md) |
 | Como habilitar o acesso condicional aos seguintes tipos de recursos |[Acesso condicional para aplicativos SaaS](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Acesso condicional para serviços do Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Acesso condicional para aplicativos locais](active-directory-conditional-access.md)<br /><br />[Acesso condicional para aplicativos locais publicados por meio do Proxy de Aplicativo do Azure AD](active-directory-application-proxy-conditional-access.md) |
-| Como registrar dispositivos com o Active Directory do Azure a fim de habilitar políticas de acesso condicional baseadas no dispositivo |[Visão geral do registro de dispositivos do Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Como habilitar o registro de dispositivo automático para dispositivos Windows ingressados no domínio](active-directory-conditional-access-automatic-device-registration.md)<br />— [Etapas para dispositivos com Windows 8.1](active-directory-device-registration.md#configure-automatic-device-registration-for-windows-7-and-windows-81-domain-joined-devices)<br />— [Etapas para dispositivos com Windows 7](active-directory-device-registration.md#configure-automatic-device-registration-for-windows-7-and-windows-81-domain-joined-devices) |
+
+| Como registrar dispositivos com o Active Directory do Azure a fim de habilitar políticas de acesso condicional baseadas no dispositivo |[Visão geral do registro de dispositivos do Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Como habilitar o registro de dispositivo automático para dispositivos Windows ingressados no domínio](active-directory-conditional-access-automatic-device-registration.md)<br />— [Etapas para dispositivos com Windows 8.1](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Etapas para dispositivos com Windows 7](active-directory-conditional-access-automatic-device-registration-setup.md) |
+
 | Como usar o aplicativo Microsoft Authenticator para verificação em duas etapas |[Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
 
 O Acesso Condicional é um recurso do [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
@@ -136,7 +138,7 @@ Automatize a criação, a manutenção e a remoção de identidades de usuário 
 | Saiba mais sobre como isso funciona e encontre respostas para perguntas comuns |[Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS](active-directory-saas-app-provisioning.md) |
 | Configurar como as informações são mapeadas entre o AD do Azure e seu aplicativo SaaS |[Personalizando mapeamentos de atributo](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Escrevendo expressões para mapeamentos de atributo](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | Como habilitar o provisionamento automatizado para qualquer aplicativo que ofereça suporte ao protocolo SCIM |[Configurar o provisionamento automatizado de usuário para qualquer aplicativo habilitado para SCIM](active-directory-scim-provisioning.md) |
-| Receba notificações sobre falhas de provisionamento |[Notificações de provisionamento](active-directory-saas-account-provisioning-notifications.md) |
+| Como relatar e solucionar problemas de provisionamento do usuário |[Relatórios sobre o provisionamento automático de usuário](active-directory-saas-provisioning-reporting.md)<br><br>[Notificações de provisionamento](active-directory-saas-account-provisioning-notifications.md)<br><br>[Solução de problemas de provisionamento do usuário](active-directory-application-provisioning-content-map.md) |
 | Limitar quem recebe provisionamento para um aplicativo com base em seus valores de atributo |[Filtro de escopo](active-directory-saas-scoping-filters.md) |
 
 O provisionamento automatizado de usuário está disponível para todas as edições do AD do Azure para até dez aplicativos por usuário. [AD do Azure Premium](https://azure.microsoft.com/pricing/details/active-directory/) oferece suporte a uma quantidade ilimitada de aplicativos. Se sua organização tiver o [Azure AD Básico](https://azure.microsoft.com/pricing/details/active-directory/) ou o [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), você poderá [usar grupos para gerenciar quais usuários recebem o provisionamento](#managing-access-to-applications).
@@ -166,16 +168,16 @@ Para ajudar você a gerenciar quem deve ter acesso a quais recursos, o Active Di
 O gerenciamento de acesso de aplicativo baseado em grupo está disponível para o [Azure AD Básico](https://azure.microsoft.com/pricing/details/active-directory/) e o [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). O gerenciamento de grupo de autoatendimento, o gerenciamento de aplicativos de autoatendimento e os grupos dinâmicos são recursos do [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
 
 ### <a name="b2b-collaboration-enable-partner-access-to-applications"></a>Colaboração B2B: habilitar acesso de parceiros a aplicativos
-Se sua empresa tiver parcerias com outras empresas, provavelmente você precise gerenciar o acesso dos parceiros aos seus aplicativos corporativos. A Colaboração B2B do Active Directory do Azure fornece uma maneira fácil e segura de compartilhar seus aplicativos com parceiros. Esse recurso está atualmente na visualização.
+Se sua empresa tiver parcerias com outras empresas, provavelmente você precise gerenciar o acesso dos parceiros aos seus aplicativos corporativos. A Colaboração B2B do Active Directory do Azure fornece uma maneira fácil e segura de compartilhar seus aplicativos com parceiros.
 
 | Guia de artigos |  |
 |:---:| --- |
 | Uma visão geral de diferentes recursos do AD do Azure que podem ajudar você a gerenciar usuários externos, como parceiros, clientes etc. |[Comparando recursos de gerenciamento de identidades externas no AD do Azure](active-directory-b2b-compare-external-identities.md) |
-| Uma introdução à versão de visualização da Colaboração B2B e como começar a usá-la |[Integração de parceiros de nuvem simples e segura com o Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Colaboração B2B do Azure Active Directory](active-directory-b2b-collaboration-overview.md) |
-| Um aprofundamento na Colaboração B2B do AD do Azure e como usá-la |[Colaboração B2B: como funciona](active-directory-b2b-how-it-works.md)<br /><br />[Limitações atuais da Visualização da colaboração B2B do Azure AD](active-directory-b2b-current-preview-limitations.md)<br /><br />[Passo a passo de como usar a versão de visualização da Colaboração B2B do Azure AD](active-directory-b2b-detailed-walkthrough.md) |
+| Uma introdução à Colaboração B2B e como começar a usá-la |[Integração de parceiros de nuvem simples e segura com o Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Colaboração B2B do Azure Active Directory](active-directory-b2b-collaboration-overview.md) |
+| Um aprofundamento na Colaboração B2B do AD do Azure e como usá-la |[Colaboração B2B: como funciona](active-directory-b2b-how-it-works.md)<br /><br />[Limitações atuais da Colaboração B2B do Azure AD](active-directory-b2b-current-limitations.md)<br /><br />[Passo a passo detalhado do uso da Colaboração B2B do Azure AD](active-directory-b2b-detailed-walkthrough.md) |
 | Artigos de referência com detalhes técnicos sobre o funcionamento da Colaboração B2B do AD do Azure |[Formato de arquivo CSV para adicionar usuários do parceiro](active-directory-b2b-references-csv-file-format.md)<br /><br />[Atributos de usuário afetados pela colaboração B2B do Azure AD](active-directory-b2b-references-external-user-object-attribute-changes.md)<br /><br />[Formato de token de usuário para usuários parceiros](active-directory-b2b-references-external-user-token-format.md) |
 
-A versão de visualização da Colaboração B2B está disponível atualmente para [todas as edições do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+A Colaboração B2B está disponível atualmente para [todas as edições do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ### <a name="access-panel-a-portal-for-accessing-apps-and-self-service-features"></a>Painel de acesso: um portal para acessar aplicativos e recursos de autoatendimento
 O Painel de acesso do AD do Azure é o local onde os usuários finais podem iniciar seus aplicativos e acessar os recursos de autoatendimento que permitem o gerenciamento de seus aplicativos e associações de grupo. Além do Painel de acesso, há outras opções para acessar aplicativos habilitados para SSO incluídas na lista abaixo.
@@ -200,9 +202,9 @@ O Active Directory do Azure fornece vários relatórios e alertas para ajudar vo
 | Controlar as alterações feitas com relação a quem pode acessar um aplicativo específico |[Eventos de relatório de auditoria do Active Directory do Azure](active-directory-reporting-audit-events.md) |
 | Exportar os dados desses relatórios para suas ferramentas preferenciais usando a API de Relatório |[Introdução à API de Relatório do AD do Azure](active-directory-reporting-api-getting-started.md) |
 
-Para ver quais relatórios estão incluídos em edições diferentes do Azure Active Directory, [clique aqui](active-directory-view-access-usage-reports.md#report-editions).
+Para ver quais relatórios estão incluídos em edições diferentes do Azure Active Directory, [clique aqui](active-directory-view-access-usage-reports.md).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 [O que é o Active Directory do Azure?](active-directory-whatis.md)
 
 [Active Directory B2C do Azure](https://azure.microsoft.com/services/active-directory-b2c/)
@@ -210,4 +212,3 @@ Para ver quais relatórios estão incluídos em edições diferentes do Azure Ac
 [Serviços de Domínio do Active Directory do Azure](https://azure.microsoft.com/services/active-directory-ds/)
 
 [Autenticação Multifator do Azure](https://azure.microsoft.com/services/multi-factor-authentication/)
-

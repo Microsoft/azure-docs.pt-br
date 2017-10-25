@@ -1,5 +1,5 @@
 ---
-title: "Exibir todos os aplicativos empresariais que posso gerenciar na visualização do Azure Active Directory | Microsoft Docs"
+title: Exibir todos os aplicativos empresariais que posso gerenciar no Azure Active Directory | Microsoft Docs
 description: "Como ver uma lista dos aplicativos empresariais que você tem permissão para gerenciar no Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -12,16 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 08/28/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 33b036537211e3bdeacba7f388aca334404385cb
-
-
+ms.reviewer: asteen
+ms.custom: it-pro
+ms.openlocfilehash: 13a45733b3b8d9ea0593e3b546b6ea58aa5f1a46
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory-preview"></a>Exibir todos os aplicativos empresariais que posso gerenciar na visualização do Azure Active Directory
-Você pode gerenciar seus aplicativos empresariais na visualização do Azure AD (Azure Active Directory). [O que há na visualização?](active-directory-preview-explainer.md)  Isso inclui exibir os aplicativos que você pode gerenciar, atribuir usuários ou grupos a um aplicativo, manter propriedades para o aplicativo, como o nome/logotipo do aplicativo e, até mesmo, desabilitar um aplicativo para que nenhum usuário possa entrar nele.
+# <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory"></a>Exibir todos os aplicativos empresariais que posso gerenciar no Azure Active Directory
+Você pode gerenciar seus aplicativos empresariais no Azure AD (Azure Active Directory). Isso inclui exibir os aplicativos que você pode gerenciar, atribuir usuários ou grupos a um aplicativo, manter propriedades para o aplicativo, como o nome/logotipo do aplicativo e, até mesmo, desabilitar um aplicativo para que nenhum usuário possa entrar nele.
 
 ## <a name="how-do-i-view-all-my-apps"></a>Como exibo todos os meus aplicativos?
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
@@ -36,9 +38,3 @@ Você pode gerenciar seus aplicativos empresariais na visualização do Azure AD
 * [Remover uma atribuição de usuário ou de grupo de um aplicativo empresarial](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Desabilitar as entradas de usuário em um aplicativo empresarial](active-directory-coreapps-disable-app-azure-portal.md)
 * [Alterar o nome ou logotipo de um aplicativo empresarial](active-directory-coreapps-change-app-logo-user-azure-portal.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

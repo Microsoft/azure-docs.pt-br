@@ -6,6 +6,10 @@
 ## [Adicionar caching para melhorar o desempenho](api-management-howto-cache.md)
 ## [Perguntas frequentes](api-management-faq.md)
 # Como
+## Configurar um serviço APIM
+### [Criar uma instância APIM](get-started-create-service-instance.md)
+### [Atualizar e dimensionar](upgrade-and-scale.md)
+### [Configurar um domínio personalizado](configure-custom-domain.md)
 ## Desenvolver APIs
 ### [Adicionar e publicar um Produto de API](api-management-howto-add-products.md)
 ### [Adicionar operações](api-management-howto-add-operations.md)
@@ -45,8 +49,13 @@
 ### [Gerenciar usando automação](automation-manage-api-management.md)
 ### [Configurar usando Git](api-management-configuration-repository-git.md)
 ### [Monitorar usando o Azure Monitor](api-management-howto-use-azure-monitor.md)
+### [Usar controle de acesso baseado em função](api-management-role-based-access-control.md)
+### Integrar com o Service Fabric
+#### [Visão geral](../service-fabric/service-fabric-api-management-overview.md)
+#### [Início rápido](../service-fabric/service-fabric-api-management-quick-start.md)
+
 # Referência
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell do Azure](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (original)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [Políticas](api-management-policies.md)
@@ -71,18 +80,20 @@
 ### [Controles de página](api-management-page-controls.md)
 ### [Recursos de modelo](api-management-template-resources.md)
 # Recursos
-## [Preços](https://azure.microsoft.com/pricing/details/api-management/)
-## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
-## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
-## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=api-management)
-## [White paper: gerenciamento de API baseado em nuvem](http://j.mp/ms-apim-whitepaper)
 ## [Diretrizes de design de API](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
 ## [Diretrizes para implementação de API](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
-## [Consumir serviços WCF SOAP por HTTP](http://mostlydotnetdev.blogspot.nl/2015/03/azure-api-management-apim-consuming.html)
-## [Conectando Hubs de Eventos ao Gerenciamento de API](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
 ## [Gerenciamento de API – funciona bem com outros serviços do Azure](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
-## [Fornecer acesso tipo RBAC usando a API REST](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
-## [Configurar PostMan para chamar APIs de Gerenciamento de API](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
 ## [Plug-in de Gerenciamento de API para SmartBear Ready! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
+## [Conectando Hubs de Eventos ao Gerenciamento de API](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
+## [Consumir serviços WCF SOAP por HTTP](http://mostlydotnetdev.blogspot.nl/2015/03/azure-api-management-apim-consuming.html)
+## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
+## [Preços](https://azure.microsoft.com/pricing/details/api-management/)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
+## [Fornecer acesso tipo RBAC usando a API REST](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
+## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=api-management)
+## [Configurar PostMan para chamar APIs de Gerenciamento de API](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
+## [White paper: gerenciamento de API baseado em nuvem](http://j.mp/ms-apim-whitepaper)
 

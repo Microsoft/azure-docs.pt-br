@@ -13,27 +13,30 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 09/15/2017
 ms.author: corywink
-translationtype: Human Translation
-ms.sourcegitcommit: 4c2de5227388a1f23af84048a83564816ae329bd
-ms.openlocfilehash: 6f7e787f18a9ffa77430c86931196c638f000cc8
-ms.lasthandoff: 02/27/2017
-
-
+ms.openlocfilehash: 110085f8a4ef0b22b1b4982615eabc29487f9413
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-a-preconfigured-solution"></a>Personalizar uma solução pré-configurada
+
 As soluções pré-configuradas fornecidas com o Pacote IoT do Azure demonstram os serviços no pacote trabalhando juntos para fornecer uma solução de ponta a ponta. Do ponto de partida, há diversos lugares nos quais você pode estender e personalizar a solução para cenários específicos. As seções a seguir descrevem esses pontos comuns de personalização.
 
 ## <a name="find-the-source-code"></a>Localizar o código-fonte
+
 O código-fonte para a solução pré-configurada está disponível no GitHub nos seguintes repositórios:
 
 * Monitoramento remoto: [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
 * Manutenção preditiva: [https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
+* Fábrica conectada: [https://github.com/Azure/azure-iot-connected-factory](https://github.com/Azure/azure-iot-connected-factory)
 
 O código-fonte para as soluções pré-configuradas é fornecido para demonstrar os padrões e as práticas usadas para implementar a funcionalidade de ponta a ponta de uma solução IoT usando o Azure IoT Suite. Você pode encontrar mais informações sobre como compilar e implantar as soluções em repositórios GitHub.
 
 ## <a name="change-the-preconfigured-rules"></a>Alterar as regras pré-configuradas
+
 A solução de monitoramento remoto inclui três trabalhos do [Stream Analytics do Azure](https://azure.microsoft.com/services/stream-analytics/) para lidar com informações do dispositivo, telemetria e lógica de regras na solução.
 
 Os três trabalhos de Stream Analytics e sua sintaxe são descritos em detalhes na [Passo a passo da solução pré-configurada de monitoramento remoto](iot-suite-remote-monitoring-sample-walkthrough.md). 
@@ -51,26 +54,29 @@ Você pode editar esses trabalhos diretamente para alterar a lógica ou adiciona
 
 > [!NOTE]
 > O painel de monitoramento remoto depende de dados específicos, por isso, alterar os trabalhos pode fazer com que o painel falhe.
-> 
-> 
 
 ## <a name="add-your-own-rules"></a>Adicionar suas próprias regras
+
 Além de alterar os trabalhos de Stream Analytics do Azure, você pode usar o portal do Azure para adicionar novos trabalhos ou adicionar novas consultas para trabalhos existentes.
 
 ## <a name="customize-devices"></a>Personalizar dispositivos
+
 Uma das atividades mais comuns de extensão é o trabalho com dispositivos específicos ao seu cenário. Há vários métodos para trabalhar com dispositivos. Esses métodos incluem alterar um dispositivo simulado de acordo com seu cenário ou usar o [SDK de Dispositivo IoT][IoT Device SDK] para conectar seu dispositivo físico à solução.
 
 Para obter um guia passo a passo para adicionar dispositivos, consulte o artigo [Dispositivos de Conexão do Iot Suite](iot-suite-connecting-devices.md) e o [Exemplo de SDK para o monitoramento remoto em C](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring). Este exemplo é projetado para trabalhar com a solução pré-configurada de monitoramento remoto.
 
 ### <a name="create-your-own-simulated-device"></a>Criar seu próprio dispositivo simulado
+
 Incluído no [código-fonte da solução de monitoramento remota](https://github.com/Azure/azure-iot-remote-monitoring), é um simulador de .NET. Esse simulador é provisionado como parte da solução e pode ser alterado para enviar metadados diferentes, telemetria, e responder a comandos e métodos diferentes.
 
 O simulador pré-configurado na solução pré-configurada de monitoramento remoto simula um dispositivo mais frio que emite a temperatura e a telemetria da umidade. Você pode modificar o simulador no projeto [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) quando tiver dividido o repositório GitHub.
 
 ### <a name="available-locations-for-simulated-devices"></a>Locais disponíveis para dispositivos simulados
+
 O conjunto padrão de locais fica em Seattle/Redmond, Washington, Estados Unidos. É possível alterar esses locais em [SampleDeviceFactory.cs][lnk-sample-device-factory].
 
 ### <a name="add-a-desired-property-update-handler-to-the-simulator"></a>Adicionar um manipulador de atualização da propriedade desejada ao simulador
+
 Você pode definir um valor para uma propriedade desejada para um dispositivo no portal de solução. É responsabilidade do dispositivo lidar com a solicitação de alteração da propriedade quando o dispositivo recupera o valor da propriedade desejada. Para adicionar suporte para uma alteração de valor da propriedade por meio de uma propriedade desejada, você precisa adicionar um manipulador ao simulador.
 
 O simulador contém manipuladores para as propriedades **SetPointTemp** e **TelemetryInterval** que você pode atualizar definindo os valores desejados no portal da solução.
@@ -100,6 +106,7 @@ _desiredPropertyUpdateHandlers.Add(SetPointTempPropertyName, OnSetPointTempUpdat
 Observe que **SetPointTempPropertyName** é uma constante definida como "Config.SetPointTemp".
 
 ### <a name="add-support-for-a-new-method-to-the-simulator"></a>Adicionar o suporte de um novo método ao simulador
+
 Você pode personalizar o simulador para adicionar o suporte de um novo [método (método direto)][lnk-direct-methods]. Há duas etapas principais necessárias:
 
 - O simulador deve notificar o Hub IoT na solução pré-configurada com os detalhes do método.
@@ -118,7 +125,7 @@ Para notificar o Hub IoT que um dispositivo oferece suporte a um método, o disp
 
 A assinatura do método tem o seguinte formato: `<method name>--<parameter #0 name>-<parameter #1 type>-...-<parameter #n name>-<parameter #n type>`. Por exemplo, para especificar o método **InitiateFirmwareUpdate** que espera um parâmetro da cadeia de caracteres denominado **FwPackageURI**, use a assinatura do método a seguir:
 
-```
+```json
 InitiateFirmwareUpate--FwPackageURI-string: "description of method"
 ```
 
@@ -128,8 +135,6 @@ Para excluir um método, defina a assinatura do método para `null` nas propried
 
 > [!NOTE]
 > O back-end de solução só atualiza as informações sobre os métodos com suporte quando ele recebe uma mensagem de *informações do dispositivo* a partir do dispositivo.
-> 
-> 
 
 O exemplo de código a seguir da classe **SampleDeviceFactory** no projeto Common mostra como adicionar um método à lista de **SupportedMethods** nas propriedades relatadas enviadas pelo dispositivo:
 
@@ -206,19 +211,25 @@ O exemplo anterior de atualização do firmware executa as seguintes etapas:
 - retorna imediatamente a mensagem "FirmwareUpdate aceito" para indicar que a solicitação foi aceita pelo dispositivo.
 
 ### <a name="build-and-use-your-own-physical-device"></a>Compilar e usar seu próprio dispositivo (físico)
+
 Os [SDKs do Azure IoT](https://github.com/Azure/azure-iot-sdks) fornecem bibliotecas para conectar a vários tipos de dispositivo (linguagens e sistemas operacionais) em soluções de IoT.
 
 ## <a name="modify-dashboard-limits"></a>Modificar os limites do painel
+
 ### <a name="number-of-devices-displayed-in-dashboard-dropdown"></a>Número de dispositivos exibida na lista suspensa do painel
+
 O padrão é 200. É possível alterar esse número em [DashboardController.cs][lnk-dashboard-controller].
 
 ### <a name="number-of-pins-to-display-in-bing-map-control"></a>Número de marcações a serem exibidas no controle do Mapa do Bing
+
 O padrão é 200. É possível alterar esse número em [TelemetryApiController.cs][lnk-telemetry-api-controller-01].
 
 ### <a name="time-period-of-telemetry-graph"></a>Período do gráfico de telemetria
+
 O padrão é 10 minutos. É possível alterar esse valor em [TelmetryApiController.cs][lnk-telemetry-api-controller-02].
 
 ## <a name="manually-set-up-application-roles"></a>Configurar manualmente as funções do aplicativo
+
 O procedimento a seguir descreve como adicionar as funções de aplicativo **Admin** e **ReadOnly** a uma solução pré-configurada. Observe que as soluções pré-configuradas provisionadas no site azureiotsuite.com já incluem as funções **Admin** e **ReadOnly**.
 
 Membros da função **ReadOnly** podem ver o painel e a lista de dispositivos, mas não têm permissão para adicionar dispositivos, alterar os atributos do dispositivo ou enviar comandos.  Membros da função **Admin** têm acesso total a todos os recursos da solução.
@@ -231,13 +242,13 @@ Membros da função **ReadOnly** podem ver o painel e a lista de dispositivos, m
 6. Na parte inferior da página, clique em **Gerenciar Manifesto** e em **Baixar Manifesto**.
 7. Este procedimento baixa um arquivo .json para seu computador local. Abra esse arquivo para edição em um editor de texto de sua escolha.
 8. Na terceira linha do arquivo .json, você pode ver:
-   
-   ```
+
+   ```json
    "appRoles" : [],
    ```
    Substitua essa linha pelo código a seguir:
-   
-   ```
+
+   ```json
    "appRoles": [
    {
    "allowedMemberTypes": [
@@ -260,20 +271,24 @@ Membros da função **ReadOnly** podem ver o painel e a lista de dispositivos, m
    "value": "ReadOnly"
    } ],
    ```
+
 9. Salve o arquivo .json atualizado (você pode substituir o arquivo existente).
 10. No Portal Clássico do Azure, na parte inferior da página, selecione **Gerenciar Manifesto** e, em seguida, **Carregar Manifesto** para carregar o arquivo .json salvo na etapa anterior.
 11. Agora você adicionou as funções **Admin** e **ReadOnly** ao seu aplicativo.
 12. Para atribuir uma dessas funções a um usuário no diretório, consulte [Permissões no site azureiotsuite.com][lnk-permissions].
 
 ## <a name="feedback"></a>Comentários
+
 Há alguma personalização que você gostaria que fosse abordada neste documento? Adicione sugestões de recursos ao [User Voice](https://feedback.azure.com/forums/321918-azure-iot)ou faça comentários sobre este artigo. 
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Para saber mais sobre as opções para personalizar as soluções pré-configuradas, confira:
 
 * [Conectar um Aplicativo lógico à solução pré-configurada de monitoramento remoto do Azure IoT Suite][lnk-logicapp]
 * [Usar telemetria dinâmica com a solução pré-configurada de monitoramento remoto][lnk-dynamic]
 * [Metadados de informações de dispositivo na solução pré-configurada de monitoramento remoto][lnk-devinfo]
+* [Personalizar como a solução de fábrica conectada exibe dados de seus servidores de agente do usuário OPC][lnk-cf-customize]
 
 [lnk-logicapp]: iot-suite-logic-apps-tutorial.md
 [lnk-dynamic]: iot-suite-dynamic-telemetry.md
@@ -287,3 +302,4 @@ Para saber mais sobre as opções para personalizar as soluções pré-configura
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
+[lnk-cf-customize]: iot-suite-connected-factory-customize.md

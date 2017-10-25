@@ -12,28 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 2/14/2017
+ms.date: 10/06/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 3a02171d52b6d963a93a654d2506269e29f1be8e
-ms.lasthandoff: 03/18/2017
-
+ms.openlocfilehash: e4740c96383468713976e5a98881bec13b0c1921
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-a-configuration-server"></a>Gerenciar um Servidor de Configuração
 
 Servidor de configuração atua como um coordenador entre os serviços do Site Recovery e sua infraestrutura local. Este artigo descreve como você pode definir, configurar e gerenciar o servidor de configuração.
 
-## <a name="prerequisites"></a>Pré-requisitos
-A seguir está os mínimos de hardware, software e configuração de rede necessária para configurar um servidor de configuração.
-
 > [!NOTE]
 > [Planejamento de capacidade](site-recovery-capacity-planner.md) é uma etapa importante para garantir que você implantar o servidor de configuração com uma configuração que conjuntos de seus requisitos de carga. Leia mais sobre [requisitos para um servidor de configuração de dimensionamento](#sizing-requirements-for-a-configuration-server).
+
+
+## <a name="prerequisites"></a>Pré-requisitos
+A seguir está os mínimos de hardware, software e configuração de rede necessária para configurar um servidor de configuração.
+> [!IMPORTANT]
+> Ao implantar um Servidor de Configuração para proteger máquinas virtuais VMware, recomendamos que você implante-o como máquina virtual **altamente disponível (HA)**.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 ## <a name="downloading-the-configuration-server-software"></a>Baixar o software de servidor de configuração
+
 1. Faça logon no portal do Azure e navegue até seu Cofre de serviços de recuperação.
 2. Navegue até **Infraestrutura do Site Recovery** > **Servidores de Configuração** (sob Para Máquinas VMware e Físicas).
 
@@ -106,9 +109,20 @@ ProxyPassword="Password"
   >[!WARNING]
   Se você tiver anexados a este servidor de configuração de servidores de processo de expansão, você precisa [corrigir as configurações de proxy em todos os servidores de processo de expansão](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server) em sua implantação.
 
+## <a name="modify-user-accounts-and-passwords"></a>Modificar contas de usuário e senhas
+
+O CSPSConfigTool.exe é usado para gerenciar as contas de usuário usadas para **Descoberta automática de máquinas virtuais VMware** e para executar a **Instalação por push do Serviço de Mobilidade em computadores protegidos. 
+
+1. Faça logon no servidor de Configuração.
+2. Inicie o CSPSConfigtool.exe clicando no atalho disponível na área de trabalho.
+3. Clique na guia **Gerenciar contas**.
+4. Selecione a conta para a qual a senha precisa ser modificada e clique no botão **Editar**.
+5. Insira a nova senha e clique em **OK**
+
+
 ## <a name="re-register-a-configuration-server-with-the-same-recovery-services-vault"></a>Registrar novamente um Servidor de Configuração com o mesmo Cofre de Serviços de Recuperação
   1. Faça logon no Servidor de Configuração.
-  2. Inicie o cspsconfigtool.exe usando o atalho.
+  2. Inicie o cspsconfigtool.exe usando o atalho na sua área de trabalho.
   3. Clique na guia **Registro do Cofre**.
   4. Download de um novo arquivo de registro no portal e fornecê-la como entrada para a ferramenta.
         ![register-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-csonfiguration-server.png)
@@ -127,13 +141,17 @@ ProxyPassword="Password"
   Se você tiver anexados a este servidor de configuração de servidores de processo de expansão, você precisa [registrar novamente todos os servidores de processo de expansão](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server) em sua implantação.
 
 ## <a name="registering-a-configuration-server-with-a-different-recovery-services-vault"></a>Registrar um servidor de configuração com um cofre de serviços de recuperação diferente.
+
+> [!WARNING]
+> A etapa a seguir desassocia a Configuração do cofre atual e a replicação de todas as máquinas virtuais protegidas no servidor de Configuração é interrompida.
+
 1. Faça logon no Servidor de Configuração.
 2. em um prompt de comando de administrador, execute o comando
 
-```
-reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-net stop dra
-```
+    ```
+    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    net stop dra
+    ```
 3. Inicie o cspsconfigtool.exe usando o atalho.
 4. Clique na guia **Registro do Cofre**.
 5. Download de um novo arquivo de registro no portal e fornecê-la como entrada para a ferramenta.
@@ -149,11 +167,25 @@ net stop dra
     net start obengine
     ```
 
-## <a name="decommissioning-a-configuration-server"></a>Encerramento de um Servidor de Configuração
-Verifique o seguinte antes de iniciar, encerrar o servidor de configuração.
-1. Desabilite a proteção para todas as máquinas virtuais por este servidor de configuração.
-2. Desassocie todas as políticas de replicação do servidor de configuração.
-3. Exclua todos os servidores vCenter/hosts vSphere associados ao Servidor de Configuração.
+## <a name="upgrading-a-configuration-server"></a>Fazer upgrade de um Servidor de Configuração
+
+> [!WARNING]
+> Há suporte para atualizações somente até a versão N-4th. Por exemplo, se a versão mais recente no mercado for 9.11, em seguida, você pode atualizar da versão 9.10, 9.9, 9.8 ou 9.7 diretamente para 9.11. Porém, se você estiver em qualquer versão menor ou igual a 9.6, será preciso atualizar pelo menos para a 9.7 antes de poder aplicar as atualizações mais recentes no seu Servidor de Configuração. Links de download da versão anterior podem ser encontrados em [Azure Site Recovery service updates](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) (Atualizações de serviço do Azure Site Recovery)
+
+1. Baixe o instalador de atualização em seu Servidor de Configuração.
+2. Inicialize o instalador clicando duas vezes no instalador.
+3. O instalador detecta a versão dos componentes do Site Recovery presentes no computador e solicita uma confirmação. 
+4. Clique no botão Ok para fornecer a confirmação & continuar com a atualização.
+
+
+## <a name="delete-or-unregister-a-configuration-server"></a>Excluir ou cancelar o registro de um Servidor de Configuração
+
+> [!WARNING]
+> Verifique o seguinte antes de iniciar, encerrar o servidor de configuração.
+> 1. [Desabilitar a proteção](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) para todas as máquinas virtuais nesse Servidor de Configuração.
+> 2. [Desassociar](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) e [Excluir](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) todas as políticas de Replicação do Servidor de Configuração.
+> 3. [Excluir](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery) todos os servidores vCenters/hosts vSphere associados ao Servidor de Configuração.
+
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Excluir o servidor de configuração do portal do Azure
 1. No portal do Azure, navegue até **Infraestrutura do Site Recovery** > **Servidores de Configuração** no menu Cofre.
@@ -162,9 +194,6 @@ Verifique o seguinte antes de iniciar, encerrar o servidor de configuração.
 
   ![delete-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/delete-configuration-server.PNG)
 4. Clique em **Sim** para confirmar a exclusão do servidor.
-
-  >[!WARNING]
-  Se você tiver máquinas virtuais, políticas de replicação ou hosts de servidores/vSphere vCenter associados a este servidor de configuração, você não pode excluir o servidor. Exclua essas entidades antes de tentar excluir o cofre.
 
 ### <a name="uninstall-the-configuration-server-software-and-its-dependencies"></a>Desinstalar o software do servidor de configuração e suas dependências
   > [!TIP]
@@ -183,6 +212,31 @@ Verifique o seguinte antes de iniciar, encerrar o servidor de configuração.
   ```
   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
   ```
+
+## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Excluir ou cancelar o registro de um Servidor de Configuração (PowerShell)
+
+1. [Instalar](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) o módulo Azure PowerShell
+2. Faça logon na sua conta do Azure usando o comando
+    
+    `Login-AzureRmAccount`
+3. Selecione a assinatura sob a qual o cofre está presente
+
+     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+3.  Agora configure o contexto do cofre
+    
+    ```
+    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
+    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    ```
+4. Obtenha a seleção do servidor de configuração
+
+    `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+6. Excluir o Servidor de Configuração
+
+    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
+
+> [!NOTE]
+> A opção **-Force** em Remove-AzureRmSiteRecoveryFabric pode ser usada para forçar a remoção/exclusão do servidor de configuração.
 
 ## <a name="renew-configuration-server-secure-socket-layerssl-certificates"></a>Renovar certificados de configuração de servidor Secure Socket Layer(SSL)
 O servidor de configuração tem uma servidor Web embutida, que coordena as atividades dos servidores de destino mestre, servidores de processo e serviço de mobilidade conectados ao servidor de configuração. Servidor Web do servidor de configuração usa um certificado SSL para autenticar seus clientes. Este certificado tem uma expiração de três anos e pode ser renovado a qualquer momento usando o seguinte método:
@@ -210,7 +264,18 @@ A validade do certificado SSL para todas as instalações que ocorreram antes de
   ![certificate-details](./media/site-recovery-vmware-to-azure-manage-configuration-server/ssl-cert-expiry-details.png)
 
   >[!TIP]
-  Se em vez de um botão **Renovar Agora** você vir um botão **Atualizar Agora**. Isso significa que há alguns componentes em seu ambiente que ainda não foram atualizados para a versão 9.4.xxxx.x ou posteriores.
+  Se em vez de um botão **Renovar Agora** você vir um botão **Atualizar Agora**. O botão Atualizar Agora indica que há alguns componentes em seu ambiente que ainda não foram atualizados para a versão 9.4.xxxx.x ou posterior.
+
+## <a name="revive-a-configuration-server-if-the-secure-socket-layer-ssl-certificate-expired"></a>Renovar um servidor de Configuração se o certificado SSL tiver expirado
+
+1. Atualizar o Servidor de configuração para a [versão mais recente](http://aka.ms/unifiedinstaller)
+2. Se você tiver quaisquer servidores de Processo Scale-out, servidores de Destino Mestre de Failback e Servidores de Processo de Failback, atualize-os para a versão mais recente
+3. Atualize o Serviço de mobilidade em todas as máquinas virtuais protegidas para a versão mais recente.
+4. Faça logon no servidor de configuração e abra um prompt de comando com privilégios de administrador.
+5. Navegue até a pasta %ProgramData%\ASR\home\svsystems\bin
+6. Execute RenewCerts.exe para renovar o certificado SSL no Servidor de configuração.
+7. Se o processo tiver êxito, você deverá ver a mensagem "A renovação do certificado foi bem-sucedida"
+
 
 ## <a name="sizing-requirements-for-a-configuration-server"></a>Requisitos de dimensionamento para um servidor de configuração
 
@@ -226,4 +291,3 @@ A validade do certificado SSL para todas as instalações que ocorreram antes de
 
 ## <a name="common-issues"></a>Problemas comuns
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
-

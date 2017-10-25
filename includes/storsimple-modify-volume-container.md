@@ -17,8 +17,3 @@
        ![Modificar o contêiner de volume com o Modelo de Largura de Banda 2](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
    3. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) para salvar as configurações atualizadas. A página **Contêineres de Volume** será atualizada para refletir as alterações.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

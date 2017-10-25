@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/11/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2b79492914bb52e970343a2e829622122f03642b
-
-
+ms.openlocfilehash: 31ed9dad8ba56a3746873b7b35e678e97743fbfe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-volumes"></a>Usar o serviço StorSimple Manager para gerenciar volumes
 [!INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
@@ -78,7 +78,7 @@ Você [criou um volume](storsimple-deployment-walkthrough-u1.md#step-6-create-a-
    
    1. Selecione um registro de controle de acesso (ACR) na lista suspensa. Como opção, você também pode abrir um novo ACR. ACRs determinam quais hosts podem acessar os volumes fazendo a correspondência do IQN do host com aqueles listados no registro.
    2. É recomendável que você habilite um backup padrão ao marcar a caixa de seleção **Habilitar um backup padrão para este volume** .
-   3. Clique no ícone de verificação  ![Ícone de verificação](./media/storsimple-manage-volumes/HCS_CheckIcon.png)  para criar o volume com as configurações especificadas.
+   3. Clique no ícone de verificação  ![Ícone de verificação](./media/storsimple-manage-volumes/HCS_CheckIcon.png) para criar o volume com as configurações especificadas.
 
 O seu novo volume agora está pronto para uso.
 
@@ -118,7 +118,7 @@ Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acess
    
    1. Acesse **Gerenciamento do Computador** ->**Gerenciamento de Disco**.
    2. Clique com o botão direito do mouse em **Gerenciamento de Disco** e selecione **Examinar Discos Novamente**.
-   3. Na lista de discos, selecione o volume que você atualizou, clique com o botão direito do mouse e selecione **Estender Volume**. O Assistente para Estender Volume é iniciado. Clique em **Próximo**.
+   3. Na lista de discos, selecione o volume que você atualizou, clique com o botão direito do mouse e selecione **Estender Volume**. O Assistente para Estender Volume é iniciado. Clique em **Avançar**.
    4. Conclua o assistente com a aceitação dos valores padrão. Depois que o assistente for concluído, o volume deve mostrar o tamanho aumentado.
 
 ![Vídeo disponível](./media/storsimple-manage-volumes/Video_icon.png) **Vídeo disponível**
@@ -177,10 +177,4 @@ Execute as seguintes etapas para habilitar ou desabilitar o monitoramento para u
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [Clonar um volume StorSimple](storsimple-clone-volume.md).
 * Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

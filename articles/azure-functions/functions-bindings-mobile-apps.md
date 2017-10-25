@@ -4,7 +4,7 @@ description: "Entenda como usar associações dos Aplicativos Móveis do Azure n
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/31/2016
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: c5e1c02984f9773b263c0bee7685c7d5ff62e658
-
-
+ms.openlocfilehash: d2c0e4e233761584bad2df05a8e702e4fc77e84f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-mobile-apps-bindings"></a>Associações de Aplicativos Móveis do Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
@@ -109,7 +109,7 @@ Consulte a amostra específica da linguagem que usa o registro de entrada da ass
 
 <a name="inputcsharp"></a>
 
-### <a name="input-sample-in-c"></a>Amostra de entrada no C# #
+### <a name="input-sample-in-c"></a>Exemplo de entrada em C# #
 
 ```cs
 #r "Newtonsoft.Json"    
@@ -220,7 +220,7 @@ Consulte a amostra específica da linguagem que cria um registro no ponto de ext
 
 <a name="outcsharp"></a>
 
-### <a name="output-sample-in-c"></a>Amostra de saída no C# #
+### <a name="output-sample-in-c"></a>Amostra de saída em C# #
 
 ```cs
 public static void Run(string myQueueItem, out object record)
@@ -255,10 +255,4 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

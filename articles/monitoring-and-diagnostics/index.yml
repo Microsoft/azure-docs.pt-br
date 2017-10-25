@@ -1,0 +1,72 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação do Azure Monitor
+metadata:
+  title: 'Documentação do Azure Monitor - Tutoriais, Referência de API | Microsoft Docs'
+  description: 'O Azure Monitor faz parte da solução geral de monitoramento do Microsoft Azure. O Azure Monitor ajuda-o a rastrear o desempenho, manter a segurança e identificar tendências. Aprenda a fazer auditoria, criar alertas e arquivar dados com nossos tutoriais e guias de início rápido.'
+  services: monitoring-and-diagnostics
+  author: czeumault
+  manager: carolz
+  ms.service: monitoring-and-diagnostics
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/18/2017
+  ms.author: carolz
+abstract:
+  description: 'O Azure Monitor faz parte da solução geral de monitoramento do Microsoft Azure. O Azure Monitor ajuda-o a rastrear o desempenho, manter a segurança e identificar tendências. Aprenda a fazer auditoria, criar alertas e arquivar dados com nossos tutoriais e guias de início rápido.'
+sections:
+  - title: Guia de início rápido de 5 minutos
+    items:
+      - type: paragraph
+        text: Saiba como receber notificações quando ocorrem condições específicas em seu aplicativo do Azure.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/Chart.svg'
+            text: Métricas de monitoramento
+            href: monitor-quick-resource-metric-alert-portal
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_alert.svg'
+            text: Alertas e auditoria de assinatura
+            href: monitor-quick-audit-notify-action-in-subscription
+  - title: Tutoriais passo a passo
+    items:
+      - type: paragraph
+        text: Saiba mais sobre o dimensionamento automático e o arquivamento de dados de monitoramento.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="monitor-tutorial-autoscale-performance-schedule">Dimensionamento automático com base no desempenho de agenda ou aplicativo</a>
+          - html: <a href="monitor-tutorial-archive-monitoring-data">Arquivar dados de monitoramento</a>
+  - title: Treinamento em vídeo PluralSight gratuito
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Introdução ao Monitoramento de IaaS
+            href: 'https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents'
+          - title: Gerenciamento de infraestrutura no Microsoft Azure
+            href: 'https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started'
+  - title: Referência
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linha de comando
+            html: <p><a href="/cli/azure/monitor?view=azure-cli-latest">CLI do Azure</a></p><p><a href="/powershell/module/azurerm.insights">PowerShell do Azure</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/monitor/">REST</a></p>
+          - title: Monitoramento
+            html: '<p><a href="monitoring-supported-metrics">Métricas com suporte</a></p><p><a href="monitoring-diagnostic-logs-schema">Serviços para logs de diagnóstico, categorias e esquemas</a></p><p><a href="monitoring-activity-log-schema">Esquema de evento do log de atividades</a></p>'
+          - title: Diagnostics
+            html: <p><a href="azure-diagnostics-schema">Esquema de extensão do Diagnóstico do Azure</a></p>

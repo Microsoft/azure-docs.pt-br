@@ -2,7 +2,7 @@
 title: "Documentação dos conjuntos de dimensionamento de máquinas virtuais - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como usar os Conjuntos de Dimensionamento de Máquinas Virtuais para criar VMs do Windows ou do Linux de dimensionamento automático para computação de grande porte, big data e soluções contidas."
 services: virtual-machine-scale-sets
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: c9a4b71fc888f5b2b9a32af80d1d4947ff731157
-ms.openlocfilehash: 091259841325103ce6733796f1cfe9109e39877b
-
+ms.openlocfilehash: f6c51a605a3fe28fb906e8c35a68a885a46136ed
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="virtual-machine-scale-sets-documentation"></a>Documentação dos Conjuntos de Dimensionamento de Máquina Virtual
 
@@ -117,18 +118,12 @@ Saiba como usar os Conjuntos de Dimensionamento de Máquinas Virtuais para impla
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/compute">Referência da API REST de Computação</a></p>
+                        <p><a href="/rest/api/virtualmachinescalesets/">Referência da API REST de Conjuntos de Escala de Máquina Virtual</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 24d6a25e872eabb7d64d57d5ee66969401e4f1cd
-
-
+ms.openlocfilehash: fdb3c5cbd3acee90386352c6f180a71aa81f54fe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Exemplo 3 - Criar uma rede de perímetro para proteger as redes com um Firewall, um UDR e um NSG
 [Voltar à página Práticas recomendadas de limite de segurança][HOME]
 
 Este exemplo criará uma rede de perímetro com um firewall, quatro servidores Windows, Roteamento Definido pelo Usuário, Reencaminhamento IP e Grupos de Segurança de Rede. Ele também orientará você em cada um dos comandos relevantes para fornecer um entendimento mais profundo de cada etapa. Também há uma seção Cenário de Tráfego para fornecer um passo a passo detalhado sobre como o tráfego passa pelas camadas de defesa da rede de perímetro. Por fim, na seção de referências, há o código e as instruções completas para criar este ambiente para testar e experimentar diversos cenários. 
 
-![rede de perímetro bidirecional com NVA, NSG e UDR][1]
+![DMZ bidirecional com NVA, NSG e UDR][1]
 
 ## <a name="environment-setup"></a>Configuração do ambiente
 Neste exemplo, há uma assinatura que contém o seguinte:
@@ -84,7 +84,7 @@ Se houver dois prefixos idênticos na tabela de rotas, a ordem a seguir será a 
 3. "Padrão" = as Rotas do Sistema, a Rede Virtual local e as entradas estáticas, como mostrado na tabela de rotas acima.
 
 > [!NOTE]
-> Agora você pode usar o UDR (Roteamento Definido pelo Usuário) com Rota Expressa e Gateways de VPN para forçar o roteamento do tráfego de entrada e saída entre locais para um NVA (dispositivo de rede virtual).
+> Agora você pode usar o UDR (Roteamento Definido pelo Usuário) com ExpressRoute e Gateways de VPN para forçar o roteamento do tráfego de entrada e saída entre locais para um NVA (solução de virtualização de rede).
 > 
 > 
 
@@ -274,11 +274,11 @@ Esse processo deve ser repetido para criar Serviços RDP para os demais servidor
 ### <a name="firewall-rules-creation"></a>Criação de regras de firewall
 Há três tipos de regras de firewall usadas neste exemplo, todas elas têm ícones distintos:
 
-A regra Redirecionamento de Aplicativo: ![Ícone de redirecionamento do aplicativo][7]
+A regra de redirecionamento do aplicativo: ![ícone de Redirecionamento do Aplicativo][7]
 
-A regra NAT de Destino:  ![Ícone de NAT de destino][8]
+A regra NAT de destino: ![ícone de NAT de Destino][8]
 
-A regra Aprovar:  ![Ícone de passagem][9]
+A regra de Passagem: ![ícone de Passagem][9]
 
 Para saber mais sobre essas regras, visite o site do Barracuda.
 
@@ -290,7 +290,7 @@ As especificidades de cada regra exigida para a conclusão deste exemplo são de
 
 * **Regra de Gerenciamento de Firewall**: essa regra de Redirecionamento de Aplicativo permite que o tráfego passe para as portas de gerenciamento do dispositivo de rede virtual, neste exemplo, um Firewall Barracuda NextGen. As portas de gerenciamento são 801 807 e, opcionalmente, 22. As portas internas e externas são iguais (isto é, não há tradução de porta). Essa regra, SETUP-MGMT-ACCESS, é uma regra padrão e é habilitada por padrão (no Firewall NextGen Barracuda versão 6.1).
   
-    ![Regra de Gerenciamento de Firewall][10]
+    ![Regra de gerenciamento de firewall][10]
 
 > [!TIP]
 > O espaço de endereço de origem nesta regra é Qualquer, se os intervalos de endereços IP de gerenciamento forem conhecidos, a redução desse escopo também reduziria a superfície de ataque às portas de gerenciamento.
@@ -365,7 +365,7 @@ As especificidades de cada regra exigida para a conclusão deste exemplo são de
     **Observação**: nesta captura de tela, o Método de Conexão foi incluído. Como essa regra destina-se ao tráfego de endereço IP interno para IP interno, NAT não será necessário; esse Método de Conexão é definido como “Sem SNAT” para essa regra Aprovar.
 * **Regra Sub-rede para Sub-rede**: essa regra Aprovar é uma regra padrão ativada e modificada para permitir que todos os servidores da sub-rede Backend se conectem a qualquer servidor da sub-rede Frontend. Essa regra é para todo o tráfego interno, de forma que o Método de Conexão pode ser definido como Sem SNAT.
   
-    ![Regra entre Redes Virtuais do firewall][16]
+    ![Regra IntraVNet do firewall][16]
   
     **Observação**: a caixa de seleção Bidirecional não está marcada (nem é marcado na maioria das regras), isso é significativo para essa regra, já que ela torna essa regra “unidirecional”, uma conexão pode ser iniciada na sub-rede Backend para a rede Frontend, mas não inverso. Se essa caixa de seleção tiver sido marcada, essa regra permitirá o tráfego bidirecional, o que não é desejável em nosso diagrama lógico.
 * **Regra Negar Todo o Tráfego**: essa sempre deverá ser a última regra (em termos de prioridade) e, como tal, se os fluxos de tráfego falharem na correspondência a todas as regras anteriores, serão descartados por essa regra. Essa é uma regra padrão e normalmente é ativada; geralmente, não é necessário fazer qualquer modificação. 
@@ -983,9 +983,3 @@ Se você desejar instalar um aplicativo de exemplo para esse e outros Exemplos d
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

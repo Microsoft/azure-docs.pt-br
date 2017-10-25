@@ -1,6 +1,6 @@
 ---
 title: "Procedimentos de atualização de aplicativos do Windows Universal"
-description: "Procedimentos de atualização do SDK do Windows Universal para o Mobile Engagement do Azure"
+description: "Procedimentos de atualização do SDK do Windows Universal para o Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c7b3441892484cf54e2055e9153858171d738e85
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: fe85a99a92fb39082cafe7422b356de1f20f14bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-universal-apps-sdk-upgrade-procedures"></a>Procedimentos de atualização de aplicativos do Windows Universal
 Se você já tiver integrado uma versão anterior do Engagement no seu aplicativo, você deve considerar os seguintes pontos ao atualizar o SDK.
@@ -174,7 +173,7 @@ E no arquivo .cs associado:
 Esta etapa aborda apenas os recursos personalizados. Se você personalizou os recursos fornecidos pelo SDK (html, imagens, sobreposição), em seguida, você precisa fazer backup dos mesmos antes de atualizar e reaplicar sua personalização em recursos atualizados.
 
 ## <a name="from-111-to-200"></a>De 1.1.1 a 2.0.0
-O seguinte descreve como migrar uma integração do SDK do serviço Capptain oferecido pelo Capptain SAS em um aplicativo acionado pelo Mobile Engagement do Azure. 
+O seguinte descreve como migrar uma integração do SDK do serviço Capptain oferecido pelo Capptain SAS em um aplicativo acionado pelo Azure Mobile Engagement. 
 
 > [!IMPORTANT]
 > O Capptain e o Mobile Engagement não são os mesmos serviços e o procedimento fornecido abaixo destaca apenas como migrar o aplicativo cliente. Migrar o SDK no aplicativo NÃO migrará os dados dos servidores Capptain para os servidores do Mobile Engagement
@@ -309,5 +308,4 @@ Exemplos de itens do Capptain usados normalmente :
 * GetCapptainPageName agora denominado GetEngagementPageName
 
 Observe que renomear também afeta métodos substituídos.
-
 

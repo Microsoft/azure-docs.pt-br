@@ -12,16 +12,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/27/2016
+ms.date: 08/21/2016
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 0407eab7e70649999ba07730425366b7b62e4e7a
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: 4fa77da8665908553072792d7f2ede47bf5567dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Plug-in do Service Fabric para o desenvolvimento de aplicativos Eclipse Java
 O Eclipse é um dos IDEs (ambientes de desenvolvimento integrado) mais amplamente usados para desenvolvedores de Java. Neste artigo, descreveremos como configurar seu ambiente de desenvolvimento do Eclipse para trabalhar com o Azure Service Fabric. Saiba como instalar o plug-in do Service Fabric, criar um aplicativo do Service Fabric e implantar o aplicativo do Service Fabric em um cluster do Service Fabric local ou remoto no Eclipse Neon.
 
@@ -34,16 +32,21 @@ Você pode instalar um plug-in do Service Fabric no Eclipse. O plug-in pode ajud
     -   Para verificar e instalar atualizações para o Eclipse Neon, acesse **Ajuda** > **Verificar se Há Atualizações**.
 
 2.  Para instalar o plug-in do Service Fabric, no Eclipse Neon, acesse **Ajuda** > **Instalar Novo Software**.
-  1.    Na caixa de texto **Trabalhar com**, insira: **http://dl.windowsazure.com/eclipse/servicefabric**.
+  1.    Na caixa de texto **Trabalhar com**, digite: **http://dl.microsoft.com/eclipse**.
   2.    Clique em **Adicionar**.
-    ![Plug-in do Service Fabric para Eclipse Neon][sf-eclipse-plugin-install]
+
+         ![Plug-in do Service Fabric para Eclipse Neon][sf-eclipse-plugin-install]
   3.    Selecione o plug-in do Service Fabric e clique em **Avançar**.
   4.    Conclua as etapas de instalação e aceite os Termos de Licença de Software da Microsoft.
 
 Se já tiver o plug-in do Service Fabric instalado, verifique se você tem a versão mais recente. Para verificar se há atualizações disponíveis, acesse **Ajuda** > **Detalhes da Instalação**. Na lista de plug-ins instalados, selecione o Service Fabric e clique em **Atualizar**. As atualizações disponíveis serão instaladas.
 
 > [!NOTE]
-> Se a instalação ou atualização do plug-in do Service Fabric estiver lenta, isso poderá ser devido a uma configuração do Eclipse. O Eclipse coleta metadados sobre todas as alterações para atualizar sites que estão registrados com a instância do Eclipse. Para acelerar o processo de verificar e instalar uma atualização de plug-in do Service Fabric, acesse **Sites de Software Disponível**. Desmarque as caixas de seleção de todos os sites, exceto aquele que aponta para o local do plug-in do Service Fabric (http://dl.windowsazure.com/eclipse/servicefabric).
+> Se a instalação ou atualização do plug-in do Service Fabric estiver lenta, isso poderá ser devido a uma configuração do Eclipse. O Eclipse coleta metadados sobre todas as alterações para atualizar sites que estão registrados com a instância do Eclipse. Para acelerar o processo de verificar e instalar uma atualização de plug-in do Service Fabric, acesse **Sites de Software Disponível**. Desmarque as caixas de seleção de todos os sites, exceto aquele que aponta para o local do plug-in do Service Fabric (http://dl.microsoft.com/eclipse/azure/servicefabric).
+
+> [!NOTE]
+>Se o Eclipse não está funcionando conforme o esperado no seu Mac ou você precisa executar como superusuário), vá para a pasta **ECLIPSE_INSTALLATION_PATH** e navegue até a subpasta **Eclipse.app/Contents/MacOS**. Inicie o Eclipse executando `./eclipse`.
+
 
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>Criar um aplicativo do Service Fabric no Eclipse
 
@@ -124,6 +127,12 @@ Para adicionar um serviço do Service Fabric a um aplicativo do Service Fabric e
 
     ![Adicionar Serviço do Service Fabric Página 4][add-service/p4]
 
+## <a name="edit-manifest-versions-of-your-service-fabric-java-application"></a>Editar versões de manifesto do aplicativo Java do Service Fabric
+
+Para editar versões de manifesto, clique o botão direito no projeto, acesse **Service Fabric** e selecione **Editar versões de manifesto...**  do menu suspenso. No assistente, você pode atualizar as versões de manifesto para o manifesto do aplicativo, o manifesto do serviço e as versões para o **código**, **Config** e pacotes de **dados**.
+
+Se você marcar a opção **atualizar automaticamente o aplicativo e as versões de serviço** e, em seguida, atualizar uma versão, as versões de manifesto serão atualizadas automaticamente. Para dar um exemplo, primeiro selecione a caixa de seleção, e atualize a versão do **código** de 0.0.0 para 0.0.1 e clique em **Concluir**, em seguida, a versão do manifesto do serviço e a versão do manifesto do aplicativo serão atualizadas automaticamente para 0.0.1.
+
 ## <a name="upgrade-your-service-fabric-java-application"></a>Atualizar seu aplicativo Java do Service Fabric
 
 Para um cenário de atualização, digamos que você tenha criado o projeto **App1** usando o plug-in do Service Fabric do Eclipse. Você o implantou usando o plug-in para criar um aplicativo chamado **fabric:/App1Application**. O tipo de aplicativo é **App1AppicationType** e a versão do aplicativo é 1.0. Agora, você deseja atualizar o aplicativo sem interromper a disponibilidade.
@@ -140,9 +149,12 @@ Esse processo cria e salva um perfil de configuração de execução que você p
 
 A atualização do aplicativo leva alguns minutos. Você pode monitorar a atualização do aplicativo no Service Fabric Explorer.
 
+## <a name="migrating-old-service-fabric-java-applications-to-be-used-with-maven"></a>Migrando os antigos aplicativos Java do Service Fabric para serem usados com o Maven
+Recentemente, movemos as bibliotecas Java do Service Fabric do SDK Java do Service Fabric para o repositório Maven. Embora os novos aplicativos gerados usando o Eclipse gerem projetos atualizados mais recentes (que serão capazes de trabalhar com o Maven), você poderá atualizar os aplicativos Java sem estado ou do ator existentes do Service Fabric, que estavam usando o SDK Java do Service Fabric antes, para usar as dependências Java do Service Fabric a partir do Maven. Siga as etapas mencionadas [aqui](service-fabric-migrate-old-javaapp-to-use-maven.md) para garantir o funcionamento do seu aplicativo mais antigo com o Maven.
+
 <!-- Images -->
 
-[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
+[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-eclipse/service-fabric-eclipse-plugin.png
 
 [create-application/p1]:./media/service-fabric-get-started-eclipse/create-application/p1.png
 [create-application/p2]:./media/service-fabric-get-started-eclipse/create-application/p2.png
@@ -161,4 +173,3 @@ A atualização do aplicativo leva alguns minutos. Você pode monitorar a atuali
 
 <!-- Links -->
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
-

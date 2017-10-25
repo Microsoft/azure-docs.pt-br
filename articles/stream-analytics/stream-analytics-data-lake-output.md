@@ -4,7 +4,7 @@ description: "Configuração de autenticação e autorização de um Repositóri
 keywords: 
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: ea5baafa-0054-4c70-973a-6a3a8c6eaffc
@@ -14,23 +14,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
-ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
-ms.openlocfilehash: 5d0a86742e4b238b94855464b2528db32b80526b
-ms.lasthandoff: 01/25/2017
-
-
+ms.author: samacha
+ms.openlocfilehash: 3d867df3ef875d5cc41de418c3d1d269ff751fda
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>Saída do Repositório Data Lake do Stream Analytics
 Trabalhos do Stream Analytics dão suporte a vários métodos de saída, sendo um deles um [Repositório Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/). O Repositório Azure Data Lake é um repositório em hiper-escala corporativo para cargas de trabalho de análise de big data. O Repositório Data Lake permite que você armazene dados de qualquer tamanho, tipo e velocidade de ingestão para análises operacionais e exploratórias.
 
 ## <a name="authorize-a-data-lake-store-account"></a>Autorizar uma conta do Repositório Data Lake
-1. Quando o Data Lake Store é selecionado como uma saída no portal de Gerenciamento do Azure, você deve autorizar o uso de seu Data Lake Store existente ou solicitar o acesso ao Data Lake Store por meio do Portal Clássico do Azure.
+1. Quando o Data Lake Store é selecionado como uma saída no portal do Azure, você deve autorizar o uso de seu Data Lake Store existente ou solicitar o acesso ao Data Lake Store por meio do Portal Clássico.
    
    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)  
    
-2. Se você já tiver acesso ao Repositório Data Lake, clique em "Autorizar agora" e, por um curto período, uma página será exibida indicando "Redirecionando para autorização...". A página será fechada automaticamente e você verá a página que permite configurar a saída do Repositório Data Lake.
+2. Se você já tiver acesso ao Data Lake Store, clique em "Autorizar agora" e, por um curto período, uma página será exibida indicando "Redirecionando para autorização". A página será fechada automaticamente e você verá a página que permite configurar a saída do Repositório Data Lake.
 
 Se não tiver feito a inscrição no Data Lake Store, você poderá seguir o link “Inscrever-se agora” para iniciar a solicitação ou seguir as [instruções de introdução](../data-lake-store/data-lake-store-get-started-portal.md).
 
@@ -49,7 +48,7 @@ Uma vez que a conta do Repositório Data Lake foi autenticada, você pode config
 </tr>
 <tr>
 <td>Conta do Repositório Data Lake</td>
-<td>O nome da conta de armazenamento para o qual você está enviando a saída Você verá uma lista suspensa de contas do Repositório Data Lake às quais o usuário conectado ao portal tem acesso.</td>
+<td>O nome da conta de armazenamento para o qual você está enviando a saída Você verá uma lista de contas do Data Lake Store que do usuário conectado tem acesso ao.</td>
 </tr>
 <tr>
 <td>Padrão de prefixo do caminho [<I>opcional</I>]</td>
@@ -88,5 +87,4 @@ Atualmente, há uma limitação em que o token de autenticação deve ser atuali
 Para resolver esse problema, pare seu trabalho em execução e vá para a saída do Repositório Data Lake. Clique no link "Renovar autorização" e por um curto período uma página será exibida indicando "Redirecionando para autorização...". A página será fechada automaticamente e, se for bem-sucedida, indicará "A autorização foi renovada com êxito". Em seguida, você precisa clicar em "Salvar" na parte inferior da página e poderá continuar reiniciando seu trabalho da última vez em que foi interrompido para evitar perda de dados.
 
 ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.png)
-
 

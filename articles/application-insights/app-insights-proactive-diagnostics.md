@@ -4,7 +4,7 @@ description: "O Application Insights executa uma análise automática profunda d
 services: application-insights
 documentationcenter: windows
 author: rakefetj
-manager: douge
+manager: carmonm
 ms.assetid: 2eeb4a35-c7a1-49f7-9b68-4f4b860938b2
 ms.service: application-insights
 ms.workload: tbd
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: fe2596a7fed52118425c612ebf50c01134928bf6
-ms.lasthandoff: 03/16/2017
-
-
+ms.author: bwren
+ms.openlocfilehash: f203b2a532ea721d9797c67a4750896e3ab2b9f7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="smart-detection-in-application-insights"></a>Detecção Inteligente no Application Insights
  A Detecção Inteligente avisa automaticamente sobre possíveis problemas de desempenho no seu aplicativo Web. Ele executa uma análise proativa da telemetria que seu aplicativo envia ao [Application Insights](app-insights-overview.md). Se houver um aumento repentino nas taxas de falha ou nos padrões anormais de desempenho de cliente ou de servidor, você receberá um alerta. Esse recurso não precisa de nenhuma configuração. Ela funciona se o seu aplicativo envia telemetria suficiente.
@@ -43,7 +42,7 @@ Selecione um alerta para ver seus detalhes.
 Há três tipos de detecção:
 
 * [Detecção inteligente - anomalias de falha](app-insights-proactive-failure-diagnostics.md). Usamos o aprendizado de máquina para definirmos a taxa esperada de solicitações com falha para seu aplicativo, fazendo a correlação com a carga e com outros fatores. Se a taxa de falha for além do envelope esperado, podemos enviar um alerta.
-* [Detecção inteligente - anomalias de desempenho](app-insights-proactive-performance-diagnostics.md). Procuramos padrões anormais em tempos de resposta e taxas de falha diariamente. Podemos correlacionar esses problemas com propriedades como localização, navegador, sistema operacional do cliente, instância do servidor e hora do dia.
+* [Detecção inteligente - anomalias de desempenho](app-insights-proactive-performance-diagnostics.md). Você recebe notificações se o tempo de resposta de uma duração da operação ou dependência está diminuindo em comparação com a linha de base histórica ou identificamos um padrão anormal no tempo de resposta ou tempo de carregamento de página.   
 * [Detecção inteligente - problemas do Serviço em Nuvem do Azure](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). Você obterá alertas se seu aplicativo estiver hospedado nos Serviços de Nuvem do Azure e se uma instância de função tiver falhas de inicialização, reciclagem frequente ou falhas no tempo de execução.
 
 (Os links de Ajuda em cada notificação levam você para os artigos relevantes).
@@ -63,5 +62,4 @@ A Detecção Inteligente é totalmente automática. Mas talvez você queira conf
 
 * [Alertas de métrica configurados manualmente](app-insights-alerts.md)
 * [Testes de disponibilidade na Web](app-insights-monitor-web-app-availability.md) 
-
 

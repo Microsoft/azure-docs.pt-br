@@ -55,8 +55,3 @@ O exemplo a seguir cria um cluster Pacote HPC usando o arquivo de configuração
 ## <a name="configuration-file"></a>Arquivo de configuração
 O arquivo de configuração para o script de implantação é um arquivo XML. O arquivo de esquema HPCIaaSClusterConfig.xsd está na pasta de script de implantação do Pacote HPC IaaS. **IaaSClusterConfig** é o elemento raiz do arquivo de configuração, que contém os elementos filhos descritos em detalhes no arquivo Manual.rtf na pasta de script de implantação.
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-

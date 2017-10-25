@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9f9908466dbfd471bc881387c0968c924140c67b
-ms.lasthandoff: 03/21/2017
-
-
+ms.openlocfilehash: 85bfa264c6cf2b0586816a47b3ab72f3aee8ec96
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-vm-with-multiple-nics-using-a-template"></a>Criar uma VM com diversas NICs usando um modelo
 [!INCLUDE [virtual-network-deploy-multinic-arm-selectors-include.md](../../includes/virtual-network-deploy-multinic-arm-selectors-include.md)]
@@ -95,7 +94,7 @@ Antes de implantar o modelo fornecido com esta documentação, você deve compre
     },
     ```
 
-6. Observe que o elemento **vmSize**contém o valor *Standard_DS3*. Apenas determinados tamanhos de VM permitem o uso de várias NICs. Você pode verificar quais tamanhos de VM comportam várias NICs lendo os artigos [Tamanhos de VM do Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Tamanhos de VM do Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+6. Observe que o elemento **vmSize**contém o valor *Standard_DS3*. Apenas determinados tamanhos de VM permitem o uso de várias NICs. Você pode verificar quais tamanhos de VM comportam várias NICs lendo os artigos [Tamanhos de VM do Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Tamanhos de VM do Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 7. Role para baixo até **recursos** e observe o primeiro elemento. Ele descreve uma conta de armazenamento. Essa conta de armazenamento é usada para manter os discos de dados usados por cada VM do banco de dados. Nesse cenário, cada VM do banco de dados tem um disco do sistema operacional em armazenamento regular e dois discos de dados em armazenamento SSD (premium).
 
@@ -247,7 +246,7 @@ A figura a seguir mostra o conteúdo do novo grupo de recursos, após a implanta
 ![Grupo de recursos Back-end](./media/virtual-network-deploy-multinic-arm-template/Figure2.png)
 
 ## <a name="deploy-the-template-by-using-powershell"></a>Implantar o modelo usando o PowerShell
-Para implantar o modelo que você baixou usando o PowerShell, instale e configure o PowerShell concluindo as etapas no artigo [Instalar e configurar o PowerShell](/powershell/azureps-cmdlets-docs) e, em seguida, conclua as seguintes etapas:
+Para implantar o modelo que você baixou usando o PowerShell, instale e configure o PowerShell concluindo as etapas no artigo [Instalar e configurar o PowerShell](/powershell/azure/overview) e, em seguida, conclua as seguintes etapas:
 
 Execute o cmdlet **`New-AzureRmResourceGroup`** para criar um grupo de recursos usando o modelo.
 
@@ -317,5 +316,4 @@ Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
         data:    Tags: null
         data:
         info:    group create command OK
-
 

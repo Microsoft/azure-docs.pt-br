@@ -3,7 +3,7 @@ title: "Gerenciar potência de computação no SQL Data Warehouse do Azure (Powe
 description: "Tarefas do PowerShell para gerenciar o poder de computação. Dimensionar recursos de computação ajustando as DWUs. Ou, para economizar custos, pause e retome os recursos de computação."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: jhubbard
 editor: 
 ms.assetid: 8354a3c1-4e04-4809-933f-db414a8c74dc
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: b2b87ed07a26fa30e49a19e34ca8b06b283da9b3
-ms.lasthandoff: 03/28/2017
-
-
+ms.author: elbutter;barbkess
+ms.openlocfilehash: 6a185d96447c2e1b0b463439dd062081e783da5f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-powershell"></a>Gerenciar poder de computação no SQL Data Warehouse do Azure (PowerShell)
 > [!div class="op_single_selector"]
@@ -123,7 +122,7 @@ Get-AzureRmSqlDatabase [-ResourceGroupName] <String> [-ServerName] <String> [[-D
 
 O que resultará em algo parecido com isto 
 
-```powershell    
+```powershell   
 ResourceGroupName             : nytrg
 ServerName                    : nytsvr
 DatabaseName                  : nytdb
@@ -169,4 +168,3 @@ Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][M
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 [Azure portal]: http://portal.azure.com/
-

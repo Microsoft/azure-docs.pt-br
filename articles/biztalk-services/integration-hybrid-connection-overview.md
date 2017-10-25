@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: ccompy
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 397a922bf3bf4c39c89f5f69015de4942bda0af9
-
-
+ms.openlocfilehash: 992c438ab2dac8dc20ba284bd095afbcd801a62f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="hybrid-connections-overview"></a>Visão geral de Conexões Híbridas
+
+> [!IMPORTANT]
+> As Conexões Híbridas do BizTalk foram desativadas e substituídas pelas Conexões Híbridas do Serviço de Aplicativo. Para saber mais, incluindo como gerenciar as Conexões Híbridas do BizTalk existentes, veja [Conexões Híbridas do Serviço de Aplicativo do Azure](../app-service/app-service-hybrid-connections.md).
+
 Introdução a Conexões Híbridas, lista as configurações com suporte e também as portas TCP necessárias.
 
 ## <a name="what-is-a-hybrid-connection"></a>O que é uma conexão híbrida
@@ -87,8 +91,6 @@ As portas TCP a seguir são usadas por Conexões Híbridas:
 
 ## <a name="next-steps"></a>Próximas etapas
 [Create and manage Hybrid Connections](integration-hybrid-connection-create-manage.md)<br/>
-[Conectar os Aplicativos Web do Azure a um recurso local](../app-service-web/web-sites-hybrid-connection-get-started.md)<br/>
-[Conectar-se a um SQL Server local por meio de um aplicativo Web do Azure](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/>
 
 ## <a name="see-also"></a>Consulte também
 [API REST para gerenciar serviços BizTalk no Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)
@@ -97,12 +99,3 @@ As portas TCP a seguir são usadas por Conexões Híbridas:
 [Serviços BizTalk: guias Painel, Monitor e Escala](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png
-[HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
-[HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
-[HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

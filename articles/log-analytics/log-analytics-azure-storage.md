@@ -3,7 +3,7 @@ title: "Coletar logs e as métricas do serviço do Azure para o Log Analytics | 
 description: "Configure o diagnóstico nos recursos do Azure para gravar logs e métricas no Log Analytics."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
@@ -12,15 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2017
-ms.author: banders
+ms.date: 04/12/2017
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 04bab3024474ae521090a8693b6c095e1704d4dc
-ms.lasthandoff: 03/15/2017
-
-
+ms.openlocfilehash: 7a3785e39f0d1cf849dbbf0d83d89eaed58c5b0b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Coletar logs e as métricas do serviço do Azure para uso no Log Analytics
 
@@ -71,12 +70,12 @@ Muitos recursos do Azure são capazes de gravar logs de diagnóstico e métricas
 Os recursos do Azure que dão suporte ao [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) pode enviar os logs e métricas diretamente para o Log Analytics.
 
 * Para obter os detalhes das métricas disponíveis, consulte [métricas compatíveis com o Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
-* Para obter os detalhes dos logs disponíveis, consulte [serviços e esquema com suporte para logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-diagnostic-logs).
+* Para obter os detalhes dos logs disponíveis, consulte [serviços e esquema com suporte para logs de diagnóstico](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
 
 ### <a name="enable-diagnostics-with-powershell"></a>Habilitar diagnóstico com PowerShell
-Você precisa da versão de novembro de 2016 (v2.3.0) ou posterior do [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
+Você precisa da versão de novembro de 2016 (v2.3.0) ou posterior do [Azure PowerShell](/powershell/azure/overview).
 
-O exemplo do PowerShell a seguir mostra como usar [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/resourcemanager/azurerm.insights/v2.3.0/set-azurermdiagnosticsetting) para habilitar o diagnóstico em um grupo de segurança de rede. A mesma abordagem funciona para todos os recursos com suporte: defina `$resourceId` para a ID do recurso para a qual você quer habilitar os diagnósticos.
+O exemplo do PowerShell a seguir mostra como usar [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting) para habilitar o diagnóstico em um grupo de segurança de rede. A mesma abordagem funciona para todos os recursos com suporte: defina `$resourceId` para a ID do recurso para a qual você quer habilitar os diagnósticos.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -153,4 +152,3 @@ A Galeria de modelos do Azure tem [exemplos de como usar a Automação do Azure]
 * [Use o armazenamento de blobs para IIS e armazenamento de tabelas para eventos](log-analytics-azure-storage-iis-table.md) para ler os logs de serviços do Azure que gravam diagnósticos em armazenamento de tabelas ou de logs do IIS gravados para armazenamento de blobs.
 * [Habilitar Soluções](log-analytics-add-solutions.md) para fornecer informações sobre os dados.
 * [Usar consultas de pesquisa](log-analytics-log-searches.md) para analisar os dados.
-

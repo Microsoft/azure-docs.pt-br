@@ -22,7 +22,3 @@ O DNS do Azure gerencia todos os registros DNS usando *conjuntos de registros*. 
 Por exemplo, digamos que você já criou um registro 'www' A na zona 'contoso.com' apontando para o endereço IP '134.170.185.46' (o primeiro registro acima).  Para criar o segundo registro, você deve adicioná-lo ao conjunto de registros existente em vez de criar um conjunto de registros adicional.
 
 Os conjuntos de registros SOA e CNAME são exceções. Os padrões DNS não permitem vários registros com o mesmo nome para esses tipos e, assim, esses conjuntos de registros podem conter apenas um único registro.
-
-<!--HONumber=Jan17_HO1-->
-
-

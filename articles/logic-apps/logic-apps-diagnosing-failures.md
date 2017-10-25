@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 25f4520bae3089ce9f11efcf6acd176255043e70
-ms.lasthandoff: 03/10/2017
-
-
+ms.author: LADocs; jehollan
+ms.openlocfilehash: 814e6f93088cdd96b0a663d2a7494b5a11470d99
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="diagnose-logic-app-failures"></a>Diagnosticar falhas nos aplicativos lógicos
 Se você tiver problemas ou falhas com os aplicativos lógicos, há algumas abordagens que poderão ajudar a entender melhor a origem das falhas.  
@@ -86,4 +85,3 @@ Juntamente com o monitoramento de entradas, saídas e gatilhos de uma execução
 [2]: ./media/logic-apps-diagnosing-failures/runhistory.png
 [3]: ./media/logic-apps-diagnosing-failures/triggeroutputslink.png
 [4]: ./media/logic-apps-diagnosing-failures/actionoutputs.png
-

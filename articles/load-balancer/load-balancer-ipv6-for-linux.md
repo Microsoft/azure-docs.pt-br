@@ -3,7 +3,7 @@ title: "Configuração de DHCPv6 para VMs Linux | Microsoft Docs"
 description: Como configurar DHCPv6 para VMs Linux.
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 keywords: "ipv6, azure load balancer, pilha dual, ip público, ipv6 nativo, móvel, iot"
@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 5c591e7f1838c86ca74caea9dd3a5e8f874fd8a7
-ms.lasthandoff: 03/29/2017
-
+ms.openlocfilehash: 84558cb6e3a5524969f590eb0272a64ad8839ab5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configuring-dhcpv6-for-linux-vms"></a>Configuração de DHCPv6 para VMs Linux
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Algumas das imagens de máquina virtual do Linux no Azure Marketplace não tem o DHCPv6 configurado por padrão. Para oferecer suporte a IPv6, o DHCPv6 deve ser configurado dentro da distribuição do SO Linux que você está usando. Distribuições diferentes do Linux têm maneiras diferentes de configurar o DHCPv6, pois usam pacotes diferentes.
 
@@ -149,4 +150,3 @@ Imagens recentes de CoreOS no Azure foram pré-configuradas com DHCPv6. Nenhuma 
     ```bash
     sudo systemctl restart systemd-networkd
     ```
-

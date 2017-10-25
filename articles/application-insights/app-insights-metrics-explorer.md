@@ -3,8 +3,8 @@ title: "Explorando métricas no Azure Application Insights | Microsoft Docs"
 description: "Como interpretar os gráficos no gerenciador de métricas e como personalizar as folhas do gerenciador de métricas."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
 ms.service: application-insights
 ms.workload: tbd
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 8005e1c485b9ce2e19e134a12206058ef54a5a8b
-ms.lasthandoff: 03/16/2017
-
-
+ms.author: bwren
+ms.openlocfilehash: a13500284caab79bbe221060ccf3d925ffb1fab5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Explorar métricas no Application Insights
 Métricas no [Application Insights][start] são contagens e valores medidos de eventos enviados em telemetria do seu aplicativo. Eles ajudam você a detectar problemas de desempenho e observar as tendências referentes a como seu aplicativo está sendo usado. Há uma grande variedade de métricas padrão, e você também pode criar suas próprias métricas e eventos personalizados.
@@ -201,7 +200,7 @@ Em um gráfico de métricas, clique no ícone do Analytics para ir diretamente �
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Monitorando o uso com o Application Insights](app-insights-overview-usage.md)
+* [Monitorando o uso com o Application Insights](app-insights-web-track-usage.md)
 * [Usando a Pesquisa de diagnóstico](app-insights-diagnostic-search.md)
 
 <!--Link references-->
@@ -209,4 +208,3 @@ Em um gráfico de métricas, clique no ícone do Analytics para ir diretamente �
 [alerts]: app-insights-alerts.md
 [start]: app-insights-overview.md
 [track]: app-insights-api-custom-events-metrics.md
-

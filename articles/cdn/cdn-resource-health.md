@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: 37fe208f5087f318e665e76825127854b4a11c98
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>Monitorar a integridade dos recursos da CDN do Azure
   
 A Azure CDN Resource Health é um subconjunto de [Azure Resource Health](../resource-health/resource-health-overview.md).  Você pode usar a Azure  Resource Health para monitorar a integridade dos recursos CDN e receber as diretrizes de ações para solucionar problemas.
@@ -65,8 +64,3 @@ Infelizmente, estamos tendo problemas com alguns dos nossos provedores de CDN | 
 - [Acesse a visão geral do Azure Resource Health](../resource-health/resource-health-overview.md)
 - [Solucione problemas com a compactação de arquivo de CDN](./cdn-troubleshoot-compression.md)
 - [Solucione problemas com erros 404](./cdn-troubleshoot-endpoint.md)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

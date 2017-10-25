@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: 30160088d9c770400f342e67527e1cf1cabc4f6b
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Restringir conteúdo da CDN do Azure por país
 
@@ -62,15 +62,9 @@ Por exemplo, a regra de bloqueio /Photos/Strasbourg/ filtrará arquivos, incluin
 ### <a name="country-codes"></a>Códigos de país
 O recurso **Filtragem geográfica** usa códigos de país para definir os países nos quais uma solicitação será permitida ou bloqueada para um diretório protegido. Você encontrará os códigos do país na [Códigos do País da CDN do Azure](https://msdn.microsoft.com/library/mt761717.aspx). 
 
-## <a name="a-idconsiderationsaconsiderations"></a><a id="considerations"></a>Considerações
+## <a id="considerations"></a>Considerações
 * Pode levar até 90 minutos para a Verizon ou alguns minutos com Akamai, para que as alterações em sua configuração de filtragem do país entrem em vigor.
 * Esse recurso não oferece suporte a caracteres curinga (por exemplo, ‘*’).
 * A configuração de filtragem geográfica associada com o caminho relativo será aplicada recursivamente para esse caminho.
 * Apenas uma regra pode ser aplicada no mesmo caminho relativo (você não pode criar vários filtros de país que apontam para o mesmo caminho relativo). No entanto, uma pasta pode ter vários filtros de país. Isso é devido à natureza recursiva de filtros de país. Em outras palavras, uma subpasta de uma pasta configurada anteriormente pode ter um filtro de país diferente atribuído.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

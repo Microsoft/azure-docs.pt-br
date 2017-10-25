@@ -5,8 +5,3 @@
 > Para exemplos de código fácil de usar ponta a ponta do Armazenamento do Azure que você pode baixar e executar, consulte nossa lista de [Exemplos de Armazenamento do Azure](https://azure.microsoft.com/en-us/resources/samples/?service=storage).
 
 
-
-
-<!--HONumber=Jan17_HO4-->
-
-

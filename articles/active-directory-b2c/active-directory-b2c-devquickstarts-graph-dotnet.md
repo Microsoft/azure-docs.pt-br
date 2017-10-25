@@ -1,28 +1,27 @@
 ---
-title: 'Azure Active Directory B2C: usar a API do Graph | Microsoft Docs'
+title: Usar a API do Graph - Azure AD B2C | Microsoft Docs
 description: "Como chamar a API do Graph para um locatário B2C usando uma identidade de aplicativo para automatizar o processo."
 services: active-directory-b2c
 documentationcenter: .net
-author: dstrockis
-manager: mbaldwin
-editor: bryanla
+author: parakhj
+manager: krassk
+editor: parakhj
 ms.assetid: f9904516-d9f7-43b1-ae4f-e4d9eb1c67a0
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
-ms.openlocfilehash: a932b617d57184ef714bf18f1e1e23599db52487
-ms.lasthandoff: 02/06/2017
-
-
+ms.date: 08/07/2017
+ms.author: parakhj
+ms.openlocfilehash: 79cb886a076a08c9817efda40e9750c69ad00187
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-use-the-graph-api"></a>Azure AD B2C: usar a API do Graph
-Os locatários do Azure Active Directory (Azure AD) B2C tendem a ser muito grandes. Isso significa que muitas tarefas comuns de gerenciamento de locatário devem ser executadas programaticamente. O principal exemplo é o gerenciamento de usuário. Talvez seja necessário migrar o repositório de usuário existente para um locatário B2C. Talvez seja melhor hospedar o registro de usuário em sua própria página e criar contas de usuário no Azure AD nos bastidores. Esses tipos de tarefas exigem a capacidade de criar, ler, atualizar e excluir contas de usuário. Você pode realizar essas tarefas usando a API do Graph do Azure AD.
+Os locatários do Azure Active Directory (Azure AD) B2C tendem a ser muito grandes. Isso significa que muitas tarefas comuns de gerenciamento de locatário devem ser executadas programaticamente. O principal exemplo é o gerenciamento de usuário. Talvez seja necessário migrar o repositório de usuário existente para um locatário B2C. Talvez seja melhor hospedar o registro de usuário em sua própria página e criar contas de usuário no seu diretório do Azure AD B2C nos bastidores. Esses tipos de tarefas exigem a capacidade de criar, ler, atualizar e excluir contas de usuário. Você pode realizar essas tarefas usando a API do Graph do Azure AD.
 
 Para locatários B2C, existem basicamente dois modos de se comunicar com a API do Graph.
 
@@ -34,63 +33,64 @@ Neste artigo, discutiremos como executar o caso de uso automatizado. Para demons
 ## <a name="get-an-azure-ad-b2c-tenant"></a>Obter um locatário do Azure AD B2C
 Antes de criar o aplicativo ou os usuários ou interagir com o Azure AD, você precisará de um locatário habilitado para B2C e uma conta de administrador global no locatário. Se você ainda não tiver um locatário, confira a [introdução ao Azure AD B2C](active-directory-b2c-get-started.md).
 
-## <a name="register-a-service-application-in-your-tenant"></a>Registrar um aplicativo de serviço em seu locatário
-Agora que tem um locatário B2C, você precisa criar seu aplicativo de serviço usando os cmdlets do PowerShell do Azure AD.
-Primeiro, baixe e instale o [Assistente de Conexão do Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152). Em seguida, baixe e instale o [Módulo do Azure Active Directory de 64 bits para Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+## <a name="register-your-application-in-your-tenant"></a>Registrar seu aplicativo em seu locatário
+Quando você tiver um locatário B2C, será necessário registrar seu aplicativo por meio do [Portal do Azure](https://portal.azure.com).
 
 > [!IMPORTANT]
-> Para usar a API do Graph com seu locatário B2C, você precisará registrar um aplicativo dedicado usando o PowerShell. Siga as instruções neste artigo para fazer isso. Você não pode usar seus aplicativos B2C já existentes que registrou no Portal do Azure novamente.
+> Para usar a API do Graph com seu locatário B2C, você precisará registrar um aplicativo dedicado usando o menu genérico *Registros de Aplicativo* no Portal do Azure, **NÃO** o menu *Aplicativos* do Azure AD B2C. Você não pode reutilizar seus aplicativos B2C já existentes registrados no menu *Aplicativos* do Azure AD B2C.
+
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. Escolha seu locatário do Azure AD B2C selecionando sua conta no canto superior direito da página.
+3. No painel de navegação à esquerda, escolha **Mais Serviços**, clique em **Registros de Aplicativo** e clique em **Adicionar**.
+4. Siga os avisos e crie um novo aplicativo. 
+    1. Selecione **Aplicativo Web/API** como o Tipo de Aplicativo.    
+    2. Forneça **qualquer URI de redirecionamento** (por exemplo, https://B2CGraphAPI), pois isso não é relevante para este exemplo.  
+5. Agora, o aplicativo aparecerá na lista de aplicativos. Clique nele para obter a **ID do Aplicativo** (também conhecida como ID do Cliente). Copie-a, pois precisará dela em uma seção posterior.
+6. No menu Configurações, clique em **Chaves** e adicione uma nova chave (também conhecida como o segredo do cliente). Copie-a também para uso em uma seção posterior.
+
+## <a name="configure-create-read-and-update-permissions-for-your-application"></a>Configurar as permissões de criação, leitura e atualização para seu aplicativo
+Agora você precisa configurar seu aplicativo para obter todas as permissões necessárias para criar, ler, atualizar e excluir usuários.
+
+1. Ainda no menu Registros de Aplicativo do Portal do Azure, selecione seu aplicativo.
+2. No menu Configurações, clique em **Permissões necessárias**.
+3. No menu Permissões necessárias, clique em **Windows Azure Active Directory**.
+4. No menu Habilitar Acesso, selecione a permissão **Ler e gravar dados de diretório** em **Permissões de Aplicativo** e clique em **Salvar**.
+5. Por fim, no menu Permissões necessárias, clique no botão **Conceder Permissões**.
+
+Agora, você tem um aplicativo que tem permissão para criar, ler e atualizar usuários de seu locatário B2C.
+
+> [!NOTE]
+> O processo completo da concessão de permissões pode demorar alguns minutos.
 > 
 > 
 
-Depois de instalar o módulo do PowerShell, abra o PowerShell e conecte-se ao locatário B2C. Depois de executar o `Get-Credential`, você será solicitado a fornecer um nome de usuário e uma senha. Insira o nome de usuário e a senha de sua conta de administrador do locatário B2C.
+## <a name="configure-delete-permissions-for-your-application"></a>Configurar permissões de exclusão para seu aplicativo
+Atualmente, a permissão *Ler e gravar dados de diretório* **NÃO** inclui a capacidade de fazer qualquer exclusão, como excluir usuários. Se você quiser fornecer ao seu aplicativo a capacidade de excluir os usuários, será necessário executar estas etapas adicionais envolvendo o PowerShell, caso contrário, pule para a próxima seção.
 
-```
-> $msolcred = Get-Credential
-> Connect-MsolService -credential $msolcred
-```
+Se você ainda não tiver instalado, instale primeiro o [módulo do PowerShell do Azure AD v1 (MSOnline)](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
 
-Antes de criar o aplicativo, você precisará gerar um novo **segredo do cliente**.  O aplicativo usará o segredo do cliente para se autenticar no Azure AD e adquirir tokens de acesso. Você pode gerar um segredo válido no PowerShell:
-
-```
-> $bytes = New-Object Byte[] 32
-> $rand = [System.Security.Cryptography.RandomNumberGenerator]::Create()
-> $rand.GetBytes($bytes)
-> $rand.Dispose()
-> $newClientSecret = [System.Convert]::ToBase64String($bytes)
-> $newClientSecret
+```powershell
+Install-Module MSOnline
 ```
 
-O comando final deve fornecer o novo segredo do cliente. Copie-o em local seguro. Você precisará dela mais tarde. Agora você pode criar o aplicativo, fornecendo o novo segredo do cliente como uma credencial para o aplicativo:
+Depois de instalar o módulo do PowerShell, conecte-se ao seu locatário do Azure AD B2C.
 
-```
-> New-MsolServicePrincipal -DisplayName "My New B2C Graph API App" -Type password -Value $newClientSecret
+> [!IMPORTANT]
+> Você precisa usar uma conta de administrador de locatário B2C que seja **local** para o locatário B2C. Essas contas têm esta aparência: myusername@myb2ctenant.onmicrosoft.com.
 
-DisplayName           : My New B2C Graph API App
-ServicePrincipalNames : {dd02c40f-1325-46c2-a118-4659db8a55d5}
-ObjectId              : e2bde258-6691-410b-879c-b1f88d9ef664
-AppPrincipalId        : dd02c40f-1325-46c2-a118-4659db8a55d5
-TrustedForDelegation  : False
-AccountEnabled        : True
-Addresses             : {}
-KeyType               : Password
-KeyId                 : a261e39d-953e-4d6a-8d70-1f915e054ef9
-StartDate             : 9/2/2015 1:33:09 AM
-EndDate               : 9/2/2016 1:33:09 AM
-Usage                 : Verify
+```powershell
+Connect-MsolService
 ```
 
-Se a criação do aplicativo for bem-sucedida, ela deverá indicar as propriedades do aplicativo, como as mostradas acima. Você precisará da `ObjectId` e da `AppPrincipalId`; portanto, copie esses valores também.
+Agora, usaremos a **ID do Aplicativo** no script a seguir para atribuir ao aplicativo a função de administrador de conta de usuário, o que permitirá a exclusão de usuários. Essas funções têm identificadores bem conhecidos, então tudo o que você precisa fazer é inserir sua **ID de Aplicativo** no script a seguir.
 
-Agora que criou um aplicativo no locatário B2C, você precisa atribuir a ele as permissões necessárias para realizar operações de CRUD do usuário. Atribua as três funções de aplicativo: leitores de diretório (para ler usuários), gravadores de diretório (para criar e atualizar usuários) e um administrador da conta de usuário (para excluir os usuários). Essas funções têm identificadores conhecidos, assim, você pode substituir o parâmetro `-RoleMemberObjectId` pela `ObjectId` acima e executar os comandos a seguir. Para ver a lista de todas as funções de diretório, tente executar `Get-MsolRole`.
-
-```
-> Add-MsolRoleMember -RoleObjectId 88d8e3e3-8f55-4a1e-953a-9b9898b8876b -RoleMemberObjectId <Your-ObjectId> -RoleMemberType servicePrincipal
-> Add-MsolRoleMember -RoleObjectId 9360feb5-f418-4baa-8175-e2a00bac4301 -RoleMemberObjectId <Your-ObjectId> -RoleMemberType servicePrincipal
-> Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId <Your-ObjectId> -RoleMemberType servicePrincipal
+```powershell
+$applicationId = "<YOUR_APPLICATION_ID>"
+$sp = Get-MsolServicePrincipal -AppPrincipalId $applicationId
+Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId $sp.ObjectId -RoleMemberType servicePrincipal
 ```
 
-Agora, você tem um aplicativo que tem permissão para criar, ler, atualizar e excluir usuários do locatário B2C.
+Agora, seu aplicativo também tem permissões para excluir usuários de seu locatário B2C.
 
 ## <a name="download-configure-and-build-the-sample-code"></a>Baixar, configurar e compilar o código de exemplo
 Primeiro, baixe o código de exemplo e execute-o. Em seguida, faremos uma análise mais detalhada.  Você pode [baixar o código de exemplo como um arquivo .zip](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip). Você também pode cloná-lo em um diretório de sua escolha:
@@ -103,9 +103,9 @@ Abra a solução do Visual Studio `B2CGraphClient\B2CGraphClient.sln` no Visual 
 
 ```
 <appSettings>
-    <add key="b2c:Tenant" value="contosob2c.onmicrosoft.com" />
-    <add key="b2c:ClientId" value="{The AppPrincipalId from above}" />
-    <add key="b2c:ClientSecret" value="{The client secret you generated above}" />
+    <add key="b2c:Tenant" value="{Your Tenant Name}" />
+    <add key="b2c:ClientId" value="{The ApplicationID from above}" />
+    <add key="b2c:ClientSecret" value="{The Key from above}" />
 </appSettings>
 ```
 
@@ -356,10 +356,9 @@ Você pode usar o nome completo, como `extension_55dc0861f9a44eb999e0a8a872204ad
 Usando `B2CGraphClient`, você terá um aplicativo de serviço que pode gerenciar os usuários de locatário B2C de forma programática. `B2CGraphClient` usa sua própria identidade de aplicativo para se autenticar na API do Graph do Azure AD. Ele também adquire tokens usando um segredo do cliente. Ao incorporar essa funcionalidade a seu aplicativo, lembre-se de alguns pontos importantes para aplicativos B2C:
 
 * Você precisa conceder ao aplicativo as permissões apropriadas no locatário.
-* Por enquanto, você precisa usar a versão 2 da ADAL para obter tokens de acesso. (Você também pode enviar mensagens de protocolo diretamente, sem usar uma biblioteca.)
+* Por enquanto, você precisa usar ADAL (não MSAL) para obter tokens de acesso. (Você também pode enviar mensagens de protocolo diretamente, sem usar uma biblioteca.)
 * Ao chamar a API do Graph, use `api-version=1.6`.
 * Quando você cria e atualiza usuários consumidores, algumas propriedades são obrigatórias, conforme descrito acima.
 
 Se você tiver perguntas ou solicitações de ações que deseja executar usando a API do Graph em seu locatário B2C, deixe um comentário sobre este artigo ou apresente um problema no repositório de código de exemplo do GitHub.
-
 

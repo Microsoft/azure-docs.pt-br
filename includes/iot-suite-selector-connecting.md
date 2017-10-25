@@ -1,7 +1,6 @@
 > [!div class="op_single_selector"]
 > * [C em Windows](../articles/iot-suite/iot-suite-connecting-devices.md)
 > * [C em Linux](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
-> * [C em mbed](../articles/iot-suite/iot-suite-connecting-devices-mbed.md)
 > * [Node.js](../articles/iot-suite/iot-suite-connecting-devices-node.md)
 > 
 > 

@@ -7,13 +7,12 @@ ms.date: 1/18/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-translationtype: Human Translation
-ms.sourcegitcommit: 2373cf227cbed4f6657e31088b11dca5223ce5fe
 ms.openlocfilehash: cb6c5b3e86f126d4110d1cd29d8c9891e356e414
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="resource-manager-core-quota-increase-requests"></a>Solicitações de aumento de cota de núcleo do Resource Manager
 
 As cotas de núcleo do Resource Manager são aplicadas no nível da região e no nível de família de SKU.
@@ -43,9 +42,3 @@ Para solicitar um aumento, crie um caso de suporte de Cota para Núcleos no Port
 
 - Para remover uma linha, desmarque o SKU no menu suspenso de família de SKU ou clique no ícone "x" de descarte.
 Depois de inserir a cota desejada para cada família de SKU, clique em "Avançar" na página Etapa do problema para continuar com a criação da solicitação de suporte.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-

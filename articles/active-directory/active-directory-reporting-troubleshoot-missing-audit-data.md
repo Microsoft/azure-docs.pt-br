@@ -1,6 +1,6 @@
 ---
-title: "Solução de problemas: Dados ausentes no log de atividades do Azure Active Directory - visualização | Microsoft Docs"
-description: "Fornece a você uma resolução que lista os vários relatórios disponíveis para visualização do Azure Active Directory"
+title: "Solução de problemas: dados ausentes no log de atividades do Azure Active Directory | Microsoft Docs"
+description: "Lista os diversos relatórios disponíveis no Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/09/2017
+ms.date: 07/15/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: ebc92bc23201dbcd01f90e0cc3d5055fb85820be
-ms.lasthandoff: 03/10/2017
-
-
+ms.reviewer: dhanyahk
+ms.openlocfilehash: 47617f8f727027de113a0f503308c8accc58859e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="i-cant-find-some-actions-that-i-performed-in-the-azure-active-directory-activity-log"></a>Não consigo localizar algumas ações que executei no log de atividades do Azure Active Directory
 
 
@@ -43,5 +42,4 @@ Aguarde de 15 minutos a uma hora e verifique se as ações aparecem no log. Se v
 
 ## <a name="next-steps"></a>Próximas etapas
 Veja as [Perguntas frequentes sobre os relatórios do Azure Active Directory](active-directory-reporting-faq.md).
-
 

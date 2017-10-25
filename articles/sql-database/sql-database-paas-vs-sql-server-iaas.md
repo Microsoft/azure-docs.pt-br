@@ -9,19 +9,18 @@ manager: jhubbard
 editor: cjgronlund
 ms.assetid: 7467f422-b77d-4b60-9cb5-0f1ec17ec565
 ms.service: sql-database
-ms.custom: overview
+ms.custom: DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 02/01/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 28edde3e70bca833d888cdf9831c1544d8cdd4bb
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: 44546b423cd7f3a49d3699aa39f2437a42de86a8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Escolher uma opção do SQL Server de nuvem: Banco de Dados do SQL Azure (PaaS) ou SQL Server em VMs do Azure (IaaS)
 O Azure tem duas opções para hospedar cargas de trabalho do SQL Server no Microsoft Azure:
@@ -64,13 +63,12 @@ A seguinte tabela resume as principais características do Banco de Dados SQL e 
 | --- | --- | --- |
 |  |Novos aplicativos baseados em nuvem que têm restrições de tempo no desenvolvimento e marketing. |Aplicativos existentes que requerem migração rápida para a nuvem com alterações mínimas. Cenários de rápido desenvolvimento e teste quando você não deseja comprar hardware do SQL Server local de não produção. |
 |  | Equipes que precisam da atualização, recuperação de desastres e alta disponibilidade interna para o banco de dados. |Equipes que podem configurar e gerenciar a alta disponibilidade, recuperação de desastres e aplicação de patch para o SQL Server. Alguns recursos automatizados fornecidos simplificam muito isso. | |
-|  | Equipes que não desejam gerenciar o sistema operacional subjacente e definições de configuração. |Se você precisar de um ambiente personalizado com direitos administrativos completos. | |
-|  | Bancos de dados de até 1 TB ou maiores que podem ser [particionados horizontal ou verticalmente](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) usando um padrão de expansão. |Instâncias do SQL Server com até 64 TB de armazenamento. A instância pode suportar quantos bancos de dados forem necessários. | |
-|  | [Compilar aplicativos SaaS (Software como Serviço)](sql-database-design-patterns-multi-tenancy-saas-applications.md). |Migrar e compilar aplicativos híbridos e corporativos. | |
+|  | Equipes que não desejam gerenciar o sistema operacional subjacente e definições de configuração. |Você precisa de um ambiente personalizado com direitos administrativos completos. | |
+|  | Bancos de dados de até 4 TB ou maiores que podem ser [particionados horizontal ou verticalmente](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) usando um padrão expansão horizontal. |Instâncias do SQL Server com até 64 TB de armazenamento. A instância pode suportar quantos bancos de dados forem necessários. | |
 |  | | |
 | **Recursos:** |Você não deseja empregar recursos de TI para a configuração e o gerenciamento da infraestrutura subjacente, mas deseja se concentrar na camada do aplicativo. |Você tem alguns recursos de TI para a configuração e o gerenciamento. Alguns recursos automatizados fornecidos simplificam muito isso. |
 | **Custo total de propriedade:** |Elimina os custos de hardware e reduz os custos administrativos. |Elimina os custos de hardware. |
-| **Continuidade dos negócios:** |Além dos recursos internos da infraestrutura de tolerância a falhas, o Banco de Dados SQL do Azure fornece recursos como [backups automatizados](sql-database-automated-backups.md), [Restauração Pontual](sql-database-recovery-using-backups.md#point-in-time-restore), [Restauração Geográfica](sql-database-recovery-using-backups.md#geo-restore) e [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md) para aumentar a continuidade dos negócios. Para saber mais, confira a [Visão geral da continuidade de negócios do Banco de Dados SQL](sql-database-business-continuity.md). |O SQL Server nas VMs do Azure permite que você configure uma solução de alta disponibilidade e recuperação de desastres para as necessidades específicas de seu banco de dados. Portanto, você pode ter um sistema altamente otimizado para seu aplicativo. Você pode testar e executar failovers por conta própria, quando necessário. Para saber mais, consulte [Alta disponibilidade e recuperação de desastre para o SQL Server em máquinas virtuais do Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
+| **Continuidade dos negócios:** |Além dos recursos internos da infraestrutura de tolerância a falhas, o Banco de Dados SQL do Azure fornece recursos como [backups automatizados](sql-database-automated-backups.md), [Restauração pontual](sql-database-recovery-using-backups.md#point-in-time-restore), [restauração geográfica](sql-database-recovery-using-backups.md#geo-restore) e [replicação geográfica ativa](sql-database-geo-replication-overview.md) para aumentar a continuidade dos negócios. Para saber mais, confira a [Visão geral da continuidade de negócios do Banco de Dados SQL](sql-database-business-continuity.md). |O SQL Server nas VMs do Azure permite que você configure uma solução de alta disponibilidade e recuperação de desastres para as necessidades específicas de seu banco de dados. Portanto, você pode ter um sistema altamente otimizado para seu aplicativo. Você pode testar e executar failovers por conta própria, quando necessário. Para saber mais, consulte [Alta disponibilidade e recuperação de desastre para o SQL Server em máquinas virtuais do Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
 | **Nuvem híbrida:** |Seu aplicativo local pode acessar dados no Banco de Dados SQL do Azure. |Com o SQL Server em VMs do Azure você pode ter aplicativos que são executados parcialmente na nuvem e parcialmente no local. Por exemplo, você pode estender sua rede local e o Domínio do Active Directory para a nuvem por meio da [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md). Além disso, você pode armazenar arquivos de dados locais no Armazenamento do Azure usando os [Arquivos de Dados do SQL Server no Azure](http://msdn.microsoft.com/library/dn385720.aspx). Para saber mais, confira [Introdução à nuvem híbrida do SQL Server 2014](http://msdn.microsoft.com/library/dn606154.aspx). |
 |  | Oferece suporte à [replicação transacional do SQL Server](https://msdn.microsoft.com/library/mt589530.aspx) como um assinante para replicar os dados. |Dá suporte total para a [replicação transacional do SQL Server](https://msdn.microsoft.com/library/mt589530.aspx), [Grupos de Disponibilidade do AlwaysOn](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md), Serviços de Integração e Envio de Logs para replicar os dados. Além disso, os backups tradicionais do SQL Server são totalmente suportados | |
 |  | | |
@@ -82,7 +80,7 @@ Seja você uma startup sem recursos financeiros ou uma equipe em uma empresa est
 #### <a name="billing-and-licensing-basics"></a>Noções básicas de licenciamento e cobrança
 **SQL Database** é vendido a clientes como um serviço, não com uma licença.  [SQL Server nas VMs do Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) é vendido com uma licença incluída que você paga por minuto. Se você tiver uma licença existente, também poderá usá-la.  
 
-Atualmente, o **Banco de Dados SQL** está disponível em várias camadas de serviço, todas as quais são cobradas por hora a uma taxa fixa com base na camada de serviço e no nível de desempenho que você escolher. Além disso, você será cobrado pelo tráfego de Internet de saída a [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/)regulares. As camadas de serviço Basic, Standard e Premium são projetadas para oferecer um desempenho previsível com vários níveis de desempenho para atender às necessidades de pico do seu aplicativo. Você pode alterar entre as camadas de serviço e os níveis de desempenho para atender às necessidades de produtividade variadas do seu aplicativo. Se o banco de dados tem alto volume transacional e precisa oferecer suporte a muitos usuários simultaneamente, recomendamos a camada de serviço Premium. Para obter as últimas informações sobre as camadas de serviço atuais com suporte, consulte [Camadas de Serviço do Banco de Dados SQL do Azure](sql-database-service-tiers.md). Você também pode criar [pools elásticos](sql-database-elastic-pool.md) para compartilhar recursos de desemprenho entre instâncias de banco de dados.
+Atualmente, o **Banco de Dados SQL** está disponível em várias camadas de serviço, todas as quais são cobradas por hora a uma taxa fixa com base na camada de serviço e no nível de desempenho que você escolher. Além disso, você será cobrado pelo tráfego de Internet de saída a [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/)regulares. As camadas de serviço Básico, Standard, Premium e Premium RS são projetadas para oferecer um desempenho previsível com vários níveis de desempenho para atender às necessidades de pico do seu aplicativo. Você pode alterar entre as camadas de serviço e os níveis de desempenho para atender às necessidades de produtividade variadas do seu aplicativo. Se o banco de dados tem alto volume transacional e precisa oferecer suporte a muitos usuários simultaneamente, recomendamos a camada de serviço Premium. Para obter as últimas informações sobre as camadas de serviço atuais com suporte, consulte [Camadas de Serviço do Banco de Dados SQL do Azure](sql-database-service-tiers.md). Você também pode criar [pools elásticos](sql-database-elastic-pool.md) para compartilhar recursos de desemprenho entre instâncias de banco de dados.
 
 Com o **Banco de Dados SQL**, o software de banco de dados é automaticamente configurado, corrigido e atualizado pela Microsoft, o que reduz os custos de administração. Além disso, seus recursos de [backup interno](sql-database-automated-backups.md) o ajudam a obter economia significativa, principalmente quando você tem um grande número de bancos de dados.
 
@@ -120,7 +118,7 @@ Com o **SQL Server nas VMs do Azure**, você tem controle total sobre o sistema 
 ### <a name="service-level-agreement-sla"></a>Contrato de nível de serviço (SLA)
 Para vários departamentos de TI, atender às obrigações de tempo de atividade de um SLA (Contrato de Nível de Serviço) é uma grande prioridade. Nesta seção, vamos examinar qual SLA se aplica a cada opção de hospedagem de banco de dados.
 
-Para as camadas de serviço Básico, Standard e Premium do **Banco de Dados SQL** , a Microsoft fornece um SLA de 99,99% de disponibilidade. Para obter as últimas informações, consulte [Contrato de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/sql-database/). Para obter as últimas informações sobre as camadas de serviço do Banco de Dados SQL e os planos de continuidade de negócios com suporte, consulte [Camadas de Serviço](sql-database-service-tiers.md).
+Para as camadas de serviço Básico, Standard, Premium e Premium RS do **Banco de Dados SQL**, a Microsoft fornece um SLA com 99,99% de disponibilidade. Para obter as últimas informações, consulte [Contrato de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/sql-database/). Para obter as últimas informações sobre as camadas de serviço do Banco de Dados SQL e os planos de continuidade de negócios com suporte, consulte [Camadas de Serviço](sql-database-service-tiers.md).
 
 Para o **SQL Server em execução em VMs do Azure**, a Microsoft fornece um SLA de disponibilidade de 99,95% que abrange apenas a Máquina Virtual. Esse SLA não abrange os processos (como o SQL Server) em execução na VM e exige que você hospede pelo menos duas instâncias de VM em um conjunto de disponibilidade. Para obter as últimas informações, consulte o [SLA de VM](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Para HA (alta disponibilidade) de banco de dados em VMs, você deve configurar uma das opções de alta disponibilidade com suporte no SQL Server, como [Grupos de Disponibilidade AlwaysOn](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Usar uma opção de alta disponibilidade com suporte não fornece um SLA adicional, mas permite que você atinja > 99,99% de disponibilidade do banco de dados.
 
@@ -139,12 +137,11 @@ Escolha o **Banco de Dados SQL do Azure** se:
 
 Escolha **SQL Server em VMs do Azure** se:
 
-* Você tem aplicativos locais existentes que deseja migrar ou estender para a nuvem, ou se deseja compilar aplicativos empresariais maiores que 1 TB. Essa abordagem oferece o benefício de 100% compatibilidade do SQL, grande capacidade do banco de dados, controle total sobre o SQL Server e Windows, e um túnel seguro para o local. A abordagem reduz os custos de desenvolvimento e modificações dos aplicativos existentes.
+* Você tem aplicativos locais existentes que deseja migrar ou estender para a nuvem ou se deseja compilar aplicativos empresariais maiores que 4 TB. Essa abordagem oferece o benefício de 100% compatibilidade do SQL, grande capacidade do banco de dados, controle total sobre o SQL Server e Windows, e um túnel seguro para o local. A abordagem reduz os custos de desenvolvimento e modificações dos aplicativos existentes.
 * Você tem recursos de TI existentes e pode ter basicamente patches, backups e alta disponibilidade do banco de dados. Observe que alguns recursos automatizados simplificam muito essas operações. 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Consulte [Seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md) para uma introdução ao Banco de Dados SQL.
+* Consulte [Seu primeiro Banco de Dados SQL do Azure](sql-database-get-started-portal.md) para uma introdução ao Banco de Dados SQL.
 * Confira [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 * Confira [Provisionar uma máquina virtual do SQL Server no Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) para obter uma introdução ao SQL Server em VMs do Azure.
-
 

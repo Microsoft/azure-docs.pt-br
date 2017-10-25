@@ -1,6 +1,6 @@
 ---
-title: "Guias de solução de problemas Mobile Engagement do Azure"
-description: "Guia de solução de problemas para Mobile Engagement do Azure"
+title: "Guias de solução de problemas Azure Mobile Engagement"
+description: "Guia de solução de problemas para Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,14 +14,13 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1947600f6167dff6ec4fa104b0f98200bcf2a2e1
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 93b5e3f4892f974bf9df28955956136528470e03
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-mobile-engagement---troubleshooting-guide"></a>Guia de solução de problemas do Mobile Engagement do Azure
+# <a name="azure-mobile-engagement---troubleshooting-guide"></a>Guia de solução de problemas do Azure Mobile Engagement
 ## <a name="introduction"></a>Introdução
 O guia de solução de problemas a seguir o ajudará a entender as causas raiz de alguns problemas comuns e permitirão que você solucione os problemas por conta própria. 
 
@@ -46,7 +45,7 @@ Se você não está vendo seu dispositivo na guia Monitor então provavelmente h
 4. Certifique-se de que você está enviando a pelo menos uma tela/atividade, substituindo a página com EngagementActivity dependendo da plataforma que você está trabalhando conforme descrito nos [tutoriais de Introdução](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ### <a name="i-am-seeing-the-monitor-tab-showing-a-session-even-when-i-have-disconnected-or-closed-my-app-emulator"></a>Estou vendo a guia Monitor mostrando uma sessão mesmo quando desconectei ou fechei meu aplicativo / emulador.
-Se você for o único conectado à plataforma neste momento e você estiver usando um emulador para abrir o aplicativo, então isso provavelmente é devido a alguma peculiaridade do emulador. Em geral, você precisa garantir que você volta para a tela inicial do emulador para a sessão de aplicativo desconectar-se com êxito. Além disso, na plataforma Windows, durante a depuração com o Visual Studio, talvez convenha certificar-se, no Visual Studio, de ir até a barra de menus **	Eventos de Ciclo de Vida** e clicar em **Suspender** para realmente fechar a sessão. Vejao [Tutorial do Windows](mobile-engagement-windows-store-dotnet-get-started.md) para obter mais detalhes. 
+Se você for o único conectado à plataforma neste momento e você estiver usando um emulador para abrir o aplicativo, então isso provavelmente é devido a alguma peculiaridade do emulador. Em geral, você precisa garantir que você volta para a tela inicial do emulador para a sessão de aplicativo desconectar-se com êxito. Além disso, na plataforma Windows, durante a depuração com o Visual Studio, talvez convenha certificar-se, no Visual Studio, de ir até a barra de menus **Eventos de Ciclo de Vida** e clicar em **Suspender** para realmente fechar a sessão. Vejao [Tutorial do Windows](mobile-engagement-windows-store-dotnet-get-started.md) para obter mais detalhes. 
 
 ## <a name="analytics-issues"></a>Problemas de 'Análise'
 ### <a name="i-am-not-seeing-any-data-refreshed-data-on-analytics-tab"></a>Eu não estou vendo nenhum dado / dado atualizado na guia Análise
@@ -77,7 +76,7 @@ Abaixo estão mais instruções de solução de problemas relacionados à plataf
    
    * Verifique se os certificados são válidos e não expirados para notificações por Push do iOS. 
    * Certifique-se de que você está configurando corretamente um certificado de *Produção* em seu aplicativo Mobile Engagement. 
-   * Certifique-se de que você esteja testando em um *dispositivo real, físico.*  O simulador de iOS não pode processar mensagens por push.
+   * Certifique-se de que você esteja testando em um *dispositivo real, físico.* O simulador de iOS não pode processar mensagens por push.
    * Certifique-se de que o Identificador de pacote está configurado corretamente no aplicativo móvel. Veja as instruções [aqui](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
    * Durante o teste, use a distribuição "Ad Hoc" em seu perfil de provisionamento móvel. Você não poderá receber uma notificação se seu aplicativo for compilado usando "Depurar"
 2. **Android**
@@ -115,5 +114,4 @@ Se você não puder resolver o problema por conta própria, você pode:
    * Id do Dispositivo
    * Versão do SDK do Mobile Engagement (por exemplo, Android SDK v2.1.0)
    * Detalhes do erro com a mensagem de erro e cenário exatos
-
 

@@ -1,5 +1,5 @@
 ---
-title: Carregar dados no Azure Search usando SDK do .NET | Microsoft Docs
+title: Carregar dados (.NET - Azure Search) | Microsoft Docs
 description: "Aprenda a carregar dados em um índice na Pesquisa do Azure usando o SDK do .NET."
 services: search
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/13/2017
 ms.author: brjohnst
-translationtype: Human Translation
-ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
-ms.openlocfilehash: 3c8f30583ebcb5b4e4182bd2770079882c088c50
-
-
+ms.openlocfilehash: bdd952869143c6ca6374bb9264db5bcba1f32b50
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Carregar dados para a Pesquisa do Azure usando o SDK do .NET
 > [!div class="op_single_selector"]
@@ -33,7 +33,8 @@ Este artigo mostrará como usar o [SDK do .NET de Pesquisa do Azure](https://aka
 
 Antes de começar este passo a passo, você já deve ter [criado um índice de Pesquisa do Azure](search-what-is-an-index.md). Este artigo também presume que você já criou um objeto `SearchServiceClient` , conforme mostrado em [Criar um índice de Pesquisa do Azure usando o SDK do .NET](search-create-index-dotnet.md#CreateSearchServiceClient).
 
-Observe que todos os códigos de exemplo neste artigo são escritos em C#. Você pode encontrar o código-fonte completo [no GitHub](http://aka.ms/search-dotnet-howto).
+> [!NOTE]
+> Todos os códigos de exemplo neste artigo foram escritos em C#. Você pode encontrar o código-fonte completo [no GitHub](http://aka.ms/search-dotnet-howto). Você também pode ler sobre o [SDK .NET do Azure Search](search-howto-dotnet-sdk.md) para passo a passo mais detalhado do código de exemplo.
 
 Para enviar por push documentos no índice usando o SDK do .NET, você precisa:
 
@@ -236,10 +237,4 @@ Por esse motivo, sugerimos que você use tipos anuláveis nas suas classes de mo
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois de popular o índice de Pesquisa do Azure, você estará pronto para começar a emitir consultas para pesquisar documentos. Veja [Consultar seu Índice de Pesquisa do Azure](search-query-overview.md) para obter detalhes.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

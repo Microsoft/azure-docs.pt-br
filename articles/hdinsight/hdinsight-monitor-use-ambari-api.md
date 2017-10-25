@@ -1,5 +1,5 @@
 ---
-title: Monitorar clusters do Hadoop no HDInsight usando a API do Ambari | Microsoft Docs
+title: "Monitorar clusters Hadoop no HDInsight usando a API do Ambari – Azure | Microsoft Docs"
 description: Use as APIs do Apache Ambari para criar, gerenciar e monitorar clusters do Hadoop. As APIs e ferramentas intuitivas do operador do ocultam a complexidade do Hadoop.
 services: hdinsight
 documentationcenter: 
@@ -13,15 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 04/07/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: 6d36976712ba1ea5d51f203fc532d7f89c3b0871
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: b6fc2098027690eb76b69b1427f0e9541b8a7a69
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Monitorar clusters Hadoop no HDInsight usando a API da Ambari
 Saiba como monitorar os clusters HDInsight por meio de APIs do Ambari.
@@ -63,14 +62,14 @@ Há várias maneiras de usar a Ambari para monitorar os clusters HDInsight.
 
 **Usar o Azure PowerShell**
 
-O script do Azure PowerShell a seguir obtém as informações do rastreador de trabalho MapReduce *em um cluster HDInsight 3.1.*  A principal diferença é que esses detalhes agora serão extraídos do serviço YARN (e não do MapReduce).
+O script do Azure PowerShell a seguir obtém as informações do rastreador de trabalho MapReduce *em um cluster HDInsight 3.5.*  A principal diferença é que esses detalhes agora serão extraídos do serviço YARN (e não do MapReduce).
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
     $clusterPassword = "<HDInsightClusterPassword>"
 
-    $ambariUri = "https://$clusterName.azurehdinsight.net:443/ambari"
-    $uriJobTracker = "$ambariUri/api/v1/clusters/$clusterName.azurehdinsight.net/services/yarn/components/resourcemanager"
+    $ambariUri = "https://$clusterName.azurehdinsight.net:443"
+    $uriJobTracker = "$ambariUri/api/v1/clusters/$clusterName/services/YARN/components/RESOURCEMANAGER"
 
     $passwd = ConvertTo-SecureString $clusterPassword -AsPlainText -Force
     $creds = New-Object System.Management.Automation.PSCredential ($clusterUsername, $passwd)
@@ -167,9 +166,8 @@ Você aprendeu como usar as chamadas de API para monitoramento da Ambari. Para o
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
-[hdinsight-documentation]: /documentation/services/hdinsight/
+[hdinsight-documentation]: https://docs.microsoft.com/azure/hdinsight/
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
-

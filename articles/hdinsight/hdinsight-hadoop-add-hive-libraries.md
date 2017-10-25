@@ -1,5 +1,5 @@
 ---
-title: "Adicionar bibliotecas Hive durante a criação do cluster HDInsight | Microsoft Docs"
+title: "Adicionar bibliotecas Hive durante a criação do cluster HDInsight – Azure | Microsoft Docs"
 description: "Saiba como adicionar bibliotecas Hive (arquivos jar) a um cluster HDInsight durante a criação do cluster."
 services: hdinsight
 documentationcenter: 
@@ -12,30 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/27/2017
+ms.date: 10/04/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
-ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
-ms.openlocfilehash: a17a57c0eb7f35b1fba0d5b7e48fa8db249cd0f0
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 90a1ea99cbba82b49a0ff6712bcaaa5dc814810e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Adicionar bibliotecas Hive personalizadas ao criar seu cluster HDInsight
 
-Se você tiver bibliotecas que usa frequentemente com Hive no HDInsight, este documento contém informações sobre como usar uma Ação de Script para pré-carregar as bibliotecas durante a criação do cluster. As bibliotecas adicionadas usando as etapas deste documento estão disponíveis globalmente no Hive — não há necessidade de usar [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) para carregá-las.
+Saiba como pré-carregar bibliotecas do Hive no HDInsight. Este documento contém informações sobre como usar uma Ação de script para pré-carregar bibliotecas durante a criação do cluster. As bibliotecas adicionadas usando as etapas deste documento estão disponíveis globalmente no Hive — não há necessidade de usar [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) para carregá-las.
 
 ## <a name="how-it-works"></a>Como ele funciona
 
-Ao criar um cluster, se desejar, você pode especificar uma Ação de Script que executa um script nos nós do cluster enquanto ele está sendo criado. O script neste documento aceita um único parâmetro, que é um local WASB que contém as bibliotecas (armazenadas como arquivos jar) a serem pré-carregadas.
+Ao criar um cluster, você pode usar uma Ação de script para modificar os nós do cluster à medida que eles são criados. O script neste documento aceita um único parâmetro, que é a localização das bibliotecas. Essa localização deve estar em uma conta de Armazenamento do Azure e as bibliotecas devem ser armazenadas como arquivos jar.
 
 Durante a criação do cluster, o script enumera os arquivos, copia-os para o diretório `/usr/lib/customhivelibs/` nos nós de cabeçalho e de trabalho e adiciona-os à propriedade `hive.aux.jars.path` no arquivo `core-site.xml`. Em clusters baseados em Linux, ele também atualiza o arquivo `hive-env.sh` com o local dos arquivos.
 
 > [!NOTE]
 > Usar as ações de script neste artigo disponibiliza as bibliotecas nos seguintes cenários:
 >
-> * **HDInsight baseado no Linux** — ao usar a **linha de comando do Hive**, **WebHCat** e **HiveServer2**.
-> * **HDInsight baseado no Windows** — ao usar a **linha de comando do Hive** e **WebHCat**.
+> * **HDInsight baseado em Linux** — ao usar um cliente Hive, **WebHCat** e **HiveServer2**.
+> * **HDInsight baseado em Windows** — ao usar cliente Hive e **WebHCat**.
 
 ## <a name="the-script"></a>O script
 
@@ -46,7 +46,7 @@ Para os **clusters baseados no Linux**: [https://hdiconfigactions.blob.core.wind
 Para os **clusters baseados no Windows**: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
 > [!IMPORTANT]
-> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 **Requisitos**
 
@@ -56,10 +56,10 @@ Para os **clusters baseados no Windows**: [https://hdiconfigactions.blob.core.wi
 
 * A conta de armazenamento contendo a biblioteca de arquivos jar **deve** ser vinculada ao cluster HDInsight durante a criação. Esta deve ser a conta de armazenamento padrão ou uma conta adicionada por meio da __configuração opcional__.
 
-* O caminho WASB para o contêiner deve ser especificado como um parâmetro para a Ação de Script. Por exemplo, se os jars estivessem armazenados em um contêiner denominado **libs** em uma conta de armazenamento denominada **mystorage**, o parâmetro seria **wasbs://libs@mystorage.blob.core.windows.net/**.
+* O caminho WASB para o contêiner deve ser especificado como um parâmetro para a Ação de Script. Por exemplo, se os jars estivessem armazenados em um contêiner denominado **libs** em uma conta de armazenamento denominada **mystorage**, o parâmetro seria **wasb://libs@mystorage.blob.core.windows.net/**.
 
   > [!NOTE]
-  > Este documento supõe que você já criou uma conta de armazenamento, um contêiner de blobs, e carregou os arquivos nela.
+  > Este documento supõe que você já criou uma conta de armazenamento, um contêiner de blobs e carregou os arquivos nele.
   >
   > Se você ainda não criou uma conta de armazenamento, faça isso usando o [portal do Azure](https://portal.azure.com). Lá, você pode usar um utilitário como o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/) para criar um contêiner na conta e carregar arquivo nele.
 
@@ -72,7 +72,7 @@ Para os **clusters baseados no Windows**: [https://hdiconfigactions.blob.core.wi
 
 1. Inicie provisionando um cluster com as etapas em [Provisionar clusters HDInsight no Linux](hdinsight-hadoop-provision-linux-clusters.md), mas não conclua o provisionamento.
 
-2. Na folha **Configuração Opcional**, escolha **Ações de Script** e forneça as seguintes informações:
+2. Na seção **Configuração Opcional**, escolha **Ações de Script** e forneça as seguintes informações:
 
    * **NOME**: insira um nome amigável para a ação de script.
 
@@ -84,13 +84,13 @@ Para os **clusters baseados no Windows**: [https://hdiconfigactions.blob.core.wi
 
    * **ZOOKEEPER**: deixe essa opção em branco.
 
-   * **PARÂMETROS**: insira o endereço WASB para o contêiner e a conta de armazenamento que contém os jars. Por exemplo, **wasbs://libs@mystorage.blob.core.windows.net/**.
+   * **PARÂMETROS**: insira o endereço WASB para o contêiner e a conta de armazenamento que contém os jars. Por exemplo, **wasb://libs@mystorage.blob.core.windows.net/**.
 
 3. Na parte inferior das **Ações de Script**, use o botão **Selecionar** para salvar a configuração.
 
-4. Na folha **Configuração Opcional**, selecione **Contas de Armazenamento vinculadas** e selecione o link **Adicionar uma chave de armazenamento**. Selecione a conta de armazenamento que contém os jars, em seguida, use os botões de **seleção** para salvar as configurações e retornar para a folha **Configuração Opcional**.
+4. Na seção **Configuração Opcional**, selecione **Contas de Armazenamento Vinculadas** e selecione o link **Adicionar uma chave de armazenamento**. Selecione a conta de armazenamento que contém os jars. Em seguida, use os botões **selecionar** para salvar as configurações e retornar para **Configuração Opcional**.
 
-5. Use o botão **Selecionar** na parte inferior da folha **Configuração Opcional** para salvar as informações da configuração opcional.
+5. Para salvar a configuração opcional, use o botão **Selecionar** na parte inferior da seção **Configuração Opcional**.
 
 6. Continue a provisionar o cluster como descrito em [Provisionar clusters HDInsight no Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -99,4 +99,3 @@ Assim que a criação do cluster for concluída, você poderá usar os jars adic
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre como trabalhar com o Hive, confira [Usar o Hive com o HDInsight](hdinsight-use-hive.md)
-

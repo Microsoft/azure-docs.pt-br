@@ -3,7 +3,7 @@ title: "Controle de acesso baseado em função com REST – Azure AD | Microsoft
 description: "Gerenciar o controle de acesso com base em função com a API REST"
 services: active-directory
 documentationcenter: na
-author: kgremban
+author: andredm7
 manager: femila
 editor: 
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
@@ -12,14 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
-ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 4547a805c1827a703bf0ef118387882e45c3f241
-ms.openlocfilehash: f63381e3349063ba9dd4ceb67d644c1d71d73369
-ms.lasthandoff: 02/07/2017
-
-
+ms.date: 05/16/2017
+ms.author: andredm
+ms.openlocfilehash: a5c19fd87ce1ae3e199bf1dfc8cf82f5653baac2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Gerenciar o Controle de Acesso com Base em Função com a API REST
 > [!div class="op_single_selector"]
@@ -27,7 +26,7 @@ ms.lasthandoff: 02/07/2017
 > * [CLI do Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [API REST](role-based-access-control-manage-access-rest.md)
 
-O RBAC (Controle de Acesso baseado em função) no Portal do Azure e na API do Azure Resource Manager ajuda você a gerenciar o acesso a sua assinatura e aos recursos de maneira detalhada. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
+O RBAC (controle de acesso baseado em função) no portal do Azure e na API do Azure Resource Manager ajuda você a gerenciar o acesso à sua assinatura e aos seus recursos em um nível detalhado. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
 
 ## <a name="list-all-role-assignments"></a>Lista todas as atribuições de função
 Lista todas as atribuições de função no escopo e sub-escopos especificados.
@@ -651,4 +650,3 @@ Código de status: 200
 ## <a name="next-steps"></a>Próximas etapas
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-

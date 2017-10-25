@@ -1,179 +1,293 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory com o Kintone | Microsoft Docs"
-description: "Saiba como usar o Kintone com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Kintone."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: c2b947dc-e1a8-4f5f-b40e-2c5180648e4f
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/15/2017
+ms.date: 06/20/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 400793331aa2d56358a83a51ce64c67f59bbf3b7
-ms.openlocfilehash: d6ce5ac0207ac94a4eb8e6dccedd36c7cb446d70
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: e5e847c12cba3611ce7ea2c3e956dbd55b1e0cac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Tutorial: Integração do Active Directory do Azure com o Kintone
-O objetivo deste tutorial é mostrar a integração do Azure com o Kintone.  
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+# <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Tutorial: integração do Azure Active Directory com o Kintone
 
-* Uma assinatura válida do Azure
-* Uma assinatura do Kintone com logon único habilitado
+Neste tutorial, você aprenderá a integrar o Kintone ao Azure AD (Azure Active Directory).
 
-Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Kintone poderão fazer logon único no aplicativo em seu site de empresa do Kintone (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+A integração do Kintone ao Azure AD oferece os seguintes benefícios:
 
-O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
+- Você pode controlar no Azure AD quem tem acesso ao Kintone
+- Você pode permitir que usuários façam logon automaticamente no Kintone (logon único) com as respectivas contas do Azure AD
+- Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-1. Habilitando a integração de aplicativos para o Kintone
-2. Configurando o logon único
-3. Configurando o provisionamento de usuários
-4. Atribuindo usuários
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![Cenário](./media/active-directory-saas-kintone-tutorial/IC785859.png "Cenário")
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="enabling-the-application-integration-for-kintone"></a>Habilitando a integração de aplicativos para o Kintone
-O objetivo desta seção é descrever como habilitar a integração de aplicativos para o Kintone.
+Para configurar a integração do Azure AD ao Kintone, você precisará dos seguintes itens:
 
-### <a name="to-enable-the-application-integration-for-kintone-perform-the-following-steps"></a>Para habilitar a integração de aplicativos com o Kintone, execute as seguintes etapas:
-1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
-   
-    ![Active Directory](./media/active-directory-saas-kintone-tutorial/IC700993.png "Active Directory")
+- Uma assinatura do AD do Azure
+- Uma assinatura do Kintone com logon único habilitado
 
-2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+> [!NOTE]
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
-3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
-   
-    ![Aplicativos](./media/active-directory-saas-kintone-tutorial/IC700994.png "Aplicativos")
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
-4. Clique em **Adicionar** na parte inferior da página.
-   
-    ![Adicionar aplicativo](./media/active-directory-saas-kintone-tutorial/IC749321.png "Adicionar aplicativo")
+- Não use o ambiente de produção, a menos que seja necessário.
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
-   
-    ![Adicionar um aplicativo da galeria](./media/active-directory-saas-kintone-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
+## <a name="scenario-description"></a>Descrição do cenário
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-6. Na **caixa de pesquisa**, digite **Kintone**.
-   
-    ![Galeria de Aplicativos](./media/active-directory-saas-kintone-tutorial/IC785867.png "Galeria de Aplicativos")
+1. Adição do Kintone da galeria
+2. Configurar e testar o logon único do AD do Azure
 
-7. No painel de resultados, selecione **Kintone** e clique em **Concluir** para adicionar o aplicativo.
-   
-    ![Kintone](./media/active-directory-saas-kintone-tutorial/IC785871.png "Kintone")
-   
-## <a name="configuring-single-sign-on"></a>Configurando o logon único
+## <a name="adding-kintone-from-the-gallery"></a>Adição do Kintone da galeria
+Para configurar a integração do Kintone ao Azure AD, você precisará adicionar o Kintone da galeria à sua lista de aplicativos de SaaS gerenciados.
 
-O objetivo desta seção é descrever como permitir que os usuários autentiquem no Kintone com a própria conta no AD do Azure usando federação baseada no protocolo SAML.
+**Para adicionar o Kintone por meio da galeria, execute as seguintes etapas:**
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Para configurar o logon único, execute as seguintes etapas:
-1. No portal clássico do Azure, na página de integração de aplicativos do **Kintone**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
-   
-    ![Configurar Logon Único](./media/active-directory-saas-kintone-tutorial/IC785872.png "Configurar Logon Único")
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
-2. Na página **Como você deseja que os usuários façam logon no Kintone**, selecione **Logon único do Microsoft Azure AD** e clique em **Avançar**.
-   
-    ![Configurar Logon Único](./media/active-directory-saas-kintone-tutorial/IC785873.png "Configurar Logon Único")
+    ![Active Directory][1]
 
-3. Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon no Kintone**, digite a URL usando o padrão "*https://company.kintone.com*" e clique em **Avançar**.
-   
-    ![Configurar URL do Aplicativo](./media/active-directory-saas-kintone-tutorial/IC785875.png "Configurar URL do Aplicativo")
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-4. Na página **Configurar logon único no Kintone**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
-   
-    ![Configurar Logon Único](./media/active-directory-saas-kintone-tutorial/IC785878.png "Configurar Logon Único")
-
-5. Em outra janela do navegador da Web, faça logon no site da sua empresa do **Kintone** como administrador.
-
-6. Clique em **Configurações**.
-   
-    ![Configurações](./media/active-directory-saas-kintone-tutorial/IC785879.png "Configurações")
-
-7. Clique em **Usuários e administração do sistema**.
-   
-    ![Administração do Sistema e de Usuários](./media/active-directory-saas-kintone-tutorial/IC785880.png "Administração do Sistema e de Usuários")
-
-8. Em **Administração do Sistema \> Segurança**, clique em **Logon**.
-   
-    ![Logon](./media/active-directory-saas-kintone-tutorial/IC785881.png "Logon")
-
-9. Selecione **Habilitar a autenticação do SAML**.
-   
-    ![Autenticação SAML](./media/active-directory-saas-kintone-tutorial/IC785882.png "Autenticação SAML")
-
-10. Na seção Autenticação do SAML, execute as seguintes etapas:
+    ![Aplicativos][2]
     
-    ![Autenticação SAML](./media/active-directory-saas-kintone-tutorial/IC785883.png "Autenticação SAML")
-    
-    1. No portal clássico do Azure, na página do diálogo **Configurar logon único no Kintone**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon**.
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+
+    ![Aplicativos][3]
+
+4. Na caixa de pesquisa, digite **Kintone**.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kintone-tutorial/tutorial_kintone_search.png)
+
+5. No painel de resultados, selecione **Kintone** e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kintone-tutorial/tutorial_kintone_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+Nesta seção, você configurará e testará o logon único do Azure AD com o Kintone, com base em um usuário de teste chamado “Brenda Fernandes”.
+
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Kintone é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Kintone.
+
+No Kintone, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+
+Para configurar e testar o logon único do Azure AD com o Kintone, você precisa concluir os seguintes blocos de construção:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criar um usuário de teste do Kintone](#creating-a-kintone-test-user)** – para ter um equivalente de Brenda Fernandes no Kintone que esteja vinculado à representação do usuário no Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+
+Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo Kintone.
+
+**Para configurar o logon único do Azure AD com o Kintone, execute as seguintes etapas:**
+
+1. No portal do Azure, na página de integração de aplicativos do **Kintone**, clique em **Logon único**.
+
+    ![Configurar Logon Único][4]
+
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+ 
+    ![Configurar Logon Único](./media/active-directory-saas-kintone-tutorial/tutorial_kintone_samlbase.png)
+
+3. Na seção **URLs e Domínio do Kintone**, execute as seguintes etapas:
+
+    ![Configurar Logon Único](./media/active-directory-saas-kintone-tutorial/tutorial_kintone_url.png)
+
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.kintone.com`
+
+    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+    | |
+    |--|
+    | `https://<companyname>.cybozu.com`|
+    | `https://<companyname>.kintone.com`|
+
+    > [!NOTE] 
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente Kintone](https://www.kintone.com/contact/) para obter esses valores. 
+ 
+4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+
+    ![Configurar Logon Único](./media/active-directory-saas-kintone-tutorial/tutorial_kintone_certificate.png) 
+
+5. Clique no botão **Salvar** .
+
+    ![Configurar Logon Único](./media/active-directory-saas-kintone-tutorial/tutorial_general_400.png)
+
+6. Na seção **Configuração do Kintone**, clique em **Configurar Kintone** para abrir a janela **Configurar logon**. Copie a **URL de Saída e a URL do Serviço de Logon Único SAML** da **seção Referência rápida.**
+
+    ![Configurar Logon Único](./media/active-directory-saas-kintone-tutorial/tutorial_kintone_configure.png) 
+
+7. Em outra janela do navegador da Web, faça logon no site da sua empresa do **Kintone** como administrador.
+
+8. Clique em **Configurações**.
    
-    2. No portal clássico do Azure, na página do diálogo **Configurar logon único no Kintone**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff**.
-    
-    3. Clique em **Pesquisar** para carregar o certificado que você baixou.
-    
-    4. Clique em **Salvar**.
+    ![Configurações](./media/active-directory-saas-kintone-tutorial/ic785879.png "Configurações")
 
-11. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
-    
-    ![Configurar Logon Único](./media/active-directory-saas-kintone-tutorial/IC785884.png "Configurar Logon Único")
-    
-## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
+9. Clique em **Usuários e administração do sistema**.
+   
+    ![Administração do Sistema e de Usuários](./media/active-directory-saas-kintone-tutorial/ic785880.png "Administração do Sistema e de Usuários")
 
-Para permitir que os usuários do AD do Azure façam logon no Kintone, eles devem ser provisionados no Kintone.  
+10. Em **Administração do Sistema \> Segurança**, clique em **Logon**.
+   
+    ![Logon](./media/active-directory-saas-kintone-tutorial/ic785881.png "Logon")
+
+11. Selecione **Habilitar a autenticação do SAML**.
+   
+    ![Autenticação SAML](./media/active-directory-saas-kintone-tutorial/ic785882.png "Autenticação SAML")
+
+12. Na seção Autenticação do SAML, execute as seguintes etapas:
+    
+    ![Autenticação SAML](./media/active-directory-saas-kintone-tutorial/ic785883.png "Autenticação SAML")
+    
+    a. Na caixa de texto **URL de Logon**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
+   
+    b. Na caixa de texto **URL de Logoff**, cole o valor da **URL de Saída** copiado do portal do Azure.
+    
+    c. Clique em **Pesquisar** para carregar o certificado que você baixou.
+    
+    d. Clique em **Salvar**.
+
+> [!TIP]
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
+
+### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+
+![Criar um usuário do AD do Azure][100]
+
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+
+1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kintone-tutorial/create_aaduser_01.png) 
+
+2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+    
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kintone-tutorial/create_aaduser_02.png) 
+
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+ 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kintone-tutorial/create_aaduser_03.png) 
+
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+ 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kintone-tutorial/create_aaduser_04.png) 
+
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+
+    d. Clique em **Criar**.
+ 
+### <a name="creating-a-kintone-test-user"></a>Criação de um usuário de teste do Kintone
+
+Para permitir que os usuários do Azure AD façam logon no Kintone, eles devem ser provisionados no Kintone.  
 No caso do Kintone, o provisionamento é uma tarefa manual.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Para provisionar contas de usuário, execute as seguintes etapas:
+### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Para provisionar uma conta de usuário, execute as seguintes etapas:
+
 1. Faça logon em seu site de empresa do **Kintone** como administrador.
 
 2. Clique em **Configuração**.
    
-    ![Configurações](./media/active-directory-saas-kintone-tutorial/IC785879.png "Configurações")
+    ![Configurações](./media/active-directory-saas-kintone-tutorial/ic785879.png "Configurações")
 
 3. Clique em **Usuários e administração do sistema**.
    
-    ![Administração do Sistema e de Usuários](./media/active-directory-saas-kintone-tutorial/IC785880.png "Administração do Sistema e de Usuários")
+    ![Administração do Sistema e de Usuários](./media/active-directory-saas-kintone-tutorial/ic785880.png "Administração do Sistema e de Usuários")
 
 4. Em **Administração de Usuários**, clique em **Departamentos e Usuários**.
    
-    ![Departamento e Usuários](./media/active-directory-saas-kintone-tutorial/IC785888.png "Departamento e Usuários")
+    ![Departamento e Usuários](./media/active-directory-saas-kintone-tutorial/ic785888.png "Departamento e Usuários")
 
 5. Clique em **Novo Usuário**.
    
-    ![Novos Usuários](./media/active-directory-saas-kintone-tutorial/IC785889.png "novos Usuários")
+    ![Novos Usuários](./media/active-directory-saas-kintone-tutorial/ic785889.png "novos Usuários")
 
 6. Na seção **Novo Usuário** , realize as seguintes etapas:
    
-    ![Novos Usuários](./media/active-directory-saas-kintone-tutorial/IC785890.png "novos Usuários")
+    ![Novos Usuários](./media/active-directory-saas-kintone-tutorial/ic785890.png "novos Usuários")
    
-    1. Digite um **Nome de Exibição**, **Nome de Logon**, **Nova Senha**, **Confirmar Senha**, **Endereço de Email** e outros detalhes de uma conta válida do AAD que você deseja provisionar nas caixas de texto relacionadas.
+    a. Digite um **Nome de Exibição**, **Nome de Logon**, **Nova Senha**, **Confirmar Senha**, **Endereço de Email** e outros detalhes de uma conta válida do AAD que você deseja provisionar nas caixas de texto relacionadas.
  
-    2. Clique em **Salvar**.
+    b. Clique em **Salvar**.
 
 > [!NOTE]
 > É possível usar qualquer outra ferramenta de criação da conta de usuário do Kintone ou APIs fornecidas pelo Kintone para provisionar as contas de usuário do AAD.
-> 
-> 
 
-## <a name="assigning-users"></a>Atribuindo usuários
-Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
-### <a name="to-assign-users-to-kintone-perform-the-following-steps"></a>Para atribuir usuários ao Kintone, execute as seguintes etapas:
-1. No Portal clássico do Azure, crie uma conta de teste.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Kintone.
 
-2. Na página de integração de aplicativos do **Kintone**, clique em **Atribuir usuários**.
-   
-    ![Atribuir Usuários](./media/active-directory-saas-kintone-tutorial/IC785891.png "Atribuir Usuários")
+![Atribuir usuário][200] 
 
-3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
-   
-    ![Sim](./media/active-directory-saas-kintone-tutorial/IC767830.png "Sim")
+**Para atribuir Brenda Fernandes ao Kintone, execute as seguintes etapas:**
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
+    ![Atribuir usuário][201] 
+
+2. Na lista de aplicativos, escolha **Kintone**.
+
+    ![Configurar Logon Único](./media/active-directory-saas-kintone-tutorial/tutorial_kintone_app.png) 
+
+3. No menu à esquerda, clique em **usuários e grupos**.
+
+    ![Atribuir usuário][202] 
+
+4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+
+    ![Atribuir usuário][203]
+
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+
+6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+
+7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+    
+### <a name="testing-single-sign-on"></a>Teste do logon único
+
+O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.
+
+Ao clicar no bloco do Kintone no Painel de Acesso, você deverá ser conectado automaticamente a seu aplicativo do Kintone.
+
+## <a name="additional-resources"></a>Recursos adicionais
+
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-kintone-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-kintone-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-kintone-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-kintone-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-kintone-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-kintone-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-kintone-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-kintone-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-kintone-tutorial/tutorial_general_203.png
 

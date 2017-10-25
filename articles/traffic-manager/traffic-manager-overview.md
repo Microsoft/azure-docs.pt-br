@@ -12,20 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/16/2017
+ms.date: 06/15/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 1da8051f96107310b821c4f88f4725987b81f732
-ms.lasthandoff: 03/18/2017
-
+ms.openlocfilehash: 50d7f14d0d4234ee98d8a46e903b5f916cb02fab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-traffic-manager"></a>Visão Geral do Gerenciador de Tráfego
 
 O Gerenciador de Tráfego do Microsoft Azure permite controlar a distribuição do tráfego do usuário para pontos de extremidade do serviço em diferentes datacenters. Os pontos de extremidade de serviço com suporte no Gerenciador de Tráfego incluem VMs do Azure, Aplicativos Web e serviços de nuvem. Você também pode usar o Gerenciador de Tráfego com pontos de extremidade externos e não do Azure.
 
-O Gerenciador de Tráfego usa o DNS (Sistema de Nome de Domínio) para direcionar solicitações de cliente para o ponto de extremidade mais apropriado com base em um [método de roteamento de tráfego](traffic-manager-routing-methods.md) e a integridade dos pontos de extremidade. O Gerenciador de Tráfego oferece uma variedade de métodos de roteamento de tráfego para atender às necessidades de diferentes aplicativo, [monitoramento](traffic-manager-monitoring.md) de integridade do ponto de extremidade e failover automático. O Gerenciador de Tráfego é resistente a falhas, incluindo a falha de toda a região do Azure.
+O Gerenciador de Tráfego usa o DNS (Sistema de Nomes de Domínio) para direcionar solicitações de cliente ao ponto de extremidade mais apropriado com base em um método de roteamento de tráfego e na integridade dos pontos de extremidade. O Gerenciador de Tráfego oferece uma variedade de [métodos de roteamento de tráfego](traffic-manager-routing-methods.md) e [opções de monitoramento de ponto de extremidade](traffic-manager-monitoring.md) para atender às diferentes necessidades dos aplicativos e modelos de failover automático. O Gerenciador de Tráfego é resistente a falhas, incluindo a falha de toda a região do Azure.
 
 ## <a name="traffic-manager-benefits"></a>Benefícios do Gerenciador de Tráfego
 
@@ -68,11 +67,11 @@ Quando um cliente tenta se conectar a um serviço, ele primeiro deve resolver o 
 
 A Contoso Corp desenvolveu um novo portal de parceiros. A URL para este portal é https://partners.contoso.com/login.aspx. O aplicativo é hospedado em três regiões do Azure. Para melhorar a disponibilidade e maximizar o desempenho global, elas usam o Gerenciador de Tráfego para distribuir o tráfego do cliente para o ponto de extremidade mais próximo disponível.
 
-Para alcançar essa configuração:
+Para alcançar essa configuração, eles concluem as etapas a seguir:
 
-* Elas implantam três instâncias de seu serviço. Os nomes DNS dessas implantações são “contoso-us.cloudapp.net”, “contoso-eu.cloudapp.net” e “contoso-asia.cloudapp.net”.
-* Em seguida, elas criam um perfil do Gerenciador de Tráfego, chamado “contoso.trafficmanager.net”, que o configuram para usar o método de roteamento de tráfego por “Desempenho” nos três pontos de extremidade.
-* Por fim, elas configuram seu nome de domínio intuitivo “partners.contoso.com” para apontar para “contoso.trafficmanager.net” usando um registro DNS CNAME.
+1. Implantam três instâncias de seu serviço. Os nomes DNS dessas implantações são “contoso-us.cloudapp.net”, “contoso-eu.cloudapp.net” e “contoso-asia.cloudapp.net”.
+2. Criam um perfil do Gerenciador de Tráfego chamado “contoso.trafficmanager.net” e configuram-no para usar o método de roteamento de tráfego por “Desempenho” nos três pontos de extremidade.
+* Configuram seu nome de domínio intuitivo “partners.contoso.com” para apontar para “contoso.trafficmanager.net” usando um registro DNS CNAME.
 
 ![Configuração DNS do Gerenciador de Tráfego][1]
 
@@ -99,11 +98,15 @@ Continuando o exemplo anterior, quando um cliente solicita a página https://par
 7. O serviço DNS recursivo consolida os resultados e retorna uma única resposta DNS para o cliente.
 8. O cliente recebe os resultados DNS e conecta-se ao endereço IP fornecido. O cliente se conecta ao ponto de extremidade de serviço do aplicativo diretamente, não pelo Gerenciador de Tráfego. Como é um ponto de extremidade HTTPS, o cliente executa o handshake SSL/TLS necessário e faz uma solicitação HTTP GET para a página “/login.aspx”.
 
-O serviço DNS recursivo armazena em cache as respostas DNS recebidas. O resolvedor DNS no dispositivo do cliente também armazena em cache o resultado. O cache permite que as próximas consultas DNS sejam respondidas mais rapidamente usando dados do cache em vez de consultar outros servidores de nomes. A duração do cache é determinada pela propriedade TTL (“vida útil”) de cada registro DNS. Valores menores resultam na expiração de cache mais rápida e, portanto, mais viagens de ida e volta para os servidores de nomes do Gerenciador de Tráfego. Valores maiores significam que pode levar mais tempo para direcionar o tráfego para fora de um ponto de extremidade com falha. O Gerenciador de Tráfego permite configurar o TTL usado nas respostas DNS do Gerenciador de Tráfego, permitindo que você escolha o valor que melhor equilibra as necessidades do seu aplicativo.
+O serviço DNS recursivo armazena em cache as respostas DNS recebidas. O resolvedor DNS no dispositivo do cliente também armazena em cache o resultado. O cache permite que as próximas consultas DNS sejam respondidas mais rapidamente usando dados do cache em vez de consultar outros servidores de nomes. A duração do cache é determinada pela propriedade TTL (“vida útil”) de cada registro DNS. Valores menores resultam na expiração de cache mais rápida e, portanto, mais viagens de ida e volta para os servidores de nomes do Gerenciador de Tráfego. Valores maiores significam que pode levar mais tempo para direcionar o tráfego para fora de um ponto de extremidade com falha. O Gerenciador de Tráfego permite configurar o TTL usado em respostas de DNS do Gerenciador de Tráfego para serem de apenas 0 segundo e de até 2.147.483.647 segundos (o intervalo máximo em conformidade com [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt)), habilitando-o a escolher o valor que melhor equilibre as necessidades do seu aplicativo.
 
 ## <a name="pricing"></a>Preços
 
 Para obter informações sobre preço, consulte [Preços do Gerenciador de Tráfego](https://azure.microsoft.com/pricing/details/traffic-manager/).
+
+## <a name="faq"></a>Perguntas frequentes
+
+Para conferir as perguntas frequentes sobre o Gerenciador de Tráfego, confira [Perguntas frequentes sobre o Gerenciador de Tráfego](traffic-manager-FAQs.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -111,8 +114,9 @@ Saiba mais sobre o [failover automático e monitoramento do ponto de extremidade
 
 Saiba mais sobre os [métodos de roteamento de tráfego](traffic-manager-routing-methods.md)do Gerenciador de Tráfego.
 
+Saiba mais sobre alguns dos outros principais [recursos de rede](../networking/networking-overview.md) do Azure.
+
 <!--Image references-->
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
-
 

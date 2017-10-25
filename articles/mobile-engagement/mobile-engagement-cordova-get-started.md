@@ -1,6 +1,6 @@
 ---
 title: "Introdução ao Azure Mobile Engagement para Cordova/Phonegap"
-description: "Aprenda a usar o Mobile Engagement do Azure com Análises e Notificações por Push para Aplicativos Cordova/Phonegap."
+description: "Aprenda a usar o Azure Mobile Engagement com Análises e Notificações por Push para Aplicativos Cordova/Phonegap."
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: d7a761310782faab1dda023785f93cf90742e2ae
-ms.lasthandoff: 03/29/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-cordovaphonegap"></a>Introdução ao Azure Mobile Engagement para Cordova/Phonegap
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -74,7 +73,7 @@ Criaremos um aplicativo básico com Cordova para demonstrar a integração:
     ``` 
 
 ### <a name="connect-your-app-to-mobile-engagement-backend"></a>Conecte seu aplicativo ao back-end do Mobile Engagement
-1. Instale o plug-in do Mobile Engagement Cordova do Azure e forneça os valores de variáveis para configurar o plug-in:
+1. Instale o plug-in do Azure Mobile Engagement Cordova e forneça os valores de variáveis para configurar o plug-in:
    
         cordova plugin add cordova-plugin-ms-azure-mobile-engagement    
              --variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
@@ -220,5 +219,4 @@ Agora, vamos criar uma campanha de notificação por push simples que enviará u
 [10]: ./media/mobile-engagement-cordova-get-started/campaign-activate.png
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
-
 

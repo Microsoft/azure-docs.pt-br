@@ -4,7 +4,7 @@ description: "Este tutorial orienta você pelas etapas de carregamento de arquiv
 services: media-services
 documentationcenter: 
 author: johndeu
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 8812623a-b425-4a0f-9e05-0ee6c839b6f9
 ms.service: media-services
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/22/2017
+ms.date: 04/17/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 44fe2f5c0a3f050a93368589d9ea6b8ea3e35d26
-ms.openlocfilehash: 60a35bbda79a45bd0ac24e76b0a20720afe79774
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: e3090da9b2c5b8f99545a1f7f9601bfd8d5221f1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Carregar arquivos em uma conta de Serviços de Mídia usando o serviço de Servidor Aspera sob demanda no Azure
 
@@ -31,6 +30,7 @@ O **Servidor Aspera sob demanda** para Azure está disponível para compra no [A
 
 Este tutorial orienta você pelas etapas de carregamento de arquivos em uma conta de armazenamento que está associada a uma conta dos Serviços de Mídia usando o serviço **Servidor Aspera sob demanda** no Azure. 
 
+Você pode encontrar um exemplo que mostra como usar as funções do Azure com o Aspera e os Serviços de Mídia [aqui](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest).
 
 >[!NOTE]
 >Há um limite para o tamanho máximo do arquivo suportado para processamento com processadores de mídia (MPs) dos Serviços de Mídia do Azure. Confira [este](media-services-quotas-and-limitations.md) tópico para obter detalhes sobre a limitação de tamanho de arquivo.
@@ -136,5 +136,4 @@ Agora você pode [copiar blobs de uma conta de armazenamento para uma conta do A
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

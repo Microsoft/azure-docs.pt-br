@@ -4,7 +4,7 @@ description: "Aprenda os conceitos e técnicas do Azure Functions que você prec
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "guia do desenvolvedor, azure functions, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"
@@ -14,19 +14,18 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 05/30/2017
 ms.author: chrande
-translationtype: Human Translation
-ms.sourcegitcommit: bc96edb44dc8bbbbe4687806117990c9d3470fdc
-ms.openlocfilehash: adb70fc58321c11c0b57efc9810a44d0ab2c8a20
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 1cb2ec7aa927eceafdf91c35c1184fceecddc49a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-developers-guide"></a>Guia do desenvolvedor do Azure Functions
 No Azure Functions, funções específicas compartilham alguns componentes e conceitos técnicos, independentemente da linguagem ou da associação usada. Antes de aprender detalhes específicos de uma determinada linguagem ou binding, leia esta visão geral que se aplica a todos eles.
 
-Este artigo pressupõe que você já tenha lido a [Visão geral do Azure Functions](functions-overview.md) e está familiarizado com [conceitos do SDK de WebJobs como gatilhos, associações e tempo de execução do JobHost](../app-service-web/websites-dotnet-webjobs-sdk.md). O Azure Functions é baseado no SDK de WebJobs. 
+Este artigo pressupõe que você já tenha lido a [Visão geral do Azure Functions](functions-overview.md) e está familiarizado com [conceitos do SDK de WebJobs como gatilhos, associações e tempo de execução do JobHost](https://github.com/Azure/azure-webjobs-sdk/wiki). O Azure Functions é baseado no SDK de WebJobs. 
 
 ## <a name="function-code"></a>Código de função
 Uma *função* é o principal conceito no Azure Functions. Você escreve o código para uma função em uma linguagem de sua escolha e salva os arquivos de código e configuração na mesma pasta. A configuração é denominada `function.json`, que contém dados de configuração JSON. Várias linguagens são compatíveis, e cada um tem uma experiência ligeiramente diferente otimizada para funcionar melhor para a linguagem em questão. 
@@ -76,10 +75,10 @@ Ao configurar um projeto para implantar funções em um aplicativo de função n
 > 
 > 
 
-## <a name="a-idfileupdatea-how-to-update-function-app-files"></a><a id="fileupdate"></a> Como atualizar os arquivos de aplicativo de funções
+## <a id="fileupdate"></a> Como atualizar os arquivos de aplicativo de funções
 O editor de funções interno do portal do Azure permite que você atualize o arquivo *function.json* e o arquivo de código de uma função. Para carregar ou atualizar outros arquivos, como *package.json* ou *project.json*, ou dependências, você precisa usar outros métodos de implantação.
 
-Os aplicativos de funções baseiam-se no Serviço de Aplicativo; portanto, todas as [opções de implantação disponíveis para aplicativos Web padrão](../app-service-web/web-sites-deploy.md) também estão disponíveis para aplicativos de funções. Aqui estão alguns métodos que você pode usar para carregar ou atualizar os arquivos de aplicativos de função. 
+Os aplicativos de funções baseiam-se no Serviço de Aplicativo; portanto, todas as [opções de implantação disponíveis para aplicativos Web padrão](../app-service/app-service-deploy-local-git.md) também estão disponíveis para aplicativos de funções. Aqui estão alguns métodos que você pode usar para carregar ou atualizar os arquivos de aplicativos de função. 
 
 #### <a name="to-use-app-service-editor"></a>Para usar o Editor do Serviço de Aplicativo
 1. No portal do Azure Functions, clique em **Configurações do aplicativo de funções**.
@@ -96,9 +95,7 @@ Os aplicativos de funções baseiam-se no Serviço de Aplicativo; portanto, toda
 3. Navegue até `D:\home\site\wwwroot\` para atualizar *host.json* ou `D:\home\site\wwwroot\<function_name>` para atualizar os arquivos de uma função.
 4. Arraste e solte um arquivo que você deseja carregar para a pasta apropriada na grade de arquivos. Há duas áreas na grade de arquivo onde é possível soltar um arquivo. No caso de arquivos *.zip* , uma caixa é exibida com o rótulo "Arraste até aqui para carregar e descompactar". No caso de outros tipos de arquivo, solte na grade de arquivo, mas fora da caixa "descompactar".
 
-#### <a name="to-use-ftp"></a>Para usar o FTP
-1. Siga [estas](../app-service-web/web-sites-deploy.md#ftp) instruções para configurar o FTP.
-2. Quando estiver conectado ao site do aplicativo de funções, copie um arquivo *host.json* atualizado para `/site/wwwroot` ou copie arquivos de função para `/site/wwwroot/<function_name>`.
+<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --DonnaM -->
 
 #### <a name="to-use-continuous-deployment"></a>Para usar a implantação contínua
 Siga as instruções no tópico [Implantação contínua para funções do Azure](functions-continuous-deployment.md).
@@ -106,8 +103,9 @@ Siga as instruções no tópico [Implantação contínua para funções do Azure
 ## <a name="parallel-execution"></a>Execução paralela
 Quando vários eventos de gatilho ocorrem mais rápido do que um tempo de execução single-threaded de função pode processar, o tempo de execução pode invocar a função várias vezes em paralelo.  Se um aplicativo de funções estiver usando o [Plano de hospedagem de consumo](functions-scale.md#how-the-consumption-plan-works), ele poderá escalar horizontalmente de maneira automática.  Cada instância do aplicativo de funções, quer seja executada no Plano de hospedagem de consumo, quer em um [Plano de hospedagem do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) comum, pode processar invocações de função simultâneas em paralelo usando vários threads.  O número máximo de invocações de função simultâneas em cada instância do aplicativo de funções varia com base no tipo de gatilho que está sendo usado, bem como nos recursos usados por outras funções no aplicativo de funções.
 
-## <a name="azure-functions-pulse"></a>Azure Functions Pulse
-O Pulse é uma transmissão de evento ao vivo que mostra quantas vezes sua função é executada, bem como os êxitos e as falhas. Você também pode monitorar o tempo médio de execução. Incluiremos mais recursos e personalização ao longo do tempo. Você pode acessar a página **Pulso** na guia **Monitoramento**.
+## <a name="functions-runtime-versioning"></a>Controle de versão de tempo de execução de funções
+
+Você pode configurar a versão do tempo de execução de Funções usando a configuração de aplicativo `FUNCTIONS_EXTENSION_VERSION`. Por exemplo, o valor "~1" indica que seu aplicativo de funções usará 1 como sua versão principal. Aplicativos de funções são atualizados para cada nova versão secundária à medida que elas são lançadas. Você pode exibir a versão exata do Aplicativo de Funções na guia **Configurações** no Portal do Azure.
 
 ## <a name="repositories"></a>Repositórios
 O código para o Azure Functions é software livre e é armazenado em repositórios do GitHub:
@@ -135,5 +133,4 @@ Para saber mais, consulte os recursos a seguir:
 * [Referência do desenvolvedor de NodeJS do Azure Functions](functions-reference-node.md)
 * [Gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
 * [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Azure Functions: a jornada) no blog da equipe do Serviço de Aplicativo do Azure. Um histórico de como o Azure Functions foi desenvolvido.
-
 

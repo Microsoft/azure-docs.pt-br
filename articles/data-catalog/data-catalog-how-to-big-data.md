@@ -1,6 +1,6 @@
 ---
-title: Como trabalhar com as fontes de dados de &quot;big data&quot; | Microsoft Docs
-description: "Artigo de instruções realçando padrões para uso do Catálogo de Dados do Azure com fontes de dados de &quot;big data&quot;, incluindo o Armazenamento de Blobs do Azure, o Azure Data Lake e o HDFS do Hadoop."
+title: Como trabalhar com as fontes de dados de 'big data' | Microsoft Docs
+description: "Artigo de instruções realçando padrões para uso do Catálogo de Dados do Azure com fontes de dados de \"big data\", incluindo o Armazenamento de Blobs do Azure, o Azure Data Lake e o HDFS do Hadoop."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -13,19 +13,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 08/15/2017
 ms.author: maroche
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8cf7ea7ca69753c12469dff9dc352d616c276ddd
-
-
+ms.openlocfilehash: 001d80ce42f0e87276e59d70dffb75eb561d96cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-work-with-big-data-sources-in-azure-data-catalog"></a>Como trabalhar com fontes de big data no Catálogo de Dados do Azure
 ## <a name="introduction"></a>Introdução
-**Catálogo de Dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em fontes de dados da empresa. Em outras palavras, o **Catálogo de Dados do Azure** ajuda as pessoas a descobrir, entender e usar fontes de dados, ajudando as empresas a obter mais valor de suas fontes de dados existentes, incluindo big data.
+**Catálogo de Dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em fontes de dados da empresa. O foco é ajudar as pessoas a descobrir, entender e usar fontes de dados e ajudar as empresas a obter mais valor de suas fontes de dados existentes, incluindo Big Data.
 
-**Catálogo de Dados do Azure** dá suporte ao registro de blobs do Armazenamento de Blob do Azure e os respectivos diretórios, bem como arquivos de HDFS do Hadoop e os respectivos diretórios. A natureza semiestruturada dessas fontes de dados fornece uma grande flexibilidade, mas também significa que os usuários devem considerar como as fontes de dados são organizadas para que possam obter o máximo de valor ao registrá-las com o **Catálogo de Dados do Azure**.
+**Catálogo de Dados do Azure** dá suporte ao registro de blobs do Armazenamento de Blob do Azure e os respectivos diretórios, bem como arquivos de HDFS do Hadoop e os respectivos diretórios. A natureza semiestruturada dessas fontes de dados proporciona excelente flexibilidade. No entanto, para obter o valor máximo de registrá-las com o **Catálogo de Dados do Azure**, os usuários devem considerar como as fontes de dados são organizadas.
 
 ## <a name="directories-as-logical-data-sets"></a>Diretórios como conjuntos de dados lógicos
 Um padrão comum para a organização de fontes de big data é tratar diretórios como conjuntos de dados lógicos. Diretórios de nível superior são usados para definir um conjunto de dados, enquanto as subpastas definem as partições e os arquivos contidos nessas subpastas armazenam os dados em si.
@@ -45,9 +45,9 @@ Um exemplo desse padrão pode ser:
         \2013
         ...
 
-Neste exemplo, vehicle_maintenance_events e location_tracking_events representam conjuntos de dados lógicos. Cada uma dessas pastas contém arquivos de dados que são organizados em subpastas por ano e mês. Cada uma dessas pastas pode conter, potencialmente, centenas ou milhares de arquivos.
+Neste exemplo, vehicle_maintenance_events e location_tracking_events representam conjuntos de dados lógicos. Cada uma dessas pastas contém arquivos de dados organizados por ano e mês em subpastas. Cada uma dessas pastas pode conter, potencialmente, centenas ou milhares de arquivos.
 
-Nesse padrão, registrar arquivos individuais com o **Catálogo de Dados do Azure** provavelmente não faz sentido. Em vez disso, registre os diretórios que representam os conjuntos de dados que serão significativos para os usuários trabalhando com os dados.
+Nesse padrão, registrar arquivos individuais com o **Catálogo de Dados do Azure** provavelmente não faz sentido. Em vez disso, registre os diretórios que representam os conjuntos de dados que serão significativos para os usuários que estiverem trabalhando com os dados.
 
 ## <a name="reference-data-files"></a>Arquivos de dados de referência
 Um padrão complementar é armazenar conjuntos de dados de referência como arquivos individuais. É possível pensar nesses conjuntos de dados como o lado “pequeno” de big data; geralmente, são similares às dimensões encontradas em um modelo de dados analíticos. Arquivos de dados de referência contêm registros que são usados para fornecer contexto para a quantidade em massa de arquivos de dados armazenados em outro lugar no armazenamento de big data.
@@ -60,16 +60,10 @@ Um exemplo desse padrão pode ser:
 
 Quando um analista ou cientista de dados está trabalhando com os dados contidos nas estruturas de diretório maiores, os dados nesses arquivos de referência podem ser usados para fornecer informações mais detalhadas para entidades que são chamadas apenas por nome ou ID no conjunto de dados maior.
 
-Nesse padrão, fará sentido registrar os arquivos de dados de referência individuais com o **Catálogo de Dados do Azure**. Cada arquivo representa um conjunto de dados e cada um deles pode ser anotado e descoberto individualmente.
+Nesse padrão, faz sentido registrar os arquivos de dados de referência individuais com o **Catálogo de Dados do Azure**. Cada arquivo representa um conjunto de dados e cada um deles pode ser anotado e descoberto individualmente.
 
 ## <a name="alternate-patterns"></a>Padrões alternativos
-Os padrões descritos acima são apenas duas maneiras possíveis em que um armazenamento de big data pode ser organizado, mas cada implementação será diferente. Independentemente de como as fontes de dados são estruturadas, ao registrar fontes de big data com o **Catálogo de Dados do Azure**, concentre-se em registrar os arquivos e diretórios que representam os conjuntos de dados que terão valor para outras pessoas em sua organização. Registrar todos os arquivos e diretórios pode sobrecarregar o catálogo, tornando mais difícil para os usuários encontrar o que precisam.
+Os padrões descritos na seção anterior são apenas duas maneiras possíveis de organizar um armazenamento de Big Data, mas cada implementação é diferente. Independentemente de como as fontes de dados são estruturadas, ao registrar fontes de Big Data com o **Catálogo de Dados do Azure**, concentre-se em registrar os arquivos e diretórios que representem os conjuntos de dados que terão valor para outras pessoas em sua organização. Registrar todos os arquivos e diretórios pode sobrecarregar o catálogo, tornando mais difícil para os usuários encontrar o que precisam.
 
 ## <a name="summary"></a>Resumo
 Registrar fontes de dados com o **Catálogo de Dados do Azure** facilita a descoberta e a compreensão. Registrando e anotando os diretórios e arquivos de big data que representam os conjuntos de dados lógicos, você pode ajudar os usuários a localizar e usar as fontes de big data de que precisam.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

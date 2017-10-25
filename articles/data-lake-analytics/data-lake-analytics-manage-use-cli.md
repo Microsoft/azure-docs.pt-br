@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 66834674e37d3b46a4a754b2b743cb223a6961d7
-ms.lasthandoff: 03/21/2017
-
-
+ms.openlocfilehash: f90bada3572c0ed40b07d76ec02c1b499bbd1428
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Gerenciar a Análise Azure Data Lake usando a CLI (interface de linha de comando) do Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Saiba como gerenciar contas, fontes de dados, usuários e trabalhos da Análise Azure Data Lake usando o Azure. Para ver o tópico de gerenciamento usando outras ferramentas, clique na guia Selecionar acima.
+Saiba como gerenciar contas, fontes de dados, usuários e trabalhos do Azure Data Lake Analytics usando a CLI do Azure. Para ver os tópicos de gerenciamento usando outras ferramentas, clique na guia Selecionar acima.
+
 
 **Pré-requisitos**
 
@@ -84,7 +84,7 @@ Obter detalhes de uma conta específica da Análise Data Lake
 No momento, a Análise Data Lake dá suporte às seguintes fontes de dados:
 
 * [Repositório Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
-* [Armazenamento do Azure](../storage/storage-introduction.md)
+* [Armazenamento do Azure](../storage/common/storage-introduction.md)
 
 Quando você cria uma conta da Análise, é necessário designar uma conta do Armazenamento do Azure Data Lake como a conta de armazenamento padrão. A conta de armazenamento do ADL padrão é usada para armazenar os logs de auditoria de trabalho e os metadados de trabalho. Depois de criar uma conta da Análise, é possíveis adicionar outras contas do Armazenamento do Data Lake e/ou uma conta do Armazenamento do Azure. 
 
@@ -166,15 +166,6 @@ O catálogo do U-SQL é usado para estruturar dados e código para que eles poss
 
 Os tipos incluem database, schema, assembly, external data source, table, table valued function ou table statistics.
 
-### <a name="create-catalog-secret"></a>Criar segredo do catálogo
-    azure datalake analytics catalog secret create -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
-
-### <a name="modify-catalog-secret"></a>Modificar segredo do catálogo
-      azure datalake analytics catalog secret set -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
-
-### <a name="delete-catalog-secret"></a>Excluir segredo do catálogo
-    azure datalake analytics catalog secrete delete -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
-
 <!-- ################################ -->
 <!-- ################################ -->
 ## <a name="use-arm-groups"></a>Usar grupos ARM
@@ -199,5 +190,4 @@ No entanto, o grupo ARM pode estar localizado em um data center diferente.
 * [Introdução à Análise do Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md)
 * [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md)
 * [Monitorar e solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-
 

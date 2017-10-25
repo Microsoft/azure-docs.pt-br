@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 1bb49c0c03a3103194d068b511fa92ecb996caf3
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: 2f503aa60fdd9b7cf66ef482a1041e34c88e5c01
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-an-azure-resource-manager-template"></a>Criar uma VM com um endereço IP público estático usando um modelo do Azure Resource Manager
 
@@ -118,7 +117,7 @@ O modelo de exemplo disponível no repositório público usa um arquivo de parâ
 
 Para implantar o modelo baixado usando o PowerShell, faça o seguinte.
 
-1. Caso você nunca tenha usado o Azure PowerShell, siga as etapas do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+1. Caso você nunca tenha usado o Azure PowerShell, siga as etapas do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 2. Em um console do PowerShell, execute o cmdlet `New-AzureRmResourceGroup` para criar um novo grupo de recursos, se necessário. Se você já tiver criado um grupo de recursos, vá para a etapa 3.
 
     ```powershell
@@ -205,5 +204,4 @@ Para implantar o modelo usando a CLI do Azure, siga as etapas a seguir:
         data:    Tags: null
         data:
         info:    group create command OK
-
 

@@ -3,8 +3,8 @@ title: "Como diagnosticar erros com o Assistente de Conexão do Azure Active Dir
 description: "O Assistente de conexão do Active Directory detectou um tipo de autenticação incompatível"
 services: active-directory
 documentationcenter: 
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2017
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 76a60d16d975efa18da27fda87cf447bd1223acb
-ms.lasthandoff: 03/21/2017
-
-
+ms.author: kraigb
+ms.custom: aaddev
+ms.openlocfilehash: 4f29f62b2996cae98b02c1ed5fcb59eca09301ef
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connection-wizard"></a>Diagnosticando erros com o Assistente de Conexão do Azure Active Directory
 Ao detectar o código de autenticação anterior, o assistente detectou um tipo de autenticação incompatível.   
@@ -69,7 +69,8 @@ Para detectar a Autenticação do Windows em um projeto da API da Web, o assiste
     &lt;Project&gt;
         &lt;PropertyGroup&gt;
             <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
-        &lt;/PropertyGroup> &lt;/Project&gt;
+        &lt;/PropertyGroup>
+    &lt;/Project&gt;
 </pre>
 
 Para detectar a autenticação de contas de usuário individual, o assistente procura o elemento de pacote de seu arquivo **Packages.config** .

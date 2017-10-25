@@ -1,5 +1,5 @@
 ---
-title: "Visão geral do portal do Microsoft Azure"
+title: "Visão geral do Portal do Azure | Microsoft Docs"
 description: Saiba como usar o portal do Microsoft Azure.
 services: 
 documentationcenter: 
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
-translationtype: Human Translation
-ms.sourcegitcommit: 6ab02779d65dfc1519b457486678ace5fafc9fb5
-ms.openlocfilehash: 60733f973e7b88389816c1ea7cc15532ba967693
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 71820306716c6297085a29f3ceab89b55396bfe6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-azure-portal-overview"></a>Visão geral do portal do Microsoft Azure
 O portal do Microsoft Azure é um local central no qual você pode provisionar e gerenciar os recursos do Azure.  Este tutorial mostrará o portal e como usar alguns de seus principais recursos:
@@ -32,7 +31,7 @@ O portal do Microsoft Azure é um local central no qual você pode provisionar e
   ![Orientação da interface do usuário do Portal do Azure][UIOrientation]
 
 ## <a name="before-you-get-started"></a>Antes de começar
-Você precisará de uma assinatura válida do Azure para realizar este tutorial.  Se não tiver uma, [inscreva-se para uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) hoje mesmo.  Quando tiver uma assinatura, você pode acessar o portal em [https://portal.azure.com].
+Você precisará de uma assinatura válida do Azure para realizar este tutorial.  Se não tiver uma, [inscreva-se para uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) hoje mesmo.  Quando tiver uma assinatura, você pode acessar o portal em <https://portal.azure.com>.
 
 ## <a name="how-to-create-a-resource"></a>Como criar um recurso
 O Azure tem um marketplace com milhares de itens que você pode criar em um único lugar.  Digamos que você deseja criar uma nova VM (máquina virtual) do Windows Server 2012.  A hub +NOVO é o ponto de entrada para um conjunto estruturado de categorias em destaque do marketplace.  Cada categoria tem um pequeno conjunto de itens em destaque juntamente com um link para o marketplace completo que mostra todas as categorias e a pesquisa. Para criar essa nova VM do Windows Server 2012, execute as seguintes ações:  
@@ -85,4 +84,3 @@ O portal do Microsoft Azure simplifica radicalmente a criação e o gerenciament
 [ManageResource]: ./media/azure-portal-how-to-use/azure_portal_4.png
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
-

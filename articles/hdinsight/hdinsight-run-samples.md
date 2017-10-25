@@ -1,5 +1,5 @@
 ---
-title: Executar amostras do Hadoop no HDInsight | Microsoft Docs
+title: "Executar as amostras do Hadoop no HDInsight – Azure | Microsoft Docs"
 description: "Introdução ao uso do serviço Azure HDInsight com os exemplos fornecidos. Use os scripts do PowerShell que executam programas MapReduce em clusters de dados."
 services: hdinsight
 documentationcenter: 
@@ -13,15 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: d83bfd81768722592565fe924c4d00610b149999
-ms.openlocfilehash: 16801860b78b40cc883393ca4db3ffa208b889fd
-ms.lasthandoff: 02/15/2017
-
-
+ms.openlocfilehash: 741cce6f2c81efed1e4bd0547fcb46a231815263
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Executar exemplos do MapReduce do Hadoop no HDInsight baseado em Windows
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
@@ -50,7 +49,7 @@ Hoje em dia, muitas pessoas escolhem o Hive e o Pig em vez do MapReduce.  Para o
 **Pré-requisitos**:
 
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **um cluster do HDInsight**. Para obter instruções sobre as várias maneiras pelas quais esses clusters podem ser criados, consulte [Criar clusters do Hadoop no HDInsight](hdinsight-provision-clusters.md).
+* **um cluster do HDInsight**. Para obter instruções sobre as várias maneiras pelas quais esses clusters podem ser criados, consulte [Criar clusters do Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * **Uma estação de trabalho com o PowerShell do Azure**.
 
     > [!IMPORTANT]
@@ -59,7 +58,7 @@ Hoje em dia, muitas pessoas escolhem o Hive e o Pig em vez do MapReduce.  Para o
     > Execute as etapas em [Instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para instalar a versão mais recente do Azure PowerShell. Se você tiver scripts que precisam ser modificados para usar os novos cmdlets que funcionam com o Azure Resource Manager, confira [Migrar para as ferramentas de desenvolvimento baseadas no Azure Resource Manager dos clusters de HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
 ## <a name="hdinsight-sample-wordcount"></a>Contagem de palavras - Java
-Para enviar um projeto do MapReduce, primeiro você cria uma definição de trabalho do MapReduce. Na definição de trabalho, você especifica o arquivo jar do programa MapReduce e o local do arquivo jar, que é **wasbs:///example/jars/hadoop-mapreduce-examples.jar**, o nome da classe e os argumentos.  O programa MapReduce de contagem de palavras usa dois argumentos: o arquivo de origem usado para contar palavras e o local para a saída.
+Para enviar um projeto do MapReduce, primeiro você cria uma definição de trabalho do MapReduce. Na definição de trabalho, você especifica o arquivo jar do programa MapReduce e o local do arquivo jar, que é **wasb:///example/jars/hadoop-mapreduce-examples.jar**, o nome de classe e os argumentos.  O programa MapReduce de contagem de palavras usa dois argumentos: o arquivo de origem usado para contar palavras e o local para a saída.
 
 O código-fonte pode ser encontrado no [Apêndice A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
@@ -79,9 +78,9 @@ Para obter o procedimento de desenvolver um programa MapReduce em Java, consulte
 
     # Define the MapReduce job
     $mrJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-                                -JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
+                                -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "wordcount" `
-                                -Arguments "wasbs:///example/data/gutenberg/davinci.txt", "wasbs:///example/data/WordCountOutput1"
+                                -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
     # Submit the job and wait for job completion
     $cred = Get-Credential -Message "Enter the HDInsight cluster HTTP user credential:"
@@ -168,12 +167,12 @@ O script fornecido para este exemplo envia um trabalho jar do Hadoop e está con
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-                                -JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
+                                -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "pi" `
                                 -Arguments "16", "10000000"
     ```
 
-## <a name="hdinsight-sample-10gb-graysort"></a>Graysort de&10; GB
+## <a name="hdinsight-sample-10gb-graysort"></a>Graysort de 10 GB
 Este exemplo usa uma quantidade modesta de 10 GB de dados para que possa ser executado de modo relativamente rápido. Ele usa os aplicativos MapReduce desenvolvidos por Owen O'Malley e Arun Murthy que ganharam o parâmetro de comparação anual de classificação de terabytes de finalidade geral ("daytona") em 2009, com uma taxa de 0,578 TB/m (100 TB em 173 minutos). Para obter mais informações sobre esse e outros benchmarks de classificação, consulte o site [Sortbenchmark](http://sortbenchmark.org/) .
 
 Este exemplo usa três conjuntos de programas MapReduce:
@@ -219,7 +218,6 @@ Neste artigo e nos artigos sobre cada uma das amostras, você aprendeu a executa
 * [Usar o Hive com Hadoop no HDInsight][hdinsight-use-hive]
 * [Enviar trabalhos Hadoop no HDInsight][hdinsight-submit-jobs]
 * [Documentação do SDK do Azure HDInsight][hdinsight-sdk-documentation]
-* [Depurar o Hadoop no HDInsight: mensagens de erro][hdinsight-errors]
 
 ## <a name="appendix-a---the-word-count-source-code"></a>Apêndice A - o código-fonte de contagem de palavras
 
@@ -314,9 +312,14 @@ namespace cat
             }
 
             string line;
+            char[] separators = { ' ', '\n'};
             while ((line = Console.ReadLine()) != null)
             {
-                Console.WriteLine(line);
+                string[] words = line.Split(separators);
+                foreach (var word in words)
+                {
+                    Console.WriteLine("{0}\t1", word);
+                }
             }
         }
     }
@@ -331,6 +334,7 @@ O código do mapeador no arquivo cat.cs usa um objeto [StreamReader][streamreade
 using System;
 using System.IO;
 using System.Linq;
+using System.Collections;
 
 namespace wc
 {
@@ -339,16 +343,33 @@ namespace wc
         static void Main(string[] args)
         {
             string line;
-            var count = 0;
 
-            if (args.Length > 0){
+            if (args.Length > 0)
+            {
                 Console.SetIn(new StreamReader(args[0]));
             }
 
-            while ((line = Console.ReadLine()) != null) {
-                count += line.Count(cr => (cr == ' ' || cr == '\n'));
+            Hashtable wordCount = new Hashtable();
+            while ((line = Console.ReadLine()) != null)
+            {
+                string[] words = line.Split('\t');
+
+                string key = words[0];
+
+                if (wordCount.ContainsKey(key) == true)
+                {
+                    int n = Convert.ToInt32(wordCount[key]);
+                    wordCount[key] = Convert.ToString(n + 1);
+                }
+                else
+                {
+                    wordCount[key] = words[1];
+                }
             }
-            Console.WriteLine(count);
+            foreach (var key in wordCount.Keys)
+            {
+                Console.WriteLine("{0} {1}", key, wordCount[key]);
+            }
         }
     }
 }
@@ -963,8 +984,6 @@ public class TeraSort extends Configured implements Tool {
 }
 ```
 
-[hdinsight-errors]: hdinsight-debug-jobs.md
-
 [hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
@@ -986,4 +1005,3 @@ public class TeraSort extends Configured implements Tool {
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx
-

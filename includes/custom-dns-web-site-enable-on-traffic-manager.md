@@ -28,8 +28,3 @@ Se ainda não tiver adicionado o aplicativo Web como um ponto de extremidade do 
 
 Nesse ponto, você deve ser capaz de inserir o nome de domínio do Gerenciador de Tráfego no navegador e ver se ele te leva com êxito ao aplicativo Web.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

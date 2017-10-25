@@ -3,7 +3,7 @@ title: "Criar um balanceador de carga voltado para a Internet - CLI do Azure cl�
 description: "Saiba como criar um balanceador de carga para a Internet no modelo de implantação clássico usando a CLI do Azure"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: e433a824-4a8a-44d2-8765-a74f52d4e584
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: da3a908f17ff5c6d3923549a884ecc0a13cb8e9e
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: 0813cb0ccf976b7e47420b33ec65714fd8e60ac1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-cli"></a>Introdução à criação de um balanceador de carga para a Internet (clássico) na CLI do Azure
 
 > [!div class="op_single_selector"]
@@ -36,7 +35,7 @@ ms.lasthandoff: 03/21/2017
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## <a name="step-by-step-creating-an-internet-facing-load-balancer-using-cli"></a>Passo a passo para criação de um balanceador de carga para a Internet usando a CLI
+## <a name="create-an-internet-facing-load-balancer-using-cli"></a>Criar um balanceador de carga voltada para o Internet usando a CLI
 
 Este guia mostra como criar um balanceador de carga de Internet com base no cenário acima.
 
@@ -64,7 +63,7 @@ Criar o primeiro ponto de extremidade e conjunto de balanceadores de carga usand
 azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-## <a name="step-2"></a>Etapa 2
+### <a name="step-2"></a>Etapa 2
 
 Adicione uma segunda máquina virtual "web2" ao conjunto de balanceadores de carga.
 
@@ -72,7 +71,7 @@ Adicione uma segunda máquina virtual "web2" ao conjunto de balanceadores de car
 azure vm endpoint create web2 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-## <a name="step-3"></a>Etapa 3
+### <a name="step-3"></a>Etapa 3
 
 Verificar a configuração do balanceador de carga usando `azure vm show` .
 
@@ -152,4 +151,3 @@ azure vm endpoint delete web1 tcp-80-80
 [Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
-

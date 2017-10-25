@@ -1,7 +1,7 @@
 ---
 title: "Configurar webhooks em alertas de métrica do Azure | Microsoft Docs"
 description: "Redirecionar alertas do Azure para outros sistemas que não são do Azure."
-author: kamathashwin
+author: johnkemnetz
 manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: c0d101266fecf04a84b5717c1b81cefed90cab40
-ms.openlocfilehash: 440bd939f0c7d235d7be210c7fee9f2bc122718c
-ms.lasthandoff: 01/24/2017
-
-
+ms.date: 04/03/2017
+ms.author: johnkem
+ms.openlocfilehash: 1a885166e5c71f13da222bfc22b0fc579096c52f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Configurar um webhook em um alerta do métrica do Azure
 Os webhooks permitem rotear uma notificação de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Você pode usar um webhook em um alerta para roteá-lo aos serviços que enviam SMS, registrar bugs, notificar uma equipe por meio de serviços de bate-papo/mensagens ou qualquer outra ação. Este artigo descreve como definir um webhook em um alerta de métrica do Azure, e a aparência de carga para o HTTP POST para um webhook. Para obter informações sobre a configuração e o esquema de um alerta do Log de Atividades do Azure (alertas sobre eventos), [consulte esta página](insights-auditlog-to-webhook-email.md).
@@ -31,13 +30,10 @@ Você pode adicionar ou atualizar o URI do webhook na tela Criar/Atualizar Alert
 
 ![Adicionar uma Regra de alerta](./media/insights-webhooks-alerts/Alertwebhook.png)
 
-Você também pode configurar um alerta para publicar no URI de um webhook usando os [Cmdlets do Azure PowerShell](insights-powershell-samples.md#create-alert-rules), [CLI entre plataformas](insights-cli-samples.md#work-with-alerts) ou [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Você também pode configurar um alerta para publicar no URI de um webhook usando os [Cmdlets do Azure PowerShell](insights-powershell-samples.md#create-metric-alerts), [CLI entre plataformas](insights-cli-samples.md#work-with-alerts) ou [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="authenticating-the-webhook"></a>Autenticação do webhook
-O webhook pode autenticar usando um destes métodos:
-
-1. **Autorização baseada em token** - O URI do webhook é salvo com uma ID de token, por exemplo: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
-2. **Autorização baseada em senha** - O URI do webhook é salvo com um nome de usuário e senha, por exemplo. `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
+O webhook pode autenticar usando a autorização baseada em token. O URI do webhook é salvo com uma ID de token, por exemplo `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
 
 ## <a name="payload-schema"></a>Esquema de conteúdo
 A operação POST contém o seguinte esquema e conteúdo JSON para todos os alertas baseados em métricas.
@@ -113,4 +109,3 @@ A operação POST contém o seguinte esquema e conteúdo JSON para todos os aler
 * [Usar aplicativo lógico para enviar um SMS por meio de Twilio de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
 * [Usar aplicativo lógico para enviar uma mensagem do Slack de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
 * [Usar aplicativo lógico para enviar uma mensagem a uma Fila do Azure de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
-

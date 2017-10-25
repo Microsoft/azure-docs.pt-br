@@ -13,22 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/22/2017
+ms.date: 09/07/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 00fa4810e41bdbc19d0a2663cfe1437c6e678ab3
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 218e818f48adee0b4e7ecb0b184098a9e3273afd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Implantar e gerenciar topologias Apache Storm no HDInsight
 
 Neste documento, conheça as noções básicas de gerenciamento e monitoramento de topologias Storm em execução no Storm em clusters HDInsight.
 
 > [!IMPORTANT]
-> As etapas deste artigo exigem um Storm baseado em Linux no cluster HDInsight. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). 
-> 
+> As etapas deste artigo exigem um Storm baseado em Linux no cluster HDInsight. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). 
+>
 > Para obter informações sobre as topologias de implantação e monitoramento em HDInsight baseado em Windows, consulte [Implantar e gerenciar topologias do Apache Storm no HDInsight baseado em Windows](hdinsight-storm-deploy-monitor-topology.md)
 
 
@@ -53,7 +52,7 @@ Neste documento, conheça as noções básicas de gerenciamento e monitoramento 
 
 ## <a name="submit-a-topology-visual-studio"></a>Enviar uma topologia: Visual Studio
 
-As Ferramentas do HDInsight podem ser usadas para enviar topologias C# ou híbridas para seu cluster do Storm. As etapas a seguir usam um aplicativo de exemplo. Para obter informações sobre como criar suas próprias topologias usando as Ferramentas do HDInsight, consulte [Desenvolver topologias em C# usando as Ferramentas do HDInsight para Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+As Ferramentas do HDInsight podem ser usadas para enviar topologias C# ou híbridas para seu cluster do Storm. As etapas a seguir usam um aplicativo de exemplo. Para obter informações sobre como criar usando as Ferramentas do HDInsight, consulte [Desenvolver topologias em C# usando as Ferramentas do HDInsight para Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 1. Se você ainda não instalou a última versão das Ferramentas do Data Lake para Visual Studio, consulte [Introdução ao uso das Ferramentas do Data Lake para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
@@ -78,29 +77,29 @@ As Ferramentas do HDInsight podem ser usadas para enviar topologias C# ou híbri
 ## <a name="submit-a-topology-ssh-and-the-storm-command"></a>Enviar uma topologia: SSH e o comando do Storm
 
 1. Use o SSH para conectar ao cluster HDInsight. Substitua o **USERNAME** pelo nome do seu logon SSH. Substitua o **CLUSTERNAME** pelo nome do seu cluster HDInsight:
-   
+
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-   
+
     Para saber mais sobre como usar o SSH para se conectar ao cluster HDInsight, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use o comando a seguir para iniciar uma topologia de exemplo:
-   
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm.starter.WordCountTopology WordCount
-   
+
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
+
     Esse comando inicia a topologia de WordCount de exemplo no cluster. Essa topologia gera frases aleatoriamente e conta a ocorrência de cada palavra nas frases.
-   
+
    > [!NOTE]
    > Ao enviar a topologia para o cluster, primeiro você deverá copiar o arquivo jar com o cluster antes de usar o comando `storm`. Para copiar o arquivo para o cluster, é possível usar o comando `scp`. Por exemplo, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
-   > 
+   >
    > O exemplo de WordCount e outros exemplos de storm starter já estão incluídos no cluster em `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
 ## <a name="submit-a-topology-programmatically"></a>Enviar uma topologia: de forma programática
 
-Você pode implantar programaticamente uma topologia para Storm no HDInsight por meio da comunicação com o serviço Nimbus hospedado no seu cluster. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) fornece um exemplo de aplicativo Java que demonstra como implantar e iniciar uma topologia por meio do serviço Nimbus.
+É possível implantar programaticamente uma topologia usando o serviço Nimbus. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) fornece um exemplo de aplicativo Java que demonstra como implantar e iniciar uma topologia por meio do serviço Nimbus.
 
 ## <a name="monitor-and-manage-visual-studio"></a>Monitorar e gerenciar: Visual Studio
 
-Quando uma topologia for enviada com êxito usando o Visual Studio, a exibição **Topologias do Storm** do cluster será mostrada. Selecione a topologia da lista para exibir informações sobre a topologia em execução.
+Quando uma topologia for enviada usando o Visual Studio, a exibição **Topologias do Storm** será mostrada. Selecione a topologia da lista para exibir informações sobre a topologia em execução.
 
 ![monitor do visual studio](./media/hdinsight-storm-deploy-monitor-topology/vsmonitor.png)
 
@@ -154,7 +153,7 @@ A desativação de uma topologia pausa até que seja interrompido ou reativado. 
 
 As topologias Storm, depois de iniciadas, continuarão em execução até serem interrompidas. Para interrompê-la, use o comando a seguir:
 
-    storm stop TOPOLOGYNAME
+    storm kill TOPOLOGYNAME
 
 ### <a name="rebalance"></a>Rebalanceamento
 
@@ -187,11 +186,11 @@ Selecionar um link na seção **Resumo da topologia** exibirá as seguintes info
 
 * **Resumo da topologia**: informações básicas sobre a topologia.
 * **Ações da topologia**: ações de gerenciamento que podem ser executadas para a topologia.
-  
+
   * **Ativar**: retoma o processamento de uma topologia de desativada.
   * **Desativar**: pausa uma topologia em execução.
   * **Reequilibrar**: ajusta o paralelismo da topologia. Você deve reequilibrar topologias em execução depois de alterar o número de nós no cluster. Essa operação permite que a topologia ajuste o paralelismo para compensar o aumento ou a diminuição do número de nós no cluster.
-    
+
     Para saber mais, consulte <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Noções básicas sobre o paralelismo de uma topologia do Storm</a>.
   * **Eliminar**: encerra uma topologia Storm após o tempo limite especificado.
 * **Estatísticas da topologia**: estatísticas sobre a topologia. Para definir o período de tempo para as entradas restantes na página, use os links da coluna **Janela**.
@@ -206,7 +205,7 @@ Selecionar um spout nas seções **Spouts** ou **Bolts** exibirá as seguintes i
 * **Resumo do componente**: informações básicas sobre o spout ou o bolt.
 * **Estatísticas de Spout/Bolt**: estatísticas sobre o spout ou o bolt. Para definir o período de tempo para as entradas restantes na página, use os links da coluna **Janela**.
 * **Estatísticas de entrada** (somente bolt): informações sobre os streams de entrada consumidos pelo bolt.
-* **Estatísticas de saída**: informações sobre os streams emitidos por esse spout ou bolt.
+* **Estatísticas de saída**: informações sobre os streams emitidos pelo spout ou pelo bolt.
 * **Executores**: informações sobre as instâncias do spout ou bolt. Selecione a entrada **Porta** gerada por um executor específico para exibir um log de informações de diagnóstico produzido para esta instância.
 * **Erros**: qualquer informação de erro para este spout ou bolt.
 
@@ -226,7 +225,7 @@ O URI base da API REST em clusters HDInsight baseados em Linux está disponível
 Você pode encontrar o FQDN (Nome de Domínio Totalmente Qualificado) para o nó de cabeçalho do cluster de várias maneiras diferentes:
 
 * **De uma sessão SSH**: use o comando `headnode -f` de uma sessão SSH para o cluster.
-* **Do Ambari Web**: selecione **Serviços** na parte superior da página, em seguida, selecione **Storm**. Na guia **Resumo** selecione **Servidor de IU do Storm**. O FQDN do nó que a interface do usuário do Storm e a API REST estão executando está na parte superior da página.
+* **Do Ambari Web**: selecione **Serviços** na parte superior da página, em seguida, selecione **Storm**. Na guia **Resumo** selecione **Servidor de IU do Storm**. O FQDN do nó que hospeda a interface do usuário do Storm e a API REST são exibidos na parte superior da página.
 * **Da API REST do Ambari**: use o comando `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` para recuperar informações sobre o nó no qual a interface do usuário do Storm e a API REST estão sendo executados. Substitua **SENHA** pela senha do administrador do cluster. Substitua **CLUSTERNAME** pelo nome do cluster. Na resposta, a entrada "host_name" contém o FQDN do nó.
 
 ### <a name="authentication"></a>Autenticação
@@ -238,12 +237,10 @@ As solicitações para a API REST devem usar a **autenticação básica**e, port
 
 ### <a name="return-values"></a>Valores de retorno
 
-As informações retornadas da API REST só poderão ser usadas dentro do cluster ou de máquinas virtuais na mesma Rede Virtual do Azure que o cluster. Por exemplo, o FQDN (nome de domínio totalmente qualificado) retornado para servidores Zookeeper não é acessível pela Internet.
+As informações retornadas pela API REST só podem ser usadas dentro do cluster. Por exemplo, o FQDN (nome de domínio totalmente qualificado) retornado para servidores Zookeeper não é acessível pela Internet.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu a implantar e monitorar topologias usando o Painel do Storm, saiba como [Desenvolver topologias baseadas em Java usando Maven](hdinsight-storm-develop-java-topology.md).
+Saiba como [Desenvolver topologias baseadas em Java usando o Maven](hdinsight-storm-develop-java-topology.md).
 
 Para obter mais topologias de exemplo, consulte [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md).
-
-

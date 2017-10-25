@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: 5b715ec247183fc1b8cb3fa485612bb0f992b5cf
-
-
+ms.openlocfilehash: 7497ec2ca658c3790227c56ef1755d9a1cb74e0a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo
 Este tópico explica o modelo de configuração no Azure AD Connect. O modelo é chamado de Provisionamento Declarativo e permite que você altere uma configuração com facilidade. Muitos itens descritos neste tópico são avançados e não são necessários para a maioria dos cenários do cliente.
@@ -102,7 +102,7 @@ Nos fluxos de atributo, há uma configuração para determinar se os atributos c
 
 Também há **Merge** e **MergeCaseInsensitive**. Essas opções permitem mesclar valores de diferentes origens. Por exemplo, esses valores podem ser usados para mesclar o membro ou o atributo proxyAddresses de várias florestas diferentes. Quando você usa essa opção, todas as regras de sincronização no escopo de um objeto devem usar o mesmo tipo de mesclagem. Não é possível definir **Update** de um conector e **Merge** de outro. Se tentar, você receberá um erro.
 
-A diferença entre **Merge** e **MergeCaseInsensitive** é como processar valores de atributo duplicados. O mecanismo de sincronização garante que os valores duplicados não sejam inseridos no atributo de destino. Com **MergeCaseInsensitive**, os valores duplicados com uma diferença apenas no caso não estarão presentes. Por exemplo, você não verá "SMTP:bob@contoso.com" e "smtp:bob@contoso.com" no atributo de destino. **Merge** está examinando apenas os valores exatos e múltiplos valores onde há apenas uma diferença no caso pode estar presente.
+A diferença entre **Merge** e **MergeCaseInsensitive** é como processar valores de atributo duplicados. O mecanismo de sincronização garante que os valores duplicados não sejam inseridos no atributo de destino. Com **MergeCaseInsensitive**, os valores duplicados com uma diferença apenas no caso não estarão presentes. Por exemplo, você não verá “SMTP:bob@contoso.com” e “smtp:bob@contoso.com” no atributo de destino. **Merge** está examinando apenas os valores exatos e múltiplos valores onde há apenas uma diferença no caso pode estar presente.
 
 A opção **Replace** é igual a **Update**, mas não é usada.
 
@@ -162,10 +162,3 @@ Para esse cenário, você precisa alterar o escopo das regras de sincronização
 **Tópicos de referência**
 
 * [Azure AD Connect Sync: referência de funções](active-directory-aadconnectsync-functions-reference.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

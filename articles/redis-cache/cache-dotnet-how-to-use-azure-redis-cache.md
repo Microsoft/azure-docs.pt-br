@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/17/2017
+ms.date: 07/27/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 1d208f931af4704528309780b45e170627f1753c
-ms.lasthandoff: 03/09/2017
-
-
+ms.openlocfilehash: 3dfc026490093523446650c510dbebdd660e8b6b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-azure-redis-cache"></a>Como utilizar o cache Redis do Azure
 > [!div class="op_single_selector"]
@@ -36,8 +35,8 @@ Este guia mostra como começar a usar o **Cache Redis do Azure**. O cache Redis 
 O Cache Redis do Microsoft Azure está disponível nas seguintes camadas:
 
 * **Básico** – um único nó. Vários tamanhos acima de 53 GB.
-* **Standard** – principal/réplica com dois nós. Vários tamanhos acima de 53 GB. SLA de&99;,9%.
-* **Premium** – dois nós Primário/Réplica com até 10 fragmentos. Vários tamanhos de 6 GB a 530 GB (entre em contato conosco para obter mais informações). Todos os recursos do tipo Standard e outros, incluindo suporte para [cluster Redis](cache-how-to-premium-clustering.md), [persistência Redis](cache-how-to-premium-persistence.md) e [Rede Virtual do Azure](cache-how-to-premium-vnet.md). SLA de&99;,9%.
+* **Standard** – principal/réplica com dois nós. Vários tamanhos acima de 53 GB. SLA de 99,9%.
+* **Premium** – dois nós Primário/Réplica com até 10 fragmentos. Vários tamanhos de 6 GB a 530 GB. Todos os recursos do tipo Standard e outros, incluindo suporte para [cluster Redis](cache-how-to-premium-clustering.md), [persistência Redis](cache-how-to-premium-persistence.md) e [Rede Virtual do Azure](cache-how-to-premium-vnet.md). SLA de 99,9%.
 
 Cada camada é diferente em termos de recursos e preços. Para saber mais sobre preços, consulte [Detalhes de preços do cache][Cache Pricing Details].
 
@@ -169,6 +168,17 @@ Ao se chamar `StringGet`, se o objeto existir, ele será retornado e, se não ex
         cache.StringSet("key1", value);
     }
 
+Você também pode usar `RedisValue`, conforme mostra o exemplo a seguir. O `RedisValue` tem operadores implícitos para trabalhar com tipos de dados integrais e pode ser útil se `null` for um valor esperado para um item em cache.
+
+
+    RedisValue value = cache.StringGet("key1");
+    if (!value.HasValue)
+    {
+        value = GetValueFromDataSource();
+        cache.StringSet("key1", value);
+    }
+
+
 Para especificar a expiração de um item no cache, use o parâmetro `TimeSpan` de `StringSet`.
 
     cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
@@ -273,7 +283,7 @@ Agora que você aprendeu os conceitos básicos, siga estes links para saber mais
 [How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/library/z852zf6b.aspx
 [Configure a cache in Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn793612.aspx
 
-[StackExchange.Redis configuration model]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
+[StackExchange.Redis configuration model]: https://stackexchange.github.io/StackExchange.Redis/Configuration
 
 [Work with .NET objects in the cache]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
 
@@ -297,6 +307,5 @@ Agora que você aprendeu os conceitos básicos, siga estes links para saber mais
 [a fifteen minute introduction to Redis data types]: http://redis.io/topics/data-types-intro
 
 [How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
-
 
 

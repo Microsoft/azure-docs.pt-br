@@ -13,19 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 08/24/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 37a1653ca058c60a39df95f646127bd9e7fdd556
-ms.openlocfilehash: 57c7b895579e1c1e86224a60d961721d2d4cf638
-ms.lasthandoff: 02/09/2017
-
-
+ms.openlocfilehash: 320190488bb4c7b8192421f9dd50a5264f558584
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## <a name="azure-iot-suite"></a>Azure IoT Suite
-O Microsoft Azure IoT Suite é uma solução de nível corporativo que permite a você trabalhar rapidamente por meio de um conjunto de soluções pré-configuradas extensíveis. Essas soluções abordam cenários de IoT comuns, como [monitoramento remoto][lnk-preconfigured-solutions] e [manutenção preditiva][lnk-predictive-maintenance]. Essas soluções são implementações da arquitetura da solução de IoT, descrita neste artigo.
+O Microsoft Azure IoT Suite é uma solução de nível corporativo que permite a você trabalhar rapidamente por meio de um conjunto de soluções pré-configuradas extensíveis. Essas soluções abordam cenários de IoT comuns, como [monitoramento remoto][lnk-preconfigured-solutions] e [manutenção preditiva][lnk-predictive-maintenance] e [fábrica conectada][lnk-connected-factory]. Essas soluções são implementações da arquitetura da solução de IoT, descrita neste artigo.
 
 As soluções pré-configuradas são completas, funcionais e incluem:
 
@@ -53,4 +52,4 @@ Explore estes recursos para saber mais sobre o IoT Suite e as soluções pré-co
 [Azure Machine Learning]: https://azure.microsoft.com/documentation/services/machine-learning/
 [Azure storage]: https://azure.microsoft.com/documentation/services/storage/
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
-
+[lnk-connected-factory]: iot-suite-connected-factory-overview.md

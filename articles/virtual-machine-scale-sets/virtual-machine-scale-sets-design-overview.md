@@ -1,6 +1,6 @@
 ---
-title: "Como projetar conjuntos de dimensionamento de máquinas virtuais para dimensionamento no Azure| Microsoft Docs"
-description: "Aprenda a projetar seus conjuntos de dimensionamento de máquina virtual para dimensionamento no Azure"
+title: "Considerações de design para conjuntos de dimensionamento de máquinas virtuais do Azure | Microsoft Docs"
+description: "Aprenda sobre considerações de design para seus conjuntos de dimensionamento de máquinas virtuais do Azure"
 keywords: "máquina virtual linux, conjuntos de dimensionamento de máquina virtual"
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -14,38 +14,57 @@ ms.workload: na
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 06/01/2017
 ms.author: negat
-translationtype: Human Translation
-ms.sourcegitcommit: e869b06935736fae72bd3b5407ebab7c3830098d
-ms.openlocfilehash: de3687a1bf36bf49db400a5660ac631f20b629d0
-ms.lasthandoff: 02/14/2017
-
-
+ms.openlocfilehash: 0b05359938f4da544c4cb2a6fe60cfaf228478e1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="designing-vm-scale-sets-for-scale"></a>Projetar conjuntos de escala de VM para dimensionamento
+# <a name="design-considerations-for-scale-sets"></a>Considerações de design para conjuntos de dimensionamento
 Este tópico discute considerações de design para Conjuntos de Escala de Máquina Virtual. Para obter informações sobre o que são Conjuntos de Escala de Máquina Virtual, confira [Conjuntos de Dimensionamento de Máquina Virtual - Visão Geral](virtual-machine-scale-sets-overview.md).
+
+## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>Quando você usar conjuntos de dimensionamento, em vez de máquinas virtuais?
+Em geral, os conjuntos de dimensionamento são úteis para implantar a infraestrutura altamente disponível em que um conjunto de computadores têm configuração semelhante. No entanto, alguns recursos só estão disponíveis em conjuntos de dimensionamento, enquanto outros recursos só estão disponíveis em VMs. Para tomar uma decisão informada sobre quando usar cada tecnologia, vamos primeiro dar uma olhada em alguns dos recursos mais usados que estão disponíveis em conjuntos de dimensionamento, mas não em VMs:
+
+### <a name="scale-set-specific-features"></a>Recursos específicos de conjunto de dimensionamento
+
+- Depois que você especificar a configuração de conjunto de dimensionamento, você pode simplesmente atualizar a propriedade "capacidade" para implantar mais VMs em paralelo. Isso é muito mais simples do que escrever um script para orquestrar a implantação de várias VMs individuais em paralelo.
+- Você pode [usar o Dimensionamento Automático do Azure para dimensionar automaticamente um conjunto de dimensionamento](./virtual-machine-scale-sets-autoscale-overview.md), mas não VMs individuais.
+- Você pode [refazer a imagem de VMs de conjunto de dimensionamento](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm), mas [não de VMs individuais](https://docs.microsoft.com/rest/api/compute/virtualmachines).
+- Você pode [superprovisionar](./virtual-machine-scale-sets-design-overview.md) VMs de conjunto de dimensionamento maior confiabilidade e tempos de implantação mais rápidos. Você não pode fazer isso com VMs individuais, a menos que escreva código personalizado para esse fim.
+- Você pode especificar uma [política de atualização](./virtual-machine-scale-sets-upgrade-scale-set.md) para tornar mais fácil distribuir atualizações entre VMs em seu conjunto de dimensionamento. Com VMs individuais, você mesmo deve organizar as atualizações.
+
+### <a name="vm-specific-features"></a>Recursos específicos de VM
+
+Por outro lado, alguns recursos só estão disponíveis em VMs (pelo menos por enquanto):
+
+- Você pode anexar discos de dados a VMs individuais específicas, mas os discos de dados anexados são configurados para todas as VMs em um conjunto de dimensionamento.
+- Você pode anexar discos de dados não vazios a VMs individuais, mas não a VMs em um conjunto de dimensionamento.
+- Você pode fazer um instantâneo de uma VM individual, mas não de uma VM em um conjunto de dimensionamento.
+- Você pode capturar uma imagem de uma VM individual, mas não de uma VM em um conjunto de dimensionamento.
+- Você pode migrar uma VM individual de discos nativos para Managed Disks, mas não pode fazer isso para VMs em um conjunto de dimensionamento.
+- Você pode atribuir endereços IP públicos IPv6 a adaptadores de rede de VM individuais, mas não pode fazer isso para VMs em um conjunto de dimensionamento. Observe que você pode atribuir endereços IP públicos IPv6 a balanceadores de carga na frente de qualquer VM individual ou VMs de conjunto de dimensionamento.
 
 ## <a name="storage"></a>Armazenamento
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Conjuntos de dimensionamento com Azure Managed Disks
-Agora, os conjuntos de dimensionamento podem ser criados com [Azure Managed Disks](../storage/storage-managed-disks-overview.md). Os Managed Disks oferecem os seguintes benefícios:
+Conjuntos de dimensionamento podem ser criados com [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md), em vez de contas de armazenamento do Azure tradicionais. Os Managed Disks oferecem os seguintes benefícios:
 - Você não precisa criar previamente um conjunto de contas de armazenamento do Azure para VMs de conjunto de dimensionamento.
 - Você pode definir [discos de dados anexados](virtual-machine-scale-sets-attached-disks.md) para as VMs no seu conjunto de dimensionamento.
 - Conjuntos de dimensionamento podem ser configurados para [oferecer suporte a até 1.000 VMs em um conjunto](virtual-machine-scale-sets-placement-groups.md). 
 
-Você pode criar conjuntos de dimensionamento comManaged Disks começando com a versão "2016-04-30-preview" da API de computação do Azure. Para obter informações sobre como converter um modelo de conjunto de dimensionamento em Managed Disks, consulte [Como converter um modelo de conjunto de dimensionamento em um modelo de conjunto de dimensionamento de disco gerenciado](virtual-machine-scale-sets-convert-template-to-md.md).
+Se você tiver um modelo existente, também poderá [atualizar o modelo para usar Managed Disks](virtual-machine-scale-sets-convert-template-to-md.md).
 
 ### <a name="user-managed-storage"></a>Armazenamento gerenciado pelo usuário
-Um conjunto de dimensionamento que não é definido com os Azure Managed Disks se baseia em contas de armazenamento criadas por usuários para armazenar os discos do sistema operacional das VMs no conjunto. Recomendamos uma taxa de 20 VMs ou menor por conta de armazenamento para atingir o máximo de E/S e também tirar proveito do _provisionamento em excesso_ (confira abaixo). Também recomendamos distribuir os caracteres iniciais dos nomes de conta de armazenamento pelo alfabeto. Isso ajuda a distribuir a carga entre diferentes sistemas internos. 
+Um conjunto de dimensionamento que não esteja definido com os Azure Managed Disks se baseia em contas de armazenamento criadas por usuários para armazenar os discos do sistema operacional das VMs no conjunto. Recomendamos uma taxa de 20 VMs ou menor por conta de armazenamento para atingir o máximo de E/S e também tirar proveito do _provisionamento em excesso_ (confira abaixo). Também recomendamos distribuir os caracteres iniciais dos nomes de conta de armazenamento pelo alfabeto. Isso ajuda a distribuir a carga entre diferentes sistemas internos. 
 
->[!NOTE]
->A versão da API de conjuntos de dimensionamento de VMs `2016-04-30-preview` oferece suporte usando os Azure Managed Disks para o disco do sistema operacional e discos de dados extras. Para obter mais informações, confira [Visão geral do Managed Disks](../storage/storage-managed-disks-overview.md) e [Usar discos de dados anexados](virtual-machine-scale-sets-attached-disks.md). 
 
 ## <a name="overprovisioning"></a>Provisionamento em excesso
-Desde a versão da API "2016-03-30", os conjuntos de dimensionamento de VMs realizam "provisionamento em excesso" de VMs por padrão. Com o provisionamento em excesso ativado, o conjunto de dimensionamento rotaciona mais VMs do que o solicitado e exclui as VMs extras assim que o número de VMs solicitado é provisionado com êxito. O provisionamento em excesso melhora as taxas de sucesso do provisionamento e reduz o tempo de implantação. Você não pagará por essas VMs extras e elas não contam nos seus limites de cota.
+Conjuntos de dimensionamento atualmente usam o "superprovisionamento" de VMs como padrão. Com o provisionamento em excesso ativado, o conjunto de dimensionamento rotaciona mais VMs do que o solicitado e exclui as VMs extras assim que o número de VMs solicitado é provisionado com êxito. O provisionamento em excesso melhora as taxas de sucesso do provisionamento e reduz o tempo de implantação. Você não pagará por essas VMs extras e elas não contam nos seus limites de cota.
 
-Embora o provisionamento em excesso melhore as taxas de sucesso do provisionamento, tal comportamento pode ser confuso para um aplicativo que não foi projetado para lidar com o surgimento e desaparecimento repentino de VMs extras. Para desativar o provisionamento em excesso, verifique se você tem a seguinte cadeia de caracteres no seu modelo: "overprovision": "false". Mais detalhes podem ser encontrados na [documentação da API REST do conjunto de escala da VM](https://msdn.microsoft.com/library/azure/mt589035.aspx).
+Embora o provisionamento em excesso melhore as taxas de sucesso do provisionamento, tal comportamento pode ser confuso para um aplicativo que não foi projetado para lidar com o surgimento e desaparecimento repentino de VMs extras. Para desativar o superprovisionamento, verifique se você tem a seguinte cadeia de caracteres no seu modelo: `"overprovision": "false"`. Mais detalhes podem ser encontrados na [Documentação da API REST do conjunto de dimensionamento](/rest/api/virtualmachinescalesets/create-or-update-a-set).
 
 Se o seu conjunto de dimensionamento usa armazenamento gerenciado pelo usuário, e você desativar o provisionamento em excesso, você poderá ter mais de 20 VMs por conta de armazenamento, mas não é recomendável ultrapassar 40 VMs para não prejudicar o desempenho do E/S. 
 
@@ -54,8 +73,7 @@ Um conjunto de dimensionamento criado em uma imagem do Marketplace (também conh
 
 Um conjunto de dimensionamento configurado com contas de armazenamento gerenciadas pelo usuário é atualmente limitada a 100 VMs (e são recomendadas 5 contas de armazenamento para essa escala).
 
-Um conjunto de dimensionamento criado em uma imagem personalizada (criado por você) pode ter uma capacidade de até 100 VMs quando configuradas com discos gerenciados do Azure. Se o conjunto de dimensionamento é configurado com contas de armazenamento gerenciadas pelo usuário, ele deve criar todos os VHDs de disco do sistema operacional em uma conta de armazenamento. Como resultado, o número máximo recomendado de VMs em um conjunto de dimensionamento criado em uma imagem personalizada e em um armazenamento gerenciado pelo usuário é 20. Se você desativar o provisionamento em excesso, será possível ir até 40.
+Um conjunto de dimensionamento criado em uma imagem personalizada (criado por você) pode ter uma capacidade de até 300 VMs quando configuradas com Managed Disks do Azure. Se o conjunto de dimensionamento é configurado com contas de armazenamento gerenciadas pelo usuário, ele deve criar todos os VHDs de disco do sistema operacional em uma conta de armazenamento. Como resultado, o número máximo recomendado de VMs em um conjunto de dimensionamento criado em uma imagem personalizada e em um armazenamento gerenciado pelo usuário é 20. Se você desativar o provisionamento em excesso, será possível ir até 40.
 
 Para ter mais VMs do que esses limites permitem, você precisará implantar vários conjuntos de dimensionamento, conforme mostrado [neste modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
-
 

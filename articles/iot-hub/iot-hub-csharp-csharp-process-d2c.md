@@ -12,34 +12,31 @@ ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 07/25/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: ff0b234f27e2d5068cc0dcdc73e32e60f8622633
-ms.lasthandoff: 03/06/2017
-
-
+ms.openlocfilehash: 1d2b52ea005ab520bf294efa603512c00a92ee63
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="process-iot-hub-device-to-cloud-messages-using-routes-net"></a>Processar mensagens do dispositivo para nuvem do Hub IoT usando rotas (.NET)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
-## <a name="introduction"></a>Introdução
-O Hub IoT do Azure é um serviço totalmente gerenciado que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos e um back-end da solução. Outros tutoriais ([Introdução ao Hub IoT] e [Como enviar mensagens da nuvem para o dispositivo com o Hub IoT][lnk-c2d]) mostram como usar a funcionalidade básica de mensagem do dispositivo para a nuvem e da nuvem para o dispositivo do Hub IoT.
+Este tutorial baseia-se no tutorial [Introdução ao Hub IoT] . O tutorial:
 
-Este tutorial baseia-se no tutorial [Introdução ao Hub IoT] e mostra como usar o regras de direcionamento para enviar mensagens do dispositivo para a nuvem de maneira fácil e baseada em configuração. O tutorial ilustra como isolar mensagens que exigem ação imediata no back-end da solução para processamento adicional. Por exemplo, um dispositivo pode enviar uma mensagem de alarme que dispara e insere um tíquete em um sistema CRM. Por outro lado, as mensagens de ponto de dados simplesmente são alimentadas no mecanismo de análise. Por exemplo, a telemetria de temperatura de um dispositivo que deve ser armazenado para análise posterior é uma mensagem de ponto de dados.
+* Mostra como usar regras de roteamento do para enviar mensagens de dispositivo à nuvem de maneira fácil, com base em configuração.
+* Ilustra como isolar mensagens interativas que exigem ação imediata no back-end da solução para processamento adicional. Por exemplo, um dispositivo pode enviar uma mensagem de alarme que dispara e insere um tíquete em um sistema CRM. Por outro lado, as mensagens de ponto de dados, como telemetria de temperatura, são enviadas ao mecanismo de análise.
 
 No final deste tutorial, você executará três aplicativos de console .NET:
 
-* **SimulatedDevice**, uma versão modificada do aplicativo criado no tutorial [Introdução ao Hub IoT], que envia mensagens de ponto de dados do dispositivo para a nuvem a cada segundo e mensagens interativas do dispositivo para a nuvem a cada 10 segundos. Este aplicativo usa o protocolo AMQP para se comunicar com o Hub IoT.
-* **ReadDeviceToCloudMessages**, que exibe a telemetria não crítica enviada pelo aplicativo de dispositivo simulado.
-* **ReadCriticalQueue** retira da fila as mensagens críticas enviadas pelo seu aplicativo de dispositivo simulado da fila do Barramento de Serviço conectada ao Hub IoT.
+* **SimulatedDevice**, uma versão modificada do aplicativo criado no tutorial [Introdução ao Hub IoT], que envia mensagens de ponto de dados do dispositivo para a nuvem a cada segundo e mensagens interativas do dispositivo para a nuvem a cada 10 segundos.
+* **ReadDeviceToCloudMessages**, que exibe a telemetria não crítica enviada pelo aplicativo de dispositivo.
+* **ReadCriticalQueue** retira da fila as mensagens críticas enviadas pelo seu aplicativo de dispositivo de uma fila do Barramento de Serviço. Essa fila é conectada ao Hub IoT.
 
 > [!NOTE]
-> O Hub IoT tem suporte de SDK para várias plataformas de dispositivo e linguagens, incluindo C, Java e JavaScript. Para saber como substituir o dispositivo simulado neste tutorial por um dispositivo físico e como conectar dispositivos a um Hub IoT, confira o [Centro de desenvolvedores do Azure IoT].
-> 
-> 
+> O Hub IoT tem suporte de SDK para várias plataformas de dispositivo e linguagens, incluindo C, Java e JavaScript. Para saber como substituir o dispositivo simulado neste tutorial por um dispositivo físico, confira o [Centro de desenvolvedores do Azure IoT].
 
 Para concluir este tutorial, você precisará do seguinte:
 
@@ -48,48 +45,52 @@ Para concluir este tutorial, você precisará do seguinte:
 
 Você também precisa ter um conhecimento básico do [Armazenamento do Azure] e do [Barramento de Serviço do Azure].
 
-## <a name="send-interactive-messages-from-a-simulated-device-app"></a>Enviar mensagens interativas de um aplicativo do dispositivo simulado
-Nesta seção, você modificará o aplicativo de dispositivo simulado criado no tutorial [Introdução ao Hub IoT] para enviar mensagens ocasionalmente que exigem processamento imediato.
+## <a name="send-interactive-messages"></a>Enviar mensagens interativas
+
+Modifique o aplicativo de dispositivo criado no tutorial [Introdução ao Hub IoT] para enviar ocasionalmente mensagens interativas.
 
 No Visual Studio, no projeto **SimulatedDevice**, substitua o método `SendDeviceToCloudMessagesAsync` pelo código a seguir:
 
-```
+```csharp
 private static async void SendDeviceToCloudMessagesAsync()
+{
+    double minTemperature = 20;
+    double minHumidity = 60;
+    Random rand = new Random();
+
+    while (true)
     {
-        double avgWindSpeed = 10; // m/s
-        Random rand = new Random();
+        double currentTemperature = minTemperature + rand.NextDouble() * 15;
+        double currentHumidity = minHumidity + rand.NextDouble() * 20;
 
-        while (true)
+        var telemetryDataPoint = new
         {
-            double currentWindSpeed = avgWindSpeed + rand.NextDouble() * 4 - 2;
+            deviceId = "myFirstDevice",
+            temperature = currentTemperature,
+            humidity = currentHumidity
+        };
+        var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
+        string levelValue;
 
-            var telemetryDataPoint = new
-            {
-                deviceId = "myFirstDevice",
-                windSpeed = currentWindSpeed
-            };
-            var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
-            string levelValue;
-
-            if (rand.NextDouble() > 0.7)
-            {
-                messageString = "This is a critical message";
-                levelValue = "critical";
-            }
-            else
-            {
-                levelValue = "normal";
-            }
-            
-            var message = new Message(Encoding.ASCII.GetBytes(messageString));
-            message.Properties.Add("level", levelValue);
-            
-            await deviceClient.SendEventAsync(message);
-            Console.WriteLine("{0} > Sent message: {1}", DateTime.Now, messageString);
-
-            await Task.Delay(1000);
+        if (rand.NextDouble() > 0.7)
+        {
+            messageString = "This is a critical message";
+            levelValue = "critical";
         }
+        else
+        {
+            levelValue = "normal";
+        }
+        
+        var message = new Message(Encoding.ASCII.GetBytes(messageString));
+        message.Properties.Add("level", levelValue);
+        
+        await deviceClient.SendEventAsync(message);
+        Console.WriteLine("{0} > Sent message: {1}", DateTime.Now, messageString);
+
+        await Task.Delay(1000);
     }
+}
 ```
 
 Isso adiciona aleatoriamente a propriedade `"level": "critical"` às mensagens enviadas pelo dispositivo, que simula uma mensagem que exige ação imediata do back-end da solução. O aplicativo do dispositivo passa essas informações nas propriedades da mensagem, e não no corpo da mensagem, de modo que o Hub IoT pode rotear a mensagem para o destino apropriado.
@@ -100,7 +101,8 @@ Isso adiciona aleatoriamente a propriedade `"level": "critical"` às mensagens e
 > [!NOTE]
 > Para simplificar, esse tutorial não implementa nenhuma política de repetição. No código de produção, você deve implementar políticas de repetição, como uma retirada exponencial, como sugerido no artigo [Tratamento de falhas transitórias]do MSDN.
 
-## <a name="add-a-queue-to-your-iot-hub-and-route-messages-to-it"></a>Adicionar uma fila ao seu Hub IoT e rotear mensagens para ela
+## <a name="route-messages-to-a-queue-in-your-iot-hub"></a>Rotear mensagens para uma fila em seu Hub IoT
+
 Nesta seção, você:
 
 * Criará uma fila do Barramento de Serviço.
@@ -110,6 +112,9 @@ Nesta seção, você:
 Para saber mais sobre como processar mensagens das filas do Barramento de Serviço, confira [Introdução às filas][Service Bus queue].
 
 1. Crie uma fila do Barramento de Serviço conforme descrito em [Introdução às filas][Service Bus queue]. A fila deve estar na mesma assinatura e região que o seu Hub IoT. Anote o namespace e o nome da fila.
+
+    > [!NOTE]
+    > As filas do Barramento de Serviço e os tópicos utilizados como pontos de extremidade do Hub IoT não devem ter **Sessões** nem **Detecção Duplicada** habilitadas. Se qualquer uma dessas opções estiver habilitada, o ponto de extremidade aparecerá como **Inacessível** no Portal do Azure.
 
 2. No Portal do Azure, abra o Hub IoT e clique em **Pontos de extremidade**.
     
@@ -128,6 +133,7 @@ Para saber mais sobre como processar mensagens das filas do Barramento de Servi�
     ![Rota de fallback][33]
 
 ## <a name="read-from-the-queue-endpoint"></a>Ler no ponto de extremidade da fila
+
 Nesta seção, você lê as mensagens no ponto de extremidade da fila.
 
 1. No Visual Studio, adicione um projeto da Área de Trabalho Clássica do Windows no Visual C# à solução atual usando o modelo de projeto **Aplicativo do Console (.NET Framework)**. Dê ao projeto o nome de **ReadCriticalQueue**.
@@ -138,14 +144,14 @@ Nesta seção, você lê as mensagens no ponto de extremidade da fila.
 
 4. Adicione a seguinte instrução **using** à parte superior do arquivo **Program.cs**:
    
-    ```
+    ```csharp
     using System.IO;
     using Microsoft.ServiceBus.Messaging;
     ```
 
 5. Por fim, adicione as seguintes linhas ao método **Main** . Substitua a cadeia de conexão por permissões **Escutar** para a fila:
    
-    ```
+    ```csharp
     Console.WriteLine("Receive critical messages. Ctrl-C to exit.\n");
     var connectionString = "{service bus listen string}";
     var queueName = "{queue name}";
@@ -184,46 +190,19 @@ Para saber mais sobre o roteamento de mensagens no Hub IoT, confira [Enviar e re
 
 <!-- Images. -->
 [50]: ./media/iot-hub-csharp-csharp-process-d2c/run1.png
-[10]: ./media/iot-hub-csharp-csharp-process-d2c/create-identity-csharp1.png
-
 [30]: ./media/iot-hub-csharp-csharp-process-d2c/click-endpoints.png
 [31]: ./media/iot-hub-csharp-csharp-process-d2c/endpoint-creation.png
 [32]: ./media/iot-hub-csharp-csharp-process-d2c/route-creation.png
 [33]: ./media/iot-hub-csharp-csharp-process-d2c/fallback-route.png
 
 <!-- Links -->
-
-[Azure blob storage]: ../storage/storage-dotnet-how-to-use-blobs.md
-[Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
-[HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
 [Service Bus queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
-
-[IoT Hub developer guide - Device to cloud]: iot-hub-devguide-messaging.md
-
 [Armazenamento do Azure]: https://azure.microsoft.com/documentation/services/storage/
 [Barramento de Serviço do Azure]: https://azure.microsoft.com/documentation/services/service-bus/
-
 [Guia do desenvolvedor do Hub IoT]: iot-hub-devguide.md
 [Introdução ao Hub IoT]: iot-hub-csharp-csharp-getstarted.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Centro de desenvolvedores do Azure IoT]: https://azure.microsoft.com/develop/iot
-[lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/
-[lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-event-hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
-[Tratamento de falhas transitórias]: https://msdn.microsoft.com/library/hh675232.aspx
-
-<!-- Links -->
-[About Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
-[Get Started with Event Hubs]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[Azure Storage scalability Guidelines]: ../storage/storage-scalability-targets.md
-[Azure Block Blobs]: https://msdn.microsoft.com/library/azure/ee691964.aspx
-[Event Hubs]: ../event-hubs/event-hubs-overview.md
-[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Event Hubs Programming Guide]: ../event-hubs/event-hubs-programming-guide.md
-[Tratamento de Falhas Transitórias]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Build multi-tier applications with Service Bus]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-
-[lnk-classic-portal]: https://manage.windowsazure.com
+[Tratamento de falhas transitórias]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: d2e2effa9c215107cf0893a74df0b909fbf5d4c0
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: cf9ee59ca4e44ed01836c2efb1f4df5f073bf6e0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>Como definir um endereço IP privado interno estático usando o PowerShell (clássico)
 Na maioria dos casos, você não precisará especificar um endereço IP interno estático para sua máquina virtual. As VMs de uma rede virtual receberão automaticamente endereço IP interno de um intervalo especificado por você. Mas, em alguns casos, a especificação de um endereço IP estático para uma determinada VM fará sentido. Por exemplo, se a sua VM se destinar à execução de DNS ou a ser um controlador de domínio. Um endereço IP interno estático permanece com a VM mesmo em um estado de interrupção/desprovisionamento. 
@@ -41,7 +40,7 @@ Para verificar se o endereço IP *10.0.0.7* está disponível em uma VNet *TestV
     OperationStatus      : Succeeded
 
 > [!NOTE]
-> Se você quiser testar o comando acima em um ambiente seguro, siga as diretrizes de [Criar uma rede Virtual](virtual-networks-create-vnet-classic-portal.md) para criar uma VNet denominada *TestVnet* e verificar se ela usa o espaço de endereço *10.0.0.0/8*.
+> Se você quiser testar o comando acima em um ambiente seguro, siga as diretrizes em [Criar uma rede virtual (clássica)](virtual-networks-create-vnet-classic-pportal.md) para criar uma rede virtual denominada *TestVnet* e verificar se ela usa o espaço de endereço *10.0.0.0/8*.
 > 
 > 
 
@@ -108,5 +107,4 @@ Para adicionar um IP interno estático à VM criada usando o script acima, execu
 [IP Público em Nível de Instância (ILPIP)](virtual-networks-instance-level-public-ip.md)
 
 [APIs REST com IP Reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx)
-
 

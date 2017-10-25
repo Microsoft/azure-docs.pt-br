@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 103b3ad93c6bb99f1781e9b3c485caa6042ae0a3
-
-
+ms.openlocfilehash: e42d80f0ca35f3fbb67389c66d072bc40d8a8d2c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stored-procedures-in-sql-data-warehouse"></a>Procedimentos armazenados no SQL Data Warehouse
 O SQL Data Warehouse oferece suporte a muitos recursos Transact-SQL encontrados no SQL Server. Mais importante, há recursos específicos de expansão que vamos aproveitar para maximizar o desempenho da sua solução.
@@ -63,7 +64,7 @@ GO
 EXEC prc_nesting
 ```
 
-Observe que o SQL Data Warehouse no momento não oferece suporte a @@NESTLEVEL.. Você precisará manter o controle de seu nível de aninhamento por conta própria. É improvável que você atinja o limite 8 de nível de aninhamento, mas, se atingir, será necessário trabalhar novamente seu código e "nivelá-lo" para que fique dentro do limite.
+Observe que atualmente o SQL Data Warehouse não dá suporte ao @@NESTLEVEL. Você precisará manter o controle de seu nível de aninhamento por conta própria. É improvável que você atinja o limite 8 de nível de aninhamento, mas, se atingir, será necessário trabalhar novamente seu código e "nivelá-lo" para que fique dentro do limite.
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
 O SQL Data Warehouse não permite que você consuma o conjunto de resultados de um procedimento armazenado com uma instrução INSERT. No entanto, há uma abordagem alternativa.
@@ -88,21 +89,15 @@ Eles são:
 * instrução return
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais dicas de desenvolvimento, consulte [visão geral sobre desenvolvimento][visão geral sobre desenvolvimento].
+Para obter mais dicas de desenvolvimento, confira [visão geral de desenvolvimento][development overview].
 
 <!--Image references-->
 
 <!--Article references-->
 [tabelas temporárias]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
-[visão geral sobre desenvolvimento]: ./sql-data-warehouse-overview-develop.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[nível de aninhamento]: https://msdn.microsoft.com/library/ms187371.aspx
+[nest level]: https://msdn.microsoft.com/library/ms187371.aspx
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

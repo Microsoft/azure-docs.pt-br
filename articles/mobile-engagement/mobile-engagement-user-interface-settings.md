@@ -1,6 +1,6 @@
 ---
-title: "Interface do usuário do Mobile Engagement do Azure - Configurações"
-description: "Como gerenciar as configurações globais do seu aplicativo usando o Mobile Engagement do Azure"
+title: "Interface do usuário do Azure Mobile Engagement - Configurações"
+description: "Como gerenciar as configurações globais do seu aplicativo usando o Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f3c20ee0d5abb40d7650eeaa722e87142275448d
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: af5c81df2b9f288161b38625d3ac2adde8fb195d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-the-global-settings-of-your-application"></a>Como gerenciar as configurações globais do seu aplicativo
 As opções do menu **Configurações** disponíveis para um aplicativo variam, dependendo da plataforma do aplicativo e das permissões que você recebeu para o aplicativo. As configurações incluem: Detalhes, Projetos, Push Nativo, Velocidade do Push, Marca (informações do aplicativo) e Pressão Comercial. A opção de menu Marca (informações do aplicativo) da seção Configurações pode ser gerenciada pelo seu aplicativo (usando o SDK) ou por seu back-end (usando a API do Dispositivo). 
@@ -46,7 +45,7 @@ Para obter mais informações, veja: [Documentação da Interface do Usuário �
   ![settings3][48]
 
 ## <a name="native-push"></a>Push nativo
-Permite o registro de um novo certificado ou a exclusão de um certificado existente para o uso com o envio nativo. O Push nativo permite o Mobile Engagement do Azure a enviar por push para o seu aplicativo a qualquer momento, mesmo quando ele não está em execução. 
+Permite o registro de um novo certificado ou a exclusão de um certificado existente para o uso com o envio nativo. O Push nativo permite o Azure Mobile Engagement a enviar por push para o seu aplicativo a qualquer momento, mesmo quando ele não está em execução. 
 
 Após fornecer as credenciais ou certificados para pelo menos um serviço de push nativo, pode-se selecionar "Sempre" ao criar de campanhas Reach, bem como usar o parâmetro "notificação" na API de envio.
 
@@ -189,5 +188,4 @@ Mostra a velocidade de push atual do seu aplicativo e permite que você defina a
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
 

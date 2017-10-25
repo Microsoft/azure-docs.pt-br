@@ -12,30 +12,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/17/2017
+ms.date: 06/17/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 8296e88024109e35379faa67ca887e6d2c52a6c5
-ms.openlocfilehash: 41bba4608fd7e3d0b16cbf0d846f5f65a071ad20
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 0db9dbd2d2743907e3f0b259228201d4f5d0c3c2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Tutorial do REST de Retransmissão de WCF do Azure
+
 Este tutorial descreve como compilar um aplicativo host simples da Retransmissão do Azure que expõe uma interface baseada em REST. O REST permite que um cliente da Web, como, por exemplo, um navegador da Web, acesse as APIs de Barramento de Serviço por meio de solicitações HTTP.
 
-Este tutorial usa o modelo de programação REST do WCF (Windows Communication Foundation) para construir um serviço REST no Barramento de Serviço. Para saber mais, confira [Modelo de programação REST WCF](https://msdn.microsoft.com/library/bb412169.aspx) e [Criando e implementando serviços](https://msdn.microsoft.com/library/ms729746.aspx) na documentação do WCF.
+Este tutorial usa o modelo de programação REST do WCF (Windows Communication Foundation) para construir um serviço REST no Barramento de Serviço. Para saber mais, confira [Modelo de programação REST WCF](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) e [Criando e implementando serviços](/dotnet/framework/wcf/designing-and-implementing-services) na documentação do WCF.
 
-## <a name="step-1-create-a-service-namespace"></a>Etapa 1: Criar um namespace de serviço
+## <a name="step-1-create-a-namespace"></a>Etapa 1: criar um namespace
 
 Para começar a usar os recursos de retransmissão no Azure, você deve primeiro criar um namespace de serviço. Um namespace fornece um contêiner de escopo para endereçar recursos do Azure dentro de seu aplicativo. Siga as [instruções aqui](relay-create-namespace-portal.md) para criar um namespace de Retransmissão.
 
 ## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Etapa 2: Definir um contrato de serviço WCF baseado em REST para usar com a Retransmissão do Azure
+
 Quando você cria um serviço no estilo REST do WCF, é preciso definir o contrato. O contrato especifica para quais operações o host oferece suporte. Uma operação de serviço pode ser considerada um método de serviço Web. Os contratos são criados pela definição de uma interface C++, C# ou Visual Basic. Cada método na interface corresponde a uma operação de serviço específica. O atributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) deve ser aplicado a cada interface, e o atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) deve ser aplicado a cada operação. Se um método em uma interface que tem o [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) não tiver o [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), tal método não será exposto. O código usado para essas tarefas é mostrado no exemplo logo após o procedimento.
 
 A principal diferença entre um contrato básico do WCF e um contrato no estilo REST é a adição de uma propriedade para o atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx): [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx). Esta propriedade permite mapear um método em sua interface para um método no outro lado da interface. Nesse caso, usaremos [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) para vincular um método a HTTP GET. Isso permite que o Barramento de Serviço recupere e interprete de forma precisa os comandos enviados à interface.
 
 ### <a name="to-create-a-contract-with-an-interface"></a>Para criar um contrato com uma interface
+
 1. Abra o Visual Studio como administrador: clique com o botão direito no programa no menu **Iniciar** e, em seguida, clique em **Executar como administrador**.
 2. Crie um novo projeto de aplicativo de console. Clique no menu **Arquivo** e selecione **Novo** e, em seguida, **Projeto**. Na caixa de diálogo **Novo Projeto**, clique em **Visual C#**, selecione o modelo **Aplicativo de Console** e chame-o de **ImageListener**. Use o **Local** padrão. Clique em **OK** para criar o projeto.
 3. Para um projeto C#, o Visual Studio cria um arquivo `Program.cs`. Essa classe contém um método `Main()` vazio, necessário para um projeto de aplicativo de console ser criado corretamente.
@@ -558,9 +560,8 @@ Após compilar a solução, faça o seguinte para executar o aplicativo:
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você compilou um aplicativo que usa o serviço de retransmissão do Barramento de Serviço, confira os seguintes artigos para saber mais sobre a Retransmissão do Azure:
 
-* [Visão geral da arquitetura de Barramento de Serviço do Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
+* [Visão geral da arquitetura de Barramento de Serviço do Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * [Visão geral da Retransmissão do Azure](relay-what-is-it.md)
-* [Como usar o serviço de Retransmissão de WCF com o .NET](service-bus-dotnet-how-to-use-relay.md)
+* [Como usar o serviço de Retransmissão de WCF com o .NET](relay-wcf-dotnet-get-started.md)
 
 [Azure portal]: https://portal.azure.com
-

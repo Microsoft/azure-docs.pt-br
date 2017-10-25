@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: fa1c3d9cb07d417f5dbde41d6269fb1d157c3104
-ms.openlocfilehash: a6a97cd187036222f5a47e55670da613117a2318
-
-
+ms.openlocfilehash: 8e3f496c2868cc3430e0efd47805aec2205168aa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Suporte a Vários Domínios para Federação com o Azure AD
 A documentação a seguir fornece orientação sobre como usar vários domínios e subdomínios  de nível superior ao estabelecer uma federação com o Office 365 ou com domínios do Azure AD.
@@ -66,7 +66,7 @@ O `-SupportMultipleDomain` também garante que o sistema de AD FS inclua o valor
 
 Dessa forma, durante a autenticação no Azure AD ou Office 365, o elemento IssuerURI no token do usuário é usado para localizar o domínio no Azure AD.  Se não houver correspondência, a autenticação falhará. 
 
-Por exemplo, se o UPN de um usuário for bsimon@bmcontoso.com,, o elemento IssuerUri nos problemas do token AD FS será definido como http://bmcontoso.com/adfs/services/trust. Isso corresponderá à configuração do Azure AD, e a autenticação será bem-sucedida.
+Por exemplo, se o UPN de um usuário for bsimon@bmcontoso.com, o elemento IssuerUri as emissões do AD FS de token será definido como http://bmcontoso.com/adfs/services/trust. Isso corresponderá à configuração do Azure AD, e a autenticação será bem-sucedida.
 
 Abaixo vemos a regra de declaração personalizada que implementa essa lógica:
 
@@ -162,10 +162,4 @@ Use as etapas a seguir para adicionar uma declaração personalizada que dê sup
     ![Substituir declaração](./media/active-directory-multiple-domains/sub2.png)
 
 5. Clique em OK.  Clique em Aplicar.  Clique em OK.  Feche o gerenciamento do AD FS.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

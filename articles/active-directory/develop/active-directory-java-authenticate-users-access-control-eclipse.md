@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 3e0f8d92495c976040113f8edc0d4c789920c549
-ms.openlocfilehash: e22dca7b666720edfcbfd1b871d98b9468441fbd
-
-
+ms.custom: aaddev
+ms.openlocfilehash: 698403d181e1fee09bb4692290c92203ded97ba4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse
 Este guia mostrará como usar o ACS (Serviço de Controle de Acesso) do Azure dentro do Kit de Ferramentas do Azure para Eclipse. Para obter mais informações sobre o ACS, consulte a seção [Próximas etapas](#next_steps) .
@@ -168,7 +169,7 @@ Na página **Integração da Página de Logon: Aplicativo Web do Azure**, a URL 
    
     ![Adicionar um arquivo JSP para exemplo do ACS][add_jsp_file_acs]
    
-    Clique em **Próximo**.
+    Clique em **Avançar**.
 4. Na caixa de diálogo **Selecionar Modelo JSP**, selecione **Novo Arquivo JSP (html)** e clique em **Concluir**.
 5. Quando o arquivo index.jsp for aberto no Eclipse, adicione texto para exibir **Hello ACS World!** dentro do elemento existente `<body>`. Seu conteúdo `<body>` atualizado deve ser semelhante ao seguinte:
    
@@ -236,7 +237,7 @@ Após a implantação do seu aplicativo web, feche todas as sessões abertas do 
 
 Quando você terminar de usar seu aplicativo Hello World do ACS, lembre-se de excluir a implantação (você pode aprender como excluir uma implantação no tópico [Criando um aplicativo Hello World para o Azure no Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) ).
 
-## <a name="a-namenextstepsanext-steps"></a><a name="next_steps"></a>Próximas etapas
+## <a name="next_steps"></a>Próximas etapas
 Para obter um exame da marcação linguagem SAML (Security Assertion Markup Language) retornada pelo ACS para seu aplicativo, consulte [Como exibir SAML retornado pelo Serviço de Controle de Acesso do Azure][How to view SAML returned by the Azure Access Control Service]. Para explorar melhor a funcionalidade do ACS e experimentar mais cenários sofisticados, consulte [Serviço de Controle de Acesso 2.0][Access Control Service 2.0].
 
 Além disso, esse exemplo usou a opção **Incorporar o certificado no arquivo WAR** . Essa opção simplifica a implantação do certificado. Se, em vez disso, você desejar manter seu certificado de autenticação separado do seu arquivo WAR, você poderá usar a seguinte técnica:
@@ -296,10 +297,4 @@ Neste ponto, seu certificado seria incluído em sua implantação. Observe que, 
 [add_jsp_file_acs]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddJSPFileACS.png
 [create_acs_hello_world]: ./media/active-directory-java-authenticate-users-access-control-eclipse/CreateACSHelloWorld.png
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

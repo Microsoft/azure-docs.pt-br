@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/10/2017
+ms.date: 08/31/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 5369dcd6ad1ec93c63eb442db9fc5ffdcca37375
-ms.openlocfilehash: b95f37db90b105962c01545e25c8e14c53257ebc
-
-
+ms.openlocfilehash: b433eecb0424db85b616c40c5f0cdfc88692cef1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-azure-redis-cache-with-java"></a>Como usar o Cache Redis do Azure com Java
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ As últimas compilações do [jedis](https://github.com/xetorthio/jedis) oferece
 
     boolean useSsl = true;
     /* In this line, replace <name> with your cache name: */
-    JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6379, useSsl);
+    JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6380, useSsl);
     shardInfo.setPassword("<key>"); /* Use your access key. */
 
 > [!NOTE]
@@ -69,7 +69,7 @@ As últimas compilações do [jedis](https://github.com/xetorthio/jedis) oferece
       {
         boolean useSsl = true;
         /* In this line, replace <name> with your cache name: */
-        JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6379, useSsl);
+        JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6380, useSsl);
         shardInfo.setPassword("<key>"); /* Use your access key. */
         Jedis jedis = new Jedis(shardInfo);
         jedis.set("foo", "bar");
@@ -81,9 +81,4 @@ As últimas compilações do [jedis](https://github.com/xetorthio/jedis) oferece
 ## <a name="next-steps"></a>Próximas etapas
 * [Habilite o diagnóstico de cache](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) para que você possa [monitorar](https://msdn.microsoft.com/library/azure/dn763945.aspx) a integridade do cache.
 * Leia a [documentação oficial do Redis](http://redis.io/documentation).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+* Aprenda a [configurar o aplicativo Inicializador do Spring Boot para usar o Cache Redis](cache-java-spring-boot-initializer-with-redis-cache.md).

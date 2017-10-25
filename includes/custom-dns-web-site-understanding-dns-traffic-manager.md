@@ -23,8 +23,3 @@ Depois que o tráfego chega ao Gerenciador de Tráfego, ele encaminha o tráfego
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

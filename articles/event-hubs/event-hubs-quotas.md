@@ -12,17 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
+ms.date: 09/25/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: fe331199333d492dbc42c9125c9da96a44066ee1
-ms.openlocfilehash: 91e611a0b3516bdb8f1ce6eba0210e2e610e5484
-ms.lasthandoff: 02/02/2017
-
-
+ms.openlocfilehash: f332fe51a9de8e83d17805e1279e69dee59ed791
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="event-hubs-quotas"></a>Cotas de Hubs de Eventos
-Esta seção lista as cotas e limites básicos nos Hubs de Eventos do Microsoft Azure.
+Esta seção lista as cotas e limites básicos nos Hubs de Eventos do Azure.
 
 [!INCLUDE [event-hubs-limits](../../includes/event-hubs-limits.md)]
 
@@ -30,6 +29,5 @@ Esta seção lista as cotas e limites básicos nos Hubs de Eventos do Microsoft 
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
 * [Visão Geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
-* [Criar um Hub de Eventos](event-hubs-create.md)
+* [Inflar automaticamente de Hubs de Eventos](event-hubs-auto-inflate.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
-

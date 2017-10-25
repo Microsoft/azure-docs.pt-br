@@ -3,7 +3,7 @@ title: "Diagnosticar falhas e exceções em aplicativos Web com o Azure Applicat
 description: "Capture exceções de aplicativos do ASP.NET junto com a telemetria de solicitação."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: d1e98390-3ce4-4d04-9351-144314a42aa2
 ms.service: application-insights
@@ -11,14 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 2f046ff687985a5c4f83ca7236ce832b4c81ea6e
-ms.lasthandoff: 03/18/2017
-
-
+ms.date: 09/19/2017
+ms.author: bwren
+ms.openlocfilehash: d7603f47d985e1abbab96e931e46e37a8ecb4bc5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticar exceções em seus aplicativos Web com o Application Insights
 Exceções em seu aplicativo Web ao vivo são relatadas pelo [Application Insights](app-insights-overview.md). Você pode correlacionar solicitações com falha com exceções e outros eventos no cliente e no servidor, para poder diagnosticar as causas rapidamente.
@@ -28,12 +27,13 @@ Exceções em seu aplicativo Web ao vivo são relatadas pelo [Application Insigh
   * Instale o[ SDK do Application Insights](app-insights-asp-net.md) no aplicativo ou
   * Servidores Web IIS: executar o [Agente do Application Insights](app-insights-monitor-performance-live-website-now.md) ou
   * Aplicativos Web do Azure: adicionar a [extensão do Application Insights](app-insights-azure-web-apps.md)
+  * Aplicativos Web Java: instalar o [Agente Java](app-insights-java-agent.md)
 * Instale o [trecho de JavaScript](app-insights-javascript.md) em suas páginas da Web para capturar exceções de navegador.
 * Em algumas estruturas de aplicativo ou com algumas configurações, você precisa executar algumas etapas adicionais para capturar mais exceções:
   * [Formulários da Web](#web-forms)
   * [MVC](#mvc)
-  * [API Web 1.*](#web-api-1)
-  * [API Web 2.*](#web-api-2)
+  * [API Web 1.*](#web-api-1x)
+  * [API Web 2.*](#web-api-2x)
   * [WCF](#wcf)
 
 ## <a name="diagnosing-exceptions-using-visual-studio"></a>Diagnosticar exceções usando o Visual Studio
@@ -57,15 +57,19 @@ No código, observe que o CodeLens mostra dados sobre as exceções:
 ![Notificação de exceções do CodeLens.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Como diagnosticar falhas usando o Portal do Azure
-Na visão geral do Application Insights de seu aplicativo, o bloco Falhas mostra gráficos de exceções e solicitações HTTP, juntamente com uma lista da solicitação com falha URLs que causam as falhas mais frequentes.
+O Application Insights vem com uma experiência APM coletada para lhe ajudar a diagnosticar falhas nos aplicativos monitorados. Para iniciar, clique na opção de falhas no menu de recurso do Application Insights localizado na seção Investigar. Você deve ver uma exibição de tela inteira que mostra as tendências de taxa de falha das solicitações, quantas delas estão falhando e quantos usuários são afetados. À direita, você verá algumas as distribuições mais úteis específicas para a operação com falha selecionada, incluindo os três principais códigos de resposta, os três principais tipos de exceção e os três principais tipos de dependência com falha. 
 
-![Escolha Configurações, Falhas.](./media/app-insights-asp-net-exceptions/012-start.png)
+![Exibição de falhas de triagem (guia operações)](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 
-Clique em um dos tipos de exceção com falha na lista para obter as ocorrências individuais da exceção, em que é possível ver os detalhes e o rastreamento de pilha:
+Em um único clique, você pode examinar exemplos representativos para cada um desses subconjuntos de operações. Em particular, para diagnosticar exceções, você pode clicar na contagem de uma exceção específica a ser apresentada com uma folha de Detalhes da exceção, como esta:
 
-![Selecione uma instância de uma solicitação com falha e, em detalhes da exceção, obtenha a instâncias da exceção.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
+![Folha Detalhes da exceção](./media/app-insights-asp-net-exceptions/ExceptionDetailsBlade.png)
 
-**Como alternativa,** você pode começar na lista de solicitações e encontrar exceções relacionadas a ela.
+**Como alternativa,** em vez de examinar as exceções de uma operação com falha específica, você pode iniciar da visão geral de exceções, mudando para a guia Exceções:
+
+![Exibição de falhas de triagem (guia exceções)](./media/app-insights-asp-net-exceptions/FailuresTriageView_Exceptions.png)
+
+Aqui você pode ver todas as exceções coletadas para o aplicativo monitorado.
 
 *Nenhuma exceção mostrando? Consulte [Capturar exceções](#exceptions).*
 
@@ -430,7 +434,7 @@ Abra uma folha do Metrics Explorer, adicione um novo gráfico e selecione **Taxa
 
 O .NET Framework calcula a taxa contando o número de exceções em um intervalo e dividindo pelo comprimento do intervalo.
 
-Observe que ela será diferente da contagem 'Exceções' calculada pelo portal do Application Insights contando relatórios TrackException. Os intervalos de amostragem são diferentes, e o SDK não envia relatórios TrackException a todas as exceções tratadas e sem tratamento.
+Isso é diferente da contagem 'Exceções' calculada pelo portal do Application Insights contando relatórios TrackException. Os intervalos de amostragem são diferentes, e o SDK não envia relatórios TrackException a todas as exceções tratadas e sem tratamento.
 
 ## <a name="video"></a>Vídeo
 
@@ -440,4 +444,3 @@ Observe que ela será diferente da contagem 'Exceções' calculada pelo portal d
 * [Monitorar REST, SQL e outras chamadas para dependências](app-insights-asp-net-dependencies.md)
 * [Monitorar tempos de carregamento de página, exceções de navegador e chamadas AJAX](app-insights-javascript.md)
 * [Monitorar contadores de desempenho](app-insights-performance-counters.md)
-

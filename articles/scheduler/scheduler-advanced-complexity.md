@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e329d152ea6a95c8cdfa6a507504601d4e0957cd
-
-
+ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Como criar agendamentos complexos e recorrência avançada com o Agendador do Azure
 ## <a name="overview"></a>Visão geral
@@ -108,9 +108,9 @@ A tabela a seguir mostra como *startTime* controla a execução de um trabalho.
 
 Vejamos um exemplo do que acontece quando *startTime* está no passado, com *recurrence*, mas sem *schedule*.  Suponha que a hora atual seja 2015-04-08 13:00, que *startTime* seja 2015-04-07 14:00 e que *recurrence* seja a cada dois dias (definida com *frequency*: day e *interval*: 2.) Observe que *startTime* está no passado e ocorre antes da hora atual
 
-Nessas condições, a *primeira execução* será 2015-04-09, às 14:00\. O mecanismo do Agendador calcula as ocorrências de execução com base na hora de início.  As instâncias no passado serão descartadas. O mecanismo usa a próxima instância que ocorrer no futuro.  Nesse caso, *startTime* é 2015-04-07, às 14:00; portanto, a próxima instância ocorrerá dois dias depois desse momento, o que será 2015-04-09, às 14:00.
+Nessas condições, a *primeira execução* será em 09-04-2015 às 14:00\. O mecanismo do Agendador calcula as ocorrências de execução desde a hora de início.  As instâncias no passado serão descartadas. O mecanismo usa a próxima instância que ocorrer no futuro.  Nesse caso, *startTime* é 2015-04-07, às 14:00; portanto, a próxima instância ocorrerá dois dias depois desse momento, o que será 2015-04-09, às 14:00.
 
-Observe que a primeira execução ocorreria no mesmo momento até mesmo se startTime fosse 2015-04-05 14:00 ou 2015-04-01 14:00\. Após a primeira execução, as execuções subsequentes são calculadas usando o agendamento; portanto, ocorreriam em 2015-04-11, às 14:00; em 2015-04-13, às 14:00; em 2015-04-15, às 14:00, etc.
+Observe que a primeira execução deve ser a mesma que o startTime seja 05-04-2015 14:00 ou 01-04-2015 14:00\. Após a primeira execução, as execuções subsequentes são calculadas usando a agendada; portanto, seriam em 11-04-2015 às 14:00, 13-04-2015 às 14:00, 15-04-2015 às 14:00, etc.
 
 Finalmente, quando um trabalho tiver um agendamento, se as horas e/ou minutos não estiverem definidos no agendamento, serão adotadas as horas e/ou minutos da primeira execução, respectivamente.
 
@@ -128,13 +128,13 @@ A tabela a seguir descreve elementos de *schedule* em detalhes.
 | **minutos** |Minutos da hora em que o trabalho será executado |<ul><li>Inteiro ou</li><li>Matriz de inteiros</li></ul> |
 | **horas** |Horas do dia em que o trabalho será executado |<ul><li>Inteiro ou</li><li>Matriz de inteiros</li></ul> |
 | **Dias da semana** |Dias da semana em que o trabalho será executado. Só pode ser especificado com uma frequência semanal. |<ul><li>"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ou "Sunday"</li><li>Matriz de qualquer um dos valores acima (tamanho máximo da matriz: 7)</li></ul>*Não* diferencia maiúsculas de minúsculas |
-| **monthlyOccurences** |Determina em quais dias do mês o trabalho será executado. Só pode ser especificado com uma frequência mensal. |<ul><li>Matriz de objetos monthlyOccurence:</li></ul> <pre>{ "day": *dia*,<br />  "occurrence": *ocorrência*<br />}</pre><p> *dia* é o dia da semana no qual o trabalho será executado, por exemplo, {Sunday} representa todos os domingos do mês. Obrigatório.</p><p>*ocorrência* é o valor do elemento ocurrence que se refere ao dia durante o mês, por exemplo, {Sunday, -1} é o último domingo do mês. Opcional.</p> |
+| **monthlyOccurences** |Determina em quais dias do mês o trabalho será executado. Só pode ser especificado com uma frequência mensal. |<ul><li>Matriz de objetos monthlyOccurrence:</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurrence*<br />}</pre><p> *dia* é o dia da semana no qual o trabalho será executado, por exemplo, {Sunday} representa todos os domingos do mês. Obrigatório.</p><p>*ocorrência* é o valor do elemento ocurrence que se refere ao dia durante o mês, por exemplo, {Sunday, -1} é o último domingo do mês. Opcional.</p> |
 | **Dias do mês** |Dia do mês em que o trabalho será executado. Só pode ser especificado com uma frequência mensal. |<ul><li>Qualquer valor <= -1 e >= -31.</li><li>Qualquer valor >= 1 e <= 31.</li><li>Uma matriz dos valores acima</li></ul> |
 
 ## <a name="examples-recurrence-schedules"></a>Exemplos: agendamentos de recorrência
 Seguem diversos exemplos de agendamentos de recorrência voltados para o objeto de agendamento e seus subelementos.
 
-Todos os agendamentos abaixo pressupõem que *interval* esteja definido como 1\. Além disso, pressupõe-se que a frequência correta está de acordo com o que está definido em *schedule*, por exemplo, não é possível usar frequency como "day" e ter uma modificação de "monthDays" no elemento schedule. As restrições estão descritas acima.
+Todos os agendamentos abaixo pressupõem que o *intervalo* é definido como 1\. Além disso, deve assumir a frequência correta de acordo com o que está no *agendamento*, por exemplo, não é possível usar a frequência "day" e ter uma modificação de "monthDays" no agendamento. As restrições estão descritas acima.
 
 | **Exemplo** | **Descrição** |
 |:--- |:--- |
@@ -188,10 +188,4 @@ Todos os agendamentos abaixo pressupõem que *interval* esteja definido como 1\.
  [Limites, padrões e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

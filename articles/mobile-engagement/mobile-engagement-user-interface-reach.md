@@ -1,6 +1,6 @@
 ---
-title: "Mobile Engagement do Azure - Interface do usuário - Reach"
-description: "Como entrar em contato com os usuários do seu aplicativo com notificações por push usando o Mobile Engagement do Azure"
+title: "Azure Mobile Engagement - Interface do usuário - Reach"
+description: "Como entrar em contato com os usuários do seu aplicativo com notificações por push usando o Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,20 +14,19 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0f09a4118c3cfbd014e1c53fd22da06eb7ede260
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: ce30456e41ff1a2f4824bcb64246ee115fdd1ef7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-reach-out-to-the-users-of-your-application-with-push-notifications"></a>Como entrar em contato com os usuários do seu aplicativo com notificações por push
 Este artigo descreve a guia **ALCANCE** do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis. Observe que, para começar a usar o portal, primeiro é preciso criar uma conta do **Azure Mobile Engagement** . Para obter mais informações, veja [Criar uma conta do Azure Mobile Engagement](mobile-engagement-create.md).
 
-A seção Reach da interface do usuário é a ferramenta de gerenciamento de campanha Push onde você pode criar/editar/ativar/finalizar/monitorar e obter estatísticas sobre campanhas de notificação de envio e os recursos que também podem ser acessados via a API do Reach (e alguns elementos do nível baixo API de envio). Lembre-se de que, se você estiver usando as APIs ou a interface do usuário, você precisará integrar o Mobile Engagement do Azure e o Reach em seu aplicativo em cada plataforma com o SDK antes que você possa usar as campanhas Reach.
+A seção Reach da interface do usuário é a ferramenta de gerenciamento de campanha Push onde você pode criar/editar/ativar/finalizar/monitorar e obter estatísticas sobre campanhas de notificação de envio e os recursos que também podem ser acessados via a API do Reach (e alguns elementos do nível baixo API de envio). Lembre-se de que, se você estiver usando as APIs ou a interface do usuário, você precisará integrar o Azure Mobile Engagement e o Reach em seu aplicativo em cada plataforma com o SDK antes que você possa usar as campanhas Reach.
 
 > [!NOTE]
-> Muitas seções da interface do usuário do portal do **Engajamento Móvel** contêm o botão **MOSTRAR AJUDA**. Pressione este botão para obter mais informações contextuais sobre uma seção.
+> Muitas seções da interface do usuário do portal do **Mobile Engagement** contêm o botão **MOSTRAR AJUDA**. Pressione este botão para obter mais informações contextuais sobre uma seção.
 > 
 > 
 
@@ -175,5 +174,4 @@ Clique em **Estatísticas** para ver os detalhes de uma Campanha de alcance. O m
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
-
 

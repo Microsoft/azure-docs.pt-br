@@ -7,13 +7,12 @@ ms.date: 1/31/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-translationtype: Human Translation
-ms.sourcegitcommit: d408dbd55fa667e150bb42ff0d1e4b3236c438e9
 ms.openlocfilehash: 20ebd324cbf379980b43d255d468673de2b6d950
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>O Controle de Acesso Baseado em Função (RBAC) do Azure para controlar os direitos de acesso para criação e gerenciamento de solicitações de suporte
 
 O [RBAC (Controle de Acesso Baseado em Função)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) permite gerenciamento de acesso refinado para o Azure.
@@ -91,7 +90,7 @@ Você deseja conceder a Joe o acesso necessário à capacidade de criar e gerenc
 
     ![Nova solicitação de suporte](./media/create-manage-support-requests-using-access-control/new-support-request.png)
 
-8. Ao clicar em "Todas as solicitações de suporte", Joe verá a lista de solicitações de suporte criada para esta assinatura  ![Exibição de detalhes de caso](./media/create-manage-support-requests-using-access-control/case-details-view.png)
+8. Ao clicar em "Todas as solicitações de suporte", Joe verá a lista de solicitações de suporte criadas para esta Assinatura ![Exibição de detalhes do caso](./media/create-manage-support-requests-using-access-control/case-details-view.png)
 
 ## <a name="remove-support-request-access-in-the-azure-portal"></a>Remover o acesso a solicitação de suporte no portal do Azure
 
@@ -108,9 +107,3 @@ Quando Joe faz logon no portal e tenta criar uma solicitação de suporte, ele e
 Joe não conseguirá ver as solicitações suporte quando clicar em "Todas as solicitações de suporte"
 
 ![exibição de detalhes do caso-2](./media/create-manage-support-requests-using-access-control/case-details-view-2.png)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-

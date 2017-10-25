@@ -10,8 +10,3 @@ O back-end de Aplicativos Móveis agora está configurado para usar o Firebase C
 
 
 <!-- images -->
-
-
-<!--HONumber=Dec16_HO2-->
-
-

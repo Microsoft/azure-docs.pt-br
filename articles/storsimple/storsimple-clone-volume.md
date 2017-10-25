@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: edaacfb8e7c179ac6e4831a113656b3cf128f985
-
-
+ms.openlocfilehash: 8f1936fac543f559a44ad0f9c35b30d1a92dce68
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-clone-a-volume"></a>Usar o serviço StorSimple Manager para clonar um volume
 [!INCLUDE [storsimple-version-selector-clone-volume](../../includes/storsimple-version-selector-clone-volume.md)]
@@ -48,7 +48,7 @@ Você pode criar um clone no mesmo dispositivo, em outro dispositivo ou mesmo em
       > 
       > 
    2. Especifique um nome de volume exclusivo para o clone. O nome deve conter entre 3 e 127 caracteres.
-   3. Clique no ícone de seta  ![ícone-de-seta](./media/storsimple-clone-volume/HCS_ArrowIcon.png)  para continuar para a próxima página.
+   3. Clique no ícone de seta  ![ícone-de-seta](./media/storsimple-clone-volume/HCS_ArrowIcon.png) para continuar para a próxima página.
 5. Em **Especificar os hosts que podem usar este volume**:
    
    1. Especificar um registro de controle de acesso (ACR) para o clone. Você pode adicionar um novo ACR ou escolher na lista existente.
@@ -64,7 +64,7 @@ Você pode criar um clone no mesmo dispositivo, em outro dispositivo ou mesmo em
 > 
 > 
 
-Um clone criado dessa maneira é um clone transitório. Para obter mais informações sobre os tipos de clone, consulte [Clones transitórios versus permanentes](#transient-vs.-permanent-clones).
+Um clone criado dessa maneira é um clone transitório. Para obter mais informações sobre os tipos de clone, consulte [Clones transitórios versus permanentes](#transient-vs-permanent-clones).
 
 O clone é agora um volume normal e qualquer operação que é possível em um volume estará disponível para o clone. Você precisará configurar este volume para qualquer backup.
 
@@ -89,10 +89,4 @@ Você precisa verificar um bug de teste no ambiente de produção. Você cria um
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [restaurar um volume StorSimple a partir de um conjunto de backups](storsimple-restore-from-backup-set.md).
 * Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

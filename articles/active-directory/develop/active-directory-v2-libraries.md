@@ -3,7 +3,7 @@ title: "Bibliotecas de autenticação do Azure Active Directory v2.0 | Microsoft
 description: "Bibliotecas de cliente compatíveis e bibliotecas de middleware de servidor, e links de origem, de biblioteca e de exemplos relacionados, para o ponto de extremidade do Azure Active Directory v2.0."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: dstrockis
 manager: mbaldwin
 editor: 
 ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
@@ -12,22 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2016
-ms.author: skwan;bryanla
-translationtype: Human Translation
-ms.sourcegitcommit: 9710381787cc1fe570443467b6980616879c503f
-ms.openlocfilehash: ab5576d09e5a51cd7ae602d57693558715e12d66
-ms.lasthandoff: 02/27/2017
-
-
+ms.date: 08/22/2017
+ms.author: dastrock
+ms.custom: aaddev
+ms.openlocfilehash: 50a1cc0bf9e00cf5b866b88b3e88c62b06a2376b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Bibliotecas de autenticação do Azure Active Directory v2.0
-O ponto de extremidade do Azure Active Directory (Azure AD) v2.0 dá suporte aos protocolos padrão do setor, OAuth 2.0 e OpenID Connect 1.0. Você pode usar várias bibliotecas da Microsoft e de outras organizações com o ponto de extremidade v2.0.
+O [ponto de extremidade do Azure Active Directory (Azure AD) v2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare) dá suporte aos protocolos padrão do setor, OAuth 2.0 e OpenID Connect 1.0. Você pode usar várias bibliotecas da Microsoft e de outras organizações com o ponto de extremidade v2.0.
 
 Quando você compila um aplicativo que usa o ponto de extremidade v2.0, é recomendável usar bibliotecas escritas por especialistas em domínio de protocolo que seguem uma metodologia SDL (Security Development Lifecycle), como [a seguida pela Microsoft][Microsoft-SDL]. Se você codificar suporte para os protocolos manualmente, recomendamos que você siga a metodologia SDL e preste muita atenção nas considerações de segurança encontradas nas especificações dos padrões de cada um dos protocolos.
 
+> [!NOTE]
+> Procurando as bibliotecas do Azure AD v 1.0 (ADAL)? Confira a [guia de biblioteca ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-libraries). 
+> 
+> 
+
 ## <a name="types-of-libraries"></a>Tipos de bibliotecas
-O Azure AD v&2;.0 funciona com dois tipos de bibliotecas:
+O ponto de extremidade do Azure AD v 2.0 funciona com dois tipos de bibliotecas:
 
 * **Bibliotecas de cliente**. Os clientes e servidores nativos usam bibliotecas de cliente para obter tokens de acesso para chamar um recurso, como o Microsoft Graph.
 * **Bibliotecas de middleware de servidor**. Os aplicativos Web usam bibliotecas de middleware de servidor para a entrada do usuário. As APIs da Web usam bibliotecas de middleware de servidor para validar tokens enviados por clientes nativos ou por outros servidores.
@@ -42,57 +47,48 @@ As bibliotecas vêm em duas categorias de suporte:
 
 Para obter uma lista de bibliotecas que funcionam com o ponto de extremidade v2.0, veja as próximas seções deste artigo.
 
-## <a name="microsoft-supported-client-libraries"></a>Bibliotecas de cliente com suporte da Microsoft
-| Plataforma | Nome da biblioteca | Baixar | Código-fonte | Amostra |
-|:---:|:---:|:---:|:---:|:---:|
-| .NET, Windows Store, Xamarin |MSAL (biblioteca de autenticação da Microsoft) para .NET |[Microsoft.Identity.Client (NuGet)][ClientLib-NET-Lib] |[MSAL para .NET (GitHub)][ClientLib-NET-Repo] |[Exemplo de cliente nativo da área de trabalho do Windows][ClientLib-NET-Sample] |
-| Node.js |Plug-in Passport.js do Microsoft Azure Active Directory |[Passport-Azure-AD (npm)][ClientLib-Node-Lib] |[Passport-Azure-AD (GitHub)][ClientLib-Node-Repo] |Em breve |
 
-<!--- COMMENTING OUT UNTIL THEY ARE READY
-| iOS, Mac | Microsoft Authentication Library (MSAL) for ObjC | In development | In development | In development |
-| Android | Microsoft Authentication Library (MSAL) for Android | In development | In development | In development |
-| JavaScript | Microsoft Authentication Library (MSAL) for JavaScript | In development | In development | In development |
- -->
+## <a name="microsoft-supported-client-libraries"></a>Bibliotecas de cliente com suporte da Microsoft
+
+> [!IMPORTANT]
+> As bibliotecas de versão prévia MSAL são adequadas para uso em um ambiente de produção. Fornecemos o mesmo suporte de nível de produção para essas bibliotecas da mesma forma que para nossas bibliotecas de produção atuais (ADAL). Durante a versão prévia, podemos fazer alterações na API da MSAL, no formato de cache interno e em outros mecanismos dessas bibliotecas sem aviso prévio, o que você precisará aceitar junto com correções de bug ou melhorias de recurso. Isso pode afetar seu aplicativo. Por exemplo, uma alteração no formato de cache pode afetar os usuários, como a necessidade de se conectar novamente. Uma alteração na API pode exigir que você atualize o código. Quando fornecemos a versão de Disponibilidade Geral, solicitaremos a você que atualize para a versão de Disponibilidade Geral em até seis meses, pois os aplicativos escritos com uma versão prévia da biblioteca poderão não funcionar mais.
+
+| Plataforma | Biblioteca | Baixar | Código-fonte | Amostra | Referência
+| --- | --- | --- | --- | --- | --- |
+| Cliente .NET, Windows Store, UWP, Xamarin iOS e Android | .NET da MSAL (versão prévia) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Aplicativo de área de trabalho](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) |  |
+| JavaScript | MSAL.js (versão prévia) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [Aplicativo de Página Única](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |  |
+| iOS, macOS | MSAL (versão prévia) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [Aplicativo iOS](https://github.com/Azure-Samples/active-directory-msal-ios-swift) |  |
+| Android | MSAL (versão prévia) | [O Repositório Central](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Aplicativo Android](guidedsetups/active-directory-mobileanddesktopapp-android-intro.md) | [JavaDocs](http://javadoc.io/doc/com.microsoft.identity.client/msal) |
 
 ## <a name="microsoft-supported-server-middleware-libraries"></a>Bibliotecas de middleware de servidor com suporte da Microsoft
-| Plataforma | Nome da biblioteca | Baixar | Código-fonte | Amostra |
-|:---:|:---:|:---:|:---:|:---:|
-| .NET 4.x |Middleware OWIN OpenID Connect para ASP.NET |[Microsoft.Owin.Security.OpenIdConnect (NuGet)][ServerLib-Net4-Owin-Oidc-Lib] |[Projeto Katana (CodePlex)][ServerLib-Net4-Owin-Oidc-Repo] |[Exemplo de aplicativo Web][ServerLib-Net4-Owin-Oidc-Sample] |
-| .NET 4.x |Middleware OWIN OAuth Bearer para ASP.Net |[Microsoft.Owin.Security.OAuth (NuGet)][ServerLib-Net4-Owin-Oauth-Lib] |[Projeto Katana (CodePlex)][ServerLib-Net4-Owin-Oauth-Repo] |[Exemplo de API Web][ServerLib-Net4-Owin-Oauth-Sample] |
-| .NET Core |Middleware OWIN OpenID Connect para .NET Core |[Microsoft.AspNetCore.Authentication.OpenIdConnect (NuGet)][ServerLib-NetCore-Owin-Oidc-Lib] |[Segurança do ASP.NET (GitHub)][ServerLib-NetCore-Owin-Oidc-Repo] |[Exemplo de aplicativo Web][ServerLib-NetCore-Owin-Oidc-Sample] |
-| .NET Core |Middleware OWIN portador OAuth para .net Core |[Microsoft.AspNetCore.Authentication.OAuth (NuGet)][ServerLib-NetCore-Owin-Oauth-Lib] |[Segurança do ASP.NET (GitHub)][ServerLib-NetCore-Owin-Oauth-Repo] |Em breve |
-| Node.js |Plug-in Passport.js do Microsoft Azure Active Directory |[Passport-Azure-AD (npm)][ServerLib-Node-Lib] |[Passport-Azure-AD (GitHub)][ServerLib-Node-Repo] |[Exemplo de aplicativo Web][ServerLib-Node-Sample] |
 
-<!--- COMMENTING UNTIL SAMPLE IS AVAILABLE
-| .NET 4.x, .NET Core | JSON Web Token Handler for .NET | [System.IdentityModel.Tokens.Jwt (NuGet)][ServerLib-Net-Jwt-Lib] | [Azure AD identity model extensions for .NET (GitHub)][ServerLib-Net-Jwt-Repo] | Coming soon |
---->
+| Plataforma | Biblioteca | Baixar | Código-fonte | Amostra | Referência
+| --- | --- | --- | --- | --- | --- |
+| .NET 4.x | Middleware OWIN OpenID Connect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[CodePlex](http://katanaproject.codeplex.com) |[Aplicativo MVC](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-intro.md) | |
+| .NET 4.x | Middleware OWIN OAuth Bearer para Azure AD |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[CodePlex](http://katanaproject.codeplex.com) |  | |
+| .NET 4.x | Manipulador JWT para .NET 4.5 | [NuGet](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt/4.0.4.403061554) | [GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
+| .NET Core | Middleware OpenID Connect para ASP.NET |[Microsoft.AspNetCore.Authentication.OpenIdConnect (NuGet)][ServerLib-NetCore-Owin-Oidc-Lib] |[Segurança do ASP.NET (GitHub)][ServerLib-NetCore-Owin-Oidc-Repo] |[Aplicativo MVC](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-v2) |
+| .NET Core | Middleware OAuth Bearer para ASP.NET |[Microsoft.AspNetCore.Authentication.OAuth (NuGet)][ServerLib-NetCore-Owin-Oauth-Lib] |[Segurança do ASP.NET (GitHub)][ServerLib-NetCore-Owin-Oauth-Repo] |  |
+| .NET Core | Manipulador JWT para .NET Core  |[NuGet](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
+| Node.js |Azure AD Passport |[npm](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Aplicativo Web](active-directory-v2-devquickstarts-node-web.md)| |
+
 ## <a name="compatible-client-libraries"></a>Bibliotecas de cliente compatíveis
 | Plataforma | Nome da biblioteca | Versão testada | Código-fonte | Amostra |
 |:---:|:---:|:---:|:---:|:---:|
 | Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[Exemplo de aplicativo nativo](active-directory-v2-devquickstarts-android.md) |
 | iOS |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[Exemplo de aplicativo nativo](active-directory-v2-devquickstarts-ios.md) |
-| Java | [Scribe Java scribejava](https://github.com/scribejava/scribejava) | [Versão 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/archive/scribejava-3.2.0.zip) | Em breve |
 | JavaScript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
-| PHP | [The PHP League oauth2-client](https://github.com/thephpleague/oauth2-client) | [Versão 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | Em breve |
-| Python-Flask |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |0.9.3 |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |[Aplicativo Web](https://github.com/Azure-Samples/active-directory-python-flask-graphapi-web-v2) |
-| Ruby |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |Em breve |
-
-<!--- REMOVING BRANDON'S FOR NOW
-|  |  |  |  |  |
-| Android | [OAuth2 Client](https://github.com/wuman/android-oauth-client) |   | [OAuth2 Client](https://github.com/wuman/android-oauth-client)  | Coming soon  |
-| Java | [WSO2 Identity Server](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server) | [Version 5.2.0](http://wso2.com/products/identity-server/) | [Source](https://docs.wso2.com/display/IS500/Building+from+Source) | [Samples index](https://docs.wso2.com/display/IS500/Samples)  |
-| Java | [Java Gluu Server](https://gluu.org/docs/) |   | [oxAuth](https://github.com/GluuFederation/oxAuth)  | Coming soon |
-| Node.js | [NPM passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect) | 0.0.1  | [Passport-OpenID Connect](https://github.com/jaredhanson/passport-openidconnect) | Coming soon  |
-| PHP | [OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP) |   | [OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP)  | Coming soon  |
--->
 
 ## <a name="compatible-server-middleware-libraries"></a>Bibliotecas de middleware de servidor compatíveis
-Em breve
+| Plataforma | Nome da biblioteca | Versão testada | Código-fonte | Amostra |
+|:---:|:---:|:---:|:---:|:---:|
+| Java | [Scribe Java scribejava](https://github.com/scribejava/scribejava) | [Versão 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/archive/scribejava-3.2.0.zip) | |
+| PHP | [The PHP League oauth2-client](https://github.com/thephpleague/oauth2-client) | [Versão 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | |
+| Python-Flask |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |0.9.3 |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |[Aplicativo Web](https://github.com/Azure-Samples/active-directory-python-flask-graphapi-web-v2) |
+| Ruby |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 
 ## <a name="related-content"></a>Conteúdo relacionado
 Para saber mais sobre o ponto de extremidade do Azure AD v2.0, veja a [Visão geral do modelo de aplicativo do Azure AD v2.0][AAD-App-Model-V2-Overview].
-
-Para nos ajudar a refinar e moldar o nosso conteúdo, use o recurso de comentários do tópico de discussão no final deste artigo para fazer comentários.
 
 <!--Image references-->
 
@@ -133,4 +129,3 @@ Para nos ajudar a refinar e moldar o nosso conteúdo, use o recurso de comentár
 [ServerLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad/
 [ServerLib-Node-Sample]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-devquickstarts-node-web/
-

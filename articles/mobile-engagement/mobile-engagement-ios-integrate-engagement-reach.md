@@ -1,6 +1,6 @@
 ---
 title: "Integração do Reach SDK do iOS no Azure Mobile Engagement | Microsoft Docs"
-description: "Atualizações e procedimentos mais recentes para o SDK do iOS para Mobile Engagement do Azure"
+description: "Atualizações e procedimentos mais recentes para o SDK do iOS para Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: c8bb1161e874a3adda4a71ee889ca833db881e20
-ms.openlocfilehash: 7e24bbc1832c6a85181c943e4e1c705785358527
-
-
+ms.openlocfilehash: ba74e0c442ac10f096d465f989e03d2ceae8cd88
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-integrate-engagement-reach-on-ios"></a>Como integrar o Engagement Reach no iOS
 Você deve seguir o procedimento de integração descrito em [Como integrar o Engagement no documento iOS](mobile-engagement-ios-integrate-engagement.md) antes de seguir este guia.
@@ -33,8 +33,8 @@ Esta documentação requer o XCode 8. Se você realmente depende do XCode 7, pod
 
 > [!IMPORTANT]
 > **Não recomendamos essa solução alternativa** pois esse comportamento pode alterar qualquer atualização da versão futura iOS (até mesmo pequenas) porque esta API do iOS foi preterida. Você deve mudar para o XCode 8 assim que possível.
-> 
-> 
+>
+>
 
 ### <a name="enable-your-app-to-receive-silent-push-notifications"></a>Habilitar seu aplicativo para receber Notificações por push silenciosas
 [!INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
@@ -45,33 +45,33 @@ Esta documentação requer o XCode 8. Se você realmente depende do XCode 7, pod
 
 ### <a name="modify-your-application-delegate"></a>Modifique seu Representante do Aplicativo
 * Na parte superior do seu arquivo de implementação, importe o módulo do Engagement Reach:
-  
+
       [...]
       #import "AEReachModule.h"
 * Dentro do método `applicationDidFinishLaunching:` ou `application:didFinishLaunchingWithOptions:`, crie um módulo de alcance e passe-o para sua linha de inicialização de Engagement existente:
-  
+
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
         [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}" modules:reach, nil];
         [...]
-  
+
         return YES;
       }
 * Modifique a cadeia de caracteres **'icon.png'** com o nome da imagem que você deseja definir como o ícone de notificação.
 * Se você quiser usar a opção *Valor de notificação de atualização* em campanhas Reach ou se quiser usar campanhas de push nativo \</SaaS/Reach API/Campaign format/Native Push\>, você deve deixar o módulo Reach gerenciar o ícone de notificação em si (ele apagará automaticamente a notificação do aplicativo e também redefinirá o valor armazenado pelo Engagement sempre que o aplicativo for iniciado ou colocado em segundo plano). Isso é feito adicionando a seguinte linha após a inicialização do módulo Reach:
-  
+
       [reach setAutoBadgeEnabled:YES];
 * Se você quiser manipular o envio de dados Reach, você deverá permitir que seu Representante de aplicativo em conformidade com o protocolo `AEReachDataPushDelegate` . Adicione a seguinte linha após a inicialização do módulo Reach:
-  
+
       [reach setDataPushDelegate:self];
 * Em seguida, você pode implementar os métodos `onDataPushStringReceived:` e `onDataPushBase64ReceivedWithDecodedBody:andEncodedBody:` no seu representante de aplicativo:
-  
+
       -(BOOL)didReceiveStringDataPushWithCategory:(NSString*)category body:(NSString*)body
       {
          NSLog(@"String data push message with category <%@> received: %@", category, body);
          return YES;
       }
-  
+
       -(BOOL)didReceiveBase64DataPushWithCategory:(NSString*)category decodedBody:(NSData *)decodedBody encodedBody:(NSString *)encodedBody
       {
          NSLog(@"Base64 data push message with category <%@> received: %@", category, encodedBody);
@@ -98,10 +98,10 @@ Siga o guia: [Como preparar seu aplicativo para notificações por push da Apple
 Se ele já não foi feito, você precisa registrar seu aplicativo para receber notificações por push.
 
 * Importe a estrutura `User Notification` :
-  
+
         #import <UserNotifications/UserNotifications.h>
 * Adicione a seguinte linha na inicialização do aplicativo (normalmente em `application:didFinishLaunchingWithOptions:`):
-  
+
         if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
         {
             if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
@@ -132,21 +132,10 @@ Finalmente, você precisa informar o SDK do Engagement quando seu aplicativo rec
         [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
     }
 
-> [!NOTE]
-> O método acima foi introduzido no iOS 7. Se você estiver direcionando para o iOS <7, implemente o método `application:didReceiveRemoteNotification:` em seu representante do aplicativo e chame `applicationDidReceiveRemoteNotification` no EngagementAgent passando nulo, em vez do argumento `handler`:
-> 
-> 
-
-    - (void)application:(UIApplication*)application
-    didReceiveRemoteNotification:(NSDictionary*)userInfo
-    {
-        [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
-    }
-
 > [!IMPORTANT]
 > Por padrão, Engagement Reach controla o completionHandler. Se você quiser responder manualmente para o bloco `handler`em seu código, passe nulo o argumento `handler` e controle você mesmo o bloco de conclusão. Consulte o tipo `UIBackgroundFetchResult` para obter uma lista de valores possíveis.
-> 
-> 
+>
+>
 
 ### <a name="full-example"></a>Exemplo completo
 Aqui está um exemplo completo de integração:
@@ -251,7 +240,7 @@ Por exemplo, se você implementou a proposta 1 acima:
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         // Any other code
-  
+
         [UNUserNotificationCenter currentNotificationCenter].delegate = self;
         return YES;
       }
@@ -308,8 +297,8 @@ O arquivo nib fornecido deve respeitar as regras a seguir:
 
 > [!TIP]
 > Apenas copie o arquivo nib fornecido, chamado `AENotificationView.xib` e comece a trabalhar a partir daí. Mas tenha cuidado, o modo de exibição dentro desse arquivo nib é associado à classe `AENotificationView`. Essa classe redefiniu o método `layoutSubViews` para mover e redimensionar suas subexibições de acordo com o contexto. Você pode substituí-lo por um `UIView` ou classe de modo de exibição personalizada.
-> 
-> 
+>
+>
 
 Se precisar de personalização mais profunda das suas notificações (se você quiser, por exemplo para carregar a exibição diretamente do código), é recomendável examinar a documentação de código e a classe de fonte fornecido de `Protocol ReferencesDefaultNotifier` e `AENotifier`.
 
@@ -334,8 +323,8 @@ Se sua implementação de `AENotifier` ignora o comportamento padrão, você pre
 
 > [!WARNING]
 > Se `handleNotification:` lança uma exceção, o conteúdo será excluído e `drop` é chamado, isso é informado em estatísticas e as próximas campanhas agora podem ser processadas.
-> 
-> 
+>
+>
 
 #### <a name="include-notification-as-part-of-an-existing-view"></a>Incluir notificação como parte de uma exibição existente
 Sobreposições são ótimas para uma integração rápida, mas podem não ser convenientes algumas vezes ou podem ter efeitos colaterais indesejados.
@@ -345,12 +334,12 @@ Se você não estiver satisfeito com o sistema de sobreposição em algumas de s
 Você pode optar por incluir o layout de notificação em exibições existentes. Para fazer isso, há dois estilos de implementação:
 
 1. Adicionar a exibição de notificação usando o construtor de interface
-   
+
    * Abra o *Interface Builder*
    * Insira um 320 x 60 (ou 768 x 60 se você estiver no iPad) `UIView` onde você deseja que a notificação seja exibida
    * Defina o valor da marca para esse modo de exibição: **36822491**
 2. Adicione o modo de exibição de notificação programaticamente. Basta adicionar o código a seguir ao seu modo de exibição que foi inicializado:
-   
+
        UIView* notificationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)]; //Replace x and y coordinate values to your needs.
        notificationView.tag = NOTIFICATION_AREA_VIEW_TAG;
        [self.view addSubview:notificationView];
@@ -359,8 +348,8 @@ A macro `NOTIFICATION_AREA_VIEW_TAG` pode ser encontrada em `AEDefaultNotifier.h
 
 > [!NOTE]
 > A notificação padrão automaticamente detecta que o layout de notificação está incluído nessa exibição e não adicionará uma sobreposição para ela.
-> 
-> 
+>
+>
 
 ### <a name="announcements-and-polls"></a>Anúncios e pesquisas
 #### <a name="layouts"></a>Layouts
@@ -377,8 +366,8 @@ Para criar uma categoria para um anúncio, você deve estender **AEAnnouncementV
 
 > [!NOTE]
 > Cada vez que um usuário for clicar em uma notificação para um anúncio com a categoria "my\_category", o controlador de exibição registrado (nesse caso `MyCustomAnnouncementViewController`) será inicializado chamando o método `initWithAnnouncement:` e a exibição será adicionada à janela do aplicativo atual.
-> 
-> 
+>
+>
 
 Na implementação da classe `AEAnnouncementViewController` você terá que ler a propriedade `announcement` para inicializar as subexibições. Considere o exemplo a seguir, onde dois rótulos são inicializados usando as propriedades `title` e `body` da classe `AEReachAnnouncement`:
 
@@ -413,8 +402,8 @@ Neste momento, os `MyCustomPollViewController` fornecidos devem estender `AEPoll
 
 > [!IMPORTANT]
 > Não se esqueça de chamar `action` (`submitAnswers:` para controladores de exibição de pesquisa personalizada) ou o método `exit` antes do controlador de exibição ser descartado. Caso contrário, as estatísticas não serão enviadas (ou seja, sem análise da campanha) e, mais importante, as próximas campanhas não serão notificadas quando o processo do aplicativo for reiniciado.
-> 
-> 
+>
+>
 
 ##### <a name="implementation-example"></a>Exemplo de implementação
 Nessa implementação a exibição de aviso personalizado é carregada a partir de um arquivo xib externo.
@@ -512,9 +501,3 @@ Como para personalização da notificação avançada, é recomendável examinar
     }
 
     @end
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

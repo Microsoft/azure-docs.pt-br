@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c1614eeac922a4fc496be77b4d1d1588f28b4284
-
-
+ms.openlocfilehash: 57ba0e46139bda2d74c9f7db0ffab2f2122b0df2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicativos multilocatários no Azure
 Um aplicativo multilocatário é um recurso compartilhado que permite que usuários distintos ou "locatários" exibam o aplicativo como se ele fosse de sua propriedade. Um cenário típico que pode ser usado como um aplicativo multilocatário é aquele em que todos os usuários do aplicativo talvez queiram personalizar a experiência do usuário, mas que, de outra forma, têm os mesmos requisitos de negócios básico. Exemplos de grandes aplicativos multilocatários são o Office 365, o Outlook.com e o visualstudio.com.
@@ -41,7 +41,7 @@ Um aplicativo multilocatário implementado adequadamente oferece os seguintes be
 
 Em resumo, existem muitas considerações que você deve levar em conta para fornecer um serviço altamente escalonável, também há vários objetivos e requisitos que são comuns a muitos aplicativos multilocatários. Alguns podem não ser relevantes em cenários específicos, e a importância de requisitos e metas individuais será diferente em cada cenário. Como um provedor do aplicativo multilocatário, você também terá metas e requisitos, como atender as metas e requisitos dos locatários, lucratividade, cobrança, vários níveis de serviço, provisionamento, capacidade de manutenção, monitoramento e automação.
 
-Para obter mais informações sobre considerações de design adicionais de um aplicativo multilocatário, consulte [Hospedando um aplicativo multilocatário no Azure][Hospedando um aplicativo multilocatário no Azure]. Para obter informações sobre os padrões comuns da arquitetura de dados dos aplicativos do banco de dados SaaS (software como serviço) multilocatário, consulte [Padrões de Design para Aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md). 
+Para obter mais informações sobre considerações de design adicionais de um aplicativo multilocatário, consulte [Hosting a Multi-Tenant Application on Azure][Hosting a Multi-Tenant Application on Azure] (Hospedando um aplicativo multilocatário no Azure). Para obter informações sobre os padrões comuns da arquitetura de dados dos aplicativos do banco de dados SaaS (software como serviço) multilocatário, consulte [Padrões de Design para Aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md). 
 
 O Azure oferece muitos recursos que permitem resolver os principais problemas encontrados durante a criação de um sistema multilocatário.
 
@@ -73,7 +73,7 @@ O Azure fornece vários serviços de rede que oferecem suporte à autenticação
 * A Rede Virtual do Azure permite que você provisione e gerencie VPNs (redes virtuais privadas) no Azure e vincule-as com segurança à infraestrutura de TI local.
 * O Gerenciador de Tráfego de Rede Virtual permite que você equilibre o tráfego de entrada entre os vários serviços hospedados do Azure, quer eles estejam em execução no mesmo datacenter ou em diferentes datacenters ao redor do mundo.
 * O Active Directory do Azure (AD do Azure) é um serviço moderno e baseado em REST que fornece recursos de gerenciamento de identidade e de controle de acesso para seus aplicativos na nuvem. O uso do AD do Azure para recursos do aplicativo. O AD do Azure fornece uma maneira fácil de autenticar e autorizar os usuários para obterem acesso a seus aplicativos e serviços web permitindo, ao mesmo tempo, que os recursos de autenticação e autorização sejam fatorados de seu código.
-* O Service Bus do Azure fornece um serviço de mensagens seguro e o recurso de fluxo de dados para aplicativos distribuídos e híbridos, como a comunicação entre aplicativos hospedados do Azure e aplicativos e serviços locais, sem a necessidade de firewall complexo e de infraestruturas de segurança. O uso da Retransmissão do Service Bus para recursos do aplicativo. Os serviços que são expostos como pontos de extremidade podem pertencer ao locatário (por exemplo, hospedados fora do sistema, como no local) ou podem ser serviços provisionados especificamente para o locatário (porque dados confidenciais específicos ao locatário trafegam entre eles).
+* O Service Bus do Azure fornece um serviço de mensagens seguro e o recurso de fluxo de dados para aplicativos distribuídos e híbridos, como a comunicação entre aplicativos hospedados do Azure e aplicativos e serviços locais, sem a necessidade de firewall complexo e de infraestruturas de segurança. O uso da Retransmissão do Barramento de Serviço para recursos do aplicativo nos serviços que são expostos como pontos de extremidade podem pertencer ao locatário (por exemplo, hospedados fora do sistema, como localmente) ou podem ser serviços provisionados especificamente para o locatário (porque dados confidenciais específicos ao locatário trafegam entre eles).
 
 **Provisionando recursos**
 
@@ -90,11 +90,5 @@ O Azure fornece várias maneiras de provisionar novos locatários para o aplicat
 
 <!--links-->
 
-[Hospedando um aplicativo multilocatário no Azure]: http://msdn.microsoft.com/library/hh534480.aspx
-[Criando aplicativos multilocatários no Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+[Hosting a Multi-Tenant Application on Azure]: http://msdn.microsoft.com/library/hh534480.aspx
+[Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716

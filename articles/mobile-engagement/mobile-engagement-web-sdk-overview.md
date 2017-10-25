@@ -14,11 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 770a83131a3e661771db50b22ce7de25b2d541cf
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement-web-sdk"></a>SDK Web do Azure Mobile Engagement
 Comece aqui para obter todos os detalhes sobre como integrar o Azure Mobile Engagement em um aplicativo Web. Se você gostaria de experimentá-lo antes de começar com seu próprio aplicativo Web, confira nosso [tutorial de 15 minutos](mobile-engagement-web-app-get-started.md).
@@ -130,10 +130,4 @@ O objeto `window.capptain` global do JavaScript foi renomeado para `window.azure
 Por exemplo: `capptain.deviceId` se torna `engagement.deviceId`, `capptain.agent.startActivity` se torna `engagement.agent.startActivity` e assim por diante.
 
 Se você já tiver integrado uma versão anterior do SDK Web do Azure Mobile Engagement ao seu aplicativo, leia sobre [procedimentos de atualização](mobile-engagement-web-upgrade-procedure.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

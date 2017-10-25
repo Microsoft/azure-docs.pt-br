@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 09/12/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: 92b9c88ec49424c96c3bd21bc5c4ce390352c17b
-ms.lasthandoff: 02/13/2017
-
-
+ms.reviewer: kairaz.contractor
+ms.custom: it-pro;oldportal
+ms.openlocfilehash: 992f4563064d7a292cf4fdd90a9a3c84cdec91c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dedicated-groups-in-azure-active-directory"></a>Grupos dedicados no Active Directory do Azure
 No Azure Active Directory (AD do Azure), o recurso de grupos dedicados automaticamente cria e preenche a associação para grupos predefinidos do Azure AD. Membros de grupos dedicados não podem ser adicionados ou removidos usando o portal clássico do Azure, cmdlets do Windows PowerShell ou programaticamente.
@@ -34,7 +35,7 @@ No Azure Active Directory (AD do Azure), o recurso de grupos dedicados automatic
 
 **Para habilitar grupos dedicados**
 
-1. No [portal clássico do Azure](https://manage.windowsazure.com), selecione **Active Directory**e abra o diretório da sua organização.
+1. No [portal do Azure](https://portal.azure.com), selecione **Active Directory** e abra o diretório da sua organização.
 2. Selecione a guia **Grupos** e, em seguida, abra o grupo que deseja editar.
 3. Selecione a guia **Configurar**, em seguida, defina **Habilitar Grupos Dedicados** para **Sim**.
 
@@ -59,4 +60,3 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 * [O que é o Active Directory do Azure?](active-directory-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
-

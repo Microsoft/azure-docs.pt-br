@@ -16,8 +16,3 @@ Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua
 5. Observe que a conexão foi criada no portal. Agora você pode prosseguir com a criação de seu Aplicativo lógico e usar o GitHub nele:   
    ![](./media/connectors-create-api-github/github-5.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

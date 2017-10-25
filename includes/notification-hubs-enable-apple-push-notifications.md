@@ -116,8 +116,3 @@ Para poder enviar notificações por push para um aplicativo iOS, você deverá 
 7. Quando o novo perfil de provisionamento for criado, clique para baixá-lo e instalá-lo em seu computador de desenvolvimento do Xcode. Em seguida, clique em **Concluído**.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
-
-
-<!--HONumber=Dec16_HO1-->
-
-

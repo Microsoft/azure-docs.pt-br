@@ -3,7 +3,7 @@ title: Aplicativo nativo .NET do Azure Active Directory v2.0 | Microsoft Docs
 description: "Como criar um aplicativo nativo .NET que conecte usuários com a conta pessoal da Microsoft e as contas corporativas ou de estudante."
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: 46d81e09-bad0-44ce-9026-881805976e72
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/30/2016
-ms.author: dastrock; vittorib
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 52a4c326c7618b9a31df539c8b0eb0ced44ce609
-
-
+ms.author: jmprieur
+ms.custom: aaddev
+ms.openlocfilehash: 7389f55ee6fef9548abb0ca4ac1bbd0399868d47
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-a-windows-desktop-app"></a>Adicionar credenciais a um aplicativo da Área de Trabalho do Windows
 Com o ponto de extremidade v2.0, você pode adicionar autenticação rapidamente a seus aplicativos do área de trabalho com suporte a contas pessoais da Microsoft e contas corporativas ou de estudante.  Ele também permite que seu aplicativo se comunique de forma segura com uma API Web de back-end, bem como com o [Microsoft Graph](https://graph.microsoft.io) e algumas das [APIs Unificadas do Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
@@ -47,7 +48,7 @@ Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.c
 * Copiar a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela logo.
 * Adicione a plataforma **Móvel** de seu aplicativo.
 
-## <a name="install-configure-msal"></a>Instalar e Configurar o MSAL
+## <a name="install--configure-msal"></a>Instalar e Configurar o MSAL
 Agora que você tem um aplicativo registrado na Microsoft, pode instalar o MSAL e gravar seu código relacionado à identidade.  Para que o MSAL possa comunicar o ponto de extremidade v2.0, forneça a ele algumas informações sobre o registro de seu aplicativo.
 
 * Comece adicionando o MSAL ao projeto TodoListClient usando o Console do Gerenciador de Pacotes.
@@ -259,10 +260,4 @@ Para obter recursos adicionais, consulte:
 
 ## <a name="get-security-updates-for-our-products"></a>Obter atualizações de segurança para nossos produtos
 Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

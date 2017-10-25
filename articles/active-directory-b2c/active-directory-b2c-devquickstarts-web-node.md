@@ -3,7 +3,7 @@ title: Adicionar a entrada a um aplicativo Web do Node.js para o Azure B2C | Mic
 description: "Como criar um aplicativo Web do Node.js que conecta os usuários usando um locatário do B2C."
 services: active-directory-b2c
 documentationcenter: 
-author: xerners
+author: dstrockis
 manager: mbaldwin
 editor: 
 ms.assetid: db97f84a-1f24-447b-b6d2-0265c6896b27
@@ -13,18 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 03/10/2017
-ms.author: brandwe
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 443516838190ccad408bc2b3b6b63513b3a3041e
-ms.lasthandoff: 03/15/2017
-
-
+ms.author: xerners
+ms.openlocfilehash: c85b8f8434d1e837ac96ac63b9b37f990677ed6e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-ad-b2c-add-sign-in-to-a-nodejs-web-app"></a>Azure AD B2C: adicionar entrada a um aplicativo Web do Node.js
 
-**Passport** é middleware de autenticação para o Node.js. Extremamente flexível e modular, o Passport pode ser instalado sem impedimento em qualquer aplicativo Web baseado em Express ou Restify. Um conjunto abrangente de estratégias que dão suporte à autenticação usando um nome de usuário e uma senha, o Facebook, o Twitter e muito mais. 
+**Passport** é middleware de autenticação para o Node.js. Extremamente flexível e modular, o Passport pode ser instalado sem impedimento em qualquer aplicativo Web baseado em Express ou Restify. Um conjunto abrangente de estratégias que dão suporte à autenticação usando um nome de usuário e uma senha, o Facebook, o Twitter e muito mais.
 
 Desenvolvemos uma estratégia para o Azure AD (Active Directory do Azure). Você instalará esse módulo e, em seguida, adicionará o plug-in `passport-azure-ad` do Azure AD.
 
@@ -40,9 +38,6 @@ O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQu
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git```
 
 O aplicativo completo é fornecido no fim deste tutorial.
-
-> [!WARNING]
-Para ora, você deve usar a mesma **ID do Cliente**/**ID do Aplicativo** e as mesmas políticas para o servidor de tarefa da API Web e para o cliente que se conecta a ele. Isso também se aplica aos tutoriais para Android e iOS. Se você tiver criado anteriormente um aplicativo em qualquer um desses guias de Início Rápido, use esses valores; não crie novos.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Obter um diretório AD B2C do Azure
 
@@ -428,4 +423,3 @@ You can now move on to more advanced B2C topics. You might try:
 [Customizing the your B2C App's UX >>]()
 
 -->
-

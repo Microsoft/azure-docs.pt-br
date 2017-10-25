@@ -21,15 +21,17 @@
 ### [Autenticação de saída](scheduler-outbound-authentication.md)
 
 # Referência
-## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [PowerShell do Azure](/powershell/module/azurerm.scheduler)
 ## [REST](/rest/api/scheduler)
 
 # Recursos
-## [Preços](https://azure.microsoft.com/pricing/details/scheduler/)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
+## [Preços](https://azure.microsoft.com/pricing/details/scheduler/)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
+## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=scheduler)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
-## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=scheduler)
 
 
 

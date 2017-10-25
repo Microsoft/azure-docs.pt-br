@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 290a9dc5ca67495da18d88b61dce1d8b6becea61
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 8c51c0bb37e25ad61fe58a85dd641dabe0a1958c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Como executar uma tarefa com uso intenso de computação no Java em uma máquina virtual
 > [!IMPORTANT] 
@@ -55,20 +54,20 @@ Este é um exemplo do aplicativo Java que monitora a tarefa de computação inte
 2. Clique em **Nova**, clique em **Computação**, clique em **Máquina virtual** e, em seguida, clique em **Da Galeria**.
 3. Na caixa de diálogo **Seleção de imagem da máquina virtual**, selecione **JDK 7 Windows Server 2012**.
    Observe que o **JDK 6 Windows Server 2012** está disponível caso você tenha aplicativos legados que ainda não estejam prontos para serem executados no JDK 7.
-4. Clique em **Próximo**.
+4. Clique em **Avançar**.
 5. Na caixa de diálogo **Configuração da máquina virtual** :
    1. Especifique um nome para a máquina virtual.
    2. Especifique o tamanho a ser usado para a máquina virtual.
    3. Digite um nome para o administrador no campo **Nome do Usuário** . Lembre-se do nome e da senha que você digitará a seguir, você irá usá-los ao fazer logon remotamente na máquina virtual.
    4. Digite uma senha no campo **Nova senha** e insira-a novamente no campo **Confirmar**. Esta é a senha da conta do Administrador.
-   5. Clique em **Próximo**.
+   5. Clique em **Avançar**.
 6. Na próxima caixa de diálogo **Configuração da máquina virtual** :
    1. Para **Serviço de Nuvem**, use o padrão **Criar um novo serviço de nuvem**.
    2. O valor de **Nome DNS do Serviço de Nuvem** deve ser exclusivo no cloudapp.net. Se necessário, modifique esse valor para que o Azure indique que ele é exclusivo.
    3. Especifique uma região, um grupo de afinidade ou uma rede virtual. Para o objetivo deste tutorial, especifique uma região, como **Oeste dos Estados Unidos**.
    4. Para **Conta de Armazenamento**, selecione **Usar uma conta de armazenamento gerada automaticamente**.
    5. Para **Conjunto de Disponibilidade**, selecione **(Nenhum)**.
-   6. Clique em **Próximo**.
+   6. Clique em **Avançar**.
 7. Na caixa de diálogo **Configuração da máquina virtual** final:
    1. Aceite as entradas de ponto de extremidade padrão.
    2. Clique em **Concluído**.
@@ -523,4 +522,3 @@ Para os aplicativos solver e de cliente, é possível pressionar **Ctrl+C** para
 [properties_pane]:media/java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
 [default_key]:media/java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../../../java-add-certificate-ca-store.md
-

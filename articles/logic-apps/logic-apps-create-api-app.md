@@ -1,10 +1,11 @@
 ---
-title: "Criar uma API para Aplicativos Lógicos"
-description: "Criando uma API personalizada para usar com Aplicativos Lógicos"
+title: "Criar APIs Web e APIs REST para Aplicativos Lógicos do Azure | Microsoft Docs"
+description: "Crie APIs Web e APIs REST para chamar suas APIs, serviços ou sistemas de fluxos de trabalho de aplicativos lógicos para integrações do sistema"
+keywords: "APIs Web, APIs REST, fluxos de trabalho, integrações do sistema"
+services: logic-apps
 author: jeffhollan
 manager: anneta
 editor: 
-services: logic-apps
 documentationcenter: 
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.service: logic-apps
@@ -12,85 +13,230 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 4c6bf3e46d80871c8f6ef1cd0a9959e4766a69f5
-
-
+ms.date: 5/26/2017
+ms.author: LADocs; jehollan
+ms.openlocfilehash: 2a8b883975ed0c0a2a6ee9a2a7ad0c0b1e938fd4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="creating-a-custom-api-to-use-with-logic-apps"></a>Criando uma API personalizada para usar com Aplicativos Lógicos
-Se você deseja estender a plataforma de Aplicativos Lógicos, há várias maneiras que você pode chamar APIs e sistemas que não estão disponíveis como um dos nossos muitos conectores prontos para uso.  Uma dessas maneiras é criar um Aplicativo de API que pode ser chamado de dentro de um fluxo de trabalho do aplicativo lógico.
+# <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Crie APIs personalizadas que podem ser chamadas de fluxos de trabalho de aplicativos lógicos
+
+Embora os Aplicativos Lógicos do Azure ofereçam [mais de 100 conectores internos](../connectors/apis-list.md) que você pode usar em fluxos de trabalho de aplicativo lógico, talvez seja melhor chamar APIs, sistemas e serviços que não estão disponíveis como conectores. Você pode criar suas próprias APIs que fornecem ações e gatilhos para uso em aplicativos lógicos. Veja outros motivos para criar suas próprias APIs que você pode chamar de fluxos de trabalhos de aplicativos lógicos:
+
+* Estender os fluxos de trabalho de integração de dados e integração do sistema.
+* Ajudar os clientes a usar seu serviço para gerenciar tarefas profissionais ou pessoais.
+* Expandir o alcance, a descoberta e o uso do seu serviço.
+
+Basicamente, conectores são APIs Web que usam REST para interfaces conectáveis, [formatos de metadados do Swagger](http://swagger.io/specification/) para documentação e JSON como formato de troca de dados. Como os conectores são APIs REST que se comunicam por meio de pontos de extremidade HTTP, você pode usar qualquer linguagem, como .NET, Java ou Node.js, para criar conectores. Você também pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md), uma oferta de PaaS (plataforma como serviço) que fornece uma das maneiras mais fáceis, mais escaláveis e melhores de hospedar a API. 
+
+Para que as APIs personalizadas funcionem com aplicativos lógicos, sua API pode fornecer [ *ações* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) que executam tarefas específicas em fluxos de trabalho de aplicativos lógicos. Sua API também pode atuar como um [ *gatilho* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) que inicia um fluxo de trabalho do aplicativo lógico quando novos dados ou um evento atendem a uma condição especificada. Este tópico descreve padrões comuns que você pode seguir para criar ações e gatilhos em sua API, com base no comportamento que a API deve fornecer.
+
+Você pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md), uma oferta de PaaS (plataforma como serviço) que fornece uma hospedagem de API fácil e altamente escalonável.
+
+> [!TIP] 
+> Embora você possa implantar suas APIs como aplicativos Web, considere implantar suas APIs como aplicativos de API, o que pode facilitar o trabalho quando você criar, hospedar e consumir APIs locais e na nuvem. Você não precisa alterar o código em suas APIs; basta implantar seu código para um aplicativo de API. Por exemplo, saiba como criar aplicativos de API criados com estas linguagens: 
+> 
+> * [ASP.NET](../app-service/app-service-web-get-started-dotnet.md). 
+> * [Java](../app-service/app-service-web-get-started-java.md)
+> * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
+> * [PHP](../app-service/app-service-web-get-started-php.md)
+> * [Python](../app-service/app-service-web-get-started-python.md)
+>
+> Para obter exemplos de aplicativo de API criados para aplicativos lógicos, visite o [Repositório GitHub de Aplicativos Lógicos do Azure](http://github.com/logicappsio) ou o [blog](http://aka.ms/logicappsblog).
+
+## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Como as APIs personalizadas diferem dos conectores personalizados?
+
+APIs personalizadas e [conectores personalizados](../logic-apps/custom-connector-overview.md) são APIs Web que usam REST para interfaces conectáveis, [formatos de metadados do Swagger](http://swagger.io/specification/) para documentação e JSON como formato de troca de dados. E como essas APIs e conectores são APIs REST que se comunicam por meio de pontos de extremidade HTTP, você pode usar qualquer linguagem, como .NET, Java ou Node.js, para criar APIs e conectores personalizados.
+
+APIs personalizadas permitem que você chame APIs que não são conectores e forneça pontos de extremidade que você pode chamar com HTTP + Swagger, Gerenciamento de API do Azure ou Serviços de Aplicativos. Conectores personalizados funcionam como APIs personalizadas, mas também têm estes atributos:
+
+* Registrados como recursos do Conector de aplicativos lógicos no Azure.
+* Aparecem com ícones ao lado de conectores gerenciados pela Microsoft no Designer de Aplicativos Lógicos.
+* Disponível somente para usuários de aplicativos lógicos e autores de conectores que têm o mesmo locatário do Azure Active Directory e a assinatura do Azure na região em que os aplicativos lógicos são implantados.
+
+Você também pode nominar conectores registrados para certificação da Microsoft. Esse processo verifica se os conectores registrados atendem aos critérios para uso público e disponibiliza os conectores para usuários no Microsoft Flow e Microsoft PowerApps.
+
+Para obter mais informações sobre conectores personalizados, consulte 
+
+* [Visão geral dos conectores personalizados](../logic-apps/custom-connector-overview.md)
+* [Criar conectores personalizados de APIs Web](../logic-apps/custom-connector-build-web-api-app-tutorial.md)
+* [Registrar conectores personalizados em Aplicativos Lógicos do Azure](../logic-apps/logic-apps-custom-connector-register.md)
 
 ## <a name="helpful-tools"></a>Ferramentas úteis
-Para as APIs funcionarem melhor com Aplicativos Lógicos, é recomendável gerar um documento do [swagger](http://swagger.io) detalhando os parâmetros e operações com suporte para sua API.  Há muitas bibliotecas (como [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle)) que gerarão automaticamente o swagger para você.  Você também pode usar o [TRex](https://github.com/nihaue/TRex) para ajudar a anotar o swagger para funcionar bem com Aplicativos Lógicos (nomes de exibição, tipos de propriedade etc.).  Para alguns exemplos de Aplicativos de API criados para Aplicativos Lógicos, consulte nosso [Repositório GitHub](http://github.com/logicappsio) ou [blog](http://aka.ms/logicappsblog).
 
-## <a name="actions"></a>Ações
-A ação básica para um aplicativo Lógico é um controlador que aceitará uma solicitação HTTP e retornará uma resposta (normalmente 200).  No entanto, existem padrões diferentes que você pode seguir para estender ações com base em suas necessidades.
+Uma API personalizada funciona melhor com aplicativos lógicos quando a API também tem um [documento do Swagger](http://swagger.io/specification/) que descreve as operações e os parâmetros da API.
+Muitas bibliotecas, como a [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle), podem gerar o swagger para você automaticamente. Para anotar nomes de exibição, tipos de propriedade e outros no arquivo do Swagger, você também pode usar [TRex](https://github.com/nihaue/TRex) para que o arquivo Swagger funcione bem com aplicativos lógicos.
 
-Por padrão, o mecanismo de aplicativo lógico atingirá o tempo limite de uma solicitação após um minuto.  No entanto, você pode fazer com que sua API execute ações que demoram mais e fazer o mecanismo aguardar a conclusão, seguindo um padrão assíncrono ou de webhook detalhado abaixo.
+<a name="actions"></a>
 
-Para ações padrão, simplesmente escreva um método de solicitação HTTP em sua API, que é exposto por meio de swagger.  Veja exemplos de aplicativos de API que funcionam com Aplicativos Lógicos em nosso [repositório do GitHub](https://github.com/logicappsio).  Veja abaixo maneiras de realizar padrões comuns com um conector personalizado.
+## <a name="action-patterns"></a>Padrões de ação
 
-### <a name="long-running-actions---async-pattern"></a>Ações de execução longa: padrão assíncrono
-Ao executar uma tarefa ou etapa longa, a primeira coisa que você precisa fazer é se certificar de que o mecanismo saiba que você ainda não atingiu o tempo limite. Você também precisa comunicar ao mecanismo como ele saberá quando tiver terminado a tarefa e, finalmente, precisa retornar dados relevantes para o mecanismo para que ele possa continuar com o fluxo de trabalho. Você pode concluir isso por meio de uma API seguindo o fluxo abaixo. Essas etapas são do ponto de vista da API personalizada:
+Para que os aplicativos de lógica executem tarefas, sua API personalizada deve fornecer [ *ações*](./logic-apps-what-are-logic-apps.md#logic-app-concepts). Cada operação em sua API é mapeada para uma ação. Uma ação básica é um controlador que aceita solicitações de HTTP e retorna respostas HTTP. Por exemplo, um aplicativo lógico envia uma solicitação HTTP para o aplicativo Web ou aplicativo de API. Seu aplicativo, em seguida, retorna uma resposta HTTP, juntamente com conteúdo que pode ser processado pelo aplicativo lógico.
 
-1. Quando uma solicitação for recebida, retorne imediatamente uma resposta (antes de o trabalho ser concluído). Esta resposta será uma resposta `202 ACCEPTED` , informando ao mecanismo que você recebeu os dados, aceitou a carga e agora está processando. A resposta 202 deve conter os seguintes cabeçalhos: 
+Para uma ação padrão, você pode escrever um método de solicitação HTTP em sua API e descrever esse método em um arquivo do Swagger. Em seguida, você pode chamar sua API diretamente com uma [ação HTTP](../connectors/connectors-native-http.md) ou uma ação [HTTP + Swagger](../connectors/connectors-native-http-swagger.md). Por padrão, as respostas devem ser devolvidas dentro do [tempo limite da solicitação](./logic-apps-limits-and-config.md). 
+
+![Padrão de ação padrão](./media/logic-apps-create-api-app/standard-action.png)
+
+<a name="pattern-overview"></a>Para fazer com que um aplicativo lógico aguarde enquanto sua API conclui tarefas de execução mais longas, sua API pode seguir o [padrão de sondagem assíncrono](#async-pattern) ou o [padrão webhook assíncrono](#webhook-actions) descrito neste tópico. Em uma analogia que ajuda você a visualizar os comportamentos diferentes desses padrões, imagine o processo de fazer um bolo personalizado em uma padaria. O padrão de sondagem reflete o comportamento em que você liga para a padaria a cada 20 minutos a fim de verificar se o bolo está pronto. O padrão de webhook reflete o comportamento em que a padaria solicita seu número de telefone para que eles possam ligar quando o bolo estiver pronto.
+
+Para obter exemplos, visite o [repositório GitHub dos Aplicativos Lógicos](https://github.com/logicappsio). Além disso, saiba mais sobre [medição de uso para ações](logic-apps-pricing.md).
+
+<a name="async-pattern"></a>
+
+### <a name="perform-long-running-tasks-with-the-polling-action-pattern"></a>Executar tarefas de longa execução com o padrão de ação de sondagem
+
+Para fazer sua API executar tarefas que podem levar mais tempo que o [tempo limite de solicitação](./logic-apps-limits-and-config.md), você pode usar o padrão de sondagem assíncrono. Esse padrão faz sua API trabalhar em um thread separado, mas mantém uma conexão ativa com o mecanismo dos Aplicativos Lógicos. Dessa forma, o aplicativo lógico não atinge o tempo limite ou continua na próxima etapa do fluxo de trabalho antes da API concluir o trabalho.
+
+Este é o padrão geral:
+
+1. Verificar se o mecanismo sabe que a sua API aceitou a solicitação e começou a trabalhar.
+2. Quando o mecanismo faz solicitações subsequentes sobre o status do trabalho, informar ao mecanismo quando a API concluir a tarefa.
+3. Retornar dados relevantes para o mecanismo de forma que o fluxo de trabalho do aplicativo lógico possa continuar.
+
+<a name="bakery-polling-action"></a>Agora, aplique a analogia anterior da padaria ao padrão de pesquisa e imagine que você ligou para um padaria e pediu a entrega de um bolo personalizado. O processo para fazer o bolo leva tempo, e você não quer esperar no telefone enquanto a padaria está fazendo o bolo. A padaria confirma seu pedido e faz com que você ligue a cada 20 minutos para saber o status do bolo. Depois de 20 minutos, você liga para a padaria, mas eles indicam que o bolo não está pronto e que você deve ligar novamente daqui a 20 minutos. Esse processo bidirecional continua até que você ligue e a padaria informe que o seu pedido está pronto e entregue o bolo. 
+
+Vamos mapear esse padrão de pesquisa novamente. A padaria representa sua API personalizada, enquanto você, o cliente do bolo, representa o mecanismo dos Aplicativos Lógicos. Quando o mecanismo chama sua API com uma solicitação, a API confirma a solicitação e responde com o intervalo de tempo após o qual o mecanismo pode verificar o status do trabalho. O mecanismo continua verificando o status do trabalho até que sua API responda que o trabalho está feito e retorne dados para seu aplicativo lógico, que continua, em seguida, o fluxo de trabalho. 
+
+![Padrão de ação de sondagem](./media/logic-apps-create-api-app/custom-api-async-action-pattern.png)
+
+Aqui estão as etapas específicas que sua API deve seguir, descritas da perspectiva da API:
+
+1. Quando sua API recebe uma solicitação HTTP para iniciar o trabalho, retorna imediatamente uma resposta HTTP `202 ACCEPTED` com o cabeçalho `location` descrito mais adiante nesta etapa. Essa resposta permite que o mecanismo dos Aplicativos Lógicos saiba que sua API recebeu a solicitação, aceitou a carga de solicitação (dados de entrada) e está processando. 
    
-   * `location` (obrigatório): esse é um caminho absoluto para a URL que os Aplicativos Lógicos podem usar para verificar o status do trabalho.
-   * `retry-after` (opcional, será padronizado como 20 para ações). Este é o número de segundos que o mecanismo deve aguardar antes de sondar a URL do cabeçalho do local para verificar o status.
-2. 2. Quando o status de um trabalho for verificado, execute as seguintes verificações: 
+   A resposta `202 ACCEPTED` deve incluir estes cabeçalhos:
    
-   * Se o trabalho estiver concluído: retorne uma resposta `200 OK` , com a carga de resposta.
-   * Se o trabalho ainda estiver em processamento: retorne outra resposta `202 ACCEPTED` , com os mesmos cabeçalhos que a resposta inicial
+   * *Obrigatório*: um cabeçalho `location` que especifica o caminho absoluto para uma URL onde o mecanismo dos Aplicativos Lógicos pode verificar o status do trabalho da API
 
-Esse padrão permite que você execute tarefas muito longas em um thread de sua API personalizada, mas mantenha uma conexão ativa com o mecanismo dos Aplicativos Lógicos de forma que ele não atinja o tempo limite ou continue antes de o trabalho ser concluído. Ao adicionar isso ao seu aplicativo lógico, é importante observar que você não precisa fazer nada em sua definição para o aplicativo lógico continuar a sondar e verificar o status. Assim que o mecanismo vê resposta 202 - ACEITO com um cabeçalho de local válido, ele aceitará o padrão assíncrono e continuará a sondar o cabeçalho do local até uma resposta não 202 ser retornada.
+   * *Opcional*: um cabeçalho `retry-after` que especifica o número de segundos que o mecanismo deve aguardar antes de verificar a URL `location` em relação ao status do trabalho. 
 
-Você pode ver um exemplo desse padrão no GitHub [aqui](https://github.com/jeffhollan/LogicAppsAsyncResponseSample)
+     Por padrão, o mecanismo verifica a cada 20 segundos. Para especificar um intervalo diferente, inclua o cabeçalho `retry-after` e o número de segundos até o próximo intervalo de sondagem.
 
-### <a name="webhook-actions"></a>Ações webhook
-Durante o fluxo de trabalho, você pode fazer com que o aplicativo lógico pause e aguarde um "retorno de chamada" para continuar.  Esse retorno de chamada é fornecido na forma de um HTTP POST.  Para implementar esse padrão, você precisa fornecer dois pontos de extremidade em seu controlador: assinar e cancelar assinatura.
+2. Após o tempo especificado expirar, o mecanismo dos Aplicativos Lógicos sonda a URL `location` para verificar o status do trabalho. Sua API deve executar estas verificações e retornar estas respostas:
+   
+   * Se o trabalho está pronto, retornar uma resposta HTTP `200 OK` juntamente com a carga de resposta (entrada para a próxima etapa).
 
-Em ‘assinar’, o aplicativo lógico criará e registrará uma URL de retorno de chamada que sua API pode armazenar e executar o retorno de chamada com pronto como um HTTP POST.  Quaisquer conteúdos/cabeçalhos serão passados para o aplicativo lógico e podem ser usados no restante do fluxo de trabalho.  O mecanismo do aplicativo lógico chamará o ponto de assinatura em execução assim que chegar a essa etapa.
+   * Se o trabalho ainda estiver em processamento: retorne outra resposta HTTP `202 ACCEPTED`, mas com os mesmos cabeçalhos que a resposta original.
 
-Se a execução foi cancelada, o mecanismo do aplicativo lógico fará uma chamada para o ponto de extremidade 'cancelar assinatura'.  A API poderá cancelar a URL de retorno de chamada não registrada conforme necessário.
+Quando sua API segue esse padrão, você não precisa fazer nada na definição do fluxo de trabalho do aplicativo lógico para continuar a verificação do status do trabalho. Quando o mecanismo obtém uma resposta HTTP `202 ACCEPTED` válida e um cabeçalho `location`, o mecanismo respeita o padrão assíncrono e verifica o cabeçalho `location` até que sua API retorne uma resposta não 202.
 
-Atualmente o Designer de Aplicativo Lógico não dá suporte à descoberta de um ponto de extremidade de webhook por meio do swagger, portanto, para usar esse tipo de ação você precisa adicionar a ação “webhook” e especificar a URL, os cabeçalhos e o corpo da sua solicitação.  Você pode usar a função de fluxo de trabalho `@listCallbackUrl()` em qualquer um desses campos conforme necessário para passar a URL de retorno de chamada.
+> [!TIP]
+> Para um padrão assíncrono de exemplo, examine o [exemplo de resposta do controlador assíncrono no GitHub](https://github.com/logicappsio/LogicAppsAsyncResponseSample).
 
-Você pode ver um exemplo de um padrão de webhook no GitHub [aqui](https://github.com/jeffhollan/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs)
+<a name="webhook-actions"></a>
 
-## <a name="triggers"></a>Gatilhos
-Além de ações, você pode fazer com que sua API personalizada atue como um gatilho para um aplicativo lógico.  Há dois padrões que você pode seguir abaixo para disparar um aplicativo lógico:
+### <a name="perform-long-running-tasks-with-the-webhook-action-pattern"></a>Executar tarefas de longa execução com o padrão de ação do webhook
 
-### <a name="polling-triggers"></a>Gatilhos de sondagem
-Os gatilhos de sondagem atuam de forma muito semelhante às ações assíncronas de execução longa acima.  O mecanismo do aplicativo lógico chama o ponto de extremidade do gatilho após um determinado período de tempo decorrido (dependendo do SKU, 15 segundos para Premium, um minuto para Standard e uma hora para Gratuito).
+Como alternativa, você pode usar o padrão de webhook para tarefas de longa execução e processamento assíncrono. Esse padrão faz com que o aplicativo lógico pause e aguarde o "retorno de chamada" da sua API para concluir o processamento antes de continuar o fluxo de trabalho. Esse retorno de chamada é um HTTP POST que envia uma mensagem para uma URL quando ocorre um evento. 
 
-Se não houver dados disponíveis, o gatilho retornará uma resposta `202 ACCEPTED` com um cabeçalho `location` e `retry-after`.  No entanto, para gatilhos, é recomendável que o cabeçalho `location` contenha um parâmetro de consulta de `triggerState`.  Isso é um identificador para sua API saber quando foi a última vez que o aplicativo lógico foi disparado.  Se houver dados disponíveis, o gatilho retornará uma resposta `200 OK` com a carga de conteúdo.  Isso disparará o aplicativo lógico.
+<a name="bakery-webhook-action"></a>Agora, aplique a analogia anterior da padaria ao padrão de webhook e imagine que você ligou para um padaria e pediu a entrega de um bolo personalizado. O processo para fazer o bolo leva tempo, e você não quer esperar no telefone enquanto a padaria está fazendo o bolo. A padaria confirma sua ordem, mas, desta vez, você deu a ela seu número de telefone para que ligue quando o bolo estiver pronto. Dessa vez, a padaria informa quando seu pedido está pronto e entrega o bolo.
 
-Por exemplo, se eu estivesse sondando para ver se havia um arquivo disponível, você poderia criar um gatilho de sondagem que faria o seguinte:
+Quando traçamos esse padrão de webhook de volta, a padaria representa sua API personalizada, ao passo que você, cliente do bolo, representa o mecanismo dos Aplicativos Lógicos. O mecanismo chama sua API com uma solicitação e inclui uma URL de "retorno de chamada".
+Quando o trabalho está pronto, sua API usa a URL para notificar o mecanismo e retornar dados para seu aplicativo lógico, que continua, em seguida, o fluxo de trabalho. 
 
-* Se uma solicitação fosse recebida sem nenhum triggerState, a API retornaria um `202 ACCEPTED` com um cabeçalho `location` que tem um triggerState da hora atual e um `retry-after` de 15.
-* Se uma solicitação fosse recebida com um triggerState:
-  * Verificaria se algum arquivo foi adicionado após o DateTime do triggerState. 
-  * Se houvesse um arquivo, retornaria uma resposta `200 OK` com a carga de conteúdo, incrementaria o triggerState para a DateTime do arquivo que eu retornei e definiria o `retry-after` como 15.
-  * Se houvesse vários arquivos, eu poderia retornar um de cada vez com um `200 OK`, incrementar meu triggerState no cabeçalho `location` e definir `retry-after` como 0.  Isso informaria ao mecanismo que há mais dados disponíveis e ele os solicitaria imediatamente no cabeçalho `location` especificado.
-  * Se não houvesse nenhum arquivo disponível, retornaria uma resposta `202 ACCEPTED` e deixaria o triggerState `location` igual.  Definiria `retry-after` para 15.
+Para esse padrão, configure dois pontos de extremidade em seu controlador: `subscribe` e `unsubscribe`
 
-Você pode ver um exemplo de um gatilho de sondagem no GitHub [aqui](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers)
+*  Ponto de extremidade `subscribe`: quando a execução atinge a ação da API no fluxo de trabalho, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `subscribe`. Esta etapa faz com que o aplicativo lógico crie uma URL de retorno de chamada que a API armazena e, em seguida, aguarda o retorno de chamada da API quando o trabalho é concluído. Sua API retorna a chamada com um HTTP POST para a URL e transmite o conteúdo retornado e os cabeçalhos como entrada para o aplicativo lógico.
 
-### <a name="webhook-triggers"></a>Gatilhos webhook
-Os gatilhos webhook atuam como as ações webhook acima.  O mecanismo do aplicativo lógico chama o ponto de extremidade 'assinar' sempre que um gatilho webhook é adicionado e salvo.  Sua API pode registrar a URL do webhook e chamá-la por meio do HTTP POST, sempre que os dados estiverem disponíveis.  A carga de conteúdo e os cabeçalhos serão passados para na execução do aplicativo lógico.
+* Ponto de extremidade `unsubscribe`: se a execução do aplicativo lógico for cancelada, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `unsubscribe`. Sua API pode cancelar o registro da URL de retorno de chamada e parar todos os processos conforme a necessidade.
 
-Se um gatilho webhook nunca for excluído (o aplicativo lógico inteiramente ou apenas o gatilho webhook), o mecanismo fará uma chamada para a URL de 'cancelar assinatura' em que sua API poderá cancelar o registro da URL de retorno de chamada e parar quaisquer processos conforme necessário.
+![Padrão de ação do Webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
-Atualmente o Designer de Aplicativo Lógico não dá suporte à descoberta de um gatilho webhook por meio do swagger, portanto, para usar esse tipo de ação você precisa adicionar o gatilho “webhook” e especificar a URL, os cabeçalhos e o corpo da sua solicitação.  Você pode usar a função de fluxo de trabalho `@listCallbackUrl()` em qualquer um desses campos conforme necessário para passar a URL de retorno de chamada.
+> [!NOTE]
+> Atualmente, o Designer de Aplicativo Lógico não dá suporte à descoberta de pontos de extremidade de webhook pelo Swagger. Para esse padrão, você precisa adicionar uma ação de [ **Webhook** ](../connectors/connectors-native-webhook.md) e especificar a URL, os cabeçalhos e o corpo para a sua solicitação. Confira também [Gatilhos e ações do fluxo de trabalho](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). Para transmitir a URL de retorno de chamada, você pode usar a função de fluxo de trabalho `@listCallbackUrl()` em qualquer um desses campos, conforme a necessidade.
 
-Você pode ver um exemplo de um gatilho webhook no GitHub [aqui](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers)
+> [!TIP]
+> Para um padrão de webhook de exemplo, reveja o [ exemplo de gatilho webhook no GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
+<a name="triggers"></a>
 
+## <a name="trigger-patterns"></a>Padrões de gatilho
 
+Sua API personalizada pode atuar como um [ *gatilho* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) que inicia um aplicativo lógico quando novos dados ou um evento atendem a uma condição especificada. Esse gatilho pode verificar regularmente, ou aguardar e escutar, novos dados ou eventos em seu ponto de extremidade de serviço. Se novos dados ou um evento atender à condição especificada, o gatilho será acionado e iniciará o aplicativo lógico que está escutando esse gatilho. Para iniciar aplicativos lógicos dessa maneira, sua API pode seguir o padrão de [ *gatilho de sondagem* ](#polling-triggers) ou [ *gatilho de webhook* ](#webhook-triggers). Esses padrões são semelhantes às [ações de sondagem](#async-pattern) e [ações de webhook](#webhook-actions) correspondentes. Além disso, saiba mais sobre [medição de uso para gatilhos](logic-apps-pricing.md).
 
-<!--HONumber=Jan17_HO3-->
+<a name="polling-triggers"></a>
 
+### <a name="check-for-new-data-or-events-regularly-with-the-polling-trigger-pattern"></a>Verificar se há novos dados ou eventos regularmente com o padrão de gatilho de sondagem
 
+Um *gatilho de sondagem* atua como a [ação de sondagem](#async-pattern) descrita anteriormente neste tópico. O mecanismo dos Aplicativos Lógicos chama e verifica se há novos dados ou eventos no ponto de extremidade de gatilho periodicamente. Se o mecanismo localizar novos dados ou um evento que atenda à condição especificada, o gatilho será acionado. Em seguida, o mecanismo cria uma instância de aplicativo lógico que processa os dados como entrada. 
+
+![Padrão de gatilho de sondagem](./media/logic-apps-create-api-app/custom-api-polling-trigger-pattern.png)
+
+> [!NOTE]
+> Cada solicitação de sondagem conta como uma execução de ação, mesmo quando nenhuma instância do aplicativo lógico é criada. Para evitar o processamento dos mesmos dados várias vezes, o gatilho deve limpar os dados que já foram lidos e transmitidos para o aplicativo lógico.
+
+Aqui estão as etapas específicas para um gatilho de sondagem, descritas da perspectiva da API:
+
+| Encontrou novos dados ou evento?  | Resposta da API | 
+| ------------------------- | ------------ |
+| Encontrado | Retornar um status HTTP `200 OK` com a carga de resposta (entrada para a próxima etapa). <br/>Essa resposta cria uma instância de aplicativo lógico e inicia o fluxo de trabalho. | 
+| Não encontrado | Retornar um status HTTP `202 ACCEPTED` com um cabeçalho `location` e um cabeçalho `retry-after`. <br/>Para gatilhos, o cabeçalho `location` também deve conter um parâmetro de consulta `triggerState`, que geralmente é um "carimbo de data/hora". Sua API pode usar esse identificador para acompanhar a última vez que o aplicativo lógico foi disparado. | 
+||| 
+
+Por exemplo, para verificar periodicamente novos arquivos no serviço, você pode criar um gatilho de sondagem que tenha estes comportamentos:
+
+| A solicitação inclui `triggerState`? | Resposta da API | 
+| -------------------------------- | -------------| 
+| Não | Retornar um status HTTP `202 ACCEPTED` e um cabeçalho `location` com `triggerState` definido com a hora atual e o intervalo `retry-after` como 15 segundos. | 
+| Sim | Verifique em seu serviço arquivos adicionados após o `DateTime` para `triggerState`. | 
+||| 
+
+| Número de arquivos encontrados | Resposta da API | 
+| --------------------- | -------------| 
+| Arquivo único | Retornar um status HTTP `200 OK` e a carga de conteúdo, atualizar `triggerState` para o `DateTime` do arquivo retornado e definir o intervalo de `retry-after` como 15 segundos. | 
+| Vários arquivos | Retornar um arquivo por vez e um status HTTP `200 OK`, atualizar `triggerState`e definir o intervalo de `retry-after` como 0 segundo. </br>Estas etapas permitem que o mecanismo saiba se há mais dados disponíveis e se o mecanismo deve solicitar os dados da URL no cabeçalho `location` imediatamente. | 
+| Não há arquivos | Retornar um status HTTP `202 ACCEPTED`, não alterar `triggerState`e definir o intervalo de `retry-after` como 15 segundos. | 
+||| 
+
+> [!TIP]
+> Para obter um exemplo do padrão do gatilho de sondagem, reveja este [exemplo de controlador de gatilho de sondagem no GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/PollTriggerController.cs).
+
+<a name="webhook-triggers"></a>
+
+### <a name="wait-and-listen-for-new-data-or-events-with-the-webhook-trigger-pattern"></a>Aguardar e escutar novos dados ou eventos com o padrão de gatilho de webhook
+
+Um gatilho de webhook é um *gatilho de envio por push* que aguarda e escuta novos dados ou eventos em seu ponto de extremidade de serviço. Se novos dados ou um evento atendem à condição especificada, o gatilho será acionado e criará uma instância de aplicativo lógico que processa os dados como entrada.
+Os gatilhos de webhook atuam como as [ações de webhook](#webhook-actions) descritas anteriormente neste tópico e são configuradas com pontos de extremidade `subscribe` e `unsubscribe`. 
+
+* Ponto de extremidade `subscribe`: quando você adiciona e salva um gatilho de webhook em seu aplicativo lógico, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `subscribe`. Esta etapa faz com que o aplicativo lógico crie uma URL de retorno de chamada que é armazenada pela API. Quando há novos dados ou um evento que atenda à condição especificada, sua API retorna a chamada com um HTTP POST para a URL. A carga de conteúdo e os cabeçalhos são transmitidos como entrada para o aplicativo lógico.
+
+* Ponto de extremidade `unsubscribe`: se o gatilho de webhook ou o aplicativo lógico inteiro for excluído, o mecanismo dos Aplicativos Lógicos chama o ponto de extremidade `unsubscribe`. Sua API pode cancelar o registro da URL de retorno de chamada e parar todos os processos conforme a necessidade.
+
+![Padrão de gatilho de webhook](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
+
+> [!NOTE]
+> Atualmente, o Designer de Aplicativo Lógico não dá suporte à descoberta de pontos de extremidade de webhook pelo Swagger. Para esse padrão, você precisa adicionar um gatilho de [ **Webhook** ](../connectors/connectors-native-webhook.md) e especificar a URL, os cabeçalhos e o corpo para a sua solicitação. Confira também [Gatilho HTTPWebhook](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). Para transmitir a URL de retorno de chamada, você pode usar a função de fluxo de trabalho `@listCallbackUrl()` em qualquer um desses campos, conforme a necessidade.
+>
+> Para evitar o processamento dos mesmos dados várias vezes, o gatilho deve limpar os dados que já foram lidos e transmitidos para o aplicativo lógico.
+
+> [!TIP]
+> Para um padrão de webhook de exemplo, reveja o [ exemplo de controlador de gatilho webhook no GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
+
+## <a name="secure-calls-to-your-apis-from-logic-apps"></a>Proteger chamadas para suas APIs de aplicativos lógicos
+
+Depois de criar suas APIs personalizados, configure a autenticação para suas APIs para que você possa chamá-las com segurança de aplicativos lógicos. Saiba [Como proteger chamadas para APIs personalizadas de aplicativos lógicos](../logic-apps/logic-apps-custom-api-authentication.md).
+
+## <a name="deploy-and-call-your-apis"></a>Implantar e chamar suas APIs
+
+Depois de configurar a autenticação, configure a implantação para suas APIs. Saiba [como implantar e chamar APIs personalizadas de aplicativos lógicos](../logic-apps/logic-apps-custom-api-host-deploy-call.md).
+
+## <a name="publish-custom-apis-to-azure"></a>Publicar APIs personalizadas no Azure
+
+Para disponibilizar seu APIs personalizadas para outros usuários de aplicativos lógicos no Azure, você deve adicionar a segurança e registrá-los como conectores do Aplicativo Lógico. Para obter mais informações, consulte [Visão geral de conectores personalizados](../logic-apps/custom-connector-overview.md). 
+
+Para disponibilizar suas APIs personalizadas para todos os usuários em Aplicativos Lógicos, Microsoft Flow e Microsoft PowerApps, você deve adicionar a segurança, registrar suas APIs como conectores de Aplicativos Lógicos e designar os conectores para o [programa Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
+
+## <a name="get-support"></a>Obtenha suporte
+
+* Para obter ajuda específica com APIs personalizadas, entre em contato com [ customapishelp@microsoft.com ](mailto:customapishelp@microsoft.com).
+
+* Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
+* Para ajudar a melhorar os Aplicativos Lógicos, vote ou envie ideias no [site de comentários do usuário dos Aplicativos Lógicos](http://aka.ms/logicapps-wish). 
+
+## <a name="next-steps"></a>Próximas etapas
+
+* [Processar erros e exceções](../logic-apps/logic-apps-exception-handling.md)
+* [Chamar, disparar ou aninhar aplicativos lógicos com pontos de extremidade HTTP](../logic-apps/logic-apps-http-endpoint.md)
+* [Medição de uso para as ações e gatilhos](../logic-apps/logic-apps-pricing.md)

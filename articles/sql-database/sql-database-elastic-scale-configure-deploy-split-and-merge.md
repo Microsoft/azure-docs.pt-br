@@ -8,18 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 9a993c0f-7052-46cd-aa59-073bea8d535a
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-translationtype: Human Translation
-ms.sourcegitcommit: 7a702354de137e1bca033146626dad1ca53fd3ed
-ms.openlocfilehash: b644ef0a8da726b2b23a4bfc81516c112be2de2e
-
-
+ms.openlocfilehash: 6e2fea882c248fa095a9d450ed54a7b4e64b45e1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-a-split-merge-service"></a>Implantar um serviço de divisão e mesclagem
 A ferramenta de divisão e mesclagem permite mover dados entre bancos de dados fragmentados. Veja [Mover dados entre bancos de dados na nuvem escalados horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -342,10 +342,4 @@ Nesse caso, verifique seu arquivo de configuração, em particular a configuraç
 [3]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/staging.png
 [4]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/upload.png
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

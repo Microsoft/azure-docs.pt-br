@@ -71,8 +71,3 @@ No Agendador de serviço móvel, você pode usar o script a seguir:
     });
 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

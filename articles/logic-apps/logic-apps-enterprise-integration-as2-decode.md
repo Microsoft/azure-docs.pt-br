@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2016
-ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: da3fc08cc5c506dba02ccda16940a28a4600a288
-ms.lasthandoff: 03/10/2017
-
-
+ms.author: LADocs; padmavc
+ms.openlocfilehash: a7920b2509fe368c6f7d55e17fe0bf0020c4562c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Decodificar mensagens AS2 para o Aplicativo Lógico do Azure com o Enterprise Integration Pack 
 
@@ -40,7 +39,7 @@ Veja os itens necessários:
 
 2. O conector Decodificar AS2 não possui gatilhos. Você deve adicionar um gatilho para iniciar seu aplicativo lógico, como um gatilho Solicitação. No Designer de Aplicativo Lógico, adicione um gatilho e uma ação ao aplicativo lógico.
 
-3.    Na caixa de pesquisa, digite "AS2" como filtro. Selecione **AS2 – Decodificar Mensagem AS2**.
+3.  Na caixa de pesquisa, digite "AS2" como filtro. Selecione **AS2 – Decodificar Mensagem AS2**.
    
     ![Procure "AS2"](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage1.png)
 
@@ -55,7 +54,7 @@ Veja os itens necessários:
     | Nome da Conexão * |Digite um nome para a conexão. |
     | Uma conta de integração * |Insira um nome para sua conta de integração. Verifique se sua conta de integração e o aplicativo lógico estão no mesmo local do Azure. |
 
-5.    Quando terminar, os detalhes de conexão devem ser semelhantes a este exemplo. Para concluir a criação da sua conexão, escolha **Criar**.
+5.  Quando terminar, os detalhes de conexão devem ser semelhantes a este exemplo. Para concluir a criação da sua conexão, escolha **Criar**.
 
     ![detalhes de conexão de integração](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage3.png)
 
@@ -87,7 +86,9 @@ O conector Decodificar AS2 executa estas tarefas:
 
 Para tentar implantar um aplicativo lógico totalmente operacional e o cenário de AS2 de exemplo, confira o[modelo e cenário de aplicativo lógico AS2](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
 
+## <a name="view-the-swagger"></a>Exibir o Swagger
+Consulte os [detalhes do Swagger](/connectors/as2/). 
+
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md) 
-
 

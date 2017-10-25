@@ -17,12 +17,10 @@
 ### [Compilar e implantar um aplicativo Node.js](cloud-services-nodejs-develop-deploy-app.md)
 ### [Criar um aplicativo Web do Node.js usando o Express](cloud-services-nodejs-develop-deploy-express-app.md)
 ### Armazenamento e Visual Studio
-#### [Armazenamento de blobs e serviços conectados](../storage/vs-storage-cloud-services-getting-started-blobs.md)
-#### [Armazenamento em fila e serviços conectados](../storage/vs-storage-cloud-services-getting-started-queues.md)
-#### [Armazenamento de tabelas e serviços conectados](../storage/vs-storage-cloud-services-getting-started-tables.md)
+#### [Armazenamento de blobs e serviços conectados](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
+#### [Armazenamento em fila e serviços conectados](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
+#### [Armazenamento de tabelas e serviços conectados](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
 ### Configurar pacotes para compilação e implantação contínuas
-#### [Visual Studio Team Services e Git](cloud-services-continuous-delivery-use-vso-git.md)
-#### [Visual Studio Team Services](cloud-services-continuous-delivery-use-vso.md)
 #### [TFS e o Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Configurar regras de tráfego para uma função](cloud-services-enable-communication-role-instances.md)
 ### [Manipular eventos de ciclo de vida do Serviço de Nuvem](cloud-services-role-lifecycle-dotnet.md)
@@ -36,13 +34,13 @@
 #### [Usar uma tarefa para instalar .NET em uma função de Serviço de Nuvem](cloud-services-dotnet-install-dotnet.md)
 
 ### Configurar a Área de Trabalho Remota
-#### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [Portal do Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [Portal clássico](cloud-services-role-enable-remote-desktop.md)
-#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [PowerShell do Azure](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Implantar
 ### Criar e implantar um serviço de nuvem no portal
-#### [Portal](cloud-services-how-to-create-deploy-portal.md)
+#### [Portal do Azure](cloud-services-how-to-create-deploy-portal.md)
 #### [Portal clássico](cloud-services-how-to-create-deploy.md)
 ### [Criar um contêiner de serviço de nuvem vazio no PowerShell](cloud-services-powershell-create-cloud-container.md)
 ### Configurar um nome de domínio personalizado
@@ -53,14 +51,14 @@
 
 ## Gerenciar serviço
 ### Tarefas comuns de gerenciamento
-#### [Portal](cloud-services-how-to-manage-portal.md)
+#### [Portal do Azure](cloud-services-how-to-manage-portal.md)
 #### [Portal clássico](cloud-services-how-to-manage.md)
 ### Configurar serviço de nuvem
-#### [Portal](cloud-services-how-to-configure-portal.md)
+#### [Portal do Azure](cloud-services-how-to-configure-portal.md)
 #### [Portal clássico](cloud-services-how-to-configure.md)
 ### [Gerenciar um Serviço de Nuvem usando Automação do Azure](automation-manage-cloud-services.md)
 ### Configurar o dimensionamento automático
-#### [Portal](cloud-services-how-to-scale-portal.md)
+#### [Portal do Azure](cloud-services-how-to-scale-portal.md)
 #### [Portal clássico](cloud-services-how-to-scale.md)
 ### [Usar Python para gerenciar recursos do Azure](cloud-services-python-how-to-use-service-management.md)
 
@@ -82,7 +80,7 @@
 ### [Desempenho de testes](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Teste com o Criador de Perfil do Visual Studio](cloud-services-performance-testing-visual-studio-profiler.md)
 ### Habilitar diagnósticos
-#### [PowerShell](cloud-services-diagnostics-powershell.md)
+#### [PowerShell do Azure](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [Usar contadores de desempenho no Diagnóstico do Azure](cloud-services-dotnet-diagnostics-performance-counters.md)
@@ -102,16 +100,29 @@
 ### [Problemas de implantação comuns](cloud-services-troubleshoot-deployment-problems.md)
 ### [Falha ao iniciar função](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [Diretrizes de recuperação](cloud-services-disaster-recovery-guidance.md)
-### [Perguntas frequentes sobre Serviços de Nuvem](cloud-services-faq.md)
+### Perguntas frequentes sobre Serviços de Nuvem
+#### [Perguntas frequentes de disponibilidade de aplicativos e serviços](cloud-services-application-and-service-availability-faq.md)
+#### [Perguntas frequentes de configuração e gerenciamento](cloud-services-configuration-and-management-faq.md)
+#### [Perguntas frequentes sobre rede e conectividade](cloud-services-connectivity-and-networking-faq.md)
+#### [Perguntas frequentes sobre implantação](cloud-services-deployment-faq.md)
 
 # Referência
-## [XMLSchema .csdef](https://msdn.microsoft.com/library/azure/ee758711)
-## [XMLSchema .cscfg](https://msdn.microsoft.com/library/azure/ee758710)
+## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
+## [Esquema XML .csdef](schema-csdef-file.md)
+### [Esquema LoadBalancerProbe](schema-csdef-loadbalancerprobe.md)
+### [Esquema WebRole](schema-csdef-webrole.md)
+### [Esquema WorkerRole](schema-csdef-workerrole.md)
+### [Esquema NetworkTrafficRules](schema-csdef-networktrafficrules.md)
+## [Esquema XML .cscfg](schema-cscfg-file.md)
+### [Esquema de Função](schema-cscfg-role.md)
+### [Esquema NetworkConfiguration](schema-cscfg-networkconfiguration.md)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 
 # Recursos
-## [Preços](https://azure.microsoft.com/pricing/details/cloud-services/)
-## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
-## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
-## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
+## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
+## [Preços](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
+## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)

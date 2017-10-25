@@ -1,36 +1,74 @@
 ---
-title: "Políticas e restrições de senha do Azure Active Directory | Microsoft Docs"
-description: "Descreve as políticas que se aplicam a senhas no Active Directory do Azure, incluindo caracteres permitidos, comprimento e expiração"
+title: "Política: SSPR do Azure AD | Microsoft Docs"
+description: "Opções de política de autoatendimento de redefinição de senha do Azure AD"
 services: active-directory
+keywords: "Gerenciamento de senha do Active Directory, gerenciamento de senha, autoatendimento de redefinição de senha do Azure AD"
 documentationcenter: 
-author: curtand
+author: MicrosoftGuyJFlo
 manager: femila
-editor: 
-ms.assetid: e7cae5cf-e0ee-467b-9a90-db6fdf56cd52
+ms.reviewer: sahenry
+ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
-ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 9f6c36011941510d2da7f6a043128e493c13d47b
-ms.lasthandoff: 03/28/2017
-
-
+ms.date: 08/28/2017
+ms.author: joflore
+ms.custom: it-pro
+ms.openlocfilehash: f03c01158bf1a95ec03454b092bbe0314c4ea6be
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas e restrições de senha do Active Directory do Azure
-Este artigo descreve as políticas de senha e requisitos de complexidade associados a contas de usuário armazenadas no diretório do Azure AD.
 
-> [!IMPORTANT]
-> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-your-password).
->
->
+Este artigo descreve as políticas de senha e os requisitos de complexidade associados a contas de usuário armazenadas no locatário do Azure AD.
+
+## <a name="administrator-password-policy-differences"></a>Diferenças de política de senha do administrador
+
+A Microsoft impõe uma política padrão rígida de redefinição de senha de **duas entradas** para qualquer função de administrador do Azure (exemplo: Administrador Global, Administrador de Assistência Técnica, Administrador de Senha etc.)
+
+Isso impede administradores de usar perguntas de segurança e impõe o seguinte.
+
+Duas políticas de entrada, exigindo duas partes dos dados de autenticação (endereço de email **e** número de telefone), aplicam-se nas seguintes circunstâncias
+
+* Todas as funções de administrador do Azure
+  * Administrador de assistência técnica
+  * Administrador de suporte a serviço
+  * Administrador de cobrança
+  * Suporte de camada 1 do parceiro
+  * Suporte de camada 2 do parceiro
+  * Administrador de serviços do Exchange
+  * Administrador de serviços do Lync
+  * Administrador da conta de usuário
+  * Gravadores de diretório
+  * Administrador de empresa/administrador global
+  * Administrador de serviços do SharePoint
+  * Administrador de conformidade
+  * Administrador de aplicativos
+  * Administrador de segurança
+  * Administrador de função com privilégios
+  * Administrador de serviços do Intune
+  * Administrador de serviços de Proxy de Aplicativo
+  * Administrador de serviços do CRM
+  * Administrador de serviços do Power BI
+  
+* Trinta dias decorridos de uma avaliação **OU**
+* O domínio personalizado está presente (contoso.com) **OU**
+* O Azure AD Connect está sincronizando identidades do seu diretório local
+
+### <a name="exceptions"></a>Exceções
+Uma política de entrada, exigindo uma parte dos dados de autenticação (endereço de email **ou** número de telefone), aplicam-se nas seguintes circunstâncias
+
+* Primeiros 30 dias de uma avaliação **OU**
+* O domínio personalizado não está presente (*.onmicrosoft.com) **E** o Azure AD Connect não está sincronizando identidades
+
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Políticas UserPrincipalName que se aplicam a todas as contas de usuário
-Cada conta de usuário que precisa entrar no sistema de autenticação do Azure AD deve ter um valor de atributo UPN (nome principal do usuário) exclusivo associado a essa conta. A tabela a seguir descreve as políticas que se aplicam a contas de usuário de origem do Active Directory no local (sincronizadas na nuvem) e a contas de usuário somente em nuvem.
+
+Cada conta de usuário que precisa entrar no Azure AD deve ter um valor de atributo UPN (nome principal do usuário) exclusivo associado à respectiva conta. A tabela abaixo descreve as políticas que se aplicam a contas de usuário do Active Directory locais sincronizadas com a nuvem e a contas de usuário somente em nuvem.
 
 | Propriedade | Requisitos de UserPrincipalName |
 | --- | --- |
@@ -39,7 +77,8 @@ Cada conta de usuário que precisa entrar no sistema de autenticação do Azure 
 | Restrições de comprimento |<ul> <li>O comprimento total não deve exceder 113 caracteres</li><li>64 caracteres antes do símbolo '@'</li><li>48 caracteres depois do símbolo '@'</li></ul> |
 
 ## <a name="password-policies-that-apply-only-to-cloud-user-accounts"></a>Políticas de senha que se aplicam somente a contas de usuário na nuvem
-A tabela a seguir descreve as configurações de política de senha disponíveis que podem ser aplicadas a contas de usuário que são criadas e gerenciadas no Azure AD.
+
+A tabela a seguir descreve as configurações de política de senha disponíveis que podem ser aplicadas a contas de usuário que são criadas e gerenciadas no AD do Azure.
 
 | Propriedade | Requisitos |
 | --- | --- |
@@ -51,17 +90,54 @@ A tabela a seguir descreve as configurações de política de senha disponíveis
 | Expiração de senha |<ul><li>Valor padrão: **false** dias (indica que a expiração de senha está habilitada) </li><li>O valor pode ser configurado para contas de usuário individuais usando o cmdlet Set-MsolUser. </li></ul> |
 | Histórico de **alteração** de senha |A última senha **não pode** ser usada novamente ao **alterar** uma senha. |
 | Histórico de **redefinição** de senha | A última senha **pode** ser usada novamente ao **redefinir** uma senha esquecida. |
-| Bloqueio de conta |Após 10 tentativas malsucedidas de entrar (senha incorreta), o usuário será bloqueado por um minuto. Mais tentativas de entrar incorretas farão com que o usuário seja bloqueado por durações cada vez maiores. |
+| Bloqueio de conta |Após 10 tentativas malsucedidas de entrar (senha incorreta), o usuário será bloqueado por um minuto. Quanto mais tentativas de entrada com senha incorreta, por mais tempo o usuário ficará bloqueado. |
+
+## <a name="set-password-expiration-policies-in-azure-active-directory"></a>Definir políticas de expiração de senha no Active Directory do Azure
+
+Um administrador global de um serviço de nuvem da Microsoft pode usar o Módulo Microsoft Azure Active Directory para Windows PowerShell de modo a configurar senhas de usuário para não expirarem. Você também pode usar os cmdlets do Windows PowerShell para remover as configurações que nunca expiram ou para ver quais senhas de usuário são configuradas para não expirar. Esta instrução se aplica a outros provedores, como o Microsoft Intune e o Office 365, que também dependem do Microsoft Azure Active Directory para serviços de identidade e diretório.
+
+> [!NOTE]
+> Apenas as senhas de contas de usuário que não são sincronizadas por meio da sincronização de diretório podem ser configuradas para não expirar. Para saber mais sobre a sincronização de diretório, confira [Conectar AD ao Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
+>
+>
+
+## <a name="set-or-check-password-policies-using-powershell"></a>Definir ou verificar políticas de senha usando o PowerShell
+
+Para começar, primeiramente é preciso [baixar e instalar o módulo PowerShell do Azure AD](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). Depois que você tiver instalado, pode seguir as etapas abaixo para configurar cada campo.
+
+### <a name="how-to-check-expiration-policy-for-a-password"></a>Como verificar a política de expiração de senha
+1. Conecte-se ao Windows PowerShell usando suas credenciais de administrador de empresa.
+2. Execute um dos seguintes comandos:
+
+   * Para ver se a senha de um único usuário está definida para nunca expirar, execute o seguinte cmdlet usando o nome UPN (por exemplo, aprilr@contoso.onmicrosoft.com) ou a ID do usuário que você deseja verificar: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
+   * Para ver a configuração "Senha nunca expira" para todos os usuários, execute o seguinte cmdlet: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
+
+### <a name="set-a-password-to-expire"></a>Definir uma senha para expirar
+
+1. Conecte-se ao Windows PowerShell usando suas credenciais de administrador de empresa.
+2. Execute um dos seguintes comandos:
+
+   * Para definir a senha de um usuário para que ela expire, execute o seguinte cmdlet usando o nome UPN ou a ID do usuário: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
+   * Para definir as senhas de todos os usuários da organização para que elas expirem, use o seguinte cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
+
+### <a name="set-a-password-to-never-expire"></a>Definir uma senha para nunca expirar
+
+1. Conecte-se ao Windows PowerShell usando suas credenciais de administrador de empresa.
+2. Execute um dos seguintes comandos:
+
+   * Para definir a senha de um usuário para que ela nunca expire, execute o seguinte cmdlet usando o nome UPN ou a ID do usuário: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
+   * Para definir as senhas de todos os usuários em uma organização para nunca expirar, execute o seguinte cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
 ## <a name="next-steps"></a>Próximas etapas
-* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#reset-your-password).
-* [Gerenciar suas senhas de qualquer lugar](active-directory-passwords.md)
-* [Como funciona o gerenciamento de senhas](active-directory-passwords-how-it-works.md)
-* [Introdução ao gerenciamento de senhas](active-directory-passwords-getting-started.md)
-* [Personalizar o gerenciamento de senhas](active-directory-passwords-customize.md)
-* [Práticas recomendadas de gerenciamento de senhas](active-directory-passwords-best-practices.md)
-* [Como obter percepções operacionais com relatórios de gerenciamento de senhas](active-directory-passwords-get-insights.md)
-* [Perguntas frequentes sobre Gerenciamento de Senhas](active-directory-passwords-faq.md)
-* [Solucionar problemas do Gerenciamento de Senhas](active-directory-passwords-troubleshoot.md)
-* [Saiba mais](active-directory-passwords-learn-more.md)
 
+Os links a seguir fornecem informações adicionais sobre a redefinição de senha usando o Azure AD
+
+* [**Início Rápido**](active-directory-passwords-getting-started.md): comece agora mesmo a usar o gerenciamento de autoatendimento de senhas do Azure AD 
+* [**Licenciamento**](active-directory-passwords-licensing.md): configure o licenciamento do Azure AD
+* [**Dados**](active-directory-passwords-data.md): entenda os dados que são necessários e como eles são usados para o gerenciamento de senhas
+* [**Distribuição**](active-directory-passwords-best-practices.md): planeje e implante o SSPR para seus usuários usando as diretrizes descritas aqui
+* [**Personalizar**](active-directory-passwords-customize.md): personalize a aparência da experiência do SSPR em sua empresa.
+* [**Relatórios**](active-directory-passwords-reporting.md): descubra se, quando e onde os usuários estão acessando a funcionalidade SSPR
+* [**Detalhamento Técnico**](active-directory-passwords-how-it-works.md): veja os bastidores para entender como o recurso funciona
+* [**Perguntas frequentes**](active-directory-passwords-faq.md): como? Por quê? O quê? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
+* [**Solução de problemas**](active-directory-passwords-troubleshoot.md) - Saiba como resolver problemas comuns que vemos com a SSPR

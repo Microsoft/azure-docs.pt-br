@@ -2,7 +2,7 @@
 title: "Documentação dos Serviços BizTalk do Azure - Tutoriais | Microsoft Docs"
 description: "Saiba como usar os serviços BizTalk para fornecer integração de aplicativos da nuvem com o sistema local e a de linha de negócios para SAP, Oracle EBS, SQL Server e PeopleSoft."
 services: biztalk-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 8c09bee7be24d8ba18fa67f3aef1c951dfde1434
-ms.openlocfilehash: 80b381d59e95297cf8d7616e6a2eb3186ab26a05
-
+ms.openlocfilehash: 8aef3ad31551b0a4c5048e418cf8b1456bd4f274
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="biztalk-services-documentation"></a>Documentação dos Serviços BizTalk
 
@@ -77,11 +78,5 @@ Saiba como usar os serviços BizTalk para fornecer integração de aplicativos d
         </a>
     </li>
 </ul>
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

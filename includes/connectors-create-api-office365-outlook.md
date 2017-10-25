@@ -17,8 +17,3 @@ Autorize seu aplicativo lógico a se conectar à sua conta do Office 365 com as 
 4. Observe que a conexão foi criada. Agora, continue com as outras etapas no seu aplicativo lógico:   
     ![Etapa de criação de conexão com o Office 365](./media/connectors-create-api-office365-outlook/office365-sendemailproperties.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

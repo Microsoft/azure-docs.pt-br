@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 2bd8f7ac127cd34b2d5129ecb49c56e2adf257b8
-
-
+ms.openlocfilehash: dcc31f7a8c85a8f7fbd554371a66fb1e348bca17
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="design-patterns-for-azure-resource-manager-templates-when-deploying-complex-solutions"></a>Padrões de design para modelos do Azure Resource Manager ao implantar soluções complexas
 Usando uma abordagem flexível com base em modelos do Azure Resource Manager, você pode implantar topologias complexas de forma rápida e consistente. Você pode adaptar essas implantações facilmente conforme as ofertas de núcleo evoluem ou para acomodar variantes para cenários de exceção ou clientes.
@@ -32,7 +32,7 @@ Modelos combinam os benefícios do Gerenciador de Recursos do Azure subjacente c
 * Aplique o RBAC (controle de acesso baseado em função) para conceder acesso apropriado aos usuários, grupos e serviços.
 * Use associações de marcação para simplificar tarefas como cobrança de valores acumulados.
 
-Este artigo fornece detalhes sobre cenários de consumo, arquitetura e padrões de implementação identificados durante nossas sessões de design e implementações de modelos do mundo real com os clientes da AzureCAT (Azure Customer Advisory Team). Longe de serem acadêmicas, essas abordagens são práticas comprovadas informadas pelo desenvolvimento de modelos para 12 das principais tecnologias de software livre baseado em Linux, incluindo: Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, Enterprise DataStax da plataforma Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis e Nagios. 
+Este artigo fornece detalhes sobre cenários de consumo, arquitetura e padrões de implementação identificados durante nossas sessões de design e implementações de modelos do mundo real com os clientes da AzureCAT (Azure Customer Advisory Team). Longe de serem acadêmicas, essas abordagens são práticas comprovadas informadas pelo desenvolvimento de modelos para 12 das principais tecnologias de OSS baseadas em Linux, incluindo: Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, Enterprise DataStax da plataforma Apache Cassandra, Elasticsearch, Jenkins, MongoDB, PostgreSQL, Redis e Nagios. 
 
 Este artigo compartilha essas práticas comprovadas para ajudá-lo a projetar modelos do Gerenciador de Recursos do Azure de classe mundial.  
 
@@ -130,7 +130,7 @@ Você pode pensar inicialmente que um modelo deve fornecer a máxima flexibilida
 ### <a name="free-form-configurations"></a>Configurações de forma livre
 À primeira vista, configurações de forma livre parecem ideais. Elas permitem que você selecione um tipo de VM e forneça um número arbitrário de nós e discos para os nós conectados e faça isso como parâmetros para um modelo. No entanto, essa abordagem não é ideal para alguns cenários.
 
-Em [Tamanhos de máquinas virtuais](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), são identificados os diferentes tipos de VM e tamanhos disponíveis, além de cada um dos números de discos duráveis (2, 4, 8, 16 ou 32) que podem ser anexados. Cada disco conectado fornece 500 IOPS e múltiplos desses discos podem ser agrupados (pooling) para se obter um multiplicador desse número de IOPS. Por exemplo, 16 discos podem ser agrupados (pooling) para fornecer 8.000 IOPS. O pooling é realizado com a configuração no sistema operacional, usando espaços de armazenamento do Microsoft Windows ou RAID (redundant array of inexpensive disks) no Linux.
+Em [Tamanhos de máquinas virtuais](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), são identificados os diferentes tipos de VM e tamanhos disponíveis, além de cada um dos números de discos duráveis (2, 4, 8, 16 ou 32) que podem ser anexados. Cada disco conectado fornece 500 IOPS e múltiplos desses discos podem ser agrupados (pooling) para se obter um multiplicador desse número de IOPS. Por exemplo, 16 discos podem ser agrupados (pooling) para fornecer 8.000 IOPS. O pooling é realizado com a configuração no sistema operacional, usando espaços de armazenamento do Microsoft Windows ou RAID (redundant array of inexpensive disks) no Linux.
 
 Uma configuração de forma livre permite a seleção de diversas instâncias de VM, vários tipos e tamanhos de VM para essas instâncias, vários discos para o tipo de VM e um ou mais scripts para configurar os conteúdos da VM.
 
@@ -344,13 +344,6 @@ Se desejar publicar seu modelo no marketplace, estabeleça cópias distintas do 
 **Adaptando um modelo com escopo de solução para o marketplace**
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter recomendações sobre como lidar com segurança no Gerenciador de Recursos do Azure, consulte [Considerações de segurança do Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md)
 * Para saber mais sobre como compartilhar o estado dentro e fora dos modelos, consulte [Compartilhando estado em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md).
 * Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

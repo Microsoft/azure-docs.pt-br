@@ -3,7 +3,7 @@ title: "Segurança de dados do Log Analytics | Microsoft Docs"
 description: Saiba mais sobre como o Log Analytics protege a sua privacidade e seus dados.
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: a33bb05d-b310-4f2c-8f76-f627e600c8e7
@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
-ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: d0f4323c22858300d95af7407cdb14995507ee60
-ms.openlocfilehash: 952697dff7dca2779a6eb5375afa41c0b130aad4
-
-
+ms.date: 05/03/2017
+ms.author: magoedte
+ms.openlocfilehash: 91af774560860b35913e57b49fb7a1dd59f5640f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-analytics-data-security"></a>Segurança de dados do Log Analytics
 A Microsoft está comprometida em proteger sua privacidade e segurança de dados, oferecendo softwares e serviços que ajudam a gerenciar a infraestrutura de TI da sua organização. Reconhecemos que quando você entrega seus dados a outros, essa confiança requer segurança rigorosa. A Microsoft obedece às diretrizes rígidas de conformidade e segurança — da codificação à operação de um serviço.
 
- Segurança e proteção de dados é uma prioridade principal da Microsoft. Entre em contato conosco com quaisquer perguntas, sugestões ou problemas sobre qualquer uma das seguintes informações, incluindo nossas políticas de segurança nas [opções de suporte do Azure](http://azure.microsoft.com/support/options/).
+Segurança e proteção de dados é uma prioridade principal da Microsoft. Entre em contato conosco com quaisquer perguntas, sugestões ou problemas sobre qualquer uma das seguintes informações, incluindo nossas políticas de segurança nas [opções de suporte do Azure](http://azure.microsoft.com/support/options/).
 
 Este artigo explica como os dados são coletados, processados e protegidos pelo Log Analytics no OMS (Operations Management Suite). Você pode usar agentes para se conectar ao serviço Web, usar o System Center Operations Manager para coletar dados operacionais ou recuperar dados de diagnóstico do Azure para uso pelo Log Analytics. Os dados coletados são enviados pela Internet usando SSL 3 e autenticação baseada em certificado para o serviço Log Analytics, que está hospedado no Microsoft Azure. Os dados são compactados pelo agente antes de serem enviados.
 
@@ -108,7 +108,9 @@ A equipe de serviço e desenvolvimento de software do OMS trabalha ativamente co
 ## <a name="certifications-and-attestations"></a>Certificações e atestados
 O Log Analytics do OMS atende aos seguintes requisitos:
 
-* Compatível com [ISO/IEC 27001](http://www.iso.org/iso/home/standards/management-standards/iso27001.htm) e [ISO/IEC 27018:2014](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498)
+* [ISO/IEC 27001](http://www.iso.org/iso/home/standards/management-standards/iso27001.htm)
+* [ISO/IEC 27018:2014](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498)
+* [ISO 22301](https://azure.microsoft.com/en-us/blog/iso22301/)
 * [PCI DSS (Padrão de Segurança de dados do Setor de Cartões de Pagamento (Compatível com PCI))](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) pelo PCI Security Standards Council.
 * Compatível com [SOC (Service Organization Controls) 1 Tipo 1 e SOC 2 Tipo 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2)
 * [HIPAA e HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA) para empresas que tenham um contrato de sócio corporativo HIPAA
@@ -153,7 +155,7 @@ Se qualquer agente não puder se comunicar com o serviço por algum motivo, os d
 Conforme descrito acima, os dados de seus agentes são enviados por SSL para datacenters do Microsoft Azure. Opcionalmente, você pode usar o ExpressRoute para fornecer segurança adicional para os dados. O ExpressRoute é uma maneira de se conectar diretamente ao Azure pela rede WAN existente, como um VPN MPLS (multi-protocol label switching), fornecida por um provedor de serviço de rede. Para obter mais informações, consulte [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. O serviço Log Analytics recebe e processa os dados
-O serviço Log Analytics garante que os dados de entrada sejam de uma fonte confiável ao validar certificados e a integridade dos dados com a autenticação do Azure. Os dados brutos não processados são então armazenados como um blob no [Microsoft Azure Storage](../storage/storage-introduction.md) e não são criptografados. No entanto, cada blob do Azure Storage tem um conjunto exclusivo de chaves, que está acessível somente para esse usuário. Os tipos de dados armazenados dependem dos tipos de soluções importados e usados para coletar dados. Em seguida, o serviço Log Analytics processa os dados brutos para o blob do armazenamento do Azure.
+O serviço Log Analytics garante que os dados de entrada sejam de uma fonte confiável ao validar certificados e a integridade dos dados com a autenticação do Azure. Os dados brutos não processados são então armazenados como um blob no [Microsoft Azure Storage](../storage/common/storage-introduction.md) e não são criptografados. No entanto, cada blob do Azure Storage tem um conjunto exclusivo de chaves, que está acessível somente para esse usuário. Os tipos de dados armazenados dependem dos tipos de soluções importados e usados para coletar dados. Em seguida, o serviço Log Analytics processa os dados brutos para o blob do armazenamento do Azure.
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Usar o Log Analytics para acessar os dados
 Você pode entrar no Log Analytics no portal do OMS usando a conta organizacional ou uma conta da Microsoft que você configurou anteriormente. Todo o tráfego entre o portal do OMS e o Log Analytics no OMS é enviado por um canal HTTPS seguro. Ao usar o portal do OMS, uma ID de sessão é gerada no cliente do usuário (navegador da Web) e dados são armazenados em um cache local até que a sessão seja encerrada. Após o encerramento, o cache é excluído. Os cookies do lado do cliente, que não contêm informações de identificação pessoal, não são removidos automaticamente. Os cookies de sessão são marcados como HTTPOnly e são protegidos. Após um período ocioso predeterminado, a sessão do portal do OMS é encerrada.
@@ -162,9 +164,3 @@ Ao usar o portal do OMS, você pode exportar os dados para um arquivo CSV e pode
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Log Analytics](log-analytics-get-started.md) para saber mais sobre o Log Analytics e colocá-lo em funcionamento em minutos.
-
-
-
-<!--HONumber=Nov16_HO4-->
-
-

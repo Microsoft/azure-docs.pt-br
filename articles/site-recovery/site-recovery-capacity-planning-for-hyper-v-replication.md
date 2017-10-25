@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2017
+ms.date: 06/05/2017
 ms.author: nisoneji
-translationtype: Human Translation
-ms.sourcegitcommit: bb078183b24cd5c5172b48f1135eced061220cf5
-ms.openlocfilehash: 3c0c00bf9e4380a682ff1e155fb6d9a3826f4b00
-ms.lasthandoff: 02/21/2017
-
-
+ms.openlocfilehash: 272b5abb5e6451164ca7900dda399b6aac65f986
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-the-hyper-v-capacity-planner-tool-for-site-recovery"></a>Execute a ferramenta de planejador de capacidade do Hyper-V para Site Recovery
 
@@ -134,4 +133,3 @@ Depois de concluir o planejamento de capacidade, você pode iniciar a implantaç
 * [Replicar VMs Hyper-V em nuvens VMM para o Azure](site-recovery-vmm-to-azure.md)
 * [Replicar VMs do Hyper-V (sem VMM) para o Azure](site-recovery-hyper-v-site-to-azure.md)
 * [Replicar VMs do Hyper-V entre sites do VMM](site-recovery-vmm-to-vmm.md)
-

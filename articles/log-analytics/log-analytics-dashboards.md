@@ -3,7 +3,7 @@ title: Criar um painel personalizado no Azure Log Analytics | Microsoft Docs
 description: "Este guia ajuda a entender como os painéis do Log Analytics podem visualizar todas as pesquisas de log salvas, dando a você uma lente única para exibir seu ambiente."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
@@ -12,17 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
-ms.author: banders
+ms.date: 08/08/2017
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: a8c9766bf066a7f0dfd28ebb4e41bf0eaf3f05bd
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: a90d9c620221bffbb225fb060b997af2f5e90390
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Criar um painel personalizado para uso no Log Analytics
+
+>[!NOTE]
+> Se o seu espaço de trabalho tiver sido atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), você não poderá criar novos painéis ou editar os painéis existentes. 
+
 Este guia ajuda a entender como os painéis do Log Analytics podem visualizar todas as pesquisas de log salvas, dando a você uma lente única para exibir seu ambiente.
 
 ![Painel de Exemplo](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)
@@ -85,4 +88,3 @@ Para remover um bloco, navegue até a exibição Meu Painel e clique em **Person
 
 ## <a name="next-steps"></a>Próximas etapas
 * Crie [alertas](log-analytics-alerts.md) no Log Analytics para gerar notificações e para corrigir problemas.
-

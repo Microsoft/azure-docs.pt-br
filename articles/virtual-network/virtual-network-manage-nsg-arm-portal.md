@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 1fe845d442c7010580d4592f205e92e8ef70e34a
 ms.openlocfilehash: e9bcf8a893ff209337f6a5763b631a22f8514e20
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-nsgs-using-the-portal"></a>Gerenciar NSGs usando o portal
 
@@ -199,9 +199,3 @@ Você pode excluir um NSG apenas se ele não estiver associado a nenhum recurso.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Habilitar registro em log](virtual-network-nsg-manage-log.md) para NSGs.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-

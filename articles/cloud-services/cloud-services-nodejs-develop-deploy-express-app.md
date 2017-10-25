@@ -3,8 +3,8 @@ title: Aplicativo Web com Express (Node.js) | Microsoft Docs
 description: "Um tutorial que complementa o tutorial de serviço de nuvem e demonstra como usar o módulo Express."
 services: cloud-services
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: TomArcher
+manager: routlaw
 editor: 
 ms.assetid: 24f8e7ef-e90d-4554-9b1e-a9b31d5824e5
 ms.service: cloud-services
@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/22/2016
-ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 331d82a987aebe422ca2f560d856dad9f1b733f3
-
-
+ms.date: 08/17/2017
+ms.author: tarcher
+ms.openlocfilehash: 54b715695e24786ec4e8dfcabefc648d76179c8b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-a-nodejs-web-application-using-express-on-an-azure-cloud-service"></a>Criar um aplicativo web do Node.js usando o Express em um Serviço de Nuvem do Microsoft Azure
 O Node.js inclui um conjunto mínimo de funcionalidades em tempo de execução básico.
@@ -43,7 +43,7 @@ Execute as seguintes etapas para criar um novo projeto de serviço de nuvem cham
         PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 Node 0.10.21
    
     > [!NOTE]
-    > Por padrão, o **Add-AzureNodeWebRole** usa uma versão mais antiga do Node.js. A instrução **Set-AzureServiceProjectRole** acima instrui o Azure usar a versão&1021; do Nó.  Observe que os parâmetros diferenciam maiúsculas de minúsculas.  Você pode verificar se a versão correta do Node.js foi selecionada verificando a propriedade **engines** em **WebRole1\package.json**.
+    > Por padrão, o **Add-AzureNodeWebRole** usa uma versão mais antiga do Node.js. A instrução **Set-AzureServiceProjectRole** acima instrui o Azure usar a versão v0.10.21 do Node.  Observe que os parâmetros diferenciam maiúsculas de minúsculas.  Você pode verificar se a versão correta do Node.js foi selecionada verificando a propriedade **engines** em **WebRole1\package.json**.
     > 
     > 
 
@@ -122,11 +122,5 @@ Para saber mais, confira o [Centro de desenvolvedores do Node.js](/develop/nodej
 [Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: http://expressjs.com/
 [http://jade-lang.com]: http://jade-lang.com
-
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

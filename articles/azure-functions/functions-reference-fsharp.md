@@ -7,7 +7,7 @@ author: sylvanc
 manager: jbronsk
 editor: 
 tags: 
-keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, F#
+keywords: "azure functions, functions, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor, F#"
 ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.service: functions
 ms.devlang: fsharp
@@ -16,19 +16,14 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/09/2016
 ms.author: syclebsc
-translationtype: Human Translation
-ms.sourcegitcommit: 4544629c47326d448cd99b5d96d79666a56f0274
-ms.openlocfilehash: 1691d378263f6b4ce5072f5c621d8db02f774b5f
-
-
+ms.openlocfilehash: 314f528a1fcef2c7afb0eedba012023f3bc9502b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referência do desenvolvedor em F# do Azure Functions
-> [!div class="op_single_selector"]
-> * [Script C#](functions-reference-csharp.md)
-> * [Script em F#](functions-reference-fsharp.md)
-> * [Node.js](functions-reference-node.md)
-> 
-> 
+[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 F# para Azure Functions é uma solução para executar facilmente pequenos trechos de código, ou "funções", na nuvem. Fluxos de dados em sua função F# por meio de argumentos de função. Os nomes de argumentos são especificados em `function.json`e há nomes predefinidos para acessar itens como a função logger e os tokens de cancelamento.
 
@@ -79,7 +74,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Registro em log
-Para registrar a saída em seus [logs de streaming](../app-service-web/web-sites-streaming-logs-and-console.md) em F#, sua função deve usar um argumento do tipo `TraceWriter`. Para manter a consistência, recomendamos que esse argumento seja denominado `log`. Por exemplo:
+Para registrar a saída em seus [logs de streaming](../app-service/web-sites-enable-diagnostic-log.md) em F#, sua função deve usar um argumento do tipo `TraceWriter`. Para manter a consistência, recomendamos que esse argumento seja denominado `log`. Por exemplo:
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: TraceWriter) =
@@ -132,7 +127,7 @@ Os namespaces a seguir são abertos automaticamente:
 * `Microsoft.Azure.WebJobs.Host`.
 
 ## <a name="referencing-external-assemblies"></a>Referenciando Assemblies Externos
-Da mesma forma, as referências à estrutura do assembly podem ser adicionadas com a diretiva `#r "AssemblyName"` .
+Da mesma forma, referências ao assembly da estrutura podem ser adicionadas com a diretiva `#r "AssemblyName"`.
 
 ```fsharp
 #r "System.Web.Http"
@@ -275,15 +270,7 @@ Para saber mais, consulte os recursos a seguir:
 * [Guia de F#](/dotnet/articles/fsharp/index)
 * [Práticas recomendadas para o Azure Functions](functions-best-practices.md)
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)
-* [Referência do desenvolvedor de C# do Azure Functions](functions-reference-csharp.md)
-* [Referência do desenvolvedor de NodeJS do Azure Functions](functions-reference-node.md)
 * [Gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
 * [Teste do Azure Functions](functions-test-a-function.md)
 * [Dimensionamento do Azure Functions](functions-scale.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

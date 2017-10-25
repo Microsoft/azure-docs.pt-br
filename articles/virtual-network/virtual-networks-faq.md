@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: e1f7b85308d7482e0066809737749e73029cd758
-ms.openlocfilehash: eed133ba2f0a5e1665afd39b2122d3aacd3cc40a
-
-
+ms.openlocfilehash: c71e188b74ebfd9420f840957e83190cf476b584
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure (FAQ)
 
@@ -57,7 +57,7 @@ Você pode usar as seguintes ferramentas para criar ou configurar uma rede virtu
 * CLI do Azure (para Redes Virtuais clássicas e do Gerenciador de Recursos).
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Quais intervalos de endereço posso usar em minhas redes virtuais?
-Você pode usar intervalos de endereços IP públicos e qualquer intervalo de endereços IP definido na [RFC 1918](http://tools.ietf.org/html/rfc1918).
+Qualquer intervalo de endereços IP definido na [RFC 1918](http://tools.ietf.org/html/rfc1918). Por exemplo, 10.0.0.0/16.
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>Posso ter endereços IP públicos em minhas redes virtuais?
 Sim. Para saber mais sobre intervalos de endereços IP públicos, consulte o artigo [Espaço de endereço IP público em uma rede virtual](virtual-networks-public-ip-within-vnet.md). Seus endereços IP públicos não estarão diretamente acessíveis na Internet.
@@ -72,7 +72,7 @@ Sim. O Azure reserva alguns endereços IP em cada sub-rede. O primeiro e o últi
 A menor sub-rede à qual oferecemos suporte é de /29 e a maior é de /8 (usando definições da sub-rede CIDR).
 
 ### <a name="can-i-bring-my-vlans-to-azure-using-vnets"></a>Posso levar minhas VLANs para o Azure usando redes virtuais?
-Não. As v são sobreposições da Camada&3;. O Azure não oferece suporte a nenhuma semântica da Camada&2;.
+Não. As v são sobreposições da Camada 3. O Azure não oferece suporte a nenhuma semântica da Camada 2.
 
 ### <a name="can-i-specify-custom-routing-policies-on-my-vnets-and-subnets"></a>Posso especificar políticas de roteamento personalizadas nas minhas redes virtuais e sub-redes?
 Sim. Você pode usar o UDR (Roteamento Definido pelo Usuário). Para saber mais sobre UDR, visite [Rotas definidas pelo usuário e Encaminhamento IP](virtual-networks-udr-overview.md).
@@ -146,7 +146,7 @@ Não. Você não pode especificar um sufixo DNS personalizado para suas redes vi
 Sim. Todas as interfaces de rede (NIC) anexadas a uma VM implantada por meio do modelo de implantação do Gerenciador de Recursos devem estar conectadas a uma rede virtual. VMs implantadas por meio do modelo de implantação clássico podem ser conectadas a uma rede virtual.
 
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>Quais são os diferentes tipos de endereços IP que posso atribuir a VMs?
-* **Privado:** atribuído a cada NIC em cada VM. O endereço é atribuído usando o método de alocação estática ou dinâmica. Os endereços IP privados são atribuídos do intervalo que você especificou nas configurações de sub-rede da VNet. Recursos implantados por meio do modelo de implantação clássico recebem endereços IP privados mesmo se não estiverem conectados a uma rede virtual. Um endereço IP privado dinâmico permanece atribuído a um recurso até que este seja desalocado (VMs) ou excluído (VMs ou slots de implantação do Serviço de Nuvem). Um endereço IP privado estático permanece atribuído a um recurso até este seja excluído.
+* **Privado:** atribuído a cada NIC em cada VM. O endereço é atribuído usando o método estático ou dinâmico. Os endereços IP privados são atribuídos do intervalo que você especificou nas configurações de sub-rede da VNet. Recursos implantados por meio do modelo de implantação clássico recebem endereços IP privados mesmo que não estejam conectados a uma VNet. Um endereço IP privado atribuído com o método dinâmico permanece atribuído a um recurso até que este seja excluído (slots de implantação de Serviço de Nuvem ou VMs). Um endereço IP privado atribuído com o método dinâmico pode mudar quando uma VM for reiniciada depois de ter ficado no estado parado (desalocado). Um endereço IP privado atribuído com o método estático permanece atribuído a um recurso até que o recurso seja excluído. Se você precisar garantir que o endereço IP privado de um recurso nunca mude até o recurso ser excluído, atribua um endereço IP privado com o método estático.
 * **Público:** opcionalmente atribuído a NICs anexadas a VMs implantadas por meio do modelo de implantação do Azure Resource Manager. O endereço pode ser atribuído com o método de alocação estática ou dinâmica. Todas as instâncias de função de VMs e Serviços de Nuvem implantadas por meio do modelo de implantação clássico existem dentro de um serviço de nuvem, ao qual é atribuído um endereço IP endereço virtual IP (VIP) *dinâmico* e público. Um endereço IP público e *estático*, chamado de [endereço IP Reservado](virtual-networks-reserved-public-ip.md), pode ser atribuído como VIP. Você pode atribuir endereços IP públicos a instâncias de função de VMs ou serviços de nuvem individuais implantados por meio do modelo de implantação clássico. Eles são chamados de [endereços IP públicos em nível de instância (ILPIP)](virtual-networks-instance-level-public-ip.md) e podem ser atribuídos dinamicamente.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>Posso reservar um endereço IP privado para uma VM que vou criar mais tarde?
@@ -178,9 +178,9 @@ Sim. Todas as instâncias de função de VMs e Serviços de Nuvem implantados em
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>Posso usar os Aplicativos Web do Serviço de Aplicativo do Azure em uma rede virtual?
 Sim. Você pode implantar Aplicativos Web em uma rede virtual usando o ASE (Ambiente do Serviço de Aplicativo). Todos os Aplicativos Web poderão se conectar e acessar os recursos na Rede Virtual do Azure se você tiver configurado uma conexão ponto a site para sua rede virtual. Para obter mais informações, consulte os seguintes artigos:
 
-* [Criando Aplicativos Web em um Ambiente do Serviço de Aplicativo](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
-* [Integrar seu aplicativo a uma Rede Virtual do Azure](../app-service-web/web-sites-integrate-with-vnet.md)
-* [Usando conexões híbridas e integração de rede virtual com Aplicativos Web](../app-service-web/web-sites-integrate-with-vnet.md#hybrid-connections-and-app-service-environments)
+* [Criando Aplicativos Web em um Ambiente do Serviço de Aplicativo](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md)
+* [Integrar seu aplicativo a uma Rede Virtual do Azure](../app-service/web-sites-integrate-with-vnet.md)
+* [Usando conexões híbridas e integração de rede virtual com Aplicativos Web](../app-service/web-sites-integrate-with-vnet.md#hybrid-connections-and-app-service-environments)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>Posso implantar Serviços de Nuvem com funções web e de trabalho (PaaS) em uma rede virtual?
 Sim. Você pode implantar instâncias de função de Serviços de Nuvem em redes virtuais. Para fazer isso, especifique o nome e os mapeamentos de função/sub-rede na seção de configuração de rede da sua configuração de serviço. Não é preciso atualizar nenhum dos binários.
@@ -213,11 +213,5 @@ Sim. Você pode usar APIs REST para redes virtuais nos modelos de implantação 
 ### <a name="is-there-tooling-support-for-vnets"></a>Há suporte a ferramentas para redes virtuais?
 Sim. Saiba mais sobre como usar:
 - O Portal do Azure para implantar redes virtuais por meio dos modelos de implantação do [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) e [clássico](virtual-networks-create-vnet-classic-pportal.md).
-- O PowerShell para gerenciar redes virtuais implantadas por meio dos modelos de implantação do [Gerenciador de Recursos](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) e [clássico](/powershell/servicemanagement/azure.networking/v3.1.0/azure.networking).
+- O PowerShell para gerenciar redes virtuais implantadas por meio dos modelos de implantação do [Gerenciador de Recursos](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) e [clássico](/powershell/module/azure/?view=azuresmps-3.7.0).
 - A [interface de linha de comando (CLI) do Azure](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources) para gerenciar redes virtuais implantadas por meio de ambos os modelos de implantação.  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-

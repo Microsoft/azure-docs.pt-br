@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 331c03cd0819aa4935f9b486ff38f54d23d6a7fd
-ms.openlocfilehash: e3d5f89b1c8525f791e73667d6f7cd6a999ab971
-
-
+ms.openlocfilehash: 918154852cf4ee1b80792eaddb588f5b0237da7c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>O que você pode e não pode fazer usando o estado do Serviço BizTalk
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Dependendo do estado atual do Serviço BizTalk, há operações que podem ou não serem executadas no Serviço BizTalk.
 
 Por exemplo, você pode provisionar um novo Serviço BizTalk no portal clássico do Azure. Quando for concluído com êxito, o serviço BizTalk estará no estado `active`. No estado ativo, você pode parar, suspender e excluir o serviço BizTalk. Se você parar o serviço BizTalk e a interrupção falhar, o serviço BizTalk irá para um estado `StopFailed`. No estado `StopFailed`, você pode reiniciar o Serviço BizTalk. Se você tentar uma operação que não é permitida, como retomar, ocorrerá o seguinte erro:
@@ -56,10 +59,4 @@ As tabelas a seguir listam as operações ou ações que podem ser executadas qu
 * [Limitação explicada nos Serviços BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 * [Recuperar os valores de nome e chave do emissor do Controle de Acesso e do Barramento de Serviços para o Serviço BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
 * [Como começar a usar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

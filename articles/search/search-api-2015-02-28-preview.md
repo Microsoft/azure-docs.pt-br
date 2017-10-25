@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: search
-ms.date: 09/07/2016
+ms.date: 05/01/2017
 ms.author: brjohnst
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 524d3300e621d8e383833198c14c2e2e8461683b
-
-
+ms.openlocfilehash: e6ad5c964bfa8421be2706cb4015980e01a271b7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-search-service-rest-api-version-2015-02-28-preview"></a>API REST do serviço Azure Search: Versão 2015-02-28-Preview
 Este artigo é a documentação de referência para a `api-version=2015-02-28-Preview`. Essa visualização estende a atual versão disponibilizada para o público geral, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), fornecendo os seguintes recursos experimentais:
@@ -257,7 +257,7 @@ Os atributos a seguir podem ser definidos ao criar um índice. Para obter detalh
 
 `name` ‒ define o nome do campo.
 
-`type` ‒ define o tipo de dados do campo. Consulte [Tipos de Dados Com Suporte](#DataTypes) para obter uma lista dos tipos com suporte.
+`type` ‒ define o tipo de dados do campo.
 
 `searchable` ‒ marca o campo como texto completo pesquisável. Isso significa que ele será submetido a análise, como separação de palavras, durante a indexação. Se você definir um campo `searchable` para um valor como "dia ensolarado", internamente ele será dividido nos tokens individuais "dia" e "ensolarado". Isso habilita pesquisas de texto completo para esses termos. Os campos dos tipos `Edm.String` ou `Collection(Edm.String)` são `searchable` por padrão. Campos de outros tipos não podem ser `searchable`.
 
@@ -636,7 +636,7 @@ Consulte [Adicionar perfis de pontuação para um índice de pesquisa (API de RE
 O Javascript do lado do cliente não pode chamar APIs por padrão, pois o navegador impedirá todas as solicitações entre origens. Habilite o CORS (Compartilhamento de Recursos entre Origens) definindo o atributo `corsOptions` para permitir consultas entre origens em seu índice. Observe que apenas APIs de consulta dão suporte a CORS por motivos de segurança. As seguintes opções podem ser definidas para CORS:
 
 * `allowedOrigins` (obrigatório): essa é uma lista de origens às quais será concedido acesso ao índice. Isso significa que qualquer código Javascript fornecido por essas origens poderá consultar seu índice (supondo que ele forneça a chave de API correta). Cada origem normalmente tem o formato `protocol://fully-qualified-domain-name:port` , embora a porta muitas vezes seja omitida. Consulte [este artigo](http://go.microsoft.com/fwlink/?LinkId=330822) para obter mais detalhes.
-  * Se você quiser permitir o acesso a todas as origens, inclua `*` como um único item na matriz `allowedOrigins`. Observe que **essa não é uma prática recomendável para serviços de pesquisa de produção.**  No entanto, pode ser útil para fins de depuração ou de desenvolvimento.
+  * Se você quiser permitir o acesso a todas as origens, inclua `*` como um único item na matriz `allowedOrigins`. Observe que **essa não é uma prática recomendável para serviços de pesquisa de produção.** No entanto, pode ser útil para fins de depuração ou de desenvolvimento.
 * `maxAgeInSeconds` (opcional): navegadores usam esse valor para determinar a duração (em segundos) para respostas de simulação de CORS de cache. Esse deve ser um inteiro não negativo. Quanto maior for esse valor, melhor será o desempenho, porém, mais tempo levará para que as alterações de política CORS entrem em vigor. Se ele não for definido, uma duração padrão de cinco minutos será usada.
 
 <a name="CreateUpdateIndexExample"></a>
@@ -1119,7 +1119,7 @@ O corpo da resposta está no seguinte formato:
 ## <a name="document-operations"></a>Operações de documento
 Na Pesquisa do Azure, um índice é armazenado na nuvem e preenchido usando documentos JSON que você carrega no serviço. Todos os documentos que você carrega formam o corpus de seus dados de pesquisa. Documentos contêm campos, alguns dos quais são indexados em termos de pesquisa ao serem carregados. O segmento de URL `/docs` na API do Azure Search representa a coleção de documentos em um índice. Todas as operações executadas na coleção, como carregar, mesclar, excluir ou consultar documentos, ocorrem no contexto de um único índice. Portanto, as URLs para essas operações sempre começarão com `/indexes/[index name]/docs` para um nome de índice específico.
 
-O código do aplicativo deve gerar documentos JSON para carregar na Pesquisa do Azure ou você pode usar um [indexador](https://msdn.microsoft.com/library/dn946891.aspx) para carregar documentos se a fonte de dados for o Banco de Dados SQL do Azure ou o Banco de Dados de Documentos. Normalmente, os índices são preenchidos por meio de um único conjunto de dados que você fornece.
+O código do aplicativo deve gerar documentos JSON a serem carregados no Azure Search ou é possível usar um [indexador](https://msdn.microsoft.com/library/dn946891.aspx) para carregar documentos, caso a fonte de dados seja o Banco de Dados SQL do Azure ou o Azure Cosmos DB. Normalmente, os índices são preenchidos por meio de um único conjunto de dados que você fornece.
 
 Você deve planejar ter um documento para cada item que deseja pesquisar. Um aplicativo de aluguel de filmes pode ter um documento por filme, um aplicativo de vitrine pode ter um documento por SKU, um aplicativo de cursos online pode ter um documento por curso, uma empresa de pesquisa pode ter um documento para cada artigo acadêmico em seu repositório e assim por diante.
 
@@ -1459,7 +1459,7 @@ Além disso, a codificação de URL só é necessária ao se chamar a API REST d
 > 
 > 
 
-`$filter=[string]` (opcional) ‒ uma expressão de pesquisa estruturada na sintaxe de OData padrão. Consulte [Sintaxe de expressão OData](#ODataExpressionSyntax) para obter detalhes sobre o subconjunto da gramática de expressões OData ao qual o Azure Search dá suporte.
+`$filter=[string]` (opcional) ‒ uma expressão de pesquisa estruturada na sintaxe de OData padrão.
 
 > [!NOTE]
 > Ao chamar **Pesquisa** usando POST, esse parâmetro será chamado de `filter`, em vez de `$filter`.
@@ -1968,9 +1968,3 @@ Recuperar cinco sugestões, em que a entrada de pesquisa parcial é 'lux'
       "top": 5,
       "suggesterName": "sg"
     }
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

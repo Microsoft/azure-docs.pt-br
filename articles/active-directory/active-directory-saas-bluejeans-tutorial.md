@@ -1,154 +1,287 @@
 ---
 title: "Tutorial: integração do Azure Active Directory com o BlueJeans | Microsoft Docs"
-description: "Saiba como usar o BlueJeans com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o BlueJeans."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: dfc634fd-1b55-4ba8-94a8-b8288429b6a9
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/10/2017
+ms.date: 05/31/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: e8df27b17ac0e839efdd302ffa40fafe688a22b4
-ms.openlocfilehash: aaa1c06da8b53a45a1e675f175dd3adcee20e910
-ms.lasthandoff: 02/17/2017
-
-
+ms.openlocfilehash: 03bf65852b8d3cf14aebf155891a028db86e78d0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="tutorial-azure-ad-integration-with-bluejeans"></a>Tutorial: Integração do AD do Azure ao BlueJeans
-O objetivo deste tutorial é mostrar a integração do Azure ao BlueJeans.  
+# <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Tutorial: Integração do Azure Active Directory ao BlueJeans
 
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+Neste tutorial, você aprende a integrar o BlueJeans ao Azure AD (Azure Active Directory).
 
-* Uma assinatura válida do Azure
-* Uma assinatura habilitada para SSO (logon único) do BlueJeans
+A integração do BlueJeans ao Azure AD oferece os seguintes benefícios:
 
-Depois de concluir este tutorial, os usuários do AD do Azure atribuídos ao BlueJeans poderão fazer logon único no aplicativo em seu site de empresa do BlueJeans (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+- No Azure AD, é possível controlar quem tem acesso ao BlueJeans
+- É possível permitir que os usuários se conectem automaticamente ao BlueJeans (Logon Único) com suas contas do Azure AD
+- Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-* Habilitando a integração de aplicativos para o BlueJeans
-* Configuração do SSO (logon único)
-* Configurando o provisionamento de usuários
-* Atribuindo usuários
+## <a name="prerequisites"></a>Pré-requisitos
 
-![Cenário](./media/active-directory-saas-bluejeans-tutorial/IC785860.png "Cenário")
+Para configurar a integração do Azure AD ao BlueJeans, você precisa dos seguintes itens:
 
-## <a name="enable-the-application-integration-for-bluejeans"></a>Habilitar a integração de aplicativos para o BlueJeans
-O objetivo desta seção é descrever como habilitar a integração de aplicativos para o BlueJeans.
+- Uma assinatura do AD do Azure
+- Uma assinatura habilitada para logon único do BlueJeans
 
-**Para habilitar a integração de aplicativos para o BlueJeans, execute as seguintes etapas:**
+> [!NOTE]
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
-1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-bluejeans-tutorial/IC700993.png "Active Directory")
-2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
-3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
-   
-   ![Aplicativos](./media/active-directory-saas-bluejeans-tutorial/IC700994.png "Aplicativos")
-4. Clique em **Adicionar** na parte inferior da página.
-   
-   ![Adicionar aplicativo](./media/active-directory-saas-bluejeans-tutorial/IC749321.png "Adicionar aplicativo")
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
-   
-   ![Adicionar um aplicativo da galeria](./media/active-directory-saas-bluejeans-tutorial/IC749322.png "adicionar um aplicativo da galeria")
-6. Na **caixa de pesquisa**, digite **BlueJeans**.
-   
-   ![Galeria de aplicativos](./media/active-directory-saas-bluejeans-tutorial/IC785861.png "Galeria de aplicativos")
-7. No painel de resultados, selecione **BlueJeans** e clique em **Concluir** para adicionar o aplicativo.
-   
-   ![BlueJeans](./media/active-directory-saas-bluejeans-tutorial/IC785862.png "BlueJeans")
-   
-## <a name="configure-single-sign-on"></a>Configurar o logon único
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no BlueJeans com a respectiva conta do AD do Azure usando federação baseada no protocolo SAML.
+- Não use o ambiente de produção, a menos que seja necessário.
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
-**Para configurar o logon único, execute as seguintes etapas:**
+## <a name="scenario-description"></a>Descrição do cenário
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. No portal clássico do Azure, na página de integração do aplicativo **BlueJeans**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
-   
-   ![Configurar logon único](./media/active-directory-saas-bluejeans-tutorial/IC785863.png "Configurar logon único")
-2. Na página **Como você deseja que os usuários façam logon no BlueJeans**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
-   
-   ![Configurar Logon Único](./media/active-directory-saas-bluejeans-tutorial/IC785864.png "Configurar Logon Único")
-3. Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do BlueJeans**, digite a URL usando o padrão "*https://company.BlueJeans.com*" e clique em **Avançar**.
-   
-   ![Configurar URL do Aplicativo](./media/active-directory-saas-bluejeans-tutorial/IC785865.png "Configurar URL do Aplicativo")
-4. Na página **Configurar logon único no BlueJeans**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
-   
-   ![Configurar Logon Único](./media/active-directory-saas-bluejeans-tutorial/IC785866.png "Configurar Logon Único")
-5. Em outra janela do navegador da Web, faça logon em seu site de empresa do **BlueJeans** como administrador.
-6. Vá para **ADMINISTRADOR \> Configurações de Grupo \> Segurança**.
+1. Adicionando o BlueJeans por meio da galeria
+2. Configurar e testar o logon único do AD do Azure
+
+## <a name="adding-bluejeans-from-the-gallery"></a>Adicionando o BlueJeans por meio da galeria
+Para configurar a integração do BlueJeans ao Azure AD, você precisa adicionar o BlueJeans à lista de aplicativos SaaS gerenciados por meio da galeria.
+
+**Para adicionar o BlueJeans por meio da galeria, realize as seguintes etapas:**
+
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+
+    ![Active Directory][1]
+
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+
+    ![Aplicativos][2]
+    
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+
+    ![Aplicativos][3]
+
+4. Na caixa de pesquisa, digite **BlueJeans**.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_search.png)
+
+5. No painel de resultados, selecione **BlueJeans** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+Nesta seção, você configura e testa o logon único do Azure AD com o BlueJeans, com base em um usuário de teste chamado “Brenda Fernandes”.
+
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do BlueJeans é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do BlueJeans.
+
+No BlueJeans, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+
+Para configurar e testar o logon único do Azure AD com o BlueJeans, você precisa concluir os seguintes blocos de construção:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criando um usuário de teste do BlueJeans](#creating-a-bluejeans-test-user)** – para ter um equivalente de Brenda Fernandes no BlueJeans que esteja vinculado à representação de usuário do Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+
+Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo BlueJeans.
+
+**Para configurar o logon único do Azure AD com o BlueJeans, realize as seguintes etapas:**
+
+1. No portal do Azure, na página de integração do aplicativo do **BlueJeans**, clique em **Logon único**.
+
+    ![Configurar Logon Único][4]
+
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+ 
+    ![Configurar Logon Único](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_samlbase.png)
+
+3. Na seção **Domínio e URLs do BlueJeans**, realize as seguintes etapas:
+
+    ![Configurar Logon Único](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_url.png)
+
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.BlueJeans.com`
+
+    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.BlueJeans.com`
+
+    > [!NOTE] 
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do BlueJeans](https://support.bluejeans.com/contact) para obter esses valores. 
+ 
+4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+
+    ![Configurar o logon único](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_certificate.png) 
+
+5. Clique no botão **Salvar** .
+
+    ![Configurar Logon Único](./media/active-directory-saas-bluejeans-tutorial/tutorial_general_400.png)
+
+6. Na seção **Configuração do BlueJeans**, clique em **Configurar o BlueJeans** para abrir a janela **Configurar logon**. Copie a **URL de Saída, a URL de Alteração de Senha e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.**
+
+    ![Configurar Logon Único](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_configure.png) 
+
+7. Em outra janela do navegador da Web, faça logon em seu site de empresa do **BlueJeans** como administrador.
+
+8. Vá para **ADMINISTRADOR \> Configurações de Grupo \> Segurança**.
    
    ![Admin](./media/active-directory-saas-bluejeans-tutorial/IC785868.png "Admin")
-7. Na seção **Segurança** , realize as seguintes etapas:
+
+9. Na seção **Segurança** , realize as seguintes etapas:
    
    ![Logon Único do SAML](./media/active-directory-saas-bluejeans-tutorial/IC785869.png "Logon Único do SAML")   
-   1. Selecione **Logon Único do SAML**.
-   2. Selecione **Habilitar provisionamento automático**.
-8. Siga em frente com as seguintes etapas:
    
-   ![Caminho de Certificado](./media/active-directory-saas-bluejeans-tutorial/IC785870.png "Caminho de Certificado")
-   
-   1. Clique em **Escolher Arquivo**e carregue o certificado baixado.
-   2. No portal clássico do Azure, na página do diálogo **Configurar logon único no BlueJeans**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon**.
-   3. No portal clássico do Azure, na página do diálogo **Configurar logon único no BlueJeans**, copie o valor da **URL de Alteração de Senha** e cole-o na caixa de texto **URL de Alteração de Senha**.
-   4. No portal clássico do Azure, na página do diálogo **Configurar logon único no BlueJeans**, copie o valor da **URL de Logout Remoto** e cole-o na caixa de texto **URL de Logout**.
-9. Siga em frente com as seguintes etapas:
-   
-   ![Salvar Alterações](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "Salvar Alterações")
-   1. Na caixa de texto **ID do usuário**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-   2. Na caixa de texto **Email**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-   3. Clique em **Salvar Alterações**.
-10. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
-    
-   ![Configurar Logon Único](./media/active-directory-saas-bluejeans-tutorial/IC785876.png "Configurar Logon Único")
-    
-## <a name="configure-user-provisioning"></a>Configurar provisionamento do usuário
+   a. Selecione **Logon Único do SAML**.
+  
+   b. Selecione **Habilitar provisionamento automático**.
 
-Para permitir que os usuários do AD do Azure façam logon no BlueJeans, eles devem ser provisionados no BlueJeans.  
+10. Siga em frente com as seguintes etapas:
 
-* No caso do BlueJeans, o provisionamento é uma tarefa manual.
+    ![Caminho de Certificado](./media/active-directory-saas-bluejeans-tutorial/IC785870.png "Caminho de Certificado")
+    
+    a. Clique em **Escolher Arquivo**e carregue o certificado baixado.
+   
+    b. Cole a **URL do Serviço de Logon Único SAML** na caixa de texto **URL de Logon**.
+   
+    c. Cole a **URL de Alteração de Senha** na caixa de texto **URL de Alteração de Senha**.
+   
+    d. Cole a **URL de Saída** na caixa de texto **URL de Logoff**.
+
+11. Siga em frente com as seguintes etapas:
+    
+    ![Salvar Alterações](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "Salvar Alterações")
+    
+    a. Na caixa de texto **ID de usuário**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+   
+    b. Na caixa de texto **Email**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+   
+    c. Clique em **Salvar Alterações**.
+
+> [!TIP]
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
+
+### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+
+![Criar um usuário do AD do Azure][100]
+
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+
+1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-bluejeans-tutorial/create_aaduser_01.png) 
+
+2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+    
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-bluejeans-tutorial/create_aaduser_02.png) 
+
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+ 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-bluejeans-tutorial/create_aaduser_03.png) 
+
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+ 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-bluejeans-tutorial/create_aaduser_04.png) 
+
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+
+    d. Clique em **Criar**.
+ 
+### <a name="creating-a-bluejeans-test-user"></a>Criando um usuário de teste do BlueJeans
+
+Para permitir que os usuários do Azure AD façam logon no BlueJeans, eles devem ser provisionados no BlueJeans.  
+
+No caso do BlueJeans, o provisionamento é uma tarefa manual.
 
 **Para provisionar contas de usuário, execute as seguintes etapas:**
 
 1. Faça logon em seu site de empresa do **BlueJeans** como administrador.
+
 2. Vá para **ADMINISTRADOR \> Gerenciar Usuários \> Adicionar Usuário**.
    
    ![Admin](./media/active-directory-saas-bluejeans-tutorial/IC785877.png "Admin")
    
    >[!IMPORTANT]
    >A guia **Adicionar Usuário** só estará disponível se, na **guia Segurança**, a opção **Habilitar provisionamento automático** estiver desmarcada. 
-   > 
+   
 3. Na seção **Adicionar Usuário** , realize as seguintes etapas:
-   
-  ![Adicionar Usuário](./media/active-directory-saas-bluejeans-tutorial/IC785886.png "Adicionar Usuário")
-   
-  1. Digite um **Nome de Usuário do BlueJeans**, **Endereço de email**, **ID de Reunião do BlueJeans**, **Senha de Moderador**, **Nome Completo** e a **Empresa** de uma conta válida do AAD que você deseja provisionar nas caixas de texto relacionadas.
-  2. Clique em **Adicionar Usuário**.
+
+    ![Adicionar Usuário](./media/active-directory-saas-bluejeans-tutorial/IC785886.png "Adicionar Usuário")
+    
+    a. Digite um **Nome de Usuário do BlueJeans**, **Endereço de email**, **ID de Reunião do BlueJeans**, **Senha de Moderador**, **Nome Completo** e a **Empresa** de uma conta válida do AAD que você deseja provisionar nas caixas de texto relacionadas.
+    
+    b. Clique em **Adicionar Usuário**.
 
 >[!NOTE]
 >É possível usar qualquer outra ferramenta de criação da conta de usuário do BlueJeans ou as APIs fornecidas pelo BlueJeans para provisionar as contas de usuário do AAD. 
 > 
 
-## <a name="assign-users"></a>Atribuir usuários
-Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
-**Para atribuir usuários ao BlueJeans, execute as seguintes etapas:**
+Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao BlueJeans.
 
-1. No Portal clássico do Azure, crie uma conta de teste.
-2. Na página de integração de aplicativos **BlueJeans**, clique em **Atribuir usuários**.
-   
-   ![Atribuir Usuários](./media/active-directory-saas-bluejeans-tutorial/IC785887.png "Atribuir Usuários")
-3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
-   
-   ![Sim](./media/active-directory-saas-bluejeans-tutorial/IC767830.png "Sim")
+![Atribuir usuário][200] 
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+**Para atribuir Brenda Fernandes ao BlueJeans, realize as seguintes etapas:**
 
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+
+    ![Atribuir usuário][201] 
+
+2. Na lista de aplicativos, selecione **BlueJeans**.
+
+    ![Configurar Logon Único](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_app.png) 
+
+3. No menu à esquerda, clique em **usuários e grupos**.
+
+    ![Atribuir usuário][202] 
+
+4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+
+    ![Atribuir usuário][203]
+
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+
+6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+
+7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+    
+### <a name="testing-single-sign-on"></a>Teste do logon único
+
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+
+Quando você clicar no bloco BlueJeans no Painel de Acesso, deverá acessar a página de logon do aplicativo BlueJeans.
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Recursos adicionais
+
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-bluejeans-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-bluejeans-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-bluejeans-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-bluejeans-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-bluejeans-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-bluejeans-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-bluejeans-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-bluejeans-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-bluejeans-tutorial/tutorial_general_203.png
 

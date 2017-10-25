@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
-ms.openlocfilehash: b09b66c44ba94df12934211d5d09430adb667003
-ms.lasthandoff: 01/24/2017
-
+ms.openlocfilehash: 001b80ccba43beab44f6a598f820df65a85a345f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gerenciar registros e conjuntos de registros DNS usando o portal do Azure
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](dns-operations-recordsets-portal.md)
-> * [CLI do Azure](dns-operations-recordsets-cli.md)
+> * [CLI 1.0 do Azure](dns-operations-recordsets-cli-nodejs.md)
+> * [CLI 2.0 do Azure](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 Este artigo mostra como gerenciar registros e conjuntos de registros da zona DNS usando o portal do Azure.
@@ -90,7 +90,7 @@ Você pode usar o Portal do Azure para remover registros de um conjunto de regis
 3. Clique em **Salvar** na parte superior da folha para salvar as configurações.
 4. Assim que o registro for removido, os valores do registro na folha **Zona DNS** refletirão a remoção.
 
-## <a name="a-namedeleteadelete-a-record-set"></a><a name="delete"></a>Excluir um conjunto de registros
+## <a name="delete"></a>Excluir um conjunto de registros
 
 1. Na folha **Propriedades do conjunto de registros**do conjunto de registros, clique em **Excluir**.
 
@@ -110,7 +110,11 @@ Não é possível adicionar nem remover registros no conjunto de registros SOA c
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modificar registros NS no apex da zona
 
-Não é possível adicionar, remover nem modificar os registros no conjunto de registros NS criados automaticamente no apex da zona (nome = "@"). A única alteração permitida é modificar o TTL do conjunto de registros.
+O registro NS definido no apex da zona é criado automaticamente com cada zona DNS. Ele contém os nomes dos servidores de nome DNS do Azure atribuídos à zona.
+
+Você pode adicionar servidores de nome adicionais a esse conjunto de registros NS para dar suporte à co-hospedagem de domínios com mais de um provedor DNS. Você também pode modificar o TTL e os metadados para esse conjunto de registros. No entanto, você não pode remover nem modificar os servidores de nome DNS do Azure previamente populados.
+
+Observe que isso se aplica somente ao conjunto de registros NS definido no apex da zona. Outros conjuntos de registros NS na sua zona (conforme utilizados para delegar zonas filho) podem ser modificados sem restrição.
 
 ### <a name="delete-soa-or-ns-record-sets"></a>Excluir conjuntos de registros SOA ou NS
 
@@ -120,5 +124,4 @@ Não é possível excluir os conjuntos de registros SOA e NS no apex da zona (no
 
 * Para obter mais informações sobre o DNS do Azure, confira [Visão geral do DNS do Azure](dns-overview.md).
 * Para obter mais informações sobre como automatizar o DNS, confira [Criando zonas DNS e conjuntos de registros usando o SDK do .NET](dns-sdk.md).
-* Para obter mais informações sobre registros DNS reversos, veja [Como gerenciar registros DNS reversos para seus serviços usando o PowerShell](dns-reverse-dns-record-operations-ps.md).
-
+* Para saber mais sobre os registros DNS reversos, veja [Visão geral de DNS reverso e suporte no Azure](dns-reverse-dns-overview.md).

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 12811b5cbfc6072075395d8542b79d10d2873286
-ms.lasthandoff: 03/30/2017
-
-
+ms.openlocfilehash: 5e9c83cebec96c6bc8afd53b0c637d7af899746f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reserved-ip-addresses-classic"></a>Endereços IP reservados (Clássico)
 
@@ -52,13 +51,13 @@ Para saber mais sobre endereços IP no Azure, leia o artigo [Endereços IP](virt
 3. Há uma cobrança para IPs reservados? <br>
     Às vezes. Veja [Detalhes Sobre Preços de Endereços IP Reservados](http://go.microsoft.com/fwlink/?LinkID=398482) para obter detalhes sobre preços.
 4. Como eu reservo um endereço IP? <br>
-    É possível usar o PowerShell, a [API REST de Gerenciamento do Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx) ou o [Portal do Azure](https://portal.azure.com) para reservar um endereço IP em uma região do Azure específica. Um endereço IP reservado é associado à sua assinatura.
+    É possível usar o PowerShell, a [API REST de Gerenciamento do Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx) ou o [Portal do Azure](https://portal.azure.com) para reservar um endereço IP em uma região do Azure. Um endereço IP reservado é associado à sua assinatura.
 5. Posso usar um IP reservado com VNets baseadas em grupos de afinidades? <br>
     Não. Os IPs reservados têm suporte apenas em redes virtuais regionais. VNets associadas a grupos de afinidades não dão suporte a IPs reservados. Para obter mais informações sobre a associação de uma VNet a uma região ou a um grupo de afinidades, veja o artigo [Sobre VNets regionais e grupos de afinidades](virtual-networks-migrate-to-regional-vnet.md).
 
 ## <a name="manage-reserved-vips"></a>Gerenciar VIPs reservados
 
-Certifique-se de ter instalado e configurado o Azure PowerShell seguindo as etapas do artigo [Instalar e configurar o PowerShell](/powershell/azureps-cmdlets-docs). 
+Certifique-se de ter instalado e configurado o Azure PowerShell seguindo as etapas do artigo [Instalar e configurar o PowerShell](/powershell/azure/overview). 
 
 Antes de poder usar IPs reservados, você deverá adicioná-los à sua assinatura. Para criar um IP reservado do pool de endereços IP públicos disponíveis no local *EUA Central* , execute o seguinte comando:
 
@@ -168,5 +167,4 @@ Você também pode associar um IP reservado a um serviço de nuvem usando um arq
 * Entenda como o [endereçamento IP](virtual-network-ip-addresses-overview-classic.md) funciona no modelo de implantação clássica.
 * Saiba mais sobre [endereços IP privados reservados](virtual-networks-reserved-private-ip.md).
 * Saiba mais sobre [endereços ILPIP (IP Público de Nível de Instância)](virtual-networks-instance-level-public-ip.md).
-
 

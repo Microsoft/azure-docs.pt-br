@@ -3,7 +3,7 @@ title: Registrar um aplicativo com o ponto de extremidade do Azure AD v2.0 usand
 description: "Como registrar um aplicativo na Microsoft para habilitar a entrada e acessar os serviços da Microsoft usando o ponto de extremidade v2.0"
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: lnalepa
 manager: mbaldwin
 editor: 
 ms.assetid: bb2f701f-3bc3-4759-94a5-8b9d53a8a0b6
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
-ms.openlocfilehash: 4a71d02d37e55ae08035632c323283438b3f66c6
-
-
+ms.date: 05/01/2017
+ms.author: lenalepa
+ms.custom: aaddev
+ms.openlocfilehash: e6202aa8665c906382666fe08a561421e50e0a8d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-register-an-app-with-the-v20-endpoint"></a>Como registrar um aplicativo com o ponto de extremidade v2.0
 Para criar um aplicativo que aceite entrada do AD do Azure e do MSA, você primeiro precisará registrar um aplicativo com a Microsoft.  Você não poderá usar nenhum dos seus aplicativos existentes com o Azure AD ou MSA, será necessário criar um novo.
@@ -36,7 +37,6 @@ Entrar com uma conta da Microsoft pessoal, profissional ou escolar.  Se você n�
 Pronto? Você deve agora estar olhando a lista de aplicativos da Microsoft, que provavelmente está vazia.  Vamos mudar isso.
 
 Clique em **Adicionar um aplicativo**e dê um nome a ele.  O portal atribuirá ao seu aplicativo uma Id de aplicativo globalmente exclusiva que você usará posteriormente em seu código.  Caso seu aplicativo inclua um componente do servidor que precisa de tokens de acesso para chamar APIs (tais como: Office, Azure ou sua própria API Web), também convém criar um **Segredo de Aplicativo** aqui.
-<!-- TODO: Link for app secrets -->
 
 Em seguida, adicione as Plataformas que seu aplicativo usará.
 
@@ -54,10 +54,4 @@ Opcionalmente, você pode personalizar a aparência de sua página de entrada na
 Agora que você tem um aplicativo da Microsoft, poderá concluir um dos nossos tutoriais de início rápido da v2.0.  Aqui estão algumas recomendações:
 
 [!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

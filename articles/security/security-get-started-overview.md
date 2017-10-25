@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0a4e73e9c8a66fca132b1f26913ee8ef5e397269
-
-
+ms.openlocfilehash: 1303815755584e912891d501018b257b96e5f063
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-overview"></a>Visão Geral de segurança do Azure
 O site Informações de Segurança do Microsoft Azure em Azure.com é o lugar onde você obterá respostas técnicas para suas perguntas sobre segurança do Azure. Se você estiver interessado na conformidade do Azure e como ele protege sua própria infraestrutura, visite a [Central de Confiabilidade da Microsoft](https://www.microsoft.com/TrustCenter/default.aspx).
@@ -51,9 +51,3 @@ Atualmente, o site de Informações de Segurança do Azure aborda as seguintes c
 >
 
 Queremos sua opinião! Se houver outras categorias que você deseja que sejam adicionadas, fale conosco! Se houver artigos que você deseja adicionar a uma categoria existente, fale conosco sobre isso também! Você pode usar a seção Comentários abaixo ou escrever para [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com) e nos incorporaremos suas recomendações a nossos planos.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

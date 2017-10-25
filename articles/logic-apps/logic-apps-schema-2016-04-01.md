@@ -1,5 +1,5 @@
 ---
-title: "Atualizações de esquema de&1;º de junho de&2016; - Aplicativos Lógicos do Azure | Microsoft Docs"
+title: "Atualizações de esquema de 1º de junho de 2016 - Aplicativos Lógicos do Azure | Microsoft Docs"
 description: "Criar definições de JSON para Aplicativos Lógicos do Azure com a versão de esquema 2016-06-01"
 author: jeffhollan
 manager: anneta
@@ -14,13 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: dab219386a32f519e50f76e18013f8f94a2266ff
-ms.openlocfilehash: 9d8f0be3d5c8e2c2e5f169dc1d0851c95a641d0c
-ms.lasthandoff: 03/01/2017
-
-
+ms.author: LADocs; jehollan
+ms.openlocfilehash: 43df04d6478e44c82c88b17d916cfc9fe4afc03e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Atualizações de esquema para Aplicativos Lógicos do Azure - 1º de junho de 2016
 
@@ -30,7 +29,7 @@ Esse novo esquema e a versão da API para Aplicativos Lógicos do Azure incluem 
 * [Condições e loops](#conditions-loops) agora são ações de primeira classe.
 * Ordenação mais precisa para executar ações com a propriedade `runAfter`, substituindo `dependsOn`
 
-Para atualizar os aplicativos lógicos do esquema da visualização de 1º de agosto de 2015 para o esquema de 1º de junho de 2016, [confira a seção sobre atualização](#upgrading-to-2016-06-01-schema).
+Para atualizar os aplicativos lógicos do esquema da visualização de 1º de agosto de 2015 para o esquema de 1º de junho de 2016, [confira a seção sobre atualização](##upgrade-your-schema).
 
 <a name="scopes"></a>
 ## <a name="scopes"></a>Escopos
@@ -114,8 +113,7 @@ A atualização para o novo esquema exige apenas algumas etapas. O processo de a
     ![Escolher o Esquema de Atualização][1]
    
     É retornada a definição atualizada, que você pode copiar e colar em uma definição de recurso, se necessário. 
-    No entanto, é **altamente recomendável** escolher **Salvar como** 
-    para garantir que todas as referências de conexão sejam válidas no aplicativo lógico atualizado.
+    No entanto, é **altamente recomendável** escolher **Salvar como** para garantir que todas as referências de conexão sejam válidas no aplicativo lógico atualizado.
 
 3. Na barra de ferramentas da folha de atualização, escolha **Salvar como**.
 
@@ -183,4 +181,3 @@ Agora as ações podem ter uma propriedade adicional chamada `trackedProperties`
 
 <!-- Image references -->
 [1]: ./media/logic-apps-schema-2016-04-01/upgradeButton.png
-

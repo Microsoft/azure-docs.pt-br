@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9c36ed4ed16b53a7cca2d2eba93ad5063e60569b
-ms.lasthandoff: 03/21/2017
-
-
+ms.openlocfilehash: 88f7e5b2144daee7bf1c8e7312ba98e6fa967899
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>Criar grupos de segurança de rede usando um modelo do Azure Resource Manager
 
@@ -104,7 +103,7 @@ O modelo de exemplo disponível no repositório público usa um arquivo de parâ
 ## <a name="deploy-the-arm-template-by-using-powershell"></a>Implantar o modelo ARM usando o PowerShell
 Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 
-1. Se você nunca usou o Azure PowerShell, siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs), para instalá-lo e configurá-lo.
+1. Se você nunca usou o Azure PowerShell, siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview), para instalá-lo e configurá-lo.
 2. Execute o cmdlet **`New-AzureRmResourceGroup`** para criar um grupo de recursos usando o modelo.
 
     ```powershell
@@ -190,5 +189,4 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
    * **-l (ou --location)**. Região do Azure em que o grupo de recursos será criado.
    * **-f (ou --arquivo de modelo)**. Caminho para o arquivo de modelo ARM.
    * **-e (ou --parameters-file)**. Caminho para o arquivo de parâmetros ARM.
-
 

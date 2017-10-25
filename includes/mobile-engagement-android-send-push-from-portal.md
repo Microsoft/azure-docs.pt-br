@@ -14,7 +14,7 @@ Para permitir que o Mobile Engagement envie notificações por push em seu nome,
    
     ![](./media/mobile-engagement-android-send-push/api-key.png)
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Envie uma notificação para seu aplicativo
+## <a id="send"></a>Envie uma notificação para seu aplicativo
 Agora criaremos uma campanha simples de notificação por push que enviará uma notificação por push para nosso aplicativo.
 
 1. Navegue até a guia **REACH** em seu portal do Mobile Engagement
@@ -41,9 +41,4 @@ Agora criaremos uma campanha simples de notificação por push que enviará uma 
 6. Última etapa: clique em **Ativar** para ativar sua campanha e enviar notificações por push.
    
     ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

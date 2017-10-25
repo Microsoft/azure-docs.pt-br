@@ -9,19 +9,19 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 383929ee41e7d174b4534f988554ba28bb41b9bb
-ms.lasthandoff: 03/21/2017
-
+ms.custom: mvc
+ms.openlocfilehash: 6234473d9f7f0eb18ea85e52273eb82a9ce04da5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>Criar uma VM com um disco rígido virtual
 
 Este exemplo cria uma máquina virtual usando um VHD.
@@ -31,17 +31,19 @@ Ele substitui a chave pública de SSH pela sua chave pública, de modo que você
 Você precisará de um VHD inicializável.
 Você pode baixar o VHD que usamos de https://azclisamples.blob.core.windows.net/vhds/sample.vhd ou usar seu próprio VHD. O script procura `~/sample.vhd`.
 
-Este exemplo funciona em um shell Bash. Para opções sobre como executar scripts da CLI do Azure no cliente Windows, veja [Execução da CLI do Azure no Windows](../virtual-machines-windows-cli-options.md).
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli[principal](../../../cli_scripts/virtual-machine/create-vm-vhd/create-vm-vhd.sh "Criar VM usando um VHD")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-vhd/create-vm-vhd.sh "Create VM using a VHD")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n az-cli-vhd
 ```
 
@@ -51,21 +53,20 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, uma máqu
 
 | Command | Observações |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account#list) | Lista contas de armazenamento |
-| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account#check-name) | Verifica se um nome de conta de armazenamento é válido e se já não existe |
-| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list) | Lista as chaves das contas de armazenamento |
-| [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob#exists) | Verifica se o blob existe |
-| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container#create) | Cria um contêiner em uma conta de armazenamento. |
-| [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#upload) | Cria um blob no contêiner carregando o VHD. |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm#list) | Usado com `--query`, verifica se o nome da VM está em uso. | 
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#create) | Cria as máquinas virtuais. |
-| [az vm access set-linux-user](https://docs.microsoft.com/cli/azure/vm/access#set-linux-user) | Redefine a chave SSH para fornecer o acesso do usuário atual para a VM. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#list-ip-addresses) | Obtém o endereço IP da VM que foi criada. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_list) | Lista contas de armazenamento |
+| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_check_name) | Verifica se um nome de conta de armazenamento é válido e se já não existe |
+| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#az_storage_account_keys_list) | Lista as chaves das contas de armazenamento |
+| [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_exists) | Verifica se o blob existe |
+| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container#az_storage_container_create) | Cria um contêiner em uma conta de armazenamento. |
+| [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_upload) | Cria um blob no contêiner carregando o VHD. |
+| [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Usado com `--query`, verifica se o nome da VM está em uso. | 
+| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Cria as máquinas virtuais. |
+| [az vm access set-linux-user](https://docs.microsoft.com/cli/azure/vm/access#az_vm_access_set_linux_user) | Redefine a chave SSH para fornecer o acesso do usuário atual para a VM. |
+| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list-ip-addresses) | Obtém o endereço IP da VM que foi criada. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Os exemplos de script da CLI de máquina virtual adicionais podem ser encontrados na [documentação da VM Linux do Azure](../virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
+Os exemplos de script da CLI de máquina virtual adicionais podem ser encontrados na [documentação da VM Linux do Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

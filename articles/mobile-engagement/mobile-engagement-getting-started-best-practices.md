@@ -14,11 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: wesmc;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 0cb54f6c4b84597fbc21fa691f88f6f7a37beedd
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - Guia de introdução com práticas recomendadas
 ## <a name="overview"></a>Visão geral
@@ -267,7 +267,7 @@ Por exemplo, o valor de uma marca "article" permitirá a segmentação dos usuá
 Informação extras são reportadas como um par de chave/valor. No exemplo para este aplicativo de mídia, as informações adicionais para "news_category" seriam o valor dessa categoria. Por exemplo, “sports", "economy" ou "politics".
 
 #### <a name="tag-and-sdk-integration"></a>Marcas e integração do SDK
-Para obter instruções detalhadas de integração do SDK do Engajamento Móvel do Azure em seu aplicativo, siga a documentação [Integração do SDK de envolvimento](mobile-engagement-windows-store-integrate-engagement.md) no site do Azure. Escolha sua plataforma de destino nos links na parte superior da página.
+Para obter instruções detalhadas de integração do SDK do Azure Mobile Engagement em seu aplicativo, siga a documentação [Integração do SDK de envolvimento](mobile-engagement-windows-store-integrate-engagement.md) no site do Azure. Escolha sua plataforma de destino nos links na parte superior da página.
 
 Recomendamos a criação de projetos para dois aplicativos criados com base no Azure Mobile Engagement. Um para desenvolvimento e teste e outro para preparação para a produção. Sua equipe de TI pode promover do teste para a produção quando a aceitação do usuário for bem-sucedida.
 
@@ -286,7 +286,7 @@ Teste completamente todos os tipos de comportamento de notificação incorporado
 * Atualização de notificação, categorias
 
 #### <a name="setup"></a>Configuração
-A configuração do Azure Mobile Engagement é muito simples. Toda a documentação relacionada à interface do usuário está disponível no site do Engajamento Móvel do Azure, [Como navegar pela interface do usuário](mobile-engagement-user-interface-home.md).
+A configuração do Azure Mobile Engagement é muito simples. Toda a documentação relacionada à interface do usuário está disponível no site do Azure Mobile Engagement, [Como navegar pela interface do usuário](mobile-engagement-user-interface-home.md).
 
 Recomendamos que você comece definindo as funções certas e associações de função para os usuários de seu projeto. Isso ajuda com o gerenciamento do acesso apropriado à plataforma para todos os usuários. As funções podem incluir:
 
@@ -323,9 +323,3 @@ Depois de reunir alguma experiência, adicione o seguinte aos seus programas de 
 
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

@@ -1,5 +1,5 @@
 ## <a name="overview"></a>Visão geral
-Quando você cria uma nova VM (máquina virtual) em um Grupo de Recursos implantando uma imagem do [Azure Marketplace](https://azure.microsoft.com/marketplace/), a unidade do sistema operacional padrão é de 127 GB. Embora seja possível adicionar discos de dados à VM (a quantidade depende do SKU escolhido) e além de ser recomendável instalar aplicativos e cargas de trabalho que consomem bastante CPU nesses discos adicionados, muitas vezes, os clientes precisam expandir a unidade do sistema operacional para oferecer suporte a determinados cenários como estes:
+Quando você cria uma nova VM (máquina virtual) em um Grupo de Recursos implantando uma imagem do [Azure Marketplace](https://azure.microsoft.com/marketplace/), a unidade do sistema operacional padrão normalmente é 127 GB (algumas imagens têm tamanhos de disco de sistema operacional menores por padrão). Embora seja possível adicionar discos de dados à VM (a quantidade depende do SKU escolhido) e além de ser recomendável instalar aplicativos e cargas de trabalho que consomem bastante CPU nesses discos adicionados, muitas vezes, os clientes precisam expandir a unidade do sistema operacional para oferecer suporte a determinados cenários como estes:
 
 1. Suporte a aplicativos herdados que instalam componentes na unidade do sistema operacional.
 2. Migração de um PC físico ou máquina virtual local com uma unidade do sistema operacional maior.
@@ -42,7 +42,7 @@ Neste artigo, vamos executar a tarefa de redimensionar a unidade do sistema oper
    ```
    
    > [!WARNING]
-   > O novo tamanho deve ser maior que o tamanho do disco existente. O máximo permitido é 1023 GB.
+   > O novo tamanho deve ser maior que o tamanho do disco existente. O máximo permitido é 2048 GB. (É possível expandir o blob VHD além desse tamanho, mas o sistema operacional só poderá trabalhar com os primeiros 2048 GB de espaço.)
    > 
    > 
 6. A atualização da VM pode demorar um pouco. Depois que o comando concluir a execução, reinicie a VM como se segue:
@@ -80,5 +80,5 @@ Da mesma forma, você pode fazer referência a outros discos de dados conectados
 ($vm.StorageProfile.DataDisks | Where {$_.Name -eq 'my-second-data-disk'})[0].DiskSizeGB = 1023
 ```
 
-Se quiser saber como conectar discos a uma VM do Azure Resource Manager, leia este [artigo](../articles/virtual-machines/windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Se quiser saber como conectar discos a uma VM do Azure Resource Manager, leia este [artigo](../articles/virtual-machines/windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

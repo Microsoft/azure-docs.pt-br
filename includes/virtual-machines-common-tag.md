@@ -42,8 +42,3 @@ Agora, a nova marca deve aparecer na lista de marcas do seu recurso.
 
 ![Nova marca salva no Portal do Azure](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

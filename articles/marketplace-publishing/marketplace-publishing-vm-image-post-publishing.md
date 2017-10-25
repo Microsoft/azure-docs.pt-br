@@ -1,6 +1,6 @@
 ---
-title: "Gerenciar uma imagem de máquina virtual no Azure Marketplace | Microsoft Docs"
-description: "Guia detalhado sobre como gerenciar sua imagem de máquina virtual no Azure Marketplace após a publicação inicial."
+title: "Gerenciando a imagem da sua máquina virtual no Azure Marketplace | Microsoft Docs"
+description: "Guia detalhado sobre como gerenciar a imagem da sua máquina virtual no Azure Marketplace após a publicação inicial"
 services: Azure Marketplace
 documentationcenter: 
 author: HannibalSII
@@ -14,326 +14,325 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
-translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: ed2921750f93f344a4c3dbef31d9f523dedc0aae
-
-
+ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Guia de pós-produção para ofertas de máquina virtual no Azure Marketplace
-Este artigo explica como você pode atualizar uma oferta de Máquina Virtual online no Azure Marketplace. Ele também orienta você durante o processo de adição de um ou mais SKUs a uma oferta existente e de remoção de uma oferta de Máquina Virtual online ou de um SKU do Azure Marketplace.
+Este artigo explica como você pode atualizar uma oferta de máquina virtual online no Azure Marketplace. Ele orienta você pelo processo de adicionar uma ou mais novas SKUs a uma oferta existente. Também o orienta pelo processo de remoção de uma SKU ou oferta de máquina virtual online do Marketplace.
 
-Depois que uma oferta/SKU é preparada no [Portal do Azure](http://portal.azure.com), você não pode alterar os campos apresentados abaixo:
+Depois de uma oferta/SKU ser testada no [portal do Azure](http://portal.azure.com), você não poderá alterar as seguintes caixas de texto:
 
-* **Identificador da Oferta:** [portal de Publicação -> Máquinas Virtuais -> Selecione sua Oferta -> guia Imagens de VM -> Identificador da Oferta]
-* **Identificador do SKU:** [portal de Publicação -> Máquinas Virtuais -> Selecione sua Oferta -> guia SKUs -> Adicionar um SKU]
-* **Namespace do Editor:** [portal de Publicação -> Máquinas Virtuais -> guia Passo a Passo -> Conte-nos Sobre sua Empresa (encontrado em "Etapa 2 Registrar sua Empresa") -> Namespace do Editor -> Namespace]
+* **Identificador de oferta**: no portal de Publicação, vá para **máquinas virtuais** e selecione sua oferta. Em seguida, clique em **IMAGENS DA VM** > **Identificador da oferta**.
+* **Identificador de SKUs**: no portal de Publicação, acesse **máquinas virtuais** e selecione sua oferta. Em seguida, clique em **SKUS** > **Adicionar uma SKU**.
+* **Namespace do Editor:** no portal de Publicação, acesse **máquinas Virtuais** > **Passo a Passo** > **Conte-nos Sobre sua Empresa** (encontrado em "Etapa 2 Registrar sua Empresa") > **Namespace do Editor** > **Namespace**.
 
-Depois que uma oferta/SKU for listada no [Azure Marketplace](http://azure.microsoft.com/marketplace), você não poderá alterar os campos apresentados abaixo:
+Depois que a oferta/SKU estiver listada no [Marketplace](http://azure.microsoft.com/marketplace), você não poderá alterar as seguintes caixas de texto:
 
-* **Identificador da Oferta:** [portal de Publicação -> Máquinas Virtuais -> Selecione sua Oferta -> guia Imagens de VM -> Identificador da Oferta]
-* **Identificador do SKU:** [portal de Publicação -> Máquinas Virtuais -> Selecione sua Oferta -> guia SKUs -> Adicionar um SKU]
-* **Namespace do Editor:** [Portal de publicação -> Máquinas Virtuais -> guia Passo a Passo -> Conte-nos Sobre sua Empresa (Encontrado na Etapa 2 Registrar) -> Namespace do Editor -> Namespace]
-* **Portas** [portal de Publicação -> Máquinas Virtuais -> Selecione sua Oferta -> guia Imagens de VM -> Abrir Portas]
-* **Alteração de preços de SKUs listados**
-* **Modelos de cobrança de SKUs listados**
+* **Identificador de oferta**: no portal de Publicação, vá para **máquinas virtuais** e selecione sua oferta. Em seguida, clique em **IMAGENS DA VM** > **Identificador da oferta**.
+* **Identificador de SKUs**: no portal de Publicação, acesse **máquinas virtuais** e selecione sua oferta. Em seguida, clique em **SKUS** > **Adicionar uma SKU**.
+* **Namespace do Editor**: no portal de Publicação, acesse **máquinas Virtuais** > **Passo a Passo** > **Conte-nos Sobre sua Empresa** (encontrado em "Etapa 2 Registrar") **Namespace do Editor** > **Namespace**.
+* **Portas**: no portal de Publicação, acesse **máquinas virtuais** e selecione sua oferta. Em seguida, clique em **IMAGENS DA VM** > **Abrir Portas**.
+* **Alteração de preços das SKUs listadas**
+* **Alteração do modelo de cobrança das SKUs listadas**
 * **Remoção de regiões de cobrança de SKUs listados**
 * **Alteração da contagem de discos de dados dos SKUs listados**
 
-## <a name="1-how-to-update-the-technical-details-of-a-sku"></a>1. Como atualizar os detalhes técnicos de uma SKU
-Você pode adicionar uma nova versão à SKU listada e publicar novamente sua oferta seguindo as etapas abaixo:
+## <a name="update-the-technical-details-of-a-sku"></a>Atualizar os detalhes técnicos de uma SKU
+Para adicionar uma nova versão à SKU listada e republicar sua oferta, siga estas etapas:
 
-1. Faça logon no [portal de Publicação](https://publish.windowsazure.com).
-2. Navegue até a guia **MÁQUINAS VIRTUAIS** e selecione sua oferta.
-3. No menu do lado esquerdo, clique na guia **IMAGENS DE VM** .
-4. Na seção **SKUs** da guia **IMAGENS DE VM** , localize a SKU que você deseja atualizar.
-5. Depois disso, adicione um novo número de versão da SKU e clique no botão **"+"** . A nova versão deve estar no formato X.Y.Z, onde X, Y, Z são inteiros. As alterações de versão só devem ser incrementais.
-6. Na caixa **URL do VHD de sistema operacional** , adicione o URI da assinatura de acesso compartilhado criado para o VHD do sistema operacional e salve as alterações.
-   
+1. Entre no [Portal de publicação](https://publish.windowsazure.com).
+2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
+3. No menu à esquerda, clique na guia **IMAGENS da VM**.
+4. Na seção **SKUs**, localize a SKU que você deseja atualizar.
+5. Adicionar um novo número de versão à SKU e clique no botão **+**. A nova versão deve estar no formato X.Y.Z, em que X, Y e Z são inteiros. As alterações de versão só devem ser incrementais.
+6. Na caixa **URL do VHD do SO**, adicione o URI da assinatura de acesso compartilhado criado para o VHD do sistema operacional e salve as alterações.
+
    > [!IMPORTANT]
-   > Você não pode aumentar/diminuir a contagem de discos de dados de uma SKU listada. Você precisa criar uma nova SKU nesse caso. Consulte a seção [3. Como adicionar uma nova SKU em uma oferta listada](#3-how-to-add-a-new-sku-under-a-live-offer) para obter orientações detalhadas.
-   > 
-   > 
-7. Depois de fazer as alterações, navegue até a guia **PUBLICAR** e clique no botão **ENVIAR POR PUSH PARA PREPARO**. Para obter orientações detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte este [link](marketplace-publishing-vm-image-test-in-staging.md)
-8. Depois de testar sua oferta em preparo, navegue até a guia **PUBLICAR** no portal de Publicação e clique no botão **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para publicar novamente sua oferta no Azure Marketplace.
-   
-    ![desenho](media/marketplace-publishing-vm-image-post-publishing/img01_07.png)
+   > Você não pode aumentar/diminuir a contagem de discos de dados de uma SKU listada. Você precisa criar uma nova SKU nesse caso. Para obter diretrizes detalhadas, consulte a seção [Adicionar uma nova SKU em uma oferta listada](#add-a-new-sku-under-a-listed-offer).
+   >
+   >
+7. Acesse a guia **PUBLICAR** e, em seguida, clique em **ENVIAR POR PUSH PARA PREPARO**. Para obter diretrizes detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte [Testar sua oferta de VM para o Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+8. Depois de testar sua oferta no preparo, acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
 
-## <a name="2-how-to-update-the-non-technical-details-of-an-offer-or-a-sku"></a>2. Como atualizar os detalhes não técnicos de uma oferta ou uma SKU
-Você pode atualizar os detalhes não técnicos (marketing, jurídico, suporte, categorias) de sua oferta online ou de sua SKU no Azure Marketplace.
+    ![Imagens da VM](media/marketplace-publishing-vm-image-post-publishing/img01_07.png)
 
-### <a name="21-update-the-offer-description-and-logos"></a>2.1 Atualizar a descrição e os logotipos da oferta
-Você pode atualizar os detalhes da oferta e publicar novamente sua oferta seguindo as etapas abaixo:
+## <a name="update-the-nontechnical-details-of-an-offer-or-a-sku"></a>Atualizar os detalhes não técnicos de uma oferta ou uma SKU
+Você pode atualizar os detalhes não técnicos (marketing, jurídico, suporte, categorias) de sua oferta online ou SKU no Azure Marketplace.
 
-1. Faça logon no [portal de Publicação](https://publish.windowsazure.com).
-2. Navegue até a guia **MÁQUINAS VIRTUAIS** e selecione sua oferta.
-3. No menu do lado esquerdo, clique na guia **MARKETING** .
-4. Clique no botão **PORTUGUÊS (BR)** .
-5. No menu do lado esquerdo, clique na guia **DETALHES** . Na seção *DESCRIÇÃO* da guia **DETALHES** , você pode atualizar o título da oferta, o resumo da oferta, o resumo longo da oferta e salvar as alterações.
-   
+### <a name="update-the-offer-description-and-logos"></a>Atualizar a descrição e os logotipos da oferta
+Para atualizar os detalhes da oferta e republicar sua oferta, siga estas etapas:
+
+1. Entre no [Portal de publicação](https://publish.windowsazure.com).
+2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
+3. No menu à esquerda, clique na guia **MARKETING**.
+4. Clique em **Inglês (EUA)**.
+5. Clique na guia **DETALHES**. Na seção **Descrição**, atualize o **TÍTULO**, o **RESUMO** e o **RESUMO LONGO** da oferta e salve as alterações.
+
    > [!NOTE]
-   > Cuide do seguinte enquanto estiver atualizando os detalhes da SKU.
-   > **Não insira texto duplicado nas descrições da oferta e da SKU. Não insira texto duplicado no título da SKU e no resumo longo da oferta. Não insira texto duplicado no título da SKU e no resumo da oferta.**
-   > 
-   > 
-   
-    ![desenho](media/marketplace-publishing-vm-image-post-publishing/img02.1_05.png)
-6. Na seção *LOGOTIPOS* da guia **DETALHES** , você pode atualizar os logotipos. No entanto, verifique se os logotipos seguem as [diretrizes do Azure Marketplace](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content) (consulte a seção Etapa 1: Fornecer conteúdo de marketing do Marketplace -> Detalhes -> Diretrizes de Logotipo do Azure Marketplace).
-   
+   > Ao atualizar os detalhes da SKU, lembre-se destas restrições: 
+   * Não insira texto duplicado na descrição da oferta e da SKU.
+   * Não insira texto duplicado no título da SKU nem no resumo longo da oferta. 
+   * Não insira texto duplicado no título da SKU nem no resumo da oferta.
+   >
+   >
+
+    ![Detalhes](media/marketplace-publishing-vm-image-post-publishing/img02.1_05.png)
+6. Na seção **LOGOTIPOS** da guia **DETALHES**, atualize os logotipos. Verifique se os logotipos seguem as [diretrizes do Azure Marketplace](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content).
+
    > [!NOTE]
-   > O ícone Hero é opcional. Você pode optar por não carregar um ícone Hero. No entanto, uma vez carregado o ícone Hero, não haverá provisão para excluí-lo do portal de Publicação. Nesse caso, você deve seguir as [diretrizes do ícone Hero](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content) (consulte a seção Etapa 1: Fornecer conteúdo de marketing do Marketplace -> Detalhes -> Diretrizes adicionais para a faixa de logotipo Hero).
-   > 
-   > 
-7. Depois de fazer as alterações, navegue até a guia **PUBLICAR** e clique no botão **ENVIAR POR PUSH PARA PREPARO**. Para obter orientações detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte este [link](marketplace-publishing-vm-image-test-in-staging.md).
-8. Depois de testar sua oferta em preparo, navegue até a guia **PUBLICAR** no portal de Publicação e clique no botão **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para publicar novamente sua oferta no Azure Marketplace.
-   
-    ![desenho](media/marketplace-publishing-vm-image-post-publishing/img02.1_08.png)
+   > O ícone Hero é opcional. Você pode optar por não carregar um ícone Hero. No entanto, depois que o ícone Hero for carregado, não há provisão para excluí-lo do portal de Publicação. Siga as [diretrizes do ícone Hero](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content).
+   >
+   >
+7. Acesse a guia **PUBLICAR** e, em seguida, clique em **ENVIAR POR PUSH PARA PREPARO**. Para obter diretrizes detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte [Testar sua oferta de VM para o Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+8. Depois de testar sua oferta no preparo, acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
 
-### <a name="22-update-the-sku-description"></a>2.2. Atualizar a descrição da SKU
-Você pode atualizar os detalhes da SKU e publicar novamente sua oferta seguindo as etapas abaixo:
+    ![Logotipos](media/marketplace-publishing-vm-image-post-publishing/img02.1_08.png)
 
-1. Faça logon no [portal de Publicação](https://publish.windowsazure.com)
-2. Navegue até a guia **MÁQUINAS VIRTUAIS** e selecione sua oferta.
-3. No menu do lado esquerdo, clique na guia **MARKETING** .
-4. Clique no botão **PORTUGUÊS (BR)** .
-5. No menu do lado esquerdo, clique na guia **PLANOS** . Na seção *SKUs* da guia **PLANOS** , você pode atualizar o título da SKU, o resumo da SKU e os detalhes da descrição da SKU e salvar as alterações.
-   
+### <a name="update-the-sku-description"></a>Atualizar a descrição da SKU
+Para atualizar os detalhes da SKU e republicar sua oferta, siga estas etapas:
+
+1. Entre no [Portal de publicação](https://publish.windowsazure.com).
+2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
+3. No menu à esquerda, clique na guia **MARKETING**.
+4. Clique em **Inglês (EUA)**.
+5. Clique na guia **PLANOS**. Na seção **SKUs**, atualize o **TÍTULO**, o **RESUMO** e a **DESCRIÇÃO** da SKU e salve as alterações.
+
    > [!NOTE]
-   > Cuide do seguinte enquanto estiver atualizando os detalhes da SKU. **Não insira texto duplicado nas descrições da oferta e da SKU. Não insira texto duplicado no título da SKU e no resumo longo da oferta. Não insira texto duplicado no Título da SKU e no resumo da oferta.**
-   > 
-   > 
-6. Depois de fazer as alterações, navegue até a guia **PUBLICAR** e clique no botão **ENVIAR POR PUSH PARA PREPARO**. Para obter orientações detalhadas sobre como testar a sua oferta no ambiente de preparo, veja este link
-7. Depois de testar sua oferta em preparo, navegue até a guia **PUBLICAR** no portal de Publicação e clique no botão **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para publicar novamente sua oferta no Azure Marketplace.
-   
-    ![desenho](media/marketplace-publishing-vm-image-post-publishing/img02.2_07.png)
+   > Ao atualizar os detalhes da SKU, lembre-se destas restrições: 
+   * Não insira texto duplicado na descrição da oferta e da SKU. 
+   * Não insira texto duplicado no título da SKU nem no resumo longo da oferta. 
+   * Não insira texto duplicado no título da SKU nem no resumo da oferta.
+   >
+   >
+6. Acesse a guia **PUBLICAR** e, em seguida, clique em **ENVIAR POR PUSH PARA PREPARO**. Para obter diretrizes detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte [Testar sua oferta de VM para o Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+7. Depois de testar sua oferta no preparo, acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
 
-### <a name="23-change-the-existing-links-or-add-new-links"></a>2.3 Alterar os links existentes adicionar novos links
-Você pode alterar os links existentes ou adicionar novos links e publicar novamente sua oferta seguindo as etapas abaixo:
+    ![Planos](media/marketplace-publishing-vm-image-post-publishing/img02.2_07.png)
 
-1. Faça logon no [portal de Publicação](https://publish.windowsazure.com)
-2. Navegue até a guia **MÁQUINAS VIRTUAIS** e selecione sua oferta.
-3. No menu do lado esquerdo, clique na guia **MARKETING** .
-4. Clique no botão **PORTUGUÊS (BR)** .
-5. No menu do lado esquerdo, clique na guia **LINKS** .
-6. Se você quiser adicionar um novo link, na seção *Links* , clique no botão **ADICIONAR LINK** . A caixa de diálogo *Adicionar Link* será aberta. Nessa caixa de diálogo, você poderá adicionar os campos Título e URL do link e salvar as alterações. Você pode inserir qualquer link que contenha informações que possam ajudar os clientes.
-7. Se você quiser atualizar ou excluir um link existente, selecione o link apropriado e clique no botão Editar ou no botão Excluir adequadamente.
-   
+### <a name="change-existing-links-or-add-new-links"></a>Alterar os links existentes ou adicionar novos links
+Para alterar links existentes ou adicionar novos links e, em seguida, republicar sua oferta, siga estas etapas:
+
+1. Entre no [Portal de publicação](https://publish.windowsazure.com).
+2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
+3. No menu à esquerda, clique na guia **MARKETING**.
+4. Clique em **Inglês (EUA)**.
+5. Clique na guia **LINKS**.
+6. Para adicionar um novo link, na seção **Links**, clique em **+ADICIONAR LINK**. Na caixa de diálogo **Adicionar Link**, digite o **TÍTULO** e a **URL** do link e salve as alterações. Você pode inserir qualquer link que contenha informações que possam ajudar os clientes.
+7. Para atualizar ou excluir um link existente, selecione o link e clique no botão **Editar** ou no botão **Excluir**.
+
    > [!NOTE]
-   > Verifique se os links que você inseriu nesta seção estão funcionando corretamente, pois esses links são validados durante o processo de solicitação de produção.
-   > 
-   > 
-8. Depois de fazer as alterações, navegue até a guia **PUBLICAR** e clique no botão **ENVIAR POR PUSH PARA PREPARO**. Para obter orientações detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte este [link](marketplace-publishing-vm-image-test-in-staging.md).
-9. Depois de testar sua oferta em preparo, navegue até a guia **PUBLICAR** no portal de Publicação e clique no botão **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para publicar novamente sua oferta no Azure Marketplace.
-   
-    ![desenho](media/marketplace-publishing-vm-image-post-publishing/img02.3_09-01.png)
-   
-    ![desenho](media/marketplace-publishing-vm-image-post-publishing/img02.3-2.png)
+   > Verifique se os links inseridos nesta seção estejam funcionando corretamente, pois esses links são validados durante o processo de solicitação de produção.
+   >
+   >
+8. Acesse a guia **PUBLICAR** e, em seguida, clique em **ENVIAR POR PUSH PARA PREPARO**. Para obter diretrizes detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte [Testar sua oferta de VM para o Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+9. Depois de testar sua oferta no preparo, acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
 
-### <a name="24-change-an-existing-sample-image-or-add-a-new-sample-image"></a>2.4 Alterar uma imagem de exemplo existente ou adicionar uma nova imagem de exemplo
-Você pode alterar as imagens de exemplo existentes ou adicionar novas imagens de exemplo e publicar novamente sua oferta seguindo as etapas abaixo:
+    ![Links](media/marketplace-publishing-vm-image-post-publishing/img02.3_09-01.png)
+
+    ![Adicionar Link](media/marketplace-publishing-vm-image-post-publishing/img02.3-2.png)
+
+### <a name="change-an-existing-sample-image-or-add-a-new-sample-image"></a>Alterar uma imagem de exemplo existente ou adicionar uma nova imagem de exemplo
+Para alterar uma imagem de exemplo existente ou adicionar novas imagens de exemplo e, em seguida, republicar sua oferta, siga estas etapas:
 
 > [!NOTE]
-> Somente uma imagem de exemplo é exibida em [https://portal.azure.com](https://portal.azure.com).
-> 
-> 
+> Somente uma imagem de exemplo é exibida no [portal do Azure](https://portal.azure.com).
+>
+>
 
-1. Faça logon no [portal de Publicação](https://publish.windowsazure.com)
-2. Navegue até a guia **MÁQUINAS VIRTUAIS** e selecione sua oferta.
-3. No menu do lado esquerdo, clique na guia **MARKETING** .
-4. Clique no botão **PORTUGUÊS (BR)** .
-5. No menu do lado esquerdo, clique na guia **IMAGENS DE EXEMPLO** .
-6. Se você deseja adicionar uma nova imagem de exemplo, na seção *Imagens de exemplo* , clique no botão **CARREGAR UMA NOVA IMAGEM** e salve as alterações.
-   
+1. Entre no [Portal de publicação](https://publish.windowsazure.com).
+2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
+3. No menu à esquerda, clique na guia **MARKETING**.
+4. Clique em **Inglês (EUA)**.
+5. Clique na guia **IMAGENS DE EXEMPLO**.
+6. Para adicionar uma nova imagem de exemplo, na seção **Exemplo de Imagens**, clique em **CARREGAR UMA NOVA IMAGEM** e salve as alterações.
+
    > [!NOTE]
-   > Incluir uma imagem de exemplo é uma etapa opcional.
-   > 
-   > 
-7. Se você quiser atualizar ou excluir uma imagem de exemplo existente, em seguida, localize a imagem de exemplo apropriada e clique no botão **SUBSTITUIR IMAGEM** ou no botão Excluir conforme for apropriado.
-8. Depois de fazer as alterações, navegue até a guia **PUBLICAR** e clique no botão **ENVIAR POR PUSH PARA PREPARO**. Para obter orientações detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte este [link](marketplace-publishing-vm-image-test-in-staging.md).
-9. Depois de testar sua oferta em preparo, navegue até a guia **PUBLICAR** no portal de Publicação e clique no botão **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para publicar novamente sua oferta no Azure Marketplace.
-   
-    ![desenho](media/marketplace-publishing-vm-image-post-publishing/img02.4_09.png)
+   > Incluir uma imagem de exemplo é opcional.
+   >
+7. Acesse a guia **PUBLICAR** e, em seguida, clique em **ENVIAR POR PUSH PARA PREPARO**. Para obter diretrizes detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte [Testar sua oferta de VM para o Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+8. Depois de testar sua oferta no preparo, acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
 
-### <a name="25-update-the-legal-content"></a>2.5 Atualizar o conteúdo legal
-Você pode atualizar o conteúdo legal e publicar novamente sua oferta seguindo as etapas abaixo:
+    ![Exemplo de Imagens](media/marketplace-publishing-vm-image-post-publishing/img02.4_09.png)
 
-1. Faça logon no [portal de Publicação](https://publish.windowsazure.com)
-2. Navegue até a guia **MÁQUINAS VIRTUAIS** e selecione sua oferta.
-3. No menu do lado esquerdo, clique na guia **MARKETING** .
-4. Clique no botão **PORTUGUÊS (BR)** .
-5. No menu do lado esquerdo, clique na guia **LEGAL** . Na seção *Legal* , você pode atualizar suas políticas/termos de uso. Insira ou cole as políticas/termos na caixa de texto *Termos de Uso* e salve as alterações.
-6. O limite de caracteres para os termos legais de uso é 1.000.000 caracteres.
-7. Depois de fazer as alterações, navegue até a guia **PUBLICAR** e clique no botão **ENVIAR POR PUSH PARA PREPARO**. Para obter orientações detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte este [link](marketplace-publishing-vm-image-test-in-staging.md)
-8. Depois de testar sua oferta em preparo, navegue até a guia **PUBLICAR** no portal de Publicação e clique no botão **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para publicar novamente sua oferta no Azure Marketplace.
-   
-    ![desenho](media/marketplace-publishing-vm-image-post-publishing/img02.5_08.png)
+### <a name="update-the-legal-content"></a>Atualizar o conteúdo legal
+Para atualizar o conteúdo legal e republicar sua oferta, siga estas etapas:
 
-### <a name="26-update-the-support-information"></a>2.6 Atualizar as informações de suporte
-Você pode atualizar as informações de suporte e publicar novamente sua oferta seguindo as etapas abaixo:
+1. Entre no [Portal de publicação](https://publish.windowsazure.com).
+2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
+3. No menu à esquerda, clique na guia **MARKETING**.
+4. Clique em **Inglês (EUA)**.
+5. Clique na guia **LEGAL**. Na seção **Legal**, atualize suas políticas/termos de uso. Insira ou cole as políticas/termos na caixa de texto **TERMOS DE USO** e salve as alterações.
+6. O limite de caracteres para os termos de uso legais é de 1 caractere.
+7. Acesse a guia **PUBLICAR** e, em seguida, clique em **ENVIAR POR PUSH PARA PREPARO**. Para obter diretrizes detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte [Testar sua oferta de VM para o Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+8. Depois de testar sua oferta no preparo, acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
 
-1. Faça logon no [portal de Publicação](https://publish.windowsazure.com)
-2. Navegue até a guia **MÁQUINAS VIRTUAIS** e selecione sua oferta.
-3. No menu do lado esquerdo, clique na guia **SUPORTE** .
-4. Na seção *Contato de Engenharia* da guia **SUPORTE** , você pode atualizar os detalhes do contato. Esses detalhes são usados apenas para comunicações internas entre o parceiro e a Microsoft.
-5. Na seção *Atendimento ao Cliente* da guia **SUPORTE**, você pode atualizar os detalhes de contato do Suporte, como **Nome, Email, Telefone** e **URL de Suporte**. Esses detalhes são usados apenas para comunicações internas entre o parceiro e a Microsoft.
-   
+    ![Legal](media/marketplace-publishing-vm-image-post-publishing/img02.5_08.png)
+
+### <a name="update-the-support-information"></a>Atualizar as informações de suporte
+Para atualizar as informações de suporte e republicar sua oferta, siga estas etapas:
+
+1. Entre no [Portal de publicação](https://publish.windowsazure.com).
+2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
+3. No menu à esquerda, clique na guia **SUPORTE**.
+4. Na seção **Contato de Engenharia**, atualize os detalhes de contato de engenharia. Esses detalhes são usados apenas para comunicações internas entre o parceiro e a Microsoft.
+5. Na seção **Atendimento ao Cliente**, atualize os detalhes de contato de suporte e a **URL DE SUPORTE**. Esses detalhes são usados apenas para comunicações internas entre o parceiro e a Microsoft.
+
    > [!NOTE]
-   > Se você quiser fornecer suporte apenas por email, forneça um número de telefone fictício na seção **Atendimento ao Cliente** . Nesse caso, o email fornecido será usado.
-   > 
-   > 
-6. Depois de fazer as alterações, navegue até a guia **PUBLICAR** e clique no botão **ENVIAR POR PUSH PARA PREPARO**. Para obter orientações detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte este [link](marketplace-publishing-vm-image-test-in-staging.md)
-7. Depois de testar sua oferta em preparo, navegue até a guia **PUBLICAR** no portal de Publicação e clique no botão **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para publicar novamente sua oferta no Azure Marketplace.
-   
-    ![desenho](media/marketplace-publishing-vm-image-post-publishing/img02.6_07.png)
+   > Se você quiser fornecer suporte apenas por email, insira um número de telefone fictício na seção **Atendimento ao Cliente**. Nesse caso, o email fornecido será usado.
+   >
+   >
+6. Acesse a guia **PUBLICAR** e, em seguida, clique em **ENVIAR POR PUSH PARA PREPARO**. Para obter diretrizes detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte [Testar sua oferta de VM para o Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+7. Depois de testar sua oferta no preparo, acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
 
-### <a name="27-update-the-categories"></a>2.7 Atualizar as categorias
-Você pode atualizar a seção de categorias para sua oferta e publicar novamente sua oferta seguindo as etapas abaixo:
+    ![Suporte](media/marketplace-publishing-vm-image-post-publishing/img02.6_07.png)
 
-1. Faça logon no [portal de Publicação](https://publish.windowsazure.com)
-2. Navegue até a guia **MÁQUINAS VIRTUAIS** e selecione sua oferta.
-3. No menu do lado esquerdo, clique na guia **CATEGORIAS** .
-4. Na seção *Categorias* , você pode atualizar as categorias da oferta e salvar as alterações. Você pode selecionar até cinco categorias para a galeria do Azure Marketplace.
-5. Depois de fazer as alterações, navegue até a guia **PUBLICAR** e clique no botão **ENVIAR POR PUSH PARA PREPARO**. Para obter orientações detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte este [link](marketplace-publishing-vm-image-test-in-staging.md)
-6. Depois de testar sua oferta em preparo, navegue até a guia **PUBLICAR** no portal de Publicação e clique no botão **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para publicar novamente sua oferta no Azure Marketplace.
-   
-    ![desenho](media/marketplace-publishing-vm-image-post-publishing/img02.7_06.png)
+### <a name="update-the-categories"></a>Atualizar as categorias
+Para atualizar a seção de categorias da oferta e republicar sua oferta, siga estas etapas:
 
-## <a name="3-how-to-add-a-new-sku-under-a-listed-offer"></a>3. Como adicionar uma nova SKU em uma oferta listada
-Você pode adicionar uma nova SKU sob sua oferta online seguindo as etapas abaixo:
+1. Entre no [Portal de publicação](https://publish.windowsazure.com).
+2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
+3. No menu à esquerda, clique na guia **CATEGORIAS**.
+4. Na seção **Categorias**, atualize as categorias da oferta e salve as alterações. Você pode selecionar até cinco categorias para a galeria do Azure Marketplace.
+5. Acesse a guia **PUBLICAR** e, em seguida, clique em **ENVIAR POR PUSH PARA PREPARO**. Para obter diretrizes detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte [Testar sua oferta de VM para o Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+6. Depois de testar sua oferta no preparo, acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
 
-1. Faça logon no [portal de Publicação](https://publish.windowsazure.com).
-2. Navegue até a guia **MÁQUINAS VIRTUAIS** e selecione sua oferta.
-3. No menu do lado esquerdo, clique na guia **SKUs** . Depois disso, clique no botão **ADICIONAR UM SKU**.  Uma nova caixa de diálogo será aberta.. Insira um identificador de SKU em minúsculas. Marque a caixa de seleção do modelo cobrança traga seu próprio (BYOL) se quiser publicar a nova SKU com o modelo de cobrança BYOL. Caso contrário, desmarque a caixa de seleção para BYOL. Depois disso, clique na marca de escala na caixa de diálogo para criar uma nova SKU. Se você não optar pelo modelo de cobrança BYOL para a nova SKU, o modelo de cobrança será automaticamente definido como Por Hora para a nova SKU. Se quiser habilitar a avaliação gratuita de 30 dias do modelo de Cobrança por hora, clique na opção “Um Mês” em “Há uma avaliação gratuita disponível?”. Caso contrário, selecione "NENHUMA AVALIAÇÃO". [Observação: a opção “Há uma avaliação gratuita disponível ?” só será exibida se você NÃO tiver selecionado BYOL na caixa de diálogo ao criar o novo SKU.]
-   
+    ![Categorias](media/marketplace-publishing-vm-image-post-publishing/img02.7_06.png)
+
+## <a name="add-a-new-sku-under-a-listed-offer"></a>Adicionar uma nova SKU em uma oferta listada
+Para adicionar uma nova SKU em sua oferta ao vivo, siga estas etapas:
+
+1. Entre no [Portal de publicação](https://publish.windowsazure.com).
+2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
+3. No menu à esquerda, clique na guia **SKUS**. Em seguida, clique em **Adicionar uma SKU**. 
+4. Na caixa de diálogo, insira um **Identificador de SKU** em letras minúsculas. Marque a caixa de seleção **Modelo de cobrança BYOL (traga sua própria licença)** se desejar publicar a nova SKU com um modelo de cobrança BYOL. Caso contrário, desmarque a caixa de seleção. Clique na marca de escala para criar uma nova SKU. Se você não tiver escolhido o modelo de cobrança BYOL, o modelo de cobrança será definido automaticamente como por hora. Se você quiser obter a avaliação gratuita de 30 dias para o modelo de cobrança por hora, selecione **Um Mês** para **Há uma avaliação gratuita disponível?** Caso contrário, selecione **Sem Avaliação**. (**Há uma avaliação gratuita disponível?**  só aparecerá se você não tiver selecionado BYOL ao criar a nova SKU.)
+
    > [!IMPORTANT]
-   > A opção "Ocultar esta SKU do Marketplace porque ela sempre deverá ser comprada por meio de um modelo de solução" só deverá ser marcada como "SIM" se você tiver aprovação para publicar uma oferta de modelo de solução no Azure Marketplace. Caso contrário, essa opção sempre deverá ser marcada como "NÃO".
-   > 
-   > 
-4. Agora, no menu do lado esquerdo, clique na guia **IMAGENS DE VM** e descubra a nova SKU que você criou.
-5. Para configurar a nova SKU, consulte a ETAPA 5 deste [link](marketplace-publishing-vm-image-creation.md#5-obtain-certification-for-your-vm-image) para obter diretrizes.
-6. Para adicionar o material de marketing à nova SKU, veja a seção Etapa 1: Fornecer conteúdo de marketing do Marketplace -> Detalhes -> números 2 a 5 deste [link](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content).
-7. Para adicionar as informações de preços à nova SKU, consulte a seção 2.1. Defina os preços de VM deste [link](marketplace-publishing-push-to-staging.md#step-2-set-your-prices)
-8. Depois de fazer as alterações, navegue até a guia **PUBLICAR** e clique no botão **ENVIAR POR PUSH PARA PREPARO**. Para obter orientações detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte este [link](marketplace-publishing-vm-image-test-in-staging.md)
-9. Depois de testar sua oferta em preparo, navegue até a guia **PUBLICAR** no portal de Publicação e clique no botão **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para publicar novamente sua oferta no Azure Marketplace.
-   
-    ![desenho](media/marketplace-publishing-vm-image-post-publishing/img03_09-01.png)
-   
-    ![desenho](media/marketplace-publishing-vm-image-post-publishing/img03_09-02.png)
+   > **Ocultar esta SKU do Marketplace porque ela sempre deve ser comprada por meio de um modelo de solução** deverá ser **Sim** *somente* se você for aprovado para publicar um modelo de solução. Caso contrário, essa opção sempre deverá ser marcada como **Não**.
+   >
+   >
+4. No menu à esquerda, clique na guia **IMAGENS DA VM** e descubra a nova SKU que você criou.
+5. Para configurar a nova SKU, consulte [Obter certificação para sua imagem da VM](marketplace-publishing-vm-image-creation.md#5-obtain-certification-for-your-vm-image) para obter diretrizes.
+6. Para adicionar o material de marketing para a nova SKU, consulte [Fornecer conteúdo de marketing do Marketplace](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content).
+7. Para adicionar informações de preços para a nova SKU, consulte [Definir seus preços](marketplace-publishing-push-to-staging.md#step-2-set-your-prices).
+8. Acesse a guia **PUBLICAR** e, em seguida, clique em **ENVIAR POR PUSH PARA PREPARO**. Para obter diretrizes detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte [Testar sua oferta de VM para o Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+9. Depois de testar sua oferta no preparo, acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
 
-## <a name="4-how-to-change-the-data-disk-count-for-a-listed-sku"></a>4. Como alterar a contagem de discos de dados para uma SKU listada
-Você não pode aumentar/diminuir a contagem de discos de dados de uma SKU listada. Você precisa criar uma nova SKU nesse caso. Consulte a seção [3. Como adicionar uma nova SKU em uma oferta online](#3-how-to-add-a-new-sku-under-a-live-offer) para obter orientações detalhadas.
+    ![SKUs](media/marketplace-publishing-vm-image-post-publishing/img03_09-01.png)
 
-## <a name="5----how-to-delete-a-listed-offer-from-the-azure-marketplace"></a>5.    Como excluir uma oferta listada do Azure Marketplace
-Há vários aspectos que precisam ser atendidos no caso de uma solicitação para remover uma oferta online. Siga as etapas abaixo para obter as diretrizes da equipe de suporte para remover uma oferta listada do Azure Marketplace:
+    ![Adicionar uma SKU](media/marketplace-publishing-vm-image-post-publishing/img03_09-02.png)
 
-1. Gere um tíquete de suporte usando este [link](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=15635&ccsid=635993707583706681)
-2. Selecione o Tipo de problema como **“Gerenciando ofertas”** e selecione a Categoria como **“Modificando uma oferta e/ou uma SKU já em produção”**
-3. Enviar a solicitação
+## <a name="change-the-data-disk-count-for-a-listed-sku"></a>Alterar a contagem de discos de dados para uma SKU listada
+Você não pode aumentar/diminuir a contagem de discos de dados de uma SKU listada. Você precisa criar uma nova SKU nesse caso. Para obter diretrizes detalhadas, consulte a seção [Adicionar uma nova SKU em uma oferta listada](#add-a-new-sku-under-a-listed-offer).
 
-A equipe de suporte orientará você pelo processo de exclusão da oferta/SKU.
+## <a name="delete-a-listed-offer-from-the-marketplace"></a>Excluir uma oferta listada do Marketplace
+É preciso cuidar de vários aspectos no caso de uma solicitação para remover uma oferta online. Para obter diretrizes da equipe de suporte para remover uma oferta listada do Marketplace, siga estas etapas:
+
+1. Gere um tíquete de suporte na página [Criar um incidente](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=15635&ccsid=635993707583706681).
+
+2. Selecione o **Tipo de problema** como **Gerenciando ofertas** e selecione a **Categoria** como **Modificando uma oferta e/ou uma SKU já em produção**.
+3. Envie a solicitação.
+
+A equipe de suporte orienta você pelo processo de exclusão da oferta/SKU.
 
 > [!NOTE]
-> Você sempre poderá excluir a oferta enquanto ela estiver no status Rascunho (isto é, ainda não em PREPARO ou em PRODUÇÃO) clicando no botão **DESCARTAR RASCUNHO** na guia **HISTÓRICO**.
-> 
-> 
+> Você sempre pode excluir a oferta enquanto ela estiver no status Rascunho (mas não Preparo nem Produção). Na guia **HISTÓRICO**, clique em **DESCARTAR RASCUNHO**.
+>
+>
 
-## <a name="6-how-to-delete-a-listed-sku-from-the-azure-marketplace"></a>6. Como excluir uma SKU listada do Azure Marketplace
-Você pode excluir uma SKU listada do Azure Marketplace seguindo as etapas abaixo:
+## <a name="delete-a-listed-sku-from-the-marketplace"></a>Excluir uma SKU listada do Marketplace
+Para excluir uma SKU listada do Marketplace, siga estas etapas:
 
-1. Faça logon no [portal de Publicação](https://publish.windowsazure.com).
-2. Navegue até a guia **MÁQUINAS VIRTUAIS** e selecione sua oferta.
-3. No painel do lado esquerdo, clique na guia **SKUs** .
-4. Selecione a SKU que você deseja excluir e clique no botão Excluir para essa SKU.
-5. Quando terminar, navegue até a guia PUBLICAR no portal de Publicação e clique no botão **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para publicar novamente a oferta no Azure Marketplace.
-6. Depois que a oferta for publicada novamente no Azure Marketplace, a SKU será excluída do Azure Marketplace e do Portal do Azure.
+1. Entre no [Portal de publicação](https://publish.windowsazure.com).
 
-## <a name="7-how-to-delete-the-current-version-of-a-listed-sku-from-the-azure-marketplace"></a>7. Como excluir a versão atual de uma SKU listada do Azure Marketplace
-Você pode excluir a versão atual de uma SKU listada do Azure Marketplace seguindo as etapas abaixo. Quando o processo for concluído, a SKU será revertida para a versão anterior.
+2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
+3. No painel à esquerda, clique na guia **SKUS**.
+4. Selecione a SKU que você deseja excluir e, em seguida, clique no botão **Excluir**.
+5. Acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
+6. Depois que a oferta for republicada no Marketplace, a SKU será excluída do Marketplace e do portal do Azure.
 
-1. Faça logon no [portal de Publicação](https://publish.windowsazure.com).
-2. Navegue até a guia **MÁQUINAS VIRTUAIS** e selecione sua oferta.
-3. No painel do lado esquerdo, clique na guia **IMAGENS DE VM** .
-4. Selecione a SKU cuja versão atual você deseja excluir e clique no botão Excluir para essa versão.
-5. Quando terminar, navegue até a guia **PUBLICAR** no portal de Publicação e clique no botão **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para publicar novamente a oferta no Azure Marketplace.
-6. Depois que a oferta for publicada novamente no Azure Marketplace, a versão atual da SKU listada será excluída do Azure Marketplace e do Portal do Azure. O SKU será revertido para a versão anterior.
+## <a name="delete-the-current-version-of-a-listed-sku-from-the-marketplace"></a>Excluir a versão atual de uma SKU listada do Marketplace
+Para excluir a versão atual de uma SKU listada do Marketplace, siga estas etapas: 
 
-## <a name="8-how-to-revert-listing-price-to-production-values"></a>8. Como reverter o preço de listagem para os valores de produção
-Alterei o preço de uma SKU listada (ou removi as regiões de cobranças de uma SKU listada). Como não há suporte no Azure Marketplace, quero reverter as alterações para os valores de produção. Como posso fazer isso?
+1. Entre no [Portal de publicação](https://publish.windowsazure.com).
 
-Siga as etapas abaixo:
+2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
+3. No menu à esquerda, clique na guia **IMAGENS da VM**.
+4. Selecione o SKU cuja versão atual você deseja excluir e, em seguida, clique no botão **Excluir**.
+5. Acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
+6. Após a oferta ser republicada no Marketplace, a versão atual da SKU listada será excluída do Marketplace e do portal do Azure. A SKU então será revertida para sua versão anterior.
 
-1. Faça logon no [portal de Publicação](https://publish.windowsazure.com).
-2. Navegue até a guia **MÁQUINAS VIRTUAIS** e selecione sua oferta.
-3. No menu do lado esquerdo, clique na guia **PREÇOS** .
-4. Na guia Preços, selecione uma região cujos preços que você deseja redefinir.
-   
-    ![desenho](media/marketplace-publishing-vm-image-post-publishing/img08-04.png)
-5. No caso de SKUs com modelo de cobrança por hora, redefina os preços de todos os núcleos como estão em produção na região selecionada. Para SKUs com modelo de faturamento BYOL, disponibilize a SKU na região marcando a caixa de seleção para a SKU em questão na seção DISPONIBILIDADE DA SKU COM LICENÇA EXTERNA (BYOL) (consulte a captura de tela abaixo).
-   
-    ![desenho](media/marketplace-publishing-vm-image-post-publishing/img08-05.png)
-6. Agora, clique no botão **DEFINIR PREÇOS PARA OUTROS MERCADOS AUTOMATICAMENTE COM BASE NOS PREÇOS DOS ESTADOS UNIDOS**.
-   
+## <a name="revert-the-listing-price-to-production-values"></a>Reverter o preço de listagem para os valores de produção
+Para reverter o preço de listagem para os valores de produção, siga estas etapas:
+
+1. Entre no [Portal de publicação](https://publish.windowsazure.com).
+2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
+3. No menu à esquerda, clique na guia **PREÇOS**.
+4. Selecione uma região cujos preços você deseje redefinir.
+
+    ![Regiões de preço](media/marketplace-publishing-vm-image-post-publishing/img08-04.png)
+5. No caso de SKUs com modelo de cobrança por hora, redefina os preços de todos os núcleos, uma vez que estão em produção na região selecionada. Para SKUs com um modelo de cobrança BYOL, disponibilize a SKU na região marcando a caixa de seleção para a SKU na seção **DISPONIBILIDADE DA SKU LICENCIADA EXTERNAMENTE (BYOL)**.
+
+    ![Modelos de preços](media/marketplace-publishing-vm-image-post-publishing/img08-05.png)
+6. Clique em **DEFINIR AUTOMATICAMENTE O PREÇO PARA OUTROS MERCADOS COM BASE NOS PREÇOS PARA OS ESTADOS UNIDOS**.
+
    > [!NOTE]
-   > O rótulo do botão pode ser diferente dependendo da região selecionada. Como nós selecionamos Estados Unidos durante a criação desse documento, o botão está rotulado como "Definir preços para outros mercados automaticamente com base nos preços dos Estados Unidos" na captura de tela abaixo.
-   > 
-   > 
-   
-    ![desenho](media/marketplace-publishing-vm-image-post-publishing/img08-06.png)
-7. O assistente de definição automática de preços será aberto. A primeira página exibe a seleção do mercado base. Faça sua seleção e passe para a próxima página clicando no botão **"->"**.
-   
-    ![desenho](media/marketplace-publishing-vm-image-post-publishing/img08-07.png)
-8. A opção para selecionar os núcleos e planos será exibida na página 2. Selecione os planos desejados e os núcleos e clique no botão "->".
-   
-    ![desenho](media/marketplace-publishing-vm-image-post-publishing/img08-08.png)
-9. A página 3 exibe os mercados/as regiões. Clique no botão Ativar/Desativar Tudo para selecionar todas as regiões ou marque as caixas das regiões manualmente. Clique no botão "->" para passar para a próxima página.
-   
-    ![desenho](media/marketplace-publishing-vm-image-post-publishing/img08-09.png)
-10. A página 4 exibe as taxas de câmbio. Clique no botão Concluir para concluir as etapas. O assistente redefinirá os preços de acordo com sua seleção.
-11. Agora, navegue até a guia Preços e clique no botão "EXIBIR RESUMO E ALTERAÇÕES".
-    Selecione "Rascunho" na seção "Exibir Versão" e "Produção" na seção "Comparar com" (consulte a captura de tela abaixo). Se você não vir nenhuma diferença entre os preços, isso significa que os preços foram revertidos para os valores de produção com êxito.
-    
-    ![desenho](media/marketplace-publishing-vm-image-post-publishing/img08-11.png)
-12. Depois de fazer as alterações, navegue até a guia PUBLICAR e clique no botão **ENVIAR POR PUSH PARA PREPARO**. Para obter orientações detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte este [link](marketplace-publishing-vm-image-test-in-staging.md)
-13. Depois de testar sua oferta em preparo, navegue até a guia PUBLICAR no portal de Publicação e clique no botão **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para publicar novamente sua oferta no Azure Marketplace.
+   > O rótulo do botão pode ser diferente, dependendo da região que você selecionar. Uma vez que selecionamos os Estados Unidos, o rótulo do botão é **DEFINIR AUTOMATICAMENTE O PREÇO PARA OUTROS MERCADOS COM BASE NOS PREÇOS PARA OS ESTADOS UNIDOS**.
+   >
+   >
 
-## <a name="9-how-to-revert-billing-model-to-production-values"></a>9. Como reverter o modelo de cobrança para os valores de produção
-Alterei o modelo de cobrança de uma SKU listada. Como não há suporte no Azure Marketplace, quero reverter as alterações para os valores de produção. Como posso fazer isso?
+    ![Preço automático](media/marketplace-publishing-vm-image-post-publishing/img08-06.png)
+7. Na página 1 do assistente de Preço Automático, escolha o mercado de base e clique no botão de **Seta**.
 
-Siga as etapas abaixo:
+    ![Mercado de base](media/marketplace-publishing-vm-image-post-publishing/img08-07.png)
+8. Na página 2, escolha planos e medidores de serviço (núcleos) e clique no botão de **seta**.
 
-1. Faça logon no [portal de Publicação](https://publish.windowsazure.com).
-2. Navegue até a guia **MÁQUINAS VIRTUAIS** e selecione sua oferta.
-3. No menu do lado esquerdo, clique na guia **SKUs** .
-4. Clique o botão EDITAR para reverter o modelo de cobrança. Uma janela será aberta. Marque ou desmarque a caixa de seleção **A cobrança e o licenciamento são realizados fora do Azure (também conhecido como Traga sua própria licença)** conforme for apropriado.
-   
-    ![desenho](media/marketplace-publishing-vm-image-post-publishing/img09-04.png)
-5. Quando terminar, consulte a resposta da pergunta 8 neste documento para reverter os preços.
-6. Em seguida, navegue até a guia **PUBLICAR** no portal de Publicação e envie a oferta por push para preparo para testá-la. Quando terminar de testar a oferta, clique no botão **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para publicar novamente sua oferta no Azure Marketplace.
+    ![Planos e medidores de serviço](media/marketplace-publishing-vm-image-post-publishing/img08-08.png)
+9. Na página 3, clique em **Alternar Todos** para selecionar todas as regiões. Outra opção é marcar manualmente as caixas de seleção para regiões específicas. Clique no botão de **seta**.
 
-## <a name="10-how-to-revert-visibility-setting-of-a-listed-sku-to-the-production-value"></a>10. Como reverter a configuração de visibilidade de uma SKU listada para o valor de produção
-Siga as etapas abaixo:
+    ![Escolher mercados](media/marketplace-publishing-vm-image-post-publishing/img08-09.png)
+10. Na página 4, examine as taxas de câmbio e clique em **Concluir**. O assistente redefine os preços de acordo com as suas seleções.
 
-1. Faça logon no [portal de Publicação](https://publish.windowsazure.com).
-2. Navegue até a guia **MÁQUINAS VIRTUAIS** e selecione sua oferta.
-3. No menu do lado esquerdo, clique na guia **SKUs** .
+11. Na guia **PREÇOS**, clique em **EXIBIR RESUMO E ALTERAÇÕES**.
+    Para **Exibir Versão**, selecione **Rascunho**; para **Comparar com**, selecione **Produção**. Se você não detectar nenhuma diferença de preço, isso significará que o preço foi revertido com êxito para os valores de produção.
+
+    ![Exibir resumo e alterações](media/marketplace-publishing-vm-image-post-publishing/img08-11.png)
+12. Acesse a guia **PUBLICAR** e, em seguida, clique em **ENVIAR POR PUSH PARA PREPARO**. Para obter diretrizes detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte [Testar sua oferta de VM para o Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+13. Depois de testar sua oferta no preparo, acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
+
+## <a name="revert-the-billing-model-to-production-values"></a>Reverter o modelo de cobrança para os valores de produção
+Para reverter o modelo de cobrança para os valores de produção, siga estas etapas:
+
+1. Entre no [Portal de publicação](https://publish.windowsazure.com).
+
+2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
+3. No menu à esquerda, clique na guia **SKUS**.
+4. Clique o botão **Editar** para reverter o modelo de cobrança. Na janela que se abre, marque ou desmarque a caixa de seleção **Cobrança e licenciamento são feitos externamente ao Azure (também conhecido como Traga sua própria licença)**.
+
+    ![Editar cobrança](media/marketplace-publishing-vm-image-post-publishing/img09-04.png)
+5. Siga as etapas em "Reverter o preço de listagem para os valores de produção" neste artigo.
+6. Acesse a guia **PUBLICAR** e, em seguida, clique em **ENVIAR POR PUSH PARA PREPARO**. Para obter diretrizes detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte [Testar sua oferta de VM para o Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+7. Depois de testar sua oferta no preparo, acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
+
+## <a name="revert-the-visibility-setting-of-a-listed-sku-to-the-production-value"></a>Reverter a configuração de visibilidade de uma SKU listada para o valor de produção
+Para reverter a configuração de visibilidade de uma SKU listada para o valor de produção, siga estas etapas:
+
+1. Entre no [Portal de publicação](https://publish.windowsazure.com).
+
+2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
+3. No menu à esquerda, clique na guia **SKUS**.
 4. Selecione a SKU e reverta a configuração de visibilidade para o valor de produção.
-   
-    ![desenho](media/marketplace-publishing-vm-image-post-publishing/img10-04.png)
-5. Quando terminar de fazer as alterações, clique no botão **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para publicar novamente sua oferta no Azure Marketplace.
+
+    ![Visibilidade](media/marketplace-publishing-vm-image-post-publishing/img10-04.png)
+5. Depois de concluir as alterações, clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
 
 ## <a name="see-also"></a>Consulte também
-* [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
-* [Entendendo o relatório de percepções do vendedor](marketplace-publishing-report-seller-insights.md)
-* [Entendendo os relatórios de pagamento](marketplace-publishing-report-payout.md)
-* [Como alterar seu incentivo ao revendedor de Provedor de Soluções na Nuvem](marketplace-publishing-csp-incentive.md)
+* [Introdução: publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Compreender o relatório de pagamento](marketplace-publishing-report-payout.md)
+* [Alterar seu incentivo ao revendedor do Provedor de Soluções na Nuvem](marketplace-publishing-csp-incentive.md)
 * [Solução de problemas comuns de publicação no Marketplace](marketplace-publishing-support-common-issues.md)
 * [Obtenha suporte como um editor](marketplace-publishing-get-publisher-support.md)
-* [Criando uma imagem de máquina virtual no local](marketplace-publishing-vm-image-creation-on-premise.md)
+* [Criar uma imagem da VM local](marketplace-publishing-vm-image-creation-on-premise.md)
 * [Criar uma máquina virtual que executa o Windows no Portal de Visualização do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
 ms.openlocfilehash: 28f0542dbe87bb34c83a7852db7c3a9fef055ce9
-ms.lasthandoff: 02/23/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Tutorial: Integração do Active Directory do Azure ao TOPdesk - Secure
 O objetivo deste tutorial é mostrar a integração do Azure com o TOPdesk - Secure.  
@@ -105,7 +104,7 @@ Configurar o logon único para o TOPdesk - Secure requer que você carregue um a
 
 6. Em outra janela do navegador da Web, faça logon no **portal clássico do Azure** como administrador.
 
-7. Na página de integração de aplicativos do **TOPdesk - Secure**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+7. Na página de integração de aplicativos do **TOPdesk – Secure**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
     ![Configurar Logon Único](./media/active-directory-saas-topdesk-secure-tutorial/IC790602.png "Configurar Logon Único")
 
@@ -121,7 +120,7 @@ Configurar o logon único para o TOPdesk - Secure requer que você carregue um a
    
     b. Na caixa de texto **TOPdesk – URL de Resposta Pública**, cole **TOPdesk - URL AssertionConsumerService Protegida** (por exemplo, "*https://qssolutions.topdesk.net/tas/public/login/saml*")
    
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
 10. Na página **Configurar logon único no TOPdesk - Secure**, para baixar o arquivo de metadados, clique em **Baixar metadados** e salve o arquivo localmente no computador.
     
@@ -206,7 +205,7 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
 ### <a name="to-assign-users-to-topdesk---secure-perform-the-following-steps"></a>Para atribuir usuários ao TOPdesk - Secure, execute as seguintes etapas:
 1. No Portal clássico do Azure, crie uma conta de teste.
-2. Na página de integração de aplicativos **TOPdesk - Secure**, clique em **Atribuir usuários**.
+2. Na página de integração de aplicativos **TOPdesk – Secure**, clique em **Atribuir usuários**.
    
     ![Atribuir Usuários](./media/active-directory-saas-topdesk-secure-tutorial/IC790612.png "Atribuir Usuários")
 
@@ -215,5 +214,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
     ![Sim](./media/active-directory-saas-topdesk-secure-tutorial/IC767830.png "Sim")
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
-
 

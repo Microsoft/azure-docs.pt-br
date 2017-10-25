@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: d421cee0becabdf81d865036d0c98b12b077152b
-ms.lasthandoff: 03/27/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="about-images-for-windows-virtual-machines"></a>Sobre imagens de máquinas virtuais do Windows
 > [!IMPORTANT]
@@ -48,4 +47,3 @@ Estes são alguns exemplos que usam o módulo do Azure PowerShell.
 
 ## <a name="next-steps"></a>Próximas etapas
 Você também pode [criar um computador Windows usando o portal do Azure](tutorial.md).
-

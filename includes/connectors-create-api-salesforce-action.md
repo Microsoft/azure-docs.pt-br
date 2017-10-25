@@ -40,8 +40,3 @@ Agora que você adicionou uma ação para obter um cliente potencial, faça algo
 Agora você pode testar seu aplicativo lógico: no Salesforce, crie um novo cliente potencial que atenda à condição que você criou.  Se você seguiu totalmente esse passo a passo, basta criar um cliente potencial com um endereço de email contendo *amazon.com* . Depois de alguns segundos, seu aplicativo lógico deve ser disparado e os resultados podem ser semelhantes a:   
 ![Imagem de ação do Salesforce 9](./media/connectors-create-api-salesforce/action-9.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

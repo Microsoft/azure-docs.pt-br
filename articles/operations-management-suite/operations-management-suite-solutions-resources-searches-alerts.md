@@ -11,17 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2017
+ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: e47aacd1a188649a3b424981c20a6c2b736b2d89
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: 21c42a747a08c5386c65d10190baf0054a7adef8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Adicionando alertas e pesquisas salvas do Log Analytics à solução de gerenciamento do OMS (Versão prévia)
 
 > [!NOTE]
@@ -48,21 +46,24 @@ O nome do espaço de trabalho é no nome de cada recurso de Log Analytics.  Isso
 ## <a name="saved-searches"></a>Pesquisas salvas
 Incluir [pesquisas salvas](../log-analytics/log-analytics-log-searches.md) em uma solução para permitir aos usuários consultar dados coletados pela solução.  Pesquisas salvas aparecerão em **Favoritos** no portal do OMS e **pesquisas salvas** no portal do Azure.  Uma pesquisa salva também é necessária para cada alerta.   
 
-Os recursos [da pesquisa salva do Log Analytics](../log-analytics/log-analytics-log-searches.md) têm um tipo `Microsoft.OperationalInsights/workspaces/savedSearches` e a seguinte estrutura. 
+Os recursos [da pesquisa salva do Log Analytics](../log-analytics/log-analytics-log-searches.md) têm um tipo `Microsoft.OperationalInsights/workspaces/savedSearches` e a seguinte estrutura.  Isso inclui variáveis e parâmetros comuns para que você possa copiar e colar este trecho de código em seu arquivo de solução e alterar os nomes de parâmetro. 
 
     {
-        "name": "<name-of-savedsearch>"
+        "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",
         "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
-        "apiVersion": "<api-version-of-resource>",
-        "dependsOn": []
-        "tags": {},
+        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+        "dependsOn": [
+        ],
+        "tags": { },
         "properties": {
             "etag": "*",
-            "query": "<query-to-run>",
-            "displayName": "<saved-search-display-name>",
-            "category": ""<saved-search-category>"
+            "query": "[variables('SavedSearch').Query]",
+            "displayName": "[variables('SavedSearch').DisplayName]",
+            "category": "[variables('SavedSearch').Category]"
         }
     }
+
+
 
 Cada uma das propriedades de pesquisas salvas são descritos na tabela a seguir. 
 
@@ -82,7 +83,7 @@ Regras de alerta em uma solução de gerenciamento são constituídas por três 
 
 - **Pesquisa salva.**  Define a pesquisa de log que será executada.  Várias regras de alerta podem compartilhar uma única pesquisa salva.
 - **Agenda.**  Define a frequência com a pesquisa de log será executada.  Cada regra de alerta terá apenas um agendamento.
-- **Ação de alerta.**  Cada regra de alerta terá um recurso de ação com um tipo de **alerta** que define os detalhes do alerta tais os critérios para quando um registro de alerta será criado e a gravidade do alerta.  O recurso de ação, opcionalmente, definir uma resposta de email e o runbook.
+- **Ação de alerta.**  Cada regra de alerta terá um recurso de ação com um tipo de **Alerta** que define os detalhes do alerta, como os critérios para quando um registro de alerta será criado e a gravidade do alerta.  O recurso de ação, opcionalmente, definir uma resposta de email e o runbook.
 - **Ação de Webhook (opcional).**  Se a regra de alerta chamará um webhook, ele requer um recurso de ação adicional com um tipo de **Webhook**.    
 
 Salvar pesquisa recursos descritos acima.  Outros recursos são descritos abaixo.
@@ -90,22 +91,25 @@ Salvar pesquisa recursos descritos acima.  Outros recursos são descritos abaixo
 
 ### <a name="schedule-resource"></a>Recursos de agendamento
 
-Uma pesquisa salva pode ter uma ou mais agendas com cada agenda que representa uma regra de alerta separada. A agenda define a frequência com que a pesquisa é executada e o intervalo de tempo em que os dados são recuperados.  Os recursos de agendamento têm um tipo de `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/` e ter a seguinte estrutura. 
+Uma pesquisa salva pode ter uma ou mais agendas com cada agenda que representa uma regra de alerta separada. A agenda define a frequência com que a pesquisa é executada e o intervalo de tempo em que os dados são recuperados.  Os recursos de agendamento têm um tipo de `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/` e ter a seguinte estrutura. Isso inclui variáveis e parâmetros comuns para que você possa copiar e colar este trecho de código em seu arquivo de solução e alterar os nomes de parâmetro. 
+
 
     {
-      "name": "<name-of-schedule-resource>",
-      "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/",
-      "apiVersion": "<api-version-of-resource>",
-      "dependsOn": [
-        "<name-of-saved-search>"
-      ],
-      "properties": {  
-        "etag": "*",               
-        "interval": <schedule-interval-in-minutes>,
-        "queryTimeSpan": <query-timespan-in-minutes>,
-        "enabled": <schedule-enabled>       
-      }
+        "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name)]",
+        "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/",
+        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+        "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('SavedSearch').Name)]"
+        ],
+        "properties": {
+            "etag": "*",
+            "interval": "[variables('Schedule').Interval]",
+            "queryTimeSpan": "[variables('Schedule').TimeSpan]",
+            "enabled": "[variables('Schedule').Enabled]"
+        }
     }
+
+
 
 As propriedades de recursos de agendamento são descritas na tabela a seguir.
 
@@ -127,43 +131,41 @@ Recursos de ação com um tipo de `Microsoft.OperationalInsights/workspaces/save
 
 Cada agenda terá um **alerta** ação.  Isso define os detalhes do alerta e, opcionalmente, ações de notificação e correção.  Uma notificação envia um email para um ou mais endereços.  Uma correção inicia um runbook na automação do Azure para tentar corrigir o problema detectado.
 
-Ações de alerta tem a seguinte estrutura.
+Ações de alerta tem a seguinte estrutura.  Isso inclui variáveis e parâmetros comuns para que você possa copiar e colar este trecho de código em seu arquivo de solução e alterar os nomes de parâmetro. 
+
+
 
     {
-        "name": "<name-of-the-action>",
+        "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Alert').Name)]",
         "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-        "apiVersion": "<api-version-of-resource>",
+        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
         "dependsOn": [
-            <name-of-schedule>
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('SavedSearch').Name, '/schedules/', variables('Schedule').Name)]"
         ],
         "properties": {
             "etag": "*",
             "type": "Alert",
-            "name": "<display-name-of-alert>",
-            "description": "<description-of-alert>",
-            "severity": "<severity-of-alert>",
+            "name": "[variables('Alert').Name]",
+            "description": "[variables('Alert').Description]",
+            "severity": "[variables('Alert').Severity]",
             "threshold": {
-                "operator": "<threshold-operator>",
-                "value": "<threshold-value>"
+                "operator": "[variables('Alert').Threshold.Operator]",
+                "value": "[variables('Alert').Threshold.Value]",
                 "metricsTrigger": {
-                    "triggerCondition": "<trigger-condition>",
-                    "operator": "<trigger-operator>",
-                    "value": "<trigger-value>"
+                    "triggerCondition": "[variables('Alert').Threshold.Trigger.Condition]",
+                    "operator": "[variables('Alert').Trigger.Operator]",
+                    "value": "[variables('Alert').Trigger.Value]"
                 },
-            },
-            "throttling": {
-                "durationInMinutes": "<throttling-duration-in-minutes>"
             },
             "emailNotification": {
                 "recipients": [
-                    <mail-recipients>
+                    "[variables('Alert').Recipients]"
                 ],
-                "subject": "<mail-subject>",
-                "attachment": "None"
+                "subject": "[variables('Alert').Subject]"
             },
             "remediation": {
-                "runbookName": "<name-of-runbook>",
-                "webhookUri": "<runbook-uri>"
+                "runbookName": "[variables('Alert').Remedition.RunbookName]",
+                "webhookUri": "[variables('Alert').Remedition.WebhookUri]"
             }
         }
     }
@@ -229,26 +231,25 @@ Esta seção é opcional incluí-lo se você quiser que um runbook para iniciar 
 
 Ações de Webhook iniciam um processo chamando uma URL e, opcionalmente, fornecendo uma carga a ser enviada. Elas são semelhantes às ações de Correção, exceto que se destinam a webhooks que podem invocar outros processos além de runbooks da Automação do Azure. Eles também oferecem a opção adicional de fornecer uma carga a ser enviada para o processo remoto.
 
-Se o alerta irá chamar um webhook, ele precisa de um recurso de ação com um tipo de **Webhook** além do **alerta** recurso de ação.  
+Se o alerta for chamar um webhook, ele precisará de um recurso de ação com um tipo de **Webhook**, além do recurso de ação **Alerta**.  
 
     {
-        "name": "<name-of-the-action>",
-        "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-        "apiVersion": "<api-version-of-resource>",
-        "dependsOn": [
-            <name-of-schedule>
-            <name-of-alert-action>
-        ],
-        "properties": {
-            "etag": "*",
-            "type": "Webhook",
-            "name": "<display-name-of-action>",
-            "severity": "<severity-of-alert>",
-            "customPayload": "<payload-to-send>"
-        }
+      "name": "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Webhook').Name)]",
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions/",
+      "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+      "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('SavedSearch').Name, '/schedules/', variables('Schedule').Name)]"
+      ],
+      "properties": {
+        "etag": "*",
+        "type": "[variables('Alert').Webhook.Type]",
+        "name": "[variables('Alert').Webhook.Name]",
+        "webhookUri": "[variables('Alert').Webhook.webhookUri]",
+        "customPayload": "[variables('Alert').Webhook.CustomPayLoad]"
+      }
     }
 
-As propriedades de Recursos de ação de alerta são descritas nas tabelas a seguir.
+As propriedades de recursos de ação do Webhook são descritas nas tabelas a seguir.
 
 | Nome do elemento | Obrigatório | Descrição |
 |:--|:--|:--|
@@ -272,7 +273,7 @@ A seguir está um exemplo de uma solução que inclua que inclui os seguintes re
 O exemplo usa [parâmetros de solução padrão](operations-management-suite-solutions-solution-file.md#parameters) variáveis que normalmente seriam usados em uma solução em vez de embutir valores nas definições de recurso.
 
     {
-        "$schema": "http://schemas.microsoft.org/azure/deploymentTemplate?api-version=2015-01-01#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0",
         "parameters": {
           "workspaceName": {
@@ -507,5 +508,4 @@ O arquivo de parâmetro a seguir fornece valores de amostras para esta solução
 ## <a name="next-steps"></a>Próximas etapas
 * [Adicionar exibições](operations-management-suite-solutions-resources-views.md) à sua solução de gerenciamento.
 * [Adicionar runbooks de automação e outros recursos](operations-management-suite-solutions-resources-automation.md) à sua solução de gerenciamento.
-
 

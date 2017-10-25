@@ -1,6 +1,6 @@
 ---
-title: "Fazer a transição do Microsoft Forefront para proxies de aplicativo do Azure AD | Microsoft Docs"
-description: "Aborda os conceitos básicos sobre como mudar das soluções Microsoft Forefront TMG e UAG para proxies de aplicativo do Azure Active Directory."
+title: Atualizar para o Proxy de Aplicativo do Azure AD | Microsoft Docs
+description: "Escolha qual solução de proxy será a melhor se você estiver atualizando do Microsoft Forefront ou do Unified Access Gateway."
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -11,43 +11,56 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 07/27/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: c887adaae811972efd7fcea86eaa67a899f3f4c2
-ms.openlocfilehash: 542dd7df7e0b887298522f29cb597f1df73709cb
-ms.lasthandoff: 02/27/2017
-
-
+ms.reviewer: harshja
+ms.custom: it-pro
+ms.openlocfilehash: 6c9f70493155de6989b26fd4e8bcf1dff01c835c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="transition-to-azure-ad-application-proxies-from-microsoft-forefront"></a>Fazer a transição do Microsoft Forefront para proxies de aplicativo do Azure AD
+# <a name="compare-remote-access-solutions"></a>Comparar as soluções de acesso remoto
 
-Este artigo descreve como fazer a transição das soluções TMG (Threat Management Gateway) e UAG (Unified Access Gateway) do Microsoft Forefront para estes proxies de aplicativo do Azure AD (Azure Active Directory): Proxy de Aplicativo Web e Proxy de Aplicativo do Azure AD.
-
-> [!NOTE]
-> O proxy de aplicativo do Azure AD é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Basic do Azure AD. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
+O Azure Active Directory Application Proxy é uma das duas soluções de acesso remoto que a Microsoft oferece. O outro é o Proxy de Aplicativo Web, a versão local. Essas duas soluções substituem os produtos anteriores oferecidos pela Microsoft: Microsoft Forefront Threat Management Gateway (TMG) e Unified Access Gateway (UAG). Use este artigo para ver uma comparação entre estas quatro soluções. Para aqueles que ainda utilizam as soluções TMG ou UAG preteridas, use este artigo para ajudar a planejar a migração para um Proxy de Aplicativo. 
 
 
-Para obter informações detalhadas sobre a transição do Forefront TMG e UAG para os novos proxies de aplicativo, [baixe um white paper relacionado da Microsoft](http://download.microsoft.com/download/3/E/3/3E335D93-6DB8-4834-90A8-B86105419F05/Microsoft%20TMG%20and%20UAG%20EOL%20and%20transitioning%20to%20WAP%20and%20AADAP.docx).
+## <a name="feature-comparison"></a>Comparação de recursos
 
-## <a name="functionality-details-for-the-conversion"></a>Detalhes de funcionalidade da conversão
+Use essa tabela para entender a comparação entre o Threat Management Gateway (TMG), o Unified Access Gateway (UAG), o Proxy de Aplicativo da Web (WAP) e o Proxy de Aplicativo do Azure AD (AP).
 
-|**Funcionalidade do TMG/UAG**|**Proxy de Aplicativo Web/Proxy de Aplicativo do Azure AD**|
-|:-----|:-----|
-|Publicação seletiva de HTTP para aplicativos de navegador|Disponível no Proxy de Aplicativo Web no Windows Server 2012 R2. Disponível hoje no Proxy de Aplicativo do Azure AD.|
-|Integração do AD FS (Serviços de Federação do Active Directory)|Disponível no Proxy de Aplicativo Web no Windows Server 2012 R2. Disponível hoje no Proxy de Aplicativo do Azure AD.|
-|Publicação avançada de protocolos (por exemplo, Citrix, Lync, RDG)|Disponível no Proxy de Aplicativo Web no Windows Server 2012 R2. Disponível hoje no Proxy de Aplicativo do Azure AD.|
-|Pré-autenticação do ActiveSync (HTTP Básico) e RDG|Atualmente, não está disponível no Proxy de Aplicativo Web ou no Proxy de Aplicativo do Azure AD.|
-|Portal|Use o Intune ou System Center para o Proxy de Aplicativo Web. Use o Painel de Acesso do Azure AD ou o Lançador de Aplicativo do Office 365 para o Proxy de Aplicativo do Azure AD.|
-|Detecção de integridade do ponto de extremidade|Use o Intune ou System Center.|
-|Túnel SSL|Use o recurso SSL ou VPN do Windows.|
-|Firewall de Camada 2/3|Use os recursos do Windows Server.|
-|Firewall do aplicativo Web|Nenhuma solução atual da Microsoft.|
-|Gateway da Web seguro (proxy de encaminhamento)|Nenhuma solução atual da Microsoft.|
+| Recurso | TMG | UAG | WAP | AP |
+| ------- | --- | --- | --- | --- |
+| Autenticação de certificado | Sim | Sim | - | - |
+| Publicar seletivamente os aplicativos de navegador | Sim | Sim | Sim | Sim |
+| Pré-autenticação e logon único | Sim | Sim | Sim | Sim | 
+| Firewall de Camada 2/3 | Sim | Sim | - | - |
+| Recursos de proxy de encaminhamento | Sim | - | - | - |
+| Funcionalidades de VPN | Sim | Sim | - | - |
+| Suporte avançado a protocolo | - | Sim | Sim, se estiver em execução sobre HTTP | Sim, se a execução for feita via HTTP ou por meio do Gateway de Área de Trabalho Remota |
+| Atua como um servidor proxy do ADFS | - | Sim | Sim | - |
+| Um portal para acesso de aplicativo | - | Sim | - | Sim |
+| Conversão de link de corpo de resposta | Sim | Sim | - | Sim | 
+| Autenticação com cabeçalhos | - | Sim | - | Sim, com PingAccess | 
+| Segurança em escala de nuvem | - | - | - | Sim | 
+| Acesso condicional | - | Sim | - | Sim |
+| Nenhum componente na zona desmilitarizada (DMZ) | - | - | - | Sim |
+| Nenhuma conexão de entrada | - | - | - | Sim |
+
+Para a maioria dos cenários, é recomendável usar o Aplicativo do Azure AD como a solução moderna. P Proxy de Aplicativo Web é preferencial apenas em cenários que exigem um servidor proxy para o AD FS e não pode usar domínios personalizados no Azure Active Directory. 
+
+O Proxy de Aplicativo do Azure AD oferece benefícios exclusivos quando comparados a produtos semelhantes, incluindo:
+
+- Extensão do AD do Azure para recursos locais
+   - Proteção e segurança em escala de nuvem
+   - Os recursos como acesso condicional e a Autenticação Multifator são fáceis de habilitar
+- Nenhum componente na zona desmilitarizada
+- Nenhuma conexão de entrada necessária
+- Um painel de acesso em que os usuários poderão procurar todos os aplicativos, incluindo o O365, os aplicativos SaaS integrados do Azure AD e seus aplicativos Web locais. 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Blog: Web Application Proxy](https://blogs.technet.microsoft.com/applicationproxyblog/tag/web-application-proxy) (Proxy de Aplicativo Web)<br>
-[Blog: Proxy de Aplicativo do Azure AD](https://blogs.technet.microsoft.com/applicationproxyblog/tag/aad-ap)
-
+- [Usar o Aplicativo do Azure AD para fornecer acesso remoto seguro a aplicativos locais](active-directory-application-proxy-get-started.md)
+- [Transição do Forefront TMG e UAG para o Proxy de Aplicativo](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/).

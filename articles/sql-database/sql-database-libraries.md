@@ -8,43 +8,51 @@ manager: jhubbard
 editor: genemi
 ms.assetid: 13d899d3-cf46-4e4d-8919-cf4b41ca836d
 ms.service: sql-database
-ms.custom: development
+ms.custom: develop apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 07/05/2017
 ms.author: genemi
-translationtype: Human Translation
-ms.sourcegitcommit: fdbe5ff497b7acc9d8521b8ba1a016ae11bc69d2
-ms.openlocfilehash: 26140426eb2a5376af003248a0de6685999ac5a2
-
-
+ms.openlocfilehash: 082abf57b139b9f7d44774dce3a80e20b97f0e3b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="connection-libraries-for-sql-database-and-sql-server"></a>Bibliotecas de conexão para Banco de Dados SQL e SQL Server
+# <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>Estruturas e bibliotecas de conectividade para Microsoft SQL Server
 
-Este tópico lista cada biblioteca ou *driver* que os programas clientes podem usar ao se conectarem ao Banco de Dados SQL do Azure ou ao Microsoft SQL Server.
+Confira nossos [Tutoriais de introdução](http://aka.ms/sqldev) para rapidamente começar a trabalhar com linguagens de programação como C#, Java, Node.js, PHP e Python e criar um aplicativo usando SQL Server no Linux ou Windows ou Docker no macOS.
 
-| Linguagem | Plataforma | Recursos adicionais | Baixar |
-|:--- |:--- |:--- |:--- |
-| ADO.NET |Windows, Linux e Mac |[Microsoft ADO.NET para SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server/) |[Baixar](https://www.microsoft.com/net/) |
-| Java |Windows, Linux e Mac |[Microsoft JDBC Driver para SQL Server](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) |[Baixar](http://go.microsoft.com/fwlink/?LinkId=245496) |
-| PHP |Windows |[Microsoft PHP Driver para SQL Server](https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server/) |[Baixar](https://www.microsoft.com/download/details.aspx?id=20098) |
-| Node.js |Windows, Linux e Mac |[Node.js Driver para SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/) |[Instalar](https://docs.microsoft.com/sql/connect/node-js/step-1-configure-development-environment-for-node-js-development/) |
-| Python |Windows, Linux e Mac |[Python SQL Driver](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/) |Opções de instalação: <br/> \* [pymssql](https://docs.microsoft.com/sql/connect/python/pymssql/step-1-configure-development-environment-for-pymssql-python-development/) <br/> \* [pyodbc](https://docs.microsoft.com/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development/) |
-| Ruby |Windows, Linux e Mac |[Ruby Driver para SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/) |[Instalar](https://docs.microsoft.com/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development/) |
-| C/C++ |Windows, Linux |[Driver ODBC Microsoft para SQL Server](http://docs.microsoft.com/sql/connect/odbc/microsoft-odbc-driver-for-sql-server) |Opções de instalação: <br/> \* [Windows](https://www.microsoft.com/download/details.aspx?id=53339) <br/> \* [Linux](https://blogs.msdn.microsoft.com/sqlnativeclient/2016/10/20/odbc-driver-13-0-for-linux-released/) |
+A tabela a seguir lista as bibliotecas de conectividade ou *drivers* que aplicativos cliente podem usar de uma variedade de linguagens para se conectar e usar o Microsoft SQL Server em execução local ou na nuvem, no Linux, no Windows ou no Docker e também para o Banco de Dados SQL e ao SQL Data Warehouse do Azure. 
+
+| Linguagem | Plataforma | Recursos adicionais | Baixar | Introdução |
+| :-- | :-- | :-- | :-- | :-- |
+| C# | Windows, Linux, macOS | [Microsoft ADO.NET para SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Baixar](https://www.microsoft.com/net/download/) | [Introdução](https://www.microsoft.com/en-us/sql-server/developer-get-started/csharp/ubuntu)
+| Java | Windows, Linux, macOS | [Microsoft JDBC Driver para SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) | [Baixar](https://go.microsoft.com/fwlink/?linkid=852460) |  [Introdução](https://www.microsoft.com/en-us/sql-server/developer-get-started/java/ubuntu)
+| PHP | Windows, Linux, macOS| [Driver do SQL de PHP para SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) | Sistema operacional: <br/> \* [Windows](https://www.microsoft.com/download/details.aspx?id=20098) <br/> \* [Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \* [macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Introdução](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu)
+| Node.js | Windows, Linux, macOS | [Node.js Driver para SQL Server](http://msdn.microsoft.com/library/mt652093.aspx) | [Instalar](https://msdn.microsoft.com/library/mt652094.aspx) |  [Introdução](https://www.microsoft.com/en-us/sql-server/developer-get-started/node/ubuntu)
+| Python | Windows, Linux, macOS | [Python SQL Driver](http://msdn.microsoft.com/library/mt652092.aspx) | Opções de instalação: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [Introdução](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu)
+| Ruby | Windows, Linux, macOS | [Ruby Driver para SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) | [Instalar](https://msdn.microsoft.com/library/mt711041.aspx) | [Introdução](https://www.microsoft.com/en-us/sql-server/developer-get-started/ruby/ubuntu)
+| C++ | Windows, Linux, macOS | [Driver ODBC Microsoft para SQL Server](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) | [Baixar](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) |  
+
+A tabela a seguir lista alguns exemplos das estruturas de ORM (Mapeamento Objeto-Relacional) e estruturas de Web que os aplicativos cliente podem usar com o Microsoft SQL Server em execução local ou na nuvem, no Linux, no Windows ou no Docker e também para o Banco de Dados SQL do Azure e ao SQL Data Warehouse do Azure. 
+
+| Linguagem | Plataforma | ORM(s) |
+| :-- | :-- | :-- |
+| C# | Windows, Linux, macOS | [Entity Framework](https://docs.microsoft.com/en-us/ef)<br>[Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/index) |
+| Java | Windows, Linux, macOS |[Hibernate ORM](http://hibernate.org/orm)|
+| PHP | Windows, Linux | [Laravel (Eloquent)](https://laravel.com/docs/5.0/eloquent) |
+| Node.js | Windows, Linux, macOS | [Sequelize ORM](http://docs.sequelizejs.com) |
+| Python | Windows, Linux, macOS |[Django](https://www.djangoproject.com/) |
+| Ruby | Windows, Linux, macOS | [Ruby on Rails](http://rubyonrails.org/) |
 
 ## <a name="related-links"></a>Links relacionados
-
-- [SQL Server Drivers](https://docs.microsoft.com/sql/connect/sql-server-drivers/) para conectar-se de um cliente
-- [Conectar-se ao Banco de Dados SQL usando .NET (C#)](sql-database-develop-dotnet-simple.md), ADO.NET
-- [Conectar-se ao Banco de Dados SQL usando Node.js](sql-database-develop-nodejs-simple.md)
-- [Conectar-se ao Banco de Dados SQL usando Phyton](sql-database-develop-python-simple.md), pymssql
-- [Conectar-se ao Banco de Dados SQL usando o Ruby](sql-database-develop-ruby-simple.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+- [SQL Server Drivers](http://msdn.microsoft.com/library/mt654049.aspx) (Drivers do SQL Server) para se conectar de aplicativos cliente
+- [Conectar-se ao Banco de Dados SQL usando .NET (C#)](sql-database-connect-query-dotnet.md)
+- [Conectar-se ao Banco de Dados SQL usando o PHP](sql-database-connect-query-php.md)
+- [Conectar-se ao Banco de Dados SQL usando Node.js](sql-database-connect-query-nodejs.md)
+- [Conectar-se ao Banco de Dados SQL usando o Java](sql-database-connect-query-java.md)
+- [Conectar-se ao Banco de Dados SQL usando Phyton](sql-database-connect-query-python.md)
+- [Conectar-se ao Banco de Dados SQL usando o Ruby](sql-database-connect-query-ruby.md)

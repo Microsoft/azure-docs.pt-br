@@ -12,20 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: f08fc1df10506dead5d049fb2c6cdc29c8f89d90
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 4b48b893e5a3bf5620f00a336576efe1ad63def8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Observações sobre a serialização de tipo dos Reliable Actors do Service Fabric
-Os argumentos de todos os métodos, os tipos de resultado das tarefas retornados por cada método em uma interface de ator e os objetos armazenados no Gerenciador de Estado de um ator devem ser [serializáveis por Contrato de Dados](https://msdn.microsoft.com/library/ms731923.aspx). Isso também se aplica aos argumentos dos métodos definidos nas [interfaces de evento de ator](service-fabric-reliable-actors-events.md). (Os métodos de interface de eventos de ator sempre retornam nulo).
+Os argumentos de todos os métodos, os tipos de resultado das tarefas retornados por cada método em uma interface de ator e os objetos armazenados no gerenciador de estado de um ator devem ser [serializáveis por contrato de dados](https://msdn.microsoft.com/library/ms731923.aspx). Isso também se aplica aos argumentos dos métodos definidos nas [interfaces de evento de ator](service-fabric-reliable-actors-events.md). (Os métodos de interface de eventos de ator sempre retornam nulo).
 
 ## <a name="custom-data-types"></a>Tipos de dados personalizados
-Neste exemplo, a interface de ator a seguir define um método que retorna um tipo de dados personalizado chamado `VoicemailBox`.
+Neste exemplo, a interface de ator a seguir define um método que retorna um tipo de dados personalizado chamado `VoicemailBox`:
 
 ```csharp
 public interface IVoiceMailBoxActor : IActor
@@ -41,7 +40,7 @@ public interface VoiceMailBoxActor extends Actor
 }
 ```
 
-A interface é implementada por um ator, que usa o Gerenciador de Estado para armazenar um objeto `VoicemailBox` :
+A interface é implementada por um ator que usa o gerenciador de estado para armazenar um objeto `VoicemailBox`:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -80,9 +79,9 @@ public class VoiceMailBoxActorImpl extends FabricActor implements VoicemailBoxAc
 Neste exemplo, o objeto `VoicemailBox` é serializado quando:
 
 * O objeto é transmitido entre uma instância do ator e um chamador.
-* O objeto é salvo no Gerenciador de Estado, onde é mantido no disco e replicado para outros nós.
+* O objeto é salvo no gerenciador de estado, local em que é mantido no disco e replicado para outros nós.
 
-A estrutura Reliable Actor usa a serialização DataContract. Portanto, os objetos de dados personalizados e seus membros devem ser anotados com os atributos **DataContract** e **DataMember**, respectivamente
+A estrutura Reliable Actor usa a serialização DataContract. Portanto, os objetos de dados personalizados e seus membros devem ser anotados com os atributos **DataContract** e **DataMember**, respectivamente.
 
 ```csharp
 [DataContract]
@@ -152,4 +151,3 @@ public class VoicemailBox implements Serializable
 * [Reentrância de ator](service-fabric-reliable-actors-reentrancy.md)
 * [Polimorfismo de ator e padrões de design orientado a objeto](service-fabric-reliable-actors-polymorphism.md)
 * [Diagnóstico e monitoramento de desempenho do ator](service-fabric-reliable-actors-diagnostics.md)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 76987a6e91ae688b3856567073a7d27472e5ba09
-ms.openlocfilehash: 34f84de82cbd6c15bd62abedd05e0eff6ce2dc2f
-ms.lasthandoff: 01/28/2017
-
-
+ms.openlocfilehash: 8005be7ded6ea005af086aeaf594963a5f2d4ac2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-domain-services"></a>Azure AD Domain Services
 ## <a name="features"></a>Recursos
@@ -34,10 +33,9 @@ Os seguintes recursos estão disponíveis nos domínios gerenciados dos Serviço
 * **Usar suas credenciais corporativas/senhas:** senhas de usuários em seu locatário do AD do Azure funcionam com os Serviços de Domínio do AD do Azure. Os usuários podem usar as credenciais corporativas para ingressar em computadores no domínio, fazer logon interativamente ou pela área de trabalho remota e autenticar em relação ao domínio gerenciado.
 * **Suporte de associação LDAP e leitura LDAP:** você pode usar aplicativos que dependem de associações LDAP para autenticar usuários em domínios atendidos pelos Azure AD Domain Services. Além disso, os aplicativos que usam operações de leitura LDAP para consultar atributos de usuário/computador a partir do diretório também podem funcionar nos Serviços de Domínio do AD do Azure.
 * **LDAPS (LDAP seguro):** você pode habilitar o acesso ao diretório sobre LDAPS (LDAP seguro). Acesso por LDAP seguro está disponível na rede virtual por padrão. No entanto, você também pode habilitar o acesso por LDAP seguro pela Internet.
-* **Política de grupo:** você pode usar um único objeto de política de grupo (GPO) para cada um dos usuários e contêineres de computadores, a fim de impor a conformidade com políticas de segurança necessárias para contas de usuário, bem como computadores ingressados no domínio. Você também pode criar seus próprios GPOs personalizados e atribuí-los às unidades organizacionais personalizadas para gerenciar a política de grupo.
+* **Política de grupo:** você pode usar um único objeto de política de grupo (GPO) para cada um dos usuários e contêineres de computadores, a fim de impor a conformidade com políticas de segurança necessárias para contas de usuário, bem como computadores ingressados no domínio. Você também pode criar seus próprios GPOs personalizados e atribuí-los às unidades organizacionais personalizadas para [gerenciar a política de grupo](active-directory-ds-admin-guide-administer-group-policy.md).
 * **Gerenciar DNS:** membros do grupo 'Administradores do controlador de domínio do AAD' podem gerenciar o DNS para seu domínio gerenciado usando ferramentas de administração do DNS familiares, como o snap-in do MMC de administração do DNS.
 * **Criar UOs (unidades organizacionais) personalizadas:** membros do grupo 'Administradores do controlador de domínio do AAD' podem criar UOs personalizadas dentro do domínio gerenciado. Esses usuários recebem privilégios administrativos totais sobre UOs personalizadas, de modo que podem adicionar ou remover contas de serviço, computadores, grupos etc. dessas OUs personalizadas.
 * **Disponível em várias regiões do Azure:** consulte a página [Serviços do Azure por região](https://azure.microsoft.com/regions/#services/) para saber as regiões do Azure nas quais os Azure AD Domain Services estão disponíveis.
 * **Alta disponibilidade:** os Azure AD Domain Services oferecem alta disponibilidade para seu domínio. Esse recurso oferece a garantia de maior tempo de atividade de serviço e resiliência a falhas. O monitoramento da integridade interna oferece a correção automatizada de falhas gerando novas instâncias para substituir instâncias com falha e fornecer um serviço contínuo para seu domínio.
 * **Usar ferramentas de gerenciamento conhecidas:** você pode usar ferramentas de gerenciamento conhecidas do Active Directory do Windows Server, como o Centro Administrativo do Active Directory ou o Active Directory PowerShell, para administrar domínios gerenciados.
-

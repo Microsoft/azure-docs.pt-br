@@ -6,8 +6,3 @@
 | Registros por conjunto de registros |20 |
 
 <sup>1</sup> Contate o suporte do Azure caso precise aumentar esses limites.
-
-
-<!--HONumber=Nov16_HO3-->
-
-

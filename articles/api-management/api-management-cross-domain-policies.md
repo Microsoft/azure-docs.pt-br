@@ -3,7 +3,7 @@ title: "Políticas entre domínios de Gerenciamento de API do Azure | Microsoft 
 description: "Saiba mais sobre as políticas entre domínios disponíveis para uso no Gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 7689d277-8abe-472a-a78c-e6d4bd43455d
@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 638e70d29fb8e60418bcfdf76dc1405afef91278
-
+ms.openlocfilehash: 05b25ffad4a91859932cd53475d82b11bf3e43e5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-namecrossdomainpoliciesa-cross-domain-policies"></a><a name="CrossDomainPolicies"></a> Políticas entre domínios  
+##  <a name="CrossDomainPolicies"></a> Políticas entre domínios  
   
 -   [Permitir chamadas entre domínios](api-management-cross-domain-policies.md#AllowCrossDomainCalls) - Torna a API acessível por meio de clientes Adobe Flash e Microsoft Silverlight baseados em navegadores.  
   
@@ -30,7 +31,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   [JSONP](api-management-cross-domain-policies.md#JSONP) - Adiciona suporte JSON com preenchimento (JSONP) a uma operação ou a uma API para permitir chamadas entre domínios de clientes JavaScript baseados em navegadores.  
   
-##  <a name="a-nameallowcrossdomaincallsa-allow-cross-domain-calls"></a><a name="AllowCrossDomainCalls"></a> Permitir chamadas entre domínios  
+##  <a name="AllowCrossDomainCalls"></a> Permitir chamadas entre domínios  
  Use a política `cross-domain` para tornar a API acessível por clientes baseados em navegadores do Adobe Flash e do Microsoft Silverlight.  
   
 ### <a name="policy-statement"></a>Declaração de política  
@@ -65,7 +66,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos de política:** global  
   
-##  <a name="a-namecorsa-cors"></a><a name="CORS"></a> CORS  
+##  <a name="CORS"></a> CORS  
  A política `cors` adiciona suporte do CORS (compartilhamento de recurso entre origens) a uma operação ou API para permitir chamadas entre domínios de clientes baseados em navegador.  
   
  O CORS permite que um navegador e um servidor interajam e determina e solicitações entre origens específicas devem ou não ser aceitas (por exemplo, chamadas XMLHttpRequests feitas por meio de JavaScript em uma página da Web para outros domínios). Isso permite maior flexibilidade do que permitir somente solicitações com a mesma origem, mas é mais seguro do que permitir todas as solicitações entre origens.  
@@ -149,7 +150,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos de política:** API, operação  
   
-##  <a name="a-namejsonpa-jsonp"></a><a name="JSONP"></a> JSONP  
+##  <a name="JSONP"></a> JSONP  
  A política `jsonp` adiciona suporte a JSONP com padding (JSONP) a uma operação ou API para permitir chamadas entre domínios de clientes JavaScript baseados em navegador. O JSONP é um método usado em programas JavaScript para solicitar dados de um servidor em um domínio diferente. O JSONP ignora a limitação aplicada pela maioria dos navegadores da Web quando o acesso às páginas da Web precisa ser do mesmo domínio.  
   
 ### <a name="policy-statement"></a>Declaração de política  
@@ -189,8 +190,3 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como trabalhar com políticas, veja [Políticas em Gerenciamento de API](api-management-howto-policies.md).  
-
-
-<!--HONumber=Jan17_HO2-->
-
-

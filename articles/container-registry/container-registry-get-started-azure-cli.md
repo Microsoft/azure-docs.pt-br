@@ -1,128 +1,160 @@
 ---
-title: "Criar registro privado do contêiner do Docker - CLI do Azure | Microsoft Docs"
-description: "Introdução à criação e gerenciamento de registros de contêiner privado do Docker com a CLI do Azure 2.0"
+title: "Guia de início rápido – criar um registro particular do Docker no Azure com a CLI do Azure"
+description: "Aprenda rapidamente a criar um registro de contêiner particular do Docker com a CLI do Azure."
 services: container-registry
 documentationcenter: 
-author: stevelas
-manager: balans
-editor: cristyg
+author: neilpeterson
+manager: timlt
+editor: tysonn
 tags: 
 keywords: 
 ms.assetid: 29e20d75-bf39-4f7d-815f-a2e47209be7d
 ms.service: container-registry
 ms.devlang: azurecli
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
-ms.author: stevelas
+ms.date: 09/20/2017
+ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: e37a3194bb65ccf3bb6168a2f456902a9c48edc5
-ms.lasthandoff: 03/28/2017
-
+ms.openlocfilehash: 06967315dfa43e791e662a689ceb993c4af1c1e3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-private-docker-container-registry-using-the-azure-cli-20"></a>Criar um registro de contêiner privado do Docker usando a CLI do Azure 2.0
-Usar comandos na [CLI do Azure 2.0](https://github.com/Azure/azure-cli) para criar um registro de contêiner e gerenciar as configurações em um computador Linux, Mac ou Windows. Você também pode criar e gerenciar registros de contêiner usando o [portal do Azure](container-registry-get-started-portal.md) ou por meio de programação com a [API REST](https://go.microsoft.com/fwlink/p/?linkid=834376) do Registro de Contêiner.
+# <a name="create-a-container-registry-using-the-azure-cli"></a>Criar um registro de contêiner usando a CLI do Azure
 
+O Registro de Contêiner do Azure é um serviço de registro de contêiner Docker gerenciado usado para armazenar imagens de contêiner de Docker particulares. Este guia detalha a criação de uma instância do Registro de Contêiner do Azure usando a CLI do Azure.
 
-* Para obter mais informações e conceitos, confira a [visão geral](container-registry-intro.md)
-* Para obter ajuda sobre comandos da CLI do contêiner do registro (`az acr` comandos), passe o parâmetro `-h` para qualquer comando.
+Este guia de início rápido exige que você esteja executando a CLI do Azure versão 2.0.12 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli).
 
+Você também deve ter o Docker instalado localmente. O Docker fornece pacotes que configuram facilmente o Docker em qualquer sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) ou [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
-## <a name="prerequisites"></a>Pré-requisitos
-* **CLI do Azure 2.0**: para instalar e começar a usar a CLI 2.0, confira as [instruções de instalação](/cli/azure/install-azure-cli). Faça logon em sua assinatura do Azure executando `az login`. Para obter mais informações, confira [Introdução à CLI 2.0](/cli/azure/get-started-with-azure-cli).
-* **Grupo de recursos**: crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md#resource-groups) antes de criar um registro de contêiner ou usar um grupo de recursos existente. Verifique se o grupo de recursos está em um local em que o serviço de Registro de Contêiner está [disponível](https://azure.microsoft.com/regions/services/). Para criar um grupo de recursos usando a CLI 2.0, confira [a referência da CLI 2.0](/cli/azure/group).
-* **Conta de armazenamento** (opcional): cria uma [conta de armazenamento](../storage/storage-introduction.md) padrão do Azure para dar suporte ao registro de contêiner no mesmo local. Se você não especificar uma conta de armazenamento ao criar um registro com `az acr create`, o comando criará um para você. Para criar uma conta de armazenamento usando a CLI 2.0, confira [a referência da CLI 2.0](/cli/azure/storage/account). Atualmente, não há suporte para o Armazenamento Premium.
-* **Entidade de serviço** (opcional): quando você cria um registro com a CLI, por padrão, ele não é configurado para acesso. Dependendo das suas necessidades, você pode atribuir uma entidade de serviço do Azure Active Directory existente a um registro (ou criar e atribuir uma nova) ou habilitar a conta de usuário do administrador do registro. Confira as seções mais adiante neste artigo. Para obter mais informações sobre o acesso ao registro, confira [Autenticar no registro de contêiner](container-registry-authentication.md).
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
+
+O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
+
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus
+```
 
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner
-Execute o comando `az acr create` para criar um registro de contêiner.
 
-> [!TIP]
-> Ao criar um registro, especifique um nome de domínio de nível superior exclusivo que contenha apenas letras e números. O nome do registro nos exemplos é `myRegistry1`, mas substitua-o por um nome exclusivo.
->
->
+O Registro de Contêiner do Azure está disponível em vários SKUs: `Basic`, `Managed_Basic`, `Managed_Standard` e `Managed_Premium`. Embora os SKUs `Managed_*` forneçam recursos avançados como armazenamento gerenciado e Webhooks, eles estão atualmente em versão prévia e não estão disponíveis em algumas regiões do Azure. Selecionamos o SKU `Basic` neste guia de início rápido devido a sua disponibilidade em todas as regiões.
 
-O seguinte comando usa os parâmetros mínimos para criar o registro de contêiner `myRegistry1` no grupo de recursos `myResourceGroup` no local Centro-Sul dos EUA:
+Crie uma instância ACR usando o comando [az acr create](/cli/azure/acr#create).
+
+O nome do registro **deve ser exclusivo**. No exemplo a seguir o nome *myContainerRegistry007* é usado. Atualize-o para um valor exclusivo.
 
 ```azurecli
-az acr create -n myRegistry1 -g myResourceGroup -l southcentralus
+az acr create --name myContainerRegistry007 --resource-group myResourceGroup --admin-enabled --sku Basic
 ```
 
-* `--storage-account-name` é opcional. Se não for especificada, uma conta de armazenamento será criada com um nome que consiste no nome do registro e em um carimbo de data e hora no grupo de recursos especificado.
-
-A saída deverá ser semelhante a esta:
-
-![criar saída az acr](./media/container-registry-get-started-azure-cli/acr_create.png)
-
-
-Observe particularmente:
-
-* `id` - identificador do registro em sua assinatura, que é necessário se você deseja atribuir uma entidade de serviço.
-* `loginServer` - o nome totalmente qualificado que você especifica para [fazer logon no registro](container-registry-authentication.md). Neste exemplo, o nome é `myregistry1.exp.azurecr.io` (todo em minúsculas).
-
-## <a name="assign-a-service-principal"></a>Atribuir uma entidade de serviço
-Use comandos da CLI 2.0 para atribuir uma entidade de serviço do Azure Active Directory a um registro. A entidade de serviço nesses exemplos é atribuída à função de Proprietário, mas você poderá atribuir [outras funções](../active-directory/role-based-access-control-configure.md), se desejar.
-
-### <a name="create-a-service-principal-and-assign-access-to-the-registry"></a>Criar uma entidade de serviço e atribuir acesso ao registro
-No comando a seguir, uma nova entidade de serviço recebe acesso de função de proprietário para o identificador do registro passado com o parâmetro `--scopes`. Especifique uma senha forte com o parâmetro `--password`.
+Quando o registro é criado, o resultado é semelhante ao seguinte:
 
 ```azurecli
-az ad sp create-for-rbac --scopes /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry1 --role Owner --password myPassword
+{
+  "adminUserEnabled": true,
+  "creationDate": "2017-09-08T22:32:13.175925+00:00",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
+  "location": "eastus",
+  "loginServer": "myContainerRegistry007.azurecr.io",
+  "name": "myContainerRegistry007",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "sku": {
+    "name": "Basic",
+    "tier": "Basic"
+  },
+  "storageAccount": {
+    "name": "mycontainerregistr223140"
+  },
+  "tags": {},
+  "type": "Microsoft.ContainerRegistry/registries"
+}
 ```
 
+No restante deste guia de início rápido, utilizamos `<acrname>` como um espaço reservado para o nome do registro de contêiner.
 
+## <a name="log-in-to-acr"></a>Fazer logon no ACR
 
-### <a name="assign-an-existing-service-principal"></a>Atribuir uma entidade de serviço existente
-Se já tiver uma entidade de serviço e desejar atribuir a ela acesso de função de Proprietário para o registro, execute um comando semelhante ao exemplo a seguir. Você passa a ID de aplicativo principal de serviço usando o parâmetro `--assignee`:
+Antes de enviar por push e pull imagens de contêiner, você deverá fazer logon na instância ACR. Para fazer isso, use o comando [az acr login](/cli/azure/acr#login).
 
-```azurecli
-az role assignment create --scope /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry1 --role Owner --assignee myAppId
+```azurecli-interactive
+az acr login --name <acrname>
 ```
 
+O comando retorna uma mensagem de 'Logon bem-sucedido' assim que ele for concluído.
 
+## <a name="push-image-to-acr"></a>Enviar imagem por push para o ACR
 
-## <a name="manage-admin-credentials"></a>Gerenciar credenciais de administrador
-Uma conta de administrador é automaticamente criada para cada registro de contêiner e é desabilitada por padrão. Os exemplos a seguir mostram comandos CLI `az acr` para gerenciar as credenciais de administrador para o registro de contêiner.
+Para enviar por push uma imagem para um Registro de Contêiner do Azure, primeiro você deve ter uma imagem. Se necessário, execute o seguinte comando para efetuar pull de uma imagem pré-criada do Hub do Docker.
 
-### <a name="obtain-admin-user-credentials"></a>Obter credenciais de usuário administrador
-```azurecli
-az acr credential show -n myRegistry1
+```bash
+docker pull microsoft/aci-helloworld
 ```
 
-### <a name="enable-admin-user-for-an-existing-registry"></a>Habilitar o usuário administrador para um registro existente
-```azurecli
-az acr update -n myRegistry1 --admin-enabled true
+A imagem deve ser marcada com o nome do servidor de logon do ACR. Execute o seguinte comando para retornar o nome do servidor de logon da instância do ACR.
+
+```bash
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-### <a name="disable-admin-user-for-an-existing-registry"></a>Desabilitar o usuário administrador para um registro existente
-```azurecli
-az acr update -n myRegistry1 --admin-enabled false
+Marque a imagem usando o comando [docker tag](https://docs.docker.com/engine/reference/commandline/tag/). Substitua o *<acrLoginServer>* pelo nome do servidor de logon da sua instância do ACR.
+
+```
+docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-## <a name="list-images-and-tags"></a>Listar imagens e marcas
-Use os comandos de CLI `az acr` para consultar as imagens e marcas em um repositório.
+Por fim, use [docker push](https://docs.docker.com/engine/reference/commandline/push/) para enviar a imagem por push para a instância do ACR. Substitua o *<acrLoginServer>* pelo nome do servidor de logon da sua instância do ACR.
 
-> [!NOTE]
-> Atualmente, o Registro de Contêiner não dá suporte ao comando `docker search` para consulta para imagens e marcas.
-
-
-### <a name="list-repositories"></a>Listar repositórios
-O seguinte exemplo lista os repositórios em um registro, no formato JSON (JavaScript Object Notation):
-
-```azurecli
-az acr repository list -n myRegistry1 -o json
+```
+docker push <acrLoginServer>/aci-helloworld:v1
 ```
 
-### <a name="list-tags"></a>Listar marcas
-O seguinte exemplo lista as marcas no repositório **samples/nginx**, no formato JSON:
+## <a name="list-container-images"></a>Listar imagens de contêiner
+
+O exemplo a seguir lista os repositórios em um registro:
 
 ```azurecli
-az acr repository show-tags -n myRegistry1 --repository samples/nginx -o json
+az acr repository list -n <acrname> -o table
+```
+
+Saída:
+
+```json
+Result
+----------------
+aci-helloworld
+```
+
+O exemplo a seguir lista as marcas no repositório **aci-helloworld**.
+
+```azurecli
+az acr repository show-tags -n <acrname> --repository aci-helloworld -o table
+```
+
+Saída:
+
+```Result
+--------
+v1
+```
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#delete) para remover o grupo de recursos, a instância do ACR e todas as imagens de contêiner.
+
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Enviar por push sua primeira imagem usando a CLI do Docker](container-registry-get-started-docker-cli.md)
 
+Neste guia de início rápido, você ciou um Registro de Contêiner do Azure com a CLI do Azure. Se você quiser usar o Registro de Contêiner do Azure com Instâncias de Contêiner do Azure, prossiga para o tutorial de Instâncias de Contêiner do Azure.
+
+> [!div class="nextstepaction"]
+> [Tutorial sobre Instâncias de Contêiner do Azure](../container-instances/container-instances-tutorial-prepare-app.md)

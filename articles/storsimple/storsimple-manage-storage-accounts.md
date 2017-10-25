@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/29/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8e12de291ad93f894967a41d1b29f67757ba0d6c
-
-
+ms.openlocfilehash: 68b767c9c93f2daff476a21029b9813f347590b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-your-storage-account"></a>Usar o serviço StorSimple Manager para gerenciar sua conta de armazenamento
 ## <a name="overview"></a>Visão geral
@@ -51,7 +51,7 @@ As tarefas mais comuns relacionadas a contas de armazenamento que podem ser exec
 Há três tipos de contas de armazenamento que podem ser usadas com o dispositivo StorSimple.
 
 * **Contas de armazenamento geradas automaticamente** – Como o nome sugere, esse tipo de conta de armazenamento é gerada automaticamente quando o serviço é criado pela primeira vez. Para saber mais sobre como essa conta de armazenamento é criada, consulte a [Etapa 1: criar um novo serviço](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service) em [Implantar seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md). 
-* **Contas de armazenamento na assinatura do serviço** – Essas são as contas de armazenamento do Azure que estão associadas com a mesma assinatura que o serviço. Para saber mais sobre como essas contas de armazenamento são criadas, consulte [Sobre Contas de Armazenamento do Azure](../storage/storage-create-storage-account.md). 
+* **Contas de armazenamento na assinatura do serviço** – Essas são as contas de armazenamento do Azure que estão associadas com a mesma assinatura que o serviço. Para saber mais sobre como essas contas de armazenamento são criadas, consulte [Sobre Contas de Armazenamento do Azure](../storage/common/storage-create-storage-account.md). 
 * **Contas de armazenamento fora do serviço de assinatura** – Essas são as contas de armazenamento do Azure que não estão associadas ao seu serviço e que provavelmente existiam antes da criação do serviço.
 
 ## <a name="add-a-storage-account"></a>Adicionar uma conta de armazenamento
@@ -143,10 +143,4 @@ Para informar o serviço StorSimple Manager da alteração, será necessário ac
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre a [segurança do StorSimple](storsimple-security.md).
 * Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

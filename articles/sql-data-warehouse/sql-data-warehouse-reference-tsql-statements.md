@@ -3,7 +3,7 @@ title: "Referência do Transact-SQL do SQL Data Warehouse | Microsoft Docs"
 description: "Links para conteúdo de referência dos tópicos do Transact-SQL usados pelo SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: 
 ms.assetid: 0abc5934-1e67-491a-b7d7-8b520d1ae98e
@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: reference
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ab42fce8cd49d9ae1585072a173e0c2b928f9f35
-
-
+ms.author: kevin;barbkess
+ms.openlocfilehash: d6ad9db8eae0dc35580194f2ffbf02eeab6b70d2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transact-sql-topics"></a>Tópicos do Transact-SQL
 ## <a name="data-definition-language-ddl-statements"></a>Instruções de DDL (Linguagem de Definição de Dados)
@@ -112,20 +113,14 @@ ms.openlocfilehash: ab42fce8cd49d9ae1585072a173e0c2b928f9f35
 * [OPEN MASTER KEY](https://msdn.microsoft.com/library/ms174433.aspx)
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais exemplos TSQL, consulte [Visão geral de referência do SQL Data Warehouse][Visão geral de referência do SQL Data Warehouse].
+Para obter mais exemplos de TSQL, consulte [Visão geral de referência do SQL Data Warehouse][SQL Data Warehouse reference overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral de referência do SQL Data Warehouse]: sql-data-warehouse-overview-reference.md
+[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

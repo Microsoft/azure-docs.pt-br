@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
-ms.openlocfilehash: d6409f1eb87787e5e023aa53b7b264116c9d8026
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 40a872ff310f48bfd543ac184fe7301b85b50258
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="loops-in-sql-data-warehouse"></a>Executar loops no SQL Data Warehouse
 O SQL Data Warehouse oferece suporte ao loop [WHILE][WHILE] para executar repetidamente blocos de instrução. Isso continuará enquanto as condições especificadas forem verdadeiras ou até que o código especificamente encerre o loop usando a palavra-chave `BREAK` . A execução de loops é particularmente útil para a substituição de cursores definidos no código SQL. Felizmente, quase todos os cursores que são escritos em código SQL são do tipo somente leitura de avanço rápido. Portanto, a execução de loops [WHILE] é uma ótima alternativa se você precisar substituir um.
@@ -86,4 +85,3 @@ Para obter mais dicas de desenvolvimento, confira [visão geral de desenvolvimen
 
 
 <!--Other Web references-->
-

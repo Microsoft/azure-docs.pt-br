@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 522463673b9ac6e53da616e435a465d2d2ce0524
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 4277bc8394c7ba140291e9dc776162e87deab96b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="resize-a-windows-vm-created-in-the-classic-deployment-model"></a>Redimensionar uma VM do Windows criada no modelo de implantação clássico
 Este artigo mostra como redimensionar uma VM do Windows criada no modelo de implantação clássico usando o Azure PowerShell.
@@ -28,7 +27,7 @@ Este artigo mostra como redimensionar uma VM do Windows criada no modelo de impl
 Ao considerar a capacidade de redimensionar uma VM, há dois conceitos que controlam o intervalo de tamanhos disponíveis para redimensionar a máquina virtual. O primeiro conceito é a região na qual a VM está implantada. A lista de tamanhos de VM disponíveis na região está na guia Serviços da página da Web Regiões do Azure. O segundo conceito é o hardware físico que atualmente hospeda sua VM. Os servidores físicos que hospedam as VMs são agrupados em clusters de hardware físico comum. O método para alterar o tamanho de uma VM varia dependendo de se o cluster de hardware que atualmente hospeda a VM tem suporte para o novo tamanho de VM desejado.
 
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Você também pode [redimensionar uma VM criada no modelo de implantação do Resource Manager](../../virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Você também pode [redimensionar uma VM criada no modelo de implantação do Resource Manager](../resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="add-your-account"></a>Adicionar sua conta
 Você deve configurar o Azure PowerShell para trabalhar com os recursos clássicos do Azure. Siga as etapas abaixo para configurar o Azure PowerShell para gerenciar os recursos clássicos.
@@ -68,6 +67,5 @@ Para redimensionar uma VM para um tamanho indisponível no cluster de hardware q
 Um exemplo de script para excluir e recriar um serviço de nuvem usando um novo tamanho VM pode ser encontrado [aqui](https://github.com/Azure/azure-vm-scripts). 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Redimensione uma VM criada no modelo de implantação do Gerenciador de Recursos](../../virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
+* [Redimensione uma VM criada no modelo de implantação do Gerenciador de Recursos](../resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

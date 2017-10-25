@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 5dd6701f25c69f5e870d3add79c312f9aeec6bf4
-
-
+ms.openlocfilehash: 60a5cc2ecc550c76ca3cb1f1d4d20070b3e3b035
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-authenticator-for-android"></a>Azure Authenticator para Android
 O administrador de TI pode ter recomendado usar o Microsoft Azure Authenticator para entrar e acessar os recursos de trabalho. Esse aplicativo fornece essas duas opções de entrada:
@@ -37,7 +37,7 @@ As instruções a seguir são aplicáveis para Samsung GS3 ou superior e tablets
 
 1. Na tela inicial do aplicativo, aceite o EULA (Contrato de Licença de Usuário Final).
 2. Na tela Ativar Conta, clique no menu de contexto à direita e selecione **Conta de Trabalho**.
-3. Na tela Adicionar Conta, selecione** Conta de Trabalho**.
+3. Na tela Adicionar Conta, selecione **Conta de Trabalho**.
 4. Na tela Ativar administrador do dispositivo, clique em **Ativar**.
 5. Na tela de Política de Privacidade, marque a caixa de seleção e clique em **Confirmar**.
 6. Na tela de Ingresso no Local de Trabalho, digite a identificação do usuário fornecida pela sua organização e clique em **Ingressar**.
@@ -118,10 +118,4 @@ Em um dispositivo Samsung Android, os privilégios de administrador do dispositi
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 Se o **Erro do Repositório de Chaves** for exibido, ele poderá ocorrer por você não ter a tela de bloqueio configurada com um PIN. Para contornar esse problema, desinstale o aplicativo Azure Authenticator, configure um PIN para a tela de bloqueio e reinstale o aplicativo.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

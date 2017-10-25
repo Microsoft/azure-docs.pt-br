@@ -21,8 +21,3 @@ Para conectar-se ao Mecanismo de Banco de Dados do SQL Server em outro computado
 5. Na caixa **Senha** , digite a senha do logon que você criou em uma tarefa anterior.
 6. Clique em **Conectar**.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

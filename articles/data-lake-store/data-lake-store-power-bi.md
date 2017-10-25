@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
-ms.openlocfilehash: f965e3a5067dd8dd2ac6dc29446c7f5b50cdd450
-
-
+ms.openlocfilehash: 32ae9949806e0cb762b87cb739f94ddf3704c2ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-data-in-data-lake-store-by-using-power-bi"></a>Analisar dados no Repositório Data Lake usando o Power BI
 Neste artigo, você aprenderá a usar o Power BI Desktop para analisar e visualizar dados armazenados no Repositório Azure Data Lake.
@@ -32,7 +32,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 ## <a name="create-a-report-in-power-bi-desktop"></a>Criar um relatório no Power BI Desktop
 1. Inicie o Power BI Desktop em seu computador.
-2. Na faixa de opções** Início**, clique em **Obter Dados** e clique em Mais. Na caixa de diálogo **Obter Dados**, clique em **Azure**, clique em **Azure Data Lake Store** e clique em **Conectar**.
+2. Na faixa de opções **Início**, clique em **Obter Dados** e clique em Mais. Na caixa de diálogo **Obter Dados**, clique em **Azure**, clique em **Azure Data Lake Store** e clique em **Conectar**.
    
     ![Conectar-se ao Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Conectar ao Data Lake Store")
 3. Se você vir uma caixa de diálogo informando que o conector está em uma fase de desenvolvimento, escolha continuar.
@@ -99,10 +99,4 @@ Depois de criar as visualizações no Power BI Desktop, compartilhe-as com outra
 
 ## <a name="see-also"></a>Confira também
 * [Analisar dados no Repositório Data Lake usando o Análise Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

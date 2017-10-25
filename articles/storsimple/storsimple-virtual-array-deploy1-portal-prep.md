@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: d8acfd6e0206e8e97b7d49e280a7e72e0acadb6d
-ms.openlocfilehash: 9ce5278e66afb81c5cbfe3662c6654d39bbc9a54
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 3d0801053721f98ce7a2b0fcbe3c65da8dbdd8d3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Implantar o StorSimple Virtual Array – preparar o portal do Azure
 
@@ -74,7 +74,7 @@ Antes de implantar um dispositivo virtual, verifique se:
 * O sistema de host é capaz de dedicar os recursos abaixo para provisionar seu dispositivo virtual:
   
   * Um mínimo de quatro núcleos.
-  * Pelo menos 8 GB de RAM. Se você planeja configurar a matriz virtual como servidor de arquivos, 8 GB oferece suporte a 2 milhões de arquivos. Você precisa de 16 GB de RAM para dar suporte a 2-4 milhões de arquivos do plano.
+  * Pelo menos 8 GB de RAM. Se você planeja configurar a matriz virtual como servidor de arquivos, 8 GB oferece suporte a 2 milhões de arquivos. Você precisa de 16 GB de RAM para dar suporte a 2-4 milhões de arquivos.
   * Uma interface de rede.
   * Um disco virtual de 500 GB para dados do sistema.
 
@@ -143,7 +143,7 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/).
 
 Esta é uma etapa opcional e deve ser executada somente se você não habilitou a criação automática de uma conta de armazenamento com seu serviço.
 
-Se precisar criar uma conta de armazenamento do Azure em uma região diferente, veja [Como criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) para obter instruções passo a passo.
+Se precisar criar uma conta de armazenamento do Azure em uma região diferente, veja [Como criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para obter instruções passo a passo.
 
 Execute as etapas a seguir no [Portal do Azure](https://ms.portal.azure.com/) na página do serviço Gerenciador de Dispositivos StorSimple para adicionar uma conta de armazenamento do Microsoft Azure existente.
 
@@ -170,5 +170,4 @@ A próxima etapa é provisionar uma máquina virtual para a matriz virtual StorS
 
 * [Provisionar um StorSimple Virtual Array no Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 * [Provisionar um StorSimple Virtual Array no VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
-
 

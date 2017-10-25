@@ -1,0 +1,57 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação do Registro de Contêiner do Azure
+metadata:
+  title: Documentação de Registro de Contêiner do Azure - Tutoriais | Microsoft Docs
+  description: 'O Registro de Contêiner do Azure permite-lhe armazenar e gerenciar imagens para todos os tipos de implantação de contêiner. Saiba como usar o Registro de Contêiner do Azure com esses guias de início rápido, tutoriais e exemplos.'
+  services: container-registry
+  author: czeumault
+  manager: carolz
+  ms.service: container-registry
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/26/2017
+  ms.author: carolz
+abstract:
+  description: 'O Registro de Contêiner do Azure permite-lhe armazenar e gerenciar imagens para todos os tipos de implantação de contêiner. Saiba como usar o Registro de Contêiner do Azure com esses guias de início rápido, tutoriais e exemplos.'
+sections:
+  - title: Guia de início rápido de 5 minutos
+    items:
+      - type: paragraph
+        text: Saiba como implantar um Registro de Contêiner do Azure.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
+            text: CLI do Azure
+            href: /azure/container-registry/container-registry-get-started-azure-cli
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg'
+            text: Portal do Azure
+            href: /azure/container-registry/container-registry-get-started-portal
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg'
+            text: Azure PowerShell
+            href: /azure/container-registry/container-registry-get-started-powershell
+  - title: Tutoriais Passo a Passo
+    items:
+      - type: paragraph
+        text: Saiba como usar o Registro de Contêiner do Azure com o Serviço de Contêiner do Azure e as Instâncias de Contêiner do Azure.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Registro de Contêiner com Instâncias de Contêiner do Azure</a>
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Registro de Contêiner com Serviço de Contêiner do Azure</a>
+  - title: Referência
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linha de comando
+            html: <p><a href="/cli/azure/acr">CLI do Azure</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/containerregistry">referência da API REST (a página pode estar em inglês)</a></p>

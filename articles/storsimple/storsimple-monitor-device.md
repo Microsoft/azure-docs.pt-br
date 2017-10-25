@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/16/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: d45bb37c8417785db0ea38be4375a998b6d9f109
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-monitor-your-storsimple-device"></a>Usar o serviço StorSimple Manager para monitorar seu dispositivo StorSimple
 ## <a name="overview"></a>Visão geral
@@ -115,10 +115,4 @@ Os gráficos a seguir mostram a taxa de transferência de rede para Dado 0 e Dad
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [usar o painel de dispositivo do serviço StorSimple Manager](storsimple-device-dashboard.md).
 * Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

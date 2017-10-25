@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/8/2017
+ms.date: 10/2/2017
 ms.author: sumukhs
-translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: e787f48f14539dff3035c51e14243c7bd9dcbb73
-
-
+ms.openlocfilehash: 5dcd1b4f5a070e9a09b6f8338928d93d10227d38
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Configurando Reliable Actors--ReliableDictionaryActorStateProvider
 A configuração padrão do ReliableDictionaryActorStateProvider pode ser alterada modificando-se o arquivo settings.xml gerado na raiz pacote do Visual Studio dentro da pasta Config para o ator especificado.
@@ -124,10 +124,4 @@ Se você definir OptimizeForLowerDiskUsage como verdadeiro, o espaço do arquivo
 A configuração MaxRecordSizeInKB define o tamanho máximo de um registro que pode ser gravado pelo replicador no arquivo de log. Na maioria dos casos, o tamanho padrão do registro de 1.024 KB é ideal. Porém, se o serviço estiver fazendo com que itens de dados maiores sejam parte das informações de estado, esse valor talvez precise ser aumentado. Há poucas vantagens em tornar o MaxRecordSizeInKB menor que 1.024, já que registros menores usam apenas o espaço necessário para o registro menor. A expectativa é de que esse valor precise ser alterado somente em casos raros.
 
 As configurações de SharedLogId e SharedLogPath são sempre usadas juntas para fazer um serviço usar um log compartilhado separado do log compartilhado padrão para o nó. Para obter maior eficiência, devem ser especificados o máximo de serviços possível para o mesmo log compartilhado. Arquivos de log compartilhados devem ser colocados em discos que são usados exclusivamente para o arquivo de log compartilhado, para reduzir a contenção de movimentação do cabeçote. A expectativa é de que esses valores precisem ser alterados somente em casos raros.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

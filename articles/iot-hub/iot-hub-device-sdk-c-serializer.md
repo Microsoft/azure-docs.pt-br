@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
-translationtype: Human Translation
-ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
-ms.openlocfilehash: 587412f02c6bb6bd2c5b1896a890607fa1c058f8
-ms.lasthandoff: 02/13/2017
-
-
+ms.openlocfilehash: aa03c29c54d75538b1fdf987cac5f09d5d344f73
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>SDK do dispositivo IoT do Azure para C – mais sobre o serializador
 O [primeiro artigo](iot-hub-device-sdk-c-intro.md) desta série apresentou o **SDK do dispositivo IoT do Azure para C**. O próximo artigo fornece uma descrição mais detalhada sobre o [**IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). Este artigo conclui a abordagem do SDK com uma descrição mais detalhada do componente restante: a biblioteca do **serializador** .
@@ -68,13 +67,13 @@ Os tipos de dados a seguir têm suporte em modelos criados com a biblioteca do *
 | Tipo | Descrição |
 | --- | --- |
 | double |número de ponto flutuante de precisão dupla |
-| int |inteiro de&32; bits |
+| int |inteiro de 32 bits |
 | flutuante |número de ponto flutuante de precisão única |
 | longo |inteiro longo |
-| int8\_t |inteiro de&8; bits |
-| int16\_t |inteiro de&16; bits |
-| int32\_t |inteiro de&32; bits |
-| int64\_t |inteiro de&64; bits |
+| int8\_t |inteiro de 8 bits |
+| int16\_t |inteiro de 16 bits |
+| int32\_t |inteiro de 32 bits |
+| int64\_t |inteiro de 64 bits |
 | bool |Booliano |
 | ascii\_char\_ptr |Cadeia de caracteres ASCII |
 | EDM\_DATE\_TIME\_OFFSET |diferença de data e horário |
@@ -672,9 +671,8 @@ Para saber mais sobre como desenvolver para o Hub IoT, consulte os [SDKs do Azur
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Simulando um dispositivo com o SDK do Gateway do IoT][lnk-gateway]
+* [Simulando um dispositivo com Azure IoT Edge][lnk-iotedge]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md

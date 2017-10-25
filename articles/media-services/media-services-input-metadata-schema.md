@@ -2,7 +2,7 @@
 title: "Esquema de metadados de entrada dos Serviços de Mídia do Azure | Microsoft Docs"
 description: "O tópico oferece uma visão geral do estema de metadados de entrada dos Serviços de Mídia do Azure."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2016
+ms.date: 07/19/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
-
-
+ms.openlocfilehash: 4787e4033e1afda6339b0b917263ecc165e400ad
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="input-metadata"></a>Metadados de entrada
 Um trabalho de codificação é associado um ativo (ou ativos) de entrada no qual você deseja executar algumas tarefas de codificação.  Após a conclusão de uma tarefa, um ativo de saída é produzido.  O ativo de saída contém vídeo, áudio, miniaturas, manifesto etc. O ativo de saída também contém um arquivo com metadados sobre o ativo de entrada. O nome do arquivo XML de metadados tem o seguinte formato: &lt;asset_id&gt;_metadata.xml (por exemplo, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), onde &lt;asset_id&gt; é o valor de AssetId do ativo de entrada.  
@@ -32,7 +32,7 @@ Este tópico discute os elementos e os tipos do esquema XML no qual os metadados
 > 
 > 
 
-## <a name="a-nameassetfilesa-assetfiles-element-root-element"></a><a name="AssetFiles"></a> Elemento AssetFiles (elemento raiz)
+## <a name="AssetFiles"></a> Elemento AssetFiles (elemento raiz)
 Contém uma coleção de [elementos AssetFile](media-services-input-metadata-schema.md#AssetFile) para o trabalho de codificação.  
 
 Veja um exemplo de XML no final deste tópico: [Exemplo de XML](media-services-input-metadata-schema.md#xml).  
@@ -41,7 +41,7 @@ Veja um exemplo de XML no final deste tópico: [Exemplo de XML](media-services-i
 | --- | --- |
 | **AssetFile**<br /><br /> minOccurs="1" maxOccurs="unbounded" |Um único elemento filho. Para saber mais, veja [Elemento AssetFile](media-services-input-metadata-schema.md#AssetFile). |
 
-## <a name="a-nameassetfilea-assetfile-element"></a><a name="AssetFile"></a> Elemento AssetFile
+## <a name="AssetFile"></a> Elemento AssetFile
  Contém atributos e elementos que descrevem um arquivo de ativo.  
 
  Veja um exemplo de XML no final deste tópico: [Exemplo de XML](media-services-input-metadata-schema.md#xml).  
@@ -71,7 +71,7 @@ Veja um exemplo de XML no final deste tópico: [Exemplo de XML](media-services-i
 | **AudioTracks**<br /><br /> minOccurs="0" | |Cada arquivo de ativo físico pode conter nenhuma ou mais faixas de áudio intercaladas em um formato de contêiner apropriado. Esse elemento contém uma coleção de todos os [elementos AudioTracks](media-services-input-metadata-schema.md#AudioTracks) que fazem parte do arquivo de ativo. |
 | **Metadados**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Metadados do arquivo de ativo representados como cadeias de caracteres de chave\valor. Por exemplo:<br /><br /> **&lt;Metadata key="language" value="eng" /&gt;** |
 
-## <a name="a-nametracktypea-tracktype"></a><a name="TrackType"></a> TrackType
+## <a name="TrackType"></a> TrackType
 Veja um exemplo de XML no final deste tópico: [Exemplo de XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
@@ -96,7 +96,7 @@ Veja um exemplo de XML no final deste tópico: [Exemplo de XML](media-services-i
 | **Disposição**<br /><br /> minOccurs="0" maxOccurs="1" |[StreamDispositionType](media-services-input-metadata-schema.md#StreamDispositionType) |Contém informações de apresentação (por exemplo, se uma determinada faixa de áudio for para usuários com deficiência visual). |
 | **Metadados**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |As cadeias de caracteres de chave/valor genéricas que podem ser usadas para armazenar uma variedade de informações. Por exemplo, key=”language” e value=”eng”. |
 
-## <a name="a-nameaudiotracktypea-audiotracktype-inherits-from-tracktype"></a><a name="AudioTrackType"></a> AudioTrackType (herda de TrackType)
+## <a name="AudioTrackType"></a> AudioTrackType (herda de TrackType)
  **AudioTrackType** é um tipo complexo global que herda de [TrackType](media-services-input-metadata-schema.md#TrackType).  
 
  O tipo representa uma faixa de áudio específica no arquivo de ativo.  
@@ -113,7 +113,7 @@ Veja um exemplo de XML no final deste tópico: [Exemplo de XML](media-services-i
 | **Bitrate** |**xs:int** |Taxa média de bits de áudio em bits por segundo, calculada com base no arquivo de ativo. Apenas a carga de fluxo elementar é contada, e a sobrecarga de empacotamento não está incluída nesta contagem. |
 | **BitsPerSample** |**xs:int** |Bits por amostra para o tipo de formato wFormatTag. |
 
-## <a name="a-namevideotracktypea-videotracktype-inherits-from-tracktype"></a><a name="VideoTrackType"></a> VideoTrackType (herda de TrackType)
+## <a name="VideoTrackType"></a> VideoTrackType (herda de TrackType)
 **VideoTrackType** é um tipo complexo global que herda de [TrackType](media-services-input-metadata-schema.md#TrackType).  
 
 O tipo representa uma faixa de vídeo específica no arquivo de ativo.  
@@ -139,7 +139,7 @@ Veja um exemplo de XML no final deste tópico: [Exemplo de XML](media-services-i
 | **MaxGOPBitrate** |**xs:int** |Taxa de bits média do GOP máximo para esta faixa de vídeo em quilobits por segundo. |
 | **HasBFrames** |**xs:int** |Número de faixas de vídeo de quadros B. |
 
-## <a name="a-namemetadatatypea-metadatatype"></a><a name="MetadataType"></a> MetadataType
+## <a name="MetadataType"></a> MetadataType
 **MetadataType** é um tipo global complexo que descreve os metadados de um arquivo de ativo como cadeias de caracteres de chave/valor. Por exemplo, key=”language” e value=”eng”.  
 
 Veja um exemplo de XML no final deste tópico: [Exemplo de XML](media-services-input-metadata-schema.md#xml).  
@@ -150,7 +150,7 @@ Veja um exemplo de XML no final deste tópico: [Exemplo de XML](media-services-i
 | **chave**<br /><br /> Obrigatório |**xs:string** |A chave no par chave/valor. |
 | **valor**<br /><br /> Obrigatório |**xs:string** |O valor do par chave/valor. |
 
-## <a name="a-nameprogramtypea-programtype"></a><a name="ProgramType"></a> ProgramType
+## <a name="ProgramType"></a> ProgramType
 **ProgramType** é um tipo global complexo que descreve um programa.  
 
 ### <a name="attributes"></a>Atributos
@@ -163,7 +163,7 @@ Veja um exemplo de XML no final deste tópico: [Exemplo de XML](media-services-i
 | **StartPTS** |**xs: long** |Iniciando o carimbo de data/hora de apresentação. |
 | **EndPTS** |**xs: long** |Hora de término do carimbo de data/hora de apresentação. |
 
-## <a name="a-namestreamdispositiontypea-streamdispositiontype"></a><a name="StreamDispositionType"></a> StreamDispositionType
+## <a name="StreamDispositionType"></a> StreamDispositionType
 **StreamDispositionType** é um tipo global complexo que descreve o fluxo.  
 
 Veja um exemplo de XML no final deste tópico: [Exemplo de XML](media-services-input-metadata-schema.md#xml).  
@@ -183,7 +183,7 @@ Veja um exemplo de XML no final deste tópico: [Exemplo de XML](media-services-i
 | **CleanEffects**<br /><br /> Obrigatório |**xs:int** |Defina esse atributo como 1 para indicar que esta faixa tem efeitos limpos. |
 | **AttachedPic**<br /><br /> Obrigatório |**xs:int** |Defina esse atributo como 1 para indicar que esta faixa contém fotos. |
 
-## <a name="a-nameprogramsa-programs-element"></a><a name="Programs"></a> Elemento Programs
+## <a name="Programs"></a> Elemento Programs
 Elemento de wrapper que contém vários elementos **Program**.  
 
 ### <a name="child-elements"></a>Elementos filho
@@ -191,7 +191,7 @@ Elemento de wrapper que contém vários elementos **Program**.
 | --- | --- | --- |
 | **Programa**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[ProgramType](media-services-input-metadata-schema.md#ProgramType) |Para os arquivos de ativo no formato MPEG-TS, eles contêm informações sobre os programas no arquivo de ativo. |
 
-## <a name="a-namevideotracksa-videotracks-element"></a><a name="VideoTracks"></a> Elemento VideoTracks
+## <a name="VideoTracks"></a> Elemento VideoTracks
  Elemento de wrapper que contém vários elementos **VideoTrack**.  
 
  Veja um exemplo de XML no final deste tópico: [Exemplo de XML](media-services-input-metadata-schema.md#xml).  
@@ -201,7 +201,7 @@ Elemento de wrapper que contém vários elementos **Program**.
 | --- | --- | --- |
 | **VideoTrack**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[VideoTrackType (herdado de TrackType)](media-services-input-metadata-schema.md#VideoTrackType) |Contém informações sobre as faixas de vídeo no arquivo de ativo. |
 
-## <a name="a-nameaudiotracksa-audiotracks-element"></a><a name="AudioTracks"></a> Elemento AudioTracks
+## <a name="AudioTracks"></a> Elemento AudioTracks
  Elemento de wrapper que contém vários elementos **AudioTrack**.  
 
  Veja um exemplo de XML no final deste tópico: [Exemplo de XML](media-services-input-metadata-schema.md#xml).  
@@ -211,7 +211,7 @@ Elemento de wrapper que contém vários elementos **Program**.
 | --- | --- | --- |
 | **AudioTrack**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[AudioTrackType (herdado de TrackType)](media-services-input-metadata-schema.md#AudioTrackType) |Contém informações sobre as faixas de áudios no arquivo de ativo. |
 
-## <a name="a-namecodea-schema-code"></a><a name="code"></a> Código de Esquema
+## <a name="code"></a> Código de Esquema
     <?xml version="1.0" encoding="utf-8"?>  
     <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" version="1.0"  
                xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2014/07/mediaencoder/inputmetadata"  
@@ -610,7 +610,7 @@ Elemento de wrapper que contém vários elementos **Program**.
     </xs:schema>  
 
 
-## <a name="a-namexmla-xml-example"></a><a name="xml"></a> Exemplo de XML
+## <a name="xml"></a> Exemplo de XML
 Este é um exemplo do arquivo de metadados de entrada.  
 
     <?xml version="1.0" encoding="utf-8"?>  
@@ -645,10 +645,4 @@ Este é um exemplo do arquivo de metadados de entrada.
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

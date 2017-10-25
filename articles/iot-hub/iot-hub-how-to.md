@@ -12,25 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 07/25/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 6fbdebd316cd00e7dd762487848e616fdd2317e8
-ms.openlocfilehash: 358fd0888049f97e5fde6e2a6303ea6c4cf65da9
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 786121ae249d69376b4be4c74000868cbb208989
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-azure-iot-hub"></a>Como usar o Hub IoT do Azure
 
-Você tem várias opções para aprender a desenvolver para o serviço do Hub IoT. Você pode ler os artigos conceituais que descrevem detalhadamente os recursos do Hub IoT ou seguir um dos tutoriais que abordam os vários recursos do Hub IoT.
+Você tem várias opções para aprender a desenvolver para o serviço do Hub IoT:
 
-## <a name="the-developer-guide"></a>O guia do desenvolvedor
+* Leia os artigos conceituais que descrevem os recursos do Hub IoT em detalhes.
+* Siga um dos tutoriais que abordam os vários recursos do Hub IoT.
 
-Como desenvolvedor, você pode ler diretrizes conceituais detalhadas sobre o Hub IoT no [Guia do Desenvolvedor][lnk-devguide]. Este guia inclui descrições detalhadas de todos os recursos do Hub IoT que o ajudam a aprender a usá-los e a escolher entre eles quando há várias opções disponíveis
+## <a name="developer-guide"></a>Guia do desenvolvedor
 
+Como desenvolvedor, você pode ler diretrizes conceituais detalhadas sobre o Hub IoT no [Guia do Desenvolvedor][lnk-devguide]. Este guia inclui os seguintes tópicos:
 
-## <a name="the-tutorials"></a>Os tutoriais
+* Descrições detalhadas de todos os recursos de Hub IoT que ajudam você a aprender a usá-los.
+* Orientação sobre como escolher caso várias opções estejam disponíveis.
+
+## <a name="tutorials"></a>Tutoriais
 
 Se você prefere aprender sobre recursos específicos do Hub IoT trabalhando em exercícios práticos, há vários tutoriais para escolher. Muitos desses tutoriais estão disponíveis em várias linguagens de programação. Os tutoriais incluem:
 
@@ -44,11 +48,11 @@ Se você prefere aprender sobre recursos específicos do Hub IoT trabalhando em 
 
 - [Usar métodos diretos][lnk-methods-tutorial]. Este tutorial mostra como usar métodos diretos. Você adiciona um manipulador a um método direto no dispositivo simulado e invoca o método direto do Hub IoT.
 
-- [Introdução ao gerenciamento de dispositivos][lnk-dm-tutorial]. Este tutorial mostra como usar recursos-chave de gerenciamento de dispositivos, como gêmeos e métodos diretos, para reiniciar remotamente o dispositivo simulado.
+- [Introdução ao gerenciamento de dispositivos][lnk-dm-tutorial]. Este tutorial mostra como usar recursos-chave de gerenciamento de dispositivos, como gêmeos e métodos diretos. Você pode usar esses recursos para reinicializar remotamente seu dispositivo simulado.
 
-- [Usar as propriedades desejadas para configurar os dispositivos][lnk-properties-tutorial]. Este tutorial mostra como usar propriedades desejadas do gêmeo do dispositivo, juntamente com propriedades relatadas, para configurar o dispositivo remotamente.
+- [Usar as propriedades desejadas para configurar os dispositivos][lnk-properties-tutorial]. Este tutorial mostra como usar as propriedades desejadas e relatadas do dispositivo gêmeo para configurar o dispositivo remotamente.
 
-- [Usar trabalhos de dispositivo para iniciar uma atualização de firmware do dispositivo][lnk-jobs-tutorial]. Este tutorial mostra como usar recursos-chave de gerenciamento de dispositivos, como gêmeos e métodos diretos, para atualizar remotamente o firmware do dispositivo.
+- [Usar trabalhos de dispositivo para iniciar uma atualização de firmware do dispositivo][lnk-jobs-tutorial]. Este tutorial mostra como usar recursos-chave de gerenciamento de dispositivos, como gêmeos e métodos diretos. Você aprenderá a usar esses recursos para atualizar o firmware do dispositivo remotamente.
 
 - [Agendar e transmitir trabalhos][lnk-schedule-tutorial]. Este tutorial mostra como usar propriedades desejadas e métodos diretos para interagir com vários dispositivos em um horário agendado.
 

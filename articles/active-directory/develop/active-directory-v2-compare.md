@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/01/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 47dce83cb4e3e5df92e91f1ca9195326634d6c8b
-ms.openlocfilehash: 9f00013c4eb6c32707489d5f78a5e95b7419bcd2
-
-
+ms.custom: aaddev
+ms.openlocfilehash: 81de65b0e825dec64383f52b02c5ee56c9434807
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>O que há de diferente no ponto de extremidade v2.0?
 Se você estiver familiarizado com o Azure Active Directory ou se tiver integrado aplicativos com o Azure AD anteriormente, poderá encontrar algumas diferenças inesperadas ponto de extremidade v2.0.  Este documento chama a atenção para essas diferenças para sua compreensão.
 
 > [!NOTE]
 > Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0.  Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
->
 >
 
 ## <a name="microsoft-accounts-and-azure-ad-accounts"></a>Contas da Microsoft e contas do Azure AD
@@ -36,27 +36,25 @@ Por exemplo, se seu aplicativo chamar o [Microsoft Graph](https://graph.microsof
 Integrar seu aplicativo com as contas da Microsoft e do AD do Azure agora é um processo simples.  É possível usar um único conjunto de pontos de extremidade, uma única biblioteca e um único registro de aplicativo para acessar os mundos empresarial e do consumidor.  Para saber mais sobre o ponto de extremidade v2.0, confira [a visão geral](active-directory-appmodel-v2-overview.md).
 
 ## <a name="new-app-registration-portal"></a>Novo portal de registro de aplicativos
-o ponto de extremidade v2.0 só pode ser registrado em um novo local: [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).  Esse é o portal em que é possível obter uma Id de aplicativo, personalizar a aparência da página de entrada do aplicativo e muito mais.  Tudo que você precisa para acessar o portal é uma conta da plataforma Microsoft, seja ela pessoal ou corporativa/de estudante.  
-
-Continuaremos a adicionar cada vez mais recursos a este Portal de Registro de Aplicativos com o passar do tempo.  A intenção é que esse portal seja o novo local no qual você possa ir para gerenciar tudo sobre seus aplicativos da Microsoft.
+Para registrar um aplicativo que funciona com o ponto de extremidade v2.0, você deve usar um novo portal de registro de aplicativos: [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).  Esse é o portal em que é possível obter uma ID de aplicativo, personalizar a aparência da página de conexão do aplicativo e muito mais.  Tudo que você precisa para acessar o portal é uma conta da plataforma Microsoft, seja ela pessoal ou corporativa/de estudante.
 
 ## <a name="one-app-id-for-all-platforms"></a>Uma ID do aplicativo para todas as plataformas
-No serviço do Azure Active Directory original, você pode ter registrado vários aplicativos diferentes para um único projeto.  Você foi forçado a usar registros de aplicativo separados para seus clientes nativos e aplicativos Web:
+Se você já usou o Azure Active Directory, provavelmente, você já registrou vários aplicativos diferentes para um único projeto.  Por exemplo, se você criou um site da Web e um aplicativo iOS, era preciso registrá-los separadamente usando duas IDs de Aplicativo diferentes. O portal de registro de aplicativos do Azure AD forçou você a fazer essa distinção durante o registro:
 
 ![Interface do usuário do registro de aplicativo antigo](../../media/active-directory-v2-flows/old_app_registration.PNG)
 
-Por exemplo, se você criou um site da Web e um aplicativo iOS, era preciso registrá-los separadamente usando duas IDs de Aplicativo diferentes.  Se você tiver um site e uma API Web de back-end, você pode ter registrado cada um deles como um aplicativo separado no AD do Azure.  Se você tiver um aplicativo iOS e um aplicativo Android, você também pode ter registrado dois aplicativos diferentes.  
+De forma semelhante, se você tiver um site e uma API Web de back-end, poderá ter registrado cada um deles como um aplicativo separado no Azure AD.  Ou se você tiver um aplicativo iOS e um aplicativo Android, também poderá ter registrado dois aplicativos diferentes.  O registro de cada componente de um aplicativo levou a alguns comportamentos inesperados para os desenvolvedores e seus clientes:
 
-<!-- You may have even registered different apps for each of your build environments - one for dev, one for test, and one for production. -->
+* Cada componente apareceu como um aplicativo separado no locatário do Azure Active Directory de cada cliente.
+* Quando um administrador de locatários tentou aplicar políticas, gerenciar o acesso ou excluir um aplicativo, ele precisou fazer isso para cada componente do aplicativo.
+* Quando os clientes forneceram seu consentimento para um aplicativo, cada componente foi exibido na tela de consentimento como um aplicativo distinto.
 
-Agora, tudo o que você precisa é de um registro único aplicativo e uma Id de aplicativo única para cada um dos seus projetos.  É possível adicionar várias "plataformas" a cada projeto e fornecer os dados apropriados para cada plataforma que você adicionar.  Claro, você pode criar quantos aplicativos desejar dependendo dos seus requisitos, mas, para a maioria dos casos, apenas uma Id de aplicativo deve ser necessária.
-
-<!-- You can also label a particular platform as "production-ready" when it is ready to be published to the outside world, and use that same Application Id safely in your development environments. -->
+Com o ponto de extremidade v2.0, agora você pode registrar todos os componentes de seu projeto como um registro de aplicativo único e usar uma única ID de Aplicativo para todo o projeto.  É possível adicionar várias "plataformas" a cada projeto e fornecer os dados apropriados para cada plataforma que você adicionar.  Claro, você pode criar quantos aplicativos desejar dependendo dos seus requisitos, mas, para a maioria dos casos, apenas uma Id de aplicativo deve ser necessária.
 
 Nosso objetivo é que isso resulte em uma experiência de desenvolvimento e gerenciamento de aplicativos mais simplificada e crie uma visão mais consolidada de um projeto simples no qual você estiver trabalhando.
 
 ## <a name="scopes-not-resources"></a>Escopos, não recursos
-No serviço do Azure AD original, um aplicativo pode se comportar como um **recurso**ou um destinatário de tokens.  Um recurso pode definir um número de **escopos** ou **oAuth2Permissions** que ele entende, permitindo que os aplicativos cliente solicitem tokens a esse recurso para um determinado conjunto de escopos.  Considere a Graph API do AD do Azure como um exemplo de um recurso:
+No Azure Active Directory, um aplicativo pode se comportar como um **recurso** ou um contêiner de tokens.  Um recurso pode definir um número de **escopos** ou **oAuth2Permissions** que ele entende, permitindo que os aplicativos cliente solicitem tokens a esse recurso para um determinado conjunto de escopos.  Considere a Graph API do AD do Azure como um exemplo de um recurso:
 
 * Identificador de recurso, ou `AppID URI`: `https://graph.windows.net/`
 * Escopos, ou `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, etc.  
@@ -82,7 +80,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 onde o parâmetro **scope** indica quais recursos e permissões para o qual o aplicativo está solicitando a autorização. O recurso desejado ainda está muito presente na solicitação; ele simplesmente está englobado em cada um dos valores do parâmetro de escopo.  Usar o parâmetro de escopo dessa maneira permite que o ponto de extremidade v2.0 seja mais compatível com a especificação OAuth 2.0 e esteja alinhado mais estreitamente com práticas comuns do setor.  Ele também permite que os aplicativos realizem o [consentimento incremental](#incremental-and-dynamic-consent), que é descrito na próxima seção.
 
 ## <a name="incremental-and-dynamic-consent"></a>Consentimento incremental e dinâmico
-Aplicativos registrados no serviço do AD do Azure disponível ao público geral necessários para especificar as permissões necessárias do OAuth 2.0 no Portal do Azure, no momento da criação do aplicativo:
+Anteriormente, os aplicativos registrados no Azure AD precisavam especificar suas permissões necessárias do OAuth 2.0 no Portal do Azure, no momento da criação do aplicativo:
 
 ![Interface do usuário do registro de permissões](../../media/active-directory-v2-flows/app_reg_permissions.PNG)
 
@@ -107,31 +105,23 @@ Permitir que um aplicativo solicite permissões dinamicamente por meio do parâm
 
 ## <a name="well-known-scopes"></a>Escopos conhecidos
 #### <a name="offline-access"></a>Acesso offline
-o ponto de extremidade v2.0 pode exigir o uso de uma nova permissão conhecida para aplicativos - o escopo de `offline_access` .  Todos os aplicativos terão que solicitar essa permissão se precisarem acessar recursos em nome de um usuário por um longo período de tempo, mesmo quando o usuário pode não estiver usando o aplicativo de maneira ativa.  O escopo `offline_access` será exibido para o usuário em caixas de diálogo de consentimento como "Acesso a seus dados offline", com as quais o usuário deverá concordar.  Solicitar a permissão `offline_access` permitirá que seu aplicativo Web receba refresh_tokens do OAuth 2.0 a partir do ponto de extremidade v2.0.  Refresh_tokens são duradouros e podem ser trocados por novos access_tokens do OAuth 2.0 por longos períodos de acesso.  
+Os aplicativos que usam o ponto de extremidade v2.0 podem exigir o uso de uma nova permissão conhecida para aplicativos – o escopo `offline_access`.  Todos os aplicativos terão que solicitar essa permissão se precisarem acessar recursos em nome de um usuário por um longo período de tempo, mesmo quando o usuário pode não estiver usando o aplicativo de maneira ativa.  O escopo `offline_access` será exibido para o usuário em caixas de diálogo de consentimento como "Acesso a seus dados offline", com as quais o usuário deverá concordar.  Solicitar a permissão `offline_access` permitirá que seu aplicativo Web receba refresh_tokens do OAuth 2.0 a partir do ponto de extremidade v2.0.  Refresh_tokens são duradouros e podem ser trocados por novos access_tokens do OAuth 2.0 por longos períodos de acesso.  
 
 Se o aplicativo não solicitar o escopo `offline_access`, ele não receberá refresh_tokens.  Isso significa que, ao resgatar um authorization_code no fluxo de código de autorização do OAuth 2.0, você só receberá de volta um access_token do ponto de extremidade `/token`.  Esse access_token permanecerá válido por um curto período de tempo (normalmente uma hora), mas acabará expirando.  Nesse momento, seu aplicativo terá que redirecionar o usuário de volta ao ponto de extremidade `/authorize` para recuperar um novo authorization_code.  Durante esse redirecionamento, o usuário pode ou não precisar digitar suas credenciais novamente ou consentir de novo as permissões, dependendo do tipo do aplicativo.
 
 Para saber mais sobre OAuth 2.0, refresh_tokens e access_tokens, consulte a [referência de protocolo da v2.0](active-directory-v2-protocols.md).
 
 #### <a name="openid-profile-and-email"></a>OpenID, perfil e email
-No serviço Active Directory do Azure original, o fluxo de conexão mais básico do OpenID Connect forneceria uma grande quantidade de informações sobre o usuário do id_token resultante.  As declarações em um id_token podem incluir o nome do usuário, nome de usuário preferido, endereço de email, ID do objeto e muito mais.
+Historicamente, o fluxo de conexão mais básico do OpenID Connect com o Azure Active Directory fornecia uma grande quantidade de informações sobre o usuário no id_token resultante.  As declarações em um id_token podem incluir o nome do usuário, nome de usuário preferido, endereço de email, ID do objeto e muito mais.
 
 Agora estamos restringindo as informações que o escopo de `openid` permite que seu aplicativo acesse.  O escopo de “openid” apenas permitirá que seu aplicativo faça logon do usuário e receba um identificador específico do aplicativo para o usuário.  Se você quiser obter informações de identificação pessoal (PII) sobre o usuário em seu aplicativo, seu aplicativo precisará solicitar permissões adicionais do usuário.  Estamos apresentando dois novos escopos, os escopos de `email` e `profile`, que permitem que você faça isso.
 
 O escopo de `email` é muito simples. Ele permite que seu aplicativo acesse o endereço de email principal do usuário por meio da declaração `email` no id_token.  O escopo `profile` permite que seu aplicativo acesse todas as outras informações básicas sobre o usuário – seu nome, nome de usuário preferido, ID do objeto etc.
 
-Isso permite que você codifique seu aplicativo com uma divulgação mínima. Você só pode solicitar ao usuário o conjunto de informações que seu aplicativo precisa para fazer seu trabalho.  Para obter mais informações sobre os escopos, consulte a [referência de escopo da v2.0](active-directory-v2-scopes.md).
+Isso permite que você codifique seu aplicativo com uma divulgação mínima. Você só pode solicitar ao usuário o conjunto de informações de que seu aplicativo precisa para fazer seu trabalho.  Para obter mais informações sobre os escopos, consulte a [referência de escopo da v2.0](active-directory-v2-scopes.md).
 
 ## <a name="token-claims"></a>Declarações de token
-As declarações em tokens emitidos pelo ponto de extremidade v2.0 não serão idênticas aos tokens emitidos pelos pontos de extremidade do AD do Azure disponíveis ao público geral; os aplicativos que migrarem para o novo serviço não deverão presumir que uma declaração específica existirá em id_tokens ou access_tokens.   Os tokens emitidos pelo ponto de extremidade v2.0 são compatíveis com as especificações OAuth 2.0 e OpenID Connect, mas podem seguir semânticas diferentes do serviço do AD do Azure disponível ao público geral.
-
-Para saber mais sobre as declarações específicas emitidas em tokens da v2.0, consulte a [referência de token v2.0](active-directory-v2-tokens.md).
+As declarações em tokens emitidos pelo ponto de extremidade v2.0 não serão idênticas aos tokens emitidos pelos pontos de extremidade do AD do Azure disponíveis ao público geral; os aplicativos que migrarem para o novo serviço não deverão presumir que uma declaração específica existirá em id_tokens ou access_tokens. Para saber mais sobre as declarações específicas emitidas em tokens da v2.0, consulte a [referência de token v2.0](active-directory-v2-tokens.md).
 
 ## <a name="limitations"></a>Limitações
 Há algumas restrições que merecem atenção ao usar o ponto v2.0.  Consulte o [documento de limitações da v2.0](active-directory-v2-limitations.md) para ver se alguma dessas restrições se aplica ao seu cenário específico.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

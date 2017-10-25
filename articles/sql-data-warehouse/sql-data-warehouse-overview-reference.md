@@ -12,39 +12,34 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: reference
 ms.date: 10/31/2016
 ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9395c092411ebc056a8b3145a29f3a0c56b2a3cd
-
-
+ms.openlocfilehash: c56c1c262aa1a88e3f7a3d6638176cb9f97011d3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reference-topics-for-sql-data-warehouse"></a>Tópicos de referência para o SQL Data Warehouse
 Estes artigos contêm informações de referência para o SQL Data Warehouse.
 
-* [Elementos de linguagem Transact-SQL][Elementos de linguagem Transact-SQL]
-* [Instruções Transact-SQL][Instruções Transact-SQL]
-* [Exibições do sistema Transact-SQL][Exibições do sistema Transact-SQL]
-* [Cmdlets do PowerShell][Cmdlets do PowerShell]
+* [Elementos de linguagem Transact-SQL][Transact-SQL language elements]
+* [Instruções Transact-SQL][Transact-SQL statements]
+* [Exibições do sistema Transact-SQL][Transact-SQL system views]
+* [Cmdlets do PowerShell][PowerShell cmdlets]
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter informações sobre o desenvolvimento, consulte [visão geral de desenvolvimento][visão geral de desenvolvimento].
+Para obter informações de desenvolvimento, consulte [visão geral de desenvolvimento][development overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[visão geral de desenvolvimento]: sql-data-warehouse-overview-develop.md
-[Elementos de linguagem Transact-SQL]: sql-data-warehouse-reference-tsql-language-elements.md
-[Instruções Transact-SQL]: sql-data-warehouse-reference-tsql-statements.md
-[Exibições do sistema Transact-SQL]: sql-data-warehouse-reference-tsql-system-views.md
-[Cmdlets do PowerShell]: sql-data-warehouse-reference-powershell-cmdlets.md
+[development overview]: sql-data-warehouse-overview-develop.md
+[Transact-SQL language elements]: sql-data-warehouse-reference-tsql-language-elements.md
+[Transact-SQL statements]: sql-data-warehouse-reference-tsql-statements.md
+[Transact-SQL system views]: sql-data-warehouse-reference-tsql-system-views.md
+[PowerShell cmdlets]: sql-data-warehouse-reference-powershell-cmdlets.md
 
 
 <!--MSDN references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

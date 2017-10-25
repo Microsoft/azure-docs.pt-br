@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: b110b2e3041cf7839d1bf1c4d384b28b243efbd8
-ms.openlocfilehash: c1653c769a6b42d18ffb0da71220ce06c6556587
-
-
+ms.openlocfilehash: cbf8f729d0ebfb271bb0d8702ac043442b42c262
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="more-details-about-features-in-preview"></a>Mais detalhes sobre os recursos no modo de visualização
 Este tópico descreve como usar recursos presentes atualmente na visualização.
@@ -52,9 +52,3 @@ Um grupo do Office 365 é representado como um grupo de distribuição no AD DS 
 Continuar a [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-

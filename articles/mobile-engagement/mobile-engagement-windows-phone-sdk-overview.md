@@ -1,6 +1,6 @@
 ---
 title: "Visão geral do SDK do Windows Phone Silverlight no Azure Mobile Engagement | Microsoft Docs"
-description: "Visão geral do SDK do Windows Phone Silverlight para o Mobile Engagement do Azure"
+description: "Visão geral do SDK do Windows Phone Silverlight para o Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,15 +14,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
 ms.openlocfilehash: c4e8ceee4104c3d3a6c3e6b79322ba1cf8463b22
-ms.lasthandoff: 02/09/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="windows-phone-silverlight-sdk-overview-for-azure-mobile-engagement"></a>Visão geral do SDK do Windows Phone Silverlight para o Mobile Engagement do Azure
-Comece aqui para obter todos os detalhes sobre como integrar o Mobile Engagement do Azure em um aplicativo do Windows Phone Silverlight. Se você gostaria de experimentá-lo primeiro, faça nosso [tutorial de&15; minutos](mobile-engagement-windows-phone-get-started.md).
+# <a name="windows-phone-silverlight-sdk-overview-for-azure-mobile-engagement"></a>Visão geral do SDK do Windows Phone Silverlight para o Azure Mobile Engagement
+Comece aqui para obter todos os detalhes sobre como integrar o Azure Mobile Engagement em um aplicativo do Windows Phone Silverlight. Se você gostaria de experimentá-lo primeiro, faça nosso [tutorial de 15 minutos](mobile-engagement-windows-phone-get-started.md).
 
 Clique para ver o [Conteúdo do SDK](mobile-engagement-windows-phone-sdk-content.md)
 
@@ -53,5 +52,4 @@ Agora, os logs do console produzidos pelo SDK podem ser habilitados/desabilitado
 
 ### <a name="upgrade-from-older-versions"></a>Atualizar de versões anteriores
 Consulte [Procedimentos de atualização](mobile-engagement-windows-phone-upgrade-procedure.md)
-
 

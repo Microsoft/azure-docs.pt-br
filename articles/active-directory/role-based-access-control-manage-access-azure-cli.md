@@ -3,23 +3,22 @@ title: "Gerenciar RBAC (controle de acesso baseado em função) com a CLI do Azu
 description: "Saiba como gerenciar o RBAC (Controle de Acesso baseado em função) com a interface de linha de comando do Azure listando as funções e ações de função, e atribuindo funções às assinaturas e escopos de aplicativo."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: andredm7
 manager: femila
-editor: 
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/22/2017
-ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 3c8ee4a51d69b7511445d441e28a1014200bdc4a
-ms.lasthandoff: 03/21/2017
-
-
+ms.date: 07/12/2017
+ms.author: andredm
+ms.reviewer: rqureshi
+ms.openlocfilehash: 77315171754304c965f296670fbba3a4751a3656
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Gerenciar o Controle de Acesso baseado em função com a Interface de Linha de Comando do Azure
 > [!div class="op_single_selector"]
@@ -151,7 +150,7 @@ Em seguida, o exemplo remove a atribuição de função de um grupo na assinatur
 ## <a name="create-a-custom-role"></a>Criar uma função personalizada
 Para criar uma função personalizada, use:
 
-    azure role create --inputfile <file path>
+    azure role definition create --role-definition <file path>
 
 O exemplo a seguir cria uma função personalizada chamada *Operador de Máquina Virtual*. Essa função personalizada concede acesso a todas as operações de leitura dos provedores de recursos *Microsoft.Compute*, *Microsoft.Storage* e *Microsoft.Network*, além de conceder acesso para iniciar, reiniciar e monitorar máquinas virtuais. Essa função personalizada pode ser usada em duas assinaturas. Este exemplo utiliza um arquivo JSON como entrada.
 
@@ -160,9 +159,9 @@ O exemplo a seguir cria uma função personalizada chamada *Operador de Máquina
 ![Linha de comando do Azure RBAC  - criação de função do azure - captura de tela](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
 
 ## <a name="modify-a-custom-role"></a>Modificar uma função personalizada
-Para modificar uma função personalizada, use o comando `azure role show` para recuperar a definição da função. Depois, faça as alterações desejadas no arquivo de definição da função. Por fim, use `azure role set` para salvar a definição da função modificada.
+Para modificar uma função personalizada, use o comando `azure role definition list` para recuperar a definição da função. Depois, faça as alterações desejadas no arquivo de definição da função. Por fim, use `azure role definition update` para salvar a definição da função modificada.
 
-    azure role set --inputfile <file path>
+    azure role definition update --role-definition <file path>
 
 O exemplo a seguir adiciona a operação *Microsoft.Insights/diagnosticSettings/* a **Actions** e uma assinatura do Azure a **AssignableScopes** da função personalizada Operador de Máquina Virtual.
 
@@ -171,7 +170,7 @@ O exemplo a seguir adiciona a operação *Microsoft.Insights/diagnosticSettings/
 ![Linha de comando do Azure RBAC  - conjunto de funções do azure - captura de tela](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
 
 ## <a name="delete-a-custom-role"></a>Excluir uma função personalizada
-Para excluir uma função personalizada, primeiro use o comando `azure role show` para determinar a **ID** da função. Em seguida, use o comando `azure role delete` para excluir a função especificando a **ID**.
+Para excluir uma função personalizada, primeiro use o comando `azure role definition list` para determinar a **ID** da função. Em seguida, use o comando `azure role definition delete` para excluir a função especificando a **ID**.
 
 O exemplo a seguir remove a função personalizada *Operador de Máquina Virtual* .
 
@@ -183,7 +182,7 @@ Para listar as funções disponíveis para atribuição em um escopo, use o coma
 O comando a seguir lista todas as funções disponíveis para atribuição na assinatura selecionada.
 
 ```
-azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
+azure role definition list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
 ```
 
 ![Linha de comando do Azure RBAC  - lista de funções do azure - captura de tela](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
@@ -191,12 +190,11 @@ azure role list --json | jq '.[] | {"name":.properties.roleName, type:.propertie
 No exemplo a seguir, a função personalizada *Operador de Máquina Virtual* não está disponível na assinatura *Production4*, pois essa assinatura não está nos **AssignableScopes** da função.
 
 ```
-azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
+azure role definition list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
 ```
 
 ![Linha de comando do Azure RBAC  - lista de funções do azure para funções personalizadas - captura de tela](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
 
-## <a name="rbac-topics"></a>Tópicos RBAC
+## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-
 

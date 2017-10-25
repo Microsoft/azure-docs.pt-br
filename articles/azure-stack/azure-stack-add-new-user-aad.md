@@ -1,9 +1,9 @@
 ---
 title: Add a new Azure Stack tenant account in Azure Active Directory | Microsoft Docs
-description: "After deploying Microsoft Azure Stack POC, you’ll need to create at least one tenant user account so you can explore the tenant portal."
+description: "After deploying Microsoft Azure Stack Development Kit, you’ll need to create at least one tenant user account so you can explore the tenant portal."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
+author: heathl17
 manager: byronr
 editor: 
 ms.assetid: a75d5c88-5b9e-4e9a-a6e3-48bbfa7069a7
@@ -12,17 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/2/2017
-ms.author: erikje
-translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 3f29753c63b1ec40dd18fef55bab570b5d418b3f
-ms.lasthandoff: 03/03/2017
-
+ms.date: 09/25/2017
+ms.author: helaw
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 91d1c52c0abf14656e08b511e4f6c8041e319020
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/25/2017
 
 ---
+
+*Applies to: Azure Stack Development Kit*
+
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Add a new Azure Stack tenant account in Azure Active Directory
-After [deploying the Azure Stack POC](azure-stack-run-powershell-script.md), you'll need a tenant user account so you can explore the tenant portal and test your offers and plans. You can create a tenant account by [using the Azure portal](#create-an-azure-stack-tenant-account-using-the-azure-portal) or by [using PowerShell](#create-an-azure-stack-tenant-account-using-powershell).
+After [deploying the Azure Stack Development Kit](azure-stack-run-powershell-script.md), you'll need a tenant user account so you can explore the tenant portal and test your offers and plans. You can create a tenant account by [using the Azure portal](#create-an-azure-stack-tenant-account-using-the-azure-portal) or by [using PowerShell](#create-an-azure-stack-tenant-account-using-powershell).
 
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Create an Azure Stack tenant account using the Azure portal
 You must have an Azure subscription to use the Azure portal.
@@ -42,13 +45,13 @@ You must have an Azure subscription to use the Azure portal.
 13. On the **Get temporary password** page, click **Create**.
 14. Copy the **New password**.
 15. Log in to Microsoft Azure with the new account. Change the password when prompted.
-16. Log in to `https://publicportal.local.azurestack.external` with the new account to see the tenant portal.
+16. Log in to `https://portal.local.azurestack.external` with the new account to see the tenant portal.
 
 ## <a name="create-an-azure-stack-tenant-account-using-powershell"></a>Create an Azure Stack tenant account using PowerShell
 If you don't have an Azure subscription, you can't use the Azure portal to add a tenant user account. In this case, you can use the Azure Active Directory Module for Windows PowerShell instead.
 
 > [!NOTE]
-> If you are using Microsoft Account (Live ID) to deploy Azure Stack PoC, you can't use AAD PowerShell to create tenant account. 
+> If you are using Microsoft Account (Live ID) to deploy Azure Stack Development Kit, you can't use AAD PowerShell to create tenant account. 
 > 
 > 
 
@@ -57,7 +60,7 @@ If you don't have an Azure subscription, you can't use the Azure portal to add a
 3. Run the following cmdlets:
 
     ```powershell
-    # Provide the AAD credential you use to deploy Azure Stack PoC
+    # Provide the AAD credential you use to deploy Azure Stack Development Kit
 
             $msolcred = get-credential
 
@@ -70,6 +73,6 @@ If you don't have an Azure subscription, you can't use the Azure portal to add a
     ```
 
 1. Sign in to Microsoft Azure with the new account. Change the password when prompted.
-2. Sign in to `https://publicportal.local.azurestack.external` with the new account to see the tenant portal.
+2. Sign in to `https://portal.local.azurestack.external` with the new account to see the tenant portal.
 
 

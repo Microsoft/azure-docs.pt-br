@@ -5,8 +5,3 @@ As tarefas a seguir serão feitas nesse cenário:
 * Criar investigações de integridade
 
 ![Cenário com o balanceador de carga](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -77,8 +77,3 @@ Exemplo de VNet no formato JSON:
 * Leia a [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163650.aspx) para obter VNets.
 * Leia a [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163618.aspx) para obter Sub-redes.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

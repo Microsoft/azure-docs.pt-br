@@ -14,8 +14,3 @@ Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua
 4. Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico:   
    ![Etapa 4 ProjectOnline](./media/connectors-create-api-projectonline/projectonline-4.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

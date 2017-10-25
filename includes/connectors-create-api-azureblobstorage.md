@@ -1,6 +1,6 @@
 ### <a name="prerequisites"></a>Pré-requisitos
 * Uma conta do Azure; você pode criar uma [conta gratuita](https://azure.microsoft.com/free)
-* Uma [conta de Armazenamento de Blobs do Azure](../articles/storage/storage-create-storage-account.md), incluindo o nome da conta de armazenamento e sua chave de acesso. Essa informação é listada nas propriedades da conta de armazenamento no Portal do Azure. Saiba mais sobre o [Armazenamento do Azure](../articles/storage/storage-introduction.md).
+* Uma [conta de Armazenamento de Blobs do Azure](../articles/storage/common/storage-create-storage-account.md), incluindo o nome da conta de armazenamento e sua chave de acesso. Essa informação é listada nas propriedades da conta de armazenamento no Portal do Azure. Saiba mais sobre o [Armazenamento do Azure](../articles/storage/common/storage-introduction.md).
 
 Antes de usar sua conta do Armazenamento de Blobs do Azure em um aplicativo lógico, conecte-se à sua conta do Armazenamento de Blobs do Azure. Você pode fazer isso de forma fácil usando seu aplicativo lógico no portal do Azure.  
 
@@ -25,9 +25,4 @@ Conecte-se à sua conta do Armazenamento de Blobs do Azure seguindo essas etapas
 5. Observe que a conexão foi criada. Agora, continue com as outras etapas no seu aplicativo lógico: 
    
     ![Etapa de criação da conexão com o Armazenamento de Blobs do Azure](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)  
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

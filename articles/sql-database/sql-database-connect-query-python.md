@@ -1,161 +1,95 @@
 ---
-title: Conectar-se ao Banco de Dados SQL do Azure usando o Python | Microsoft Docs
-description: "Apresenta um exemplo de código Python que pode ser usado para se conectar ao Banco de Dados SQL do Azure."
+title: Usar o Python para consultar banco de dados SQL do Azure | Microsoft Docs
+description: "Este tópico mostra como usar Python para criar um programa que se conecta a um banco de dados SQL do Azure e consultá-lo usando instruções Transact-SQL."
 services: sql-database
 documentationcenter: 
-author: meet-bhagdev
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: 452ad236-7a15-4f19-8ea7-df528052a3ad
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: mvc,develop apps
 ms.workload: drivers
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: n
 ms.devlang: python
-ms.topic: article
-ms.date: 03/27/2017
-ms.author: meetb;carlrab;sstein
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 91e1dcd5b4a7dc62a09c9deb26622dacba1dcaa1
-ms.lasthandoff: 03/30/2017
-
-
+ms.topic: quickstart
+ms.date: 08/08/2017
+ms.author: carlrab
+ms.openlocfilehash: fd5bd63dd614d666cc7b21bdd3b7483df5508e96
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-sql-database-use-python-to-connect-and-query-data"></a>Banco de Dados SQL do Azure: Usar o Python para conectar e consultar dados
+# <a name="use-python-to-query-an-azure-sql-database"></a>Usar Python para consultar um banco de dados SQL do Azure
 
-Use o [Python](https://python.org) para conectar e consultar um banco de dados SQL do Azure. Este guia detalha como usar o Python para se conectar a um banco de dados SQL do Azure e, depois, executar instruções de consulta, inserção, atualização e exclusão.
+ Este guia de início rápido demonstra como usar o [Python](https://python.org) para se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados.
 
-Este início rápido usa como ponto de partida os recursos criados em um destes inícios rápidos:
+## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar Banco de dados - Portal](sql-database-get-started-portal.md)
-- [Criar Banco de dados - CLI](sql-database-get-started-cli.md)
+Para concluir este tutorial de início rápido, tenha o seguinte:
 
-## <a name="configure-development-environment"></a>Configurar o ambiente de desenvolvimento
-### <a name="mac-os"></a>**Mac OS**
-Abra seu terminal e navegue até um diretório no qual você planeja criar o script python. Insira os comandos a seguir para instalar **brew**, **Driver ODBC da Microsoft para Mac** e **pyodbc**. pyodbc usa o Microsoft ODBC Driver no Linux para se conectar a Bancos de Dados SQL.
+- Um banco de dados SQL do Azure. Este início rápido usa os recursos criados em um destes inícios rápidos: 
 
-``` bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew tap microsoft/msodbcsql https://github.com/Microsoft/homebrew-msodbcsql-preview
-brew update
-brew install msodbcsql 
-#for silent install ACCEPT_EULA=y brew install msodbcsql
-sudo pip install pyodbc==3.1.1
-```
+   - [Criar Banco de dados - Portal](sql-database-get-started-portal.md)
+   - [Criar Banco de dados - CLI](sql-database-get-started-cli.md)
+   - [Criar Banco de dados - PowerShell](sql-database-get-started-powershell.md)
 
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
-Abra seu terminal e navegue até um diretório no qual você planeja criar o script python. Insira os comandos a seguir para instalar o **Microsoft ODBC Driver for Linux** e **pyodbc**. pyodbc usa o Microsoft ODBC Driver no Linux para se conectar a Bancos de Dados SQL.
+- Uma [regra de firewall no nível de servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para o endereço IP público do computador usado neste tutorial de início rápido.
 
-```bash
-sudo su
-curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
-curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql.list
-exit
-sudo apt-get update
-sudo apt-get install msodbcsql mssql-tools unixodbc-dev
-sudo pip install pyodbc==3.1.1
-```
+- Você instalou o Python e o software relacionado para seu sistema operacional.
 
-### <a name="windows"></a>**Windows**
-Instale o [Microsoft ODBC Driver 13.1](https://www.microsoft.com/download/details.aspx?id=53339). pyodbc usa o Microsoft ODBC Driver no Linux para se conectar a Bancos de Dados SQL. 
+    - **MacOS**: instale o Homebrew e o Python, instale o driver ODBC e o SQLCMD e, em seguida, instale o Driver Python para SQL Server. Consulte [Etapas 1.2, 1.3 e 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
+    - **Ubuntu**: instale o Python e outros pacotes necessários e, em seguida, instale o Driver Python para SQL Server. Consulte [Etapas 1.2, 1.3 e 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu/).
+    - **Windows**: instale a versão mais recente do Python (a variável de ambiente agora está configurada para você), instale o driver ODBC e o SQLCMD e então instale o Driver Python para o SQL Server. Veja a [Etapa 1.2, 1.3 e 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/windows/). 
 
-Em seguida, instale o pyodbc usando pip
+## <a name="sql-server-connection-information"></a>Informações de conexão do servidor SQL
 
-```cmd
-pip install pyodbc==3.1.1
-```
-
-É possível encontrar instruções para habilitar o uso de pip [aqui](http://stackoverflow.com/questions/4750806/how-to-install-pip-on-windows)
-
-## <a name="get-connection-information"></a>Obter informações de conexão
-
-Obtenha a cadeia de conexão no Portal do Azure. Use a cadeia de conexão para se conectar ao Banco de Dados SQL do Azure.
+Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados SQL do Azure. Você precisará do nome totalmente qualificado do servidor, nome do banco de dados e informações de logon nos próximos procedimentos.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Selecione **Bancos de Dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de Dados SQL**. 
-3. No painel **Essentials** de seu banco de dados, examine o nome do servidor totalmente qualificado. 
+3. Na página **Visão geral** do banco de dados, examine o nome totalmente qualificado do servidor, como mostrado na imagem a seguir. Você pode passar o mouse sobre o nome do servidor para abrir a opção **Clique para copiar**.  
 
-    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="connection strings" style="width: 780px;" />
-   
-## <a name="select-data"></a>Selecionar dados
-Use a função [pyodbc.connect](https://mkleehammer.github.io/pyodbc/api-connection.html) com uma instrução [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) de Transact-SQL para consultar dados no banco de dados SQL do Azure. A função [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) pode ser usada para recuperar um conjunto de resultados de uma consulta no Banco de Dados SQL. Essencialmente, essa função aceita qualquer consulta e retorna um conjunto de resultados que pode ser iterado com o uso de [cursor.fetchone()](https://mkleehammer.github.io/pyodbc/api-cursor.html).
+   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
+
+4. Se você se esquecer das informações de logon do servidor, navegue até a página do servidor do Banco de Dados SQL para exibir o nome de administrador do servidor e, se necessário, redefinir a senha.     
+    
+## <a name="insert-code-to-query-sql-database"></a>Inserir código para consultar o banco de dados SQL 
+
+1. Em seu editor de texto favorito, crie um novo arquivo, **sqltest.py**.  
+
+2. Substitua o conteúdo pelo código a seguir e adicione os valores apropriados para seu servidor, banco de dados, usuário e senha.
 
 ```Python
 import pyodbc
-server = 'yourserver.database.windows.net'
-database = 'yourdatabase'
-username = 'yourusername'
-password = 'yourpassword'
+server = 'your_server.database.windows.net'
+database = 'your_database'
+username = 'your_username'
+password = 'your_password'
 driver= '{ODBC Driver 13 for SQL Server}'
 cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
 cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
 row = cursor.fetchone()
 while row:
-    print str(row[0]) + " " + str(row[1])
+    print (str(row[0]) + " " + str(row[1]))
     row = cursor.fetchone()
 ```
 
+## <a name="run-the-code"></a>Executar o código
 
-## <a name="insert-data"></a>Inserir dados
-No Banco de Dados SQL, a propriedade [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) e o objeto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) podem ser usados para gerar automaticamente valores de [chave primária](https://msdn.microsoft.com/library/ms179610.aspx). 
+1. No prompt de comando, execute estes comandos:
 
-```Python
-import pyodbc
-server = 'yourserver.database.windows.net'
-database = 'yourdatabase'
-username = 'yourusername'
-password = 'yourpassword'
-driver= '{ODBC Driver 13 for SQL Server}'
-cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
-cursor = cnxn.cursor()
-with cursor.execute("INSERT INTO SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('BrandNewProduct', '200989', 'Blue', 75, 80, '7/1/2016')"): 
-    print ('Successfuly Inserted!')
-cnxn.commit()
-```
+   ```Python
+   python sqltest.py
+   ```
 
-## <a name="update-data"></a>Atualizar dados
-A função [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) pode ser usada para criar uma instrução [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) de Transact-SQL para atualizar dados no banco de dados SQL do Azure.
-
-```Python
-import pyodbc
-server = 'yourserver.database.windows.net'
-database = 'yourdatabase'
-username = 'yourusername'
-password = 'yourpassword'
-driver= '{ODBC Driver 13 for SQL Server}'
-cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
-cursor = cnxn.cursor()
-tsql = "UPDATE SalesLT.Product SET ListPrice = ? WHERE Name = ?"
-with cursor.execute(tsql,50,'BrandNewProduct'):
-    print ('Successfuly Updated!')
-cnxn.commit()
-
-```
-
-
-## <a name="delete-data"></a>Excluir dados
-A função [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) pode ser usada para criar uma instrução [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) de Transact-SQL para excluir dados do banco de dados SQL do Azure.
-
-```Python
-import pyodbc
-server = 'yourserver.database.windows.net'
-database = 'yourdatabase'
-username = 'yourusername'
-password = 'yourpassword'
-driver= '{ODBC Driver 13 for SQL Server}'
-cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
-cursor = cnxn.cursor()
-tsql = "DELETE FROM SalesLT.Product WHERE Name = ?"
-with cursor.execute(tsql,'BrandNewProduct'):
-    print ('Successfuly Deleted!')
-cnxn.commit()
-```
+2. Verifique se as 20 linhas superiores são retornadas e, em seguida, feche a janela do aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Leia a [Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md).
-* Mais informações sobre o [Microsoft Python Driver para SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/).
-* Visite o [Centro de Desenvolvimento do Python](/develop/python/).
-* Explore todas as [funcionalidades do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/).
+
+- [Projetar seu primeiro banco de dados SQL do Azure](sql-database-design-first-database.md)
+- [Drivers Python da Microsoft para SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
+- [Centro de desenvolvedores do Python](https://azure.microsoft.com/develop/python/?v=17.23h)
 

@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 8/9/2017
 ms.author: masnider;
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 8ecde1ba2c7a18d0237b92a404eeb1e2d7348378
-ms.lasthandoff: 03/08/2017
-
-
+ms.openlocfilehash: 601b1c7713c9785d949c1c72000ec7f3f63dd682
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reliable-services-overview"></a>Visão geral dos Reliable Services
 O Azure Service Fabric simplifica o desenvolvimento e o gerenciamento de Reliable Services com e sem estado. Este tópico aborda:
@@ -82,7 +81,7 @@ Quando é feita uma chamada de um cliente, o método apropriado é invocado e o 
 
 Não armazenar nenhum estado interno torna este exemplo de calculadora muito simples. Mas a maioria dos serviços não é realmente sem estado. Em vez disso, eles externalizam o estado para algum outro repositório. (Por exemplo, qualquer aplicativo Web que depende da manutenção do estado de sessão em um repositório de backup ou do cache não é sem estado.)
 
-Um exemplo comum de como serviços sem estado são usados na Malha de Serviços é um front-end que expõe a API voltada ao público para um aplicativo Web. O serviço front-end se comunica com serviços com estado para concluir a solicitação de um usuário. Nesse caso, chamadas de clientes são direcionadas para uma porta conhecida, por exemplo, a 80, na qual o serviço sem estado está escutando. Esse serviço sem estado recebe a chamada e determina se ela é de uma parte confiável, bem como o serviço ao qual ela se destina.  Em seguida, o serviço sem estado encaminha a chamada para a partição correta do serviço com estado e aguarda uma resposta. Quando o serviço sem estado recebe uma resposta, ele responde ao cliente original. Veja um exemplo de um serviço como esse em nossas amostras de [C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount/WordCount.WebService) / [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/Actors/VisualObjectActor/VisualObjectWebService). Esse é apenas um exemplo desse padrão nos exemplos, também existem outros nos demais exemplos.
+Um exemplo comum de como serviços sem estado são usados na Malha de Serviços é um front-end que expõe a API voltada ao público para um aplicativo Web. O serviço front-end se comunica com serviços com estado para concluir a solicitação de um usuário. Nesse caso, chamadas de clientes são direcionadas para uma porta conhecida, por exemplo, a 80, na qual o serviço sem estado está escutando. Esse serviço sem estado recebe a chamada e determina se ela é de uma parte confiável, bem como o serviço ao qual ela se destina.  Em seguida, o serviço sem estado encaminha a chamada para a partição correta do serviço com estado e aguarda uma resposta. Quando o serviço sem estado recebe uma resposta, ele responde ao cliente original. Veja um exemplo de um serviço como esse em nossas amostras de [C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) / [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/Actors/VisualObjectActor/VisualObjectWebService). Esse é apenas um exemplo desse padrão nos exemplos, também existem outros nos demais exemplos.
 
 ### <a name="stateful-reliable-services"></a>Serviços Confiáveis com estado
 Um serviço com estado deve ter alguma parte do estado consistente e presente para que o serviço funcione. Considere um serviço que calcula constantemente uma média móvel de algum valor com base em atualizações que recebe. Para fazer isso, é necessário ter o conjunto atual de solicitações de entrada que precisam ser processados e a média atual. Qualquer serviço que recupera, processa e armazena informações em um repositório externo (como um repositório de tabelas ou blob do Azure) é um serviço com estado. Ele simplesmente mantém seu estado no repositório de estado externo.
@@ -118,4 +117,3 @@ Se um dos itens a seguir caracterizar as necessidades de serviço do aplicativo,
 * [Início Rápido dos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
 * [Uso avançado de Reliable Services](service-fabric-reliable-services-advanced-usage.md)
 * [O modelo de programação de Reliable Actors](service-fabric-reliable-actors-introduction.md)
-

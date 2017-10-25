@@ -1,67 +1,75 @@
 ---
-title: "Começar a usar o Hub IoT do Azure | Microsoft Docs"
-description: "Como começar a usar o serviço do Hub IoT"
+title: "Hub IoT do Azure – introdução à conexão de dispositivos IoT à nuvem | Microsoft Docs"
+description: "Saiba como conectar seus quadros IoT e kits de início ao Hub IoT do Azure. Seus dispositivos podem enviar telemetria ao Hub IoT e o Hub IoT pode monitorar e gerenciar seus dispositivos."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
 manager: timlt
 editor: 
+keywords: tutorial do hub iot do azure
 ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 08/22/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: d7360c3d41a0e4cf0d182e510d6bc2fccd915dd1
-ms.openlocfilehash: 51ac0c0d3a91070fc8f5b3892409af838e91068e
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 45016e6383761ffe78f13ccef1112ab3d9753498
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="get-started-with-azure-iot-hub-or-azure-iot-gateway-sdk"></a>Introdução ao Hub IoT do Azure ou o SDK do Gateway do Azure IoT
+# <a name="azure-iot-hub-get-started-tutorials"></a>Tutoriais de introdução ao Hub IoT do Azure
 
-Você pode escolher um dos vários tutoriais para começar a usar o serviço do Hub IoT ou o SDK do Gateway.
+Você pode usar o Hub IoT do Azure e os SDKs do dispositivo IoT do Azure para criar soluções de IoT (Internet das Coisas):
 
-## <a name="iot-hub"></a>Hub IoT
+* O Hub IoT do Azure é um serviço completamente gerenciado na nuvem que se conecta com segurança aos seus dispositivos IoT, monitorando-os e gerenciando-os. Use os SDKs do dispositivo IoT do Azure para implementar os dispositivos IoT.
+* Use um gateway IoT em cenários de IoT mais complexos. Por exemplo, quando você precisa considerar fatores como dispositivos herdados, custos de largura de banda, políticas de segurança e privacidade ou processamento de dados de borda. Nesses cenários, você pode usar o Azure IoT Edge para implementar um gateway que conecte dispositivos ao seu hub IoT.
 
-O Hub IoT do Azure é um serviço totalmente gerenciado que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos (IoT) (Internet das Coisas) e uma solução de back-end.
+## <a name="what-the-tutorials-cover"></a>O que os tutoriais abordam
 
-Para começar a usar o serviço do Hub IoT, você pode:
+Estes tutoriais apresentam a você o Hub IoT do Azure e os SDKs do dispositivo. Os tutoriais abordam os cenários comuns de IoT para demonstrar os recursos do Hub IoT. Os tutoriais também ilustram como combinar o Hub IoT com outros serviços e ferramentas do Azure para criar soluções de IoT mais eficazes. Nos tutoriais, você pode optar por usar dispositivos IoT simulados ou reais. Além disso, você pode aprender como usar um gateway de modo a habilitar dispositivos para conectar ao seu Hub IoT.
 
-- Siga um tutorial que usa um dispositivo simulado em execução no computador de desenvolvimento. Escolha um tutorial de introdução que use sua linguagem de programação preferencial: [.NET][lnk-dotnet], [Java][lnk-java] ou [Node.js][lnk-nodejs].
+## <a name="set-up-your-device"></a>Configurar seu dispositivo
 
-- Siga um tutorial que usa um dispositivo físico. Escolha um tutorial de introdução que use sua plataforma de hardware preferencial: [Raspberry Pi][lnk-rasp-pi], [Intel Edison][lnk-edison] ou [Arduino][lnk-arduino]. Esses tutoriais incluem informações sobre como você pode obter os dispositivos de hardware.
+Conecte um dispositivo IoT ou gateway ao Hub IoT do Azure. Você pode escolher um dispositivo real ou simulado para começar:
 
-- Leia sobre como usar a linguagem C para desenvolver dispositivos IoT no artigo [Introdução ao SDK de dispositivo do IoT Azure para C][lnk-c-intro].
+| Dispositivo IoT                       | Linguagem de programação |
+|----------------------------------|----------------------|
+| Raspberry Pi                     | [Python][Pi_Py], [Node.js][Pi_Nd], [C][Pi_C]  |
+| Kit de Desenvolvimento da IoT                       | [Arduino no VSCode][DevKit]     |
+| Intel Edison                     | [Node.js][Ed_Nd], [C][Ed_C]    |
+| Adafruit Feather HUZZAH ESP8266  | [Arduino][Hu_Ard]              |
+| Sparkfun ESP8266 Thing Dev       | [Arduino][Th_Ard]              |
+| Adafruit Feather M0              | [Arduino][M0_Ard]              |
+| Dispositivo simulado no computador           | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth] |
+| Simulador de dispositivo online         | [Raspberry Pi (Node.js)][Ol_Sim] |
 
-## <a name="gateway-sdk"></a>SDK do Gateway
+Além disso, você pode usar um gateway IoT Edge para habilitar os dispositivos a conectarem-se ao seu Hub IoT:
 
-Você pode usar o SDK do Gateway para criar um gateway de campo personalizado. Um gateway realiza tarefas como execução de análise, tomada de decisões baseadas em tempo para reduzir a latência, fornecimento de serviços de gerenciamento de dispositivos, imposição de restrições de privacidade e segurança e execução da conversão de protocolo.
+| Dispositivos de gateway               | Linguagem de programação | Plataforma         |
+|------------------------------|----------------------|------------------|
+| Intel NUC (modelo DE3815TYKE) | C                    | [Wind River Linux][NUC_Lnx] |
+| Gateway simulado            | C                    | [Linux][Sim_Lnx], [Windows][Sim_Win] |
 
-Para começar a usar o SDK do Gateway, você pode:
+[!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 
-- Siga um tutorial que usa um gateway simulado em execução no computador de desenvolvimento. Você pode escolher um tutorial de introdução para [Linux][lnk-linux] ou [Windows][lnk-windows].
-
-- Siga um tutorial que usa um dispositivo físico. Você pode escolher um tutorial de introdução que usa um [dispositivo simulado com NUC Intel (Next Unit of Computing)][lnk-gateway-sim] ou usa um [dispositivo SensorTag com NUC Intel][lnk-gateway-tag].
-
-## <a name="next-steps"></a>Próximas etapas
-
-Quando concluir os tutoriais de Introdução, você poderá explorar mais recursos do Hub IoT e do SDK do Gateway no [Guia do Desenvolvedor][lnk-devguide] e nos tutoriais de [Instruções][lnk-howto].
-
-[lnk-dotnet]: ./iot-hub-csharp-csharp-getstarted.md
-[lnk-java]: ./iot-hub-java-java-getstarted.md
-[lnk-nodejs]: ./iot-hub-node-node-getstarted.md
-[lnk-c-intro]: ./iot-hub-device-sdk-c-intro.md
-[lnk-rasp-pi]: ./iot-hub-raspberry-pi-kit-node-get-started.md
-[lnk-edison]: ./iot-hub-intel-edison-kit-node-get-started.md
-[lnk-arduino]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
-[lnk-linux]: ./iot-hub-linux-gateway-sdk-get-started.md
-[lnk-windows]: ./iot-hub-windows-gateway-sdk-get-started.md
-[lnk-gateway-sim]: ./iot-hub-gateway-kit-c-sim-get-started.md
-[lnk-gateway-tag]: ./iot-hub-gateway-kit-c-get-started.md
-[lnk-devguide]: ./iot-hub-devguide.md
-[lnk-howto]: ./iot-hub-how-to.md
-
+[Pi_Nd]: iot-hub-raspberry-pi-kit-node-get-started.md
+[Pi_C]: iot-hub-raspberry-pi-kit-c-get-started.md
+[Pi_Py]: iot-hub-raspberry-pi-kit-python-get-started.md
+[DevKit]: iot-hub-arduino-iot-devkit-az3166-get-started.md
+[Ed_Nd]: iot-hub-intel-edison-kit-node-get-started.md
+[Ed_C]: iot-hub-intel-edison-kit-c-get-started.md
+[Hu_Ard]: iot-hub-arduino-huzzah-esp8266-get-started.md
+[Th_Ard]: iot-hub-sparkfun-esp8266-thing-dev-get-started.md
+[M0_Ard]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
+[Sim_NET]: iot-hub-csharp-csharp-getstarted.md
+[Sim_Jav]: iot-hub-java-java-getstarted.md
+[Sim_Nd]: iot-hub-node-node-getstarted.md
+[Sim_Pyth]: iot-hub-python-getstarted.md
+[NUC_Lnx]: iot-hub-gateway-kit-c-lesson1-set-up-nuc.md
+[Sim_Lnx]: iot-hub-linux-iot-edge-get-started.md
+[Sim_Win]: iot-hub-windows-iot-edge-get-started.md
+[Ol_Sim]: iot-hub-raspberry-pi-web-simulator-get-started.md

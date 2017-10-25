@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: ambapat
-translationtype: Human Translation
-ms.sourcegitcommit: f1a03a0553bc1acd013918f527458603d08cb0f7
-ms.openlocfilehash: 8d213455ad9c771d54c2334e4d31eb4f84c9ec15
-
-
+ms.openlocfilehash: 14da9256def60d678ef5cae795fef1c373914b5c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>Conceder permissão para vários aplicativos acessarem um Key Vault
 
@@ -27,8 +27,8 @@ ms.openlocfilehash: 8d213455ad9c771d54c2334e4d31eb4f84c9ec15
 A política de controle de acesso do Key Vault dá suporte apenas a 16 entradas. No entanto, você pode criar um grupo de segurança do Azure Active Directory. Adicione todas as entidades de serviço associadas a esse grupo de segurança e, em seguida, conceda acesso a esse grupo de segurança para o Key Vault.
 
 Veja os pré-requisitos:
-* [Instalar o módulo do PowerShell do Azure Active Directory V2](https://www.powershellgallery.com/packages/AzureAD/2.0.0.30).
-* [Instalar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* [Instalar o módulo do PowerShell do Azure Active Directory V2](https://www.powershellgallery.com/packages/AzureAD).
+* [Instalar o Azure PowerShell](/powershell/azure/overview).
 * Para executar os comandos a seguir, você precisa ter permissões para criar/editar grupos no locatário do Azure Active Directory. Se não tiver permissões, você poderá precisar entrar em contato com o administrador do Azure Active Directory.
 
 Agora, execute os seguintes comandos no PowerShell.
@@ -57,9 +57,3 @@ Se você precisar conceder um conjunto diferente de permissões para um grupo de
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre como [Proteger seu Key Vault](key-vault-secure-your-key-vault.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

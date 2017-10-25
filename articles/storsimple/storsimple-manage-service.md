@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 07/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 99fab8eafe4e17f50db8e7e33637001be03abe7b
-ms.openlocfilehash: 0cb356910b858bf231dfadffa1d4561df1977af0
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: ba3637a3a8b15b45c16bf5a00c1f4225bcfc5af8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-the-storsimple-manager-service-in-the-azure-classic-portal"></a>Implantar o serviço StorSimple Manager no portal clássico do Azure
 
@@ -29,7 +28,7 @@ O serviço StorSimple Manager é executado no Microsoft Azure e se conecta a vá
 
 A página de aterrissagem do StorSimple Manager lista todos os serviços StorSimple Manager que você pode usar para gerenciar os dispositivos de armazenamento do StorSimple. Para cada serviço StorSimple Manager, as informações a seguir são apresentadas na página do StorSimple Manager:
 
-* **Nome** : o nome que foi atribuído ao serviço StorSimple Manager quando ele foi criado. O nome do serviço não pode ser alterado depois que o serviço é criado.
+* **Nome** : o nome que foi atribuído ao serviço StorSimple Manager quando ele foi criado. **O nome do serviço não pode ser alterado depois que o serviço é criado. Isso também é verdadeiro para outras entidades, como dispositivos, volumes, contêineres de volume e políticas de backup que não podem ser renomeados no portal clássico do Azure.**
 * **Status**: o status do serviço, que pode ser **Ativo**, **Criando** ou **Online**.
 * **Local** : a localização geográfica em que o dispositivo StorSimple será implantado.
 * **Assinatura** : a assinatura de cobrança associada ao seu serviço.
@@ -102,4 +101,3 @@ Execute as etapas a seguir para regenerar uma chave de registro de serviço.
 * Saiba mais sobre o [processo de implantação do StorSimple](storsimple-deployment-walkthrough-u2.md).
 * [Saiba mais sobre como gerenciar sua conta de armazenamento do StorSimple](storsimple-manage-storage-accounts.md).
 * Saiba mais sobre como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-

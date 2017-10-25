@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 08/17/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
-ms.openlocfilehash: a451ab54144222676e8063b764a6d22f44a690d7
-
-
+ms.reviewer: aaronsm
+ms.openlocfilehash: fc0d297598c334ca8f6f8a2bd3ae948c87956342
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-azure-active-directory-single-sign-on-with-saas-apps"></a>Integrar o logon único do Azure AD com aplicativos de SaaS
 > [!div class="op_single_selector"]
@@ -31,6 +32,9 @@ ms.openlocfilehash: a451ab54144222676e8063b764a6d22f44a690d7
 [!INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
 Para começar a configurar o logon único para um aplicativo que está trazendo para sua organização, você usará um diretório existente no Active Directory do Azure (Azure AD). Você pode usar um diretório do Azure AD que você obtém por meio do Microsoft Azure, Office 365 ou Windows Intune. Se você tiver dois ou mais deles, consulte [Administrar seu diretório do AD do Azure](active-directory-administer.md) para determinar qual deles usar.
+
+> [!IMPORTANT]
+> A Microsoft recomenda que você gerencie o Azure AD usando o [Centro de administração do AD do Azure](https://aad.portal.azure.com) no portal do Azure em vez de usar o portal clássico do Azure mencionado neste artigo. Para saber com atribuir funções de administrador no centro de administração do Azure AD, consulte [Atribuindo funções de administrador no Azure Active Directory](active-directory-enterprise-apps-manage-sso.md).
 
 ## <a name="authentication"></a>Autenticação
 Para aplicativos que dão suporte aos protocolos SAML 2.0, WS-Federation ou OpenID Connect, o Active Directory do Azure usa certificados de assinatura para estabelecer relações de confiança. Para obter mais informações sobre isso, consulte [Gerenciando certificados para logon único federado](active-directory-sso-certs.md).
@@ -70,13 +74,6 @@ Para aplicativos SaaS que você encontrar na Galeria de Aplicativos, o Azure AD 
 
 Se o aplicativo não estiver na Galeria de Aplicativos, você poderá [adicioná-lo à Galeria de Aplicativos do Azure AD como um aplicativo personalizado](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
-Há muito mais detalhes sobre todos esses assuntos na biblioteca do Azure.com, começando com [O que é o acesso a aplicativos e o logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
+Há muito mais detalhes sobre todos esses temas na biblioteca do Azure.com, começando com [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="next-steps"></a>Próximas etapas
-* [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+Além disso, não perca o [Índice de artigos para Gerenciamento de Aplicativos no Azure Active Directory](active-directory-apps-index.md).

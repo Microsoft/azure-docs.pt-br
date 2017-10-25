@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/29/2016
+ms.date: 07/19/2017
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2dfc682fa54577ec5ab9d8a1e21ea82f035cc41e
-
-
+ms.openlocfilehash: 5bfbeb038dbedae2bf77016abbc19458c3dc22c9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-modify-your-storsimple-device-configuration"></a>Usar o serviço StorSimple Manager para modificar a configuração do dispositivo StorSimple
 ## <a name="overview"></a>Visão geral
@@ -33,6 +33,9 @@ A página **Configurar** do Portal clássico do Azure contém todos os parâmetr
 ## <a name="modify-device-settings"></a>Modificar as configurações de dispositivo
 As configurações de dispositivo incluem o nome amigável do dispositivo e a descrição do dispositivo.
 
+> [!NOTE] 
+> Não é possível modificar o nome do dispositivo no portal clássico do Azure. Não há suporte para renomear o dispositivo.
+
 Um dispositivo StorSimple que está conectado ao serviço StorSimple Manager recebe um nome padrão. O nome padrão normalmente reflete o número de série do dispositivo. Por exemplo, um nome de dispositivo padrão que é de 15 caracteres, como 8600-SHX0991003G44HT, indica o seguinte:
 
 * **8600** – Indica o modelo do dispositivo.
@@ -40,9 +43,7 @@ Um dispositivo StorSimple que está conectado ao serviço StorSimple Manager rec
 * **0991003** - Indica um produto específico.
 * **G44HT**- Os últimos cinco dígitos são aumentados para criar números de série exclusivos. Isso pode não ser um conjunto sequencial.
 
-É possível usar o Portal Clássico do Azure para alterar o nome do dispositivo e atribuir a ele um nome amigável exclusivo de sua escolha. O nome amigável pode conter qualquer caractere e ter no máximo 64 caracteres.
-
-Também é possível especificar uma descrição de dispositivo. Uma descrição de dispositivo geralmente ajuda a identificar o proprietário e o local físico do dispositivo. O campo de descrição deve conter menos de 256 caracteres.
+É possível especificar uma descrição de dispositivo. Uma descrição de dispositivo geralmente ajuda a identificar o proprietário e o local físico do dispositivo. O campo de descrição deve conter menos de 256 caracteres.
 
 ## <a name="modify-time-settings"></a>Modificar as configurações de tempo
 O dispositivo deve sincronizar a hora para autenticar com seu provedor de serviços de armazenamento em nuvem. Selecione seu fuso horário na lista suspensa e especifique até dois servidores NTP (Protocolo de Tempo de Rede). O servidor NTP primário é necessário e é especificado quando você usa o Windows PowerShell para StorSimple para configurar seu dispositivo. É possível especificar o **time.windows.com** padrão do Windows Server como o servidor NTP. É possível exibir a configuração do servidor NTP primário por meio do Portal Clássico do Azure, mas é preciso usar a interface do Windows PowerShell para alterá-la.
@@ -117,10 +118,4 @@ Realize as etapas a seguir para alternar ou reatribuir os VIPs para qualquer uma
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [configurar o MPIO para seu dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
 * Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

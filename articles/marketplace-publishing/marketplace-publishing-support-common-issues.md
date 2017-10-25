@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
+ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 11b5fb0ed1b3939d8278156fcf2c831befc5f7ff
-
-
+ms.openlocfilehash: dcd87ae977d5b4b4a2353e446ab89ac81b239195
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-troubleshoot-common-azure-marketplace-publisher-issues"></a>Como solucionar problemas comuns de editora do Azure Marketplace
 Este artigo explica como resolver ou obter suporte para alguns cenários comuns do Marketplace.
@@ -30,8 +30,8 @@ O exemplo a seguir mostra como solicitar um crédito ou reembolso em nome de um 
 
 > [!NOTE]
 > Se um cliente ou revendedor do Azure entrar em contato com a Microsoft para solicitar um reembolso ou crédito, aplicaremos as mesmas políticas que usamos para provisionar os serviços do Azure. Se nossas políticas indicarem que um reembolso ou crédito está prestes a vencer, emitiremos proativamente (e você nos autoriza a emitir em seu nome) um crédito ou reembolso para o cliente ou para o revendedor do Azure, conforme aplicável. Se nossas políticas não indicarem que um crédito ou reembolso está prestes a vencer, poderemos convidar o cliente ou o revendedor do Azure a contatar você diretamente.
-> 
-> 
+>
+>
 
   ![1_RequestRefund][1]
 
@@ -39,12 +39,12 @@ O exemplo a seguir mostra como solicitar um crédito ou reembolso em nome de um 
 2. Na caixa **Tipo de problema** selecione **Gerenciando Clientes**.
 3. Na caixa **Categoria**, selecione **Aprovar ou solicitar reembolso de um cliente**.
 4. Clique em **Iniciar solicitação**.
-   
+
    ![2_RequestRefund][2]
 
 1. Fornecer informações de contato.
 2. Na caixa **Qual é o problema?** , digite as seguintes informações:
-   
+
    * A ID da assinatura do cliente afetado
    * O nome do cliente
    * Qual deve ser o valor do crédito
@@ -83,8 +83,8 @@ Se você quiser atualizar seu perfil de editor, faça isso usando o Centro de De
 
 > [!NOTE]
 > Você pode usar seu número de telefone ou endereço de email para verificar.
-> 
-> 
+>
+>
 
 ![protectacct][6]
 
@@ -121,9 +121,3 @@ Para os problemas a seguir, crie uma solicitação de suporte em [http://go.micr
 [6]: ./media/marketplace-publishing-support-common-issues/protectacct.png
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

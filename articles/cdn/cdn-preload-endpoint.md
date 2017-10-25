@@ -3,7 +3,7 @@ title: "Pré-carregar ativos em um ponto de extremidade da CDN do Azure | Micros
 description: "Saiba como pré-carregar o conteúdo armazenado em cache em um ponto de extremidade da CDN do Azure."
 services: cdn
 documentationcenter: 
-author: zhangmanling
+author: smcevoy
 manager: erikre
 editor: 
 ms.assetid: 5ea3eba5-1335-413e-9af3-3918ce608a83
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 242c3a6bf656da9b029a780e8b80667405b7b92f
-ms.lasthandoff: 03/04/2017
-
-
+ms.openlocfilehash: 1f2dcd9a91bb6e883cbef06373c1acd98bf8d45f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Pré-carregar ativos em um ponto de extremidade da CDN do Azure
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -64,12 +63,11 @@ Esse tutorial orienta você carregando previamente o conteúdo armazenado em cac
     ![Botão Carregar](./media/cdn-preload-endpoint/cdn-load-button.png)
 
 > [!NOTE]
-> Há uma limitação de 10 solicitações de carga por minuto para cada perfil CDN.
+> Há uma limitação de 10 solicitações de carga por minuto para cada perfil CDN. São permitidos 50 caminhos por solicitação. Cada caminho tem um limite de comprimento de 1024 caracteres.
 > 
 > 
 
 ## <a name="see-also"></a>Consulte também
 * [Limpar um ponto de extremidade da CDN do Azure](cdn-purge-endpoint.md)
 * [Referência da API REST da CDN do Azure – limpar ou pré-carregar um ponto de extremidade](https://msdn.microsoft.com/library/mt634451.aspx)
-
 

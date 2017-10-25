@@ -1,0 +1,56 @@
+- name: Documentação de Máquina Virtual de Ciência de Dados
+  items: null
+- name: Visão geral
+  expanded: true
+  items:
+    - name: O que é a VM de Ciência de Dados?
+      href: overview.md
+    - name: O que é a VM de aprendizado profundo?
+      href: deep-learning-dsvm-overview.md
+- name: Introdução
+  items:
+    - name: Criar uma VM de Ciência de Dados do Windows
+      href: provision-vm.md
+    - name: Criar uma VM de Ciência de Dados do Ubuntu
+      href: dsvm-ubuntu-intro.md
+    - name: Criar uma VM de Ciência de Dados do CentOS
+      href: linux-dsvm-intro.md
+    - name: Criar uma VM de Aprendizado Profundo
+      href: provision-deep-learning-dsvm.md
+- name: Como
+  items:
+    - name: Usar uma VM de Ciência de Dados do Windows
+      href: vm-do-ten-things.md
+    - name: Usar uma VM de Ciência de Dados do Linux
+      href: linux-dsvm-walkthrough.md
+    - name: Usar uma VM de Aprendizado Profundo
+      href: use-deep-learning-dsvm.md
+- name: Referência
+  expanded: true
+  items:
+    - name: Descobrir o DSVM
+      href: dsvm-tools-overview.md
+    - name: Estruturas de Aprendizado Profundo e de AI
+      href: dsvm-deep-learning-ai-frameworks.md
+    - name: Ferramentas de ciência de dados e de aprendizado de máquina
+      href: dsvm-ml-data-science-tools.md
+    - name: Linguagens
+      href: dsvm-languages.md
+    - name: Ferramentas de desenvolvimento
+      href: dsvm-tools-development.md
+    - name: Ferramentas de ingestão de dados
+      href: dsvm-tools-ingestion.md
+    - name: Ferramentas de visualização e exploração de dados
+      href: dsvm-tools-explore-and-visualize.md
+    - name: Plataformas de dados
+      href: dsvm-data-platforms.md
+    - name: Exemplos e explicações passo a passo
+      href: dsvm-samples-and-walkthroughs.md
+- name: Recursos
+  items:
+    - name: Blog
+      href: 'https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/'
+    - name: Fórum do MSDN
+      href: 'https://social.microsoft.com/Forums/en-US/home?forum=dsvm'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=dsvm'

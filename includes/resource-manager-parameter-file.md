@@ -30,8 +30,3 @@ O tamanho do arquivo de parâmetro não pode ser superior a 64 KB.
 
 Se você precisar fornecer um valor confidencial para um parâmetro (como uma senha), adicione esse valor em um cofre de chaves. Recupere o cofre de chaves durante a implantação, conforme mostrado no exemplo anterior. Para obter mais informações, veja [Transmitir valores seguros durante a implantação](../articles/azure-resource-manager/resource-manager-keyvault-parameter.md). 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

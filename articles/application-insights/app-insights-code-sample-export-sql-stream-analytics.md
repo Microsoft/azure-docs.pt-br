@@ -4,7 +4,7 @@ description: Exportar dados continuamente do Application Insights para o SQL usa
 services: application-insights
 documentationcenter: 
 author: noamben
-manager: douge
+manager: carmonm
 ms.assetid: 48903032-2c99-4987-9948-d6e4559b4a63
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 96614dd3c0bf9c55ffd81d0912ecb62b71c32b22
-ms.openlocfilehash: fa9b09833f61e372738ff74022ac9fd6a288847f
-
-
+ms.author: bwren
+ms.openlocfilehash: d51e80509ffb63cef0d01133a2295d58757d5b1a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Passo a passo: exportar para SQL do Application Insights usando o Stream Analytics
 Este artigo mostra como mover os dados de telemetria do [Azure Application Insights][start] em um banco de dados SQL do Azure usando [Exportação Contínua][export] e [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -261,7 +261,6 @@ Depois de alguns minutos, volte para as Ferramentas de Gerenciamento do SQL Serv
 
 
 ## <a name="related-articles"></a>Artigos relacionados
-* [Exportar para SQL usando uma função de trabalho](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Exportar para Power BI usando o Stream Analytics](app-insights-export-power-bi.md)
 * [Referência de modelo de dados detalhados para os tipos de propriedades e valores.](app-insights-export-data-model.md)
 * [Exportação Contínua no Application Insights](app-insights-export-telemetry.md)
@@ -274,10 +273,4 @@ Depois de alguns minutos, volte para as Ferramentas de Gerenciamento do SQL Serv
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [start]: app-insights-overview.md
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

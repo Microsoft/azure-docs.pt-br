@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/23/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 98c78d84f3a615fae7d6785994f0db20f7a53254
-ms.openlocfilehash: 013e3d29694a8daf1481e513c9c4dfc6b5da3384
-
-
+ms.author: LADocs; jehollan
+ms.openlocfilehash: 088f10bc32dd492f82f0a10a7e5829e76f588758
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scenario-trigger-a-logic-app-with-azure-functions-and-azure-service-bus"></a>Cenário: Disparar um aplicativo lógico usando o Azure Functions e o Barramento de Serviço do Azure
 
@@ -68,9 +68,3 @@ Para testar, adicionar uma mensagem na fila por meio de uma ferramenta como o [E
 <!-- Image References -->
 [1]: ./media/logic-apps-scenario-function-sb-trigger/manualtrigger.png
 [2]: ./media/logic-apps-scenario-function-sb-trigger/newqueuetriggerfunction.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

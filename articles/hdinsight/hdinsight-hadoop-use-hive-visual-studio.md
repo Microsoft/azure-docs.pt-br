@@ -1,6 +1,6 @@
 ---
-title: Consulta do Hive com ferramentas de Hadoop para o Visual Studio | Microsoft Docs
-description: Aprenda a usar o Hive com o Hadoop no HDInsight usando as ferramentas de Hadoop do Visual Studio.
+title: "Ferramentas do Hive com Data Lake (Hadoop) para Visual Studio – Azure HDInsight | Microsoft Docs"
+description: Saiba como usar as ferramentas de Data Lake para Visual Studio para executar consultas do Apache Hive com Apache Hadoop no Azure HDInsight.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,34 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/28/2017
+ms.date: 09/28/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 0627155a86f961531cfb11c0d8dc7a66eafbf0cf
-ms.lasthandoff: 03/07/2017
-
-
+ms.openlocfilehash: b9a8f857f42f16ec7735a79ec29e77e3c99c8ba7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="run-hive-queries-using-the-hdinsight-tools-for-visual-studio"></a>Executar consultas Hive usando as ferramentas de HDInsight para o Visual Studio
+# <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Executar consultas Hive usando as ferramentas do Data Lake para o Visual Studio
 
-[!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
-
-Saiba como enviar consultas do Hive para um cluster HDInsight usando as ferramentas do HDInsight para o Visual Studio.
+Saiba como usar as ferramentas do Data Lake para Visual Studio para consultar o Apache Hive. As ferramentas de Data Lake permitem que você facilmente crie, envie e monitore consultas de Hive para Hadoop no Azure HDInsight.
 
 ## <a id="prereq"></a>Pré-requisitos
-
-Para concluir as etapas deste artigo, você precisa do seguinte.
 
 * Um cluster Azure HDInsight (Hadoop no HDInsight)
 
   > [!IMPORTANT]
-  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Visual Studio (uma das versões a seguir):
-  
-    * Visual Studio 2013 Community/Professional/Premium/Ultimate com [Atualização 4](https://www.microsoft.com/download/details.aspx?id=44921)
-  
+
+    * Visual Studio 2013 Community/Professional/Premium/Ultimate com Atualização 4
+
     * Visual Studio 2015 (qualquer edição)
 
     * Visual Studio 2017 (qualquer edição)
@@ -62,21 +57,21 @@ Para concluir as etapas deste artigo, você precisa do seguinte.
    STORED AS TEXTFILE LOCATION '/example/data/';
    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND  INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
    ```
-   
+
     As instruções executam as seguintes ações:
-   
+
    * `DROP TABLE`: se a tabela existir, esta instrução a excluirá.
 
    * `CREATE EXTERNAL TABLE`: cria uma nova tabela 'externa' no Hive. As tabelas externas armazenam apenas a definição da tabela no Hive (os dados são mantidos no local original).
-     
+
      > [!NOTE]
-     > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa (como um processo automático de carregamento de dados) ou por outra operação MapReduce, mas você sempre quer que as consultas Hive utilizem os dados mais recentes.
-     > 
+     > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa. Por exemplo, um trabalho de MapReduce ou serviço do Azure.
+     >
      > Remover uma tabela externa **não** exclui os dados, somente a definição de tabela.
 
    * `ROW FORMAT`: informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
 
-   * `STORED AS TEXTFILE LOCATION`: informa ao Hive o local em que os dados são armazenados (o diretório de exemplos/dados) e que estão armazenados como texto.
+   * `STORED AS TEXTFILE LOCATION`: informa ao Hive o local em que os dados são armazenados no diretório de exemplo/de dados e que eles estão armazenados como texto.
 
    * `SELECT`: seleciona uma contagem de todas as linhas, nas quais a coluna `t4` contém o valor `[ERROR]`. Essa instrução retorna um valor de `3`, já que há três linhas que contêm esse valor.
 
@@ -95,7 +90,7 @@ Para concluir as etapas deste artigo, você precisa do seguinte.
 6. Você também pode executar consultas Hive sem criar um projeto. Usando o **Gerenciador de Servidores**, expanda **Azure** > **HDInsight**, clique com o botão direito do mouse no seu servidor do HDInsight e selecione **Escrever uma Consulta de Hive**.
 
 7. No documento **temp.hql** que aparece, adicione as seguintes instruções HiveQL:
-   
+
    ```hiveql
    set hive.execution.engine=tez;
    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
@@ -103,9 +98,9 @@ Para concluir as etapas deste artigo, você precisa do seguinte.
    ```
 
     As instruções executam as seguintes ações:
-   
+
    * `CREATE TABLE IF NOT EXISTS`: cria uma tabela, se ela ainda não existir. Uma vez que a palavra-chave `EXTERNAL` não é usada, essa instrução cria uma tabela interna. As tabelas internas são armazenadas no data warehouse do Hive e gerenciadas por ele.
-     
+
      > [!NOTE]
      > Ao contrário das tabelas `EXTERNAL`, o descarte de uma tabela interna excluirá também os dados subjacentes.
 
@@ -115,7 +110,7 @@ Para concluir as etapas deste artigo, você precisa do seguinte.
 
 8. Na barra de ferramentas, selecione no menu suspenso de **Enviar** para executar o trabalho. Use o **Status do Trabalho** para determinar se o trabalho foi concluído com êxito.
 
-9. Para verificar se o trabalho criou uma nova tabela, use o **Gerenciador de Servidores** e expanda **Azure** > **HDInsight** > seu cluster HDInsight > **Bancos de Dados do Hive** > **padrão**. As tabelas **errorLogs** e **log4jLogs** são listadas.
+9. Para verificar se o trabalho criou a tabela, use o **Gerenciador de Servidores** e expanda **Azure** > **HDInsight** > seu cluster HDInsight > **Bancos de Dados do Hive** > **padrão**. As tabelas **errorLogs** e **log4jLogs** são listadas.
 
 ## <a id="nextsteps"></a>Próximas etapas
 
@@ -155,7 +150,7 @@ Para obter mais informações sobre as ferramentas do HDInsight para o Visual St
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
@@ -165,4 +160,3 @@ Para obter mais informações sobre as ferramentas do HDInsight para o Visual St
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
-

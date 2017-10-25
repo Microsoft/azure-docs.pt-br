@@ -1,0 +1,35 @@
+- name: Documentação de Visão Personalizada
+  href: ../index.md
+- name: Visão geral
+  href: home.md
+- name: Guia de início rápido
+  expanded: true
+  items:
+    - name: Criar um classificador
+      href: getting-started-build-a-classifier.md
+    - name: Melhorar o seu classificador
+      href: getting-started-improving-your-classifier.md
+    - name: Testar o modelo
+      href: test-your-model.md
+    - name: Use a API de previsão
+      href: use-prediction-api.md
+    - name: Exportar o modelo para móvel
+      href: export-your-model.md
+- name: Tutoriais
+  items:
+    - name: 'Tutorial de C#'
+      href: csharp-tutorial.md
+- name: Referência
+  items:
+    - name: Referência de API de previsão visual personalizada
+      href: 'https://southcentralus.dev.cognitive.microsoft.com/docs/services/eb68250e4e954d9bae0c2650db79c653/operations/58acd3c1ef062f0344a42814'
+    - name: Referência de API de treinamento visual personalizado
+      href: 'https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095be3'
+    - name: Glossário
+      href: glossary-of-terms.md
+    - name: .
+      href: 'http://github.com/Microsoft/Cognitive-CustomVision-Windows/'
+- name: Recursos
+  items:
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'

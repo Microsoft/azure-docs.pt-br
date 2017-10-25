@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 07/26/2017
 ms.author: femila
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: c6d26aca309597cf9552e97a22e84b6c122fe58b
-ms.lasthandoff: 03/08/2017
-
-
+ms.openlocfilehash: 342d9e2787add3d04f1b744152e135db98848179
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure
 Este artigo explica as diferenças importantes entre implantar o AD DS (Serviços de Domínio do Active Directory) do Windows Server e o AD FS (Serviços de Federação do Active Directory) no local e implantá-los em máquinas virtuais do Microsoft Azure.
@@ -37,7 +36,7 @@ Este artigo pressupõe que o leitor está familiarizado com os seguintes conceit
 * Implantando, configurando e gerenciando aplicativos confiáveis (sites e serviços Web) que podem consumir tokens do AD FS do Windows Server
 * Conceitos gerais de máquina virtual, por exemplo, como configurar uma máquina virtual, discos virtuais e redes virtuais
 
-Este artigo destaca os requisitos para um cenário de implantação híbrida no qual o AD DS ou o AD FS do Windows Server são implantados no local e parcialmente em máquinas virtuais do Azure. O documento aborda primeiro as diferenças críticas entre a execução do AD DS e do AD FS do Windows Server em máquinas virtuais do Azure versus locais e as decisões importantes que afetam o design e a implantação. O restante do artigo explica como aplicar as diretrizes para vários cenários de implantação e para cada um dos pontos de decisão mais detalhadamente.
+Este artigo destaca os requisitos para um cenário de implantação híbrida no qual o AD DS ou o AD FS do Windows Server são implantados no local e parcialmente em máquinas virtuais do Azure. O documento aborda primeiro as diferenças críticas entre a execução do AD DS e do AD FS do Windows Server em máquinas virtuais do Azure versus locais e pontos de decisão importantes que afetam o design e a implantação. O restante do artigo explica como aplicar as diretrizes para vários cenários de implantação e para cada um dos pontos de decisão mais detalhadamente.
 
 Este artigo não aborda a configuração do [Azure Active Directory](http://azure.microsoft.com/services/active-directory/), que é um serviço baseado em REST que fornece recursos de controle de acesso e gerenciamento de identidade para aplicativos em nuvem. O Azure Active Directory (Azure AD) e o AD DS do Windows Server, no entanto, são projetados para funcionar juntos a fim de fornecer uma solução de gerenciamento de identidades e acesso para os ambientes híbridos de TI atuais e aplicativos modernos. Para ajudar a compreender as diferenças e as relações entre o AD DS do Windows Server e o Azure AD, considere o seguinte:
 
@@ -108,7 +107,7 @@ Para saber mais sobre como os controladores de domínio são afetados, confira [
 A partir do Windows Server 2012, [mais proteções adicionais são incorporadas ao AD DS](https://technet.microsoft.com/library/hh831734.aspx). Essas proteções ajudam a proteger os controladores de domínio virtualizados contra os problemas mencionados anteriormente, desde que a plataforma do hipervisor subjacente ofereça suporte a VM-GenerationID. O Azure dá suporte a VM-GenerationID, o que significa que os controladores de domínio que executam o Windows Server 2012 ou posterior nas máquinas virtuais do Azure têm as proteções adicionais.
 
 > [!NOTE]
-> Você deve desligar e reiniciar uma VM que executa a função de controlador de domínio no Azure no sistema operacional convidado em vez de usar a opção **Desligar** no Portal Clássico ou Portal do Azure. Hoje em dia, o uso do portal para desligar uma VM faz com que a VM seja desalocada. Uma VM desalocada tem a vantagem de não incorrer em encargos, mas também redefine a VM-GenerationID, o que não é desejável para um controlador de domínio. Quando a VM-GenerationID é redefinida, a invocationID do banco de dados do AD DS também é redefinida, a pool RID é descartada e SYSVOL é marcado como não autoritativo. Para saber mais, confira [Introdução à Virtualização do AD DS (Active Directory Domain Services)](https://technet.microsoft.com/library/hh831734.aspx) e [Virtualização de DFSR com Segurança](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx).
+> Você deve desligar e reiniciar uma VM que executa a função de controlador de domínio no Azure no sistema operacional convidado em vez de usar a opção **Desligar** no Portal do Azure. Hoje em dia, o uso do portal para desligar uma VM faz com que a VM seja desalocada. Uma VM desalocada tem a vantagem de não incorrer em encargos, mas também redefine a VM-GenerationID, o que não é desejável para um controlador de domínio. Quando a VM-GenerationID é redefinida, a invocationID do banco de dados do AD DS também é redefinida, a pool RID é descartada e SYSVOL é marcado como não autoritativo. Para saber mais, confira [Introdução à Virtualização do AD DS (Active Directory Domain Services)](https://technet.microsoft.com/library/hh831734.aspx) e [Virtualização de DFSR com Segurança](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx).
 > 
 > 
 
@@ -120,13 +119,13 @@ O Azure também é adequado como um substituto para sites de DR (recuperação d
 Finalmente, talvez seja bom implantar um aplicativo de rede no Azure, como o SharePoint, que requer o Active Directory do Windows Server, mas não tem qualquer dependência na rede local ou no Active Directory corporativo do Windows Server. Nesse caso, implantar uma floresta isolada no Azure para atender aos requisitos do SharePoint Server é ideal. Repetimos, também há suporte para a implantação de aplicativos de rede que exigem conectividade com a rede local e o Active Directory corporativo.
 
 > [!NOTE]
-> Como ele fornece uma conexão de camada&3;, o componente VPN que fornece conectividade entre uma rede virtual do Azure e uma rede local também pode habilitar os servidores de membro que são executados no local para aproveitar os controladores de domínio executados como máquinas virtuais do Azure na rede virtual do Azure. Mas, se a VPN estiver disponível, a comunicação entre computadores locais e controladores de domínio baseados no Azure não funcionará, resultando em erros de autenticação e vários outros.  
+> Como ele fornece uma conexão de camada 3, o componente VPN que fornece conectividade entre uma rede virtual do Azure e uma rede local também pode habilitar os servidores de membro que são executados no local para aproveitar os controladores de domínio executados como máquinas virtuais do Azure na rede virtual do Azure. Mas, se a VPN estiver disponível, a comunicação entre computadores locais e controladores de domínio baseados no Azure não funcionará, resultando em erros de autenticação e vários outros.  
 > 
 > 
 
 ## <a name="contrasts-between-deploying-windows-server-active-directory-domain-controllers-on-azure-virtual-machines-versus-on-premises"></a>Contrastes entre a implantação de controladores de domínio do Active Directory do Windows Server em máquinas virtuais do Azure versus localmente
 * Para qualquer cenário de implantação do Active Directory do Windows Server que inclua mais de uma única VM, é necessário usar uma rede virtual do Azure para manter a consistência do endereço IP. Observe que este guia pressupõe que os controladores de domínio estejam sendo executados em uma rede virtual do Azure.
-* Como ocorre com os controladores de domínio locais, recomenda-se o uso de endereços IP estáticos. Um endereço IP estático só pode ser configurado usando o Azure PowerShell. Confira [Endereço IP estático interno para VMs](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/) para obter mais detalhes. Se você tiver sistemas de monitoramento ou outras soluções que verificam a configuração de endereço IP estático no sistema operacional convidado, poderá atribuir o mesmo endereço IP estático às propriedades do adaptador de rede da máquina virtual. No entanto, lembre-se de que o adaptador de rede será descartado se a VM passar por uma recuperação de serviço ou for desligada no portal clássico e seu endereço for desalocado. Nesse caso, o endereço IP estático no convidado precisará ser redefinido.
+* Como ocorre com os controladores de domínio locais, recomenda-se o uso de endereços IP estáticos. Um endereço IP estático só pode ser configurado usando o Azure PowerShell. Confira [Endereço IP estático interno para VMs](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/) para obter mais detalhes. Se você tiver sistemas de monitoramento ou outras soluções que verificam a configuração de endereço IP estático no sistema operacional convidado, poderá atribuir o mesmo endereço IP estático às propriedades do adaptador de rede da máquina virtual. No entanto, lembre-se de que o adaptador de rede será descartado se a VM passar por uma recuperação de serviço ou for desligada no portal e seu endereço for desalocado. Nesse caso, o endereço IP estático no convidado precisará ser redefinido.
 * Implantar máquinas virtuais em uma rede virtual não implica (ou exige) conectividade com uma rede local. A rede virtual simplesmente habilita essa possibilidade. Você deve criar uma rede virtual para comunicação privada entre o Azure e sua rede local. Você precisa implantar um ponto de extremidade VPN na rede local. A VPN é aberta a partir do Azure para a rede local. Para saber mais sobre como criar essa rede virtual, confira [Visão geral da Rede Virtual](../virtual-network/virtual-networks-overview.md) e [Configurar um VPN Site a Site no portal do Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 > [!NOTE]
@@ -196,7 +195,7 @@ O tráfego para os servidores do AD FS seria permitido apenas para as seguintes 
 * O endereço IP de um administrador da rede local.
 
 > [!WARNING]
-> O design deve impedir que nós de Proxy de Aplicativo Web acessem todas as outras VMs na rede virtual do Azure ou todos os locais na rede local. Isso pode ser feito configurando regras de firewall no dispositivo local para conexões de Rota Expressa ou no dispositivo VPN para conexões VPN site a site.
+> O design deve impedir que nós de Proxy de Aplicativo Web acessem todas as outras VMs na rede virtual do Azure ou todos os locais na rede local. Isso pode ser feito configurando regras de firewall no dispositivo local para conexões do ExpressRoute ou no dispositivo VPN para conexões VPN site a site.
 > 
 > 
 
@@ -233,8 +232,8 @@ No Office 365 DirSync com cenário de sincronização de senha (sem AD FS), o lo
 
 ### <a name="additional-food-for-thought"></a>Ideias adicionais
 * Se você implantar um proxy do AD FS em uma máquina virtual do Azure, é necessário ter conectividade com os servidores do AD FS. Se estiverem no local, é recomendável aproveitar a conectividade VPN site a site fornecida pela rede virtual para permitir que os nós de Proxy de Aplicativo Web se comuniquem com seus servidores do AD FS.
-* Se você implantar um servidor do AD FS em uma máquina virtual do Azure, é necessário ter conectividade com os controladores de domínio do Active Directory do Windows Server, Repositórios de Atributos e bancos de dados de Configuração. Isso também pode exigir uma Rota Expressa ou uma conexão VPN site a site entre a rede local e a rede virtual do Azure.
-* Os encargos são aplicados a todo o tráfego proveniente de máquinas virtuais do Azure (tráfego de saída). Se o custo é o fator determinante, é aconselhável implantar os nós de Proxy de Aplicativo Web no Azure, deixando os servidores AD FS locais. Se os servidores do AD FS também forem implantados em máquinas virtuais do Azure, custos adicionais serão incorridos para autenticar os usuários locais. O tráfego de saída incorre em custo, independentemente de estar ou não atravessando a Rota Expressa ou a conexão VPN site a site.
+* Se você implantar um servidor do AD FS em uma máquina virtual do Azure, é necessário ter conectividade com os controladores de domínio do Active Directory do Windows Server, Repositórios de Atributos e bancos de dados de Configuração. Isso também pode exigir um ExpressRoute ou uma conexão VPN site a site entre a rede local e a rede virtual do Azure.
+* Os encargos são aplicados a todo o tráfego proveniente de máquinas virtuais do Azure (tráfego de saída). Se o custo é o fator determinante, é aconselhável implantar os nós de Proxy de Aplicativo Web no Azure, deixando os servidores AD FS locais. Se os servidores do AD FS também forem implantados em máquinas virtuais do Azure, custos adicionais serão incorridos para autenticar os usuários locais. O tráfego de saída incorre em custo, independentemente de estar ou não atravessando o ExpressRoute ou a conexão VPN site a site.
 * Se você decidir usar os recursos nativos de balanceamento de carga para a alta disponibilidade dos servidores do AD FS do Azure, observe que o balanceamento de carga fornece investigações que são usadas para determinar a integridade das máquinas virtuais no serviço de nuvem. No caso das máquinas virtuais do Azure (em vez de funções de trabalho ou Web), uma investigação personalizada deve ser usada uma vez que o agente que responde às investigações padrão não está presente nas máquinas virtuais do Azure. Para simplificar, você pode usar uma investigação TCP personalizada. Isso requer apenas que uma conexão TCP (um segmento TCP SYN enviado e respondido com um segmento TCP SYN ACK) seja estabelecida com êxito para determinar a integridade da máquina virtual. Você pode configurar a investigação personalizada para usar qualquer porta TCP na qual as máquinas virtuais estão ouvindo ativamente.
 
 > [!NOTE]
@@ -394,7 +393,7 @@ Por razões de desempenho e tolerância a falhas, é ideal instalar o serviço D
 
 As máquinas virtuais registram automaticamente seu nome DNS na inicialização ou quando há uma alteração no nome.
 
-Para saber mais sobre este exemplo e outro exemplo que mostra como provisionar a primeira VM e instalar o AD DS, confira [Instalar uma nova floresta do Active Directory no Microsoft Azure](active-directory-new-forest-virtual-machine.md). Para saber mais sobre como usar o Windows PowerShell, confira [Instalar o Azure PowerShell](/powershell/azureps-cmdlets-docs) e [Cmdlets de gerenciamento do Azure](https://msdn.microsoft.com/library/azure/jj152841).
+Para saber mais sobre este exemplo e outro exemplo que mostra como provisionar a primeira VM e instalar o AD DS, confira [Instalar uma nova floresta do Active Directory no Microsoft Azure](active-directory-new-forest-virtual-machine.md). Para saber mais sobre como usar o Windows PowerShell, confira [Instalar o Azure PowerShell](/powershell/azureps-cmdlets-docs) e [Cmdlets de gerenciamento do Azure](/powershell/module/azurerm.compute/#virtual_machines).
 
 ### <a name="BKMK_DistributedDCs"></a>Controladores de domínio distribuídos geograficamente
 O Azure oferece vantagens ao hospedar vários controladores de domínio em redes virtuais diferentes:
@@ -498,5 +497,4 @@ Confira [Considerações de topologia da implantação do AD FS 2.0](https://tec
 > Não há suporte para o NLB (balanceamento de carga de rede) do Windows Server no Azure.
 > 
 > 
-
 

@@ -1,9 +1,9 @@
 ---
 title: "Recomendações de desempenho do Azure Advisor | Microsoft Docs"
-description: "Use o Advisor para otimizar o desempenho das implantações do Azure."
+description: "Use o Assistente para otimizar o desempenho das implantações do Azure."
 services: advisor
 documentationcenter: NA
-author: kumudd
+author: KumudD
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,40 +14,39 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: e7fc6cb4ee4752bb7ed90a8f64edcc7c82ec3a88
-ms.openlocfilehash: d04c209894ab8ee35b92381f9679f68addd64f00
-ms.lasthandoff: 02/21/2017
-
+ms.openlocfilehash: 995a1f37a3fd68b39c14a95d46109c0f7814018d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="advisor-performance-recommendations"></a>Recomendações de desempenho do Advisor
 
-As recomendações de desempenho do Advisor ajudam a aprimorar e aumentar a velocidade e a capacidade de resposta de aplicativos críticos aos negócios. Você pode obter recomendações de desempenho usando o Advisor na guia **Desempenho** do painel do Advisor.
+As recomendações de desempenho do Assistente do Azure ajudam a melhorar a velocidade e a capacidade de resposta dos aplicativos críticos para os negócios. Você pode obter recomendações de desempenho do Assistente na guia **Desempenho** do painel do Assistente.
 
 ![guia Desempenho do Advisor](./media/advisor-performance-recommendations/advisor-performance-tab.png)
 
-## <a name="sql-database-recommendations"></a>Recomendações do banco de dados SQL
+## <a name="improve-database-performance-with-sql-db-advisor"></a>Melhorar o desempenho do banco de dados com o Assistente do BD SQL
 
-O Advisor fornece uma exibição consistente e consolidada de recomendações para todos os seus recursos do Azure. Ele se integra ao Advisor do Banco de Dados SQL para fornecer recomendações de melhoria de desempenho para o banco de dados do SQL Azure. O Advisor do Banco de Dados SQL avalia o desempenho dos bancos de dados do SQL Azure analisando o histórico de uso. Desse modo, ele oferece recomendações que são mais adequadas para execução da carga de trabalho característica do banco de dados. 
+O Advisor fornece uma exibição consistente e consolidada de recomendações para todos os seus recursos do Azure. Ele se integra ao Advisor do Banco de Dados SQL para fornecer recomendações de melhoria de desempenho para o banco de dados do SQL Azure. O Advisor do Banco de Dados SQL avalia o desempenho dos bancos de dados do SQL Azure analisando o histórico de uso. Em seguida, ele oferece recomendações que são mais adequadas para execução da carga de trabalho típica do banco de dados. 
 
 > [!NOTE]
-> Para obter recomendações, um banco de dados precisa ter aproximadamente uma semana de uso e dentro dessa semana deve haver atividade consistente. O Advisor do Banco de Dados SQL pode ser otimizado com mais facilidade para padrões de consulta consistentes do que para intermitências irregulares de atividade.
+> Para obter recomendações, um banco de dados deve ter aproximadamente uma semana de uso e dentro dessa semana deve haver atividades consistentes. O Assistente do Banco de Dados SQL pode ser otimizado com mais facilidade para padrões de consulta consistentes do que para intermitências irregulares de atividade.
 
-Para saber mais sobre o Advisor do banco de dados SQL, veja [Advisor do Banco de Dados SQL](https://azure.microsoft.com/en-us/documentation/articles/sql-database-advisor/).
+Para obter mais informações sobre o Assistente do Banco de Dados SQL, consulte [Assistente do Banco de Dados SQL](https://azure.microsoft.com/en-us/documentation/articles/sql-database-advisor/).
 
 ![Recomendações do banco de dados SQL](./media/advisor-performance-recommendations/advisor-performance-sql.png)
 
-## <a name="redis-cache-recommendations"></a>Recomendações do Cache Redis
+## <a name="improve-redis-cache-performance-and-reliability"></a>Melhorar o desempenho e a confiabilidade do Cache Redis
 
-O Azure Advisor identifica instâncias do Cache Redis onde o desempenho pode ser negativamente afetado pelo alto uso da memória, pela carga do servidor, pela largura de banda da rede ou pelo grande número de conexões de cliente. Ele também fornece as práticas recomendadas para evitar possíveis problemas. Para saber mais sobre recomendações do Cache Redis, veja [Advisor do Cache Redis](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#redis-cache-advisor).
+O Assistente identifica as instâncias do Cache Redis nas quais o desempenho pode ser prejudicado por alto uso de memória, carga do servidor, largura de banda da rede ou grande número de conexões de cliente. O Assistente também fornece recomendações de melhores práticas para ajudá-lo a evitar possíveis problemas. Para saber mais sobre recomendações do Cache Redis, veja [Advisor do Cache Redis](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#redis-cache-advisor).
 
 
-## <a name="app-services-recommendations"></a>Recomendações dos Serviços de Aplicativos
+## <a name="improve-app-service-performance-and-reliability"></a>Melhorar o desempenho e a confiabilidade do Serviço de Aplicativo
 
 O Azure Advisor integra as práticas recomendadas para melhorar sua experiência com os Serviços de Aplicativos e descobrir recursos relevantes de plataforma. Os exemplos de recomendações dos Serviços de Aplicativos são:
-- Detecção de instâncias onde os recursos de memória ou CPU são esgotados por tempos de execução de aplicativo com opções de redução
-- Detecção de instâncias onde a disposição de recursos como aplicativos Web e bancos de dados pode melhorar o desempenho e reduzir custos. 
+* Detecção de instâncias nas quais os recursos de memória ou de CPU são esgotados por tempos de execução de aplicativo com opções de mitigação.
+* Detecção de instâncias nas quais a disposição de recursos como aplicativos Web e bancos de dados pode melhorar o desempenho e reduzir custos. 
 
 Para saber mais sobre recomendações de Serviços de Aplicativos, veja [Práticas recomendadas para o Serviço de Aplicativo do Azure](https://azure.microsoft.com/en-us/documentation/articles/app-service-best-practices/).
 ![Recomendações dos Serviços de Aplicativos](./media/advisor-performance-recommendations/advisor-performance-app-service.png)
@@ -55,19 +54,26 @@ Para saber mais sobre recomendações de Serviços de Aplicativos, veja [Prátic
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Como acessar as recomendações de desempenho no Advisor
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. No painel de navegação esquerdo, clique em **Mais serviços**, no painel do menu de serviço, role para baixo até **Monitoramento e Gerenciamento** e clique em **Azure Advisor**. Isso inicia o painel do Advisor. 
-3. No painel do Advisor, clique na guia **Desempenho** e selecione a assinatura para a qual deseja receber recomendações.
+
+2. No painel esquerdo, clique em **Mais serviços**.
+
+3. No painel do menu de serviço, em **Monitoramento e Gerenciamento**, clique em **Assistente do Azure**.  
+ O painel Assistente é exibido.
+
+4. No painel do Assistente, clique na guia **Desempenho**.
+
+5. Selecione a assinatura para a qual você deseja receber recomendações e, em seguida, clique em **Obter recomendações**.
 
 > [!NOTE]
-> Para acessar as recomendações do assistente, você deve primeiro **registrar** sua assinatura com o assistente. Uma assinatura é registrada quando um **proprietário da assinatura** inicia o painel Assistente e clica no botão **Obter recomendações**. Essa é uma **operação única**. Depois que uma assinatura for registrada, as recomendações do Assistente poderão ser acessadas por **proprietário**s, **colaborador**es ou **leitor**es de uma assinatura, grupo de recursos ou um recurso específico.
+> Para acessar as recomendações do Assistente, você deve primeiro *registrar sua assinatura* no Assistente. Uma assinatura é registrada quando um *Proprietário de assinatura* inicia o painel do Assistente e clica no botão **Obter recomendações**. Essa é uma *operação única*. Depois que a assinatura for registrada, você poderá acessar as recomendações do Assistente como *Proprietário*, *Colaborador* ou *Leitor* de uma assinatura, um grupo de recursos ou um recurso específico.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Veja estes recursos para saber mais sobre as recomendações do Advisor:
+Para saber mais sobre as recomendações do Assistente, consulte:
 
--  [Introdução ao Advisor](advisor-overview.md)
--  [Introdução ao Advisor](advisor-get-started.md)
--  [Recomendações de alta disponibilidade do Advisor](advisor-high-availability-recommendations.md)
--  [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
--  [Recomendações de custo do Advisor](advisor-performance-recommendations.md)
+* [Introdução ao Advisor](advisor-overview.md)
+* [Introdução ao Advisor](advisor-get-started.md)
+* [Recomendações de custo do Advisor](advisor-performance-recommendations.md)
+* [Recomendações de alta disponibilidade do Advisor](advisor-high-availability-recommendations.md)
+* [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
 

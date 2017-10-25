@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 08/24/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5d58d9dd6c92c81328f89a703b3bc8529aff8dc0
-
-
+ms.openlocfilehash: 070e848f753452953b9e5dfe94799e7c0a314530
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="pen-testing"></a>Teste de Caneta
 Uma das grandes vantagens sobre o uso do Microsoft Azure para implantação e teste de aplicativos é que não é necessário montar uma infraestrutura local para desenvolver, testar e implantar seus aplicativos. Todos os cuidados com a infraestrutura são tomados pelos serviços da plataforma Microsoft Azure. Você não precisa se preocupar sobre requisição, aquisição e "posicionamento no rack e empilhamento" do seu próprio hardware local.
@@ -33,7 +33,7 @@ Quando você faz o teste de caneta em seus aplicativos, ele pode parecer um ataq
 
 O que fazer?
 
-Quando você estiver pronto para fazer o teste de caneta em seus aplicativos hospedados no Azure, você deve nos informar. Uma vez que soubermos que você executará testes específicos, nós não desligaremos seu acesso inadvertidamente (por exemplo, bloqueando o endereço IP do qual que você está testando), desde que os testes estejam em conformidade com os termos e condições de teste de caneta do Azure.
+Quando estiver pronto para fazer o teste de caneta em seus aplicativos hospedados no Azure, você deverá [nos informar](https://portal.msrc.microsoft.com/en-us/engage/pentest). Uma vez que soubermos que você executará testes específicos, nós não desligaremos seu acesso inadvertidamente (por exemplo, bloqueando o endereço IP do qual você está testando), desde que seus testes estejam em conformidade com os termos e condições de teste de caneta do Azure descritos nas [Regras de Engajamento do Teste de Penetração Unificada do Microsoft Cloud](https://technet.microsoft.com/en-us/mt784683).
 Os testes padrão que você pode executar incluem:
 
 * Testes em seus pontos de extremidade para revelar as [10 maiores vulnerabilidades do OWASP (Projeto de Segurança de Aplicativo Web Aberto)](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
@@ -42,10 +42,4 @@ Os testes padrão que você pode executar incluem:
 
 Um tipo de teste que você não pode executar é qualquer tipo de ataque [DoS (negação de serviço)](https://en.wikipedia.org/wiki/Denial-of-service_attack) . Isso inclui iniciar um ataque DoS em si ou a realização de testes relacionados que podem determinar, demonstrar ou simular qualquer tipo de ataque DoS.
 
-Você está pronto para começar com testes de caneta em seus aplicativos hospedados no Microsoft Azure? Se estiver, vá diretamente para a página [Visão Geral do Teste de Penetração](https://security-forms.azure.com/penetration-testing/terms) (e clique no botão Criar uma Solicitação de Teste na parte inferior da página). Você também encontrará mais informações sobre termos e condições para teste de caneta e links úteis sobre como relatar falhas de segurança relacionadas ao Azure ou qualquer outro serviço Microsoft.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+Você está pronto para começar com testes de caneta em seus aplicativos hospedados no Microsoft Azure? Se estiver, vá diretamente para a página [Visão Geral do Teste de Penetração](https://technet.microsoft.com/library/mt784683.aspx) (e clique no botão Criar uma Solicitação de Teste na parte inferior da página). Você também encontrará mais informações sobre termos e condições para teste de caneta e links úteis sobre como relatar falhas de segurança relacionadas ao Azure ou qualquer outro serviço Microsoft.

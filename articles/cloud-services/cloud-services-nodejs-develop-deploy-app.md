@@ -3,8 +3,8 @@ title: "Guia de introdução ao Node.js | Microsoft Docs"
 description: "Saiba como criar um aplicativo Web simples do Node.js e implantá-lo em um serviço de nuvem do Azure."
 services: cloud-services
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: TomArcher
+manager: routlaw
 editor: 
 ms.assetid: 50951a87-fed4-48e0-bcfa-453b9e50452e
 ms.service: cloud-services
@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 12/22/2016
-ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: eeb10e8325918ac699e3c1fe94d15eee5f730fce
-
-
+ms.date: 08/17/2017
+ms.author: tarcher
+ms.openlocfilehash: b1e08e79c7fe2acbdb9c17607641612ffa2934ee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Criar e implantar um aplicativo Node.jc para um Serviço de Nuvem do Azure
 
@@ -163,8 +163,8 @@ Para saber mais, confira o [Centro de desenvolvedores do Node.js].
 
 <!-- URL List -->
 
-[Comparação de Sites do Azure, Serviços de Nuvem e Máquinas virtuais]: ../app-service-web/choose-web-site-cloud-service-vm.md
-[usar um aplicativo Web leve]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[Comparação de Sites do Azure, Serviços de Nuvem e Máquinas virtuais]: ../app-service/choose-web-site-cloud-service-vm.md
+[usar um aplicativo Web leve]: ../app-service/app-service-web-get-started-nodejs.md
 [Powershell do Azure]: /powershell/azureps-cmdlets-docs
 [SDK do Azure para .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
 [Conecte o PowerShell]: /powershell/azureps-cmdlets-docs#step-3-connect
@@ -181,9 +181,3 @@ Para saber mais, confira o [Centro de desenvolvedores do Node.js].
 [A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
 [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

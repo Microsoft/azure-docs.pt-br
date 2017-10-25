@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 81d7d09f48d08943623b24e7e7a26847a0d129fe
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 2f73266b65a4eda6c8751a2d56bc3f11bf4e6a57
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-resources-in-operations-management-suite-security-and-audit-solution"></a>Monitorando recursos na solução de Segurança e Auditoria do Operations Management Suite
 Este documento o ajuda a usar as funcionalidades de Segurança e Auditoria do OMS para monitorar seus recursos e identificar problemas de segurança.
@@ -112,5 +111,4 @@ Neste documento, você aprendeu a usar a solução de Segurança e Auditoria do 
 * [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
 * [Introdução à solução de Segurança e Auditoria do Operations Management Suite](oms-security-getting-started.md)
 * [Monitorando e respondendo a alertas de segurança na solução de Segurança e Auditoria do Operations Management Suite](oms-security-responding-alerts.md)
-
 

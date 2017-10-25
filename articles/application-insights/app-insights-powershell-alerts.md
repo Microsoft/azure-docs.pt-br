@@ -3,8 +3,8 @@ title: Usar o PowerShell para configurar alertas no Application Insights | Micro
 description: "Automatize a configuração do Application Insights para receber emails sobre alterações de métricas."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
 ms.service: application-insights
 ms.workload: tbd
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 80e2ac4235492d727e2034f37f9a85eb2873625c
-ms.openlocfilehash: f479ae38e446c3404592901c416990ab6e39126b
-ms.lasthandoff: 02/04/2017
-
-
+ms.author: bwren
+ms.openlocfilehash: 64675c51abf80daa3a55220f910aa8fdee1042ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Usar o PowerShell para configurar alertas no Application Insights
 Você pode automatizar a configuração de [alertas](app-insights-alerts.md) no [Application Insights](app-insights-overview.md).
@@ -39,7 +38,7 @@ Instale o módulo do Azure Powershell no computador em que você deseja executar
 * Use-o para instalar o Microsoft Azure PowerShell
 
 ## <a name="connect-to-azure"></a>Conecte-se ao Azure
-Inicie o Azure PowerShell e [conecte-se à sua assinatura](/powershell/azureps-cmdlets-docs):
+Inicie o Azure PowerShell e [conecte-se à sua assinatura](/powershell/azure/overview):
 
 ```PowerShell
 
@@ -140,4 +139,3 @@ Você pode [automatizar sua resposta a um alerta](../monitoring-and-diagnostics/
 * [Criar recursos de teste da Web e do Application Insights por meio de modelos](app-insights-powershell.md)
 * [Automatizar o acoplamento do Diagnóstico do Microsoft Azure ao Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Automatizar sua resposta a um alerta](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
-

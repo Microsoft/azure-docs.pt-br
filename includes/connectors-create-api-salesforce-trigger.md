@@ -16,8 +16,3 @@ Neste passo a passo, você aprenderá a usar o gatilho **Salesforce - Quando um 
 
 Neste ponto, seu aplicativo lógico foi configurado com um gatilho que iniciará uma execução de outros gatilhos e as ações no fluxo de trabalho quando um novo item for criado no Salesforce.  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

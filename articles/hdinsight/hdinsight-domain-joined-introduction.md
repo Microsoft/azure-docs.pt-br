@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 21078a82e979af251a08bca70d623c80949d064a
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 303be1d303df8074283cb1d37c74923cca80ae59
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters-preview"></a>Uma introdução à segurança do Hadoop com clusters HDInsight ingressados no domínio (visualização)
 
@@ -29,8 +28,9 @@ O Azure HDInsight até hoje dava suporte apenas a um administrador local de usu�
 
 > [!NOTE]
 > Os novos recursos descritos nesta visualização estão disponíveis somente em clusters HDInsight baseados em Linux para carga de trabalho do Hive. As outras cargas de trabalho, como HBase, Spark, Storm e Kafka, serão habilitadas em versões futuras.
->
->
+
+> [!IMPORTANT]
+> O Oozie não está habilitado no HDInsight ingressado no domínio.
 
 ## <a name="benefits"></a>Benefícios
 I Enterprise Security contém quatro grandes pilares: segurança do perímetro, autenticação, autorização e criptografia.
@@ -50,11 +50,10 @@ Uma prática recomendada, seguida pela maioria das empresas, é que nem todos os
 Além de proteger os recursos de cluster do HDInsight contra usuários não autorizados e proteger os dados, é necessário fazer a auditoria de todo o acesso a recursos de cluster e a dados para rastrear acesso não autorizado ou não intencional aos recursos. Com essa visualização, o administrador pode exibir e relatar todo o acesso aos recursos de cluster do HDInsight e dados. O administrador também pode exibir e relatar todas as alterações nas políticas de controle de acesso feitas nos pontos de extremidade do Apache Ranger com suporte. Um cluster HDInsight associado a um domínio usa a interface do usuário familiar do Apache Ranger para pesquisar logs de auditoria. No back-end, o Ranger usa o [Apache Solr](http://hortonworks.com/apache/solr/) para armazenar e pesquisar os logs.
 
 ### <a name="encryption"></a>Criptografia
-A proteção dos dados é importante para atender aos requisitos de conformidade e segurança organizacional e, além de restringir o acesso a dados de funcionários não autorizados, eles também devem ser protegidos por criptografia. Os repositórios de dados para clusters HDInsight, Blob de Armazenamento do Azure e Azure Data Lake Storage dão suporte a [criptografia de dados](../storage/storage-service-encryption.md) transparente do lado do servidor em repouso. A proteção de clusters HDInsight funcionará perfeitamente com essa criptografia do lado do servidor de dados em capacidade em repouso.
+A proteção dos dados é importante para atender aos requisitos de conformidade e segurança organizacional e, além de restringir o acesso a dados de funcionários não autorizados, eles também devem ser protegidos por criptografia. Os repositórios de dados para clusters HDInsight, Blob de Armazenamento do Azure e Azure Data Lake Storage dão suporte a [criptografia de dados](../storage/common/storage-service-encryption.md) transparente do lado do servidor em repouso. A proteção de clusters HDInsight funcionará perfeitamente com essa criptografia do lado do servidor de dados em capacidade em repouso.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para configurar um cluster HDInsight associado a um domínio, confira [Configurar clusters HDInsight associados a domínio](hdinsight-domain-joined-configure.md).
 * Para gerenciar um cluster HDInsight associado a um domínio, confira [Gerenciar clusters HDInsight associados a domínio](hdinsight-domain-joined-manage.md).
 * Para configurar políticas do Hive e executar consultas do Hive, confira [Configurar políticas do Hive para clusters HDInsight associados ao domínio](hdinsight-domain-joined-run-hive.md).
 * Para executar consultas Hive usando SSH em clusters HDInsight adicionados ao domínio, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-

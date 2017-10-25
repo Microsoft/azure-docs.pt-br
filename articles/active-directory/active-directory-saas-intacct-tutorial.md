@@ -1,196 +1,264 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory com o Intacct | Microsoft Docs"
-description: "Saiba como usar o Intacct com o Azure Active Directory para habilitar o logon único, provisionamento automatizado e muito mais."
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Intacct."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: 92518e02-a62c-4b1b-a8e9-2803eb2b49ac
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/02/2017
+ms.date: 06/23/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 20db13c5ba67fcc402db5c692842719dd9a34eb1
-ms.openlocfilehash: 0ea77d5f9c5b139ce6f87bc0cdd817166b03c22e
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: c203b192b9da0d280cbd7f6c123219242ee4a3d1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="tutorial-azure-active-directory-integration-with-intacct"></a>Tutorial: Integração do Active Directory do Azure com o Intacct
-O objetivo deste tutorial é mostrar a integração do Azure com o Intacct.  
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
-* Uma assinatura válida do Azure
-* Um locatário do Intacct
+Neste tutorial, você aprenderá como integrar o Intacct ao Azure AD (Azure Active Directory).
 
-Depois de concluir este tutorial, os usuários do Azure AD (Azure Active Directory) atribuídos ao Intacct poderão entrar no aplicativo em seu site de empresa do Intacct (logon iniciado pelo provedor de serviços) ou usando o [Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+A integração do Intacct ao Azure AD oferece os seguintes benefícios:
 
-O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
+- Você pode controlar no Azure AD quem terá acesso ao Intacct
+- Você pode permitir que seus usuários entrem automaticamente no Intacct (Logon Único) com suas contas do Azure AD
+- Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-* Habilitando a integração de aplicativos para o Intacct
-* Configurando o logon único
-* Configurando o provisionamento de usuários
-* Atribuindo usuários
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![Cenário](./media/active-directory-saas-intacct-tutorial/IC790030.png "Cenário")
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="enable-the-application-integration-for-intacct"></a>Habilitar a integração de aplicativos para o Intacct
-O objetivo desta seção é descrever como habilitar a integração de aplicativos para o Intacct.
+Para configurar a integração do Azure AD ao Intacct, você precisa dos seguintes itens:
 
-**Para habilitar a integração de aplicativos para o Intacct, execute as seguintes etapas:**
+- Uma assinatura do AD do Azure
+- Uma assinatura habilitada para logon único do Intacct
 
-1. No portal clássico do Azure, no painel esquerdo, clique no ícone do Active Directory.
+> [!NOTE]
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
-   ![Active Directory](./media/active-directory-saas-intacct-tutorial/IC700993.png "Active Directory")
-2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
-3. Para abrir a exibição dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
-   ![Aplicativos](./media/active-directory-saas-intacct-tutorial/IC700994.png "Aplicativos")
-4. Clique em **Adicionar** na parte inferior da página.
+- Não use o ambiente de produção, a menos que seja necessário.
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
-   ![Adicionar aplicativo](./media/active-directory-saas-intacct-tutorial/IC749321.png "Adicionar aplicativo")
-5. Na página **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+## <a name="scenario-description"></a>Descrição do cenário
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-   ![Adicionar um aplicativo da galeria](./media/active-directory-saas-intacct-tutorial/IC749322.png "Adicionar um aplicativo de galeria")
-6. Na caixa de pesquisa, insira **Intacct**.
+1. Como adicionar o Intacct da galeria
+2. Configurar e testar o logon único do AD do Azure
 
-   ![Galeria de Aplicativos](./media/active-directory-saas-intacct-tutorial/IC790031.png "Galeria de Aplicativos")
-7. No painel de resultados, selecione **Intacct** e clique em **Concluir** para adicionar o aplicativo.
+## <a name="adding-intacct-from-the-gallery"></a>Como adicionar o Intacct da galeria
+Para configurar a integração do Intacct ao Azure AD, você precisa adicionar o Intacct por meio da galeria à sua lista de aplicativos SaaS gerenciados.
 
-   ![Intacct](./media/active-directory-saas-intacct-tutorial/IC790032.png "Intacct")
+**Para adicionar o Intacct por meio da galeria, execute as seguintes etapas:**
 
-## <a name="configure-single-sign-on"></a>Configurar o logon único
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Intacct com sua conta do Azure AD. A federação com base no protocolo SAML é usada para essa autenticação.  
+    ![Active Directory][1]
 
-Como parte deste procedimento, será necessário criar um arquivo de certificado codificado em base&64;. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-**Para configurar o logon único, execute as seguintes etapas:**
+    ![Aplicativos][2]
+    
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-1. No portal clássico do Azure, na página de integração do aplicativo **Intacct**, clique em **Configurar logon único** para abrir a página **Configurar Logon Único**.
+    ![Aplicativos][3]
 
-   ![Configurar logon único](./media/active-directory-saas-intacct-tutorial/IC790033.png "Configurar logon único")
-2. Na página **Como você deseja que os usuários façam logon no Intacct**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
+4. Na caixa de pesquisa, digite **Intacct**.
 
-   ![Configurar logon único](./media/active-directory-saas-intacct-tutorial/IC790034.png "Configurar logon único")
-3. No **URL do aplicativo** página, o **URL de logon** , digite o URL que usa o *https://Intacct.com/company* padrão e, em seguida, clique em **próxima**.
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_search.png)
 
-   ![Configurar URL do Aplicativo](./media/active-directory-saas-intacct-tutorial/IC790035.png "Configurar URL do Aplicativo")
-4. Na página **Configurar logon único no Intacct**, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
+5. No painel de resultados, selecione **Intacct** e clique no botão **Adicionar** para adicionar o aplicativo.
 
-   ![Configurar logon único](./media/active-directory-saas-intacct-tutorial/IC790036.png "Configurar logon único")
-5. Em outra janela do navegador da Web, entre em seu site de empresa do Intacct como administrador.
-6. Clique na guia **Empresa** e em **Informações da Empresa**.
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_addfromgallery.png)
 
-   ![Empresa](./media/active-directory-saas-intacct-tutorial/IC790037.png "Empresa")
-7. Clique na guia **Segurança** e em **Editar**.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+Nesta seção, você configurará e testará o logon único do Azure AD com o Intacct, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-   ![Segurança](./media/active-directory-saas-intacct-tutorial/IC790038.png "Segurança")
-8. Na seção **SSO (logon único)** , realize as seguintes etapas:
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Intacct é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Intacct.
 
-   ![Logon único](./media/active-directory-saas-intacct-tutorial/IC790039.png "logon único")
+No Intacct, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
 
-   1. Selecione **Habilitar logon único**.
-   2. Para **Tipo de provedor de identidade**, selecione **SAML 2.0**.
-   3. No portal clássico do Azure, na página **Configurar logon único no Intacct**, copie o valor da **URL do Emissor** e cole-o na caixa **URL do Emissor**.
-   4. No portal clássico do Azure, na página **Configurar logon único no Intacct**, copie o valor de **URL de Logon Remoto** e cole-o na caixa **URL de Logon**.
-   5. Crie um arquivo **codificado em base&64;** usando o certificado baixado. Para saber mais, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).      
-   6. Abra seu certificado codificado em Base&64; no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa **Certificado**.
-   7. Clique em **Salvar**.
-9. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a página **Configurar logon único**.
+Para configurar e testar o logon único do Azure AD com o Intacct, você precisa concluir os seguintes blocos de construção:
 
-   ![Configurar Logon Único](./media/active-directory-saas-intacct-tutorial/IC790040.png "Configurar Logon Único")
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criação de um usuário de teste do Intacct](#creating-an-intacct-test-user)**: para ter um equivalente de Brenda Fernandes no Intacct, que esteja vinculado à representação do usuário no Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
-## <a name="configure-user-provisioning"></a>Configurar provisionamento do usuário
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+
+Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e configura o logon único em seu aplicativo Intacct.
+
+**Para configurar o logon único do Azure AD com o Intacct, execute as seguintes etapas:**
+
+1. No Portal do Azure, na página de integração de aplicativos do **Intacct**, clique em **Logon único**.
+
+    ![Configurar Logon Único][4]
+
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+ 
+    ![Configurar Logon Único](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_samlbase.png)
+
+3. Na seção **URLs e Domínio do Intacct**, execute as seguintes etapas:
+
+    ![Configurar Logon Único](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_url.png)
+
+    Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão:
+    | |
+    |--|
+    | `https://<companyname>.intacct.com/ia/acct/sso_response.phtml`|
+    | `https://www.intacct.com/ia/acct/sso_response.phtml` |
+
+    > [!NOTE] 
+    > Esse valor não é real. Atualize esse valor com a URL de Resposta real. Entre em contato com a [equipe de suporte do Intacct](https://us.intacct.com/support) para obter este valor.
+
+4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+
+    ![Configurar o logon único](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_certificate.png) 
+
+5. Clique no botão **Salvar** .
+
+    ![Configurar Logon Único](./media/active-directory-saas-intacct-tutorial/tutorial_general_400.png)
+
+6. Na seção **Configuração do Intacct**, clique em **Configurar o Intacct** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+
+    ![Configurar Logon Único](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_configure.png) 
+
+7. Em outra janela do navegador da Web, entre em seu site de empresa do Intacct como administrador.
+
+8. Clique na guia **Empresa** e em **Informações da Empresa**.
+
+    ![Empresa](./media/active-directory-saas-intacct-tutorial/ic790037.png "Empresa")
+
+9. Clique na guia **Segurança** e em **Editar**.
+
+    ![Segurança](./media/active-directory-saas-intacct-tutorial/ic790038.png "Segurança")
+
+10. Na seção **SSO (logon único)** , realize as seguintes etapas:
+
+    ![Logon único](./media/active-directory-saas-intacct-tutorial/ic790039.png "logon único")
+
+    a. Selecione **Habilitar logon único**.
+
+    b. Para **Tipo de provedor de identidade**, selecione **SAML 2.0**.
+
+    c. Na caixa de texto **URL do Emissor**, cole o valor da **ID de Entidade do SAML** que você copiou do Portal do Azure.
+   
+    d. Na caixa de texto **URL de Logon**, cole o valor da **URL de Serviço de Logon Único do SAML** que você copiou do Portal do Azure.
+
+    e. Abra seu certificado codificado em **Base 64** no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa **Certificado**.
+   
+    f. Clique em **Salvar**.
+
+> [!TIP]
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
+
+### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+
+![Criar um usuário do AD do Azure][100]
+
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+
+1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intacct-tutorial/create_aaduser_01.png) 
+
+2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+    
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intacct-tutorial/create_aaduser_02.png) 
+
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+ 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intacct-tutorial/create_aaduser_03.png) 
+
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+ 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intacct-tutorial/create_aaduser_04.png) 
+
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+
+    d. Clique em **Criar**.
+ 
+### <a name="creating-an-intacct-test-user"></a>Criação de um usuário de teste do Intacct
 
 Para configurar os usuários do Azure AD para que possam entrar no Intacct, eles devem ser provisionados no Intacct. Para o Intacct, o provisionamento é uma tarefa manual.
 
 **Para provisionar contas de usuário, execute as seguintes etapas:**
 
 1. Entre em seu locatário do **Intacct**.
+
 2. Clique na guia **Empresa** e em **Usuários**.
 
-   ![Usuários](./media/active-directory-saas-intacct-tutorial/IC790041.png "Usuários")
+    ![Usuários](./media/active-directory-saas-intacct-tutorial/ic790041.png "Usuários")
 3. Clique na guia **Adicionar**.
 
-   ![Adicionar](./media/active-directory-saas-intacct-tutorial/IC790042.png "Adicionar")
+    ![Adicionar](./media/active-directory-saas-intacct-tutorial/ic790042.png "Adicionar")
 4. Na seção **Informações do Usuário** , realize as seguintes etapas:
 
-   ![Informações do Usuário](./media/active-directory-saas-intacct-tutorial/IC790043.png "informações do Usuário")
+    ![Informações do Usuário](./media/active-directory-saas-intacct-tutorial/ic790043.png "informações do Usuário")
 
-   1. Insira a **ID de Usuário**, o **Sobrenome**, o **Nome**, o **Endereço de email**, o **Título** e o **Telefone** de uma conta do Azure AD que você deseja provisionar na seção **Informações do Usuário**.
-   2. Selecione os **privilégios de Administrador** de uma conta do Azure AD que você deseja provisionar.
-   3. Clique em **Salvar**. O titular da conta do Azure AD receberá um email e um link para confirmar sua conta antes de se tornar ativo.
+    a. Insira a **ID de Usuário**, o **Sobrenome**, o **Nome**, o **Endereço de email**, o **Título** e o **Telefone** de uma conta do Azure AD que você deseja provisionar na seção **Informações do Usuário**.
+
+    b. Selecione os **privilégios de Administrador** de uma conta do Azure AD que você deseja provisionar.
+   
+    c. Clique em **Salvar**. O titular da conta do Azure AD receberá um email e um link para confirmar sua conta antes de se tornar ativo.
 
 >[!NOTE]
 >Para provisionar as contas de usuário do Azure AD, é possível usar qualquer outra ferramenta de criação da conta de usuário do Intacct ou APIs fornecidas pelo Intacct.
->
+        
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
-## <a name="assign-users"></a>Atribuir usuários
-Para testar sua configuração, você precisa atribuir os usuários do Azure AD para o Intacct. Depois que um usuário é atribuído, ele pode acessar seu aplicativo.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure ao conceder acesso ao Intacct.
 
-**Para atribuir usuários ao Intacct, execute as seguintes etapas:**
-
-1. No Portal clássico do Azure, crie uma conta de teste.
-2. Na página de integração do aplicativo **Intacct**, clique em **Atribuir usuários**.
-
-   ![Atribuir usuários](./media/active-directory-saas-intacct-tutorial/IC790044.png "Atribuir usuários")
-3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
-
-   ![Sim](./media/active-directory-saas-intacct-tutorial/IC767830.png "Sim")
-
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
-
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
-
-Nesta seção, você configura Brenda Fernandes para usar o logon único do Azure concedendo-lhe acesso ao Intacct.
-
-![Atribuir usuário][200]
+![Atribuir usuário][200] 
 
 **Para atribuir Brenda Fernandes ao Intacct, execute as seguintes etapas:**
 
-1. No portal do Azure, abra a exibição de aplicativos, vá para a exibição de diretório, para **Aplicativos da empresa**, então, clique em **Todos os aplicativos**.
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
-    ![Atribuir usuário][201]
+    ![Atribuir usuário][201] 
 
 2. Na lista de aplicativos, selecione **Intacct**.
 
-    ![Configurar o logon único](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_50.png)
+    ![Configurar o logon único](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_app.png) 
 
-3. No menu **Gerenciar**, clique em **Usuários e grupos**.
+3. No menu à esquerda, clique em **usuários e grupos**.
 
-    ![Atribuir usuário][202]
+    ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar** e, na folha **Adicionar Atribuição**, selecione **Usuários e grupos**.
+4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **Usuários e grupos**, selecione **Brenda Fernandes** na lista do usuário.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Em **Usuários e grupos**, clique no botão **Selecionar**.
+6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Em **Adicionar Atribuição**, clique no botão **Atribuir**.
-
-
-
-### <a name="test-single-sign-on"></a>Testar logon único
+7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+    
+### <a name="testing-single-sign-on"></a>Teste do logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco Intacct no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Intacct.
 
-
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS ao Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

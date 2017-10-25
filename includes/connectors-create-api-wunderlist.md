@@ -16,8 +16,3 @@ Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua
 5. Por fim, selecione o botão **Autorizar**  
    ![](./media/connectors-create-api-wunderlist/wunderlist-5.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

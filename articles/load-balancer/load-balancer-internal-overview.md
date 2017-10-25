@@ -3,7 +3,7 @@ title: "Visão geral do balanceador de carga interno | Microsoft Docs"
 description: "Visão geral do balanceador de carga interno e seus recursos. Como um balanceador de carga funciona no Azure e possíveis cenários para configurar pontos de extremidade internos"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: tysonn
 ms.assetid: 36065bfe-0ef1-46f9-a9e1-80b229105c85
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 47869775365ea517b94cbd5a2eb83c93f4d2b4df
-ms.openlocfilehash: 17b7337ddcfa2671bb3a035de8462e31bfa0c85f
-ms.lasthandoff: 02/15/2017
-
+ms.openlocfilehash: ec07c77119c2da408da21fbdc7877d0b43d16556
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="internal-load-balancer-overview"></a>Visão geral do balanceador de carga interno
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Ao contrário do balanceador de carga voltado para a Internet, o ILB (Balanceador de Carga Interno) direciona o tráfego somente para os recursos dentro do serviço de nuvem ou usa VPN para acessar a infraestrutura do Azure. A infraestrutura restringe o acesso aos VIPs (endereços IP virtuais) de balanceamento de carga de um Serviço de nuvem ou uma Rede virtual, de modo que nunca será exposta diretamente a um ponto de extremidade da Internet. Isso permite que aplicativos LOB (linha de negócios) internos sejam executados no Azure e acessados na nuvem ou nos recursos locais.
 
@@ -73,6 +74,10 @@ Outro cenário para LOB é ter uma VPN site a site para a rede virtual na qual o
 
 Figura 4 – Tráfego de rede local roteado para o ponto de extremidade ILB
 
+## <a name="limitations"></a>Limitações
+
+As configurações do Balanceador de Carga Interno não dão suporte a SNAT. No contexto deste documento, SNAT refere-se à conversão de endereços de rede de origem simulada de porta.  Isso se aplica a cenários em que a VM em um pool de balanceador de carga precisa alcançar o endereço IP de front-end do respectivo balanceador de carga interno. Não há suporte para cenário no balanceador de carga interno. Falhas de conexão ocorrerão quando a carga do fluxo for balanceada para a VM que originou o fluxo. Você deve usar um balanceador de carga de estilo de proxy para esses cenários.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 [Suporte do Azure Resource Manager para o Azure Load Balancer](load-balancer-arm.md)
@@ -84,4 +89,3 @@ Figura 4 – Tráfego de rede local roteado para o ponto de extremidade ILB
 [Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
-

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 085706dacdcb0cd5a4169ccac4dc7fd8b8ddb6e0
-ms.lasthandoff: 03/03/2017
-
-
+ms.openlocfilehash: 52fd9375c71c42feaf87f4a0f4220e1cb3889e63
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: atualização de uma versão anterior para a mais recente
 Este tópico descreve os diferentes métodos que você pode usar para atualizar sua instalação do Azure Active Directory (Azure AD) Connect para a versão mais recente. Recomendamos que você se mantenha atualizado com as versões do Azure AD Connect. Também é possível usar as etapas descritas na seção [migração Swing](#swing-migration) ao fazer uma alteração significativa na configuração.
@@ -46,6 +45,8 @@ Esse será o método preferencial quando você tiver um único servidor e menos 
 ![Atualização in-loco](./media/active-directory-aadconnect-upgrade-previous-version/inplaceupgrade.png)
 
 Se você tiver feito alterações nas regras de sincronização prontas, essas regras serão definidas para a configuração padrão na atualização. Para certificar-se de que sua configuração seja mantida entre as atualizações, verifique se as alterações foram feitas como descrito em [Práticas recomendadas para alterar a configuração padrão](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
+
+Durante a atualização in-loco, poderá haver alterações introduzidas que exijam que atividades de sincronização específicas (incluindo as etapas de importação completa e sincronização completa) sejam executadas após a conclusão da atualização. Para adiar tais atividades, consulte a seção [Como adiar a sincronização completa após a atualização](#how-to-defer-full-synchronization-after-upgrade).
 
 ## <a name="swing-migration"></a>Migração swing
 Se você tiver uma implantação complexa ou muitos objetos, talvez seja impossível fazer uma atualização in-loco do sistema dinâmico. Para alguns clientes, o processo poderá levar vários dias e, durante esse tempo, nenhuma alteração delta será processada. Você também pode usar esse método quando planejar fazer alterações significativas em sua configuração e quiser experimentá-las antes de enviá-las por push para a nuvem.
@@ -90,6 +91,41 @@ Para mover regras de sincronização personalizadas, faça o seguinte:
 4. Em um prompt do PowerShell, execute o arquivo PS1. Isso cria a regra de sincronização personalizada no servidor de preparo.
 5. Repita essa etapa para todas as regras personalizadas.
 
+## <a name="how-to-defer-full-synchronization-after-upgrade"></a>Como adiar a sincronização completa após a atualização
+Durante a atualização in-loco, poderá haver alterações introduzidas que exijam que atividades de sincronização específicas (incluindo as etapas de importação completa e sincronização completa) sejam executadas. Por exemplo, as alterações de esquema do conector exigem a etapa de **importação completa** e as alterações de regra de sincronização integradas exigem que a etapa **sincronização completa** seja executada nos conectores afetados. Durante a atualização, o Azure AD Connect determina quais atividades de sincronização são necessárias e registra-as como *substituições*. No ciclo de sincronização seguinte, o agendador de sincronização seleciona essas substituições e executa-as. Quando uma substituição é executada com êxito, ela é removida.
+
+Pode haver situações em que você não deseja que essas substituições ocorram imediatamente após a atualização. Por exemplo, você tem vários objetos sincronizados e deseja que essas etapas de sincronização ocorram depois do horário comercial. Para remover essas substituições:
+
+1. Durante a atualização, **desmarque** a opção **Iniciar o processo de sincronização ao concluir a configuração**. Isso desabilita o agendador de sincronização e impede que o ciclo de sincronização ocorra automaticamente antes que as substituições sejam removidas.
+
+   ![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync01.png)
+
+2. Após a conclusão da atualização, execute o seguinte cmdlet para descobrir quais substituições foram adicionadas: `Get-ADSyncSchedulerConnectorOverride | fl`
+
+   >[!NOTE]
+   > As substituições são específicas do conector. No exemplo a seguir, as etapas de importação completa e de sincronização completa foram adicionadas ao AD Connector local e no Azure AD Connector.
+
+   ![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync02.png)
+
+3. Anote as substituições existentes que foram adicionadas.
+   
+4. Para remover as substituições da importação completa e da sincronização completa em um conector qualquer, execute o seguinte cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
+
+   Para remover as substituições de todos os conectores, execute o seguinte script do PowerShell:
+
+   ```
+   foreach ($connectorOverride in Get-ADSyncSchedulerConnectorOverride)
+   {
+       Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier $connectorOverride.ConnectorIdentifier.Guid -FullSyncRequired $false -FullImportRequired $false
+   }
+   ```
+
+5. Para retomar o agendador, execute o seguinte cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
+
+   >[!IMPORTANT]
+   > Lembre-se de executar as etapas de sincronização necessárias assim que possível. Você pode executar essas etapas manualmente usando o Synchronization Service Manager ou adicionar as substituições novamente usando o cmdlet Set-ADSyncSchedulerConnectorOverride.
+
+Para adicionar as substituições para a importação completa e para a sincronização completa em um conector qualquer, execute o seguinte cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [como integrar suas identidades locais ao Azure Active Directory](active-directory-aadconnect.md).
-

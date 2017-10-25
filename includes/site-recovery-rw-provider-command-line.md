@@ -24,8 +24,3 @@ Parâmetros:
 * SkipSpaceCheck. Opcional. Ignorar verificação para o cache do espaço.
 * AcceptThirdpartyEULA. Obrigatório. Aceita o EULA de terceiros.
 * ShowThirdpartyEULA. Obrigatório. Exibe o EULA de terceiros. Se fornecido como entrada, todos os outros parâmetros serão ignorados.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

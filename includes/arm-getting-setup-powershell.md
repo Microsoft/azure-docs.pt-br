@@ -52,8 +52,3 @@ Você pode definir a assinatura do Azure atual ao executar estes comandos no pro
 
 Para saber mais sobre contas e assinaturas do Azure, consulte [Como conectar-se à sua assinatura](/powershell/azureps-cmdlets-docs#step-3-connect).
 
-
-
-<!--HONumber=Dec16_HO1-->
-
-

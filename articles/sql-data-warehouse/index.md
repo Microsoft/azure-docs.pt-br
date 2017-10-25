@@ -2,7 +2,7 @@
 title: "Documentação do Azure SQL Data Warehouse - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como usar o SQL Data Warehouse, combinando o SQL Server ao processamento paralelo maciço. A documentação mostra como carregar, analisar, gerenciar e exportar dados."
 services: sql-data-warehouse
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,13 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: e065918a1380e006253aefb4ab9c897b9148dea5
-ms.openlocfilehash: 576e12831945701b880e891394c0cbb8374d333b
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: fea8cd403cbf21acee2194e8e3888e4001663cdd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sql-data-warehouse-documentation"></a>Documentação do SQL Data Warehouse
 
 Saiba como usar o SQL Data Warehouse, que combina o banco de dados relacional do SQL Server ao processamento paralelo maciço. Os tutoriais e outras documentações mostram como carregar dados no depósito e então analisá-los, gerenciá-los e exportá-los.
@@ -113,6 +112,5 @@ Saiba como usar o SQL Data Warehouse, que combina o banco de dados relacional do
         </div>
     </li>
 </ul>
-
 
 

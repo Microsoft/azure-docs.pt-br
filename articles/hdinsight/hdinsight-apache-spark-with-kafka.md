@@ -1,6 +1,7 @@
 ---
-title: Use o Apache Spark com Kafka no Azure HDInsight | Microsoft Docs
-description: "Aprenda a usar o Spark no HDInsight para ler e gravar dados em um Kafka em cluster HDInsight. Este exemplo usa Scala em um Notebook Jupyter para gravar dados aleatórios em um Kafka no HDInsight, em seguida, lê-lo usando o streaming do Spark."
+title: "Streaming do Apache Spark com Kafka – Azure HDInsight | Microsoft Docs"
+description: "Saiba como usar o Apache Spark para transmitir dados dentro ou fora do Apache Kafka usando o DStreams. Neste exemplo, você deve transmitir dados usando um bloco de anotações do Jupyter do Spark no HDInsight."
+keywords: exemplo de kafka, zookeeper kafka, streaming do kafka para Spark, exemplo de streaming do spark com o kafka
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,32 +14,21 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/13/2017
+ms.date: 09/06/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: c56decc1f7603795e027ce20363c387c593999ae
-ms.lasthandoff: 03/25/2017
-
+ms.openlocfilehash: 788ba828d1380b17913cabf18827c1abcc83c725
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="use-apache-spark-with-kafka-preview-on-hdinsight"></a>Use Apache Spark com Kafka (visualização) no HDInsight
+# <a name="apache-spark-streaming-dstream-example-with-kafka-preview-on-hdinsight"></a>Exemplo de streaming do Apache Spark (DStream) com o Kafka (versão prévia) no HDInsight
 
-Apache Spark pode ser usado para transmitir dados dentro ou fora do Apache Kafka. Neste documento, saiba como transmitir dados dentro e fora de Kafka usando um Notebook Jupyter do Spark no HDInsight.
-
+Saiba como usar o Apache Spark para transmitir dados dentro ou fora do Apache Kafka no HDInsight usando o DStreams. Este exemplo usa um bloco de anotações do Jupyter que é executado no cluster Spark.
 > [!NOTE]
 > As etapas neste documento criam um grupo de recursos do Azure que contém um Spark no HDInsight e um Kafka no cluster de HDInsight. Esses clusters são ambos localizados em uma Rede Virtual do Azure, que permite que o cluster Spark se comunique diretamente com o cluster Kafka.
-> 
+>
 > Quando você terminar as etapas neste documento, lembre-se de excluir os clusters para evitar cobranças em excesso.
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-* Uma assinatura do Azure
-
-* Um cliente SSH (você precisa dos comandos `ssh` e `scp`) — para saber mais, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-* [cURL](https://curl.haxx.se/) – um utilitário de plataforma para fazer solicitações HTTP.
-
-* [jq](https://stedolan.github.io/jq/) – um utilitário de plataforma para analisar documentos JSON.
 
 ## <a name="create-the-clusters"></a>Criar os clusters
 
@@ -53,17 +43,22 @@ Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark m
 
 1. Use o botão a seguir para entrar no Azure e abra o modelo do Gerenciador de Recursos no portal do Azure.
     
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    O modelo do Azure Resource Manager está localizado em **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet.json**.
+    O modelo do Azure Resource Manager está localizado em **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v2.1.json**.
 
-2. Use as seguintes informações para preencher as entradas na folha de **implantação personalizada**:
+    > [!WARNING]
+    > Para garantir a disponibilidade do Kafka no HDInsight, o cluster deve conter pelo menos três nós de trabalho. Este modelo cria um cluster de Kafka que contém três nós de trabalho.
+
+    Este modelo cria um cluster HDInsight 3.6 para Kafka e Spark.
+
+2. Use as seguintes informações para preencher as entradas na seção **Implantação personalizada**:
    
     ![Implantação personalizada do HDInsight](./media/hdinsight-apache-spark-with-kafka/parameters.png)
    
     * **Grupo de recursos**: Crie um grupo ou selecione um existente. Esse grupo contém o cluster HDInsight.
 
-    * **Local**: escolha um local geograficamente perto de você. Esse local deve corresponder ao local na seção de __CONFIGURAÇÕES__.
+    * **Local**: escolha um local geograficamente perto de você.
 
     * **Nome do Cluster de base**: esse valor é usado como o nome de base para os clusters Spark e Kafka. Por exemplo, inserir **hdi** cria um cluster Spark chamado hdi__ spark e um cluster Kafka chamado **kafka hdi**.
 
@@ -75,98 +70,22 @@ Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark m
 
     * **Senha SSH**: a senha para o usuário SSH dos clusters Kafka e Spark.
 
-    * **Localização**: a região na qual os clusters serão criados.
-
 3. Leia **Termos e Condições**, e depois selecione **Concordo com os termos e condições declarados acima**.
 
 4. Por fim, marque **Fixar no painel** e selecione **Comprar**. Demora cerca de 20 minutos para criar os clusters.
 
-Quando os recursos tiverem sido criados, você será redirecionado para uma folha do grupo de recursos que contém os clusters e o painel da Web.
+Depois que os recursos tiverem sido criados, uma página de resumo será exibida.
 
-![Folha do grupo de recursos para rede virtual e clusters](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
+![Resumo de grupo de recursos para a rede virtual e clusters](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
 > Observe que os nomes dos clusters HDInsight são **spark-BASENAME** e **kafka-BASENAME**, em que BASENAME é o nome fornecido para o modelo. Você usa esses nomes em etapas posteriores ao se conectar aos clusters.
 
-## <a name="get-the-code"></a>Obter código
+## <a name="use-the-notebooks"></a>Usar os blocos de anotações
 
 O código de exemplo descrito neste documento está disponível em [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka).
 
-## <a name="understand-the-code"></a>Compreender o código
-
-Este exemplo usa um aplicativo Scala em um Notebook Jupyter. O código no notebook depende das seguintes partes de dados:
-
-* __Agentes Kafka__: O processo do agente é executado em cada nó de trabalho no cluster Kafka. A lista de agentes é exigida pelo componente do produtor, que grava dados no Kafka.
-
-* __Hosts do zookeeper__: os hosts do Zookeeper para o cluster Kafka são usados durante o consumo de dados (leitura) do Kafka.
-
-* __Nome do tópico__: O nome do tópico em que os dados são gravados e lidos. Esse exemplo espera um tópico chamado `sparktest`.
-
-Consulte a seção [informações do host Kafka](#kafkahosts) para obter informações sobre como obter o Agente de Kafka e informações de host do Zookeeper.
-
-O código no notebook executa as seguintes tarefas:
-
-* Cria um consumidor que lê dados de um tópico Kafka chamado `sparktest`, conta cada palavra nos dados e armazena a palavra e a contagem em uma tabela temporária denominada `wordcounts`.
-
-* Cria um produtor que grava sentenças aleatórias para o tópico Kafka chamado `sparktest`.
-
-* Seleciona dados da tabela `wordcounts` para exibir as contagens.
-
-Cada célula no projeto contêm comentários ou uma seção de texto que explica o que o código faz.
-
-##<a id="kafkahosts"></a>Informações do host Kafka
-
-A primeira coisa que você deve fazer ao criar um aplicativo que funciona com Kafka no HDInsight é obter o Agente de Kafka e as informações de host Zookeeper para o cluster Kafka. Isso é usado por aplicativos cliente para se comunicarem com Kafka.
-
-> [!NOTE]
-> O agente de Kafka e os hosts Zookeeper não são diretamente acessíveis pela Internet. Qualquer aplicativo que use Kafka deve ser executado no cluster Kafka ou dentro da mesma rede Virtual do Azure que o cluster Kafka. Nesse caso, o exemplo executa um Spark no cluster HDInsight na mesma rede virtual.
-
-No ambiente de desenvolvimento, use os seguintes comandos para recuperar as informações do Zookeeper e o agente. Substitua __SENHA__ com a senha de logon (admin) que você usou ao criar o cluster. Substitua __BASENAME__ com o nome base que você usou ao criar o cluster.
-
-* Para obter as informações do __Agente de Kafka__:
-
-        curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'
-
-    > [!IMPORTANT]
-    > Ao usar esse comando do Windows PowerShell, você pode receber um erro sobre cotação de shell. Para fazer isso, use o seguinte comando: `curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["""\(.host_components[].HostRoles.host_name):9092"""] | join(""",""")'`
-
-* Para obter as informações do __host Zookeeper__:
-
-        curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'
-    
-    > [!IMPORTANT]
-    > Ao usar esse comando do Windows PowerShell, você pode receber um erro sobre cotação de shell. Para fazer isso, use o seguinte comando: `curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["""\(.host_components[].HostRoles.host_name):2181"""] | join(""",""")'`
-
-Esse comando retornará informações semelhantes ao seguinte texto:
-
-* __Agentes de Kafka__: `wn0-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:9092,wn1-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:9092`
-
-* __Hosts do Zookeeper__: `zk0-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181,zk1-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181,zk2-kafka.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181`
-
-> [!IMPORTANT]
-> Salve essas informações conforme são usadas em várias etapas neste documento.
-
-## <a name="use-the-jupyter-notebook"></a>Execute o Notebook Jupyter
-
-Para usar o Notebook Jupyter de exemplo, você deve carregá-lo ao servidor do Notebook Jupyter no cluster Spark. Use as etapas a seguir para carregar o notebook:
-
-1. No navegador da Web, use a seguinte URL para se conectar ao servidor do Notebook Jupyter no cluster Spark. Substitua __BASENAME__ com o nome base que você usou ao criar o cluster.
-
-        https://spark-BASENAME.azurehdinsight.net/jupyter
-
-    Quando solicitado, insira o nome de usuário e senha que você inseriu ao criar o cluster.
-
-2. No canto superior direito da página, use o botão __Carregar__ para carregar o `KafkaStreaming.ipynb` arquivo. Selecione o arquivo na caixa de diálogo de navegador de arquivo e selecione __Abrir__. 
-
-    ![Use o botão Carregar para selecionar e carregar um notebook](./media/hdinsight-apache-spark-with-kafka/upload-button.png)
-
-    ![Selecione o arquivo KafkaStreaming.ipynb](./media/hdinsight-apache-spark-with-kafka/select-notebook.png)
-
-3. Encontre a entrada __KafkaStreaming.ipynb__ na lista de blocos de anotações e selecione o botão __carregar__ ao lado dela.
-
-    ![Use o botão Carregar ao lado da entrada KafkaStreaming.ipynb para carregá-la para o servidor de notebook](./media/hdinsight-apache-spark-with-kafka/upload-notebook.png)
-
-4. Depois que o arquivo foi carregado, selecione a entrada __KafkaStreaming.ipynb__ para abrir o notebook. Para concluir este exemplo, siga as instruções no notebook.
+Siga as etapas no arquivo `README.md` para concluir este exemplo.
 
 ## <a name="delete-the-cluster"></a>Excluir o cluster
 
@@ -176,10 +95,9 @@ Como as etapas neste documento criam ambos os clusters no mesmo grupo de recurso
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste documento, você aprendeu a usar o Spark para ler e gravar em Kafka. Use os links a seguir para descobrir outras maneiras de trabalhar com Kafka:
+Neste exemplo, você aprendeu a usar o Spark para ler e gravar em Kafka. Use os links a seguir para descobrir outras maneiras de trabalhar com Kafka:
 
 * [Introdução ao Apache Kafka no HDInsight](hdinsight-apache-kafka-get-started.md)
 * [Use MirrorMaker para criar uma réplica de Kafka no HDInsight](hdinsight-apache-kafka-mirroring.md)
 * [Use o Apache Storm com Kafka no HDInsight](hdinsight-apache-storm-with-kafka.md)
-
 

@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2017
+ms.date: 8/10/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 0231c3148d03ffef0a518a68bb79398462da2605
-ms.openlocfilehash: 89721efbb9f05871716ca1b16ad0d54eaf1ffd62
-ms.lasthandoff: 12/07/2016
-
-
+ms.openlocfilehash: 7ea71ab891583c51b3c07a4d0a9f0b4f54e56669
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>Atualizar um cluster do Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -31,12 +30,12 @@ ms.lasthandoff: 12/07/2016
 Para qualquer sistema moderno, oferecer a possibilidade de atualização é fundamental para o sucesso duradouro de seu produto. Um cluster do Azure Service Fabric é um recurso cujo proprietário é você, mas que é parcialmente gerenciado pela Microsoft. Este artigo descreve o que é gerenciado automaticamente e o que você pode configurar por conta própria.
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Controlando a versão do Fabric em execução no Cluster
-Você pode definir o cluster para receber atualizações automáticas do Fabric, quando a Microsoft lançar uma nova versão ou você optar por selecionar uma versão com suporte do Fabric na qual deseja que o cluster se encontre.
+Você pode definir o cluster para receber atualizações automáticas do Fabric, assim que elas forem liberadas pela Microsoft ou pode optar por selecionar uma versão com suporte do Fabric na qual deseja que o cluster se encontre.
 
 Você pode fazer isso definindo a configuração do cluster "upgradeMode" no portal ou usando o Gerenciador de Recursos no momento da criação ou posteriormente em um cluster ativo 
 
 > [!NOTE]
-> Certifique-se de manter o cluster sempre executando uma versão do Fabric com suporte. Quando anunciamos o lançamento de uma nova versão do Service Fabric, a versão anterior é programada para encerrar sua vida útil após um mínimo de 60 dias a partir da data desse anúncio. As novas versões são anunciadas [no blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). Então, a nova versão está disponível para escolha. 
+> Certifique-se de manter o cluster sempre executando uma versão do Fabric com suporte. Quando anunciamos o lançamento de uma nova versão do Service Fabric, a versão anterior é programada para encerrar seu tempo de vida após um mínimo de 60 dias a partir da data desse anúncio. As novas versões são anunciadas [no blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). Então, a nova versão está disponível para escolha. 
 > 
 > 
 
@@ -206,7 +205,7 @@ Você pode especificar as políticas de integridade personalizados ou examinar a
 Consulte [configurações de malha do cluster do Service Fabric](service-fabric-cluster-fabric-settings.md) para saber o que e como você pode personalizá-lo.
 
 ### <a name="os-patches-on-the-vms-that-make-up-the-cluster"></a>Patches do sistema operacional nas VMs que fazem parte do cluster
-Essa funcionalidade está prevista como um recurso automatizado futuramente. Contudo, no momento, você é responsável por aplicar patches nas suas VMs. Você deve fazer isso uma VM por vez, para que você não desative mais de uma por vez.
+Consulte o [Aplicativo de orquestração de patch](service-fabric-patch-orchestration-application.md) que pode ser implantado em seu cluster para instalar patches do Windows Update de maneira orquestrada, mantendo os serviços sempre disponíveis. 
 
 ### <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>Atualizações do sistema operacional nas VMs que fazem parte do cluster
 Se for necessário atualizar a imagem do sistema operacional nas máquinas virtuais do cluster, faça isso uma VM por vez. Você é responsável por esta atualização. Atualmente não há nenhuma automação para isso.
@@ -224,4 +223,3 @@ Se for necessário atualizar a imagem do sistema operacional nas máquinas virtu
 [ARMUpgradeMode]: ./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG
 [Create_Manualmode]: ./media/service-fabric-cluster-upgrade/Create_Manualmode.PNG
 [Manage_Automaticmode]: ./media/service-fabric-cluster-upgrade/Manage_Automaticmode.PNG
-

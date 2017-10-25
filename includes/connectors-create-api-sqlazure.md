@@ -40,8 +40,3 @@ Conecte ao seu Banco de Dados SQL do Azure usando as seguintes etapas:
    
     ![Etapa de criação da conexão com o SQL Azure](./media/connectors-create-api-sqlazure/table.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

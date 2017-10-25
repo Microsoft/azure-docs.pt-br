@@ -3,7 +3,7 @@ title: "Trabalhando com Coleções Confiáveis | Microsoft Docs"
 description: "Conheça as práticas recomendadas para trabalhar com Reliable Collections."
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
+author: rajak
 manager: timlt
 editor: 
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
-ms.author: mcoskun
-translationtype: Human Translation
-ms.sourcegitcommit: 407f2631044fb836930093a774f5b718c91f711d
-ms.openlocfilehash: 822941aa3f745e51f653b4274bf0add9c44ff0c8
-ms.lasthandoff: 02/22/2017
-
-
+ms.date: 04/19/2017
+ms.author: rajak
+ms.openlocfilehash: f53f13e4fb83b1cd370ec673e86e5311cd93055f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="working-with-reliable-collections"></a>Trabalhando com Reliable Collections
 O Service Fabric oferece um modelo de programação com estado disponível para desenvolvedores .NET por meio das Reliable Collections. Especificamente, o Service Fabric fornece as classes de dicionário confiável e fila confiável. Quando você usar essas classes, seu estado é particionado (para escalabilidade), replicado (para disponibilidade) e transacionado dentro de uma partição (para semântica ACID). Vejamos um uso típico de um objeto de dicionário confiável para ver o que ele está fazendo realmente.
@@ -217,4 +216,3 @@ Para conhecer as práticas recomendadas de contratos de dados de controle de ver
 Para saber como implementar contratos de dados tolerantes a versões, consulte [Retornos de Chamada de Serialização Tolerantes a Versões](https://msdn.microsoft.com/library/ms733734.aspx).
 
 Para saber como fornecer uma estrutura de dados interoperável em várias versões, consulte [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx).
-

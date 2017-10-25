@@ -1,24 +1,23 @@
 ---
-title: "Retenção de dados e armazenamento no Application Insights"
+title: "Retenção de dados e armazenamento no Azure Application Insights | Microsoft Docs"
 description: "Declaração de política de privacidade e retenção"
 services: application-insights
 documentationcenter: 
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 3dc6373c9aaa01000a7da282e48557f175f040e7
-ms.openlocfilehash: a6588718fdc0b561a70f25ac4d674c5edf08d8cb
-ms.lasthandoff: 01/24/2017
-
-
+ms.date: 04/07/2017
+ms.author: bwren
+ms.openlocfilehash: ddb9fa516da66da0484619439848583a29e1f5c1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Coleta, retenção e armazenamento de dados no Application Insights
 
@@ -68,7 +67,7 @@ As principais categorias são:
 * [Exceções](app-insights-asp-net-exceptions.md) e falhas - **despejos de pilha**, id da compilação, tipo de CPU. 
 * [Dependências](app-insights-asp-net-dependencies.md) - chamadas a serviços externos, como REST, SQL, AJAX. Cadeia de conexão ou URI, duração, sucesso, comando.
 * [Testes de disponibilidade](app-insights-monitor-web-app-availability.md) - duração do teste e etapas, respostas.
-* [Logs de rastreamento](app-insights-search-diagnostic-logs.md) e [telemetria personalizada](app-insights-api-custom-events-metrics.md) - **qualquer elemento que você codifique nos seus logs ou telemetria**.
+* [Logs de rastreamento](app-insights-asp-net-trace-logs.md) e [telemetria personalizada](app-insights-api-custom-events-metrics.md) - **qualquer elemento que você codifique nos seus logs ou telemetria**.
 
 [Mais detalhes](#data-sent-by-application-insights).
 
@@ -199,16 +198,7 @@ Você pode [desativar alguns dos dados editando ApplicationInsights.config][conf
 ## <a name="credits"></a>Credits
 Este produto inclui dados GeoLite2 criados pelo MaxMind, disponíveis em [http://www.maxmind.com](http://www.maxmind.com).
 
-## <a name="a-namevideoavideos"></a><a name="video"></a>Vídeos
-#### <a name="introduction"></a>Introdução
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Application-Insights-Introduction/player]
-> 
-> 
 
-#### <a name="get-started"></a>Introdução
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Getting-Started-with-Application-Insights/player]
-> 
-> 
 
 <!--Link references-->
 
@@ -222,5 +212,4 @@ Este produto inclui dados GeoLite2 criados pelo MaxMind, disponíveis em [http:/
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
-
 

@@ -13,33 +13,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: c801dc221d4aaa2c3ed0a7d10c5d58065b26e427
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: beafd2c65b0506844ff9ea152037ed6f2866e650
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>Usar o cluster Spark HDInsight para analisar dados no Data Lake Store
 
 Neste tutorial, você usará no notebook Jupyter disponível com os clusters Spark HDInsight para executar um trabalho que lê dados de uma conta do Data Lake Store.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Conta do Azure Data Lake Store. Siga as instruções em [Introdução ao Azure Data Lake Store usando o portal do Azure](../data-lake-store/data-lake-store-get-started-portal.md).
 
-* Conta do Azure Data Lake Store. Siga as instruções em [Introdução ao Repositório Azure Data Lake usando o Portal do Azure](../data-lake-store/data-lake-store-get-started-portal.md).
-
-* Cluster Spark HDInsight do Azure com o Data Lake Store como armazenamento. Siga as instruções em [Criar um cluster HDInsight com o Data Lake Store usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+* Cluster Spark HDInsight do Azure com o Data Lake Store como armazenamento. Siga as instruções em [Criar um cluster HDInsight com o Data Lake Store usando o portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
     
 ## <a name="prepare-the-data"></a>Preparar os dados
 
 > [!NOTE]
-> Não é necessário realizar essa etapa se você criou o cluster HDInsight com o Data Lake Store como armazenamento padrão. Os processos de criação de cluster adicionam alguns dados de exemplo à conta do Data Lake Store, especificados durante a criação do cluster. Vá para a seção [Usar o cluster HDInsight Spark com o Data Lake Store](#use-an-hdinsight-spark-cluster-with-data-lake-store).
+> Não é necessário realizar essa etapa se você criou o cluster HDInsight com o Data Lake Store como armazenamento padrão. Os processos de criação de cluster adicionam alguns dados de exemplo à conta do Data Lake Store especificada durante a criação do cluster. Vá para a seção [Usar o cluster HDInsight Spark com o Data Lake Store](#use-an-hdinsight-spark-cluster-with-data-lake-store).
 >
 >
 
@@ -59,7 +55,7 @@ Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adi
    > Verifique se os nomes de arquivo e caminho estão com a capitalização apropriada.
    >
    >
-3. Você precisará inserir as credenciais da assinatura do Azure vinculadas à conta do Data Lake Store. Você verá uma saída semelhante ao seguinte:
+3. Você deverá inserir as credenciais da assinatura do Azure vinculadas à sua conta do Data Lake Store. Você verá um resultado semelhante ao seguinte trecho:
 
         Initializing Copy.
         Copy Started.
@@ -83,7 +79,7 @@ Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adi
 
 3. Crie um novo bloco de anotações. Clique em **Novo** e em **PySpark**.
 
-    ![Criar um novo bloco de anotações do Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdispark.note.jupyter.createnotebook.png "Criar um novo bloco de anotações do Jupyter")
+    ![Criar um novo bloco de anotações do Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "Criar um novo bloco de anotações do Jupyter")
 
 4. Por ter criado um notebook usando o kernel PySpark, não será necessário criar nenhum contexto explicitamente. Os contextos do Spark e do Hive serão criados automaticamente para você ao executar a primeira célula do código. Você pode começar importando os tipos obrigatórios para este cenário. Para fazer isso, cole o trecho de código a seguir em uma célula vazia e pressione **SHIFT + ENTER**.
 
@@ -91,7 +87,7 @@ Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adi
 
     Toda vez que você executar um trabalho no Jupyter, o título da janela do navegador da Web mostrará um status **(Ocupado)** com o título do bloco de anotações. Você também verá um círculo sólido ao lado do texto **PySpark** no canto superior direito. Depois que o trabalho for concluído, isso será alterado para um círculo vazio.
 
-     ![Status de um trabalho de bloco de anotações Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdispark.jupyter.job.status.png "Status de um trabalho de bloco de anotações Jupyter")
+     ![Status de um trabalho de bloco de anotações Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Status de um trabalho de bloco de anotações Jupyter")
 
 5. Carregue os dados de exemplo em uma tabela temporária usando o arquivo **HVAC.csv** copiado para a conta do Data Lake Store. Você pode acessar os dados na conta do Repositório Data Lake usando o seguinte padrão de URL.
 
@@ -131,11 +127,11 @@ Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adi
 
 7. Depois que o trabalho for concluído com êxito, a saída tabular a seguir será exibida por padrão.
 
-      ![Saída do resultado de consulta de tabela](./media/hdinsight-apache-spark-use-with-data-lake-store/tabular.output.png "Saída do resultado de consulta de tabela")
+      ![Saída do resultado de consulta de tabela](./media/hdinsight-apache-spark-use-with-data-lake-store/jupyter-tabular-output.png "Saída do resultado de consulta de tabela")
 
      Você também pode ver os resultados em outras visualizações. Por exemplo, um gráfico de área para a mesma saída seria semelhante ao seguinte.
 
-     ![Gráfico de área de resultado da consulta](./media/hdinsight-apache-spark-use-with-data-lake-store/area.output.png "Gráfico de área de resultado da consulta")
+     ![Gráfico de área de resultado da consulta](./media/hdinsight-apache-spark-use-with-data-lake-store/jupyter-area-output.png "Gráfico de área de resultado da consulta")
 
 8. Depois de concluir a execução do aplicativo, você deve encerrar o notebook para liberar os recursos. Para isso, no menu **Arquivo** do bloco de anotações, clique em **Fechar e Interromper**. Isso desligará e fechará o bloco de anotações.
 
@@ -145,4 +141,3 @@ Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adi
 * [Criar um aplicativo Scala autônomo para ser executado no cluster do Apache Spark](hdinsight-apache-spark-create-standalone-application.md)
 * [Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ a fim de criar aplicativos Spark para um cluster HDInsight Spark Linux](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para Eclipse a fim de criar aplicativos Spark para um cluster HDInsight Spark Linux](hdinsight-apache-spark-eclipse-tool-plugin.md)
-

@@ -3,8 +3,8 @@ title: "Saiba como usar o conector de Twitter em aplicativos lógicos | Microsof
 description: "Visão geral do conector do Twitter com os parâmetros da API REST"
 services: 
 documentationcenter: 
-author: msftman
-manager: erikre
+author: MandiOhlinger
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
-ms.author: deonhe
-translationtype: Human Translation
-ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
-ms.openlocfilehash: 13ecb8936484b1c86938a16c7dd6da8000d4ffec
-
-
+ms.author: mandia; ladocs
+ms.openlocfilehash: be8163043535833ce45b3d50939a537406cf8152
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-twitter-connector"></a>Introdução ao conector do Twitter
 Com o conector do Twitter, você pode:
@@ -98,297 +98,11 @@ Na próxima etapa, você adicionará uma ação do Twitter que postará um tweet
    ![Imagem 3 da ação do Twitter](../../includes/media/connectors-create-api-twitter/action-3.png)   
 7. Salve seu trabalho e envie um tweet com a hashtag #Seattle para ativar o fluxo de trabalho.  
 
-## <a name="technical-details"></a>Detalhes técnicos
-Veja abaixo os detalhes sobre os gatilhos, as ações e as respostas que essa conexão permite:
 
-## <a name="twitter-triggers"></a>Gatilhos do Twitter
-O conector do Twitter tem os seguintes gatilhos:  
+## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-| Gatilho | Descrição |
-| --- | --- |
-| [Quando um novo tweet é postado](connectors-create-api-twitter.md#when-a-new-tweet-is-posted) |Esta operação dispara um fluxo quando um novo tweet que corresponde a uma determinada consulta de pesquisa é postado. |
-
-## <a name="twitter-actions"></a>Ações de Twitter
-O conector do Twitter tem as seguintes ações:
-
-| Ação | Descrição |
-| --- | --- |
-| [Obter a linha do tempo do usuário](connectors-create-api-twitter.md#get-user-timeline) |Esta operação obtém uma lista dos tweets mais recentes postados por um determinado usuário. |
-| [Obter linha do tempo de início](connectors-create-api-twitter.md#get-home-timeline) |Esta operação obtém os tweets mais recentes e retweets postados por mim e meus seguidores. |
-| [Pesquisar tweets](connectors-create-api-twitter.md#search-tweets) |Esta operação obtém uma lista de tweets relevantes correspondentes à consulta de pesquisa. |
-| [Obter seguidores](connectors-create-api-twitter.md#get-followers) |Esta operação obtém a lista de usuários que seguem um determinado usuário. |
-| [Obter meus seguidores](connectors-create-api-twitter.md#get-my-followers) |Esta operação obtém a lista de usuários que estão me seguindo. |
-| [Obtenha seguidos](connectors-create-api-twitter.md#get-following) |A operação obtém a lista de pessoas que determinado usuário segue. |
-| [Obter meus seguidos](connectors-create-api-twitter.md#get-my-following) |Esta operação obtém a lista de usuários que eu estou seguindo. |
-| [Obter Usuário](connectors-create-api-twitter.md#get-user) |Esta operação obtém os detalhes do perfil de um determinado usuário, como nome de usuário, descrição, contagem de seguidores e muito mais. |
-| [Publicar um tweet](connectors-create-api-twitter.md#post-a-tweet) |Esta operação posta um novo tweet. |
-
-## <a name="action-details"></a>Detalhes da ação
-Veja abaixo os detalhes das ações e dos gatilhos para esse conector, com suas respostas:
-
-### <a name="get-user-timeline"></a>Obter a linha do tempo do usuário
-Esta operação obtém uma lista dos tweets mais recentes postados por um determinado usuário. 
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| userName* |Nome de usuário |Identificador do usuário no Twitter |
-| maxResults |Máximo de resultados |Número máximo de tweets a serem retornados |
-
-Um * indica que uma propriedade é obrigatória
-
-#### <a name="output-details"></a>Detalhes da Saída
-TweetModel: representação do objeto de tweet
-
-| Nome da Propriedade | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| TweetText |string |Conteúdo do texto do tweet |
-| TweetId |string |ID do tweet |
-| CreatedAt |string |Hora em que o tweet foi postado |
-| RetweetCount |inteiro |Número total de retweets para o tweet |
-| TweetedBy |string |Nome do usuário que postou o tweet |
-| MediaUrls |array |URL da mídia postada com o tweet |
-| TweetLanguageCode |string |Código de idioma do tweet |
-| TweetInReplyToUserId |string |ID de usuário do autor do tweet para o qual o tweet atual é uma resposta |
-| Favorited |booleano |Indica se o tweet está marcado como favorito ou não |
-| UserMentions |array |Lista de usuários mencionados no tweet |
-| OriginalTweet |não definido |Tweet original do qual o tweet atual é retweetado |
-| UserDetails |não definido |Detalhes do usuário que tweetou |
-
-### <a name="get-home-timeline"></a>Obter linha do tempo de início
-Esta operação obtém os tweets mais recentes e retweets postados por mim e meus seguidores. 
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| maxResults |Máximo de resultados |Número máximo de tweets a serem retornados |
-
-Um * indica que uma propriedade é obrigatória
-
-#### <a name="output-details"></a>Detalhes da Saída
-TweetModel: representação do objeto de tweet
-
-| Nome da Propriedade | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| TweetText |string |Conteúdo do texto do tweet |
-| TweetId |string |ID do tweet |
-| CreatedAt |string |Hora em que o tweet foi postado |
-| RetweetCount |inteiro |Número total de retweets para o tweet |
-| TweetedBy |string |Nome do usuário que postou o tweet |
-| MediaUrls |array |URL da mídia postada com o tweet |
-| TweetLanguageCode |string |Código de idioma do tweet |
-| TweetInReplyToUserId |string |ID de usuário do autor do tweet para o qual o tweet atual é uma resposta |
-| Favorited |booleano |Indica se o tweet está marcado como favorito ou não |
-| UserMentions |array |Lista de usuários mencionados no tweet |
-| OriginalTweet |não definido |Tweet original do qual o tweet atual é retweetado |
-| UserDetails |não definido |Detalhes do usuário que tweetou |
-
-### <a name="search-tweets"></a>Pesquisar tweets
-Esta operação obtém uma lista de tweets relevantes correspondentes à consulta de pesquisa. 
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| searchQuery* |Texto da pesquisa |Termo de pesquisa, como "happy hour", #haicai, amor OR ódio |
-| maxResults |Máximo de resultados |Número máximo de tweets a serem retornados |
-
-Um * indica que uma propriedade é obrigatória
-
-#### <a name="output-details"></a>Detalhes da Saída
-TweetModel: representação do objeto de tweet
-
-| Nome da Propriedade | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| TweetText |string |Conteúdo do texto do tweet |
-| TweetId |string |ID do tweet |
-| CreatedAt |string |Hora em que o tweet foi postado |
-| RetweetCount |inteiro |Número total de retweets para o tweet |
-| TweetedBy |string |Nome do usuário que postou o tweet |
-| MediaUrls |array |URL da mídia postada com o tweet |
-| TweetLanguageCode |string |Código de idioma do tweet |
-| TweetInReplyToUserId |string |ID de usuário do autor do tweet para o qual o tweet atual é uma resposta |
-| Favorited |booleano |Indica se o tweet está marcado como favorito ou não |
-| UserMentions |array |Lista de usuários mencionados no tweet |
-| OriginalTweet |não definido |Tweet original do qual o tweet atual é retweetado |
-| UserDetails |não definido |Detalhes do usuário que tweetou |
-
-### <a name="get-followers"></a>Obter seguidores
-Esta operação obtém a lista de usuários que seguem um determinado usuário. 
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| userName* |Nome de usuário |Identificador do usuário no Twitter |
-| maxResults |Máximo de resultados |Número máximo de usuários a serem retornados |
-
-Um * indica que uma propriedade é obrigatória
-
-#### <a name="output-details"></a>Detalhes da Saída
-UserDetailsModel: Detalhes do usuário do Twitter
-
-| Nome da Propriedade | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| FullName |string |Nome do usuário |
-| Local |string |Local do usuário |
-| ID |inteiro |ID do usuário no Twitter |
-| UserName |string |Nome do usuário na tela |
-| FollowersCount |inteiro |Número de seguidores |
-| Descrição |string |Descrição do usuário |
-| StatusesCount |inteiro |Contagem de status do usuário |
-| FriendsCount |inteiro |Número de amigos |
-| FavouritesCount |inteiro |Número de tweets que o usuário marcou como favorito |
-| ProfileImageUrl |string |URL da imagem do perfil |
-
-### <a name="get-my-followers"></a>Obter meus seguidores
-Esta operação obtém a lista de usuários que estão me seguindo. 
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| maxResults |Máximo de resultados |Número máximo de usuários a serem obtidos |
-
-Um * indica que uma propriedade é obrigatória
-
-#### <a name="output-details"></a>Detalhes da Saída
-UserDetailsModel: Detalhes do usuário do Twitter
-
-| Nome da Propriedade | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| FullName |string |Nome do usuário |
-| Local |string |Local do usuário |
-| ID |inteiro |ID do usuário no Twitter |
-| UserName |string |Nome do usuário na tela |
-| FollowersCount |inteiro |Número de seguidores |
-| Descrição |string |Descrição do usuário |
-| StatusesCount |inteiro |Contagem de status do usuário |
-| FriendsCount |inteiro |Número de amigos |
-| FavouritesCount |inteiro |Número de tweets que o usuário marcou como favorito |
-| ProfileImageUrl |string |URL da imagem do perfil |
-
-### <a name="get-following"></a>Obtenha seguidos
-A operação obtém a lista de pessoas que determinado usuário segue. 
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| userName* |Nome de usuário |Identificador do usuário no Twitter |
-| maxResults |Máximo de resultados |Número máximo de usuários a serem retornados |
-
-Um * indica que uma propriedade é obrigatória
-
-#### <a name="output-details"></a>Detalhes da Saída
-UserDetailsModel: Detalhes do usuário do Twitter
-
-| Nome da Propriedade | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| FullName |string |Nome do usuário |
-| Local |string |Local do usuário |
-| ID |inteiro |ID do usuário no Twitter |
-| UserName |string |Nome do usuário na tela |
-| FollowersCount |inteiro |Número de seguidores |
-| Descrição |string |Descrição do usuário |
-| StatusesCount |inteiro |Contagem de status do usuário |
-| FriendsCount |inteiro |Número de amigos |
-| FavouritesCount |inteiro |Número de tweets que o usuário marcou como favorito |
-| ProfileImageUrl |string |URL da imagem do perfil |
-
-### <a name="get-my-following"></a>Obter meus seguidos
-Esta operação obtém a lista de usuários que eu estou seguindo. 
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| maxResults |Máximo de resultados |Número máximo de usuários a serem retornados |
-
-Um * indica que uma propriedade é obrigatória
-
-#### <a name="output-details"></a>Detalhes da Saída
-UserDetailsModel: Detalhes do usuário do Twitter
-
-| Nome da Propriedade | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| FullName |string |Nome do usuário |
-| Local |string |Local do usuário |
-| ID |inteiro |ID do usuário no Twitter |
-| UserName |string |Nome do usuário na tela |
-| FollowersCount |inteiro |Número de seguidores |
-| Descrição |string |Descrição do usuário |
-| StatusesCount |inteiro |Contagem de status do usuário |
-| FriendsCount |inteiro |Número de amigos |
-| FavouritesCount |inteiro |Número de tweets que o usuário marcou como favorito |
-| ProfileImageUrl |string |URL da imagem do perfil |
-
-### <a name="get-user"></a>Obter usuário
-Esta operação obtém os detalhes do perfil de um determinado usuário, como nome de usuário, descrição, contagem de seguidores e muito mais. 
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| userName* |Nome de usuário |Identificador do usuário no Twitter |
-
-Um * indica que uma propriedade é obrigatória
-
-#### <a name="output-details"></a>Detalhes da Saída
-UserDetailsModel: Detalhes do usuário do Twitter
-
-| Nome da Propriedade | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| FullName |string |Nome do usuário |
-| Local |string |Local do usuário |
-| ID |inteiro |ID do usuário no Twitter |
-| UserName |string |Nome do usuário na tela |
-| FollowersCount |inteiro |Número de seguidores |
-| Descrição |string |Descrição do usuário |
-| StatusesCount |inteiro |Contagem de status do usuário |
-| FriendsCount |inteiro |Número de amigos |
-| FavouritesCount |inteiro |Número de tweets que o usuário marcou como favorito |
-| ProfileImageUrl |string |URL da imagem do perfil |
-
-### <a name="post-a-tweet"></a>Publicar um tweet
-Esta operação posta um novo tweet. 
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| tweetText |Texto do tweet |Texto a ser postado |
-| corpo |Mídia |Mídia a ser postada |
-
-Um * indica que uma propriedade é obrigatória
-
-#### <a name="output-details"></a>Detalhes da Saída
-TweetResponseModel: modelo representando o tweet postado
-
-| Nome da Propriedade | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| TweetId |string |ID do tweet recuperado |
-
-### <a name="when-a-new-tweet-is-posted"></a>Quando um novo tweet é postado
-Esta operação dispara um fluxo quando um novo tweet que corresponde a uma determinada consulta de pesquisa é postado. 
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| searchQuery* |Texto da pesquisa |Termo de pesquisa, como "happy hour", #haicai, amor OR ódio |
-
-Um * indica que uma propriedade é obrigatória
-
-#### <a name="output-details"></a>Detalhes da Saída
-TriggerBatchResponse[TweetModel]
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| value |array |
-
-## <a name="http-responses"></a>Respostas HTTP
-As ações e os gatilhos acima podem retornar um ou mais dos seguintes códigos de status HTTP: 
-
-| Nome | Descrição |
-| --- | --- |
-| 200 |OK |
-| 202 |Aceita |
-| 400 |Solicitação incorreta |
-| 401 |Não Autorizado |
-| 403 |Proibido |
-| 404 |Não encontrado |
-| 500 |Erro Interno do Servidor. Ocorreu um erro desconhecido. |
-| padrão |Falha na Operação. |
+Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/twitterconnector/). 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

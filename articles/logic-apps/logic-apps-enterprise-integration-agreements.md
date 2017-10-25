@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2016
-ms.author: estfan
-translationtype: Human Translation
-ms.sourcegitcommit: 8dd90542440322e6d57406cd950fa0a13bd4fe1d
-ms.openlocfilehash: 1068b5bd5f2c86de0c82f5a96cb2718645c0a3d3
-
-
+ms.author: LADocs
+ms.openlocfilehash: 7ce0860272901f3b4e4cf3d63f7361d539f64741
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="partner-agreements-for-b2b-communication-with-azure-logic-apps-and-enterprise-integration-pack"></a>Contratos entre parceiros para comunicação B2B com o Aplicativo Lógico do Azure e o Enterprise Integration Pack
 
@@ -76,9 +76,3 @@ Você pode editar qualquer contrato seguindo essas etapas:
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Criar um contrato AS2](logic-apps-enterprise-integration-as2.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-

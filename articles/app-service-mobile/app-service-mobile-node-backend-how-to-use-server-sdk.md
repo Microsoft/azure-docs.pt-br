@@ -3,8 +3,8 @@ title: "Como trabalhar com o SDK de servidor back-end do Node.js para Aplicativo
 description: "Aprenda a trabalhar com o SDK do servidor back-end do Node.js para Aplicativos Móveis do Serviço de Aplicativo do Azure."
 services: app-service\mobile
 documentationcenter: 
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
 ms.service: app-service-mobile
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 8a6fd3711bf273d7035587d3731a334fd2268c32
-ms.lasthandoff: 03/09/2017
-
-
+ms.author: glenga
+ms.openlocfilehash: 8265aaa275b3f6e528ec729ff1325200e9ead524
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>Como usar o SDK do Node.js para Aplicativos Móveis do Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -45,33 +44,33 @@ O SDK do Node para Aplicativos Móveis do Azure dá suporte a dois drivers de ba
 Cada back-end de Node.js do Aplicativo Móvel do Serviço de Aplicativo do Azure inicia como um aplicativo ExpressJS.  ExpressJS é a estrutura de serviços Web mais popular disponível para o Node.js.  Você pode criar um aplicativo [Express] básico da seguinte maneira:
 
 1. Em um comando ou a janela do PowerShell, crie um diretório para seu projeto.
-   
+
         mkdir basicapp
 2. Execute o npm init para inicializar a estrutura do pacote.
-   
+
         cd basicapp
         npm init
-   
+
     O comando init npm solicita um conjunto de perguntas para inicializar o projeto.  Confira a saída de exemplo:
-   
+
     ![A saída de init npm][0]
 3. Instale as bibliotecas express e azure-mobile-apps do repositório npm.
-   
+
         npm install --save express azure-mobile-apps
 4. Crie um arquivo app.js para implementar o servidor móvel básico.
-   
+
         var express = require('express'),
             azureMobileApps = require('azure-mobile-apps');
-   
+
         var app = express(),
             mobile = azureMobileApps();
-   
+
         // Define a TodoItem table
         mobile.tables.add('TodoItem');
-   
+
         // Add the mobile API so it is accessible as a Web API
         app.use(mobile);
-   
+
         // Start listening on HTTP
         app.listen(process.env.PORT || 3000);
 
@@ -94,28 +93,28 @@ O Visual Studio 2015 exige uma extensão para desenvolver aplicativos Node.js no
 2. Expanda **Modelos** > **JavaScript** > **Node. js**.
 3. Selecione o **Aplicativo básico do Azure Node.js Express 4**.
 4. Preencha o nome do projeto.  Clique em *OK*.
-   
+
     ![Novo projeto do Visual Studio 2015][1]
 5. Clique com o botão direito do mouse no nó **npm** e selecione **Instalar Novos pacotes de npm...**.
 6. Talvez você precise atualizar o catálogo npm quando criar seu primeiro aplicativo do Node.js.  Clique em **Atualizar** , se necessário.
 7. Digite *azure-mobile-apps* na caixa de pesquisa.  Clique no pacote **azure-mobile-apps 2.0.0** e clique em **Instalar Pacote**.
-   
+
     ![Instalar novos pacotes npm][2]
 8. Clique em **fechar**
 9. Abra o arquivo *app.js* para adicionar suporte ao SDK de Aplicativos Móveis do Azure.  Na linha 6, na parte inferior das exigências de declarações da biblioteca, adicione o seguinte código:
-   
+
         var bodyParser = require('body-parser');
         var azureMobileApps = require('azure-mobile-apps');
-   
+
     Aproximadamente na linha 27, após outras instruções app.use, adicione o seguinte código:
-   
+
         app.use('/users', users);
-   
+
         // Azure Mobile Apps Initialization
         var mobile = azureMobileApps();
         mobile.tables.add('TodoItem');
         app.use(mobile);
-   
+
     Salve o arquivo.
 10. Execute o aplicativo localmente (a API é fornecida em http://localhost:3000) ou publique no Azure.
 
@@ -124,23 +123,24 @@ Você pode criar um back-end de aplicativo móvel diretamente no [portal do Azur
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
-De volta à folha *Introdução*, em **Criar uma API de tabela**, escolha **Node.js** como a **Linguagem de back-end**. Marque a caixa que diz "**Estou ciente de que isso substituirá todo o conteúdo do site.**" e clique em **Criar tabela TodoItem**.
+De volta à folha *Introdução*, em **Criar uma API de tabela**, escolha **Node.js** como a **Linguagem de back-end**.
+Marque a caixa que diz "**Estou ciente de que isso substituirá todo o conteúdo do site.**" e clique em **Criar tabela TodoItem**.
 
 ### <a name="download-quickstart"></a>Como baixar o projeto de código de início rápido do back-end de Node.js usando Git
 Quando você cria um back-end de Aplicativo Móvel do Node.js usando a folha **Início Rápido** no portal, um projeto do Node.js é criado e implantado em seu site. Você pode adicionar tabelas e APIs e editar arquivos de código para o back-end de Node.js no portal. Você também pode usar várias ferramentas de implantação a fim de baixar o projeto de back-end e adicionar ou modificar tabelas e APIs, e publicar novamente o projeto. Para saber mais, confira o [Guia de implantação do Serviço de Aplicativo do Azure]. o procedimento a seguir usa um repositório Git para baixar o código de projeto de início rápido.
 
 1. Instale o Git, caso ainda não tenha feito isso. As etapas necessárias para instalar o Git variam de acordo com o sistema operacional. Consulte [Instalando o Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) para distribuições específicas de sistemas operacionais e orientações de instalação.
-2. Siga as etapas em [Habilitar o repositório de aplicativos do Serviço de Aplicativo](../app-service-web/app-service-deploy-local-git.md#Step3) para habilitar o repositório Git para seu site de back-end, anotando o nome de usuário e a senha de implantação.
+2. Siga as etapas em [Habilitar o repositório de aplicativos do Serviço de Aplicativo](../app-service/app-service-deploy-local-git.md#Step3) para habilitar o repositório Git para seu site de back-end, anotando o nome de usuário e a senha de implantação.
 3. Na folha de seu back-end do Aplicativo Móvel, anote a configuração de **URL de clone de Git** .
 4. Execute o comando `git clone` usando a URL de clone de Git, digitando a senha quando for necessário, como no exemplo a seguir:
-   
+
         $ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
 5. Navegue até o diretório local, que no exemplo anterior é /todolist, e veja se os arquivos do projeto foram baixados. Localize o arquivo `todoitem.json` no diretório `/tables`.  Esse arquivo define as permissões na tabela.  Encontre também o arquivo `todoitem.js` no mesmo diretório, que define os scripts de operação CRUD para a tabela.
 6. Depois de fazer as alterações nos arquivos do projeto, execute os seguintes comandos para adicionar, confirmar e carregar as alterações no site:
-   
+
         $ git commit -m "updated the table script"
         $ git push origin master
-   
+
     Ao adicionar novos arquivos ao projeto, primeiro você precisa executar o comando `git add .`.
 
 O site é publicado novamente sempre que um novo conjunto de confirmações é enviado ao site.
@@ -242,37 +242,37 @@ O SDK do Node.js dos Aplicativos Móveis do Azure usa o [pacote de Node.js mssql
 
 > [!TIP]
 > O driver de memória não fornece um conjunto completo de recursos para teste.  Se você quiser testar localmente seu back-end, recomendamos o uso de um repositório de dados SQL Express e o driver do mssql.
-> 
-> 
+>
+>
 
 1. Baixe e instale o [Microsoft SQL Server 2014 Express].  Instale o SQL Server 2014 Express com a edição Ferramentas.  A menos que você precise explicitamente do suporte de 64 bits, a versão de 32 bits consome menos memória durante a execução.
 2. Execute o Gerenciador de Configurações do SQL Server 2014.
-   
+
    1. Expanda o nó **Configuração da Rede do SQL Server** no menu de árvore à esquerda.
    2. Clique em **Protocolos para SQLEXPRESS**.
    3. Clique com o botão direito do mouse em **TCP/IP** e escolha **Habilitar**.  Clique em **OK** no diálogo pop-up.
    4. Clique com o botão direito do mouse em **TCP/IP** e escolha **Propriedades**.
    5. Clique na guia **Endereços IP** .
    6. Encontre o nó **IPAll** .  No campo **Porta TCP**, insira **1433**.
-      
+
           ![Configure SQL Express for TCP/IP][3]
    7. Clique em **OK**.  Clique em **OK** no diálogo pop-up.
    8. Clique em **Serviços do SQL Server** no menu de árvore no lado esquerdo.
    9. Clique com o botão direito do mouse em **SQL Server (SQLEXPRESS)** e escolha **Reiniciar**
    10. Feche o Gerenciador de Configurações do SQL Server 2014.
 3. Executar o SQL Server 2014 Management Studio e conectar-se à instância do SQL Express local
-   
+
    1. Clique com o botão direito do mouse em sua instância no Explorador de Objetos e escolha **Propriedades**
    2. Escolha a página **Segurança** .
    3. Verifique se a opção **Modo de Autenticação do SQL Server e do Windows** está selecionada
    4. Clique em **OK**
-      
+
           ![Configure SQL Express Authentication][4]
    5. Expandaa **Segurança** > **Logons** no Explorador de Objetos
    6. Clique com o botão direito do mouse em **Logons** e escolha **Novo Logon...**
    7. Insira um nome de logon.  Selecione **Autenticação do SQL Server**.  Digite uma Senha e, depois, digite a mesma senha em **Confirmar senha**.  A senha deve atender aos requisitos de complexidade do Windows.
    8. Clique em **OK**
-      
+
           ![Add a new user to SQL Express][5]
    9. Clique com o botão direito do mouse em seu novo logon e escolha **Propriedades**
    10. Escolha a página **Funções de Servidor**
@@ -347,7 +347,7 @@ A alteração da maioria das Configurações do Aplicativo requer o reinício do
 O uso do Banco de Dados SQL do Azure como armazenamento de dados é idêntico em todos os tipos de aplicativo do Serviço de Aplicativo do Azure. Se você não tiver feito isso, siga estas etapas para criar um back-end do Aplicativo Móvel.
 
 1. Faça logon no [portal do Azure].
-2. No canto superior esquerdo da janela, clique no botão **+NOVO** > **Web + Celular** > **Aplicativo Móvel** e forneça um nome ao back-end do Aplicativo Móvel.
+2. No canto superior esquerdo da janela, clique no botão **+NOVO** > **Web + Celular** > **Aplicativo Móvel** e forneça um nome para o back-end do Aplicativo Móvel.
 3. Na caixa **Grupo de Recursos** , digite o mesmo nome do aplicativo.
 4. O Plano do Serviço de Aplicativo Padrão é selecionado.  Se você deseja alterar o Plano do Serviço de Aplicativo, é possível fazer isso clicando em Plano do Serviço de Aplicativo > **+ Criar Novo**.  Forneça um nome ao novo Plano de Serviço de Aplicativo e selecione um local apropriado.  Clique em Camada de Preços e selecione uma camada de preços apropriada para o serviço. Selecione **Exibir tudo** para exibir mais opções de preço, como **Gratuito** e **Compartilhado**.  Depois de selecionar a camada de preços, clique no botão **Selecionar** .  De volta à folha **Plano do Serviço de Aplicativo**, clique em **OK**.
 5. Clique em **Criar**. O provisionamento de um back-end de aplicativo móvel pode levar alguns minutos.  Depois que o back-end do Aplicativo Móvel for provisionado, o portal abre a folha **Configurações** do back-end do Aplicativo Móvel.
@@ -356,13 +356,13 @@ Depois que o back-end do Aplicativo Móvel for criado, você poderá conectar um
 
 > [!NOTE]
 > Se já houver um banco de dados no mesmo local do back-end do aplicativo móvel, você poderá escolher **Usar um banco de dados existente** e selecionar esse banco de dados. O uso de um banco de dados em um local diferente não é recomendado devido a latências maiores.
-> 
-> 
+>
+>
 
 1. No novo back-end do Aplicativo Móvel, clique em **Configurações** > **Aplicativo Móvel** > **Dados** > **+Adicionar**.
 2. Na folha **Adicionar conexão de dados**, clique em **Banco de Dados SQL - Definir configurações necessárias** > **Criar um novo banco de dados**.  Insira o nome do novo banco de dados no campo **Nome** .
 3. Clique em **Servidor**.  Na folha **Novo servidor**, insira um nome de servidor exclusivo no campo **Nome do servidor** e forneça um **Logon de administração de servidor** e **Senha** adequados.  Verifique se **Permitir que os serviços do Azure acessem o servidor** está marcado.  Clique em **OK**.
-   
+
     ![Criar um Banco de Dados SQL do Azure][6]
 4. Na folha **Novo banco de dados**, clique em **OK**.
 5. De volta à folha **Adicionar conexão de dados**, selecione **Cadeia de conexão**, insira o logon e a senha que você forneceu ao criar o banco de dados.  Se você usar um banco de dados existente, forneça as credenciais de logon desse banco de dados.  Depois de inserir, clique em **OK**.
@@ -749,7 +749,7 @@ O SDK dos Aplicativos Móveis do Azure usa o [middleware de analisador de corpo]
     // Start listening on HTTP
     app.listen(process.env.PORT || 3000);
 
-O arquivo é codificado em base&64; antes da transmissão.  Isso aumenta o tamanho do carregamento real (e, portanto, o tamanho que você deve considerar).
+O arquivo é codificado em base 64 antes da transmissão.  Isso aumenta o tamanho do carregamento real (e, portanto, o tamanho que você deve considerar).
 
 ### <a name="howto-customapi-sql"></a>Como executar instruções SQL personalizadas
 O SDK de Aplicativos Móveis do Azure permite o acesso a todo o Contexto por meio do objeto da solicitação, permitindo que você execute facilmente instruções SQL com parâmetros para o provedor de dados definido:
@@ -801,8 +801,8 @@ Quando você clica em **Tabelas fáceis** em suas configurações de site de bac
 
 Os comandos a seguir estão disponíveis na barra de comandos de uma tabela:
 
-* **Alterar permissões** : modifique a permissão para operações de leitura, inserção, atualização e exclusão na tabela. 
-  As opções são permitir acesso anônimo, exigir autenticação ou desabilitar todo o acesso à operação. 
+* **Alterar permissões** : modifique a permissão para operações de leitura, inserção, atualização e exclusão na tabela.
+  As opções são permitir acesso anônimo, exigir autenticação ou desabilitar todo o acesso à operação.
 * **Editar script** : o arquivo de script da tabela é aberto no Editor de Serviço de Aplicativo.
 * **Gerenciar esquema** : adicione ou exclua colunas, ou altere o índice da tabela.
 * **Limpar tabela** : trunca uma tabela existente excluindo todas as linhas de dados, mas deixando o esquema inalterado.
@@ -822,7 +822,7 @@ No Portal, você pode alterar as permissões de acesso de uma determinada ação
 O Portal do Azure permite a edição dos arquivos de script de back-end do Node.js no Editor de Serviço de Aplicativo sem a necessidade de baixar o projeto no computador local. Para editar arquivos de script no editor online:
 
 1. Na folha do back-end de Aplicativo Móvel, clique em **Todas as configurações** > em **Tabelas fáceis** ou **APIs fáceis**, clique em uma tabela ou API e clique em **Editar script**. O arquivo de é aberto no Editor de Serviço de Aplicativo.
-   
+
     ![Editor de Serviço de Aplicativo](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 2. Faça as alterações no arquivo de código no editor online. As alterações são salvas automaticamente enquanto você digita.
 
@@ -843,20 +843,19 @@ O Portal do Azure permite a edição dos arquivos de script de back-end do Node.
 [Início rápido do cliente Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
 [Início rápido do cliente Xamarin.Forms]: app-service-mobile-xamarin-forms-get-started.md
 [Início rápido de cliente Windows Store]: app-service-mobile-windows-store-dotnet-get-started.md
-[HTML/Javascript Client QuickStart]: app-service-html-get-started.md
 [sincronização de dados offline]: app-service-mobile-offline-data-sync.md
-[Como configurar a autenticação do Active Directory do Azure]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[Como configurar a autenticação do Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
-[Como configurar a autenticação do Google]: app-service-mobile-how-to-configure-google-authentication.md
-[Como configurar a autenticação da Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Como configurar a autenticação do Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
-[Guia de implantação do Serviço de Aplicativo do Azure]: ../app-service-web/web-sites-deploy.md
-[Monitorando um Serviço de Aplicativo do Azure]: ../app-service-web/web-sites-monitor.md
-[Habilitar o registro em log de diagnósticos no Serviço de Aplicativo do Azure]: ../app-service-web/web-sites-enable-diagnostic-log.md
-[Solucionar problemas de um Serviço de Aplicativo do Azure no Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
+[Como configurar a autenticação do Active Directory do Azure]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[Como configurar a autenticação do Facebook]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
+[Como configurar a autenticação do Google]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
+[Como configurar a autenticação da Microsoft]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[Como configurar a autenticação do Twitter]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
+[Guia de implantação do Serviço de Aplicativo do Azure]: ../app-service/app-service-deploy-local-git.md
+[Monitorando um Serviço de Aplicativo do Azure]: ../app-service/web-sites-monitor.md
+[Habilitar o registro em log de diagnósticos no Serviço de Aplicativo do Azure]: ../app-service/web-sites-enable-diagnostic-log.md
+[Solucionar problemas de um Serviço de Aplicativo do Azure no Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
 [especificar a versão do Node]: ../nodejs-specify-node-version-azure-apps.md
 [usar módulos do Node]: ../nodejs-use-node-modules-azure-apps.md
-[Create a new Azure App Service]: ../app-service-web/
+[Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
 [Swagger]: http://swagger.io/
@@ -874,4 +873,3 @@ O Portal do Azure permite a edição dos arquivos de script de back-end do Node.
 [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
-

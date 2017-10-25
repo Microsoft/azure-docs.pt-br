@@ -12,26 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2017
+ms.date: 05/17/2017
 ms.author: clemensv;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 6d08aacf43126011ed8ad3ce708485a188b67c3b
-ms.openlocfilehash: 4576340ef268a10014124d0d76c70eca941a90c8
-ms.lasthandoff: 02/15/2017
-
-
+ms.openlocfilehash: c16bcf30ab96f79e59404a41852e4cd227e28b08
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Visão geral das filas de mensagens mortas do Barramento de Serviço 
+
 As filas e as assinaturas de tópico do Barramento de Serviço fornecem uma subfila secundária chamada DLQ (*fila de mensagens mortas*). A fila de mensagens mortas não precisa ser explicitamente criada e não pode ser excluída ou de alguma forma gerenciada independentemente da entidade principal.
 
-A finalidade da fila de mensagens mortas é manter mensagens que não podem ser entregues a algum receptor ou simplesmente mensagens que não puderam ser processadas. As mensagens podem ser removidas da DLQ e inspecionadas. Um aplicativo pode, com a ajuda de um operador, corrigir problemas e reenviar a mensagem, registrar o fato de que houve um erro e/ou tomar uma medida corretiva. 
+Este artigo discute as filas de mensagens mortas no barramento de serviço do Azure. Grande parte da discussão é ilustrada pelo [exemplo de Filas de Mensagens Mortas](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/DeadletterQueue) no GitHub.
+ 
+## <a name="the-dead-letter-queue"></a>A fila de mensagens mortas
+
+A finalidade da fila de mensagens mortas é manter mensagens que não podem ser entregues a nenhum receptor ou mensagens que não puderam ser processadas. As mensagens podem ser removidas da DLQ e inspecionadas. Um aplicativo pode, com a ajuda de um operador, corrigir problemas e reenviar a mensagem, registrar o fato de que houve um erro e tomar uma medida corretiva. 
 
 De uma perspectiva de API e protocolo, a DLQ é bem semelhante a qualquer outra fila, com exceção de que essas mensagens podem ser enviadas apenas por meio do gesto de mensagens mortas da entidade pai. Além disso, a vida útil não é observada, e você não pode colocar uma mensagem em estado morto na DLQ. A fila de mensagens mortas é totalmente compatível com operações transacionais e de entrega de espiada-bloqueio.
 
 Observe que não há limpeza automática da DLQ. As mensagens permanecem na DLQ até você recuperá-las de lá explicitamente e chamar [Complete()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CompleteAsync) na mensagem morta.
 
 ## <a name="moving-messages-to-the-dlq"></a>Movendo mensagens para a DLQ
-Há várias atividades no Barramento de Serviço que fazem com que as mensagens sejam enviadas por push à DLQ de dentro do próprio mecanismo de mensagens. Um aplicativo também pode enviar mensagens por push explicitamente à DLQ. 
+
+Há várias atividades no Barramento de Serviço que fazem com que as mensagens sejam enviadas por push à DLQ de dentro do próprio mecanismo de mensagens. Um aplicativo também pode explicitamente colocar mensagens na DLQ. 
 
 Como a mensagem é movida pelo agente, duas propriedades são adicionadas à mensagem, uma vez que o agente chama sua versão interna do método [DeadLetter](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeadLetter_System_String_System_String_) na mensagem: `DeadLetterReason` e `DeadLetterErrorDescription`.
 
@@ -68,6 +73,7 @@ Mensagens serão enviadas para a fila de mensagens mortas para transferência so
 
 - Uma mensagem passa por mais de 3 filas ou tópicos [encadeados](service-bus-auto-forwarding.md).
 - A fila ou o tópico de destino é desabilitado ou excluído.
+- O tópico ou a fila de destino excede o tamanho máximo de entidade.
 
 Para recuperar essas mensagens mortas, você pode criar um destinatário usando o método utilitário [FormatTransferDeadletterPath](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_FormatTransferDeadLetterPath_System_String_).
 
@@ -96,5 +102,4 @@ Confira os artigos a seguir para obter mais informações sobre as filas do Barr
 
 * [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Filas do Azure e filas do Barramento de Serviço – comparações](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-
 

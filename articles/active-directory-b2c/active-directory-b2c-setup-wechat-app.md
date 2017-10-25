@@ -14,17 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: d1c18a3cf8ca9d55e4bca224cce8d6dba75fcb0d
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: a54aec23d951610118246e9f70cdd27752ef39a6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-wechat-accounts"></a>Azure Active Directory B2C: fornecer inscrição e conexão para consumidores com contas do WeChat
 
 > [!NOTE]
-> Este recurso ainda está na versão prévia.
+> Esse recurso está em visualização.
 > 
 
 ## <a name="create-a-wechat-application"></a>Criar um aplicativo WeChat
@@ -40,7 +39,7 @@ Para usar o WeChat como um provedor de identidade no Azure AD (Active Directory)
 5. Localize e copie a **ID DO APLICATIVO** e a **CHAVE DO APLICATIVO**. Você precisará delas mais tarde.
 
 ## <a name="configure-wechat-as-an-identity-provider-in-your-tenant"></a>Configurar o WeChat como um provedor de identidade em seu locatário
-1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
+1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) no portal do Azure.
 2. Na folha de recursos do B2C, clique em **Provedores de identidade**.
 3. Clique em **+Adicionar** , na parte superior da folha.
 4. Forneça um **Nome** amigável para a configuração do provedor de identidade. Por exemplo, insira "WeChat".
@@ -49,5 +48,4 @@ Para usar o WeChat como um provedor de identidade no Azure AD (Active Directory)
 7. Insira a **Chave do Aplicativo** que você copiou anteriormente como a **ID do Cliente**.
 8. Insira o **Segredo do Aplicativo** que você copiou anteriormente como o **Segredo do Cliente**.
 9. Clique em **OK** e em **Criar** para salvar sua configuração WeChat.
-
 

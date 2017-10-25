@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2016
 ms.author: telmos
-translationtype: Human Translation
-ms.sourcegitcommit: b574360cce92350a9bf52c21678bf0e91ceb270e
 ms.openlocfilehash: 479cf8cf358d0b242d8ce030d8639b493e4767d8
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="name-resolution-for-vms-and-role-instances"></a>Resolução de nomes de máquinas virtuais e instâncias de função
 Dependendo de como você usar o Azure para hospedar o IaaS, o PaaS e as soluções híbridas, pode ser necessário permitir que as VMs e as instâncias de função criadas se comuniquem entre si. Embora essa comunicação possa ser feita usando endereços IP, é muito mais simples usar nomes que possam ser facilmente lembrados e que não sejam alterados. 
@@ -114,7 +114,7 @@ O arquivo resolv.conf é normalmente gerado automaticamente e não deve ser edit
   * adicione a linha de opções para '/etc/resolveconf/resolv.conf.d/head' 
   * execute 'resolvconf -u' para atualizar
 * **SUSE** (usa netconf):
-  * adicione 'timeout:1 tentativas:&5;' ao parâmetro NETCONFIG_DNS_RESOLVER_OPTIONS = "" em '/ etc/sysconfig/rede/config' 
+  * adicione 'timeout:1 tentativas: 5' ao parâmetro NETCONFIG_DNS_RESOLVER_OPTIONS = "" em '/ etc/sysconfig/rede/config' 
   * execute 'netconfig update' para atualizar
 * **OpenLogic** (usa NetworkManager):
   * adicione 'echo "options timeout:1 attempts:5"' em '/etc/NetworkManager/dispatcher.d/11-dhclient' 
@@ -178,10 +178,4 @@ Modelo de implantação clássico:
 * [Esquema de configuração de serviço do Azure](https://msdn.microsoft.com/library/azure/ee758710)
 * [Esquema de configuração de Rede Virtual](https://msdn.microsoft.com/library/azure/jj157100)
 * [Configurar uma rede virtual usando um arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md) 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

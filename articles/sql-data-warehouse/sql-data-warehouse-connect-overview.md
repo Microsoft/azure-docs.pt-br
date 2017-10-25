@@ -3,7 +3,7 @@ title: Conectar-se ao SQL Data Warehouse do Azure | Microsoft Docs
 description: "Como localizar o servidor de nome e a cadeia de conexão para o Azure SQL Data Warehouse"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: antvgski
 manager: jhubbard
 editor: 
 ms.assetid: e52872ca-ae74-4e25-9c56-d49c85c8d0f0
@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: connect
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 106b9e8b5fd3461655527004fa7a65bbab9b3182
-
-
+ms.author: anvang;barbkess
+ms.openlocfilehash: 72c2b404e66611da421eca0dc30aa71e18c6d120
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Conectar-se ao SQL Data Warehouse do Azure
 Este artigo ajuda você a conectar o SQL Data Warehouse pela primeira vez.
@@ -26,7 +27,7 @@ Este artigo ajuda você a conectar o SQL Data Warehouse pela primeira vez.
 ## <a name="find-your-server-name"></a>Localizar o nome do servidor
 A primeira etapa para conectar o SQL Data Warehouse é saber como localizar o nome do servidor.  Por exemplo, o nome do servidor no exemplo a seguir é sample.database.windows.net. Para localizar o nome de servidor totalmente qualificado:
 
-1. Vá para o [portal do Azure][portal do Azure].
+1. Acesse o [Portal do Azure][Azure portal].
 2. Clique em **Bancos de dados SQL** 
 3. Clique no banco de dados que você deseja conectar.
 4. Localize o nome completo do servidor.
@@ -34,7 +35,7 @@ A primeira etapa para conectar o SQL Data Warehouse é saber como localizar o no
     ![Nome completo do servidor][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>Drivers suportados e cadeias de conexão
-O Azure SQL Data Warehouse dá suporte ao [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] e [JDBC][JDBC]. Clique em um dos drivers anteriores para localizar a versão mais recente e a documentação. Para gerar automaticamente a cadeia de conexão para o driver que você está usando no portal do Azure, você pode clicar em **Mostrar cadeias de conexão do banco de dados** no exemplo anterior.  A seguir também há alguns exemplos da aparência de uma cadeia de conexão para cada driver.
+SQL Data Warehouse do Azure dá suporte ao [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP], e [JDBC][JDBC]. Clique em um dos drivers anteriores para localizar a versão mais recente e a documentação. Para gerar automaticamente a cadeia de conexão para o driver que você está usando no portal do Azure, você pode clicar em **Mostrar cadeias de conexão do banco de dados** no exemplo anterior.  A seguir também há alguns exemplos da aparência de uma cadeia de conexão para cada driver.
 
 > [!NOTE]
 > Considere definir o tempo limite de conexão para 300 segundos a fim de permitir que a conexão perdure em curtos períodos de indisponibilidade.
@@ -72,11 +73,11 @@ O SQL Data Warehouse padroniza algumas configurações durante a conexão e a cr
 | [DATEFIRST][DATEFIRST] |7 |
 
 ## <a name="next-steps"></a>Próximas etapas
-Para se conectar e consultar com o Visual Studio, veja [Consultar com o Visual Studio][Consultar com o Visual Studio]. Para saber mais sobre as opções de autenticação, consulte [Autenticação no Azure SQL Data Warehouse][Autenticação no Azure SQL Data Warehouse].
+Para se conectar e consultar com o Visual Studio, confira [Consultar com o Visual Studio][Query with Visual Studio]. Para saber mais sobre as opções de autenticação, confira [Autenticação no SQL Data Warehouse do Azure][Authentication to Azure SQL Data Warehouse].
 
 <!--Articles-->
-[Consultar com o Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
-[Autenticação no Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
+[Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+[Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
@@ -89,15 +90,9 @@ Para se conectar e consultar com o Visual Studio, veja [Consultar com o Visual S
 [DATEFIRST]: https://msdn.microsoft.com/library/ms181598.aspx
 
 <!--Other-->
-[portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-connect-overview/get-server-name.png
-
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

@@ -2,7 +2,7 @@
 title: "Documentação do Azure Search - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba mais sobre como adicionar recursos robustos de pesquisa, incluindo o monitoramento de atividades, para aplicativos Web personalizados ou móveis. Referências e outras documentações de API."
 services: search
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: d8bf549455e427549a81ff5476a00cdfb836b5ff
-ms.openlocfilehash: aa0c12a669b6b2a1602b9d2f6698f65535b4f7d4
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: 9debfb5c55332836ff721aae08c7d45c811444f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-search-documentation"></a>Documentação do Azure Search
 
@@ -143,8 +143,8 @@ Saiba mais sobre como adicionar recursos de pesquisa a seus aplicativos Web pers
                 <div class="card">
                     <div class="cardText">
                         <h3>Linguagens</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.search">.NET</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.management.search">.NET (Gerenciamento)</a></p>
+                        <p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p>
+                        <p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (Gerenciamento)</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html">Python (Gerenciamento)</a></p>
                    </div>
                 </div>
@@ -165,6 +165,5 @@ Saiba mais sobre como adicionar recursos de pesquisa a seus aplicativos Web pers
         </div>
     </li>
 </ul>
-
 
 

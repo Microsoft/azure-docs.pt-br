@@ -10,16 +10,11 @@
    3. Clique no ícone de seta ![ícone de verificação](./media/storsimple-create-custom-backup-policy-u2/HCS_ArrowIcon-include.png).
 3. Na página **Definir uma Agenda**:
    
-   1. Selecione o **Tipo de backup** (**Instantâneo Local **ou **Instantâneo na Nuvem**).
+   1. Selecione o **Tipo de backup** (**Instantâneo Local** ou **Instantâneo na Nuvem**).
    2. Especifique a frequência de backup em minutos, em horas, em dias ou em semanas.
    3. Selecione um agendamento de retenção na lista suspensa. As opções de retenção dependem da frequência do backup. 
    4. Selecione a hora e a data de início da política.
    5. Marque a caixa de seleção para habilitar a política.
-4. Clique no ícone de verificação  ![ícone de verificação](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png)  para concluir.
+4. Clique no ícone de verificação  ![ícone de verificação](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) para concluir.
 5. Você retornará à página **Políticas de Backup** . A listagem tabular de políticas de backup será atualizada para exibir a política personalizada.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

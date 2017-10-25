@@ -1,6 +1,6 @@
 ---
 title: "Pré-requisitos do Catálogo de Dados do Azure | Microsoft Docs"
-description: "Pré-requisitos do Catálogo de Dados do Azure: o que você precisa para começar a usar o Catálogo de Dados do Azure."
+description: "Saiba mais sobre os pré-requisitos necessário para começar a usar o Catálogo de Dados do Azure."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -13,46 +13,41 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 08/15/2017
 ms.author: maroche
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 412063692e87fe71890f62bcc18b99b317a80986
-
-
+ms.openlocfilehash: 3fdef7bb58a5cd5dfbe4d37d9baf9c8e392ebe42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-catalog-prerequisites"></a>Pré-requisitos de Catálogo de Dados do Azure
-## <a name="what-do-i-need-to-get-started-with-azure-data-catalog"></a>O que é necessário para começar a usar o Catálogo de Dados do Azure?
-Há algumas coisas que você precisará cuidar antes de instalar o **Catálogo de Dados do Azure**. Não se preocupe – isso não vai demorar!
+
+Você precisa se encarregar algumas questões antes de configurar o Catálogo de Dados do Azure. Não se preocupe, esse processo não demora.
 
 ## <a name="azure-subscription"></a>Assinatura do Azure
-Para configurar o Catálogo de Dados do Azure, é necessário ser proprietário ou coproprietário de uma assinatura do Azure.
+Para configurar o Catálogo de Dados, você deve ser o proprietário ou o coproprietário de uma assinatura do Azure.
 
-As assinaturas do Azure ajudam a organizar o acesso aos recursos de serviço de nuvem como o Catálogo de Dados do Azure. Eles também ajudam a controlar como o uso de recursos é reportado, cobrado e pago. Cada assinatura pode ter uma configuração diferente de cobrança e pagamento, assim você pode ter diferentes assinaturas e planos diferentes por departamento, projeto, escritório regional, etc. Cada serviço de nuvem pertence a uma assinatura, e você precisa ter uma assinatura antes de configurar o Catálogo de Dados do Azure. Para saber mais, consulte [Gerenciar Contas, Assinaturas e Funções Administrativas](../active-directory/active-directory-assign-admin-roles.md).
+As assinaturas do Azure ajudam a organizar o acesso aos recursos de serviço de nuvem como o Catálogo de Dados. As assinaturas também ajudam a controlar como o uso de recursos é relatado, cobrado e pago. Cada assinatura pode ter uma configuração de cobrança e pagamento separada para que você possa ter assinaturas e planos que variam por departamento, projeto, escritório regional e assim por diante. Cada serviço de nuvem pertence a uma assinatura e você precisa ter uma assinatura antes de configurar o Catálogo de Dados. Para saber mais, confira [Gerenciar contas, assinaturas e funções administrativas](../active-directory/active-directory-assign-admin-roles.md).
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
-Para configurar o Catálogo de Dados do Azure, você deve estar conectado usando uma conta de usuário do Azure Active Directory.
+Para configurar o Catálogo de Dados, você deve entrar com uma conta de usuário do Azure AD (Azure Active Directory).
 
-O Active Directory do Azure (AD do Azure) fornece uma maneira fácil para a sua empresa gerenciar identidades e acesso, tanto na nuvem quanto local. Os usuários podem usar uma única conta de trabalho ou da escola para logon único em qualquer nuvem e aplicativo Web local. O Catálogo de Dados do Azure usa o AD do Azure para autenticar o logon. Para saber mais, confira [O que é o Azure Active Directory](../active-directory/active-directory-whatis.md).
+O Azure Active Directory (Azure AD) fornece uma maneira fácil para a sua empresa gerenciar identidades e acesso, tanto na nuvem quanto local. Os usuários podem usar uma única conta corporativa ou de estudante para logon único em qualquer aplicativo Web local ou em nuvem. O Catálogo de Dados usa o Azure AD para autenticar as credenciais. Para saber mais, confira [O que é o Azure Active Directory?](../active-directory/active-directory-whatis.md).
 
 > [!NOTE]
-> O [portal do Azure](http://portal.azure.com/) permite que os usuários entrem usando uma Conta pessoal da Microsoft ou uma conta corporativa ou de estudante do Azure Active Directory. Para configurar o Catálogo de Dados do Azure usando o portal do Azure ou usando o [portal do Catálogo de Dados](http://www.azuredatacatalog.com) , você deve estar conectado usando uma conta do Azure Active Directory, não uma conta pessoal.
+> Usando o [portal do Azure](http://portal.azure.com/), você pode entrar usando uma conta pessoal da Microsoft ou uma conta corporativa ou de estudante do Azure Active Directory. Para configurar o Catálogo de Dados usando o portal do Azure ou o [portal do Catálogo de Dados](http://www.azuredatacatalog.com), você deve entrar com uma conta do Azure Active Directory, não com uma conta pessoal.
 >
 >
 
 ## <a name="active-directory-policy-configuration"></a>Configuração de política do Active Directory
-Em algumas situações, os usuários podem encontrar uma situação em que podem acessar o portal do Catálogo de Dados do Azure, mas quando tentam fazer logon na ferramenta de registro da fonte de dados encontram uma mensagem de erro que impede o logon. Esse comportamento de problema pode ocorrer apenas quando o usuário está na rede da empresa, ou quando está se conectando de fora da rede da empresa.
+Poderá haver uma situação em que você consiga entrar no portal do Catálogo de Dados, mas, ao tentar entrar na ferramenta de registro de fonte de dados, receba uma mensagem de erro impedindo a entrada. Esse comportamento problemático poderá ocorrer somente quando você estiver na rede da empresa ou poderá ocorrer somente quando você estiver se conectando de fora da rede da empresa.
 
-A ferramenta de registro de fonte de dados usa a Autenticação de Formulários para validar logons de usuário no Active Directory. Para um logon bem-sucedido, a autenticação de formulários deve ser habilitada na Política de Autenticação Global por um administrador do Active Directory.
+A ferramenta de registro de fonte de dados usa a Autenticação de Formulários para validar suas credenciais de usuário para o Active Directory. Para ajudá-lo a entrar com êxito, um administrador do Active Directory deve habilitar a Autenticação de Formulários na Política de Autenticação Global.
 
-A Política de Autenticação Global permite que os métodos de autenticação sejam habilitados separadamente para conexões intranet e extranet, conforme ilustrado abaixo. Erros de logon poderão ocorrer se a autenticação de formulários não estiver habilitada para a rede por meio da qual o usuário está se conectando.
+Na Política de Autenticação Global, métodos de autenticação podem ser habilitados separadamente para conexões de intranet e extranet, conforme mostrado na seguinte captura de tela. Erros de conexão poderão ocorrer se a Autenticação de Formulários não estiver habilitada para a rede da qual você está se conectando.
 
  ![Política de Autenticação Global do Active Directory](./media/data-catalog-prerequisites/global-auth-policy.png)
 
+## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações, consulte [Configurando políticas de autenticação](https://technet.microsoft.com/library/dn486781.aspx).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

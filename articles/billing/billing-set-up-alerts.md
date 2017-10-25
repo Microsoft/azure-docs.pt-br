@@ -5,7 +5,7 @@ keywords: "alerta de crédito, alerta de cobrança"
 services: 
 documentationcenter: 
 author: vikdesai
-manager: vikdesai
+manager: tonguyen
 editor: 
 tags: billing
 ms.assetid: 9b7b3eeb-cd9d-4690-86a3-51b1e2a8974f
@@ -14,14 +14,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 10/9/2017
 ms.author: vikdesai
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 32a2508997d7f50b0b2989d76d0574951d81a73f
-ms.openlocfilehash: a2eb813bc96cd58762ce077d2c0710ed4bc7bde6
-ms.lasthandoff: 03/02/2017
-
+ms.openlocfilehash: 1fc0cb2b036e835450ee0fc404cce12439fabc77
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Configurar alertas de cobrança ou de crédito para assinaturas do Microsoft Azure
 Caso seja o Administrador da Conta de uma assinatura do Azure, você poderá usar o Serviço de Alerta de Cobrança do Azure para criar alertas personalizados de cobrança que ajudam a monitorar e gerenciar a atividade de cobrança de suas contas do Azure.
@@ -61,4 +61,3 @@ Para saber mais, confira [Orientações sobre o gerenciamento de custos do Azure
 [Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png 
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png 
-

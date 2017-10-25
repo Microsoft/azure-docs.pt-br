@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Como recuperar LocalDB problema de limite de 10 GB | M
 description: "Este tópico descreve como recuperar o serviço de sincronização do Azure do AD Connect quando encontra LocalDB 10GB limitar o problema."
 services: active-directory
 documentationcenter: 
-author: billmath
+author: cychua
 manager: femila
 editor: 
 ms.assetid: 41d081af-ed89-4e17-be34-14f7e80ae358
@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
-ms.author: cychua
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 533d3db2a9b49f3077b7cdb699cac797c7a931b3
-ms.lasthandoff: 03/24/2017
-
-
+ms.date: 07/17/2017
+ms.author: billmath
+ms.openlocfilehash: 08e682c51b12d4506019d2f6b68e1eae0798b990
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Como se recuperar de um limite de 10 GB do LocalDB
 O Azure AD Connect requer um banco de dados do SQL Server para armazenar dados de identidade. Você pode usar o padrão que do SQL Server 2012 Express LocalDB instalado com o Azure AD Connect ou usar seu próprio SQL completo. O SQL Server Express impõe um limite de tamanho de 10 GB. Ao usar o LocalDB e esse limite for atingido, o serviço de sincronização do Azure do AD Connect não pode iniciar ou sincronizar corretamente. Este artigo fornece as etapas de recuperação.
@@ -79,13 +78,13 @@ O nome do banco de dados criado para o Azure AD Connect é **ADSync**. Para exec
 ### <a name="delete-run-history-data"></a>Excluir dados de histórico de execução
 Por padrão, Azure AD Connect retém a dias sete de dados de histórico de execução. Nesta etapa, podemos excluir os dados de histórico de execução para recuperar espaço de banco de dados para que o serviço de sincronização do Azure do AD Connect pode começar a sincronizar novamente.
 
-1.    Inicie o **Gerenciador de Serviço de Sincronização** indo para INICIAR → Serviço de Sincronização.
+1.  Inicie o **Gerenciador de Serviço de Sincronização** indo para INICIAR → Serviço de Sincronização.
 
-2.    Vá para a guia **Operações**.
+2.  Vá para a guia **Operações**.
 
-3.    Em **Ações**, selecione **Limpar Execuções**…
+3.  Em **Ações**, selecione **Limpar Execuções**…
 
-4.    Você pode escolher a opção **Limpar todas as execuções** ou **Limpar execuções antes de... <date>**. É recomendável que você comece desmarcando os dados de histórico de execução com mais de dois dias. Se você continuar a executar o problema de tamanho do banco de dados, escolha o **limpar todas as execuções** opção.
+4.  Você pode escolher a opção **Limpar todas as execuções** ou **Limpar execuções antes de... <date>**. É recomendável que você comece desmarcando os dados de histórico de execução com mais de dois dias. Se você continuar a executar o problema de tamanho do banco de dados, escolha o **limpar todas as execuções** opção.
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>Reduzir o período de retenção de dados de histórico de execução
 Esta etapa é reduzir a probabilidade de executando o problema de limite de 10 GB após vários ciclos de sincronização.
@@ -103,4 +102,3 @@ Em geral, o problema é indicativo de que o tamanho do banco de dados de 10 GB n
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-

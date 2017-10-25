@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/12/2017
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 3a85fa624dc55f31822f00910b6d124c1d37323f
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: e5d9519998346619093f443b740c8904283f76e8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-user-defined-routes-udr-using-the-azure-cli-20"></a>Criar UDRs (Rotas Definidas pelo Usuário) usando a CLI do Azure 2.0
 
@@ -192,7 +191,7 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de back-end co
 
 Para habilitar o encaminhamento IP na NIC usada por **FW1**, conclua as seguintes etapas:
 
-1. Execute o comando [az network nic show](/cli/az/network/nic#show) com um filtro JMESPATH para exibir o valor atual de **enable-ip-forwarding** para **Habilitar encaminhamento de IP**. Ele deve ser definido como *falso*.
+1. Execute o comando [az network nic show](/cli/azure/network/nic#show) com um filtro JMESPATH para exibir o valor atual de **enable-ip-forwarding** para **Habilitar encaminhamento de IP**. Ele deve ser definido como *falso*.
 
     ```azurecli
     az network nic show \
@@ -227,5 +226,4 @@ Para habilitar o encaminhamento IP na NIC usada por **FW1**, conclua as seguinte
     Parâmetros:
 
     **--ip-forwarding**: *true* ou *false*.
-
 

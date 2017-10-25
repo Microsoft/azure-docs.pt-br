@@ -10,13 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 08/02/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: c8c6c105c2142dac1b3df6c26838ba8626161092
-ms.openlocfilehash: d818cd3a243fb78228706b21a002f295782189be
-
-
+ms.reviewer: nigu
+ms.openlocfilehash: 8ebc6f2dd7502fd75ffdd4d5d68338382cb1a46b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Inicie com uma autenticação baseada em certificado do Azure Active Directory
 
@@ -38,6 +39,8 @@ Este tópico:
 ## <a name="requirements"></a>Requisitos
 
 Para configurar a autenticação baseada em certificado, as seguintes afirmativas devem ser verdadeiras:  
+
+- A CBA (Autenticação Baseada em Certificado) tem suporte apenas em ambientes Federados para aplicativos de navegador ou clientes nativos que usam autenticação moderna (ADAL). A única exceção é o EAS (Exchange Active Sync) para EXO, que pode ser usado para contas federadas e gerenciadas. 
 
 - A autoridade de certificação raiz e qualquer autoridade de certificação intermediária devem ser configuradas no Azure Active Directory.  
 
@@ -98,7 +101,7 @@ Veja abaixo o esquema de uma autoridade de certificação:
         IntermediateAuthority = 1 
     } 
 
-Para a configuração, você pode usar o [Azure Active Directory PowerShell versão 2](https://docs.microsoft.com/powershell/azuread/):  
+Para a configuração, você pode usar o [Azure Active Directory PowerShell versão 2](/powershell/azure/install-adv2?view=azureadps-2.0):  
 
 1. Inicie o Windows PowerShell com os privilégios de administrador. 
 2. Instale o módulo do Azure AD. Você precisa instalar a versão [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) ou superior.  
@@ -109,32 +112,33 @@ Como essa é a primeira etapa de configuração, você precisa estabelecer uma c
 
 ### <a name="connect"></a>Connect
 
-Para estabelecer uma conexão com seu locatário, use o cmdlet [Connect-AzureAD](https://docs.microsoft.com/powershell/azuread/v2/connect-azuread):
+Para estabelecer uma conexão com seu locatário, use o cmdlet [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0):
 
     Connect-AzureAD 
 
 
 ### <a name="retrieve"></a>Recuperar 
 
-Para recuperar as autoridades de certificação confiáveis que são definidas em seu diretório, use o cmdlet [Get-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/get-azureadtrustedcertificateauthority). 
+Para recuperar as autoridades de certificação confiáveis que são definidas em seu diretório, use o cmdlet [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0). 
 
     Get-AzureADTrustedCertificateAuthority 
  
 
 ### <a name="add"></a>Adicionar
 
-Para criar uma autoridade de certificação confiável, use o cmdlet [New-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/new-azureadtrustedcertificateauthority): 
+Para criar uma autoridade de certificação confiável, use o cmdlet [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) e defina o atributo **crlDistributionPoint** para um valor correto: 
    
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]" 
     $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation 
     $new_ca.AuthorityType=0 
     $new_ca.TrustedCertificate=$cert 
+    $new_ca.crlDistributionPoint=”<CRL Distribution URL>”
     New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca 
 
 
 ### <a name="remove"></a>Remover
 
-Para remover uma autoridade de certificação confiável, use o cmdlet [Remove-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/remove-azureadtrustedcertificateauthority):
+Para remover uma autoridade de certificação confiável, use o cmdlet [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0):
    
     $c=Get-AzureADTrustedCertificateAuthority 
     Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
@@ -142,7 +146,7 @@ Para remover uma autoridade de certificação confiável, use o cmdlet [Remove-A
 
 ### <a name="modfiy"></a>Modificar
 
-Para modificar uma autoridade de certificação confiável, use o cmdlet [Set-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/set-azureadtrustedcertificateauthority):
+Para modificar uma autoridade de certificação confiável, use o cmdlet [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0):
 
     $c=Get-AzureADTrustedCertificateAuthority 
     $c[0].AuthorityType=1 
@@ -218,10 +222,4 @@ Um perfil do EAS pode ser configurado e colocado no dispositivo por meio da util
 
 1. Configure um perfil do EAS no aplicativo que atenda aos requisitos acima.  
 2. Abra o aplicativo e verifique a sincronização de email. 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -12,13 +12,14 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fb915cd9abb83b10af17046591ce313dcc84fd47
-
-
+ms.openlocfilehash: 74c9032aababdce91ed617cd7a4c628915b42504
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Introdução ao Transparent Data Encryption (TDE)
 > [!div class="op_single_selector"]
@@ -85,9 +86,3 @@ Um resultado de ```1``` indica um banco de dados criptografado, ```0``` indica u
 <!--Image references-->
 
 <!--Link references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

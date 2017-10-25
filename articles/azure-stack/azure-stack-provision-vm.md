@@ -1,6 +1,6 @@
 ---
-title: Provision a VM in Azure Stack (tenant) | Microsoft Docs
-description: As a tenant, learn how to provision a VM in Azure Stack.
+title: Create a test VM in Azure Stack | Microsoft Docs
+description: Learn how to provision a test VM in Azure Stack as a cloud operator.
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -12,36 +12,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/12/2016
+ms.date: 9/25/2017
 ms.author: erikje
-translationtype: Human Translation
-ms.sourcegitcommit: 0aee1c31876060777c32c768e0767a39de86cb2a
-ms.openlocfilehash: 3fcd07c74a70d39b3fb8a68819fccf88a01bb1ee
-
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 98770945d5cccc27bfce971491e6ea30fee2460a
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="provision-a-virtual-machine"></a>Provision a virtual machine
-As an administrator, you can create virtual machines to evaluate resources before offering them in plans.
+# <a name="create-a-test-virtual-machine-in-azure-stack"></a>Create a test virtual machine in Azure Stack
 
-## <a name="provision-a-virtual-machine"></a>Provision a virtual machine
-1. On the Azure Stack POC computer, log in to `https://portal.azurestack.local` as [an admin](azure-stack-connect-azure-stack.md), and then click **New** > **Virtual machines** > **WindowsServer-2012-R2-Datacenter**.  
+*Applies to: Azure Stack Development Kit*
 
-   ![](media/azure-stack-provision-vm/image01.png)
-2. In the **Basics** blade, type a **Name**, **User name**, and **Password**. For **VM disk type**, choose **HDD**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, and then click **OK**.  
-3. In the **Choose a size** blade, click **A1 Basic**, and then click **Select**.  
-4. In the **Settings** blade, click **Virtual network**. In the **Choose virtual network** blade, click **Create new**. In the **Create virtual network** blade, accept all the defaults, and click **OK**. In the **Settings** blade, click **OK**.
+As a cloud operator, you can create a test virtual machine to validate your [Azure Stack](azure-stack-poc.md) deployment.
 
-   ![](media/azure-stack-provision-vm/image04.png)
+> [!NOTE]
+> Before you can provision virtual machines, you must [add the Windows Server 2016 Evaluation image to the Azure Stack marketplace](azure-stack-add-default-image.md).
+> 
+> 
+
+## <a name="create-a-virtual-machine"></a>Create a virtual machine
+1. On the Azure Stack Development Kit host, [sign in](azure-stack-connect-azure-stack.md) to the administrator portal (`https://adminportal.local.azurestack.external`), and then click **New** > **Compute** > **Windows Server 2016 Datacenter Eval** > **Create**.  
+2. In the **Basics** blade, type a **Name**, **User name**, and **Password**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, and then click **OK**.  
+3. In the **Choose a size** blade, click **A1 Standard**, and then click **Select**.  
+4. In the **Settings** blade, accept the defaults and click **OK**
 5. In the **Summary** blade, click **OK** to create the virtual machine.  
 6. To see your new virtual machine, click **All resources**, then search for the virtual machine and click its name.
-
     ![](media/azure-stack-provision-vm/image06.png)
 
+
 ## <a name="next-steps"></a>Next steps
-[Storage accounts](azure-stack-provision-storage-account.md)
-
-
-
-<!--HONumber=Nov16_HO2-->
-
+[Using the administrator and user portals in Azure Stack](azure-stack-manage-portals.md)
 

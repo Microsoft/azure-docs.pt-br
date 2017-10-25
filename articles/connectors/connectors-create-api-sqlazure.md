@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2016
-ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
-ms.openlocfilehash: ce3a622db8667df8b3f1d1391c2aa0d7e1e012a5
-ms.lasthandoff: 01/20/2017
-
-
+ms.author: mandia; ladocs
+ms.openlocfilehash: a3d5cb909dbfcb00f3fbfa0165bb6cd58eb18688
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-azure-sql-database-connector"></a>Introdução ao conector do Banco de Dados SQL
 Usando o conector do Banco de Dados SQL, crie fluxos de trabalho para sua organização que gerenciam dados nas tabelas. 
@@ -31,11 +30,6 @@ Com o Banco de Dados SQL, você:
 * Use as ações para obter uma linha de dados, inserir uma nova linha e até mesmo excluir. Por exemplo, quando um registro é criado no Dynamics CRM Online (um gatilho), insira uma linha em um Banco de Dados SQL do Azure (uma ação). 
 
 Este tópico mostra como usar o conector do Banco de Dados SQL em um aplicativo lógico, além de listar as ações.
-
-> [!NOTE]
-> Esta versão do artigo se aplica à disponibilidade de Aplicativos Lógicos em geral (GA). 
-> 
-> 
 
 Para saber mais sobre os Aplicativos Lógicos, consulte [O que são aplicativos lógicos](../logic-apps/logic-apps-what-are-logic-apps.md) e [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
@@ -72,154 +66,10 @@ Uma ação é uma operação executada pelo fluxo de trabalho definido em um apl
    > 
 5. **Salve** as alterações (canto superior esquerdo da barra de ferramentas). Seu aplicativo lógico é salvo e pode ser habilitado automaticamente.
 
-## <a name="technical-details"></a>Detalhes técnicos
-## <a name="sql-database-actions"></a>Ações do Banco de Dados SQL
-Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. O conector do Banco de Dados SQL inclui as ações a seguir. 
+## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-| Ação | Descrição |
-| --- | --- |
-| [ExecuteProcedure](connectors-create-api-sqlazure.md#execute-stored-procedure) |Executa um procedimento armazenado no SQL |
-| [GetRow](connectors-create-api-sqlazure.md#get-row) |Recupera uma única linha de uma tabela SQL |
-| [GetRows](connectors-create-api-sqlazure.md#get-rows) |Recupera linhas de uma tabela SQL |
-| [InsertRow](connectors-create-api-sqlazure.md#insert-row) |Insere uma nova linha em uma tabela SQL |
-| [DeleteRow](connectors-create-api-sqlazure.md#delete-row) |Exclui uma linha de uma tabela SQL |
-| [GetTables](connectors-create-api-sqlazure.md#get-tables) |Recupera as tabelas de um banco de dados SQL |
-| [UpdateRow](connectors-create-api-sqlazure.md#update-row) |Atualiza uma linha existente em uma tabela SQL |
-
-### <a name="action-details"></a>Detalhes da ação
-Nesta seção, consulte os detalhes específicos sobre cada ação, incluindo todas as propriedades de entrada obrigatórias ou opcionais, assim como toda saída correspondente associada ao conector.
-
-#### <a name="execute-stored-procedure"></a>Executar procedimento armazenado
-Executa um procedimento armazenado no SQL.  
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| procedure * |Nome do procedimento |O nome do procedimento armazenado que você deseja executar |
-| parameters * |Parâmetros de entrada |Os parâmetros são dinâmicos e se baseiam no procedimento armazenado escolhido. <br/><br/> Por exemplo, se você estiver usando o banco de dados de exemplo Adventure Works, escolha o procedimento armazenado *ufnGetCustomerInformation*. O parâmetro de entrada **ID do Cliente** é exibido. Insira "6" ou uma das outas IDs de cliente. |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da saída
-ProcedureResult: carrega o resultado da execução do procedimento armazenado
-
-| Nome da Propriedade | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| OutputParameters |objeto |Valores do parâmetro de saída |
-| ReturnCode |inteiro |Código de retorno de um procedimento |
-| ResultSets |objeto |Conjuntos de resultados |
-
-#### <a name="get-row"></a>Obter linha
-Recupera uma única linha de uma tabela SQL.  
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| table * |Nome da tabela |Nome da tabela SQL |
-| id * |Id da linha |O identificador exclusivo da linha a ser recuperado |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da Saída
-Item
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="get-rows"></a>Obter linhas
-Recupera linhas de uma tabela SQL.  
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| table* |Nome da tabela |Nome da tabela SQL |
-| $skip |Ignorar contagem |Número de entradas a serem ignoradas (padrão = 0) |
-| $top |Obter Contagem Máxima |Número máximo de entradas a serem recuperadas (padrão = 256) |
-| $filter |Consulta de filtro |Uma consulta de filtro ODATA para restringir o número de entradas |
-| $orderby |Ordenar por |Uma consulta orderBy do ODATA para especificar a ordem das entradas |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da Saída
-ItemsList
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| value |array |
-
-#### <a name="insert-row"></a>Inserir linha
-Insere uma nova linha em uma tabela SQL.  
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| table* |Nome da tabela |Nome da tabela SQL |
-| item* |Linha |Linha para inserir na tabela especificada no SQL |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da Saída
-Item
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="delete-row"></a>Excluir linha
-Exclui uma linha de uma tabela SQL.  
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| table* |Nome da tabela |Nome da tabela SQL |
-| id* |Id da linha |Identificador exclusivo da linha a ser excluída |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da Saída
-Nenhuma.
-
-#### <a name="get-tables"></a>Obter tabelas
-Recupera tabelas de um banco de dados SQL.  
-
-Não existem parâmetros para esta chamada. 
-
-##### <a name="output-details"></a>Detalhes da Saída
-TablesList
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| value |array |
-
-#### <a name="update-row"></a>Atualizar linha
-Atualiza uma linha existente em uma tabela SQL.  
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| table* |Nome da tabela |Nome da tabela SQL |
-| id* |Id da linha |Identificador exclusivo da linha a ser atualizada |
-| item* |Linha |Linhas com valores atualizados |
-
-Um asterisco (*) significa que a propriedade obrigatória.
-
-##### <a name="output-details"></a>Detalhes da Saída
-Item
-
-| Nome da Propriedade | Tipo de Dados |
-| --- | --- |
-| ItemInternalId |string |
-
-### <a name="http-responses"></a>Respostas HTTP
-Ao fazer chamadas a diferentes ações, você pode obter determinadas respostas. A tabela a seguir descreve as respostas e suas descrições:  
-
-| Nome | Descrição |
-| --- | --- |
-| 200 |OK |
-| 202 |Aceita |
-| 400 |Solicitação incorreta |
-| 401 |Não Autorizado |
-| 403 |Proibido |
-| 404 |Não encontrado |
-| 500 |Erro Interno do Servidor. Ocorreu um erro desconhecido |
-| padrão |Falha na Operação. |
+Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/sql/). 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
-
 

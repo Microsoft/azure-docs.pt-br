@@ -1,0 +1,188 @@
+- name: Documentação do Azure Monitor
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: Azure Monitor
+      href: monitoring-overview-azure-monitor.md
+- name: Guia de início rápido
+  expanded: true
+  items:
+    - name: Alerta para condição de métrica
+      href: monitor-quick-resource-metric-alert-portal.md
+    - name: Alerta para atividade de assinatura
+      href: monitor-quick-audit-notify-action-in-subscription.md
+- name: Tutoriais
+  items:
+    - name: Dimensionamento automático segundo agendamento e desempenho
+      href: monitor-tutorial-autoscale-performance-schedule.md
+    - name: Arquivar dados de monitoramento
+      href: monitor-tutorial-archive-monitoring-data.md
+- name: Conceitos
+  items:
+    - name: Fontes de dados de monitoramento
+      href: monitoring-data-sources.md
+    - name: Permissões e segurança de funções
+      href: monitoring-roles-permissions-security.md
+    - name: Integrações de parceiro
+      href: monitoring-partners.md
+    - name: Visões gerais adicionais
+      items:
+        - name: Ferramentas de monitoramento no Azure
+          href: monitoring-overview.md
+        - name: Métricas
+          href: monitoring-overview-metrics.md
+        - name: Alertas
+          href: monitoring-overview-alerts.md
+        - name: Autoscale
+          href: monitoring-overview-autoscale.md
+        - name: Log de atividades
+          href: monitoring-overview-activity-logs.md
+        - name: Grupos de ação
+          href: monitoring-action-groups.md
+        - name: Logs de diagnóstico
+          href: monitoring-overview-of-diagnostic-logs.md
+        - name: Extensão de Diagnóstico do Azure
+          href: azure-diagnostics.md
+    - name: Esquemas
+      items:
+        - name: Esquema de extensão do Diagnóstico do Azure
+          href: azure-diagnostics-schema.md
+          items:
+            - name: 1
+              href: azure-diagnostics-schema-1dot0.md
+            - name: 1.2
+              href: azure-diagnostics-schema-1dot2.md
+            - name: 1.3 e posterior
+              href: azure-diagnostics-schema-1dot3-and-later.md
+- name: Guias de instruções
+  items:
+    - name: Instruções passo a passo
+      items:
+        - name: Instruções passo a passo do Azure Monitor
+          href: monitoring-get-started.md
+        - name: Instruções passo a passo de dimensionamento automático
+          href: monitoring-autoscale-get-started.md
+        - name: Metrics Explorer mutidimensional
+          href: monitoring-metric-charts.md
+        - name: Amostras da CLI do Azure 1.0
+          href: insights-cli-samples.md
+        - name: Exemplos do Azure PowerShell
+          href: insights-powershell-samples.md
+    - name: Usar alertas
+      items:
+        - name: Configurar alertas quase em tempo real no Portal do Azure
+          href: monitoring-near-real-time-metric-alerts.md
+        - name: Configurar alertas no Portal do Azure
+          href: insights-alerts-portal.md
+        - name: Configurar alertas com a CLI
+          href: insights-alerts-command-line-interface.md
+        - name: Configurar alertas com o Azure PowerShell
+          href: insights-alerts-powershell.md
+        - name: Fazer com que a alerta de métrica chame um webhook
+          href: insights-webhooks-alerts.md
+        - name: Criar um alerta de métrica com um modelo do Resource Manager
+          href: monitoring-enable-alerts-using-template.md
+    - name: Usar autoescala
+      items:
+        - name: Práticas recomendadas
+          href: insights-autoscale-best-practices.md
+        - name: Métricas comuns
+          href: insights-autoscale-common-metrics.md
+        - name: Padrões comuns
+          href: monitoring-autoscale-common-scale-patterns.md
+        - name: Dimensionamento automático usando uma métrica personalizada
+          href: monitoring-autoscale-scale-by-custom-metric.md
+        - name: Dimensionar automaticamente conjuntos de Dimensionamento de VMs usando modelos do Resource Manager
+          href: insights-advanced-autoscale-virtual-machine-scale-sets.md
+        - name: Dimensionar automaticamente computadores em um conjunto de Dimensionamento de VM
+          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
+        - name: Configurar webhooks e notificações por email em dimensionamento automático
+          href: insights-autoscale-to-webhook-email.md
+    - name: Usar o log de atividades
+      items:
+        - name: Exibir eventos no log de atividades
+          href: ../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
+        - name: Configurar alertas em um evento de log de atividades
+          href: monitoring-activity-log-alerts.md
+        - name: Arquivar log de atividades
+          href: monitoring-archive-activity-log.md
+        - name: Transmitir log de atividades para Hubs de Eventos
+          href: monitoring-stream-activity-logs-event-hubs.md
+        - name: Operações de auditoria com o Gerenciador de Recursos
+          href: ../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
+        - name: Criar alertas de log de atividades com o Resource Manager
+          href: monitoring-create-activity-log-alerts-with-resource-manager-template.md
+        - name: Migrar para alertas de log de atividades
+          href: monitoring-migrate-management-alerts.md
+    - name: Usar notificações de serviço
+      items:
+        - name: Exibir notificações de serviço
+          href: monitoring-service-notifications.md
+        - name: Configurar alertas em notificações de serviço
+          href: monitoring-activity-log-alerts-on-service-notifications.md
+    - name: Usar grupos de ação
+      items:
+        - name: Saiba mais sobre o esquema de webhook
+          href: monitoring-activity-log-alerts-webhook.md
+        - name: Comportamento de alerta do SMS
+          href: monitoring-sms-alert-behavior.md
+        - name: Limitação de taxa de alerta
+          href: monitoring-alerts-rate-limiting.md
+        - name: Criar grupos de ação com o Resource Manager
+          href: monitoring-create-action-group-with-resource-manager-template.md
+    - name: Usar logs de diagnóstico
+      items:
+        - name: Arquivo
+          href: monitoring-archive-diagnostic-logs.md
+        - name: Transmitir para Hubs de Eventos
+          href: monitoring-stream-diagnostic-logs-to-event-hubs.md
+        - name: Habilitar configurações de Diagnóstico usando modelos do Resource Manager
+          href: monitoring-enable-diagnostic-logs-using-template.md
+    - name: Usar a API REST
+      items:
+        - name: Passo a passo usando a API REST
+          href: monitoring-rest-api-walkthrough.md
+    - name: Use a extensão de Diagnóstico do Azure
+      items:
+        - name: Enviar para o Application Insights
+          href: azure-diagnostics-configure-application-insights.md
+        - name: Enviar para Hubs de Eventos
+          href: azure-diagnostics-streaming-event-hubs.md
+        - name: Solucionar problemas
+          href: azure-diagnostics-troubleshooting.md
+    - name: Usar o Metrics Explorer do Azure Monitor
+      items:
+        - name: Criar gráficos de métricas
+          href: monitoring-metric-charts.md
+- name: Referência
+  items:
+    - name: CLI do Azure
+      href: /cli/azure/monitor?view=azure-cli-latest
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.insights
+    - name: REST
+      href: /rest/api/monitor/
+    - name: Métricas com suporte
+      href: monitoring-supported-metrics.md
+    - name: 'Serviços para logs de diagnóstico, categorias e esquemas'
+      href: monitoring-diagnostic-logs-schema.md
+    - name: Esquema de evento do log de atividades
+      href: monitoring-activity-log-schema.md
+    - name: Esquema de extensão do Diagnóstico do Azure
+      href: azure-diagnostics-schema.md
+- name: Recursos
+  items:
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
+    - name: Calculadora de preço
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=monitor'
+    - name: Modelos de início rápido
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=monitoring'
+    - name: Exemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?service=monitor'

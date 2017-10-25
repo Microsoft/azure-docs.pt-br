@@ -6,8 +6,3 @@
     ![Propriedades do MPIO para Descobrir Vários Caminhos](./media/storsimple-configure-mpio-volumes/IC741003.png)
 4. Reinicialize o servidor quando solicitado.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

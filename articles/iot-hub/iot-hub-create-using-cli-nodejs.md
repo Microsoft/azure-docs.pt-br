@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 05/04/2017
 ms.author: boltean
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 8ac82da36b2edb71fcd0599dac12a3ed18e33b6f
-ms.lasthandoff: 03/24/2017
-
-
+ms.openlocfilehash: 5e37c6c5e8625ce446ab203f19f9a8b2f1cd5a46
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Criar um Hub IoT usando a CLI do Azure
 
@@ -94,6 +93,8 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 * **sku-name**. O nome do sku, sendo um destes: [F1, S1, S2, S3]. Para obter a lista completa mais recente, consulte a página de preços do Hub IoT.
 * **units**. O número de unidades provisionadas. Intervalo: F1 [1-1] : S1, S2 [1-200] : S3 [1-10]. Unidades do Hub IoT têm base na contagem total de mensagens e no número de dispositivos que você deseja conectar.
 
+[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+
 Para ver todos os parâmetros disponíveis para a criação, você pode usar o comando de ajuda no prompt de comando:
 
 ```azurecli
@@ -128,9 +129,8 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-CLI-install]:../cli-install-nodejs.md
-[lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
+[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-CLI-arm]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-portal]: iot-hub-create-through-portal.md 
-

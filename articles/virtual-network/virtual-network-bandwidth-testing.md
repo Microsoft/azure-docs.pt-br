@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2017
+ms.date: 07/21/2017
 ms.author: steveesp
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: d05bed3b92836bf496804c9d40b5a62a96ffbc3d
-ms.lasthandoff: 03/06/2017
-
-
+ms.openlocfilehash: ccebc722386a19014674d7a59757a3685bd50793
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="bandwidththroughput-testing-ntttcp"></a>Teste de Largura de Banda/Taxa de Transferência (NTTTCP)
 
 Ao testar o desempenho de taxa de transferência de rede no Azure, é melhor usar uma ferramenta que se destina à rede para teste e que minimiza o uso de outros recursos que poderiam afetar o desempenho. É recomendável usar o NTTTCP.
@@ -129,7 +127,38 @@ ntttcp -s10.0.0.4 -t 300
  
 O tamanho do teste usa como padrão 60 segundos se nenhum parâmetro de tempo é fornecido
 
+## <a name="testing-between-vms-running-windows-and-linux"></a>Testar entre VMs executando o Windows e LINUX:
+
+Nesses cenários, devemos habilitar o modo sem sincronização para que o teste possa ser executado. Isso é feito utilizando o **sinalizador -N** para Linux e **sinalizadores -ns** para Windows.
+
+#### <a name="from-linux-to-windows"></a>Do Linux para Windows:
+
+Receptor <Windows>:
+
+``` bash
+ntttcp -r -m <2 x nr cores>,*,<Windows server IP>
+```
+
+Remetente <Linux> :
+
+``` bash
+ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
+```
+
+#### <a name="from-windows-to-linux"></a>Do Windows para Linux:
+
+Receptor <Linux>:
+
+``` bash
+ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
+```
+
+Remetente <Windows>:
+
+``` bash
+ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 * Dependendo dos resultados, pode haver espaço para [Otimizar a taxa de transferência de rede nos computadores](virtual-network-optimize-network-bandwidth.md) para seu cenário.
 * Saiba mais com as [Perguntas frequentes sobre a Rede Virtual do Azure](virtual-networks-faq.md)
-

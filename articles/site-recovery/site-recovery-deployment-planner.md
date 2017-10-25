@@ -8,21 +8,20 @@ manager: garavd
 editor: 
 ms.assetid: 
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/21/2017
+ms.date: 08/28/2017
 ms.author: nisoneji
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 431f73e1be45dec9aa0fe186cb22078f8d95588d
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: 60b0641076c2fa8ed2feb5c64e7b119519f46cf4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Planejador de implantação do Azure Site Recovery
-Este artigo é o guia do usuário do Azure Site Recovery para implantações de produção do VMware para o Azure.
+Este artigo é o guia do usuário do Planejador de Implantação do Azure Site Recovery para implantações de produção do VMware para o Azure.
 
 ## <a name="overview"></a>Visão geral
 
@@ -36,7 +35,7 @@ A ferramenta fornece os seguintes detalhes:
 
 **Avaliação de compatibilidade**
 
-* Avaliação de qualificação de uma VM com base no número de discos, no tamanho do disco, no IOPS e na variação
+* Avaliação de qualificação de uma VM com base no número de discos, no tamanho do disco, no IOPS, variação e tipo de inicialização (EFI/BIOS)
 * A largura de banda de rede estimada que é necessária para a replicação delta
 
 **Largura de banda de rede necessária versus avaliação de RPO**
@@ -67,7 +66,7 @@ A ferramenta tem duas fases principais: criação de perfil e geração de relat
 
 | Requisito de servidor | Descrição|
 |---|---|
-|Medida de taxa de transferência e criação de perfil| <ul><li>Sistema operacional: Microsoft Windows Server 2012 R2<br>(a correspondência ideal são pelo menos as [recomendações de tamanho para o servidor de configuração](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configuração de máquina: 8 vCPUs, 16 GB de RAM, 300 GB de disco rígido</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://developercenter.vmware.com/tool/vsphere_powercli/6.0)</li><li>[Microsoft Visual C++ redistribuível para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure neste servidor</li><li>Conta de Armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre em disco (supondo que haja 1000 VMs com uma média de três discos em cada, com criação de perfil por 30 dias)</li><li>As configurações no nível das estatísticas do VMware vCenter devem ser definidas para o nível 2 ou superior</li></ul>|
+|Medida de taxa de transferência e criação de perfil| <ul><li>Sistema operacional: Microsoft Windows Server 2012 R2<br>(a correspondência ideal são pelo menos as [recomendações de tamanho para o servidor de configuração](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configuração de máquina: 8 vCPUs, 16 GB de RAM, 300 GB de disco rígido</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Microsoft Visual C++ redistribuível para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure neste servidor</li><li>Conta de Armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre em disco (supondo que haja 1000 VMs com uma média de três discos em cada, com criação de perfil por 30 dias)</li><li>As configurações no nível das estatísticas do VMware vCenter devem ser definidas para o nível 2 ou superior</li><li>Permitir porta 443: o Planejador de implantação da ASR usa essa porta para se conectar ao host de ESXi/servidor do vCenter</ul></ul>|
 | Geração de relatórios | Um PC Windows ou Windows Server com o Microsoft Excel 2013 ou posterior |
 | Permissões de usuário | Permissão somente leitura para a conta de usuário que é usada para acessar o servidor vCenter VMware/host ESXi vSphere VMware durante a criação de perfil |
 
@@ -90,9 +89,9 @@ A pasta contém vários arquivos e subpastas. O arquivo executável é ASRDeploy
 
     Exemplo:  
     Copie o arquivo .zip para a unidade E:\ e extraia-o.
-   E:\ASR Deployment Planner-Preview_v1.1.zip
+   E:\ASR Deployment Planner-Preview_v1.2.zip
 
-    E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner-Preview_v1.2\ ASR Deployment Planner-Preview_v1.2\ ASRDeploymentPlanner.exe
 
 ## <a name="capabilities"></a>Funcionalidades
 Você pode executar a ferramenta de linha de comando (ASRDeploymentPlanner.exe) em qualquer um dos três seguintes modos:
@@ -118,14 +117,18 @@ Primeiro, você precisa de uma lista de VMs para a criação de perfil. Você po
 
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
-4. Para obter todos os nomes de VMs em um servidor vCenter/host ESXi vSphere e armazenar a lista em um arquivo .txt, execute os dois comandos listados aqui.
+4. Como opção, você pode querer executar o comando a seguir se Connect-VIServer não é reconhecido como o nome do cmdlet.
+ 
+            Add-PSSnapin VMware.VimAutomation.Core 
+
+5. Para obter todos os nomes de VMs em um servidor vCenter/host ESXi vSphere e armazenar a lista em um arquivo .txt, execute os dois comandos listados aqui.
 Substitua &lsaquo;nome do servidor&rsaquo;, &lsaquo;nome de usuário&rsaquo;, &lsaquo;senha&rsaquo; e &lsaquo;outputfile.txt&rsaquo;; por suas entradas.
 
             Connect-VIServer -Server <server name> -User <user name> -Password <password>
 
             Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
 
-5. Abra o arquivo de saída no Bloco de Notas e copie os nomes de todas as VMs para as quais deseja criar o perfil para outro arquivo (por exemplo, ProfileVMList.txt), com um nome de VM por linha. Esse arquivo é usado como entrada para o parâmetro *-VMListFile* da ferramenta de linha de comando.
+6. Abra o arquivo de saída no Bloco de Notas e copie os nomes de todas as VMs para as quais deseja criar o perfil para outro arquivo (por exemplo, ProfileVMList.txt), com um nome de VM por linha. Esse arquivo é usado como entrada para o parâmetro *-VMListFile* da ferramenta de linha de comando.
 
     ![Lista de nomes de VM no planejador de implantação](./media/site-recovery-deployment-planner/profile-vm-list.png)
 
@@ -139,12 +142,14 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Operation | StartProfiling |
 | -Server | O nome de domínio totalmente qualificado ou o endereço IP do servidor vCenter/host ESXi vSphere cujas VMs devem ser submetidas à criação de perfil.|
 | -User | O nome de usuário a ser conectado ao servidor vCenter/host ESXi vSphere. O usuário precisa ter acesso somente leitura, no mínimo.|
-| -VMListFile |    O arquivo que contém a lista de VMs para criação de perfil. O caminho do arquivo pode ser absoluto ou relativo. O arquivo deve conter um nome de VM/endereço IP por linha. O nome de máquina virtual especificado no arquivo deve ser igual ao nome da VM no servidor vCenter/host ESXi vSphere.<br>Por exemplo, o arquivo VMList.txt contém as seguintes VMs:<ul><li>máquina_virtual_A</li><li>10.150.29.110</li><li>máquina_virtual_B</li><ul> |
+| -VMListFile | O arquivo que contém a lista de VMs para criação de perfil. O caminho do arquivo pode ser absoluto ou relativo. O arquivo deve conter um nome de VM/endereço IP por linha. O nome de máquina virtual especificado no arquivo deve ser igual ao nome da VM no servidor vCenter/host ESXi vSphere.<br>Por exemplo, o arquivo VMList.txt contém as seguintes VMs:<ul><li>máquina_virtual_A</li><li>10.150.29.110</li><li>máquina_virtual_B</li><ul> |
 | -NoOfDaysToProfile | O número de dias pelos quais a criação de perfil deve ser executada. É recomendável executar a criação de perfil por mais de 15 dias para garantir que o padrão de carga de trabalho no ambiente durante o período especificado seja observado e usado para fornecer uma recomendação precisa. |
 | -Directory | (Opcional) A UNC (convenção de nomenclatura universal) ou o caminho do diretório local para armazenar dados de criação de perfil gerados durante a criação de perfil. Se um nome de diretório não for especificado, o diretório chamado 'ProfiledData' no caminho atual será usado como diretório padrão. |
 | -Password | (Opcional) A senha a ser usada para se conectar ao host ESXi vSphere/servidor vCenter. Se não especificar uma agora, você será solicitado a fornecê-la quando o comando for executado.|
 | -StorageAccountName | (Opcional) O nome da conta de armazenamento que é usado para localizar a taxa de transferência possível para replicação de dados do local do Azure. A ferramenta carrega dados de teste nessa conta de armazenamento para calcular a taxa de transferência.|
 | -StorageAccountKey | (Opcional) A chave de conta de armazenamento que é usada para acessar a conta de armazenamento. Acesse o portal do Azure > Contas de armazenamento > <*Nome de conta de armazenamento*> > Configurações > Chaves de Acesso > Chave1 (ou chave de acesso primário da conta de armazenamento clássico). |
+| -Ambiente | (opcional) Este é o seu ambiente de conta do Armazenamento do Azure de destino. Isso pode ser um dos três valores: AzureCloud, AzureUSGovernment ou AzureChinaCloud. O padrão é AzureCloud. Use o parâmetro quando a região do Azure de destino é uma nuvem do Governo dos EUA do Azure ou Azure China. |
+
 
 É recomendável que você crie o perfil de suas VMs durante pelo menos 15 a 30 dias. Durante o período de criação de perfil, ASRDeploymentPlanner.exe continua em execução. A ferramenta aceita a entrada de tempo de criação de perfil em dias. Para criar o perfil por algumas horas ou minutos e fazer um teste rápido da ferramenta, na visualização pública, você precisará converter o horário na medida equivalente de dias. Por exemplo, para criar o perfil por 30 minutos, a entrada deve ser 30/(60*24) = 0,021 dia. O tempo de criação de perfil mínimo permitido é de 30 minutos.
 
@@ -202,6 +207,7 @@ Após a conclusão da criação de perfil, você poderá executar a ferramenta n
 | -StartDate | (Opcional) A data e a hora de início em MM-DD-YYYY:HH:MM (formato de 24 horas). *StartDate* deve ser especificado junto com *EndDate*. Quando StartDate é especificado, o relatório é gerado para os dados de criação de perfil que são coletados entre StartDate e EndDate. |
 | -EndDate | (Opcional) A data e a hora de término em MM-DD-YYYY:HH:MM (formato de 24 horas). *EndDate* deve ser especificado junto com *StartDate*. Quando EndDate é especificado, o relatório é gerado para os dados de criação de perfil que são coletados entre StartDate e EndDate. |
 | -GrowthFactor | (Opcional) O fator de crescimento, expressado como uma porcentagem. O padrão é 30%. |
+| -UseManagedDisks | (Opcional) UseManagedDisks - Sim/Não. O padrão é Sim. O número de máquinas virtuais que podem ser colocadas em uma única conta de armazenamento é calculado considerando-se o Failover/Failover de teste de máquinas virtuais é feito em um disco gerenciado em vez de em um disco não gerenciado. |
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Exemplo 1: gerar um relatório com os valores padrão quando os dados de criação de perfil estiverem na unidade local
 ```
@@ -281,11 +287,12 @@ Abra um console de linha de comando e acesse a pasta da ferramenta de planejamen
 
 |Nome do parâmetro | Descrição |
 |-|-|
-| -operation | GetThroughput |
+| -Operation | GetThroughput |
 | -Directory | (Opcional) A UNC o ou caminho do diretório local em que os dados com perfil gerado (arquivos gerados durante a criação de perfil) são armazenados. Esses dados são necessários para gerar o relatório. Se não for especificado um nome de diretório, será usado o diretório 'ProfiledData'. |
 | -StorageAccountName | O nome de conta de armazenamento usada para obter a largura de banda consumida para replicação de dados do local para o Azure. A ferramenta carrega dados de teste nessa conta de armazenamento para obter a largura de banda consumida. |
 | -StorageAccountKey | A chave da conta de armazenamento usada para acessar a conta de armazenamento. Acesse o portal do Azure > Contas de armazenamento > <*Nome de conta de armazenamento*> > Configurações > Chaves de Acesso > Chave1 (ou chave de acesso primário da conta de armazenamento clássico). |
 | -VMListFile | O arquivo que contém a lista de VMs para criação de perfil para calcular a largura de banda consumida. O caminho do arquivo pode ser absoluto ou relativo. O arquivo deve conter um nome de VM/endereço IP por linha. Os nomes de VM especificados no arquivo devem ser iguais aos nomes de VM no servidor vCenter/host ESXi vSphere.<br>Por exemplo, o arquivo VMList.txt contém as seguintes VMs:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
+| -Ambiente | (opcional) Este é o seu ambiente de conta do Armazenamento do Azure de destino. Isso pode ser um dos três valores: AzureCloud, AzureUSGovernment ou AzureChinaCloud. O padrão é AzureCloud. Use o parâmetro quando a região do Azure de destino é uma nuvem do Governo dos EUA do Azure ou Azure China. |
 
 A ferramenta cria vários arquivos asrvhdfile<#>. vhd de 64 MB (em que "#" é o número de arquivos) no diretório especificado. A ferramenta carrega os arquivos para a conta de armazenamento para obter a taxa de transferência. Depois que a taxa de transferência é medida, a ferramenta exclui todos os arquivos da conta de armazenamento e do servidor local. Se a ferramenta for encerrada por qualquer motivo enquanto estiver calculando a taxa de transferência, não excluirá os arquivos do armazenamento ou do servidor local. Será necessário excluí-los manualmente.
 
@@ -451,7 +458,9 @@ A planilha de Entrada fornece uma visão geral do ambiente VMware com criação 
 **Compatibilidade de VM**: os valores são **Sim** e **Sim**\*. **Sim**\* é para instâncias em que a VM é adequada para o [Armazenamento Premium do Azure](https://aka.ms/premium-storage-workload). Aqui, a alta variação da criação de perfil ou o disco IOPS se encaixam na categoria P20 ou P30, mas o tamanho do disco faz com que ele seja mapeado para P10 ou P20. A conta de armazenamento decide para qual tipo de disco de armazenamento premium um disco deve ser mapeado, com base em seu tamanho. Por exemplo:
 * <128 GB é P10.
 * 128 GB até 512 GB é P20.
-* 512 GB a 1023 GB é P30.
+* 512 GB a 1024 GB é P30.
+* 1025 GB a 2048 GB é P40.
+* 2049 GB a 4095 GB é P50.
 
 Se as características de carga de trabalho de um disco o colocarem na categoria P20 ou P30, mas o tamanho o mapear para um tipo de disco de armazenamento premium inferior, a ferramenta marcará essa VM como **Sim**\*. A ferramenta também recomenda que você altere o tamanho do disco de origem para se ajustar ao tipo de disco de armazenamento premium recomendado ou altere o tipo de disco de destino após o failover.
 
@@ -477,6 +486,10 @@ Se as características de carga de trabalho de um disco o colocarem na categoria
 
 **NICs**: o número de NICs na VM.
 
+**Tipo de inicialização**: é o tipo de inicialização da máquina virtual. Pode ser o BIOS ou EFI. Atualmente o Azure Site Recovery dá suporte apenas ao tipo de inicialização BIOS. Todas as máquinas virtuais do tipo de inicialização EFI estão listadas na planilha de VMs Incompatível.
+
+**Tipo de sistema operacional**: o tipo de SO da VM. Ele pode ser Windows, Linux ou outros.
+
 ## <a name="incompatible-vms"></a>VMs incompatíveis
 
 ![Planilha do Excel de VMs incompatíveis](./media/site-recovery-deployment-planner/incompatible-vms.png)
@@ -485,7 +498,9 @@ Se as características de carga de trabalho de um disco o colocarem na categoria
 
 **Compatibilidade de VM**: indica por que a VM específica é incompatível com o Site Recovery. Os motivos são descritos para cada disco incompatível da VM e, com base nos [limites de armazenamento](https://aka.ms/azure-storage-scalbility-performance) publicados, podem ser qualquer um dos seguintes:
 
-* O tamanho do disco é > 1023 GB. Atualmente, o Armazenamento do Azure não dá suporte a tamanhos de disco maiores que 1 TB.
+* O tamanho do disco é > 4095 GB. Atualmente, o Armazenamento do Azure não dá suporte a tamanhos de disco de dados maiores que 4095 GB.
+* O disco do sistema operacional é >2048 GB. Atualmente, o Armazenamento do Azure não dá suporte a tamanhos de disco do sistema operacional maiores que 2048 GB.
+* O tipo de inicialização é EFI. O Azure Site Recovery atualmente dá suporte apenas a máquinas virtuais com tipo de inicialização BIOS.
 
 * O tamanho total da VM (replicação + TFO) excede o limite de tamanho de conta de armazenamento com suporte (35 TB). Essa incompatibilidade normalmente ocorre quando um único disco na VM tem uma característica de desempenho que excede os limites máximo com suporte do Azure ou do Site Recovery para o armazenamento standard. Essa instância coloca a VM na zona de armazenamento premium. No entanto, o tamanho máximo com suporte de uma conta de armazenamento premium é de 35 TB, e uma única VM protegida não pode ser protegida em várias contas de armazenamento. Além disso, observe que quando um failover de teste é executado em uma VM protegida, ele é executado na mesma conta de armazenamento em que a replicação está em andamento. Nessa instância, configure duas vezes o tamanho do disco para que a replicação progrida e o failover de teste tenha êxito em paralelo.
 * O IOPS de origem excede o limite de IOPS de armazenamento com suporte de 5000 por disco.
@@ -509,16 +524,20 @@ Se as características de carga de trabalho de um disco o colocarem na categoria
 
 **NICs**: o número de NICs na VM.
 
+**Tipo de inicialização**: é o tipo de inicialização da máquina virtual. Pode ser o BIOS ou EFI. Atualmente o Azure Site Recovery dá suporte apenas ao tipo de inicialização BIOS. Todas as máquinas virtuais do tipo de inicialização EFI estão listadas na planilha de VMs Incompatível.
+
+**Tipo de sistema operacional**: o tipo de SO da VM. Ele pode ser Windows, Linux ou outros.
+
 
 ## <a name="site-recovery-limits"></a>Limites da Recuperação de Site
 
 **Destino de armazenamento de replicação** | **Tamanho de E/S de disco de origem médio** |**Variação nos dados média do disco de origem** | **Total de variação de dados de disco de origem por dia**
 ---|---|---|---
-Armazenamento Standard | 8 KB    | 2 Mbps | 168 GB por disco
-Disco Premium P10 | 8 KB    | 2 Mbps | 168 GB por disco
-Disco Premium P10 | 16 KB | 4 Mbps |    336 GB por disco
+Armazenamento Standard | 8 KB | 2 Mbps | 168 GB por disco
+Disco Premium P10 | 8 KB | 2 Mbps | 168 GB por disco
+Disco Premium P10 | 16 KB | 4 Mbps | 336 GB por disco
 Disco Premium P10 | 32 KB ou maior | 8 Mbps | 672 GB por disco
-Disco Premium P20 ou P30 | 8 KB    | 5 Mbps | 421 GB por disco
+Disco Premium P20 ou P30 | 8 KB  | 5 Mbps | 421 GB por disco
 Disco Premium P20 ou P30 | 16 KB ou maior |10 Mbps | 842 GB por disco
 
 Esses são números médios, pressupondo uma sobreposição de E/S de 30%. O Site Recovery pode lidar com uma maior taxa de transferência com base na taxa de sobreposição, em tamanhos maiores de gravação e em comportamento de E/S de carga de trabalho real. Os números anteriores pressupõem uma lista de pendências típica de aproximadamente cinco minutos. Ou seja, depois que os dados são carregados, eles são processados, e um ponto de recuperação é criado dentro de cinco minutos.
@@ -546,6 +565,36 @@ Para atualizar o planejador de implantação, faça o seguinte:
 
 
 ## <a name="version-history"></a>Histórico de versão
+
+### <a name="131"></a>1.3.1
+Atualização: 19 de julho de 2017
+
+O novo recurso a seguir foi adicionado:
+
+* Suporte adicionado para discos grandes (> 1TB) na geração de relatório. Agora você pode usar o planejador de implantação para planejar a replicação para máquinas virtuais com tamanhos de disco maiores que 1 TB (até 4095 GB).
+Leia mais sobre [Suporte a discos grandes no Azure Site Recovery](https://azure.microsoft.com/en-us/blog/azure-site-recovery-large-disks/)
+
+
+### <a name="13"></a>1,3
+Atualização: 9 de maio de 2017
+
+O novo recurso a seguir foi adicionado:
+
+* Foi adicionado suporte de disco gerenciado na geração de relatórios. O número de máquinas virtuais que pode ser colocado em uma única conta de armazenamento é calculado com base em se o disco gerenciado está selecionado para Failover/Teste de failover.        
+
+
+### <a name="12"></a>1.2
+Última atualização: 7 de abril de 2017
+
+Adicionadas as seguintes correções:
+
+* Verificação de tipo de inicialização (BIOS ou EFI) adicionada para cada máquina virtual a fim de determinar se a máquina virtual é compatível ou incompatível com a proteção.
+* Informações de tipo de sistema operacional adicionadas para cada máquina virtual nas planilhas VMs compatíveis e VMs incompatíveis.
+* Agora há suporte para a operação GetThroughput nas regiões do Microsoft Azure do governo dos EUA e da China.
+* Algumas outras verificações de pré-requisitos foram adicionadas para vCenter e Servidor ESXi.
+* Um relatório incorreto estava sendo gerado quando as configurações de localidade estavam definidas para outro idioma que não o inglês.
+
+
 ### <a name="11"></a>1,1
 Atualização: 9 de março de 2017
 
@@ -562,4 +611,3 @@ A visualização pública do Planejador de Implantação 1.0 do Azure Site Recov
 * A ferramenta funciona apenas para os cenários do VMware para o Azure, não para implantações do Hyper-V para o Azure. Para o cenário de Hyper-v para o Azure, use a [ferramenta de planejador de capacidade do Hyper-V](./site-recovery-capacity-planning-for-hyper-v-replication.md).
 * Não há suporte para a operação GetThroughput nas regiões do Microsoft Azure do governo dos EUA e da China.
 * A ferramenta não poderá criar o de perfil VMs se o servidor vCenter tiver duas ou mais VMs com o mesmo nome ou endereço IP em vários hosts ESXi. Nesta versão, a ferramenta ignora a criação de perfil para nomes de VM ou endereços IP duplicados em VMListFile. A solução alternativa é criar um perfil das VMs usando um host ESXi em vez do servidor vCenter. Você deve executar uma instância de cada host ESXi.
-

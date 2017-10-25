@@ -14,8 +14,3 @@ Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à con
 4. Observe que a conexão foi criada e agora você pode continuar com as outras etapas em seu aplicativo lógico.  
     ![Imagem de conexão do Barramento de Serviço 3](./media/connectors-create-api-servicebus/servicebus-3.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

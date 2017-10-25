@@ -3,4 +3,5 @@ O Repositório Azure Data Lake é um repositório em hiper-escala corporativo pa
 | **Recurso** | **Limite padrão** | **Comentários** |
 | --- | --- | --- |
 | Número máximo de contas do Data Lake Store, por assinatura, por região |10 | Contate o suporte para solicitar um aumento desse limite |
-
+| Número máximo de ACLs de acesso, por arquivo ou pasta |32 | Este é um limite rígido. Usar grupos para gerenciar o acesso com menos entradas |
+| Número máximo de ACLs padrões, por arquivo ou pasta |32 | Este é um limite rígido. Usar grupos para gerenciar o acesso com menos entradas |

@@ -3,7 +3,7 @@ title: "Solução Iniciar/Parar VMs fora do horário comercial [versão prévia]
 description: "As soluções de Gerenciamento de VM iniciam e param suas Máquinas Virtuais do Azure Resource Manager com agendamento e as monitoram proativamente no Log Analytics."
 services: automation
 documentationCenter: 
-authors: mgoedtel
+authors: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
@@ -12,24 +12,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 06/01/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: 5ae60cb8ba3d391d3babd1ab575b4f32e139a185
-ms.openlocfilehash: f2c9a5ef2a8f517b9b2072be57f4d8c51b7694c6
-ms.lasthandoff: 02/15/2017
-
+ms.openlocfilehash: b4271d07858eacf2fa55e748f276c8252b0dedf9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="startstop-vms-during-off-hours-preview-solution-in-automation"></a>Solução Iniciar/Parar VMs fora do horário comercial [Visualização] na Automação
 
 A solução Iniciar/Parar VMs fora do horário comercial [Visualização] inicia e para máquinas virtuais do Azure Resource Manager em um agendamento definido pelo usuário e fornece informações sobre o sucesso dos trabalhos de Automação que iniciam e param as máquinas virtuais com o Log Analytics do OMS.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- O runbook funciona com uma [conta Executar como do Azure](automation-sec-configure-azure-runas-account.md).  A conta Executar como é o método de autenticação preferido, pois ela usa a autenticação de certificado em vez de uma senha que pode expirar ou ser alterada com frequência.  
+- O runbook funciona com uma [conta Executar como do Azure](automation-offering-get-started.md#authentication-methods).  A conta Executar como é o método de autenticação preferido, pois ela usa a autenticação de certificado em vez de uma senha que pode expirar ou ser alterada com frequência.  
 
-- Essa solução só pode gerenciar VMs que estão na mesma assinatura e no mesmo grupo de recursos em que reside a conta de Automação.  
+- Essa solução só pode gerenciar VMs que estejam na mesma assinatura em que reside a conta de Automação.  
 
 - A solução só pode ser implantada nas seguintes regiões do Azure: Sudeste da Austrália, Leste dos EUA, Sudeste Asiático e Europa Ocidental.  Os runbooks que gerenciam o agendamento de VM podem direcionar para VMs em qualquer região.  
 
@@ -56,23 +55,23 @@ Variável | Descrição|
 Runbook **SendMailO365-MS-Mgmt** ||
 SendMailO365-IsSendEmail-MS-Mgmt | Especifica se os runbooks StartByResourceGroup-MS-Mgmt-VM e StopByResourceGroup-MS-Mgmt-VM podem enviar notificação por email após a conclusão.  Selecione **True** para habilitar e **False** para desativar o alerta de email. O valor padrão é **False**.| 
 Runbook **StartByResourceGroup-MS-Mgmt-VM** ||
-StartByResourceGroup-ExcludeList-MS-Mgmt-VM | Insira nomes de VM a serem excluídos da operação de gerenciamento. Separe os nomes usando ponto-e-vírgula (;). Os valores diferenciam maiúsculas de minúsculas e há suporte para curingas (asterisco).|
+StartByResourceGroup-ExcludeList-MS-Mgmt-VM | Insira nomes de VM a serem excluídos da operação de gerenciamento; separe os nomes usando ponto e vírgula (;) sem espaços. Os valores diferenciam maiúsculas de minúsculas e há suporte para curingas (asterisco).|
 StartByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Texto que pode ser anexado ao início do corpo da mensagem de email.|
 StartByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | Especifica o nome da Conta de Automação que contém o runbook Email.  **Não modifique essa variável.**|
 StartByResourceGroup-SendMailO365-EmailRunbookName-MS-Mgmt | Especifica o nome do runbook Email.  Isso é usado pelos runbooks StartByResourceGroup-MS-Mgmt-VM e StopByResourceGroup-MS-Mgmt-VM para enviar email.  **Não modifique essa variável.**|
 StartByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | Especifica o nome do Grupo de recursos que contém o runbook Email.  **Não modifique essa variável.**|
 StartByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Especifica o texto da linha de assunto do email.|  
-StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Especifica os destinatários do email.  Digite nomes separados usando ponto-e-vírgula (;).|
-StartByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Insira nomes de VM a serem excluídos da operação de gerenciamento. Separe os nomes usando ponto-e-vírgula (;). Os valores diferenciam maiúsculas de minúsculas e há suporte para curingas (asterisco).  O valor padrão (asterisco) incluirá todos os grupos de recursos na assinatura.|
+StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Especifica os destinatários do email.  Digite nomes separados usando ponto e vírgula (;) sem espaços.|
+StartByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Insira nomes de VM a serem excluídos da operação de gerenciamento; separe os nomes usando ponto e vírgula (;) sem espaços. Os valores diferenciam maiúsculas de minúsculas e há suporte para curingas (asterisco).  O valor padrão (asterisco) incluirá todos os grupos de recursos na assinatura.|
 StartByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Especifica a assinatura que contém as VMs a serem gerenciadas pela solução.  Ela deve ser a mesma assinatura em que reside a conta de Automação da solução.|
 Runbook **StopByResourceGroup-MS-Mgmt-VM** ||
-StopByResourceGroup-ExcludeList-MS-Mgmt-VM | Insira nomes de VM a serem excluídos da operação de gerenciamento. Separe os nomes usando ponto-e-vírgula (;). Os valores diferenciam maiúsculas de minúsculas e há suporte para curingas (asterisco).|
+StopByResourceGroup-ExcludeList-MS-Mgmt-VM | Insira nomes de VM a serem excluídos da operação de gerenciamento; separe os nomes usando ponto e vírgula (;) sem espaços. Os valores diferenciam maiúsculas de minúsculas e há suporte para curingas (asterisco).|
 StopByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Texto que pode ser anexado ao início do corpo da mensagem de email.|
 StopByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | Especifica o nome da Conta de Automação que contém o runbook Email.  **Não modifique essa variável.**|
 StopByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | Especifica o nome do Grupo de recursos que contém o runbook Email.  **Não modifique essa variável.**|
 StopByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Especifica o texto da linha de assunto do email.|  
-StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Especifica os destinatários do email.  Digite nomes separados usando ponto-e-vírgula (;).|
-StopByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Insira nomes de VM a serem excluídos da operação de gerenciamento. Separe os nomes usando ponto-e-vírgula (;). Os valores diferenciam maiúsculas de minúsculas e há suporte para curingas (asterisco).  O valor padrão (asterisco) incluirá todos os grupos de recursos na assinatura.|
+StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Especifica os destinatários do email.  Digite nomes separados usando ponto e vírgula (;) sem espaços.|
+StopByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Insira nomes de VM a serem excluídos da operação de gerenciamento; separe os nomes usando ponto e vírgula (;) sem espaços. Os valores diferenciam maiúsculas de minúsculas e há suporte para curingas (asterisco).  O valor padrão (asterisco) incluirá todos os grupos de recursos na assinatura.|
 StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Especifica a assinatura que contém as VMs a serem gerenciadas pela solução.  Ela deve ser a mesma assinatura em que reside a conta de Automação da solução.|  
 <br>
 
@@ -117,7 +116,7 @@ Execute as seguintes etapas para adicionar a solução Iniciar/Parar VMs fora do
 
 8. Por fim, na folha **Adicionar Solução**, selecione **Configuração** e a folha **Parâmetros** será exibida.  Na folha **Parâmetros**, você será solicitado a:  
    - Especifique os **Nomes de Grupo de Recursos de Destino**, que é um nome de grupo de recursos que contém VMs a serem gerenciadas pela solução.  Você pode inserir mais de um nome e separá-los usando ponto-e-vírgula (os valores diferenciam maiúsculas de minúsculas).  O uso de um caractere curinga tem suporte para selecionar VMs em todos os grupos de recursos na assinatura.
-   - Selecione uma** Agenda**, que é um conjunto de data e hora para iniciar e parar as VMs no grupo de recursos de destino.  Por padrão, o agendamento é configurado para o fuso horário UTC e a seleção de outra região não está disponível.  Se quiser configurar o agendamento para seu fuso horário específico após a configuração da solução, confira [Modificando o agendamento de inicialização e desligamento](#modifying-the-startup-and-shutdown-schedule) abaixo.    
+   - Selecione uma **Agenda**, que é um conjunto de data e hora para iniciar e parar as VMs no grupo de recursos de destino.  Por padrão, o agendamento é configurado para o fuso horário UTC e a seleção de outra região não está disponível.  Se quiser configurar o agendamento para seu fuso horário específico após a configuração da solução, confira [Modificando o agendamento de inicialização e desligamento](#modifying-the-startup-and-shutdown-schedule) abaixo.    
 
 10. Depois de ter concluído a configuração inicial necessária para a solução, selecione **Criar**.  Todas as configurações serão validadas e ele tentará implantar a solução em sua assinatura.  Esse processo pode levar vários segundos e você pode acompanhar seu progresso no menu **Notificações**. 
 
@@ -244,5 +243,4 @@ A conta de Automação e o espaço de trabalho do OMS não serão excluídos com
 
 
    
-
 

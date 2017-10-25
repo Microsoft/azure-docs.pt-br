@@ -9,19 +9,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
-ms.custom: migrate and move
+ms.custom: load & move data
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 2d72731304aee0952abbb1f3b2c24b620118fc6c
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: 90c78007368c2679e1c5afdb9369869adde77f0d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migração de banco de dados do SQL Server para o Banco de Dados SQL na nuvem
 Neste artigo, você aprenderá sobre os dois principais métodos para migrar um banco de dados SQL Server 2005 ou posterior para o Banco de Dados SQL. O primeiro método é mais simples, mas requer algum tempo de inatividade, possivelmente substancial, durante a migração. O segundo método é mais complexo, mas elimina substancialmente o tempo de inatividade durante a migração.
@@ -34,7 +33,7 @@ Em ambos os casos, você precisa garantir que o banco de dados de origem seja co
 
 ## <a name="method-1-migration-with-downtime-during-the-migration"></a>Método 1: migração com tempo de inatividade durante a migração
 
- Use esse método se você puder ter algum tempo de inatividade ou se estiver executando um teste de migração de um banco de dados de produção para migração posterior.
+ Use esse método se você puder ter algum tempo de inatividade ou se estiver executando um teste de migração de um banco de dados de produção para migração posterior. Para ver um tutorial, consulte [Migrar um Banco de Dados do SQL Server](sql-database-migrate-your-sql-server-database.md).
 
 A lista a seguir contém o fluxo de trabalho geral para uma migração de banco de dados SQL Server usando esse método.
 
@@ -44,8 +43,8 @@ A lista a seguir contém o fluxo de trabalho geral para uma migração de banco 
 2. Prepare as correções necessárias como scripts Transact-SQL.
 3. Faça uma cópia transacionalmente consistente do banco de dados de origem que está sendo migrado e verifique se não há mais alterações sendo feitas no banco de dados de origem (ou você pode aplicar essas alterações manualmente após a migração). Há vários métodos para fechar um banco de dados para novas sessões, desde desabilitar a conectividade do cliente até criar um [instantâneo do banco de dados](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Implante os scripts Transact-SQL para aplicar as correções à cópia do banco de dados.
-5. [Exporte](sql-database-export-sqlpackage.md) a cópia do banco de dados para um arquivo .BACPAC em uma unidade local.
-6. [Importe](sql-database-import-sqlpackage.md) o arquivo .BACPAC como um novo banco de dados Azure SQL usando qualquer uma das várias ferramentas de importação de BACPAC, sendo que SQLPackage.exe é a ferramenta recomendada para obter o melhor desempenho.
+5. [Exporte](sql-database-export.md) a cópia do banco de dados para um arquivo .BACPAC em uma unidade local.
+6. [Importe](sql-database-import.md) o arquivo .BACPAC como um novo banco de dados Azure SQL usando qualquer uma das várias ferramentas de importação de BACPAC, sendo que SQLPackage.exe é a ferramenta recomendada para obter o melhor desempenho.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Otimizando o desempenho de transferência de dados durante a migração 
 
@@ -64,7 +63,7 @@ A lista a seguir contém recomendações para melhorar o desempenho durante o pr
 
 ## <a name="method-2-use-transactional-replication"></a>Método 2: usar replicação transacional
 
-Quando não houver a possibilidade de remover seu banco de dados do SQL Server da produção durante a migração, você poderá usar a replicação transacional do SQL Server como sua solução de migração. Para usar esse método, o banco de dados de origem deve atender a [requisitos para replicação transacional](https://msdn.microsoft.com/library/mt589530.aspx) e ser compatível com o banco de dados SQL. 
+Quando não houver a possibilidade de remover seu banco de dados do SQL Server da produção durante a migração, você poderá usar a replicação transacional do SQL Server como sua solução de migração. Para usar esse método, o banco de dados de origem deve atender a [requisitos para replicação transacional](https://msdn.microsoft.com/library/mt589530.aspx) e ser compatível com o banco de dados SQL. Para obter informações sobre a replicação do SQL com o AlwaysOn, consulte [Configurar a replicação para Grupos de Disponibilidade AlwaysOn (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 
 Para usar esta solução, você pode configurar o Banco de Dados SQL do Azure como um assinante da instância do SQL Server que você deseja migrar. O distribuidor de replicação transacional sincroniza os dados do banco de dados a ser sincronizado (o editor), enquanto as novas transações continuam a ocorrer. 
 
@@ -119,6 +118,5 @@ Além de pesquisar na Internet e usar esses recursos, use os [fóruns da comunid
 * Para ler uma postagem de blog da Equipe de Consultoria ao Cliente do SQL Server sobre a migração usando arquivos BACPAC, confira [Migrando do SQL Server para o Banco de Dados do Azure SQL usando arquivos BACPAC](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 * Para obter informações sobre como trabalhar com a hora UTC após a migração, confira [Modificando o fuso horário padrão para o fuso horário local](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/).
 * Para obter informações sobre como alterar o idioma padrão de um banco de dados após a migração, confira [Como alterar o idioma padrão do Banco de Dados Azure SQL](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/).
-
 
 

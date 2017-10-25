@@ -1,0 +1,5 @@
+Os registros SPF (Sender Policy Framework) são usados para especificar quais servidores de email têm permissão para enviar email em nome de um nome de domínio específico.  A configuração correta dos registros SPF é importante para evitar que os destinatários marquem seu email como 'lixo'.
+
+As RFCs do DNS originalmente introduziram um novo tipo de registro 'SPF' para dar suporte a esse cenário. Para dar suporte a servidores de nomes mais antigos, eles também permitiram o uso do tipo de registro TXT para especificar registros SPF.  Essa ambiguidade causou confusão, que foi resolvida pela [RFC 7208](http://tools.ietf.org/html/rfc7208#section-3.1).  Ela define que os registros SPF só devem ser criados com o tipo de registro TXT e que o tipo de registro SPF é preterido.
+
+**Os registros SPF têm suporte do DNS do Azure e devem ser criados usando o tipo de registro TXT.** Não há suporte para o tipo de registro SPF obsoleto. Ao [importar um arquivo de zona DNS](../articles/dns/dns-import-export.md), eventuais registros SPF que usam o tipo de registro SPF serão convertidos para o tipo de registro TXT.

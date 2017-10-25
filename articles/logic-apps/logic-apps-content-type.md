@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: d0d283f21caf53406c51670e75bf2796a175be51
-ms.lasthandoff: 03/25/2017
-
-
+ms.author: LADocs; jehollan
+ms.openlocfilehash: ac67838344bbd10384299c086ff096fbe5dec6a9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="handle-content-types-in-logic-apps"></a>Gerenciamento de tipos de conteúdo em aplicativos lógicos
 
@@ -54,7 +53,7 @@ O gatilho da solicitação permite que você insira um esquema JSON para o conte
 
 ### <a name="parse-json-action"></a>Ação "Parse JSON"
 
-A ação `Parse JSON` permite que você analise o conteúdo JSON em tokens amigáveis para o consumo do aplicativo lógico. Assim como com o gatilho da solicitação, essa ação permite que você insira ou gere um esquema JSON para o conteúdo que você deseja analisar. Com essa ferramenta, será muito mais fácil consumir dados do barramento de serviço, do DocumentDB e assim por diante.
+A ação `Parse JSON` permite que você analise o conteúdo JSON em tokens amigáveis para o consumo do aplicativo lógico. Assim como com o gatilho da solicitação, essa ação permite que você insira ou gere um esquema JSON para o conteúdo que você deseja analisar. Essa ferramenta facilita grande parte do consumo de dados do Barramento de Serviço, do Azure Cosmos DB e assim por diante.
 
 ![Analisar o JSON](./media/logic-apps-content-type/ParseJSON.png)
 
@@ -111,5 +110,4 @@ Como a solicitação não é texto sem formatação, nem JSON, ela é armazenada
 ```
 
 Quando não houver uma função nativa para dados de formulário, você ainda pode usar esses dados em um fluxo de trabalho ao acessar manualmente os dados com uma função como `@string(body('formdataAction'))`. Se desejar que a solicitação de saída também tenha o cabeçalho de tipo de conteúdo `application/x-www-url-formencoded` , você pode adicionar a solicitação ao corpo de ação sem conversões, como `@body('formdataAction')`. No entanto, esse método só funciona se o corpo é o único parâmetro na entrada `body`. Se você tentar usar `@body('formdataAction')` em uma solicitação `application/json`, o corpo codificado será enviado causando erro de tempo de execução.
-
 

@@ -1,8 +1,9 @@
 
 > [!div class="op_single_selector"]
-> * [Banco de Dados de Documentos](../articles/azure-functions/functions-bindings-documentdb.md)  
+> * [BD Cosmos](../articles/azure-functions/functions-bindings-documentdb.md)  
 > * [Hubs de Evento](../articles/azure-functions/functions-bindings-event-hubs.md)  
 > * [HTTP/webhook](../articles/azure-functions/functions-bindings-http-webhook.md)  
+> * [Microsoft Graph](../articles/azure-functions/functions-bindings-microsoft-graph.md)  
 > * [Aplicativos Móveis](../articles/azure-functions/functions-bindings-mobile-apps.md)  
 > * [Hubs de Notificação](../articles/azure-functions/functions-bindings-notification-hubs.md)  
 > * [Barramento de Serviço](../articles/azure-functions/functions-bindings-service-bus.md)  
@@ -13,7 +14,3 @@
 > * [Twilio](../articles/azure-functions/functions-bindings-twilio.md)  
 > 
 > 
-
-<!--HONumber=Nov16_HO3-->
-
-

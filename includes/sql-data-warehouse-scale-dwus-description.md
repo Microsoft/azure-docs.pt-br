@@ -14,8 +14,3 @@ Você pode aumentar ou diminuir a computação ao ajustar as DWUs (Unidades de D
 
 Para obter uma lista das configurações atuais de DWU, consulte o Objetivo de Nível de Serviço em [limites de capacidade de Serviço](../articles/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

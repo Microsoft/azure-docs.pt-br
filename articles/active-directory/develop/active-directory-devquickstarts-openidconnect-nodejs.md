@@ -3,7 +3,7 @@ title: "Introdução à entrada e saída no Azure AD usando Node.js | Microsoft 
 description: Saiba como criar um aplicativo Web MVC Node.js Express que se integra ao Azure AD para entrar.
 services: active-directory
 documentationcenter: nodejs
-author: xerners
+author: navyasric
 manager: mbaldwin
 editor: 
 ms.assetid: 81deecec-dbe2-4e75-8bc0-cf3788645f99
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: brandwe
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 27f9c5a18b85c0cc2f918ccefeb063f58cc967c6
-ms.lasthandoff: 03/18/2017
-
-
+ms.author: nacanuma
+ms.custom: aaddev
+ms.openlocfilehash: 13317b016f9ff3955f376b858645c42668b0de42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="nodejs-web-app-sign-in-and-sign-out-with-azure-ad"></a>Entrada e saída do aplicativo Web Node.js com o Azure AD
 Aqui usaremos o Passport para:
@@ -142,10 +142,9 @@ Aqui, configuramos o Express para usar o protocolo de autenticação OpenID Conn
     ```
 O Passport usa um padrão semelhante para todas as estratégias (Twitter, Facebook e assim por diante) que todos os gravadores de estratégia seguem. Observando a estratégia, você verá que passamos a ela uma função que tem um token e um done como parâmetros. A estratégia de volta para nós depois faz seu trabalho. Em seguida, queremos armazenar o usuário e acrescentar o token, para que não precisemos pedi-lo novamente.
 
-    > [!IMPORTANT]
-    > The previous code takes any user that happens to authenticate to our server. This is known as auto-registration. We recommend that you don't let anyone authenticate to a production server without first having them register via a process that you decide on. This is usually the pattern you see in consumer apps, which allow you to register with Facebook but then ask you to provide additional information. If this weren't a sample application, we could have extracted the user's email address from the token object that is returned and then asked the user to fill out additional information. Because this is a test server, we add them to the in-memory database.
->
->
+> [!IMPORTANT]
+O código anterior usa qualquer usuário que tente se autenticar em nosso servidor. Isso é conhecido como registro automático. Recomendamos que você não permita que ninguém se autentique em um servidor de produção sem primeiro se registrar por meio de um processo escolhido por você. Geralmente, esse é o padrão visto em aplicativos de consumidor, que permitem se registrar com o Facebook, mas depois solicitam o fornecimento de informações adicionais. Se esse não fosse um aplicativo de exemplo, poderíamos ter extraído o endereço de email do usuário do objeto de token retornado e, em seguida, solicitado a ele que preenchesse informações adicionais. Como esse é um servidor de teste, nós o adicionamos ao banco de dados em memória.
+
 
 4. Em seguida, vamos adicionar os métodos que permitem controlar os usuários autenticados conforme exigido pelo Passport. Esses métodos incluem a serialização e a desserialização de informações do usuário.
 
@@ -180,9 +179,9 @@ O Passport usa um padrão semelhante para todas as estratégias (Twitter, Facebo
             }
             return fn(null, null);
             };
-            ```
+    ```
 
-5.  Next, let's add the code to load the Express engine. Here we use the default /views and /routes pattern that Express provides.
+5.  Em seguida, adicionaremos o código para carregar o mecanismo Express. Aqui você vê que usamos o padrão /views e /routes que o Express fornece.
 
     ```JavaScript
 
@@ -205,13 +204,13 @@ O Passport usa um padrão semelhante para todas as estratégias (Twitter, Facebo
           app.use(express.static(__dirname + '/../../public'));
         });
 
-        ```
+    ```
 
-6. Finally, let's add the routes that hand off the actual sign-in requests to the `passport-azure-ad` engine:
+6. Por fim, adicionaremos as rotas que entregarão as solicitações de logon reais ao mecanismo `passport-azure-ad`:
 
-       
+
        ```JavaScript
- 
+
         // Our Auth routes (section 3)
 
         // GET /auth/openid
@@ -250,13 +249,13 @@ O Passport usa um padrão semelhante para todas as estratégias (Twitter, Facebo
                 log.info('We received a return from AzureAD.');
                 res.redirect('/');
               });
-          ```
+       ```
 
 
-## Step 4: Use Passport to issue sign-in and sign-out requests to Azure AD
-Your app is now properly configured to communicate with the endpoint by using the OpenID Connect authentication protocol.  `passport-azure-ad` has taken care of all the details of crafting authentication messages, validating tokens from Azure AD, and maintaining user sessions. All that remains is giving your users a way to sign in and sign out, and gathering additional information about the signed-in users.
+## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Etapa 4: usar o Passport para emitir solicitações de entrada e saída ao Azure AD
+Seu aplicativo agora está configurado corretamente para se comunicar com o ponto de extremidade usando o protocolo de autenticação OpenID Connect.  O `passport-azure-ad` cuidou de todos os detalhes da criação de mensagens de autenticação, validação de tokens do Azure AD e manutenção das sessões do usuário. Tudo o que resta é fornecer aos usuários uma maneira de entrar e sair e obter informações adicionais sobre os usuários que entraram.
 
-1. First, let's add the default, sign-in, account, and sign-out methods to our `app.js` file:
+1. Primeiro, adicionaremos a conta de entrada padrão e os métodos de saída ao nosso arquivo `app.js`:
 
     ```JavaScript
 
@@ -329,9 +328,9 @@ Agora `app.js` for concluída. Nós simplesmente precisamos adicionar os roteiro
                 exports.index = function(req, res){
                   res.render('index', { title: 'Express' });
                 };
-                ```
+    ```
 
-2. Create the `/routes/user.js` route under the root directory.
+2. Criar a rota `/routes/user.js` no diretório raiz.
 
                 ```JavaScript
                 /*
@@ -341,11 +340,11 @@ Agora `app.js` for concluída. Nós simplesmente precisamos adicionar os roteiro
                 exports.list = function(req, res){
                   res.send("respond with a resource");
                 };
-        ```
+                ```
 
- These pass along the request to our views, including the user if present.
+ Eles passam a solicitação para nossos modos de exibição, incluindo o usuário se presente.
 
-3. Create the `/views/index.ejs` view under the root directory. This is a simple page that calls our login and logout methods and enables us to grab account information. Notice that we can use the conditional `if (!user)` as the user being passed through in the request is evidence we have a signed-in user.
+3. Crie o modo de exibição `/views/index.ejs` no diretório raiz. Essa é uma página simples que chama os nossos métodos de logon e logoff e nos permite obter dados da conta. Observe que podemos usar o `if (!user)` condicional, pois o usuário que está sendo passado na solicitação é uma prova de que temos um usuário conectado.
 
     ```JavaScript
     <% if (!user) { %>
@@ -418,4 +417,3 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 [Proteger uma API Web com o Azure AD](active-directory-devquickstarts-webapi-nodejs.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

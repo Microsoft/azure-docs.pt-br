@@ -27,7 +27,7 @@
 #### [Registrar o usuário atual usando ASP.NET](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 ### [Enviar notificações de plataforma cruzada](notification-hubs-aspnet-cross-platform-notification.md)
 ### Trabalhar com SDKs do servidor
-#### [.NET](https://msdn.microsoft.com/library/mt414893.aspx)
+#### [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet)
 #### [Node.js](notification-hubs-nodejs-push-notification-tutorial.md)
 #### [Java](notification-hubs-java-push-notification-tutorial.md)
 #### [PHP](notification-hubs-php-push-notification-tutorial.md)
@@ -44,6 +44,7 @@
 
 ## Gerenciar
 ### [Registros](notification-hubs-push-notification-registration-management.md)
+### [Autenticação baseada em token do APNS](notification-hubs-push-notification-http2-token-authentification.md)
 
 ## [Proteger](notification-hubs-push-notification-security.md)
 ### Push seguro
@@ -52,20 +53,23 @@
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 
 ## Automatizar
-### [Implantar e gerenciar os Hubs de Notificação usando o PowerShell](notification-hubs-deploy-and-manage-powershell.md)
+### [Implantar e gerenciar os Hubs de Notificação usando o Azure PowerShell](notification-hubs-deploy-and-manage-powershell.md)
 ### [Enviar notificações agendadas](notification-hubs-send-push-notifications-scheduled.md)
 
 ## Solucionar problemas
 ### [Diretrizes de diagnóstico](notification-hubs-push-notification-fixer.md)
 
 # Referência
-## [PowerShell](/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs)
+## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs)
+## [PowerShell do Azure](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
 ## [REST](/rest/api/notificationhubs)
 
 # Recursos
-## [Preços](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs)
+## [Preços](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
+## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=notification-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-notificationhub)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)
-## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=notification-hubs)

@@ -4,8 +4,3 @@ Para concluir este tutorial, você deve ter um arquivo VHD carregado para a cont
 - [Carregar usando o utilitário de linha de comando AzCopy](../articles/devtest-lab/devtest-lab-upload-vhd-using-azcopy.md)
 - [Carregue usando o Gerenciador de Armazenamento do Microsoft Azure](../articles/devtest-lab/devtest-lab-upload-vhd-using-storage-explorer.md)
 - [Carregue usando o console do PowerShell](../articles/devtest-lab/devtest-lab-upload-vhd-using-powershell.md)
-
-
-<!--HONumber=Jan17_HO2-->
-
-

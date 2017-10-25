@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: f31a8347bf6bb36fa166d35f52915813394d85e9
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: 0c6e4d9d2a3744f607b72364f3944c700acd070c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-diagnostics"></a>O que é o Diagnóstico do Azure
 O Diagnóstico do Azure é a capacidade do Azure que habilita a coleta de dados de diagnóstico em um aplicativo implantado. Você pode usar a extensão de diagnóstico de várias fontes diferentes. As que têm suporte no momento são as Funções de Trabalho ou Web do Serviço de Nuvem, as Máquinas Virtuais do Azure que executam o Microsoft Windows e o Service Fabric. Outros serviços do Azure têm seu próprios diagnósticos separados.
@@ -48,7 +47,7 @@ Veja [Histórico de versão do Diagnóstico do Azure](azure-diagnostics-versioni
 Escolha de qual serviço você está tentando coletar diagnósticos e use os seguintes artigos para começar. Use os links gerais de diagnóstico do Azure para obter referências de tarefas específicas.
 
 ## <a name="web-apps"></a>Aplicativos Web
-Observe que os aplicativos Web não usam o Diagnóstico do Azure. Encontre as informações equivalentes em [Aplicativos Web](../app-service-web/web-sites-enable-diagnostic-log.md)
+Observe que os aplicativos Web não usam o Diagnóstico do Azure. Encontre as informações equivalentes em [Aplicativos Web](../app-service/web-sites-enable-diagnostic-log.md)
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>Serviços de Nuvem que usam o Diagnóstico do Azure
 * Se estiver usando o Visual Studio, veja [Usar o Visual Studio para rastrear um aplicativo dos Serviços de Nuvem](../vs-azure-tools-debug-cloud-services-virtual-machines.md) para começar. Caso contrário, veja
@@ -59,7 +58,7 @@ Para tópicos mais avançados, veja
 
 * [Uso dos Diagnósticos do Azure com o Application Insights para Serviços de Nuvem](../application-insights/app-insights-cloudservices.md)
 * [Rastrear o fluxo de um aplicativo de Serviços de Nuvem com o Diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
-* [Usar o PowerShell para configurar o diagnóstico nos Serviços de Nuvem](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Usar o PowerShell para configurar o diagnóstico nos Serviços de Nuvem](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="virtual-machines-using-azure-diagnostics"></a>Máquinas Virtuais que usam o Diagnóstico do Azure
 * Se estiver usando o Visual Studio, veja [Usar o Visual Studio para rastrear Máquinas Virtuais do Azure](../vs-azure-tools-debug-cloud-services-virtual-machines.md) para começar. Caso contrário, veja
@@ -67,8 +66,8 @@ Para tópicos mais avançados, veja
 
 Para tópicos mais avançados, veja
 
-* [Usar o PowerShell para configurar o diagnóstico nas Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Criar uma máquina virtual do Windows com monitoramento e diagnóstico usando o modelo do Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Usar o PowerShell para configurar o diagnóstico nas Máquinas Virtuais do Azure](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Criar uma máquina virtual do Windows com monitoramento e diagnóstico usando o modelo do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="service-fabric-using-azure-diagnostics"></a>Service Fabric que usa o Diagnóstico do Azure
 Comece em [Monitorar um aplicativo do Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Muitos outros artigos de diagnóstico do Service Fabric estarão disponíveis na árvore de navegação à esquerda depois que você acessar este artigo.
@@ -79,4 +78,3 @@ Comece em [Monitorar um aplicativo do Service Fabric](../service-fabric/service-
 * Saiba como [usar os Contadores de Desempenho no Diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md).
 * Saiba como [Rotear informações de diagnóstico do Azure para o Application Insights](azure-diagnostics-configure-application-insights.md)
 * Se você tiver problemas com o início do diagnóstico ou com a localização de seus dados nas tabelas do Armazenamento do Azure, veja [Solução de Problemas do Diagnóstico do Azure](azure-diagnostics-troubleshooting.md)
-

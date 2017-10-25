@@ -13,17 +13,28 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 07/05/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: a50b4fb4b19acf270aaf94fea613e745ec2af649
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: 5f9d4e580b0d4d7c3ea39c53b1bf4067a59d4d52
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-sign-up-issues-for-azure"></a>Solucionar problemas de inscrição do Azure
 Se você não conseguir se inscrever no Azure, use as dicas deste artigo para solucionar problemas comuns. Caso tenha um problema com seu cartão de crédito durante a inscrição, consulte [Seu cartão de débito ou crédito é recusado durante a inscrição do Azure](billing-credit-card-fails-during-azure-sign-up.md). Se você tiver uma conta do Azure, mas não conseguir se conectar, consulte [Não consigo me conectar para gerenciar minha assinatura do Azure](billing-cannot-login-subscription.md).
+
+## <a name="error-we-cannot-proceed-with-signup-due-to-an-issue-with-your-account-please-contact-billing-support"></a>Erro "Não é possível prosseguir com a inscrição devido a um problema com sua conta. Entre em contato com o suporte à cobrança". 
+
+Para resolver o problema, siga estas etapas:
+
+1. Entre no [Centro de Contas do Azure](https://account.azure.com/Profile) usando a credencial do administrador da conta. 
+2. Clique em **Editar detalhes**.
+3. Certifique-se de que todos os campos de endereço estejam preenchidos e válidos. 
+4. Ao se inscrever à assinatura do Azure, certifique-se de que o endereço de cobrança inserido durante o registro de cartão de crédito corresponde os registros do banco.
+
+Se você ainda receber o erro, tente se inscrever usando um navegador diferente.
 
 ## <a name="progress-bar-hangs-in-identity-verification-by-card-section"></a>A barra de progresso trava na seção "Verificação de identidade por cartão"
 
@@ -38,14 +49,17 @@ Use as etapas a seguir para atualizar as configurações de cookies do navegador
 3. Atualize a página de inscrição do Azure e verifique se o problema foi resolvido.
 4. Se a atualização não resolver o problema, feche e reinicie o navegador e tente novamente.
 
-## <a name="no-text-messages-or-calls-during-sign-up-account-verification"></a>Nenhuma mensagem de texto ou chamada durante a verificação da conta de inscrição
-Se você selecionou **Enviar mensagem de texto**, pode levar até quatro minutos para que o código de texto seja entregue em seu telefone. Obviamente, para a verificação de identidade, insira um número de telefone que possa receber mensagens SMS ou, para a opção **Ligar para mim**, insira um telefone que possa receber chamadas. O número de telefone inserido é usado somente para a verificação de identidade e não é armazenado como um número de contato da conta.
+## <a name="credit-card-form-doesnt-support-my-billing-address"></a>O formulário de cartão de crédito não dá suporte ao meu endereço para cobrança
+Seu endereço para cobrança precisa estar no país selecionado na seção **Sobre você**. Selecione o país correto.
 
-Aqui estão algumas dicas:
+## <a name="no-text-messages-or-calls-during-sign-up-account-verification"></a>Nenhuma mensagem de texto ou chamada durante a verificação da conta de inscrição
+Embora isso normalmente seja muito mais rápido, poderá levar até quatro minutos para que o código de verificação seja entregue. O número de telefone inserido para verificação não é armazenado como um número de contato da conta.
+
+Estas são algumas outras dicas:
 * Um número de telefone VOIP não pode ser usado para o processo de verificação do telefone.
 * Verifique novamente o número de telefone inserido, incluindo o código do país selecionado no menu suspenso.
-* Se o telefone não receber mensagens de texto (SMS), use a opção **Ligar para mim**.
-* Se a etapa de verificação do telefone falhar quando você tentar as opções **Enviar mensagem de texto** e **Ligar para mim**, use outro número de telefone.
+* Se o telefone não receber mensagens de texto (SMS), tente a opção **Ligar para mim**.
+* Verifique se o telefone pode receber chamadas ou mensagens SMS de um número dos Estados Unidos.
 
 Quando você receber a mensagem de texto ou a chamada telefônica, insira o código recebido na caixa de texto.
 
@@ -55,6 +69,9 @@ Cartões de crédito ou débito pré-pago ou virtuais não são aceitos como pag
 ## <a name="free-trial-is-not-available"></a>"A Avaliação Gratuita não está disponível"
 Você já usou uma assinatura do Azure anteriormente? O Contrato de Termos de Uso do Azure limita a ativação gratuita da avaliação para usuários que sejam novos no Azure. Se você já teve qualquer outro tipo de assinatura do Azure, não poderá ativar uma avaliação gratuita. Considere inscrever-se em uma [assinatura Pré-paga](https://azure.microsoft.com/offers/ms-azr-0003p/).
 
+## <a name="i-saw-a-charge-on-my-free-trial-account"></a>Observei um encargo em minha conta de Avaliação Gratuita
+Você poderá ver uma pequena verificação em espera em sua conta de cartão de crédito após a inscrição, que é removida no prazo de até 3 a 5 dias. Se estiver preocupado com o gerenciamento de custos, leia mais sobre como [evitar custos inesperados](https://docs.microsoft.com/azure/billing/billing-getting-started).
+
 ## <a name="cant-activate-azure-benefit-plan-like-msdn-bizspark-bizsparkplus-or-mpn"></a>Não consigo ativar um plano de benefícios do Azure, por exemplo, MSDN, BizSpark, BizSparkPlus ou MPN
 Verifique se você está usando as credenciais de conexão corretas. Em seguida, verifique o programa de benefícios para garantir que você está qualificado. 
 
@@ -63,7 +80,7 @@ Verifique se você está usando as credenciais de conexão corretas. Em seguida,
   * Se não conseguir verificar seu status, contate o [Atendimento ao Cliente das Assinaturas do MSDN](https://msdn.microsoft.com/subscriptions/contactus.aspx)
 * BizSpark
   * Entre no [portal do BizSpark](https://www.microsoft.com/bizspark/default.aspx#start-two) e verifique o status de qualificação para BizSpark e BizSpark Plus.
-  * Se não conseguir verificar seu status, [contate a Equipe do BizSpark](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team)
+  * Se você não conseguir confirmar seu status, [obtenha ajuda nos fóruns do BizSpark](http://aka.ms/bzforums).
 * MPN
   * Entre no [portal do MPN](https://mspartner.microsoft.com/en/us/Pages/Locale.aspx) e verifique o status da sua qualificação. Se tiver as [Competências de Plataforma de Nuvem](https://mspartner.microsoft.com/en/us/pages/membership/cloud-platform-competency.aspx)adequadas, você poderá estar qualificado para receber outros benefícios.
   * Se não conseguir verificar seu status, contate o [suporte do MPN](https://mspartner.microsoft.com/en/us/Pages/Support/Premium/contact-support.aspx).
@@ -73,4 +90,3 @@ Para criar uma assinatura do Azure via Open, você deve ter uma chave OSA (Ativa
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
-

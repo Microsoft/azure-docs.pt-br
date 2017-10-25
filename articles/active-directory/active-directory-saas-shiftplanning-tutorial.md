@@ -1,183 +1,279 @@
 ---
-title: "Tutorial: integração do Azure Active Directory ao ShiftPlanning | Microsoft Docs"
-description: "Saiba como usar o ShiftPlanning com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!"
+title: "Tutorial: integração do Azure Active Directory com o Humanity | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Humanity."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: 6aa771e9-31c6-48d1-8dde-024bebc06943
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 01/03/2017
+ms.date: 06/10/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 9a653ac435198e89a527070a0174a1adaf830dc3
-ms.openlocfilehash: 6104bd7e22d855c4c8737ef1080bfd445b29eafb
-
-
+ms.openlocfilehash: 327cc1e3d0836e79376e0a3cd5a4422a967f5943
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-shiftplanning"></a>Tutorial: Integração do Active Directory do Azure com o ShiftPlanning
-O objetivo deste tutorial é mostrar a integração do Azure com o ShiftPlanning.  
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+# <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Tutorial: integração do Azure Active Directory com o Humanity
 
-* Uma assinatura válida do Azure
-* Uma assinatura habilitada para logon único do ShiftPlanning
+Neste tutorial, você aprenderá a integrar o Humanity ao Azure AD (Azure Active Directory).
 
-Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao ShiftPlanning poderão fazer logon único no aplicativo em seu site de empresa do ShiftPlanning (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+A integração do Humanity ao Azure AD oferece os seguintes benefícios:
 
-O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
+- No Azure AD, é possível controlar quem tem acesso ao Humanity
+- Você pode permitir que seus usuários façam logon automaticamente no Humanity (logon único) com as contas do Azure AD
+- Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-1. Habilitando a integração de aplicativos com o ShiftPlanning
-2. Configurando o logon único
-3. Configurando o provisionamento de usuários
-4. Atribuindo usuários
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![Cenário](./media/active-directory-saas-shiftplanning-tutorial/IC786612.png "Cenário")
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="enabling-the-application-integration-for-shiftplanning"></a>Habilitando a integração de aplicativos com o ShiftPlanning
-O objetivo desta seção é descrever como habilitar a integração de aplicativos com o ShiftPlanning.
+Para configurar a integração do Azure AD ao Humanity, você precisará dos seguintes itens:
 
-### <a name="to-enable-the-application-integration-for-shiftplanning-perform-the-following-steps"></a>Para habilitar a integração de aplicativos para o ShiftPlanning, execute as seguintes etapas:
-1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
+- Uma assinatura do AD do Azure
+- Uma assinatura do Humanity habilitada para logon único
+
+> [!NOTE]
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+
+- Não use o ambiente de produção, a menos que seja necessário.
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Descrição do cenário
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+
+1. Adicionar o Humanity da galeria
+2. Configurar e testar o logon único do AD do Azure
+
+## <a name="adding-humanity-from-the-gallery"></a>Adicionar o Humanity da galeria
+Para configurar a integração do Humanity ao Azure AD, você precisará adicionar o Humanity da galeria à sua lista de aplicativos SaaS gerenciados.
+
+**Para adicionar o Humanity da galeria, execute as seguintes etapas:**
+
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+
+    ![Active Directory][1]
+
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+
+    ![Aplicativos][2]
+    
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+
+    ![Aplicativos][3]
+
+4. Na caixa de pesquisa, digite **Humanity**.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_search.png)
+
+5. No painel de resultados, selecione **Humanity** e clique no botão **Adicionar** para adicionar o aplicativo.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+Nesta seção, você configurará e testará o logon único do Azure AD com o Humanity, com base em uma usuária de teste chamada "Brenda Fernandes".
+
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Humanity é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Humanity.
+
+No Humanity, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+
+Para configurar e testar o logon único do Azure AD com o Humanity, você precisará concluir os seguintes blocos de construção:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criação de um usuário de teste do Humanity](#creating-a-humanity-test-user)** – para ter um equivalente de Brenda Fernandes no Humanity que esteja vinculado à representação do usuário no Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+
+Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo Humanity.
+
+**Para configurar o logon único do Azure AD com o Humanity, realize as seguintes etapas:**
+
+1. No portal do Azure, na página de integração de aplicativos do **Humanity**, clique em **Logon único**.
+
+    ![Configurar Logon Único][4]
+
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+ 
+    ![Configurar Logon Único](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_samlbase.png)
+
+3. Na seção **Domínio e URLs do Humanity**, execute as seguintes etapas:
+
+    ![Configurar Logon Único](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_url.png)
+
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://company.humanity.com/includes/saml/`
+
+    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://company.humanity.com/app/`
+
+    > [!NOTE] 
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente Humanity](https://www.humanity.com/support/) para obter esses valores. 
+ 
+4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+
+    ![Configurar Logon Único](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_certificate.png) 
+
+5. Clique no botão **Salvar** .
+
+    ![Configurar Logon Único](./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_400.png)
+
+6. Na seção **Configuração do Humanity**, clique em **Configurar Humanity** para abrir a janela **Configurar logon**. Copie a **URL do Serviço de Logon Único do SAML e a URL de Logoff** da **seção de Referência Rápida.**
+
+    ![Configurar Logon Único](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_configure.png) 
+
+7. Em outra janela do navegador da Web, faça logon em seu site de empresa do **Humanity** como um administrador.
+
+8. No menu na parte superior, clique em **Administrador**.
    
-    ![Active Directory](./media/active-directory-saas-shiftplanning-tutorial/IC700993.png "Active Directory")
+    ![Admin](./media/active-directory-saas-shiftplanning-tutorial/iC786619.png "Admin")
 
-2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
-
-3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
+9. Em **Integração**, clique em **Logon Único**.
    
-    ![Aplicativos](./media/active-directory-saas-shiftplanning-tutorial/IC700994.png "Aplicativos")
+    ![Logon Único](./media/active-directory-saas-shiftplanning-tutorial/iC786620.png "Logon Único")
 
-4. Clique em **Adicionar** na parte inferior da página.
+10. Na seção **Logon Único** , realize as seguintes etapas:
    
-    ![Adicionar aplicativo](./media/active-directory-saas-shiftplanning-tutorial/IC749321.png "Adicionar aplicativo")
-
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+    ![Logon Único](./media/active-directory-saas-shiftplanning-tutorial/iC786905.png "Logon Único")
    
-    ![Adicionar um aplicativo da galeria](./media/active-directory-saas-shiftplanning-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
+    a. Selecione **SAML Habilitado**.
 
-6. Na **caixa de pesquisa**, digite **ShiftPlanning**.
+    b. Selecione **Permitir Logon de Senha**.
+
+    c. Cole o valor da **URL do Serviço de Logon Único do SAML** na caixa de texto **URL do Emissor do SAML**.
+
+    d. Cole o valor da **URL de Saída** na caixa de texto **URL de Logout Remota**.
    
-    ![Galeria de Aplicativos](./media/active-directory-saas-shiftplanning-tutorial/IC786613.png "Galeria de Aplicativos")
+    e. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado X.509** .
 
-7. No painel de resultados, selecione **ShiftPlanning** e clique em **Concluir** para adicionar o aplicativo.
-   
-    ![ShiftPlanning](./media/active-directory-saas-shiftplanning-tutorial/IC786614.png "ShiftPlanning")
-   
-## <a name="configuring-single-sign-on"></a>Configurando o logon único
+11. Clique em **Salvar Configurações**.
 
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no ShiftPlanning com sua conta do AD do Azure usando federação baseada no protocolo SAML.  
-Como parte desse procedimento, será necessário criar um arquivo de certificado codificado em base&64;.  
-Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+> [!TIP]
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Para configurar o logon único, execute as seguintes etapas:
-1. No Portal Clássico do Azure, na página de integração de aplicativos do **ShiftPlanning**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
-   
-    ![Configurar Logon Único](./media/active-directory-saas-shiftplanning-tutorial/IC786615.png "Configurar Logon Único")
+### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-2. Na página **Como você deseja que os usuários façam logon no ShiftPlanning**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
-   
-    ![Configurar Logon Único](./media/active-directory-saas-shiftplanning-tutorial/IC786616.png "Configurar Logon Único")
+![Criar um usuário do AD do Azure][100]
 
-3. Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Logon do ShiftPlanning**, digite a URL usando o padrão "*https://empresa.shiftplanning.com/includes/saml/*" e clique em **Avançar***.
-   
-    ![Configurar URL do Aplicativo](./media/active-directory-saas-shiftplanning-tutorial/IC786617.png "Configurar URL do Aplicativo")
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-4. Na página **Configurar logon único no ShiftPlanning**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
-   
-    ![Configurar Logon Único](./media/active-directory-saas-shiftplanning-tutorial/IC786618.png "Configurar Logon Único")
+1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
-5. Em outra janela do navegador da Web, faça logon em seu site de empresa do **ShiftPlanning** como administrador.
-6. No menu na parte superior, clique em **Administrador**.
-   
-    ![Admin](./media/active-directory-saas-shiftplanning-tutorial/IC786619.png "Admin")
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-shiftplanning-tutorial/create_aaduser_01.png) 
 
-7. Em **Integração**, clique em **Logon Único**.
-   
-    ![Logon Único](./media/active-directory-saas-shiftplanning-tutorial/IC786620.png "Logon Único")
+2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+    
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-shiftplanning-tutorial/create_aaduser_02.png) 
 
-8. Na seção **Logon Único** , realize as seguintes etapas:
-   
-    ![Logon Único](./media/active-directory-saas-shiftplanning-tutorial/IC786905.png "Logon Único")
-   
-    1. Selecione **SAML Habilitado**.
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+ 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-shiftplanning-tutorial/create_aaduser_03.png) 
 
-    2. Selecione **Permitir Logon de Senha**
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+ 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-shiftplanning-tutorial/create_aaduser_04.png) 
 
-    3. No portal clássico do Azure, na página de diálogo **Configurar logon único no ShiftPlanning**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL do Emissor do SAML**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
-    4. No portal clássico do Azure, na página de diálogo **Configurar logon único no ShiftPlanning**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff Remoto**.
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
-    5. Crie um arquivo **codificado em base&64;** usando o certificado baixado.  
-       
-    > [!TIP]
-    > Para obter mais detalhes, confira [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
-    > 
-    > 
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
 
-    6. Abra seu certificado codificado em Base&64; no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado X.509**
+    d. Clique em **Criar**.
+ 
+### <a name="creating-a-humanity-test-user"></a>Criar um usuário de teste do Humanity
 
-    7. Clique em **Salvar Configurações**.
+Para permitir que os usuários do Azure AD façam logon no Humanity, eles deverão ser provisionados no Humanity. No caso do Humanity, o provisionamento é uma tarefa manual.
 
-9. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
-   
-    ![Configurar Logon Único](./media/active-directory-saas-shiftplanning-tutorial/IC786621.png "Configurar Logon Único")
-   
-## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
+**Para provisionar uma conta de usuário, execute as seguintes etapas:**
 
-Para permitir que os usuários do AD do Azure façam logon no ShiftPlanning, eles deverão ser provisionados no ShiftPlanning.  
-No caso do ShiftPlanning, o provisionamento será uma tarefa manual.
-
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Para provisionar contas de usuário, execute as seguintes etapas:
-1. Faça logon em seu site de empresa do **ShiftPlanning** como administrador.
+1. Faça logon em seu site de empresa do **Humanity** como administrador.
 
 2. Clique em **Administrador**.
    
-    ![Admin](./media/active-directory-saas-shiftplanning-tutorial/IC786619.png "Admin")
+    ![Admin](./media/active-directory-saas-shiftplanning-tutorial/iC786619.png "Admin")
 
 3. Clique em **Equipe**.
    
-    ![Equipe](./media/active-directory-saas-shiftplanning-tutorial/IC786623.png "Equipe")
+    ![Equipe](./media/active-directory-saas-shiftplanning-tutorial/ic786623.png "Equipe")
 
-4. Em **Ações**, clique em **Adicionar Funcionário**.
+4. Em **Ações**, clique em **Adicionar Funcionários**.
    
-    ![Adicionar Funcionários](./media/active-directory-saas-shiftplanning-tutorial/IC786624.png "Adicionar Funcionários")
+    ![Adicionar Funcionários](./media/active-directory-saas-shiftplanning-tutorial/iC786624.png "Adicionar Funcionários")
 
 5. Na seção **Adicionar Funcionários** , realize as seguintes etapas:
    
-    ![Salvar Funcionários](./media/active-directory-saas-shiftplanning-tutorial/IC786625.png "Salvar Funcionários")
+    ![Salvar Funcionários](./media/active-directory-saas-shiftplanning-tutorial/iC786625.png "Salvar Funcionários")
    
-    1. Nas caixas de texto correspondentes, digite o **Nome**, o **Sobrenome** e o **Email** de uma conta válida do AAD que você deseja provisionar.
+    a. Nas caixas de texto correspondentes, digite o **Nome**, o **Sobrenome** e o **Email** de uma conta válida do AAD que você deseja provisionar.
 
-    2. Clique em **Salvar Funcionários**.
+    b. Clique em **Salvar Funcionários**.
 
-> [!NOTE]
-> É possível usar qualquer outra ferramenta de criação da conta de usuário do ShiftPlanning ou as APIs fornecidas pelo ShiftPlanning para provisionar as contas de usuário do AAD.
-> 
-> 
+>[!NOTE]
+>É possível usar qualquer outra ferramenta de criação da conta de usuário do Humanity ou as APIs fornecidas pelo Humanity para provisionar as contas de usuário do AAD.
 
-## <a name="assigning-users"></a>Atribuindo usuários
-Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
-### <a name="to-assign-users-to-shiftplanning-perform-the-following-steps"></a>Para atribuir usuários ao ShiftPlanning, execute as seguintes etapas:
-1. No Portal clássico do Azure, crie uma conta de teste.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Humanity.
 
-2. Na página de integração de aplicativos do **ShiftPlanning**, clique em **Atribuir usuários**.
-   
-    ![Atribuir Usuários](./media/active-directory-saas-shiftplanning-tutorial/IC786626.png "Atribuir Usuários")
+![Atribuir usuário][200] 
 
-3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
-   
-    ![Sim](./media/active-directory-saas-shiftplanning-tutorial/IC767830.png "Sim")
- 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+**Para atribuir Brenda Fernandes ao Humanity, execute as seguintes etapas:**
 
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
+    ![Atribuir usuário][201] 
 
+2. Na lista de aplicativos, selecione **Humanity**.
 
-<!--HONumber=Jan17_HO1-->
+    ![Configurar Logon Único](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_app.png) 
 
+3. No menu à esquerda, clique em **usuários e grupos**.
+
+    ![Atribuir usuário][202] 
+
+4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+
+    ![Atribuir usuário][203]
+
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+
+6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+
+7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+    
+### <a name="testing-single-sign-on"></a>Teste do logon único
+
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+
+Quando você clicar no bloco Humanity no Painel de Acesso, deverá ser automaticamente conectado ao seu aplicativo Humanity.
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+
+## <a name="additional-resources"></a>Recursos adicionais
+
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_203.png
 

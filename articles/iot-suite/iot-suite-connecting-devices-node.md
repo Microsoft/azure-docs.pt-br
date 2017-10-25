@@ -13,21 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/20/2017
+ms.date: 08/24/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 144dcd5277673024c7a71808f32c6a7b6491559a
-ms.openlocfilehash: 6ccea0eeb594070eed6341d3f5ec80db0efdf8f2
-ms.lasthandoff: 02/27/2017
-
-
+ms.openlocfilehash: 6459b6196eb7f4a083b67e5a421bcc0d51d39e5c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>Conectar seu dispositivo à solução pré-configurada de monitoramento remoto (Node.js)
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 ## <a name="create-a-nodejs-sample-solution"></a>Criar uma solução de exemplo do Node.js
 
-Certifique-se de que o Node.js versão 0.10.x ou posterior esteja instalado no computador de desenvolvimento. Você pode executar `node --version` na linha de comando para verificar a versão.
+Certifique-se de que o Node.js versão 0.11.5 ou posterior esteja instalado no computador de desenvolvimento. Você pode executar `node --version` na linha de comando para verificar a versão.
 
 1. Crie uma pasta chamada **RemoteMonitoring** no computador de desenvolvimento. Navegue até essa pasta no ambiente de linha de comando.
 
@@ -143,7 +142,7 @@ Certifique-se de que o Node.js versão 0.10.x ou posterior esteja instalado no c
         // Complete the response
         response.send(200, "Rebooting device", function(err) {
             if(!!err) {
-                console.error('An error ocurred when sending a method response:\n' + err.toString());
+                console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
             }
@@ -160,7 +159,7 @@ Certifique-se de que o Node.js versão 0.10.x ou posterior esteja instalado no c
         // Complete the response
         response.send(200, "Firmware update initiated", function(err) {
             if(!!err) {
-                console.error('An error ocurred when sending a method response:\n' + err.toString());
+                console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
             }
@@ -255,4 +254,3 @@ Certifique-se de que o Node.js versão 0.10.x ou posterior esteja instalado no c
 
 [lnk-github-repo]: https://github.com/azure/azure-iot-sdk-node
 [lnk-github-prepare]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
-

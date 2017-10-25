@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 28426f048205e7cf836375d8b8855e06d5de807e
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: 809d3944311badf265117d353b65642e044d900c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Introdução a nós de computação Linux em um cluster de HPC Pack no Azure
 Configure um cluster do [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) no Azure que contenha um nó de cabeçalho que executa o Windows Server e vários nós de computação que executam uma distribuição do Linux com suporte. Explore as opções para mover dados entre nós Linux e o nó principal do Windows do cluster. Saiba como enviar trabalhos do HPC Linux para o cluster.
@@ -39,7 +38,7 @@ Este artigo mostra duas opções para implantar um cluster do HPC Pack no Azure 
 * **Modelo do Azure Resource Manager** – Use um modelo do Azure Marketplace ou um modelo de início rápido da comunidade para automatizar a criação do cluster no modelo de implantação do Resource Manager. Por exemplo, o modelo de [Cluster do HPC Pack para cargas de trabalho do Linux](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) no Azure Marketplace cria uma infraestrutura completa de cluster de HPC Pack para cargas de trabalho do HPC no Linux.
 * **Script do PowerShell** - [use o script de implantação de IaaS do Microsoft HPC Pack](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) (**New-HpcIaaSCluster.ps1**) para automatizar uma implantação de cluster completa no modelo de implantação clássico. Esse script do Azure PowerShell usa uma imagem de VM do HPC Pack no Azure Marketplace para implantação rápida e fornece um conjunto abrangente de parâmetros de configuração para implantar nós de computação do Linux.
 
-Para obter mais informações sobre as opções de implantação de cluster do HPC Pack, consulte [Opções para criar e gerenciar um cluster de HPC (computação de alto desempenho ) no Azure com o Microsoft HPC Pack](../../virtual-machines-linux-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para obter mais informações sobre as opções de implantação de cluster do HPC Pack, consulte [Opções para criar e gerenciar um cluster de HPC (computação de alto desempenho ) no Azure com o Microsoft HPC Pack](../hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### <a name="prerequisites"></a>Pré-requisitos
 * **Assinatura do Azure** : você pode usar a assinatura no serviço Azure Global ou no Azure China. Se você não tem uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
@@ -52,14 +51,14 @@ Para obter mais informações sobre as opções de implantação de cluster do H
   * **Ubuntu Server**: 14.04 LTS, 16.04 LTS
     
     > [!TIP]
-    > Para usar a rede RDMA do Azure com um dos tamanhos de VM compatíveis com RDMA, especifique uma imagem de HPC com base em CentOS ou de HPC do SUSE Linux Enterprise Server 12 no Azure Marketplace. Para obter mais informações, veja [Sobre VMs série H ou série A com computação intensiva](../../virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > Para usar a rede RDMA do Azure com um dos tamanhos de VM compatíveis com RDMA, especifique uma imagem de HPC com base em CentOS ou de HPC do SUSE Linux Enterprise Server 12 no Azure Marketplace. Para obter mais informações, consulte [Tamanhos de VM de computação de alto desempenho](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     > 
     > 
 
 Pré-requisitos adicionais para implantar o cluster usando o script de implantação de IaaS do HPC Pack:
 
 * **Computador cliente** – você precisa de um computador cliente com Windows para executar o script de implantação do cluster.
-* **Azure PowerShell** - [Instale e configure o Azure PowerShell](/powershell/azureps-cmdlets-docs) (versão 0.8.10 ou posterior) no computador cliente.
+* **Azure PowerShell** - [Instale e configure o Azure PowerShell](/powershell/azure/overview) (versão 0.8.10 ou posterior) no computador cliente.
 * **Script de implantação de IaaS do HPC Pack** – baixe e descompacte a versão mais recente do script no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Verifique a versão do script executando `.\New-HPCIaaSCluster.ps1 –Version`. Este artigo se baseia na versão 4.4.1 ou posterior do script.
 
 ### <a name="deployment-option-1-use-a-resource-manager-template"></a>Opção de implantação 1. Use um modelo do Resource Manager
@@ -87,7 +86,7 @@ Pré-requisitos adicionais para implantar o cluster usando o script de implanta�
 A seguir estão pré-requisitos adicionais para implantar o cluster usando o script de implantação de IaaS do HPC Pack:
 
 * **Computador cliente** – você precisa de um computador cliente com Windows para executar o script de implantação do cluster.
-* **Azure PowerShell** - [Instale e configure o Azure PowerShell](/powershell/azureps-cmdlets-docs) (versão 0.8.10 ou posterior) no computador cliente.
+* **Azure PowerShell** - [Instale e configure o Azure PowerShell](/powershell/azure/overview) (versão 0.8.10 ou posterior) no computador cliente.
 * **Script de implantação de IaaS do HPC Pack** – baixe e descompacte a versão mais recente do script no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Verifique a versão do script executando `.\New-HPCIaaSCluster.ps1 –Version`. Este artigo se baseia na versão 4.4.1 ou posterior do script.
 
 **Arquivo de configuração XML**
@@ -166,7 +165,7 @@ Modifique o arquivo como necessário para seu ambiente e a configuração de clu
    > 
 
 ## <a name="connect-to-the-head-node"></a>Conectar-se ao nó principal
-Depois de implantar o cluster do HPC Pack no Azure, [conecte-se por meio da Área de Trabalho Remota](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) à VM do nó principal usando o domínio credenciais fornecidas quando você implantou o cluster (por exemplo, *hpc\\clusteradmin*). Você gerencia o cluster do nó principal.
+Depois de implantar o cluster do HPC Pack no Azure, [conecte-se por meio da Área de Trabalho Remota](../../windows/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) à VM do nó principal usando o domínio credenciais fornecidas quando você implantou o cluster (por exemplo, *hpc\\clusteradmin*). Você gerencia o cluster do nó principal.
 
 No nó principal, inicie o Gerenciador de Cluster HPC para verificar o status do cluster HPC Pack. Você pode gerenciar e monitorar os nós de computação Linux da mesma maneira que faz trabalha com os nós de computação do Windows. Por exemplo, você verá os nós Linux listados no**Resource Management** (esses nós são implantados com o modelo **LinuxNode**).
 
@@ -186,7 +185,7 @@ Você tem várias opções para mover dados entre nós Linux e o nó principal d
 ### <a name="azure-file-storage"></a>Armazenamento de arquivos do Azure
 O serviço [Arquivo do Azure](https://azure.microsoft.com/services/storage/files/) expõe os compartilhamentos de arquivos usando o protocolo SMB 2.1 padrão. As VMs e os serviços de nuvem podem compartilhar dados de arquivos entre componentes de aplicativos por meio de compartilhamentos montados, e aplicativos locais podem acessar dados de arquivos em um compartilhamento por meio da API de armazenamento de arquivos. 
 
-Para obter etapas detalhadas para criar um compartilhamento de Arquivos do Azure e montá-lo no nó principal, veja [Introdução ao armazenamento de Arquivos do Azure no Windows](../../../storage/storage-dotnet-how-to-use-files.md). Para montar o compartilhamento de Arquivos do Azure nos nós do Linux, veja [Como usar o Armazenamento de Arquivos do Azure com o Linux](../../../storage/storage-how-to-use-files-linux.md). Para configurar as conexões persistentes, confira [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+Para obter etapas detalhadas para criar um compartilhamento de Arquivos do Azure e montá-lo no nó principal, veja [Introdução ao armazenamento de Arquivos do Azure no Windows](../../../storage/files/storage-how-to-use-files-windows.md). Para montar o compartilhamento de Arquivos do Azure em nós do Linux, consulte [Como usar o armazenamento de Arquivos do Azure com Linux](../../../storage/files/storage-how-to-use-files-linux.md). Para configurar as conexões persistentes, confira [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
 No exemplo a seguir, crie um compartilhamento de arquivos do Azure em uma conta de armazenamento. Para montar o compartilhamento no nó de cabeçalho, abra um Prompt de Comando e insira os seguintes comandos:
 
@@ -269,7 +268,7 @@ Há várias maneiras de enviar trabalhos ao cluster HPC Pack:
 * Portal da Web do HPC
 * API REST
 
-O envio de trabalho para o cluster no Azure por meio de ferramentas de GUI do HPC Pack e o portal da Web do HPC são os mesmas para nós de computação do Windows. Veja [Gerenciador de trabalhos do HPC Pack](https://technet.microsoft.com/library/ff919691.aspx) e [Como enviar trabalhos de um computador cliente local](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+O envio de trabalho para o cluster no Azure por meio de ferramentas de GUI do HPC Pack e o portal da Web do HPC são os mesmas para nós de computação do Windows. Veja [Gerenciador de trabalhos do HPC Pack](https://technet.microsoft.com/library/ff919691.aspx) e [Como enviar trabalhos de um computador cliente local](../../windows/hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Para enviar trabalhos por meio da API REST, confira [Creating and Submitting Jobs by Using the REST API in Microsoft HPC Pack (Windows HPC Server)](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Para enviar trabalhos de um cliente Linux, consulte também o exemplo do Python no [SDK do HPC Pack](https://www.microsoft.com/download/details.aspx?id=47756).
 
@@ -299,7 +298,7 @@ A ferramenta [clusrun](https://technet.microsoft.com/library/cc947685.aspx) do H
 
 ## <a name="next-steps"></a>Próximas etapas
 * Tente dimensionar verticalmente o cluster para um maior número de nós ou executar uma carga de trabalho do Linux no cluster. Para ver um exemplo, confira [Executar o NAMD com o Microsoft HPC Pack em nós de computação do Linux no Azure](hpcpack-cluster-namd.md).
-* Tente um cluster com [VMs compatíveis com RDMA, com uso intensivo de computação](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para executar cargas de trabalho MPI. Para ver um exemplo, confira [Executar o OpenFOAM com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure](hpcpack-cluster-openfoam.md).
+* Tente um cluster com [VMs compatíveis com RDMA, com uso intensivo de computação](../../windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para executar cargas de trabalho MPI. Para ver um exemplo, confira [Executar o OpenFOAM com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure](hpcpack-cluster-openfoam.md).
 * Se você estiver interessado em trabalhar em nós do Linux em um cluster do HPC Pack local, veja as [diretrizes do TechNet](https://technet.microsoft.com/library/mt595803.aspx).
 
 <!--Image references-->
@@ -316,4 +315,3 @@ A ferramenta [clusrun](https://technet.microsoft.com/library/cc947685.aspx) do H
 [nfsshare]:media/hpcpack-cluster/nfsshare.png
 [nfsperm]:media/hpcpack-cluster/nfsperm.png
 [nfsmanage]:media/hpcpack-cluster/nfsmanage.png
-

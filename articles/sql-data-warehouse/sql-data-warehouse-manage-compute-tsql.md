@@ -3,7 +3,7 @@ title: Pausar, retomar, dimensionar com o T-SQL no Azure SQL Data Warehouse | Mi
 description: "Tarefas de Transact-SQL (T-SQL) para escalar horizontalmente o desempenho ao ajustar DWUs. Reduzir custos por meio da redução durante horários que não sejam de pico."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: jhubbard
 editor: 
 ms.assetid: a970d939-2adf-4856-8a78-d4fe8ab2cceb
@@ -12,14 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 94f9bbcfddf8ea3d5ae9bffcb3c196a30f4bb396
-ms.lasthandoff: 03/28/2017
-
-
+ms.date: 03/30/2017
+ms.author: elbutter;barbkess
+ms.openlocfilehash: 9221d72ecf8ab2ba8b04e4bc97eeef7157817cca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-t-sql"></a>Gerenciar poder de computação no SQL Data Warehouse do Azure (T-SQL)
 > [!div class="op_single_selector"]
@@ -36,17 +35,17 @@ ms.lasthandoff: 03/28/2017
 ## <a name="view-current-dwu-settings"></a>Exibir configurações atuais de DWU
 Para exibir as configurações atuais de DWU para seus bancos de dados:
 
-1. Abra o Pesquisador de Objetos do SQL Server no Visual Studio 2015.
+1. Abra o Pesquisador de Objetos do SQL Server no Visual Studio.
 2. Conecte-se ao banco de dados mestre associado ao servidor lógico do Banco de Dados SQL.
 3. Selecione do modo de exibição de gerenciamento dinâmico sys.database_service_objectives. Veja um exemplo: 
 
 ```sql
 SELECT
     db.name [Database]
-,    ds.edition [Edition]
-,    ds.service_objective [Service Objective]
+,   ds.edition [Edition]
+,   ds.service_objective [Service Objective]
 FROM
-     sys.database_service_objectives ds
+    sys.database_service_objectives ds
 JOIN
     sys.databases db ON ds.database_id = db.database_id
 ```
@@ -117,4 +116,3 @@ Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][M
 <!--Other Web references-->
 
 [Azure portal]: http://portal.azure.com/
-

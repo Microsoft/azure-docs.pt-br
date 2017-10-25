@@ -12,17 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: d568c52a7cbbe593658fb95203bfa98af13a1554
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: b6ecd0d09589fec85c1633f528afc1165c346b7f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Monitorar Surface Hubs com o Log Analytics para acompanhar sua integridade
+
+![Símbolo do Surface Hub](./media/log-analytics-surface-hubs/surface-hub-symbol.png)
 
 Este artigo descreve como você pode usar a solução Surface Hub no Log Analytics para monitorar dispositivos do Microsoft Surface Hubs com o Microsoft Operations Management Suite (OMS). O Log Analytics o ajuda a controlar a integridade dos seus Surface Hubs além de compreender como eles estão sendo usados.
 
@@ -36,32 +37,32 @@ Use as informações a seguir para instalar e configurar a solução. Para geren
 
 Em seguida, você adicionará uma assinatura do OMS à sua assinatura do Microsoft Azure existente ou criará um novo espaço de trabalho diretamente através do portal do OMS. Instruções detalhadas para usar o método podem ser encontradas em [Introdução ao Log Analytics](log-analytics-get-started.md). Depois que a assinatura do OMS estiver configurada, há duas maneiras de registrar seus dispositivos do Surface Hub:
 
-* Automaticamente por meio do InTune
+* Automaticamente por meio do Intune
 * Manualmente por meio das **configurações** em seu dispositivo do Surface Hub.
 
 ## <a name="set-up-monitoring"></a>Configurar monitoramento
-Você pode monitorar a integridade e a atividade do seu Surface Hub usando o Log Analytics no OMS. Você pode registrar o Surface Hub no OMS usando o InTune ou localmente usando as **Configurações** no Surface Hub.
+Você pode monitorar a integridade e a atividade do seu Surface Hub usando o Log Analytics no OMS. Você pode registrar o Surface Hub no OMS usando o Intune ou localmente usando as **Configurações** no Surface Hub.
 
-## <a name="connect-surface-hubs-to-oms-through-intune"></a>Conectar Surface Hubs ao OMS através do InTune
+## <a name="connect-surface-hubs-to-oms-through-intune"></a>Conectar Surface Hubs ao OMS através do Intune
 Será necessário o ID do espaço de trabalho e a chave do espaço de trabalho para o espaço de trabalho do OMS que gerenciará os Surface Hubs. Você pode obtê-los no portal do OMS.
 
-O InTune é um produto da Microsoft que permite que você gerencie centralmente as definições de configuração do OMS que são aplicadas a um ou mais dos seus dispositivos. Siga estas etapas para configurar seus dispositivos por meio do InTune:
+O Intune é um produto da Microsoft que permite que você gerencie centralmente as definições de configuração do OMS que são aplicadas a um ou mais dos seus dispositivos. Siga estas etapas para configurar seus dispositivos por meio do Intune:
 
-1. Entre no InTune.
+1. Entre no Intune.
 2. Navegue até **configurações** > **Fontes conectadas**.
 3. Criar ou editar uma política com base no modelo de Surface Hub.
 4. Navegue até a seção OMS (Insights operacionais do Azure) da política e adicione o *ID do espaço de trabalho* e a *Chave do espaço de trabalho* à política.
 5. Salve a política.
 6. Associe a política ao grupo de dispositivos apropriado.
 
-   ![Política do InTune](./media/log-analytics-surface-hubs/intune.png)
+   ![Política do Intune](./media/log-analytics-surface-hubs/intune.png)
 
-O InTune então sincroniza as configurações do OMS com os dispositivos no grupo de destino, registrando-os em seu espaço de trabalho do OMS.
+O Intune então sincroniza as configurações do OMS com os dispositivos no grupo de destino, registrando-os em seu espaço de trabalho do OMS.
 
 ## <a name="connect-surface-hubs-to-oms-using-the-settings-app"></a>Conectar Surface Hubs ao OMS usando o aplicativo de configurações
 Será necessário o ID do espaço de trabalho e a chave do espaço de trabalho para o espaço de trabalho do OMS que gerenciará os Surface Hubs. Você pode obtê-los no portal do OMS.
 
-Se você não usar o InTune para gerenciar seu ambiente, você pode registrar dispositivos manualmente por meio das **Configurações** em cada Surface Hub:
+Se você não usar o Intune para gerenciar seu ambiente, poderá registrar dispositivos manualmente por meio das **Configurações** em cada Surface Hub:
 
 1. No seu Surface Hub, abra **Configurações**.
 2. Insira as credenciais de administrador do dispositivo quando solicitado.
@@ -87,4 +88,3 @@ Você pode criar [alertas](log-analytics-alerts.md) com base em pesquisas de log
 ## <a name="next-steps"></a>Próximas etapas
 * Use [Pesquisas de Log no Log Analytics](log-analytics-log-searches.md) para exibir dados detalhados do Surface Hub.
 * Crie [alertas](log-analytics-alerts.md) para notificá-lo quando ocorrerem problemas com seus Surface Hubs.
-

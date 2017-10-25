@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 06/09/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: c56a1dc92c27d55b90554e23dd9763ff98ce6cc7
-ms.lasthandoff: 03/15/2017
-
-
+ms.openlocfilehash: 060680fd4a7ce6e0cde406cc4a8f6f3a21d3c588
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager vs. Implantação clássica: compreenda os modelos de implantação e o estado dos seus recursos
 Neste tópico, você aprende sobre o Azure Resource Manager e os modelos de implantação clássicos, o estado dos seus recursos e porque eles foram implantados com um modelo ou outro. O Gerenciador de Recursos e os modelos de implantação clássicos representam duas maneiras de implantar e gerenciar soluções do Azure. Você trabalha com eles através de dois conjuntos diferentes de API e os recursos implantados podem conter diferenças importantes. Os dois modelos não são totalmente compatíveis entre si. Este tópico descreve essas diferenças.
@@ -49,7 +48,7 @@ Ao decidir-se sobre qual modelo de implantação usar para seus recursos, há tr
 2. O serviço oferece suporte ao Resource Manager, mas fornece dois tipos - um para o Resource Manager e outro para o clássico. Esse cenário aplica-se somente a máquinas virtuais, contas de armazenamento e redes virtuais.
 3. O serviço não oferece suporte ao Resource Manager.
 
-Para descobrir se um serviço oferece ou não suporte ao Gerenciador de Recursos, consulte [Provedores com suporte do Gerenciador de Recursos](resource-manager-supported-services.md).
+Para descobrir se um serviço dá ou não suporte ao Resource Manager, consulte [Provedores e tipos de recursos](resource-manager-supported-services.md).
 
 Se o serviço que você quer usar não der suporte ao Resource Manager, continue usando a implantação clássica.
 
@@ -189,9 +188,9 @@ Para obter informações sobre como conectar redes virtuais de diferentes modelo
 ## <a name="migrate-from-classic-to-resource-manager"></a>Migrar do clássico para o Gerenciador de Recursos
 Se você estiver pronto para migrar seus recursos da implantação clássica para a implantação do Resource Manager, consulte:
 
-1. [Análise técnica aprofundada sobre a migração com suporte da plataforma do clássico para o Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-2. [Platform supported migration of IaaS resources from Classic to Azure Resource Manager (Migração de recursos de IaaS com suporte da plataforma do Clássico para o Azure Resource Manager)](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
-3. [Migrar recursos de IaaS do Clássico para o Azure Resource Manager usando o Azure PowerShell](../virtual-machines/virtual-machines-windows-ps-migration-classic-resource-manager.md)
+1. [Análise técnica aprofundada sobre a migração com suporte da plataforma do clássico para o Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
+2. [Platform supported migration of IaaS resources from Classic to Azure Resource Manager (Migração de recursos de IaaS com suporte da plataforma do Clássico para o Azure Resource Manager)](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+3. [Migrar recursos de IaaS do Clássico para o Azure Resource Manager usando o Azure PowerShell](../virtual-machines/windows/migration-classic-resource-manager-ps.md)
 4. [Migrar recursos de IaaS do modelo clássico para o Azure Resource Manager usando a CLI do Azure](../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
@@ -218,5 +217,4 @@ Um conjunto abrangente de modelos iniciais pode ser encontrado em [Modelos de in
 ## <a name="next-steps"></a>Próximas etapas
 * Para ver um passo a passo da criação do modelo que define uma máquina virtual, uma conta de armazenamento e uma rede virtual, confira [Passo a passo do modelo do Resource Manager](resource-manager-template-walkthrough.md).
 * Para ver os comandos para implantar um modelo, veja [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
-
 

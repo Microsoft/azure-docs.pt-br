@@ -135,8 +135,3 @@
                string.Format("Error occurred in the notification: {0}.", errorId));
        }
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

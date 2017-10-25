@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 8/9/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 9fc53417c40225c87d3849cbe51712849e5cc93a
-ms.lasthandoff: 03/03/2017
-
-
+ms.openlocfilehash: 940440688ec770a4aeb932b574bd6be173f494d4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Tutorial de atualização do aplicativo Service Fabric usando o Visual Studio
 > [!div class="op_single_selector"]
@@ -33,7 +32,7 @@ ms.lasthandoff: 03/03/2017
 O Azure Service Fabric simplifica o processo de atualização de aplicativos em nuvem, garantindo que apenas os serviços alterados sejam atualizados e que a integridade do aplicativo seja monitorada durante todo o processo de atualização. Além disso, ele reverte automaticamente o aplicativo para a versão anterior ao encontrar problemas. As atualizações de aplicativo do Service Fabric não apresentam *Nenhum Tempo de Inatividade*, pois o aplicativo pode ser atualizado sem qualquer tempo de inatividade. Este tutorial aborda como concluir uma atualização sem interrupção por meio do Visual Studio.
 
 ## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>Etapa 1: Compilar e implantar o exemplo do Visual Objects
-Primeiro, baixe o aplicativo [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Actors/VisualObjects) do GitHub. Em seguida, crie e publique o aplicativo clicando com o botão direito do mouse no projeto do aplicativo, **VisualObjects** e selecionando o comando **Publicar** no item de menu Service Fabric.
+Primeiro, baixe o aplicativo [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) do GitHub. Em seguida, crie e publique o aplicativo clicando com o botão direito do mouse no projeto do aplicativo, **VisualObjects** e selecionando o comando **Publicar** no item de menu Service Fabric.
 
 ![Menu de contexto para um aplicativo do Service Fabric][image1]
 
@@ -41,7 +40,9 @@ A seleção de **Publicar** exibe um pop-up, e você pode definir o **Perfil de 
 
 ![Publicar um aplicativo do Service Fabric][image2]
 
-Agora, clique em **Publicar** na caixa de diálogo. Você pode usar o [Gerenciador do Service Fabric para exibir o cluster e o aplicativo](service-fabric-visualizing-your-cluster.md). O aplicativo Visual Objects tem um serviço Web que pode ser acessado digitando [http://localhost:8082/visualobjects/](http://localhost:8082/visualobjects/) na barra de endereços do navegador.  Você deve ver 10 objetos visuais flutuantes na tela.
+Agora, clique em **Publicar** na caixa de diálogo. Você pode usar o [Gerenciador do Service Fabric para exibir o cluster e o aplicativo](service-fabric-visualizing-your-cluster.md). O aplicativo Visual Objects tem um serviço Web que pode ser acessado digitando [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) na barra de endereços do navegador.  Você deve ver 10 objetos visuais flutuantes na tela.
+
+**OBSERVAÇÃO:** se estiver implantando no perfil `Cloud.xml` (Azure Service Fabric), o aplicativo deverá estar disponível em **http://{NomeDoServiceFabric}.{Region}.cloudapp.azure.com:8081/visualobjects/**. Verifique se você tem `8081/TCP` configurado no Balanceador de Carga (localize o Balanceador de Carga no mesmo grupo de recursos que a instância do Service Fabric).
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Etapa 2: atualizar o exemplo de Objetos Visuais
 Você pode notar que a com a versão implantada na Etapa 1, os objetos visuais não giram. Vamos atualizar esse aplicativo para um onde os objetos visuais possam girar.
@@ -86,4 +87,3 @@ Corrija problemas comuns em atualizações de aplicativo consultando as etapas e
 [image2]: media/service-fabric-application-upgrade-tutorial/upgrade1.png
 [image3]: media/service-fabric-application-upgrade-tutorial/upgrade5.png
 [image4]: media/service-fabric-application-upgrade-tutorial/upgrade6.png
-

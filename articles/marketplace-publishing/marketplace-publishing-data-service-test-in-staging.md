@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: daf2017bfbab4250e3f1481f592e0e858c77f121
-
-
+ms.openlocfilehash: 56a8aad7484fed18b74200ffa7acf22363625a15
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="testing-your-data-service-offer-in-staging"></a>Testando sua oferta do Serviço de Dados no preparo
 > [!IMPORTANT]
@@ -63,7 +63,7 @@ A próxima tela exibida mostra que a publicação está ocorrendo pela exibiçã
 Quando o Envio por Push para o Preparo for concluído, o ícone “Em andamento” para de se mover e o status é atualizado para “Preparado”.  Agora você está pronto para testar sua oferta.  
 
 ## <a name="step-2-test-your-staged-offer-in-datamarket"></a>Etapa 2. Testar sua oferta preparada no DataMarket
-Clique no link após o texto **“Ver sua oferta do serviço em...”**  para exibir a tela que o assinante verá quando sua oferta for para a produção e aparecerá no DataMarket.
+Clique no link após o texto **“Ver sua oferta do serviço em...”** para exibir a tela que o assinante verá quando sua oferta for para a produção e aparecerá no DataMarket.
 
   ![desenho](media/marketplace-publishing-data-service-test-in-staging/step-2.2.png)
 
@@ -96,10 +96,4 @@ Se você estiver satisfeito e pronto para publicar sua oferta, leia a documenta�
 
 ## <a name="see-also"></a>Consulte também
 * [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

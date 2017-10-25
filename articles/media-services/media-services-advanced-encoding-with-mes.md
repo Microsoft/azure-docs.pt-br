@@ -4,7 +4,7 @@ description: "Esse tópico mostra como executar a codificação avançada ao per
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 2a4ade25-e600-4bce-a66e-e29cf4a38369
 ms.service: media-services
@@ -12,21 +12,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/01/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 01448fcff64e99429e2ee7df916b110c869307fb
-ms.openlocfilehash: 7776ac35f1a8a30c959286a9e31beb666f5fc799
-ms.lasthandoff: 03/02/2017
-
-
+ms.openlocfilehash: 8de3bdd45261c84a0e1bb90f1c58863ad740dd5a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Executar a codificação avançada personalizando predefinições de MES 
 
 ## <a name="overview"></a>Visão geral
 
 Este tópico mostra como personalizar as predefinições do Media Encoder Standard. O tópico [Codificação com o Media Encoder Standard usando predefinições personalizadas](media-services-custom-mes-presets-with-dotnet.md) mostra como usar o .NET para criar uma tarefa de codificação e um trabalho que executa essa tarefa. Após a personalização de uma predefinição, forneça as predefinições personalizadas para a tarefa de codificação. 
+
+>[!NOTE]
+>Se você estiver usando uma predefinição XML, lembre-se de preservar a ordem dos elementos, conforme mostrado nas amostras de XML abaixo (por exemplo, KeyFrameInterval deve preceder SceneChangeDetection).
+>
 
 Neste tópico, veja uma demonstração das predefinições personalizadas que executam as tarefas de codificação a seguir.
 
@@ -909,15 +911,16 @@ Atualize sua predefinição personalizada com IDs que você deseja concatenar e 
 Veja o tópico [Cortar vídeos com o Codificador de Mídia Padrão](media-services-crop-video.md) .
 
 ## <a id="no_video"></a>Inserir uma faixa de vídeo quando a entrada não tiver vídeo
+
 Por padrão, se você enviar uma entrada para o codificador que contenha apenas áudio e sem vídeo, o ativo de saída conterá os arquivos contendo apenas dados de vídeo. Alguns reprodutores, incluindo o Player de Mídia do Azure (consulte [aqui](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) talvez não sejam capazes de lidar com esses fluxos. Você pode usar essa configuração para forçar o codificador a adicionar uma faixa de vídeo monocromático à saída nesse cenário.
 
 > [!NOTE]
 > Forçar o codificador para inserir uma faixa de vídeo de saída aumenta o tamanho do ativo de saída e, consequentemente, o custo incorrido para a tarefa de codificação. Você deve executar testes para certificar-se de que esse aumento resultante tem apenas um impacto pequeno sobre os encargos mensais.
 >
->
 
 ### <a name="inserting-video-at-only-the-lowest-bitrate"></a>Inserindo vídeo somente com a taxa de bits mais baixa
-Suponha que você está usando uma predefinição de codificação de taxa de bits múltipla como ["H264 com taxa de bits múltipla de 720p"](media-services-mes-preset-h264-multiple-bitrate-720p.md) para codificar todo o seu catálogo de entrada para streaming, que contém uma mistura de arquivos de vídeo e arquivos de áudio. Nesse cenário, quando a entrada não tiver vídeo, é recomendável que você force o codificador a inserir uma faixa de vídeo monocromático somente na menor taxa de bits, em vez de inserir vídeo em cada taxa de bits de saída. Para fazer isso, você precisa especificar o sinalizador "InsertBlackIfNoVideoBottomLayerOnly".
+
+Suponha que você está usando uma predefinição de codificação de taxa de bits múltipla como ["H264 com taxa de bits múltipla de 720p"](media-services-mes-preset-h264-multiple-bitrate-720p.md) para codificar todo o seu catálogo de entrada para streaming, que contém uma mistura de arquivos de vídeo e arquivos de áudio. Nesse cenário, quando a entrada não tiver vídeo, é recomendável que você force o codificador a inserir uma faixa de vídeo monocromático somente na menor taxa de bits, em vez de inserir vídeo em cada taxa de bits de saída. Para fazer isso, você precisa usar o sinalizador **InsertBlackIfNoVideoBottomLayerOnly**.
 
 Você pode usar qualquer uma das predefinições de MES documentadas [nesta](media-services-mes-presets-overview.md) seção e fazer a seguinte modificação:
 
@@ -932,9 +935,32 @@ Você pode usar qualquer uma das predefinições de MES documentadas [nesta](med
     }
 
 #### <a name="xml-preset"></a>Predefinição XML
+
+Ao usar o XML, use Condition="InsertBlackIfNoVideoBottomLayerOnly" como um atributo do elemento **H264Video** e Condition="InsertSilenceIfNoAudio" como um atributo de **AACAudio**.
+
+```
+. . .
+<Encoding>
+  <H264Video Condition="InsertBlackIfNoVideoBottomLayerOnly">
     <KeyFrameInterval>00:00:02</KeyFrameInterval>
+    <SceneChangeDetection>true</SceneChangeDetection>
     <StretchMode>AutoSize</StretchMode>
-    <Condition>InsertBlackIfNoVideoBottomLayerOnly</Condition>
+    <H264Layers>
+      <H264Layer>
+        . . .
+      </H264Layer>
+    </H264Layers>
+    <Chapters />
+  </H264Video>
+  <AACAudio Condition="InsertSilenceIfNoAudio">
+    <Profile>AACLC</Profile>
+    <Channels>2</Channels>
+    <SamplingRate>48000</SamplingRate>
+    <Bitrate>128</Bitrate>
+  </AACAudio>
+</Encoding>
+. . .
+```
 
 ### <a name="inserting-video-at-all-output-bitrates"></a>Inserindo vídeo em todas as taxas de bits de saída
 Suponha que você está usando uma predefinição de codificação de taxa de bits múltipla como ["H264 com taxa de bits múltipla de 720p"](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) para codificar todo o seu catálogo de entrada para streaming, que contém uma mistura de arquivos de vídeo e arquivos de áudio. Nesse cenário, quando a entrada não tiver vídeo, é recomendável que você force o codificador a inserir uma faixa de vídeo monocromático em todas as taxas de bits de saída. Isso garante que seus ativos de saída sejam todos homogêneos quanto ao número de faixas de vídeo e de faixas de áudio. Para fazer isso, você precisa especificar o sinalizador "InsertBlackIfNoVideo".
@@ -952,9 +978,32 @@ Você pode usar qualquer uma das predefinições de MES documentadas [nesta](med
     }
 
 #### <a name="xml-preset"></a>Predefinição XML
+
+Ao usar o XML, use Condition="InsertBlackIfNoVideo" como um atributo do elemento **H264Video** e Condition="InsertSilenceIfNoAudio" como um atributo de **AACAudio**.
+
+```
+. . .
+<Encoding>
+  <H264Video Condition="InsertBlackIfNoVideo">
     <KeyFrameInterval>00:00:02</KeyFrameInterval>
+    <SceneChangeDetection>true</SceneChangeDetection>
     <StretchMode>AutoSize</StretchMode>
-    <Condition>InsertBlackIfNoVideo</Condition>
+    <H264Layers>
+      <H264Layer>
+        . . .
+      </H264Layer>
+    </H264Layers>
+    <Chapters />
+  </H264Video>
+  <AACAudio Condition="InsertSilenceIfNoAudio">
+    <Profile>AACLC</Profile>
+    <Channels>2</Channels>
+    <SamplingRate>48000</SamplingRate>
+    <Bitrate>128</Bitrate>
+  </AACAudio>
+</Encoding>
+. . .  
+```
 
 ## <a id="rotate_video"></a>Girar um vídeo
 O [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) dá suporte à rotação em ângulos de 0/90/180/270. O comportamento padrão é "Auto", em que ele tentará detectar os metadados de rotação no arquivo de vídeo de entrada e compensá-lo. Inclua o seguinte elemento de **Fontes** em uma das predefinições definidas [nesta](media-services-mes-presets-overview.md) seção:
@@ -993,4 +1042,3 @@ Você pode usar o valor "0" para indicar para o codificador ignorar os metadados
 
 ## <a name="see-also"></a>Consulte também
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
-

@@ -3,7 +3,7 @@ title: "Introdução ao .NET do Azure AD | Microsoft Docs"
 description: "Como compilar um aplicativo .NET de área de trabalho do Windows que se integre ao AD do Azure para entrada e que chame APIs protegidas do AD do Azure usando OAuth."
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
-ms.openlocfilehash: 70918f2bea789edb2a4000847360e5c7e563951b
-
-
+ms.author: jmprieur
+ms.custom: aaddev
+ms.openlocfilehash: 7a252e0e5243c7b7489373845531cb913ca1f6aa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-azure-ad-into-a-windows-desktop-wpf-app"></a>Integrar o AD do Azure em um aplicativo WPF de área de trabalho do Windows
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -168,10 +169,4 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 [Proteger uma API da Web .NET com o Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

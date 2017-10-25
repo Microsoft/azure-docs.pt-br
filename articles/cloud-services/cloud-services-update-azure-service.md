@@ -12,17 +12,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 04/19/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: b159d3583c24e36c2803d7d02deca1415669d054
-ms.openlocfilehash: ebc5461177df5b5a16ab9b5668f5fda890ee11a4
-
-
+ms.openlocfilehash: 2ba9676ed2afce7f18446642527971f5001b5ca7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-update-a-cloud-service"></a>Como atualizar um serviço de nuvem
-## <a name="overview"></a>Visão geral
-A 10.000 pés, atualizar um serviço de nuvem, incluindo suas funções e o SO convidado, é um processo que envolve três etapas. Primeiro, os binários e os arquivos de configuração do novo serviço de nuvem, ou a versão do sistema operacional, devem ser carregados. Em seguida, o Azure reserva recursos de computação e de rede para o serviço de nuvem com base nos requisitos da nova versão do serviço de nuvem. Por fim, o Azure executa uma atualização sem interrupção a fim de atualizar de forma incremental o locatário para a nova versão ou o SO convidado, preservando a disponibilidade. Este artigo discute os detalhes desta última etapa – a atualização sem interrupção.
+
+A atualização de um serviço de nuvem, incluindo suas funções e o SO convidado, é um processo que envolve três etapas. Primeiro, os binários e os arquivos de configuração do novo serviço de nuvem, ou a versão do sistema operacional, devem ser carregados. Em seguida, o Azure reserva recursos de computação e de rede para o serviço de nuvem com base nos requisitos da nova versão do serviço de nuvem. Por fim, o Azure executa uma atualização sem interrupção a fim de atualizar de forma incremental o locatário para a nova versão ou o SO convidado, preservando a disponibilidade. Este artigo discute os detalhes desta última etapa – a atualização sem interrupção.
 
 ## <a name="update-an-azure-service"></a>Atualizar um serviço do Azure
 O Azure organiza suas instâncias de função em agrupamentos lógicos chamados de domínios de atualização (UD). Os domínios de atualização (UD) são conjuntos lógicos de instâncias de função que são atualizados como um grupo.  O Azure atualiza um serviço de nuvem um UD por vez, o que permite que instâncias em outros UDs continuem a atender ao tráfego.
@@ -68,7 +68,7 @@ A tabela a seguir mostra as alterações permitidas em um serviço durante uma a
 
 <sup>1</sup>Alteração de tamanho limitado ao subconjunto de tamanhos disponíveis para o serviço de nuvem.
 
-<sup>2</sup>Exige o Azure SDK 1.5 ou versões posteriores.
+<sup>2</sup> Exige o Azure SDK 1.5 ou versões posteriores.
 
 > [!WARNING]
 > A alteração do tamanho da máquina virtual destruirá os dados locais.
@@ -90,11 +90,11 @@ Você pode decidir se deseja atualizar todas as funções ou uma única função
 
 O diagrama a seguir ilustra como a atualização ocorre se você estiver atualizando todas as funções no serviço:
 
-![Atualizar serviço](media/cloud-services-update-azure-service/IC345879.png "Upgrade service")
+![Atualizar serviço](media/cloud-services-update-azure-service/IC345879.png "Atualizar serviço")
 
 Este próximo diagrama ilustra como a atualização ocorre se você estiver atualizando somente uma única função:
 
-![Atualizar função](media/cloud-services-update-azure-service/IC345880.png "Upgrade role")  
+![Atualizar função](media/cloud-services-update-azure-service/IC345880.png "Atualizar função")  
 
 Durante uma atualização automática, o Azure Fabric Controller avalia periodicamente a integridade do serviço de nuvem a fim de determinar quando é seguro passar ao próximo UD. Essa avaliação de integridade é executada de acordo com a função e considera apenas instâncias na versão mais recente (ou seja, instâncias de UDs que já foram descritos). Ela verifica se um número mínimo de instâncias de função, para cada função, atingiu um estado de terminal satisfatório.
 
@@ -178,7 +178,7 @@ Os domínios de atualização são identificados com um índice baseado em zero:
 
 O diagrama a seguir ilustra como é a distribuição de um serviço que contém duas funções quando o serviço define dois domínios de atualização. O serviço está executando oito instâncias da função Web e nove instâncias da função de trabalho.
 
-![Distribuição de domínios de atualização](media/cloud-services-update-azure-service/IC345533.png "Distribution of Upgrade Domains")
+![Distribuição de domínios de atualização](media/cloud-services-update-azure-service/IC345533.png "Distribuição de domínios de atualização")
 
 > [!NOTE]
 > Observe que o Azure controla como as instâncias são alocadas nos domínios de atualização. Não é possível especificar quais instâncias são alocadas para cada domínio.
@@ -189,9 +189,3 @@ O diagrama a seguir ilustra como é a distribuição de um serviço que contém 
 [Como gerenciar serviços de nuvem](cloud-services-how-to-manage.md)  
 [Como monitorar serviços de nuvem](cloud-services-how-to-monitor.md)  
 [Como configurar os Serviços de Nuvem](cloud-services-how-to-configure.md)  
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

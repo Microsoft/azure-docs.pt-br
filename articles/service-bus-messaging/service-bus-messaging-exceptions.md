@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 06/06/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 3b543b1c94122a037cdd3b16e25d60957add1cb7
-ms.lasthandoff: 03/04/2017
-
-
+ms.openlocfilehash: 93300ba995f2a556cb90fc657db5cf9ad56b9846
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-messaging-exceptions"></a>Exceções de mensagens do Barramento de Serviço
 Este artigo relaciona algumas exceções geradas pelas APIs de mensagens do Barramento de Serviço do Microsoft Azure. Essa referência está sujeita a alterações, então verifique se há atualizações.
@@ -90,12 +89,10 @@ ConnectionsQuotaExceeded for namespace xxx.
 #### <a name="common-causes"></a>Causas comuns
 Há duas causas comuns desse erro: a fila de mensagens mortas e os destinatários de mensagem não estão funcionando.
 
-1. **Fila de mensagens mortas**
-    Um leitor não pode concluir as mensagens e as mensagens são retornadas para fila/tópico quando o bloqueio expira. Isso poderá acontecer se o leitor encontrar uma exceção que o impeça de chamar [BrokeredMessage.Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx). Depois que uma mensagem foi lida 10 vezes, ela é movida para a fila de mensagens mortas por padrão. Esse comportamento é controlado pela propriedade [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) e tem um valor padrão de 10. Conforme as mensagens são acumuladas na fila de mensagens mortas, elas ocupam espaço.
+1. **Fila de mensagens mortas** Um leitor não pode concluir as mensagens e as mensagens são retornadas para fila/tópico quando o bloqueio expira. Isso poderá acontecer se o leitor encontrar uma exceção que o impeça de chamar [BrokeredMessage.Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx). Depois que uma mensagem foi lida 10 vezes, ela é movida para a fila de mensagens mortas por padrão. Esse comportamento é controlado pela propriedade [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) e tem um valor padrão de 10. Conforme as mensagens são acumuladas na fila de mensagens mortas, elas ocupam espaço.
    
     Para resolver o problema, leia e conclua as mensagens da fila de mensagens mortas, como faria em qualquer outra fila. A classe [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx) contém até mesmo um método [FormatDeadLetterPath](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.formatdeadletterpath.aspx) para ajudar a formatar o caminho da fila de mensagens mortas.
-2. **Receptor interrompido**
-    Um receptor parou de receber mensagens de uma fila ou de uma assinatura. A maneira de identificar isso é examinar a propriedade [QueueDescription.MessageCountDetails](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.messagecountdetails.aspx) , que mostra a análise completa das mensagens. Se a propriedade [ActiveMessageCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagecountdetails.activemessagecount.aspx) for alta ou em expansão, as mensagens não serão lidas tão rapidamente quanto são escritas.
+2. **Receptor interrompido** Um receptor parou de receber mensagens de uma fila ou de uma assinatura. A maneira de identificar isso é examinar a propriedade [QueueDescription.MessageCountDetails](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.messagecountdetails.aspx) , que mostra a análise completa das mensagens. Se a propriedade [ActiveMessageCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagecountdetails.activemessagecount.aspx) for alta ou em expansão, as mensagens não serão lidas tão rapidamente quanto são escritas.
 
 ### <a name="event-hubs"></a>Hubs de Eventos
 Os Hubs de Eventos têm um limite de 20 grupos de consumidores por Hub de Eventos. Quando você tenta criar mais, recebe [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception). 
@@ -114,18 +111,16 @@ Para os Hubs de Eventos, o tempo limite é especificado como parte da cadeia de 
 ### <a name="common-causes"></a>Causas comuns
 Há duas causas comuns desse erro: configuração incorreta ou um erro de serviço transitório.
 
-1. **Configuração incorreta**
-    O tempo limite da operação pode ser muito pequeno para a condição operacional. O valor padrão para o tempo limite da operação no SDK do cliente é de 60 segundos. Verifique para ver se o código tem o valor definido para algo muito pequeno. Observe que a condição da rede e do uso da CPU pode afetar o tempo necessário para uma determinada operação ser concluída, portanto o tempo limite da operação não deve ser definido com um valor muito pequeno.
-2. **Erro de serviço temporário**
-    Às vezes, o serviço Barramento de Serviço pode sofrer atrasos nas solicitações de processamento; por exemplo, durante os períodos de tráfego intenso. Nesses casos, você pode repetir a operação após um atraso, até que a operação seja bem-sucedida. Se a mesma operação continuar falhando após várias tentativas, visite o [site de status do serviço do Azure](https://azure.microsoft.com/status/) para ver se há qualquer interrupção de serviço conhecida.
+1. **Configuração incorreta** O tempo limite da operação pode ser muito pequeno para a condição operacional. O valor padrão para o tempo limite da operação no SDK do cliente é de 60 segundos. Verifique para ver se o código tem o valor definido para algo muito pequeno. Observe que a condição da rede e do uso da CPU pode afetar o tempo necessário para uma determinada operação ser concluída, portanto o tempo limite da operação não deve ser definido com um valor muito pequeno.
+2. **Erro de serviço transitório** Às vezes, o serviço Barramento de Serviço pode sofrer atrasos nas solicitações de processamento; por exemplo, durante os períodos de tráfego intenso. Nesses casos, você pode repetir a operação após um atraso, até que a operação seja bem-sucedida. Se a mesma operação continuar falhando após várias tentativas, visite o [site de status do serviço do Azure](https://azure.microsoft.com/status/) para ver se há qualquer interrupção de serviço conhecida.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter a referência completa de Barramento de Serviço e a API do .NET de Hubs de Eventos, consulte a [Referência de API do .NET do Azure](/dotnet/api/).
+
+Para obter a referência completa da API do .NET de Barramento de Serviço, consulte a [Referência de API do .NET do Azure](/dotnet/api/overview/azure/servicebus).
 
 Para saber mais sobre o [Barramento de Serviço](https://azure.microsoft.com/services/service-bus/), veja os tópicos a seguir.
 
 * [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
 * [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 * [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
-
 

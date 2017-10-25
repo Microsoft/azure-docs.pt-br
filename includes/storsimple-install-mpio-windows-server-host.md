@@ -8,10 +8,10 @@
 3. No assistente **Adicionar Funções e Recursos** , faça o seguinte:
    
    * Na página **Antes de Começar**, clique em **Avançar**.
-   * Na página **Selecionar tipo de instalação**, aceite a configuração padrão da instalação **Baseada em função ou recurso**. Clique em **Próximo**.
+   * Na página **Selecionar tipo de instalação**, aceite a configuração padrão da instalação **Baseada em função ou recurso**. Clique em **Avançar**.
      
        ![Adicionar Assistente de Funções e Recursos 2](./media/storsimple-install-mpio-windows-server/IC740999.png)
-   * Na página **Selecionar servidor de destino**, escolha **Selecionar um servidor no pool de servidores**. O servidor host deve ser descoberto automaticamente. Clique em **Próximo**.
+   * Na página **Selecionar servidor de destino**, escolha **Selecionar um servidor no pool de servidores**. O servidor host deve ser descoberto automaticamente. Clique em **Avançar**.
    * Na página **Selecionar funções do servidor**, clique em **Avançar**.
    * Na página **Selecionar recursos**, selecione **Multipath I/O** e clique em **Avançar**.
      
@@ -22,9 +22,4 @@
    * Quando a instalação for concluída, você será notificado. Clique em **Fechar** para fechar o assistente.
      
        ![Adicionar Assistente de Funções e Recursos 9](./media/storsimple-install-mpio-windows-server/IC741002.png)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

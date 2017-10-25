@@ -2,8 +2,3 @@ Você pode criar máquinas virtuais (VMs) no Azure e anexar várias interfaces d
 
 Antes de implementar várias NICs em VMs, é necessário entender quando você pode usar várias NICs e como eles são usados. Leia a [Visão geral de multi NIC](../articles/virtual-network/virtual-networks-multiple-nics.md) para saber mais sobre o VMs com várias NICs.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -6,8 +6,3 @@ Para implantar os recursos no Azure, você deve estar conectado à sua conta do 
 
 Os exemplos a seguir pressupõem que você já tem um grupo de recursos em sua conta com o nome especificado. 
 
-
-
-<!--HONumber=Dec16_HO3-->
-
-

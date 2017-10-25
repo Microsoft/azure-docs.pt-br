@@ -15,18 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 96d88513eb4817b208d45883ed0c926921c7c10e
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: a542332c921862241f1f000e6a8f0a0ae0e8a934
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>Usando a extensão VM Docker da interface de linha de comando do Azure (CLI do Azure)
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para obter informações sobre como usar a extensão de VM do Docker com o modelo do Resource Manager, veja [aqui](../../virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para obter informações sobre como usar a extensão de VM do Docker com o modelo do Resource Manager, veja [aqui](../dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Este tópico descreve como criar uma máquina virtual com a extensão de VM do Docker do modo de gerenciamento de serviço (asm) na CLI do Azure em qualquer plataforma. O [Docker](https://www.docker.com/) é uma das abordagens de virtualização mais populares que utiliza [contêineres Linux](http://en.wikipedia.org/wiki/LXC) em vez de máquinas virtuais como forma de isolar dados e computar recursos compartilhados. Você pode usar a extensão da VM do Docker e o [Agente Linux do Azure](../../virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para criar uma VM do Docker que hospede diversos contêineres para seus aplicativos no Azure. Para participar de um debate de alto nível sobre contêineres e suas vantagens, confira o [Quadro de comunicações de alto nível do Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+Este tópico descreve como criar uma máquina virtual com a extensão de VM do Docker do modo de gerenciamento de serviço (asm) na CLI do Azure em qualquer plataforma. O [Docker](https://www.docker.com/) é uma das abordagens de virtualização mais populares que utiliza [contêineres Linux](http://en.wikipedia.org/wiki/LXC) em vez de máquinas virtuais como forma de isolar dados e computar recursos compartilhados. Você pode usar a extensão da VM do Docker e o [Agente Linux do Azure](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para criar uma VM do Docker que hospede diversos contêineres para seus aplicativos no Azure. Para participar de um debate de alto nível sobre contêineres e suas vantagens, confira o [Quadro de comunicações de alto nível do Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
 ## <a name="how-to-use-the-docker-vm-extension-with-azure"></a>Como usar a Extensão de VM Docker com o Azure
 Para usar a extensão de VM do Docker com o Azure, você deve instalar a versão da [Interface de Linha de Comando do Azure](https://github.com/Azure/azure-sdk-tools-xplat) (CLI do Azure) superior à 0.8.6 (até o momento da redação deste artigo, a versão atual é 0.10.0). Você pode instalar a CLI do Azure no Mac, Linux e Windows.
@@ -56,10 +55,10 @@ Antes de poder usar a CLI do Azure, você deve associar as credenciais de conta 
 ### <a name="install-docker-and-use-the-docker-vm-extension-for-azure"></a>Instalar o Docker e usar a extensão de VM do Docker para Azure
 Siga as [Instruções de instalação do Docker](https://docs.docker.com/installation/#installation) para instalar o Docker localmente em seu computador.
 
-Para usar o Docker com uma máquina virtual do Azure, o [Agente de VM Linux do Azure](../../virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) deve estar instalado na imagem Linux usada para a VM. No momento, apenas dois tipos de imagens possibilitam isso:
+Para usar o Docker com uma máquina virtual do Azure, o [Agente de VM Linux do Azure](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) deve estar instalado na imagem Linux usada para a VM. No momento, apenas dois tipos de imagens possibilitam isso:
 
 * Uma imagem do Ubuntu da Galeria de Imagens do Azure ou
-* Uma imagem Linux personalizada criada por você, na qual o Agente de máquina virtual Linux do Azure esteja instalado e configurado. Confira [Agente de VM Linux do Azure](../../virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter mais informações sobre como criar uma VM Linux personalizada com o agente de VM do Azure.
+* Uma imagem Linux personalizada criada por você, na qual o Agente de máquina virtual Linux do Azure esteja instalado e configurado. Confira [Agente de VM Linux do Azure](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter mais informações sobre como criar uma VM Linux personalizada com o agente de VM do Azure.
 
 ### <a name="using-the-azure-image-gallery"></a>Usando a Galeria de Imagens do Azure
 Em uma sessão bash ou de terminal, use o comando da CLI do Azure a seguir para localizar a imagem mais recente do Ubuntu na galeria da máquina virtual.
@@ -181,5 +180,4 @@ O daemon do Docker no host é configurado para escutar e autenticar conexões cl
 
 [Guia do usuário do Docker]:https://docs.docker.com/userguide/
 
-[Introdução ao Docker e Redigir para definir e executar um aplicativo de contêiner múltiplos em uma máquina virtual do Azure]:../../virtual-machines-linux-docker-compose-quickstart.md
-
+[Introdução ao Docker e Redigir para definir e executar um aplicativo de contêiner múltiplos em uma máquina virtual do Azure]:../docker-compose-quickstart.md

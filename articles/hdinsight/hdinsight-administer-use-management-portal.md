@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 05/25/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 58011fe25a96edfe2744990180b2f2866537bd37
-ms.openlocfilehash: ec35e177d1bb94671b1703020c9aa863a3805af1
-ms.lasthandoff: 02/07/2017
-
-
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3f1c7bb1795828899148a8ba8a0461a06947d40d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters Hadoop baseados no Windows no HDInsight usando o Portal do Azure
 
@@ -29,7 +29,7 @@ Ao usar o [Portal do Azure][azure-portal], você pode criar clusters Hadoop base
 As informações neste artigo aplicam-se apenas aos clusters HDInsight baseados no Windows. Para obter informações sobre como gerenciar clusters baseados no Linux, confira [Gerenciar clusters Hadoop no HDInsight usando o Portal do Azure](hdinsight-administer-use-portal-linux.md).
 
 > [!IMPORTANT]
-> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -37,7 +37,7 @@ As informações neste artigo aplicam-se apenas aos clusters HDInsight baseados 
 Antes de começar este artigo, você deve ter o seguinte:
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Conta de armazenamento do Azure** - um cluster do HDInsight usa um contêiner de Armazenamento de Blob do Azure como o sistema de arquivos padrão. Para obter mais informações sobre como o Armazenamento de Blob do Azure fornece uma experiência perfeita com os clusters HDInsight, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight](hdinsight-hadoop-use-blob-storage.md). Para obter detalhes sobre como criar uma conta do Armazenamento do Azure, consulte [Como criar uma conta de armazenamento](../storage/storage-create-storage-account.md).
+* **Conta de armazenamento do Azure** - um cluster do HDInsight usa um contêiner de Armazenamento de Blob do Azure como o sistema de arquivos padrão. Para obter mais informações sobre como o Armazenamento de Blob do Azure fornece uma experiência perfeita com os clusters HDInsight, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight](hdinsight-hadoop-use-blob-storage.md). Para obter detalhes sobre como criar uma conta do Armazenamento do Azure, consulte [Como criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md).
 
 ## <a name="open-the-portal"></a>Abra o Portal
 1. Entre em [https://portal.azure.com](https://portal.azure.com).
@@ -55,12 +55,12 @@ Antes de começar este artigo, você deve ter o seguinte:
      ![Botão Procurar cluster do Portal do Azure](./media/hdinsight-administer-use-management-portal/azure-portal-browse-button.png)
 
 ## <a name="create-clusters"></a>Criar clusters
-Para obter as instruções de criação usando o Portal, veja [Criar clusters HDInsight](hdinsight-provision-clusters.md).
+Para obter as instruções de criação usando o Portal, veja [Criar clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 O HDInsight trabalha com uma ampla variedade de componentes do Hadoop. Para obter a lista dos componentes que foram verificados e com suporte, consulte [Qual versão do Hadoop está no HDInsight do Azure](hdinsight-component-versioning.md). Você pode personalizar o HDInsight usando uma das seguintes opções:
 
 * Use a ação de Script para executar scripts personalizados que possam personalizar um cluster para alterar a configuração de cluster ou instalar componentes personalizados como Giraph ou Solr. Para obter mais informações, consulte [Personalizar cluster HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md).
-* Use os parâmetros de personalização do cluster no SDK do .NET do HDInsight ou no PowerShell do Azure durante a criação do cluster. Essas alterações de configuração são preservadas durante o tempo de vida do cluster e não são afetadas pelas novas imagens do nó do cluster que a plataforma do Azure refaz periodicamente para manutenção. Para mais informações sobre como usar os parâmetros de personalização do cluster, consulte [Criar clusters do HDInsight](hdinsight-provision-clusters.md).
+* Use os parâmetros de personalização do cluster no SDK do .NET do HDInsight ou no PowerShell do Azure durante a criação do cluster. Essas alterações de configuração são preservadas durante o tempo de vida do cluster e não são afetadas pelas novas imagens do nó do cluster que a plataforma do Azure refaz periodicamente para manutenção. Para mais informações sobre como usar os parâmetros de personalização do cluster, consulte [Criar clusters do HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * Alguns componentes nativos do Java, como Mahout e Cascading, podem ser executados no cluster como arquivos JAR. Esses arquivos JAR podem ser distribuídos para o armazenamento de Blob do Azure e enviados aos clusters HDInsight por meio de mecanismos de envio de trabalho do Hadoop. Para obter mais informações, consulte [Enviar trabalhos do Hadoop de forma programática](hdinsight-submit-hadoop-jobs-programmatically.md).
 
   > [!NOTE]
@@ -87,14 +87,14 @@ Não há suporte para a instalação de software personalizado no cluster usando
    * **Painel**, **Painel do Cluster** e **URL: são maneiras de acessar o painel do cluster, que é o Ambari Web para clusters baseados em Linux. -**Secure Shell**: mostra as instruções para se conectar ao cluster usando uma conexão Secure Shell (SSH).
    * **Cluster em Escala**: permite alterar o número de nós de trabalho deste cluster.
    * **Excluir**: exclui o cluster.
-   * **Início Rápido (![ícone de nuvem e raio = início rápido](./media/hdinsight-administer-use-portal-linux/quickstart.png)**): exibe informações que ajudarão você a começar a usar o HDInsight.
-   * **Usuários (![ícone de usuários](./media/hdinsight-administer-use-portal-linux/users.png))**: permite definir permissões para o *gerenciamento do portal* deste cluster para outros usuários em sua assinatura do Azure.
+   * **Início Rápido**: exibe informações que o ajudarão a começar a usar o HDInsight.
+   * **Usuários: permite definir permissões para o *gerenciamento do portal* deste cluster para outros usuários em sua assinatura do Azure.
 
      > [!IMPORTANT]
      > Isso afeta *apenas* o acesso e as permissões para esse cluster no Portal do Azure e não afeta quem pode se conectar ao cluster HDInsight ou enviar trabalhos a ele.
      >
      >
-   * **Marcações (![ícone de marcação](./media/hdinsight-administer-use-portal-linux/tags.png))**: as marcações permitem estabelecer pares de chave/valor para definir uma taxonomia personalizada dos serviços de nuvem. Por exemplo, você pode criar uma chave chamada **projeto**e usar um valor comum para todos os serviços associados a um projeto específico.
+   * **Marcas**: as marcas permitem estabelecer pares de chave/valor para definir uma taxonomia personalizada dos serviços de nuvem. Por exemplo, você pode criar uma chave chamada **projeto**e usar um valor comum para todos os serviços associados a um projeto específico.
    * **Ambari Views**: links para o Ambari Web.
 
      > [!IMPORTANT]
@@ -135,7 +135,7 @@ Não há suporte para a instalação de software personalizado no cluster usando
    * **Tipo**: Hadoop, HBase, Storm, Spark.
    * **Versão**. Consulte [versões do HDInsight](hdinsight-component-versioning.md)
    * **Assinatura**: nome da assinatura.
-   * **ID da assinatura.**.
+   * **ID da assinatura**.
    * **Fonte de dados primária**. A conta de armazenamento de Blob do Azure usada como o sistema de arquivos Hadoop padrão.
    * **Faixa de preço dos nós de trabalho**.
    * **Faixa de preço do nó de cabeça**.
@@ -186,7 +186,7 @@ O impacto da alteração do número de nós de dados em cada tipo de cluster com
 
     A IU da Web do Storm está disponível no cluster HDInsight:
 
-    ![HDInsight storm dimensionar novo balanceamento](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![HDInsight storm dimensionar novo balanceamento](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
     Aqui está um exemplo de como usar o comando CLI para reequilibrar a topologia do Storm:
 
@@ -210,7 +210,7 @@ Você também é cobrado por um cluster HDInsight, mesmo quando ele não está e
 
 Há várias maneiras de programar o processo:
 
-* Use o Azure Data Factory. Consulte [Serviços Vinculados ao Azure HDInsight](../data-factory/data-factory-compute-linked-services.md) e [Transformar e analisar usando o Azure Data Factory](../data-factory/data-factory-data-transformation-activities.md) para saber mais sobre os serviços sob demanda e autodefinidos vinculados ao HDInsight.
+* Use o Azure Data Factory. Consulte [Serviços Vinculados ao Azure HDInsight](../data-factory/compute-linked-services.md) e [Transformar e analisar usando o Azure Data Factory](../data-factory/transform-data.md) para saber mais sobre os serviços sob demanda e autodefinidos vinculados ao HDInsight.
 * Use o Azure PowerShell.  Consulte [Analisar dados de atraso de voo](hdinsight-analyze-flight-delay-data.md).
 * Use a CLI do Azure. Consulte [Gerenciar clusters HDInsight usando a CLI do Azure](hdinsight-administer-use-command-line.md)
 * Use o SDK .NET do HDInsight. Consulte [Enviar trabalhos do Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md).
@@ -319,7 +319,7 @@ Para monitorar o cluster, procure no sistema de arquivos e verifique os logs, cl
 Para usar a interface do usuário do Yarn, clique em **Interface do usuário do Yarn** no console de Consulta do HDInsight. Consulte [Abrir o console de consulta do HDInsight](#open-hdinsight-query-console).
 
 ## <a name="connect-to-clusters-using-rdp"></a>Conectar-se aos clusters usando o RDP
-As credenciais do cluster que você forneceu em sua criação concedem acesso aos serviços do cluster, mas não ao próprio cluster através da área de trabalho remota. Você pode ativar o acesso de Área de Trabalho Remota ao provisionar um cluster ou depois que um cluster for provisionado. Para obter instruções sobre como habilitar a Área de Trabalho Remota na criação, consulte [Criar cluster HDInsight](hdinsight-provision-clusters.md).
+As credenciais do cluster que você forneceu em sua criação concedem acesso aos serviços do cluster, mas não ao próprio cluster através da área de trabalho remota. Você pode ativar o acesso de Área de Trabalho Remota ao provisionar um cluster ou depois que um cluster for provisionado. Para obter instruções sobre como habilitar a Área de Trabalho Remota na criação, consulte [Criar cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 **Para habilitar a área de trabalho remota**
 
@@ -370,11 +370,10 @@ Neste artigo, você aprendeu como criar um cluster HDInsight usando o Portal e c
 
 * [Administrar o HDInsight usando o PowerShell do Azure](hdinsight-administer-use-powershell.md)
 * [Administrar o HDInsight usando a CLI do Azure](hdinsight-administer-use-command-line.md)
-* [Criar clusters HDInsight](hdinsight-provision-clusters.md)
+* [Criar clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Enviar trabalhos Hadoop de forma programática](hdinsight-submit-hadoop-jobs-programmatically.md)
 * [Introdução ao Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Qual versão do Hadoop está no Azure HDInsight?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Linha de comando do Hadoop"
-

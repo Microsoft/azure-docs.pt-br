@@ -10,65 +10,80 @@ manager: jhubbard
 editor: 
 ms.assetid: 7cd2a114-c13c-4ace-9088-97bd9d68de12
 ms.service: sql-database
-ms.custom: development
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 03/15/2017
+ms.topic: quickstart
+ms.date: 05/26/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: ba56eaa154116edbe1dd8962049535cfa57551ac
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: fd72faf6c3a410242fd36a1abf4c556712c6beaf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Banco de Dados SQL do Azure: Use o SQL Server Management Studio para conectar e consultar dados
 
-Use o [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) para criar e gerenciar recursos do SQL Server na interface do usuário ou em scripts. Este guia detalha o uso do SSMS para se conectar a um Banco de Dados SQL do Azure e, depois, executar instruções de consulta, inserção, atualização e exclusão.
+[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) é um ambiente integrado para gerenciar qualquer infraestrutura do SQL, do SQL Server para o Banco de Dados SQL do Microsoft Windows. Este guia rápido demonstra como usar o SSMS para conectar um banco de dados SQL do Azure, em seguida, usar instruções Transact-SQL para consultar, inserir, atualizar e excluir os dados no banco de dados. 
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido usa como ponto de partida os recursos criados em um destes inícios rápidos:
 
 - [Criar Banco de dados - Portal](sql-database-get-started-portal.md)
 - [Criar Banco de dados - CLI](sql-database-get-started-cli.md)
+- [Criar Banco de dados - PowerShell](sql-database-get-started-powershell.md)
 
 Antes de começar, verifique se você instalou a versão mais recente do [SSMS](https://msdn.microsoft.com/library/mt238290.aspx). 
 
-## <a name="get-connection-information"></a>Obter informações de conexão
+## <a name="sql-server-connection-information"></a>Informações de conexão do servidor SQL
 
-Obtenha o nome de servidor totalmente qualificado para o servidor de Banco de Dados SQL do Azure no Portal do Azure. Use o nome do servidor totalmente qualificado para se conectar ao servidor usando o SQL Server Management Studio.
+Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados SQL do Azure. Você precisará do nome totalmente qualificado do servidor, nome do banco de dados e informações de logon nos próximos procedimentos.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Selecione **Bancos de Dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de Dados SQL**. 
-3. No painel **Essentials**, na página do Portal do Azure de seu banco de dados, localize e copie o **Nome do servidor**.
+3. Na página **Visão geral** do banco de dados, analise o nome totalmente qualificado do servidor, como mostrado na imagem abaixo. Você pode passar o mouse sobre o nome do servidor para abrir a opção **Clique para copiar**.
 
-    <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
+   ![informações da conexão](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-## <a name="connect-to-the-server"></a>Conectar ao servidor
+4. Se você esqueceu as informações de logon para o servidor do Banco de Dados SQL do Azure, navegue até a página do servidor do Banco de Dados SQL para exibir o nome de administrador do servidor e, se necessário, redefinir a senha. 
 
-Use o SQL Server Management Studio para estabelecer uma conexão com seu servidor de Banco de Dados SQL do Azure.
+## <a name="connect-to-your-database"></a>Conectar-se ao seu banco de dados
 
-1. Digite **SSMS** na caixa de pesquisa do Windows e clique em **Enter** para abrir o SSMS.
+Use o SQL Server Management Studio para estabelecer uma conexão com seu servidor de Banco de Dados SQL do Azure. 
+
+> [!IMPORTANT]
+> Um servidor lógico do Banco de Dados SQL do Azure escuta na porta 1433. Se você estiver tentando conectar um servidor lógico do Banco de Dados SQL do Azure de dentro de um firewall corporativo, essa porta deverá estar aberta no firewall corporativo para que você possa conectar-se com êxito.
+>
+
+1. Abra o SQL Server Management Studio.
 
 2. Na caixa de diálogo **Conectar ao Servidor**, insira as informações a seguir:
-   - **Tipo de servidor**: especifique mecanismo de banco de dados
-   - **Nome do servidor**: insira seu nome do servidor totalmente qualificado, como **mynewserver20170313.database.windows.net**
-   - **Autenticação**: especifique a Autenticação do SQL Server
-   - **Logon**: insira a conta do administrador do servidor
-   - **Senha**: insira a senha para sua conta do administrador do servidor
- 
-    <img src="./media/sql-database-connect-query-ssms/connect.png" alt="connect to server" style="width: 780px;" />
 
-3. Clique em **Conectar**. A janela Pesquisador de Objetos abre no SSMS. 
+   | Configuração       | Valor sugerido | Descrição | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Tipo de servidor** | Mecanismo de banco de dados | Esse valor é obrigatório. |
+   | **Nome do servidor** | O nome do servidor totalmente qualificado | O nome deve ser semelhante como: **mynewserver20170313.database.windows.net**. |
+   | **Autenticação** | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação que configuramos neste tutorial. |
+   | **Logon** | A conta do administrador do servidor | Esta é a conta que você especificou quando criou o servidor. |
+   | **Senha** | A senha para sua conta do administrador do servidor | Esta é a senha que você especificou quando criou o servidor. |
 
-    <img src="./media/sql-database-connect-query-ssms/connected.png" alt="connected to server" style="width: 780px;" />
+   ![conectar-se ao servidor](./media/sql-database-connect-query-ssms/connect.png)  
 
-4. No Pesquisador de Objetos, expanda **Bancos de Dados** e expanda **mySampleDatabase** para exibir os objetos no banco de dados de exemplo.
+3. Clique em **Opções** na caixa de diálogo **Conectar servidor**. Na seção **Conectar ao banco de dados**, digite **mySampleDatabase** para conectar-se a este banco de dados.
+
+   ![conectar o banco de dados no servidor](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
+
+4. Clique em **Conectar**. A janela Pesquisador de Objetos abre no SSMS. 
+
+   ![conectado ao servidor](./media/sql-database-connect-query-ssms/connected.png)  
+
+5. No Pesquisador de Objetos, expanda **Bancos de Dados** e expanda **mySampleDatabase** para exibir os objetos no banco de dados de exemplo.
 
 ## <a name="query-data"></a>Consultar dados
 
-Use a instrução [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) de Transact-SQL para consultar dados no Banco de Dados SQL do Azure.
+Use o seguinte código para consultar os 20 principais produtos por categoria usando a instrução [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) do Transact-SQL.
 
 1. No Pesquisador de Objetos, clique com o botão direito em **mySampleDatabase** e clique em **Nova Consulta**. Uma janela de consulta em branco conectada ao seu banco de dados é aberta.
 2. Na janela de consulta, insira a seguinte consulta:
@@ -82,14 +97,13 @@ Use a instrução [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) de 
 
 3. Na barra de ferramentas, clique em **Executar** para recuperar dados das tabelas Product e ProductCategory.
 
-    <img src="./media/sql-database-connect-query-ssms/query.png" alt="query" style="width: 780px;" />
+    ![query](./media/sql-database-connect-query-ssms/query.png)
 
 ## <a name="insert-data"></a>Inserir dados
 
-Use a instrução [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) de Transact-SQL para inserir dados no Banco de Dados SQL do Azure.
+Use o código a seguir para inserir um novo produto na tabela SalesLT.Product usando a instrução [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) do Transact-SQL.
 
-1. Na barra de ferramentas, clique em **Nova Consulta**. Uma janela de consulta em branco conectada ao seu banco de dado é aberta.
-2. Na janela de consulta, insira a seguinte consulta:
+1. Na janela de consulta, substitua a consulta anterior pela seguinte consulta:
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -111,16 +125,15 @@ Use a instrução [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) de 
            ,GETDATE() );
    ```
 
-3. Na barra de ferramentas, clique em **Executar** para inserir uma nova linha na tabela Product.
+2. Na barra de ferramentas, clique em **Executar** para inserir uma nova linha na tabela Product.
 
     <img src="./media/sql-database-connect-query-ssms/insert.png" alt="insert" style="width: 780px;" />
 
 ## <a name="update-data"></a>Atualizar dados
 
-Use a instrução [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) de Transact-SQL para atualizar dados no Banco de Dados SQL do Azure.
+Use o código a seguir para atualizar o novo produto que você adicionou anteriormente usando a instrução [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) do Transact-SQL.
 
-1. Na barra de ferramentas, clique em **Nova Consulta**. Uma janela de consulta em branco conectada ao seu banco de dado é aberta.
-2. Na janela de consulta, insira a seguinte consulta:
+1. Na janela de consulta, substitua a consulta anterior pela seguinte consulta:
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -128,28 +141,33 @@ Use a instrução [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) de 
    WHERE Name = 'myNewProduct';
    ```
 
-3. Na barra de ferramentas, clique em **Executar** para atualizar a linha especificada na tabela Product.
+2. Na barra de ferramentas, clique em **Executar** para atualizar a linha especificada na tabela Product.
 
     <img src="./media/sql-database-connect-query-ssms/update.png" alt="update" style="width: 780px;" />
 
 ## <a name="delete-data"></a>Excluir dados
 
-Use a instrução [ELETE](https://msdn.microsoft.com/library/ms189835.aspx) de Transact-SQL para excluir dados no Banco de Dados SQL do Azure.
+Use o código a seguir para excluir o novo produto que você adicionou anteriormente usando a instrução [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) do Transact-SQL.
 
-1. Na barra de ferramentas, clique em **Nova Consulta**. Uma janela de consulta em branco conectada ao seu banco de dado é aberta.
-2. Na janela de consulta, insira a seguinte consulta:
+1. Na janela de consulta, substitua a consulta anterior pela seguinte consulta:
 
    ```sql
    DELETE FROM [SalesLT].[Product]
    WHERE Name = 'myNewProduct';
    ```
 
-3. Na barra de ferramentas, clique em **Executar** para excluir a linha especificada na tabela Product.
+2. Na barra de ferramentas, clique em **Executar** para excluir a linha especificada na tabela Product.
 
     <img src="./media/sql-database-connect-query-ssms/delete.png" alt="delete" style="width: 780px;" />
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- Para saber mais sobre como criar e gerenciar servidores e bancos de dados com o Transact-SQL, confira [Saiba mais sobre servidores de bancos de dados e banco de dados SQL do Azure](sql-database-servers-databases.md).
 - Para saber mais sobre o SSMS, consulte [Usar o SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
-- Para saber mais sobre como consultar e editar dados usando o Visual Studio Code, confira [Visual Studio Code](https://code.visualstudio.com/docs)
-
+- Para conectar e consultar usando o Visual Studio Code, veja [Conectar e consultar com o Visual Studio Code](sql-database-connect-query-vscode.md).
+- Para conectar e consultar usando o .NET, veja [Conectar e consultar com o .NET](sql-database-connect-query-dotnet.md).
+- Para conectar e consultar usando o PHP, veja [Conectar e consultar com o PHP](sql-database-connect-query-php.md).
+- Para conectar e consultar usando o Node.js, veja [Conectar e consultar com o Node.js](sql-database-connect-query-nodejs.md).
+- Para conectar e consultar usando o Java, veja [Conectar e consultar com o Java](sql-database-connect-query-java.md).
+- Para conectar e consultar usando o Python, veja [Conectar e consultar com o Python](sql-database-connect-query-python.md).
+- Para conectar e consultar usando o Ruby, veja [Conectar e consultar com o Ruby](sql-database-connect-query-ruby.md).

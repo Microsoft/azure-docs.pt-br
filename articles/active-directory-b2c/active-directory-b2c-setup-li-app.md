@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
-ms.openlocfilehash: 3b22dee95d064de8190d7429cc4118884fb81172
-
-
+ms.openlocfilehash: 1a6c4b19261aa34e668554ccad2b6340cddf9bf5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-linkedin-accounts"></a>Azure Active Directory B2C: fornecer inscrição e entrada aos consumidores com contas do LinkedIn
 ## <a name="create-a-linkedin-application"></a>Criar um aplicativo do LinkedIn
@@ -43,17 +43,11 @@ Para usar o LinkedIn como provedor de identidade no Azure AD (Azure Active Direc
     ![LinkedIn — Configurar aplicativo](./media/active-directory-b2c-setup-li-app/linkedin-setup.png)
 
 ## <a name="configure-linkedin-as-an-identity-provider-in-your-tenant"></a>Configurar o LinkedIn como um provedor de identidade no locatário
-1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no Portal do Azure.
+1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) no Portal do Azure.
 2. Na folha de recursos do B2C, clique em **Provedores de identidade**.
 3. Clique em **+Adicionar** , na parte superior da folha.
 4. Forneça um **Nome** amigável para a configuração do provedor de identidade. Por exemplo, insira "LI".
 5. Clique em **Tipo do provedor de identidade**, selecione **LinkedIn** e clique em **OK**.
 6. Clique em **Configurar esse provedor de identidade** e insira a ID e o segredo do cliente do aplicativo do LinkedIn que você criou anteriormente.
 7. Clique em **OK** e em **Criar** para salvar sua configuração do LinkedIn.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

@@ -6,8 +6,3 @@
    ![Aplicativo de início rápido em execução no iOS](./media/app-service-mobile-ios-quickstart/mobile-quickstart-startup-ios.png)
 
 [Portal do Azure]: https://portal.azure.com/
-
-
-<!--HONumber=Nov16_HO3-->
-
-

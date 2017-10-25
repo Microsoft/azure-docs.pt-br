@@ -3,7 +3,7 @@ title: Proteja sua API com o Gerenciamento de API do Azure | Microsoft Docs
 description: "Saiba como proteger sua API com cotas e políticas de limitação (limite de taxa)."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: juliako
 manager: erikre
 editor: 
 ms.assetid: 450dc368-d005-401d-ae64-3e1a2229b12f
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 73c9675490f95f68450716cd67e58df9c84daef8
-
+ms.translationtype: HT
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: 300b1d762a61c810dbffde5aaacd8a85f12c9fca
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Proteja sua API com limites de taxa usando o Gerenciamento de API do Azure
@@ -53,7 +54,7 @@ Clique em **Adicionar produto** para exibir a caixa de diálogo **Adicionar novo
 
 Na caixa**Título**, digite **Avaliação Gratuita**.
 
-Na caixa **Descrição**, digite o seguinte texto:  **Os assinantes poderão executar 10 chamadas/minuto até um máximo de 200 chamadas/semana após o qual o acesso é negado.**
+Na caixa **Descrição**, digite o seguinte texto: **Os assinantes poderão executar 10 chamadas/minuto até um máximo de 200 chamadas/semana após o qual o acesso é negado.**
 
 Os produtos de Gerenciamento de API podem ser protegidos ou abertos. Os produtos protegidos devem ser assinados antes que possam ser usados. Os produtos abertos podem ser usados sem uma assinatura. Verifique se **Exigir assinatura** está marcado para criar um produto protegido que requer uma assinatura. Esta é a configuração padrão.
 
@@ -95,7 +96,9 @@ Selecione a **API de Eco** e clique em **Salvar**.
 ![Adicionar API de Eco][api-management-add-echo-api]
 
 ## <a name="policies"> </a>Para configurar o limite de taxa de chamada e as políticas de cota
-Os limites de taxa e as cotas são configurados no editor de políticas. Clique em **Políticas** no menu **Gerenciamento de API** à esquerda. Na lista **Produto**, clique em **Avaliação Gratuita**.
+Os limites de taxa e as cotas são configurados no editor de políticas. As duas políticas que adicionaremos neste tutorial são [Limitar taxa de chamadas por assinatura](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) e [Definir cota de uso por assinatura](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Essas políticas devem ser aplicadas no escopo do produto.
+
+Clique em **Políticas** no menu **Gerenciamento de API** à esquerda. Na lista **Produto**, clique em **Avaliação Gratuita**.
 
 ![Política de produtos][api-management-product-policy]
 
@@ -103,11 +106,11 @@ Clique em **Adicionar política** para importar o modelo de política e começar
 
 ![Adicionar política][api-management-add-policy]
 
-Para inserir as políticas, posicione o cursor na seção de **entrada** ou **saída** do modelo de política. A taxa de limite e as políticas de cota são políticas de entrada; portanto, posicione o cursor no elemento de entrada.
+A taxa de limite e as políticas de cota são políticas de entrada; portanto, posicione o cursor no elemento de entrada.
 
 ![Editor de políticas][api-management-policy-editor-inbound]
 
-As duas políticas que estamos adicionando neste tutorial são [Limitar taxa de chamadas por assinatura](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) e [Definir cota de uso por assinatura](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota).
+Percorra a lista de políticas e localize a entrada **Limitar taxa de chamadas por assinatura**.
 
 ![Declarações de políticas][api-management-limit-policies]
 
@@ -121,7 +124,7 @@ Depois do cursor estar posicionado no elemento da política de **entrada**, cliq
 </rate-limit>
 ```
 
-**Limitar taxa de chamada por assinatura** pode ser usada no nível do produto e também nos níveis de nome de operação individual e da API. Neste tutorial, apenas as políticas no nível do produto são usadas, por isso, exclua os elementos **api** e **operation** do elemento **rate-limit**, de modo que apenas o elemento **rate-limit** permaneça, como mostrado no exemplo a seguir.
+Como você pode ver no trecho, a política permite a configuração de limites para as APIs e operações do produto. Neste tutorial, não usaremos esse recurso, por isso, exclua os elementos **api** e **operation** do elemento **rate-limit**, de modo que apenas o elemento **rate-limit** permaneça, como mostrado no exemplo a seguir.
 
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
@@ -135,7 +138,7 @@ No produto de Avaliação Gratuita, a taxa máxima permitida é de 10 chamadas p
 </rate-limit>
 ```
 
-Para configurar a política **Definir cota de uso por assinatura**, posicione seu cursor imediatamente abaixo do elemento **rate-limit** recém-adicionado no elemento **inbound**, em seguida, clique na seta à esquerda de **Definir cota de uso por assinatura**.
+Para configurar a política **Definir cota de uso por assinatura**, posicione seu cursor imediatamente abaixo do elemento **rate-limit** recém-adicionado no elemento **inbound**, depois, localize e clique na seta à esquerda de **Definir cota de uso por assinatura**.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
@@ -145,7 +148,7 @@ Para configurar a política **Definir cota de uso por assinatura**, posicione se
 </quota>
 ```
 
-Como essa política também deve ficar no nível do produto, exclua os elementos do nome **api** e **operation**, como mostrado no exemplo a seguir.
+Assim como a política **Limitar taxa de chamada por assinatura**, a política **Definir cota de uso por assinatura** permite a definição de limites para em operações e APIs do produto. Neste tutorial, não usaremos esse recurso, por isso, exclua os elementos **api** e **operation** do elemento **quota**, como mostra o exemplo a seguir.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
@@ -323,9 +326,4 @@ Quando a política de limite de taxa de 10 chamadas por minuto estiver em vigor,
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

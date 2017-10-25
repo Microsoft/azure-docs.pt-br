@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2017
+ms.date: 08/23/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 09577d3160137b7879a5c128552d8dcbef89bb0d
-ms.openlocfilehash: c025629c7700c0ee7b6495a922b9bf6823769cfa
-
-
+ms.openlocfilehash: a2760072acb7c62204759f3ec0d3cb9899460f2d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="service-bus-authentication-with-shared-access-signatures"></a>Autenticação do Barramento de Serviço com Assinaturas de Acesso Compartilhado
 
 As *Assinaturas de Acesso Compartilhado* (SAS) são o mecanismo de segurança principal para mensagens do Barramento de Serviço. Este artigo discute as SAS, como elas funcionam e como usá-las de maneira independente da plataforma.
@@ -368,8 +367,3 @@ Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópico
 * [Como usar tópicos e assinaturas do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [Azure portal]: https://portal.azure.com
-
-
-<!--HONumber=Feb17_HO3-->
-
-

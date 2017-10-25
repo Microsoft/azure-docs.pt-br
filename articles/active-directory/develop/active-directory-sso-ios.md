@@ -3,7 +3,7 @@ title: Como habilitar o SSO entre aplicativos no iOS usando o ADAL | Microsoft D
 description: "Como usar os recursos do SDK do ADAL para habilitar o Logon Único em seus aplicativos. "
 services: active-directory
 documentationcenter: 
-author: xerners
+author: brandwe
 manager: mbaldwin
 editor: 
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 04/07/2017
 ms.author: brandwe
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 7fcc00df80ef61f99f6044cd338cbdd16fde0117
-ms.lasthandoff: 03/29/2017
-
-
+ms.custom: aaddev
+ms.openlocfilehash: 73b8ed7e6a153a0790f7eae9bd51bb2e554ae72e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como habilitar o SSO entre aplicativos no iOS usando a ADAL
 Atualmente, os clientes esperam o recurso de Logon Único (SSO), para que os usuários precisem inserir suas credenciais apenas uma vez, e essas credenciais sejam aplicadas entre os aplicativos. A dificuldade em digitar o nome de usuário e senha em uma tela pequena, muitas vezes combinada com um fator adicional (2FA) como uma chamada telefônica ou um código enviado via texto, se transforma rapidamente em insatisfação se um usuário tiver que fazer isso mais de uma vez para o seu produto.
 
-Além disso, se você aplicar uma plataforma de identidade usada por outros aplicativos, como Contas da Microsoft, ou uma conta corporativa do Office365, os clientes esperam que essas credenciais estejam disponíveis em todos os aplicativos, independentemente do fornecedor.
+Além disso, se você aplicar uma plataforma de identidade usada por outros aplicativos, como Contas da Microsoft ou uma conta corporativa do Office365, os clientes esperam que essas credenciais estejam disponíveis em todos os aplicativos, independentemente do fornecedor.
 
-A plataforma Microsoft Identity, juntamente com nossos SDKs do Microsoft Identity, faz todo esse trabalho difícil para você e permite que você agrade aos seus clientes com o SSO dentro de seu próprio conjunto de aplicativos ou, como ocorre com o nosso recurso de agente e aplicativos autenticadores, em todo o dispositivo.
+A plataforma Microsoft Identity, juntamente com nossos SDKs do Microsoft Identity, faz todo esse trabalho difícil para você e permite que você agrade aos seus clientes com o SSO dentro de seu próprio pacote de aplicativos ou, como ocorre com o nossa funcionalidade de agente e aplicativos autenticadores, em todo o dispositivo.
 
 Este passo a passo informa como configurar nosso SDK dentro de seu aplicativo a fim de fornecer esse benefício aos clientes.
 
@@ -41,7 +41,7 @@ O documento anterior pressupõe que você sabe como [provisionar aplicativos no 
 
 ## <a name="sso-concepts-in-the-microsoft-identity-platform"></a>Conceitos de SSO na Plataforma do Microsoft Identity
 ### <a name="microsoft-identity-brokers"></a>Agentes do Microsoft Identity
-A Microsoft fornece aplicativos para todas as plataformas móveis que permitem o uso das mesmas credenciais em aplicativos de diferentes fornecedores, e recursos aprimorados especiais que exigem um único local seguro a partir do qual validar as credenciais. Chamamos esses recursos de **agentes**. No iOS e no Android esses agentes são fornecidos por meio de aplicativos baixáveis que os clientes instalam de forma independente ou que podem ser enviados por push ao dispositivo por uma empresa que gerencia uma parte ou todos os dispositivos para seus funcionários. Esses agentes oferecem suporte ao gerenciamento de segurança apenas para alguns aplicativos, ou para todo o dispositivo, com base no desejo dos administradores de TI. No Windows, essa funcionalidade é fornecida por um seletor de conta integrado ao sistema operacional, conhecido tecnicamente como o Agente de Autenticação da Web.
+A Microsoft fornece aplicativos para todas as plataformas móveis que permitem o uso das mesmas credenciais em aplicativos de diferentes fornecedores e recursos aprimorados especiais que exigem um único local seguro do qual validar as credenciais. Chamamos esses recursos de **agentes**. No iOS e no Android esses agentes são fornecidos por meio de aplicativos baixáveis que os clientes instalam de forma independente ou que podem ser enviados por push ao dispositivo por uma empresa que gerencia uma parte ou todos os dispositivos para seus funcionários. Esses agentes oferecem suporte ao gerenciamento de segurança apenas para alguns aplicativos, ou para todo o dispositivo, com base no desejo dos administradores de TI. No Windows, essa funcionalidade é fornecida por um seletor de conta integrado ao sistema operacional, conhecido tecnicamente como o Agente de Autenticação da Web.
 
 Para saber mais como usamos esses agentes e como os clientes podem vê-los em seu fluxo de logon para a plataforma do Microsoft Identity, continue lendo.
 
@@ -64,7 +64,7 @@ Esses logons têm as seguintes desvantagens:
 
 * O usuário não consegue experimentar o logon único em todos os aplicativos que usam um Microsoft Identity, somente entre os Microsoft Identities configurados por seu aplicativo.
 * Seu aplicativo não pode ser usado com recursos de negócios mais avançados, como o Acesso Condicional ou no pacote de produtos do InTune.
-* Seu aplicativo não pode oferecer suporte à autenticação baseada em certificado para usuários corporativos.
+* Seu aplicativo não dá suporte à autenticação baseada em certificado para usuários corporativos.
 
 Veja uma representação de como os SDKs do Microsoft Identity funcionam com o armazenamento compartilhado de seus aplicativos a fim de habilitar o SSO:
 
@@ -83,21 +83,21 @@ Veja uma representação de como os SDKs do Microsoft Identity funcionam com o a
 ```
 
 #### <a name="broker-assisted-logins"></a>Logons assistidos por agentes
-Os logons assistido por agente são experiências de logon que ocorrem dentro do aplicativo do agente e usam o armazenamento e a segurança do agente para compartilhar as credenciais em todos os aplicativos no dispositivo, e aplicam a plataforma Microsoft Identity. Isso significa que os aplicativos dependem do agente para fazer logon dos usuários. No iOS e no Android esses agentes são fornecidos por meio de aplicativos baixáveis que os clientes instalam de forma independente ou que podem ser enviados por push ao dispositivo por uma empresa que gerencia o dispositivo para o usuário. Um exemplo desse tipo de aplicativo é o Azure Authenticator no iOS. No Windows, essa funcionalidade é fornecida por um seletor de conta integrado ao sistema operacional, conhecido tecnicamente como o Agente de Autenticação da Web.
+Os logons assistido por agente são experiências de logon que ocorrem dentro do aplicativo do agente e usam o armazenamento e a segurança do agente para compartilhar as credenciais em todos os aplicativos no dispositivo, e aplicam a plataforma Microsoft Identity. Isso significa que os aplicativos dependem do agente para realizar a entrada dos usuários. No iOS e no Android esses agentes são fornecidos por meio de aplicativos baixáveis que os clientes instalam de forma independente ou que podem ser enviados por push ao dispositivo por uma empresa que gerencia o dispositivo para o usuário. Um exemplo desse tipo de aplicativo é o Microsoft Authenticator no iOS. No Windows, essa funcionalidade é fornecida por um seletor de conta integrado ao sistema operacional, conhecido tecnicamente como o Agente de Autenticação da Web.
 A experiência varia de acordo com a plataforma e, às vezes, pode ser perturbador para os usuários se não for gerenciada corretamente. Provavelmente você estará mais familiarizado com esse padrão se tiver instalado o aplicativo do Facebook e usado o Facebook Connect em outro aplicativo. A plataforma Microsoft Identity usa o mesmo padrão.
 
-Para iOS, isso leva a uma animação de "transição", em que seu aplicativo é enviado ao segundo plano enquanto os aplicativos do Azure Authenticator ficam em primeiro plano para o usuário selecionar em qual conta quer entrar.  
+Para iOS, isso leva a uma animação de "transição", em que seu aplicativo é enviado ao segundo plano enquanto os aplicativos do Microsoft Authenticator ficam em primeiro plano para o usuário selecionar em qual conta quer entrar.  
 
 Para Android e Windows, o seletor de conta é exibido na parte superior de seu aplicativo, o que é menos perturbador para o usuário.
 
 #### <a name="how-the-broker-gets-invoked"></a>Como o agente é invocado
-Se um agente compatível for instalado no dispositivo, como o aplicativo Azure Authenticator, os SDKs do Microsoft Identity farão automaticamente o trabalho de invocar o agente para você quando um usuário indicar que deseja fazer logon usando qualquer conta da plataforma Microsoft Identity. Essa conta pode ser uma Conta pessoal da Microsoft, uma conta corporativa ou de estudante ou uma conta que você fornece e hospeda no Azure usando nossos produtos B2C e B2B. 
+Se um agente compatível for instalado no dispositivo, como o aplicativo Microsoft Authenticator, os SDKs do Microsoft Identity farão automaticamente o trabalho de invocar o agente para você quando um usuário indicar que deseja fazer logon usando qualquer conta da plataforma Microsoft Identity. Essa conta pode ser uma Conta da Microsoft pessoal, uma conta corporativa ou de estudante ou uma conta que você fornece e hospeda no Azure usando nossos produtos B2C e B2B. 
 
  #### <a name="how-we-ensure-the-application-is-valid"></a>Como podemos garantir que o aplicativo é válido
  
- A necessidade de garantir a identidade de uma chamada de aplicativo para o agente é fundamental para a segurança fornecida em logons assistidos por agente. Nem o IOS ou o Android impõe identificadores exclusivos que são válidos somente para um determinado aplicativo, portanto, aplicativos mal-intencionados podem "falsificar" o identificador de um aplicativo legítimo e receber os tokens destinados ao aplicativo legítimo. Para garantir que estejamos sempre nos comunicando com o aplicativo certo no tempo de execução, pedimos ao desenvolvedor que forneça um redirectURI personalizado ao registrar seu aplicativo com a Microsoft. **O modo como os desenvolvedores devem criar esse URI de redirecionamento será abordado com detalhes logo abaixo.** Este redirectURI personalizado contém a ID de Pacote do aplicativo e tem a garantia da Apple App Store de ser exclusivo para o aplicativo. Quando um aplicativo chama o agente, o agente solicita que o sistema operacional iOS o forneça com a ID de Pacote que chamou o agente. O agente fornece a ID de Pacote para a Microsoft na chamada para nosso sistema de identidade. Se a ID de Pacote do aplicativo não corresponder com a ID de Pacote fornecida para nós pelo desenvolvedor durante o registro, negaremos o acesso aos tokens do recurso que o aplicativo está solicitando. Essa verificação garante que apenas o aplicativo registrado pelo desenvolvedor receba tokens.
+ A necessidade de garantir a identidade de uma chamada de aplicativo para o agente é fundamental para a segurança fornecida em logons assistidos por agente. O iOS e o Android não impõem identificadores exclusivos que são válidos somente para um determinado aplicativo, portanto, aplicativos mal-intencionados podem "falsificar" o identificador de um aplicativo legítimo e receber os tokens destinados ao aplicativo legítimo. Para garantir que estejamos sempre nos comunicando com o aplicativo certo no tempo de execução, pedimos ao desenvolvedor que forneça um redirectURI personalizado ao registrar seu aplicativo com a Microsoft. **O modo como os desenvolvedores devem criar esse URI de redirecionamento será abordado com detalhes logo abaixo.** Este redirectURI personalizado contém a ID de Pacote do aplicativo e tem a garantia da Apple App Store de ser exclusivo para o aplicativo. Quando um aplicativo chama o agente, o agente solicita que o sistema operacional iOS o forneça com a ID de Pacote que chamou o agente. O agente fornece a ID de Pacote para a Microsoft na chamada para nosso sistema de identidade. Se a ID de Pacote do aplicativo não corresponder com a ID de Pacote fornecida para nós pelo desenvolvedor durante o registro, negaremos o acesso aos tokens do recurso que o aplicativo está solicitando. Essa verificação garante que apenas o aplicativo registrado pelo desenvolvedor receba tokens.
 
-**O desenvolvedor pode optar se o SDK do Microsoft Identity chama o agente ou usa o fluxo assistido por não agente.** No entanto, se o desenvolvedor optar por não usar o fluxo assistido por agente perderá a vantagem de usar as credenciais de SSO que o usuário já pode ter adicionado ao dispositivo, e impede que o aplicativo seja usado com recursos corporativos fornecidos pela Microsoft aos seus clientes, como o Acesso Condicional, recursos de gerenciamento do Intune e autenticação baseada em certificado.
+**O desenvolvedor pode optar se o SDK do Microsoft Identity chama o agente ou usa o fluxo assistido por não agente.** No entanto, se o desenvolvedor optar por não usar o fluxo assistido por agente perderá a vantagem de usar as credenciais de SSO que o usuário já pode ter adicionado ao dispositivo e impede que o aplicativo seja usado com recursos corporativos fornecidos pela Microsoft aos seus clientes, como o Acesso Condicional, recursos de gerenciamento do Intune e autenticação baseada em certificado.
 
 Esses logons têm os seguintes benefícios:
 
@@ -296,11 +296,9 @@ O ADAL usa – canOpenURL: para verificar se o agente está instalado no disposi
 
 <key>LSApplicationQueriesSchemes</key>
 
-<array>
-     <string>msauth</string>
+<array> <string>msauth</string>
 </array>
 
 ### <a name="youve-configured-sso"></a>Você configurou o SSO!
 Agora, o SDK do Microsoft Identity compartilhará automaticamente as credenciais em seus aplicativos e invocará o agente se ele estiver presente em seu dispositivo.
-
 

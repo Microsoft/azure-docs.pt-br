@@ -13,21 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 01/25/2017
+ms.date: 09/15/2017
 ms.author: cakarst;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: aca0e4cfdcfb3e3ed2e69ad8153b4c965b299806
-ms.lasthandoff: 03/15/2017
-
-
-
+ms.openlocfilehash: bb478484fba5a76fa12d5d1976919224965b6e0d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Carregar dados do Azure Data Lake Store no SQL Data Warehouse
 Este documento fornece todas as etapas necessárias para carregar seus próprios dados do Azure Data Lake Store (ADLS) no SQL Data Warehouse usando o PolyBase.
 Embora você possa executar consultas ad hoc sobre os dados armazenados no ADLS usando as tabelas externas, recomendamos importar os dados para o SQL Data Warehouse.
-, Tempo previsto: 10 minutos, supondo que você tenha os pré-requisitos necessários.
->
+
 Neste tutorial, você aprenderá a:
 
 1. Crie objetos de banco de dados externo para carregar do Azure Data Lake Store.
@@ -41,12 +38,13 @@ Para este tutorial, você precisa do:
 
 >[!NOTE] 
 > Você precisa do ID do cliente, a chave e o valor do ponto de extremidade de Token OAuth2.0 do seu aplicativo do Active Directory para conectar-se no Azure Data Lake do SQL Data Warehouse. Os detalhes de como obter esses valores estão no link acima.
+>Observação para registro do aplicativo do Azure Active Directory usa a “ID do aplicativo” como a ID do cliente.
 
 * SQL Server Management Studio ou do SQL Server Data Tools, para baixar o SSMS e conectar-se. Veja a [consulta SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
 
 * Um SQL Data Warehouse do Azure, para criar um siga as instruções em: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
 
-* Um Azure Data Lake Store cuja criptografia não está habilitada. Para criar um siga as instruções em: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
+* Um Azure Data Lake Store com ou sem a criptografia habilitada. Para criar um siga as instruções em: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
 
 
 
@@ -58,7 +56,7 @@ O PolyBase usa objetos externos do T-SQL para definir o local e os atributos dos
 ###  <a name="create-a-credential"></a>Criar uma credencial
 Para acessar o Azure Data Lake Store, você precisa criar uma chave mestra de banco de dados para criptografar seu segredo de credencial, que é usado na próxima etapa.
 Então, você cria uma credencial com escopo de banco de dados, que armazena as credenciais de entidade de serviço configuradas no AAD. Para aqueles que já usaram o PolyBase para se conectar ao Azure Storage Blob do Windows, observe que a sintaxe da credencial é diferente.
-Para se conectar ao armazenamento do Azure Data Lake Store, você deve **primeiro** criar um aplicativo do Azure Active Directory, criar uma tecla de acesso e conceder acesso de aplicativo para o recurso do Azure Data Lake. Instruções para executar essas etapas estão localizadas [aqui](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
+Para se conectar ao armazenamento do Azure Data Lake Store, você deve **primeiro** criar um aplicativo do Azure Active Directory, criar uma tecla de acesso e conceder acesso de aplicativo para o recurso do Azure Data Lake. As instruções para executar essas etapas estão [aqui](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
 
 ```sql
 -- A: Create a Database Master Key.
@@ -80,12 +78,17 @@ WITH
     SECRET = '<key>'
 ;
 
+-- It should look something like this:
+CREATE DATABASE SCOPED CREDENTIAL ADLCredential
+WITH
+    IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.microsoftonline.com/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
+    SECRET = 'BjdIlmtKp4Fpyh9hIvr8HJlUida/seM5kQ3EpLAmeDI='
+;
 ```
 
 
 ### <a name="create-the-external-data-source"></a>Criar a fonte de dados externa
-Use este comando [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] para armazenar o local dos dados e o tipo de dados.
-Você pode encontrar o URI ADL no portal do Azure e em www.portal.azure.com.
+Use este comando [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] para armazenar o local dos dados e o tipo de dados. Para localizar o URI do ADL no Portal do Azure, navegue até o Azure Data Lake Store e, em seguida, veja o painel do Essentials.
 
 ```sql
 -- C: Create an external data source
@@ -96,7 +99,7 @@ Você pode encontrar o URI ADL no portal do Azure e em www.portal.azure.com.
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH (
     TYPE = HADOOP,
-    LOCATION = 'adl://<AzureDataLake account_name>.azuredatalake.net',
+    LOCATION = 'adl://<AzureDataLake account_name>.azuredatalakestore.net',
     CREDENTIAL = ADLCredential
 );
 ```
@@ -161,12 +164,12 @@ WITH
 O carregamento de dados com o PolyBase é fortemente tipado. Isso significa que cada linha dos dados que estão sendo ingeridos deve atender à definição de esquema da tabela.
 Se uma determinada linha não coincide com a definição de esquema, a linha é rejeitada da carga.
 
-O tipo de rejeição e o valor rejeitado permitem que você defina quantas linhas ou qual o percentual de dados deve estar presente na tabela final.
+As opções REJECT_TYPE e REJECT_VALUE permitem que você defina quantas linhas ou qual o percentual de dados deve estar presente na tabela final.
 Durante o carregamento, se o valor rejeitado for atingido, o carregamento falha. A causa mais comum de rejeição de linhas é uma incompatibilidade da definição do esquema.
 Por exemplo, se uma coluna é especificada incorretamente para o esquema como inteiros, quando os dados no arquivo são de uma cadeia de caracteres, todas as linhas falham ao carregar.
 
 O local especifica o diretório de nível superior cujos dados você deseja ler.
-Nesse caso, se existem subdiretórios em /DimProduct/ o PolyBase importa todos os dados nos subdiretórios.
+Nesse caso, se existem subdiretórios em /DimProduct/ o PolyBase importa todos os dados nos subdiretórios. O armazenamento do Azure Data Lake usa o Controle de Acesso Baseado em Função (RBAC) para controlar o acesso aos dados. Isso significa que a entidade de serviço deve ter permissões de leitura para os diretórios definidos no parâmetro de local e para os filhos do diretório final e dos arquivos. Isso permite ao PolyBase autenticar e carregar os dados de leitura. 
 
 ## <a name="load-the-data"></a>Carregar os dados
 Para carregar dados do Azure Data Lake Store, use a instrução [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. Carregar com CTAS usa a tabela externa fortemente tipada que você criou.
@@ -209,7 +212,7 @@ O exemplo a seguir é um bom ponto de partida para a criação de estatísticas.
 ## <a name="achievement-unlocked"></a>Missão cumprida!
 Você carregou com êxito os dados no SQL Data Warehouse do Azure. Bom trabalho!
 
-##<a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 O carregamento de dados é a primeira etapa para desenvolver uma solução de data warehouse usando o SQL Data Warehouse. Confira nossos recursos de desenvolvimento em [Tabelas](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) e [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md).
 
 
@@ -234,4 +237,3 @@ O carregamento de dados é a primeira etapa para desenvolver uma solução de da
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
-

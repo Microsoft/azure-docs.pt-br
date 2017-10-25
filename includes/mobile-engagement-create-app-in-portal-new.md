@@ -30,8 +30,3 @@
    
     ![](./media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

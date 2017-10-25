@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 07/05/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 2b020004762125aad201cf7eb454da5cf73288ae
-ms.openlocfilehash: bc8b93d59b53e17eff4b7448f5c6b445894f47e9
-
-
+ms.openlocfilehash: b61f6aad7cf974ce25baf944e342284b02ea0048
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurando um nome de domínio personalizado para um serviço de nuvem do Azure
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Você já entendeu o que são os registros CNAME e A? [Pule a explicação](#add
 <p/>
 
 > [!NOTE]
-> Os procedimentos nesta tarefa se aplicam aos Serviços de Nuvem do Azure. Para os Serviços de Aplicativos, veja [isto](../app-service-web/web-sites-custom-domain-name.md). Para as contas de armazenamento, veja [isto](../storage/storage-custom-domain-name.md).
+> Os procedimentos nesta tarefa se aplicam aos Serviços de Nuvem do Azure. Para os Serviços de Aplicativos, veja [isto](../app-service/app-service-web-tutorial-custom-domain.md). Para as contas de armazenamento, veja [isto](../storage/blobs/storage-custom-domain-name.md).
 > 
 > 
 
@@ -76,7 +76,7 @@ Para criar um registro CNAME, você deve adicionar uma nova entrada na tabela DN
        ![seção rapidamente mostrando a URL do site][csurl]
      
        **OR**  
-   * Instale e configure o [Azure Powershell](/powershell/azureps-cmdlets-docs)e use o seguinte comando:
+   * Instale e configure o [Azure Powershell](/powershell/azure/overview)e use o seguinte comando:
      
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -111,7 +111,7 @@ Para criar um registro, primeiro você deve encontrar o endereço IP do seu serv
        ![seção rapidamente mostrando a VIP][vip]
      
        **OR**  
-   * Instale e configure o [Azure Powershell](/powershell/azureps-cmdlets-docs)e use o seguinte comando:
+   * Instale e configure o [Azure Powershell](/powershell/azure/overview)e use o seguinte comando:
      
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -156,9 +156,3 @@ Este exemplo demonstra como criar um registro A para o domínio raiz. Se você d
 [Validate Custom Domain dialog box]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
 [vip]: ./media/cloud-services-custom-domain-name/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-

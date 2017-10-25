@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 8c5ce9570541def245ca33f5841a8392e73569b4
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: 19dbb1625f46f8864413dc538a96b2413bc6eea0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Configurar uma rede virtual no Azure DevTest Labs
 Conforme explicado no artigo [Adicionar uma VM com artefatos a um laboratório](devtest-lab-add-vm-with-artifacts.md), quando cria uma VM em um laboratório, você pode especificar uma rede virtual configurada. Um cenário no qual isso é possível é quando você precisa acessar os recursos da rede corporativa por meio de suas VMs usando a rede virtual configurada com o ExpressRoute ou a VPN site a site. As seções a seguir ilustram como adicionar sua rede virtual existente às configurações de Rede Virtual de um laboratório, para que ela esteja disponível para escolha durante a criação de suas VMs.
@@ -30,8 +29,8 @@ As etapas a seguir orientarão você pela adição de uma rede virtual (e sub-re
 1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecione **Mais Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 3. Na lista de laboratórios, selecione o laboratório desejado. 
-4. Na folha do laboratório, selecione **Configuração**.
-5. Na folha **Configuração** do laboratório, selecione **Redes virtuais**.
+4. Na folha do laboratório, selecione **Configuração e Políticas**.
+5. Na folha **Configuração e políticas** do laboratório, selecione **Redes virtuais**.
 6. Na folha **Redes virtuais** , você vê uma lista das redes virtuais configuradas para o laboratório atual, bem como a rede virtual padrão que é criada para o laboratório. 
 7. Selecione **+ Adicionar**.
    
@@ -62,5 +61,4 @@ As etapas a seguir orientarão você pela adição de uma rede virtual (e sub-re
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois de adicionar a rede virtual desejada ao seu laboratório, a próxima etapa será [adicionar uma VM ao seu laboratório](devtest-lab-add-vm-with-artifacts.md).
-
 

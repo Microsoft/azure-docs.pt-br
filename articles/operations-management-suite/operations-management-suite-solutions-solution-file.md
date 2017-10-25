@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
+ms.date: 04/30/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 742405395a3da792d0df01d7393a6e7fc7a55842
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: ee3462c13101d18921dc488b08c79e1e4e02ff3a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Criando um arquivo de solução de gerenciamento no OMS (Operations Management Suite) (Versão prévia)
 > [!NOTE]
@@ -44,7 +43,7 @@ A estrutura básica de um arquivo de solução de gerenciamento é a mesma que u
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "",
+       "contentVersion": "1.0",
        "parameters": {  },
        "variables": {  },
        "resources": [  ],
@@ -94,8 +93,8 @@ A tabela a seguir lista os parâmetros padrão para todas as soluções de geren
 | workspaceName |string |O nome do espaço de trabalho do Log Analytics. |
 | workspaceRegionId |string |A região do espaço de trabalho do Log Analytics. |
 
-### <a name="sample"></a>Amostra
-A seguir está uma entidade de parâmetro de exemplo para uma solução.  Isso inclui todos os parâmetros padrão e dois parâmetros adicionais na mesma categoria.
+
+A seguir está a estrutura dos parâmetros padrão que você pode copiar e colar em seu arquivo de solução.  
 
     "parameters": {
         "workspaceName": {
@@ -127,23 +126,8 @@ A seguir está uma entidade de parâmetro de exemplo para uma solução.  Isso i
             "metadata": {
                 "description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
             }
-        },
-        "jobIdGuid": {
-        "type": "string",
-            "metadata": {
-                "description": "GUID for a runbook job",
-                "control": "guid",
-                "category": "Schedule"
-            }
-        },
-        "startTime": {
-            "type": "string",
-            "metadata": {
-                "description": "Time for starting the runbook.",
-                "control": "datetime",
-                "category": "Schedule"
-            }
         }
+    }
 
 
 Consulte os valores de parâmetro em outros elementos da solução com a sintaxe **parameters('nome do parâmetro')**.  Por exemplo, para acessar o nome do espaço de trabalho, você usaria **parameters('workspaceName')**
@@ -260,4 +244,3 @@ A entidade **plano** do recurso da solução tem as propriedades na tabela a seg
 * [Adicionar runbooks e outros recursos da Automação](operations-management-suite-solutions-resources-automation.md) à solução de gerenciamento.
 * Aprenda os detalhes da [Criação de modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 * Pesquise entre os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates) para obter exemplos de diferentes modelos do Resource Manager.
-

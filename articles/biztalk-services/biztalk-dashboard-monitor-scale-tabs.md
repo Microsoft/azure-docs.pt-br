@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: ec1c54c8520170cd19095bf8d752c79c2fd812d8
-ms.lasthandoff: 03/15/2017
-
-
+ms.openlocfilehash: 62bef0ee0141f6a7a92146ef230f0766a85aee5e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>Examine as guias Painel, Monitor, Escala, Configurar e Conexão Híbrid
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Depois de criar o Serviço BizTalk e implantar seu aplicativo, você pode alterar algumas configurações do Serviço BizTalk e monitorar o desempenho do aplicativo. 
 
 Ao abrir o portal clássico do Azure, você será levado automaticamente para a guia **TODOS OS ITENS** . Para exibir seu Serviço BizTalk, selecione o Serviço do BizTalk na guia **TODOS OS ITENS** ou selecione a guia **SERVIÇOS BIZTALK** e selecione o nome do seu Serviço BizTalk.
@@ -329,8 +331,6 @@ Define o Status de Backup para Nenhum ou Automático. Quando estiver definido pa
 ## <a name="HybridConnections"></a>Conexões Híbridas
 As Conexões Híbridas conectam um aplicativo do Azure, como aplicativos Web ou Aplicativos Móveis no Serviço de Aplicativo do Azure, a um recurso local que utilize uma porta TCP estática, como SQL Server, MySQL, APIs Web HTTP e os serviços Web mais personalizados. As Conexões Híbridas são gerenciadas nos Serviços BizTalk, no portal clássico do Azure.
 
-Para criar conexões híbridas no Serviço de Aplicativo do Azure, confira [Acessar recursos locais usando conexões híbridas no Serviço de Aplicativo do Azure](../app-service-web/web-sites-hybrid-connection-get-started.md).
-
 Para criar ou gerenciar as Conexões Híbridas nos Serviços do BizTalk do Azure, consulte [Conexões Híbridas](integration-hybrid-connection-overview.md).
 
 ## <a name="next"></a>Avançar
@@ -351,5 +351,4 @@ Agora que está familiarizado com as diferentes guias, você pode obter mais inf
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
 [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
-
 

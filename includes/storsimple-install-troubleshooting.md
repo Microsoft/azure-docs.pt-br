@@ -19,3 +19,8 @@ Execute o cmdlet em ambos os controladores.
 
 Se você verificou que há conectividade e o problema continuar, contate o Suporte da Microsoft para saber das próximas etapas.
 
+**E se você receber uma falha na atualização ao atualizar o seu dispositivo para Atualização 4 e ambos os controladores estiverem executando a Atualização 4?**
+
+Iniciando a Atualização 4, se os dois controladores estiverem executando a mesma versão de software e se houver falha na atualização, os controladores não entrarão no modo de recuperação. Essa situação pode ocorrer se o hotfix de software do dispositivo (1º atualização da ordem) for aplicado em ambos os controladores com êxito, mas outros hotfixes (2ª ordem e 3ª ordem) ainda estão a ser aplicados. Iniciando a Atualização 4, os controladores entrarão no modo de recuperação somente se os dois controladores estiverem executando versões diferentes do software. 
+
+Se o usuário vê uma falha na atualização, quando ambos os controladores estão executando a Atualização 4, recomendamos que aguarde alguns minutos e, em seguida, tente atualizar novamente. Se a repetição falhar, ele deverá contatar o Suporte da Microsoft.

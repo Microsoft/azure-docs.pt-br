@@ -1,6 +1,6 @@
 ---
-title: "Como gerenciar ativos de dados no Catálogo de Dados do Azure | Microsoft Docs"
-description: "Artigo de instruções que destaca como controlar a visibilidade e a propriedade de ativos de dados registrados no Catálogo de Dados do Azure."
+title: "Gerenciar ativos de dados no Catálogo de Dados do Azure | Microsoft Docs"
+description: "O artigo destaca como controlar a visibilidade e a propriedade de ativos de dados registrados no Catálogo de Dados do Azure."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -13,56 +13,55 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 08/15/2017
 ms.author: maroche
-translationtype: Human Translation
-ms.sourcegitcommit: cd3184059a0970bb7c9b59803cf37125abbbd879
-ms.openlocfilehash: 45a7b2df88a2edf2bccdfc9d2aaea932f2096f24
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 8b9159b7bc4f7b2dac12d9012c6c903e75a6ac16
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-to-manage-data-assets-in-azure-data-catalog"></a>Como gerenciar ativos de dados no Catálogo de Dados do Azure
+# <a name="manage-data-assets-in-azure-data-catalog"></a>Gerenciar ativos de dados no Catálogo de Dados do Azure
 ## <a name="introduction"></a>Introdução
-**Catálogo de Dados do Azure** fornece recursos para descoberta de fonte de dados, habilitando os usuários a descobrir e entender facilmente as fontes de dados de que precisam para executar análises e tomar decisões. Esses recursos de descoberta têm maior impacto quando todos os usuários podem localizar e compreender a mais ampla variedade de fontes de dados disponíveis. Tendo isso em mente, o comportamento padrão do Catálogo de Dados é que todas as fontes de dados registradas sejam visível e detectáveis por todos os usuários do catálogo.
+O Catálogo de Dados do Azure é desenvolvido para descoberta de fonte de dados para que você possa facilmente descobrir e entender as fontes de dados de que você precisa para executar a análise e tomar decisões. Esses recursos de descoberta têm maior impacto quando você e outros usuários podem localizar e compreender a mais ampla variedade de fontes de dados disponíveis. Com esses elementos em mente, o comportamento padrão do Catálogo de Dados é que todas as fontes de dados registradas fiquem visíveis e detectáveis por todos os usuários do catálogo.
 
-O Catálogo de Dados não dá aos usuários acesso aos dados em si. O acesso aos dados é controlado pelo proprietário da fonte de dados. O Catálogo de Dados permite que os usuários descubram fontes de dados e exibam os metadados relacionados às fontes registradas no catálogo.
+O Catálogo de Dados não dá a você acesso aos dados em si. O acesso aos dados é controlado pelo proprietário da fonte de dados. Com o Catálogo de Dados, você pode descobrir fontes de dados e exibir os metadados relacionados às fontes registradas no catálogo.
 
-Porém, pode haver situações em que as fontes de dados só devam estar visíveis para usuários específicos ou membros de grupos. Nesses cenários, o Catálogo de Dados permite que os usuários se apropriem de ativos de dados registrados no catálogo e, em seguida, controlem a visibilidade dos ativos de propriedade sua.
-
-> [!NOTE]
-> A funcionalidade descrita neste artigo está disponível apenas na Edição Standard do Catálogo de Dados do Azure. A Edição Gratuita não fornece recursos para propriedade e restrição de visibilidade de ativos de dados.
->
->
-
-## <a name="managing-ownership-of-data-assets"></a>Gerenciamento de propriedade de ativos de dados
-Por padrão, os ativos de dados registrados no Catálogo de Dados não têm um proprietário; qualquer usuário com permissão para acessar o catálogo pode descobrir e anotar esses ativos. Os usuários podem se apropriar de ativos de dados sem proprietário e podem limitar a visibilidade dos ativos de propriedade sua.
-
-Quando um ativo de dados no Catálogo de Dados tem um proprietário, apenas usuários autorizados pelos proprietários podem descobrir o ativo e exibir seus metadados, e apenas os proprietários podem excluir o ativo do Catálogo.
+Porém, pode haver situações em que as fontes de dados só devam estar visíveis a usuários específicos ou membros de grupos específicos. Nesses cenários, os usuários podem assumir a propriedade de ativos de dados registrados no catálogo e então controlar a visibilidade de ativos de propriedade deles.
 
 > [!NOTE]
-> A propriedade no Catálogo de Dados só afeta os metadados armazenados no Catálogo. Ela não concede permissões para a fonte de dados subjacente.
+> A funcionalidade descrita neste artigo está disponível apenas na Edição Standard do Catálogo de Dados do Azure. A Edição Gratuita não fornece recursos para propriedade e restrição da visibilidade de ativos de dados.
 >
 >
 
-### <a name="taking-ownership"></a>Apropriação
-Os usuários podem se apropriar de ativos de dados selecionando a opção "Apropriar-se" no portal do Catálogo de Dados. Nenhuma permissão especial é necessária para apropriar-se de um ativo de dados sem proprietário; qualquer usuário pode apropriar-se de um ativo de dados sem proprietário.
+## <a name="manage-ownership-of-data-assets"></a>Gerenciar a propriedade de ativos de dados
+Por padrão, ativos de dados registrados no Catálogo de Dados não têm proprietário. Qualquer usuário com permissão para acessar o catálogo pode descobrir e anotar esses ativos. Os usuários podem se apropriar de ativos de dados sem proprietário e limitar a visibilidade dos ativos de propriedade eles.
 
-### <a name="adding-owners-and-co-owners"></a>Adição de proprietários e coproprietários
-Se um ativo de dados já tem um proprietário, os usuários não podem simplesmente apropriar-se dele. Eles devem ser adicionados como coproprietários por um proprietário existente. Qualquer proprietário pode adicionar outros usuários ou grupos de segurança como coproprietários.
+Quando um ativo de dados no Catálogo de Dados tem um proprietário, apenas usuários autorizados pelos proprietários podem descobrir o ativo e exibir seus metadados e apenas os proprietários podem excluir o ativo do catálogo.
+
+> [!NOTE]
+> A propriedade no Catálogo de Dados afeta apenas os metadados armazenados no catálogo. A propriedade não concede nenhuma permissão para a fonte de dados subjacente.
+>
+>
+
+### <a name="take-ownership"></a>Apropriar-se
+Os usuários podem apropriar-se de ativos de dados selecionando a opção **Apropriar-se** no portal do Catálogo de Dados. Nenhuma permissão especial é necessária para apropriar-se de um ativo de dados sem proprietário. Qualquer usuário pode apropriar-se de um ativo de dados sem proprietário.
+
+### <a name="add-owners-and-co-owners"></a>Adicionar proprietários e coproprietários
+Se um ativo de dados já tiver um proprietário, outros usuários não poderão simplesmente assumir a propriedade. Eles deverão ser adicionados como coproprietários por um proprietário existente. Qualquer proprietário pode adicionar outros usuários ou grupos de segurança como coproprietários.
 
 > [!NOTE]
 > É uma prática recomendada ter pelo menos dois indivíduos como proprietários para qualquer ativo de dados com proprietário.
 >
 >
 
-### <a name="removing-owners"></a>Remoção de proprietários
+### <a name="remove-owners"></a>Remover proprietários
 Assim como qualquer proprietário ativo pode adicionar coproprietários, qualquer proprietário ativo pode remover qualquer coproprietário.
 
-Se o proprietário de um ativo remover a si próprio como proprietário, ele não poderá mais gerenciar o ativo. Se o proprietário de um ativo remover a si próprio como proprietário e não houver outros coproprietários, o ativo será revertido para um estado sem proprietário.
+Um proprietário do ativo que remova a si mesmo como um proprietário não poderá mais gerenciar o ativo. Se o proprietário do ativo remover a si próprio como proprietário e não houver outros coproprietários, o ativo será revertido para um estado sem proprietário.
 
-## <a name="visibility"></a>Visibilidade
-Os proprietários de ativos de dados podem controlar a visibilidade dos ativos de dados que eles possuem. Para restringir a visibilidade do padrão (em que todos os usuários do Catálogo de Dados podem descobrir e exibir o ativo de dados), o proprietário do ativo pode alternar a configuração de visibilidade de "Todos" para "Proprietários e estes Usuários" nas propriedades do ativo. Em seguida, os proprietários podem adicionar usuários e grupos de segurança específicos.
+## <a name="control-visibility"></a>Controlar a visibilidade
+Os proprietários de ativos de dados podem controlar a visibilidade dos ativos de dados de propriedade eles. Para restringir a visibilidade como o padrão, em que todos os usuários do Catálogo de Dados podem descobrir e exibir o ativo de dados, o proprietário do ativo pode alternar a configuração de visibilidade de **Todos** para **Proprietários e Estes Usuários** nas propriedades do ativo. Em seguida, os proprietários podem adicionar usuários e grupos de segurança específicos.
 
 > [!NOTE]
 > Sempre que possível, as permissões de propriedade e visibilidade de ativo devem ser atribuídas a grupos de segurança e não a usuários individuais.
@@ -70,8 +69,7 @@ Os proprietários de ativos de dados podem controlar a visibilidade dos ativos d
 >
 
 ## <a name="catalog-administrators"></a>Administradores do Catálogo
-Os administradores do Catálogo de Dados são, implicitamente, coproprietários de todos os ativos no Catálogo. Os proprietários de ativos não podem remover a visibilidade dos administradores do Catálogo, e os administradores podem gerenciar a propriedade e a visibilidade de todos os ativos de dados no Catálogo.
+Os administradores do Catálogo de Dados são, implicitamente, coproprietários de todos os ativos no catálogo. Os proprietários do ativo não podem remover a visibilidade dos administradores e os administradores podem gerenciar a propriedade e a visibilidade de todos os ativos de dados no catálogo.
 
 ## <a name="summary"></a>Resumo
-O modelo de crowdsourcing do Catálogo de Dados para descoberta de ativos de dados e metadados permite que todos os usuários do Catálogo contribuam e descubram. A Edição Standard do Catálogo de Dados fornece recursos de propriedade e de gerenciamento para limitar a visibilidade e o uso de ativos de dados específicos.
-
+O modelo de crowdsourcing do Catálogo de Dados para descoberta de ativos de dados e metadados permite que todos os usuários do catálogo contribuam e descubram. A Edição Standard do Catálogo de Dados é desenvolvida para propriedade e gerenciamento para limitar a visibilidade e o uso de ativos de dados específicos.

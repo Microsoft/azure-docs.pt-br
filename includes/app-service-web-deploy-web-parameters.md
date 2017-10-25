@@ -61,8 +61,3 @@ O tamanho da instância do plano de hospedagem (pequeno, médio ou grande).
 
 O modelo define os valores que são permitidos para esse parâmetro (0, 1 ou 2) e atribui um valor padrão (0) se nenhum valor é especificado. Os valores correspondem a pequeno, médio e grande.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

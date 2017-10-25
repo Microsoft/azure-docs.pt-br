@@ -1,10 +1,10 @@
 ---
-title: Modelo de dados do Application Insights
+title: Modelo de Dados do Azure Application Insights | Microsoft Docs
 description: "Descreve as propriedades exportadas de exportação contínua em JSON e usados como filtros."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
 ms.service: application-insights
 ms.workload: tbd
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: feaa76e81f64b224f62e583541bf2ef376793a38
-ms.lasthandoff: 02/02/2017
-
-
+ms.author: bwren
+ms.openlocfilehash: a485ddd555f65473d81896effc4a3562bda71410
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-insights-export-data-model"></a>Modelo de dados de exportação do Application Insights
 Esta tabela lista as propriedades de telemetria enviadas dos SDKs do [Application Insights](app-insights-overview.md) para o portal.
@@ -31,7 +30,6 @@ Pontos a serem observados:
 * A duração é em décimos de microssegundo, portanto, 10000000 = = 1 segundo.
 * Datas e horas estão em UTC e são fornecidas no formato ISO `yyyy-MM-DDThh:mm:ss.sssZ`
 
-Existem vários [exemplos](app-insights-export-telemetry.md#code-samples) que ilustram como usá-los.
 
 ## <a name="example"></a>Exemplo
     // A server report about an HTTP request
@@ -352,4 +350,3 @@ Exceto quando indicado o contrário, as durações são representadas em décimo
 * [Application Insights](app-insights-overview.md)
 * [Exportação Contínua](app-insights-export-telemetry.md)
 * [Exemplos de código](app-insights-export-telemetry.md#code-samples)
-

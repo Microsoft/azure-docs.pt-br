@@ -28,19 +28,15 @@
     Isso permite que você acesse a instância do cliente móvel do processo de serviço do manipulador por push.
 4. Adicione o código a seguir ao método **OnCreate**, após a criação do **MobileServiceClient**:
    
-     // Define a instância atual de TodoActivity.
-     instância = isto;
+       // Set the current instance of TodoActivity.
+       instance = this;
    
-     // Verifique se o cliente GCM está configurado corretamente.
-     GcmClient.CheckDevice(this); GcmClient.CheckManifest(this);
+       // Make sure the GCM client is set up correctly.
+       GcmClient.CheckDevice(this);
+       GcmClient.CheckManifest(this);
    
-     // Registre o aplicativo para notificações por push.
-     GcmClient.Register(this, ToDoBroadcastReceiver.senderIDs);
+       // Register the app for push notifications.
+       GcmClient.Register(this, ToDoBroadcastReceiver.senderIDs);
 
 Sua **ToDoActivity** agora está preparada para adicionar notificações por push.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

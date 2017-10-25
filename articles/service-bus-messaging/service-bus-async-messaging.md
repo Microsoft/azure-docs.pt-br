@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/13/2017
+ms.date: 10/06/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 798b4310eb5ea7a4877d7842371b5dd7cf88d632
-ms.openlocfilehash: 8a5c1a381cc5cf30f211da948951dc577a124951
-
-
+ms.openlocfilehash: d36360f3fb46adf96f53976584987590791b07d0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Padrões de mensagens assíncronas e alta disponibilidade
+
 O serviço de mensagens assíncrono pode ser implementado de diversas maneiras diferentes. Com filas, tópicos e assinaturas, o Barramento de Serviço do Azure dá suporte ao assincronismo por meio de um mecanismo de encaminhamento e repositório. Na operação normal (síncrona), você envia mensagens para filas e tópicos e recebe mensagens de filas e assinaturas. Os aplicativos escritos por você dependem de essas entidades estarem sempre disponíveis. Quando a integridade da entidade é alterada, devido a diversas circunstâncias, é necessário ter uma maneira de fornecer uma entidade de capacidade reduzida que possa atender à maioria das necessidades.
 
 Os aplicativos normalmente usam padrões de mensagens assíncronas para habilitar diversos cenários de comunicação. Você pode criar aplicativos nos quais clientes podem enviar mensagens a serviços, mesmo quando o serviço não está em execução. Para os aplicativos que têm intermitência de comunicações, uma fila pode ajudar a normalizar a carga, fornecendo um lugar para um buffer de comunicações. Finalmente, você pode obter um balanceador de carga simples, mas eficaz, para distribuir mensagens em vários computadores.
@@ -81,10 +82,9 @@ Namespaces emparelhados dão suporte à *disponibilidade de envio*. A disponibil
 
 1. As mensagens são recebidas apenas do namespace principal.
 2. As mensagens enviadas a determinada fila ou tópico podem chegar fora de ordem.
-3. Se seu aplicativo usa sessões: as mensagens em uma sessão podem chegar fora de ordem. Essa é uma falha de funcionalidade normal das sessões. Isso significa que seu aplicativo usa sessões para mensagens agrupadas logicamente. O estado da sessão é mantido somente no namespace principal.
-4. As mensagens em uma sessão podem chegar fora de ordem. Essa é uma falha de funcionalidade normal das sessões. Isso significa que seu aplicativo usa sessões para mensagens agrupadas logicamente.
-5. O estado da sessão é mantido somente no namespace principal.
-6. A fila principal pode ficar online e começar a aceitar mensagens antes de a fila secundária entregar todas as mensagens à fila principal.
+3. As mensagens em uma sessão podem chegar fora de ordem. Essa é uma falha de funcionalidade normal das sessões. Isso significa que seu aplicativo usa sessões para mensagens agrupadas logicamente.
+4. O estado da sessão é mantido somente no namespace principal.
+5. A fila principal pode ficar online e começar a aceitar mensagens antes de a fila secundária entregar todas as mensagens à fila principal.
 
 As seções a seguir discutem as APIs e como as APIs são implementadas e mostra um código de exemplo que usa o recurso. Observe que há implicações de cobranças associadas a esse recurso.
 
@@ -133,28 +133,22 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu os conceitos básicos sobre mensagens assíncronas no Barramento de Serviço, leia mais detalhes sobre [namespaces emparelhados][paired namespaces].
 
-[ServerBusyException]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.serverbusyexception
+[ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception
 [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
-[MessagingException]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingexception
+[MessagingException]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
 [Best practices for insulating applications against Service Bus outages and disasters]: service-bus-outages-disasters.md
-[Microsoft.ServiceBus.Messaging.MessagingFactory]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory
-[MessageReceiver]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagereceiver
-[QueueClient]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queueclient
-[TopicClient]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicclient
-[Microsoft.ServiceBus.Messaging.PairedNamespaceOptions]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.pairednamespaceoptions
-[MessagingFactory]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory
-[SendAvailabilityPairedNamespaceOptions]:https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
-[NamespaceManager]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager
-[PairNamespaceAsync]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PairNamespaceAsync_Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_
-[EnableSyphon]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions#Microsoft_ServiceBus_Messaging_SendAvailabilityPairedNamespaceOptions_EnableSyphon
+[Microsoft.ServiceBus.Messaging.MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
+[MessageReceiver]: /dotnet/api/microsoft.servicebus.messaging.messagereceiver
+[QueueClient]: /dotnet/api/microsoft.servicebus.messaging.queueclient
+[TopicClient]: /dotnet/api/microsoft.servicebus.messaging.topicclient
+[Microsoft.ServiceBus.Messaging.PairedNamespaceOptions]: /dotnet/api/microsoft.servicebus.messaging.pairednamespaceoptions
+[MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
+[SendAvailabilityPairedNamespaceOptions]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
+[NamespaceManager]: /dotnet/api/microsoft.servicebus.namespacemanager
+[PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PairNamespaceAsync_Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_
+[EnableSyphon]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions#Microsoft_ServiceBus_Messaging_SendAvailabilityPairedNamespaceOptions_EnableSyphon
 [System.TimeSpan.Zero]: https://msdn.microsoft.com/library/system.timespan.zero.aspx
-[IsTransient]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingexception#Microsoft_ServiceBus_Messaging_MessagingException_IsTransient
+[IsTransient]: /dotnet/api/microsoft.servicebus.messaging.messagingexception#Microsoft_ServiceBus_Messaging_MessagingException_IsTransient
 [UnauthorizedAccessException]: https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx
-[BacklogQueueCount]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions?redirectedfrom=MSDN#Microsoft_ServiceBus_Messaging_SendAvailabilityPairedNamespaceOptions_BacklogQueueCount
+[BacklogQueueCount]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions?redirectedfrom=MSDN#Microsoft_ServiceBus_Messaging_SendAvailabilityPairedNamespaceOptions_BacklogQueueCount
 [paired namespaces]: service-bus-paired-namespaces.md
-
-
-
-<!--HONumber=Jan17_HO2-->
-
-

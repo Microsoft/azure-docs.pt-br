@@ -1,5 +1,5 @@
 ---
-title: "Protegendo aplicativos Web e móveis de PaaS usando o Banco de Dados SQL e o SQL Data Warehouse | Microsoft Docs"
+title: Protegendo bancos de dados de PaaS no Azure | Microsoft Docs
 description: " Saiba mais sobre as melhores práticas de segurança do Banco de Dados SQL do Azure e do SQL Data Warehouse para proteger aplicativos Web e móveis PaaS. "
 services: security
 documentationcenter: na
@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+ms.date: 07/11/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: be00c1427d57b96506ec8b0ac881b7c1bd09e4de
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: 18509b3fc3a73118f67583a0b087c58f0e51993c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="securing-paas-web-and-mobile-applications-using-sql-database-and-sql-data-warehouse"></a>Protegendo aplicativos Web e móveis de PaaS usando o Banco de Dados SQL e o SQL Data Warehouse
+# <a name="securing-paas-databases-in-azure"></a>Protegendo bancos de dados de PaaS no Azure
 
 Neste artigo, discutiremos uma coleção de práticas recomendadas de segurança do [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) e do [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/) para proteger seus aplicativos Web e móveis de PaaS. Essas práticas recomendadas derivam da nossa experiência com o Azure e da experiência de clientes como você.
 
@@ -57,7 +56,7 @@ Os benefícios de usar a autenticação do Azure AD em vez da autenticação do 
 Para saber mais sobre a autenticação do Azure AD, consulte:
 
 - [Conexão ao Banco de Dados SQL ou ao SQL Data Warehouse usando a autenticação do Azure Active Directory](../sql-database/sql-database-aad-authentication.md)
-- [Autenticação do Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-authentication.md)
+- [Autenticação do SQL Data Warehouse do Azure](../sql-data-warehouse/sql-data-warehouse-authentication.md)
 - [Token-based authentication support for Azure SQL DB using Azure AD authentication](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/) (Suporte para autenticação baseada em token para o Banco de Dados SQL do Azure usando a autenticação do Azure AD)
 
 > [!NOTE]
@@ -77,19 +76,18 @@ Para saber mais sobre as restrições de IP e o Firewall do SQL do Azure, consul
 - [Configurar uma regra de firewall no nível de servidor de Banco de Dados SQL do Azure usando o Portal do Azure](../sql-database/sql-database-configure-firewall-settings.md)
 
 ### <a name="encryption-of-data-at-rest"></a>Criptografia de dados em repouso
-A [TDE (Transparent Data Encryption)](https://msdn.microsoft.com/library/azure/bb934049) criptografa arquivos de dados do SQL Server, Banco de Dados SQL do Azure e SQL Data Warehouse do Azure, conhecidos como criptografia de dados em repouso. Você pode adotar várias precauções para ajudar a proteger o banco de dados, como a criação de um sistema seguro, a criptografia de ativos confidenciais e a criação de um firewall em torno de servidores de bancos de dados. No entanto, em um cenário em que a mídia física (como unidades ou fitas de backup) é roubada, um terceiro mal-intencionado pode restaurar ou anexar o banco de dados e procurar os dados. Uma solução é criptografar os dados confidenciais no banco de dados e proteger as chaves usadas para criptografar os dados com um certificado. Isso impede que alguém sem as chaves use os dados, mas esse tipo de proteção deve ser planejado antecipadamente.
+A [TDE (Transparent Data Encryption)](https://msdn.microsoft.com/library/azure/bb934049) é habilitada por padrão. A TDE criptografa de forma transparente os arquivos de log e de dados do SQL Server, do Banco de Dados SQL do Azure e do SQL Data Warehouse do Azure. A TDE protege contra o comprometimento de acesso direto aos arquivos ou aos backups dos arquivos. Isso permite que você criptografe os dados em repouso sem alterar os aplicativos existentes. A TDE deverá permanecer sempre habilitada. No entanto, isso não interromperá um invasor que utilizar o caminho de acesso normal. A TDE proporciona a capacidade de entrar em conformidade com muitas leis, regulamentações e diretrizes estabelecidas em vários setores.
 
-A TDE protege os dados em repouso, o que significa os arquivos de log e de dados. Ele fornece a capacidade de cumprir muitas leis, regulamentações e diretrizes estabelecidas em vários setores. Isso permite que os desenvolvedores de software criptografem dados usando algoritmos de criptografia padrão do setor sem alterar os aplicativos existentes.
+O SQL do Azure gerencia problemas relacionados a chave para a TDE. Assim como com a TDE, devem ser tomados cuidados especiais locais a fim de garantir a capacidade de recuperação e ao mover bancos de dados. Em cenários mais sofisticados, as chaves podem ser explicitamente gerenciadas no Azure Key Vault por meio do gerenciamento extensível de chaves (consulte [Habilitar TDE no SQL Server usando EKM](/security/encryption/enable-tde-on-sql-server-using-ekm)). Isso também permite o BYOK (Bring Your Own Key) por meio da capacidade BYOK do Azure Key Vault.
 
-A TDE deverá ser usada se as regulamentações especificarem explicitamente essa criptografia. Lembre-se, no entanto, que isso não vai parar um invasor usando o caminho de acesso normal. A TDE é usada para proteger contra o caso altamente improvável de você talvez precisar usar a criptografia adicional no nível do aplicativo, por meio da criptografia fornecida pelo SQL do Azure em relação às linhas e colunas ou por meio da criptografia do nível do aplicativo.
+O SQL do Azure fornece a criptografia para colunas por meio do [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Isso permite o acesso somente de aplicativos autorizados às colunas confidenciais. O uso dessa variante de criptografia limita as consultas SQL às colunas criptografadas à valores com base em igualdade.
 
-A criptografia do nível do aplicativo também deve ser usada para dados seletivos. As preocupações com a soberania de dados podem ser reduzidas com a criptografia de dados com uma chave que é mantida no país correto. Isso impede que até uma transferência de dados acidental cause um problema, uma vez que é impossível descriptografar os dados sem a chave, supondo que um algoritmo forte seja usado (como AES 256).
+A criptografia do nível do aplicativo também deve ser usada para dados seletivos. Algumas vezes, as preocupações com a soberania de dados podem ser reduzidas com a criptografia de dados com uma chave que seja mantida no país correto. Isso impede que até uma transferência de dados acidental cause um problema, uma vez que é impossível descriptografar os dados sem a chave, supondo que um algoritmo forte seja usado (como AES 256).
 
-A criptografia fornecida pelo SQL do Azure em relação às linhas e colunas pode ser feita apenas para permitir apenas o acesso de usuários ([RBAC](../active-directory/role-based-access-built-in-roles.md)) autorizados e impede que usuários com menos privilégios vejam as colunas ou linhas.
+Você pode usar precauções adicionais para ajudar a proteger o banco de dados, como a criação de um sistema seguro, a criptografia de ativos confidenciais e a criação de um firewall em torno de servidores de bancos de dados.
 
 ## <a name="next-steps"></a>Próximas etapas
 Este artigo apresentou uma coleção de práticas recomendadas de segurança do Banco de Dados SQL e SQL Data Warehouse para proteger seus aplicativos Web e móveis de PaaS. Para saber mais sobre como proteger suas implantações de PaaS, confira:
 
 - [Proteção de implantações de PaaS](security-paas-deployments.md)
 - [Securing PaaS web and mobile applications using Azure App Services](security-paas-applications-using-app-services.md) (Proteção dos aplicativos Web e móveis de PaaS usando os Serviços de Aplicativos do Azure)
-

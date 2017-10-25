@@ -19,8 +19,3 @@ Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua
 5. Observe que a conexão foi criada. Agora, continue com as outras etapas no seu aplicativo lógico:  
    ![](./media/connectors-create-api-onedrive/onedrive-5.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

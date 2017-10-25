@@ -14,12 +14,7 @@
    
     ![Monitorar o backup manual](./media/storsimple-create-manual-backup/HCS_CreateManualBackup2-include.png)
 5. Depois que o trabalho de backup for concluído, vá para a guia **Catálogo de backup** .
-6. Defina as seleções de filtro para o dispositivo apropriado, a política de backup e o intervalo de tempo. Clique no ícone de verificação  ![ícone de verificação](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png)  depois de definir os filtros.
+6. Defina as seleções de filtro para o dispositivo apropriado, a política de backup e o intervalo de tempo. Clique no ícone de verificação  ![ícone de verificação](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) depois de definir os filtros.
    
    O backup deve aparecer na lista de conjuntos de backup que é exibida no catálogo.
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

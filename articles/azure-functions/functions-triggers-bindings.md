@@ -3,8 +3,8 @@ title: "Trabalhar com gatilhos e associações no Azure Functions | Microsoft Do
 description: "Saiba como usar gatilhos e associações no Azure Functions para conectar a execução de seu código a eventos online e a serviços baseados em nuvem."
 services: functions
 documentationcenter: na
-author: christopheranderson
-manager: erikre
+author: lindydonna
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, functions, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"
@@ -14,125 +14,303 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
-ms.author: chrande
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: a56d71d437814ed08b2e0a05d9acc8448f6b9ae5
-ms.lasthandoff: 03/17/2017
-
-
+ms.date: 05/30/2017
+ms.author: donnam
+ms.openlocfilehash: ab438f804c28d5528901c405311424e0344e00fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-# <a name="learn-how-to-work-with-triggers-and-bindings-in-azure-functions"></a>Saiba como trabalhar com gatilhos e associações no Azure Functions 
-Este tópico mostra como usar gatilhos e associações no Azure Functions para conectar seu código a diversos gatilhos e serviços do Azure e a outros serviços baseados em nuvem. Ele apresenta alguns dos recursos de associação avançada e sintaxe com suporte por todos os tipos de associação.  
-
-Para obter informações detalhadas sobre como trabalhar com um tipo específico de associação ou gatilho, consulte um dos seguintes tópicos de referência:
-
-| | | | |  
-| --- | --- | --- | --- |  
-| [HTTP/webhook](functions-bindings-http-webhook.md) | [Timer](functions-bindings-timer.md) | [Aplicativos Móveis](functions-bindings-mobile-apps.md) | [Barramento de Serviço](functions-bindings-service-bus.md)  |  
-| [DocumentDB](functions-bindings-documentdb.md) |  [Armazenamento de Blobs](functions-bindings-storage-blob.md) | [Storage Queue](functions-bindings-storage-queue.md) |  [Tabela de Armazenamento](functions-bindings-storage-table.md) |  
-| [Hubs de Evento](functions-bindings-event-hubs.md) | [Hubs de Notificação](functions-bindings-notification-hubs.md) | [SendGrid](functions-bindings-sendgrid.md) | [Twilio](functions-bindings-twilio.md) |   
-| | | | |  
-
-Este artigos pressupõem que você já tenha lido a [referência do desenvolvedor do Azure Functions](functions-reference.md) e os artigos de referência do [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) ou [Node.js](functions-reference-node.md) para desenvolvedores.
+# <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de gatilhos e de associações do Azure Functions
+O Azure Functions permite escrever código em resposta a eventos no Azure e outros serviços, por meio de *gatilhos* e *associações*. Este artigo é uma visão geral conceitual dos gatilhos e associações para todas as linguagens de programação com suporte. Recursos que são comuns a todas as associações são descritos aqui.
 
 ## <a name="overview"></a>Visão geral
-Os gatilhos são respostas de eventos usadas para disparar seu código personalizado. Eles permitem que você responda a eventos em toda a plataforma do Azure ou localmente. As associações representam os metadados necessários usados para conectar seu código ao gatilho desejado ou aos dados de entrada ou saída associados. O arquivo *function.json* para cada função contém todas as associações relacionadas. Não há limite para o número de associações de entrada e saídas que uma função pode ter. No entanto, há suporte apenas para uma única associação de gatilho em cada função.  
 
-Para obter uma ideia melhor das diferentes associações que você pode integrar a seu aplicativo Azure Functions, consulte a tabela a seguir.
+Gatilhos e associações são uma forma declarativa de definir como uma função é invocada e com que dados ela trabalha. Um *gatilho* define como uma função é invocada. Uma função deve ter exatamente um gatilho. Gatilhos têm dados associados, que geralmente é o conteúdo que disparou a função. 
 
-[!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
+*Associações* de entrada e saída fornecem uma maneira declarativa de se conectar aos dados de dentro do seu código. Semelhante aos gatilhos, as cadeias de conexão e outras propriedades são especificadas na configuração da função. Associações são opcionais e uma função pode ter várias associações de entrada e saída. 
 
-Para entender melhor gatilhos e associações em geral, suponha que você deseja executar algum código para processar um novo item colocado em uma fila de armazenamento do Azure. O Azure Functions fornece um gatilho de fila do Azure para dar suporte a isso. Você precisaria das informações a seguir para monitorar a fila:
+Usando gatilhos e associações, você pode escrever código que é mais genérico e não codificar os detalhes dos serviços com os quais ele interage. Dados provenientes de serviços simplesmente tornam-se valores de entrada para o código de função. Para exibir os dados de saída para outro serviço (tal como criar uma nova linha no Armazenamento de Tabelas do Azure), use o valor retornado do método. Ou então, se você precisar gerar vários valores de saída, use um objeto auxiliar. Gatilhos e associações têm uma propriedade **name**, que é um identificador usado no código para acessar a associação.
 
-* A conta de armazenamento na qual a fila existe.
-* O nome da fila.
-* Um nome de variável que seu código usaria para se referir ao novo item que foi colocado na fila.  
+Você pode configurar os gatilhos e associações na guia **Integrar** no Portal do Azure Functions. Nos bastidores, a interface do usuário modifica um arquivo chamado *function.json* arquivo no diretório da função. Você pode editar esse arquivo mudando para o **Editor avançado**.
 
-Uma associação de gatilho de fila contém essas informações para uma função do Azure. Aqui está um exemplo *function.json* que contém uma associação de gatilho de fila. 
+A tabela a seguir mostra os gatilhos e as associações com suporte no Azure Functions. 
 
-```json
-{
-  "bindings": [
-    {
-      "name": "myNewUserQueueItem",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "queue-newusers",
-      "connection": "MY_STORAGE_ACCT_APP_SETTING"
-    }
-  ],
-  "disabled": false
-}
-```
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-Seu código pode enviar diferentes tipos de saída, dependendo de como o novo item de fila é processado. Por exemplo, talvez você queira gravar um novo registro em uma tabela de armazenamento do Azure.  Para fazer isso, você pode criar uma associação de saída para uma tabela do Armazenamento do Azure. Aqui está um exemplo *function.json* que inclui uma associação de saída de tabela de armazenamento que pode ser usada com um gatilho de fila. 
+### <a name="example-queue-trigger-and-table-output-binding"></a>Exemplo: gatilho de fila e associação de saída de tabela
 
-```json
-{
-  "bindings": [
-    {
-      "name": "myNewUserQueueItem",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "queue-newusers",
-      "connection": "MY_STORAGE_ACCT_APP_SETTING"
-    },
-    {
-      "type": "table",
-      "name": "myNewUserTableBinding",
-      "tableName": "newUserTable",
-      "connection": "MY_TABLE_STORAGE_ACCT_APP_SETTING",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
+Suponha que você deseja gravar uma nova linha no Armazenamento de Tabelas do Azure sempre que uma nova mensagem aparece no Armazenamento de Filas do Azure. Esse cenário pode ser implementado usando um gatilho da Fila do Azure e uma associação de saída do Armazenamento de Tabelas do Azure. 
 
-A função C# a seguir responde a um novo item que está sendo colocado em fila e grava uma nova entrada de usuário em uma tabela de armazenamento do Azure.
+Um gatilho do Armazenamento de Filas do Azure requer as seguintes informações na guia **Integrar**:
+
+* O nome da configuração do aplicativo que contém a cadeia de conexão da conta de Armazenamento do Azure para o Armazenamento de Filas do Azure
+* O nome da fila
+* O identificador em seu código para ler o conteúdo da mensagem da fila, como `order`.
+
+Para gravar no Armazenamento de Tabelas do Azure, use uma associação de saída com os seguintes detalhes:
+
+* O nome da configuração do aplicativo que contém a cadeia de conexão da conta de Armazenamento do Azure para o Armazenamento de Tabelas do Azure
+* O nome da tabela
+* O identificador em seu código para criar itens de saída, ou o valor retornado da função.
+
+As associações usam valores de cadeias de conexão armazenados nas configurações do aplicativo para impor a melhor prática de que *function.json* não contém segredos de serviço e, em vez disso, contém simplesmente os nomes das configurações do aplicativo.
+
+Em seguida, use os identificadores que você forneceu para integrar o Armazenamento do Azure em seu código.
 
 ```cs
 #r "Newtonsoft.Json"
 
-using System;
-using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
-public static async Task Run(string myNewUserQueueItem, IAsyncCollector<Person> myNewUserTableBinding, 
-                                TraceWriter log)
+// From an incoming queue message that is a JSON object, add fields and write to Table Storage
+// The method return value creates a new row in Table Storage
+public static Person Run(JObject order, TraceWriter log)
 {
-    // In this example the queue item is a JSON string representing an order that contains the name, 
-    // address and mobile number of the new customer.
-    dynamic order = JsonConvert.DeserializeObject(myNewUserQueueItem);
-
-    await myNewUserTableBinding.AddAsync(
-        new Person() { 
-            PartitionKey = "Test", 
-            RowKey = Guid.NewGuid().ToString(), 
-            Name = order.name,
-            Address = order.address,
-            MobileNumber = order.mobileNumber }
-        );
+    return new Person() { 
+            PartitionKey = "Orders", 
+            RowKey = Guid.NewGuid().ToString(),  
+            Name = order["Name"].ToString(),
+            MobileNumber = order["MobileNumber"].ToString() };  
 }
-
+ 
 public class Person
 {
     public string PartitionKey { get; set; }
     public string RowKey { get; set; }
     public string Name { get; set; }
-    public string Address { get; set; }
     public string MobileNumber { get; set; }
 }
 ```
 
-Para obter mais exemplos de código e informações mais específicas sobre os tipos de armazenamento do Azure com suporte, consulte [Gatilhos e associações de Azure Functions para armazenamento do Azure](functions-bindings-storage.md).
+```javascript
+// From an incoming queue message that is a JSON object, add fields and write to Table Storage
+// The second parameter to context.done is used as the value for the new row
+module.exports = function (context, order) {
+    order.PartitionKey = "Orders";
+    order.RowKey = generateRandomId(); 
 
-Para usar os recursos mais avançados de associação no portal do Azure, clique na opção **Editor avançado** na guia **Integrar** da sua função. O editor avançado permite que você edite o *function.json* diretamente no portal.
+    context.done(null, order);
+};
 
-## <a name="random-guids"></a>GUIDs aleatórios
-O Azure Functions fornece uma sintaxe para gerar GUIDs aleatórios com suas associações. A seguinte sintaxe de associação grava a saída para um novo BLOB com um nome exclusivo em um contêiner de Armazenamento: 
+function generateRandomId() {
+    return Math.random().toString(36).substring(2, 15) +
+        Math.random().toString(36).substring(2, 15);
+}
+```
+
+Este é o *function.json* que corresponde ao código anterior. Observe que a mesma configuração pode ser usada, independentemente da linguagem de implementação da função.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "order",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "myqueue-items",
+      "connection": "MY_STORAGE_ACCT_APP_SETTING"
+    },
+    {
+      "name": "$return",
+      "type": "table",
+      "direction": "out",
+      "tableName": "outTable",
+      "connection": "MY_TABLE_STORAGE_ACCT_APP_SETTING"
+    }
+  ]
+}
+```
+Para exibir e editar o conteúdo de *function.json* no Portal do Azure, clique na opção **Editor avançado** na guia **Integrar** da sua função.
+
+Para ver exemplos de código e detalhes sobre a integração com o Armazenamento do Azure, consulte [Gatilhos e associações do Azure Functions para o Armazenamento do Azure](functions-bindings-storage.md).
+
+### <a name="binding-direction"></a>Direção de associação
+
+Todos os disparadores e associações têm uma propriedade `direction`:
+
+- Para gatilhos, a direção sempre é `in`
+- Associações de entrada e saída usam `in` e `out`
+- Algumas associações dão suporte a uma direção especial `inout`. Se você usar `inout`, somente o **Editor avançado** estará disponível na guia **Integrar**.
+
+## <a name="using-the-function-return-type-to-return-a-single-output"></a>Usando o tipo de retorno da função para retornar um único resultado
+
+O exemplo anterior mostra como usar o valor retornado da função para fornecer saída para uma associação, que é obtida usando o parâmetro de nome especial `$return`. (Isso tem suporte em linguagens que têm um valor retornado, como C#, JavaScript e F#.) Se uma função tiver várias associações de saída, use `$return` apenas para uma delas. 
+
+```json
+// excerpt of function.json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+Os exemplos a seguir mostram como tipos de retorno são usados com associações de saída em C#, JavaScript e F#.
+
+```cs
+// C# example: use method return value for output binding
+public static string Run(WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return json;
+}
+```
+
+```cs
+// C# example: async method, using return value for output binding
+public static Task<string> Run(WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return Task.FromResult(json);
+}
+```
+
+```javascript
+// JavaScript: return a value in the second parameter to context.done
+module.exports = function (context, input) {
+    var json = JSON.stringify(input);
+    context.log('Node.js script processed queue message', json);
+    context.done(null, json);
+}
+```
+
+```fsharp
+// F# example: use return value for output binding
+let Run(input: WorkItem, log: TraceWriter) =
+    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
+    log.Info(sprintf "F# script processed queue message '%s'" json)
+    json
+```
+
+## <a name="binding-datatype-property"></a>Associação da propriedade dataType
+
+No .NET, use os tipos para definir o tipo de dados para os dados de entrada. Por exemplo, use `string` para associar ao texto de um gatilho de fila, uma matriz de bytes para ler como binário e um tipo personalizado para desserializar para um objeto POCO.
+
+Para idiomas que são digitados dinamicamente como JavaScript, use a propriedade `dataType` na definição da associação. Por exemplo, para ler o conteúdo de uma solicitação HTTP em formato binário, use o tipo `binary`:
+
+```json
+{
+    "type": "httpTrigger",
+    "name": "req",
+    "direction": "in",
+    "dataType": "binary"
+}
+```
+
+Outras opções para `dataType` são `stream` e `string`.
+
+## <a name="resolving-app-settings"></a>Resolvendo configurações de aplicativo
+Como prática recomendada, os segredos e cadeias de conexão devem ser gerenciados usando configurações do aplicativo, em vez de arquivos de configuração. Isso limita o acesso a esses segredos e torna seguro armazenar *function.json* em um repositório de controle do código-fonte público.
+
+Configurações do aplicativo também são úteis sempre que você desejar alterar a configuração com base no ambiente. Por exemplo, em um ambiente de teste, pode ser útil monitorar um contêiner de armazenamento de filas ou de blobs diferente.
+
+Configurações do aplicativo são resolvidas sempre que um valor está entre sinais de porcentagem, como `%MyAppSetting%`. Observe que a propriedade `connection` dos gatilhos e associações é um caso especial e resolve automaticamente os valores de configurações do aplicativo. 
+
+O exemplo a seguir é um gatilho do Armazenamento de Filas do Azure que usa uma configuração de aplicativo `%input-queue-name%` para definir a fila em que o gatilho é disparado.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "order",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "%input-queue-name%",
+      "connection": "MY_STORAGE_ACCT_APP_SETTING"
+    }
+  ]
+}
+```
+
+## <a name="trigger-metadata-properties"></a>Propriedades de metadados de gatilho
+
+Além do conteúdo dos dados fornecido por um gatilho (como a mensagem da fila que disparou uma função), vários gatilhos fornecem valores de metadados adicionais. Esses valores podem ser usados como parâmetros de entrada em C# e F# ou propriedades no objeto `context.bindings` em JavaScript. 
+
+Por exemplo, um gatilho da Fila do Armazenamento do Azure dá suporte às seguintes propriedades:
+
+* QueueTrigger – disparar o conteúdo da mensagem em caso de uma cadeia de caracteres válida
+* DequeueCount
+* ExpirationTime
+* ID
+* InsertionTime
+* NextVisibleTime
+* PopReceipt
+
+Detalhes de propriedades de metadados para cada gatilho são descritos no tópico de referência correspondente. A documentação também está disponível na guia **Integrar** do portal, na seção **Documentação** abaixo da área de configuração de associação.  
+
+Por exemplo, como gatilhos de blobs apresentam alguns atrasos, você pode usar um gatilho de fila para executar sua função (consulte [Gatilho do Armazenamento de Blobs](functions-bindings-storage-blob.md#storage-blob-trigger)). A mensagem da fila conteria o nome do arquivo a ser disparado no blob. Usando a propriedade de metadados `queueTrigger`, é possível especificar esse comportamento completo na sua configuração, em vez do código.
+
+```json
+  "bindings": [
+    {
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnection",
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    }
+  ]
+```
+
+Propriedades de metadados de um gatilho também podem ser usadas em uma *expressão de associação* para outra associação, conforme descrito na seção a seguir.
+
+## <a name="binding-expressions-and-patterns"></a>Padrões e expressões de associação
+
+Um dos recursos mais poderosos de gatilhos e associações são as *expressões de associação*. Dentro da associação, é possível definir expressões padrão que podem ser usadas em outras associações ou no seu código. Metadados de gatilho também podem ser usado em expressões de associação, como mostrado no exemplo na seção anterior.
+
+Por exemplo, suponha que você deseja redimensionar imagens no contêiner de armazenamento de blobs específico, semelhante ao modelo **Redimensionador de Imagem** na página **Nova Função**. Acesse **Nova Função** -> Linguagem **C#** -> Cenário **Exemplos** -> **ImageResizer-CSharp**. 
+
+Essa é a definição *function.json*:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "image",
+      "type": "blobTrigger",
+      "path": "sample-images/{filename}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    },
+    {
+      "name": "imageSmall",
+      "type": "blob",
+      "path": "sample-images-sm/{filename}",
+      "direction": "out",
+      "connection": "MyStorageConnection"
+    }
+  ],
+}
+```
+
+Observe que o parâmetro `filename` é usado na definição do gatilho de blobs e na associação de saída de blobs. Esse parâmetro também pode ser usado no código de função.
+
+```csharp
+// C# example of binding to {filename}
+public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+} 
+```
+
+<!--TODO: add JavaScript example -->
+<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
+
+
+### <a name="random-guids"></a>GUIDs aleatórios
+O Azure Functions fornece uma sintaxe conveniente para gerar GUIDs em suas associações por meio da expressão de associação `{rand-guid}`. O exemplo a seguir usa isso para gerar um nome exclusivo de blob: 
 
 ```json
 {
@@ -143,248 +321,108 @@ O Azure Functions fornece uma sintaxe para gerar GUIDs aleatórios com suas asso
 }
 ```
 
+### <a name="current-time"></a>Hora atual
 
-## <a name="returning-a-single-output"></a>Retornando um único resultado
-Em casos em que o código de função retorna uma única saída, você pode usar uma associação de saída denominada `$return` para manter uma assinatura de função mais natural em seu código. Isso só pode ser usado com linguagens que dão suporte a um valor retornado (C#, Node.js, F#). A associação seria semelhante à associação de saída de blob a seguir usada com um gatilho de fila.
+Você pode usar a expressão de associação `DateTime`, que resolve para `DateTime.UtcNow`.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{DateTime}"
+}
+```
+
+## <a name="bind-to-custom-input-properties-in-a-binding-expression"></a>Associe as propriedades personalizadas de entrada em uma expressão de associação
+
+Expressões de associação também podem fazer referência a propriedades que são definidas no próprio conteúdo de gatilho. Por exemplo, pode ser útil associar dinamicamente um arquivos de armazenamento de blobs de um nome de arquivo fornecido em um webhook.
+
+Por exemplo, o *function.json* a seguir usa uma propriedade chamada `BlobName` do conteúdo do gatilho:
 
 ```json
 {
   "bindings": [
     {
-      "type": "queueTrigger",
-      "name": "input",
+      "name": "info",
+      "type": "httpTrigger",
       "direction": "in",
-      "queueName": "test-input-node"
+      "webHookType": "genericJson"
     },
     {
+      "name": "blobContents",
       "type": "blob",
-      "name": "$return",
-      "direction": "out",
-      "path": "test-output-node/{id}"
+      "direction": "in",
+      "path": "strings/{BlobName}",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
     }
   ]
 }
 ```
 
-O código C# a seguir retorna a saída mais naturalmente sem usar um parâmetro `out` na assinatura de função.
+Para fazer isso em C# e F#, você deve definir um POCO que define os campos que serão desserializados no conteúdo do gatilho.
 
-```cs
-public static string Run(WorkItem input, TraceWriter log)
+```csharp
+using System.Net;
+
+public class BlobInfo
 {
-    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
-    return json;
+    public string BlobName { get; set; }
+}
+  
+public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents)
+{
+    if (blobContents == null) {
+        return req.CreateResponse(HttpStatusCode.NotFound);
+    } 
+
+    return req.CreateResponse(HttpStatusCode.OK, new {
+        data = $"{blobContents}"
+    });
 }
 ```
 
-Exemplo de Async:
-
-```cs
-public static Task<string> Run(WorkItem input, TraceWriter log)
-{
-    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
-    return json;
-}
-```
-
-
-Essa mesma abordagem é demonstrada a seguir com o Node.js:
+No JavaScript, a desserialização JSON é executada automaticamente e você pode usar as propriedades diretamente.
 
 ```javascript
-module.exports = function (context, input) {
-    var json = JSON.stringify(input);
-    context.log('Node.js script processed queue message', json);
-    context.done(null, json);
-}
-```
-
-Este é um exemplo de F#:
-
-```fsharp
-let Run(input: WorkItem, log: TraceWriter) =
-    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
-    json
-```
-
-Isso também pode ser usado com vários parâmetros de saída, especificando uma única saída com `$return`.
-
-## <a name="resolving-app-settings"></a>Resolvendo configurações de aplicativo
-É uma prática recomendada armazenar informações confidenciais como parte do ambiente de tempo de execução usando configurações de aplicativo. Ao manter informações confidenciais fora dos arquivos de configuração do aplicativo, você limita a exposição quando um repositório público é usado para armazenar arquivos de aplicativo.  
-
-O tempo de execução do Azure Functions resolve as configurações de aplicativo para valores quando o nome de configuração de aplicativo é circunscrito em sinais de porcentagem, `%your app setting%`. A [associação do Twilio](functions-bindings-twilio.md) a seguir usa uma configuração de aplicativo chamada `TWILIO_ACCT_PHONE` para o campo `from` da associação. 
-
-```json
-{
-  "type": "twilioSms",
-  "name": "$return",
-  "accountSid": "TwilioAccountSid",
-  "authToken": "TwilioAuthToken",
-  "to": "{mobileNumber}",
-  "from": "%TWILIO_ACCT_PHONE%",
-  "body": "Thank you {name}, your order was received Node.js",
-  "direction": "out"
-},
-```
-
-
-
-## <a name="parameter-binding"></a>Associação de parâmetro
-Em vez de uma definição de configuração estática para as propriedades de associação de saída, você pode definir as configurações para ser associado dinamicamente aos dados que fazem parte da associação de entrada do gatilho. Considere um cenário no qual novos pedidos são processados usando uma fila de armazenamento do Azure. Cada novo item de fila é uma cadeia de caracteres JSON que contém pelo menos as seguintes propriedades:
-
-```json
-{
-  "name" : "Customer Name",
-  "address" : "Customer's Address",
-  "mobileNumber" : "Customer's mobile number in the format - +1XXXYYYZZZZ."
-}
-```
-
-Talvez você queira enviar uma mensagem de texto SMS ao cliente usando sua conta do Twilio como uma atualização de que o pedido foi recebido.  Você pode configurar o campo `body` e `to` da sua associação de saída do Twilio para ser vinculada dinamicamente a `name` e `mobileNumber` que faziam parte da entrada da seguinte maneira.
-
-```json
-{
-  "name": "myNewOrderItem",
-  "type": "queueTrigger",
-  "direction": "in",
-  "queueName": "queue-newOrders",
-  "connection": "orders_STORAGE"
-},
-{
-  "type": "twilioSms",
-  "name": "$return",
-  "accountSid": "TwilioAccountSid",
-  "authToken": "TwilioAuthToken",
-  "to": "{mobileNumber}",
-  "from": "%TWILIO_ACCT_PHONE%",
-  "body": "Thank you {name}, your order was received",
-  "direction": "out"
-},
-```
-
-Agora o código de função só precisa inicializar o parâmetro de saída da seguinte maneira. Durante a execução, as propriedades de saída são associadas aos dados de entrada desejados.
-
-```cs
-#r "Newtonsoft.Json"
-#r "Twilio.Api"
-
-using System;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Twilio;
-
-public static async Task<SMSMessage> Run(string myNewOrderItem, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myNewOrderItem}");
-
-    dynamic order = JsonConvert.DeserializeObject(myNewOrderItem);    
-
-    // Even if you want to use a hard coded message and number in the binding, you must at least 
-    // initialize the SMSMessage variable.
-    SMSMessage smsText = new SMSMessage();
-
-    // The following isn't needed since we use parameter binding for this
-    //string msg = "Hello " + order.name + ", thank you for your order.";
-    //smsText.Body = msg;
-    //smsText.To = order.mobileNumber;
-
-    return smsText;
-}
-```
-
-Node.js:
-
-```javascript
-module.exports = function (context, myNewOrderItem) {    
-    context.log('Node.js queue trigger function processed work item', myNewOrderItem);    
-
-    // No need to set the properties of the text, we use parameters in the binding. We do need to 
-    // initialize the object.
-    var smsText = {};    
-
-    context.done(null, smsText);
-}
-```
-
-## <a name="advanced-binding-at-runtime-imperative-binding"></a>Associação avançada em tempo de execução (associação obrigatória)
-
-O padrão de associação de entrada e saída com a *function.json* é chamado associação [*declarativa*](https://en.wikipedia.org/wiki/Declarative_programming), em que a associação é definida pela declaração do JSON. No entanto, é possível usar a associação [obrigatória](https://en.wikipedia.org/wiki/Imperative_programming). Com esse padrão, associe a qualquer número de associações de entrada e saída com suporte imediatamente no código da função.
-Talvez você precise da associação obrigatória em casos em que o cálculo do caminho de associação ou de outras entradas precise ocorrer em tempo de execução na função, em vez de em tempo de design. 
-
-Defina uma associação obrigatória da seguinte maneira:
-
-- **Não** inclua uma entrada em *function.json* para as associações obrigatórias desejadas.
-- Passe um parâmetro de entrada [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) ou [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs). 
-- Use o padrão de C# a seguir para realizar a associação de dados.
-
-```cs
-using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
-{
-    ...
-}
-```
-
-em que `BindingTypeAttribute` é o atributo do .NET que define a associação e `T` é o tipo de entrada ou saída com suporte nesse tipo de associação. `T` também não pode ser um tipo de parâmetro `out` (como `out JObject`). Por exemplo, a associação de saída de tabela dos Aplicativos Móveis dá suporte a [seis tipos de saída](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mas você só pode usar [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) para `T`.
-    
-O código de exemplo a seguir cria uma [associação de saída do Armazenamento de Blobs](functions-bindings-storage-blob.md#storage-blob-output-binding) com o caminho do blob definido em tempo de execução e grava uma cadeia de caracteres no blob.
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-
-public static async Task Run(string input, Binder binder)
-{
-    using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
-    {
-        writer.Write("Hello World!!");
+module.exports = function (context, info) {
+    if ('BlobName' in info) {
+        context.res = {
+            body: { 'data': context.bindings.blobContents }
+        }
     }
-}
-```
-
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) define a associação de entrada ou saída do [Armazenamento de Blobs](functions-bindings-storage-blob.md) e [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) é um tipo de associação de saída com suporte.
-No estado em que se encontra, o código obtém a configuração de aplicativo padrão para a cadeia de conexão da conta de armazenamento (`AzureWebJobsStorage`). Especifique uma configuração de aplicativo personalizada a ser usada adicionando [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando a matriz de atributo para `BindAsync<T>()`. Por exemplo,
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-
-public static async Task Run(string input, Binder binder)
-{
-    var attributes = new Attribute[]
-    {    
-        new BlobAttribute("samples-output/path"),
-        new StorageAccountAttribute("MyStorageAccount")
-    };
-
-    using (var writer = await binder.BindAsync<TextWriter>(attributes))
-    {
-        writer.Write("Hello World!");
+    else {
+        context.res = {
+            status: 404
+        };
     }
+    context.done();
 }
 ```
 
-A tabela a seguir mostra o atributo do .NET correspondente a ser usado para cada tipo de associação e a qual pacote será feita a referência.
+## <a name="configuring-binding-data-at-runtime"></a>Configuração de associação de dados em tempo de execução
 
-> [!div class="mx-codeBreakAll"]
-| Associação | Atributo | Adicionar referência |
-|------|------|------|
-| DocumentDB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.DocumentDB"` |
-| Hubs de Eventos | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
-| Aplicativos Móveis | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
-| Hubs de Notificação | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
-| Barramento de Serviço | [`Microsoft.Azure.WebJobs.ServiceBusAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |
-| Fila de armazenamento | [`Microsoft.Azure.WebJobs.QueueAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Armazenamento de blobs | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Tabela de armazenamento | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
-
-
+No C# e em outras linguagens .NET, você pode usar um padrão de associação obrigatório, em vez de associações declarativas em *function.json*. A associação obrigatória é útil quando os parâmetros de associação precisam ser calculado no tempo de execução, em vez do tempo de design. Para obter mais informações, consulte [Associação em tempo de execução por meio de associações obrigatórias](functions-reference-csharp.md#imperative-bindings) na referência do desenvolvedor do C#.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais, consulte os recursos a seguir:
+Para saber mais sobre uma associação específica, consulte os artigos a seguir:
 
-* [Testando uma função](functions-test-a-function.md)
-* [Dimensionar uma função](functions-scale.md)
-
-
+- [HTTP e webhooks](functions-bindings-http-webhook.md)
+- [Timer](functions-bindings-timer.md)
+- [Armazenamento de filas](functions-bindings-storage-queue.md)
+- [Armazenamento de Blobs](functions-bindings-storage-blob.md)
+- [Armazenamento de tabelas](functions-bindings-storage-table.md)
+- [Hub de Evento](functions-bindings-event-hubs.md)
+- [Barramento de Serviço](functions-bindings-service-bus.md)
+- [Banco de dados do Azure Cosmos](functions-bindings-documentdb.md)
+- [Microsoft Graph](functions-bindings-microsoft-graph.md)
+- [SendGrid](functions-bindings-sendgrid.md)
+- [Twilio](functions-bindings-twilio.md)
+- [Hubs de Notificação](functions-bindings-notification-hubs.md)
+- [Aplicativos Móveis](functions-bindings-mobile-apps.md)
+- [Arquivo externo](functions-bindings-external-file.md)

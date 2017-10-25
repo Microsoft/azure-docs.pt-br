@@ -4,22 +4,21 @@ description: como usar consultas de banco de dados entre bancos de dados
 services: sql-database
 documentationcenter: 
 manager: jhubbard
-author: ddove
+author: MladjoA
 ms.assetid: c81ef5e3-41e9-4fd2-8631-868f2e168147
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
-ms.author: ddove
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 531fdbbeab09a67be9636b3a70eabbb4148f7400
-ms.lasthandoff: 03/21/2017
-
-
+ms.author: mlandzic
+ms.openlocfilehash: 8eb56d44c3a261f6325d4fc91f169d09bf108160
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Relatórios entre bancos de dados expandidos na nuvem (preview)
 Você pode criar relatórios de vários bancos de dados do SQL Azure de um ponto de conexão única usando uma [consulta elástica](sql-database-elastic-query-overview.md). Os bancos de dados devem ser particionados horizontalmente (também conhecido como "fragmentados").
@@ -38,7 +37,7 @@ Aqui você vai criar um gerenciador de mapa de fragmentos juntamente com vários
 
     ![prompt de comando][1]
 2. Na janela Comando, digite "1" e pressione **Enter**. Isso cria o gerenciador de mapa de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, digite "3" e pressione **Enter**. Repita a ação quatro vezes. Isso insere linhas de dados de exemplo no seus fragmentos.
-3. O [Portal do Azure](https://portal.azure.com) deve mostrar três novos bancos de dados em seu servidor v12:
+3. O [Portal do Azure](https://portal.azure.com) deve mostrar três novos bancos de dados em seu servidor:
 
    ![Confirmação do Visual Studio][2]
 
@@ -145,4 +144,3 @@ Para obter informações sobre os preços, consulte [Detalhes de preços do Banc
 [4]: ./media/sql-database-elastic-query-getting-started/details.png
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
-

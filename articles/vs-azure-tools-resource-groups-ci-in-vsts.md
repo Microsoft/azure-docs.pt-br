@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b178359d2f55e9137b39f42f5562e7bb8a642c57
-
-
+ms.openlocfilehash: e7d98ca3fa281a136595c37ed9b7e71de0cf7bff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Integração contínua no Visual Studio Team Services usando os projetos de implantação do Grupo de recursos do Azure
-Para implantar um modelo do Azure, você precisa executar tarefas para percorrer os diversos estágios: Compilar, Testar, Copiar para o Azure (também chamado de "Preparo") e Implantar Modelo.  Há duas maneiras de implantar modelos no Visual Studio Team Services (VS Team Services). Os dois métodos oferecem os mesmos resultados, então escolha aquele que melhor se adapta ao seu fluxo de trabalho.
+Para implantar um modelo do Azure, você precisa executar tarefas de vários estágios: Compilar, Testar, Copiar para o Azure (também chamado de "Preparo") e Implantar Modelo. Há duas maneiras diferentes de implantar modelos no Visual Studio Team Services (VS Team Services). Os dois métodos oferecem os mesmos resultados, então escolha aquele que melhor se adapta ao seu fluxo de trabalho.
 
 1. Adicione uma única etapa à sua definição de compilação que executa o script do PowerShell incluído no projeto de implantação do Grupo de recursos do Azure (Deploy-AzureResourceGroup.ps1). O script copia artefatos e implanta o modelo.
 2. Adicione várias etapas de compilação do VS Team Services, cada uma executando uma tarefa do estágio.
 
-Este artigo demonstra ambas as opções.  A primeira opção tem a vantagem de usar o mesmo script usado pelos desenvolvedores no Visual Studio, fornecendo consistência por todo o ciclo de vida.  A segunda opção oferece uma alternativa conveniente ao script interno.  Ambos os procedimentos supõem que você já tem um projeto de implantação do Visual Studio no VS Team Services.
+Este artigo demonstra ambas as opções. A primeira opção tem a vantagem de usar o mesmo script usado pelos desenvolvedores no Visual Studio e fornecer consistência em todo o ciclo de vida. A segunda opção oferece uma alternativa conveniente para o script interno. Ambos os procedimentos supõem que você já tem um projeto de implantação do Visual Studio no VS Team Services.
 
 ## <a name="copy-artifacts-to-azure"></a>Copiar artefatos para o Azure
-Independentemente do cenário, se você tiver quaisquer artefatos necessários para a implantação do modelo, será preciso conceder a eles acesso ao Azure Resource Manager. Esses artefatos podem incluir arquivos como:
+Independentemente do cenário, se você tiver quaisquer artefatos necessários para a implantação de modelo, será preciso conceder a eles acesso ao Azure Resource Manager. Esses artefatos podem incluir arquivos como:
 
 * Modelos aninhados
 * Scripts de configuração e scripts DSC
 * Binários do aplicativo
 
 ### <a name="nested-templates-and-configuration-scripts"></a>Modelos aninhados e scripts de configuração
-Quando você usa os modelos fornecidos pelo Visual Studio (ou compilados com trechos de código do Visual Studio), o script do PowerShell não apenas prepara os artefatos como também parametriza o URI dos recursos para implantações distintas. Em seguida, o script copia os artefatos para um contêiner seguro no Azure, cria um token SaS para esse contêiner e passa essas informações para a implantação de modelo. Confira [Criar uma implantação de modelo](https://msdn.microsoft.com/library/azure/dn790564.aspx) para saber mais sobre modelos aninhados.  Ao usar tarefas no VS Team Services, você precisa escolher as tarefas apropriadas para a implantação do modelo e, se necessário, passar os valores de parâmetro da etapa de preparo para a implantação do modelo.
+Quando você usa os modelos fornecidos pelo Visual Studio (ou compilados com trechos de código do Visual Studio), o script do PowerShell não apenas prepara os artefatos como também parametriza o URI dos recursos para implantações distintas. Em seguida, o script copia os artefatos para um contêiner seguro no Azure, cria um token SaS para esse contêiner e passa essas informações para a implantação de modelo. Confira [Criar uma implantação de modelo](https://msdn.microsoft.com/library/azure/dn790564.aspx) para saber mais sobre modelos aninhados.  Ao usar tarefas no VS Team Services, você deve selecionar as tarefas apropriadas para sua implantação de modelo e, se necessário, passar valores de parâmetro da etapa de preparo para a implantação de modelo.
 
 ## <a name="set-up-continuous-deployment-in-vs-team-services"></a>Configurar a implantação contínua no VS Team Services
 Para chamar o script do PowerShell no VS Team Services, você precisa atualizar a definição de build. Resumindo, as etapas são: 
@@ -47,7 +47,7 @@ Para chamar o script do PowerShell no VS Team Services, você precisa atualizar 
 4. Defina o valor do parâmetro *- ArtifactsStagingDirectory* para trabalhar com um projeto compilado no VS Team Services.
 
 ### <a name="detailed-walkthrough-for-option-1"></a>Passo a passo detalhado da Opção 1
-Veja a seguir as etapas necessárias para configurar a implantação contínua no VS Team Services usando uma única tarefa que executa o script do PowerShell no seu projeto. 
+Os procedimentos a seguir percorrer as etapas necessárias para configurar implantação contínua no VS Team Services usando uma única tarefa que executa o script do PowerShell em seu projeto. 
 
 1. Edite sua definição de compilação do VS Team Services e adicione uma etapa de compilação do Azure PowerShell. Escolha a definição de build na categoria **Definições de build** e escolha o link **Editar**.
    
@@ -60,9 +60,9 @@ Veja a seguir as etapas necessárias para configurar a implantação contínua n
    ![Adicionar tarefas][2]
 4. Escolha a etapa de compilação do **Azure PowerShell** e, em seguida, preencha seus valores.
    
-   1. Se um ponto de extremidade de serviço do Azure já tiver sido adicionado ao VS Team Services, escolha a assinatura na caixa suspensa **Assinatura do Azure** e vá para a próxima seção. 
+   1. Se um ponto de extremidade de serviço do Azure já tiver sido adicionado ao VS Team Services, escolha a assinatura na caixa de listagem suspensa **Assinatura do Azure** e vá para a próxima seção. 
       
-      Se você não tiver um ponto de extremidade de serviço do Azure no VS Team Services, será necessário adicionar um. Esta subseção o guiará pelo processo. Se sua conta do Azure usa uma conta da Microsoft (como Hotmail), será necessário executar as seguintes etapas para obter uma autenticação da Entidade de Serviço.
+      Se você não tiver um ponto de extremidade de serviço do Azure no VS Team Services, será necessário adicionar um. Esta subseção o guiará pelo processo. Se sua conta do Azure usa uma conta da Microsoft (como Hotmail), você deve executar as seguintes etapas para obter uma autenticação da Entidade de Serviço.
    2. Escolha o link **Gerenciar** próximo à caixa de listagem suspensa **Assinatura do Azure**.
       
       ![Gerenciar assinaturas do Azure][3]
@@ -79,7 +79,7 @@ Veja a seguir as etapas necessárias para configurar a implantação contínua n
       * Id da Entidade de serviço
       * Chave da Entidade de serviço
       * ID do locatário
-   6. Adicione um nome de sua escolha à caixa de nome da **Assinatura** . Esse valor é exibido mais tarde na lista suspensa **Assinatura do Azure** no VS Team Services. 
+   6. Adicione um nome de sua escolha à caixa de nome da **Assinatura** . Esse valor será exibido mais tarde na lista suspensa **Assinatura do Azure** no VS Team Services. 
    7. Se você não souber sua ID de assinatura do Azure, use um dos comandos a seguir para obtê-la.
       
       Para scripts do PowerShell, use:
@@ -93,7 +93,7 @@ Veja a seguir as etapas necessárias para configurar a implantação contínua n
    9. Adicione os valores de ID de Entidade de Serviço, Chave de Entidade de Serviço e ID de Locatário à caixa de diálogo **Adicionar Assinatura do Azure** e, em seguida, escolha o botão **OK**.
       
       Agora você tem uma Entidade de Serviço válida para executar o script do Azure PowerShell.
-5. Edite a definição de compilação e escolha a etapa de compilação do **Azure PowerShell** . Selecione a assinatura na caixa de lista suspensa **Assinatura do Azure** . (Se a assinatura não aparecer, escolha o botão **Atualizar** ao lado do link **Gerenciar**.) 
+5. Edite a definição de compilação e escolha a etapa de compilação do **Azure PowerShell** . Selecione a assinatura na caixa de listagem suspensa **Assinatura do Azure**. (Se a assinatura não aparecer, escolha o botão **Atualizar** ao lado do link **Gerenciar**.) 
    
    ![Configurar tarefa de build do Azure PowerShell][8]
 6. Forneça um caminho para o script do PowerShell Deploy-AzureResourceGroup.ps1. Para fazer isso, escolha o botão de reticências (...) ao lado da caixa **Caminho do Script**, navegue até o script Deploy-AzureResourceGroup.ps1 do PowerShell na pasta **Scripts** de seu projeto, selecione-o e escolha o botão **OK**.    
@@ -108,8 +108,8 @@ Veja a seguir as etapas necessárias para configurar a implantação contínua n
    | --- | --- |
    | -ResourceGroupLocation |O valor da localização geográfica na qual o grupo de recursos está localizado, por exemplo, **eastus** ou **'Leste dos EUA'**. (Adicione aspas se houver um espaço no nome). Veja [Regiões do Azure](https://azure.microsoft.com/en-us/regions/) para saber mais. |
    | -ResourceGroupName |O nome do grupo de recursos usado para essa implantação. |
-   | -UploadArtifacts |Esse parâmetro, quando presente, especifica que os artefatos precisam ser carregados no Azure a partir do sistema local. Você só precisa definir essa opção se a implantação de seu modelo exigir artefatos adicionais que você deseja testar usando o script do PowerShell (como scripts de configuração ou modelos aninhados). |
-   | -StorageAccountName |O nome da conta de armazenamento usada para artefatos de preparação para essa implantação.  Esse parâmetro será usado somente se você estiver preparando artefatos para implantação. Se esse parâmetro for fornecido, uma nova conta de armazenamento será criada caso o script não tenha criado uma durante a implantação anterior.  Se o parâmetro for especificado, a conta de armazenamento já deverá existir. |
+   | -UploadArtifacts |Esse parâmetro, quando presente, especifica que artefatos do sistema local precisam ser carregados no Azure. Você só precisa definir essa opção se a implantação de seu modelo exigir artefatos adicionais que você deseja testar usando o script do PowerShell (como scripts de configuração ou modelos aninhados). |
+   | -StorageAccountName |O nome da conta de armazenamento usada para artefatos de preparação para essa implantação. Esse parâmetro será usado somente se você estiver preparando artefatos para implantação. Se esse parâmetro for fornecido, uma nova conta de armazenamento será criada caso o script não tenha criado uma durante a implantação anterior. Se o parâmetro for especificado, a conta de armazenamento já deverá existir. |
    | -StorageAccountResourceGroupName |O nome do grupo de recursos associado à conta de armazenamento. Esse parâmetro será necessário apenas se você fornecer um valor para o parâmetro StorageAccountName. |
    | -TemplateFile |O caminho para o arquivo de modelo no projeto de implantação do Grupo de recursos do Azure. Para aumentar a flexibilidade, use um caminho para esse parâmetro que seja relativo ao local do script do PowerShell em vez de um caminho absoluto. |
    | -TemplateParametersFile |O caminho para o arquivo de parâmetros no projeto de implantação do Grupo de recursos do Azure. Para aumentar a flexibilidade, use um caminho para esse parâmetro que seja relativo ao local do script do PowerShell em vez de um caminho absoluto. |
@@ -129,7 +129,7 @@ Veja a seguir as etapas necessárias para configurar a implantação contínua n
 9. Depois de adicionar todos os itens necessários para a etapa de compilação do Azure PowerShell, escolha o botão de compilação **Fila** para compilar o projeto. A tela **Compilação** mostra a saída do script do PowerShell.
 
 ### <a name="detailed-walkthrough-for-option-2"></a>Passo a passo detalhado da Opção 2
-Veja a seguir as etapas necessárias para configurar a implantação contínua no VS Team Services usando as tarefas infernas.
+Os procedimentos a seguir percorrem as etapas necessárias para configurar a implantação contínua no VS Team Services usando as tarefas infernas.
 
 1. Edite a definição de build do VS Team Services para adicionar duas novas etapas de build. Escolha a definição de build na categoria **Definições de build** e escolha o link **Editar**.
    
@@ -145,14 +145,14 @@ Veja a seguir as etapas necessárias para configurar a implantação contínua n
    ![tarefa Adicionar Implantação do Grupo de Recursos do Azure][15]
 5. Escolha a tarefa **Cópia de Arquivos do Azure** e preencha seus valores.
    
-   Se um ponto de extremidade de serviço do Azure já tiver sido adicionado ao VS Team Services, escolha a assinatura na caixa de listagem suspensa **Assinatura do Azure**.  Se você não tiver uma assinatura, veja a [Opção 1](#detailed-walkthrough-for-option-1) para obter instruções sobre como configurar uma no VS Team Services.
+   Se um ponto de extremidade de serviço do Azure já tiver sido adicionado ao VS Team Services, escolha a assinatura na caixa de listagem suspensa **Assinatura do Azure**. Se você não tiver uma assinatura, veja a [Opção 1](#detailed-walkthrough-for-option-1) para obter instruções de como configurar uma no VS Team Services.
    
    * Origem: insira **$(Build.StagingDirectory)**
    * Tipo de Conexão do Azure: escolha **Azure Resource Manager**
-   * Assinatura do Azure RM: escolha a assinatura para a conta de armazenamento que você quer usar na caixa de listagem suspensa **Assinatura do Azure**. Se a assinatura não aparecer, escolha o botão **Atualizar** ao lado do link **Gerenciar**.
+   * Assinatura do RM do Azure: selecione a assinatura para a conta de armazenamento que você quer usar na caixa de listagem suspensa **Assinatura do Azure**. Se a assinatura não aparecer, escolha o botão **Atualizar** ao lado do link **Gerenciar**.
    * Tipo de Destino: escolha **Blob do Azure**
    * Conta de Armazenamento do RM: escolha a conta de armazenamento que você quer usar para a preparação de artefatos
-   * Nome do Contêiner: insira o nome do contêiner que quer usar para a preparação, podendo ser qualquer nome de contêiner válido, mas que seja dedicado a essa definição de build
+   * Nome do Contêiner – insira o nome do contêiner que quer usar para o preparo. Pode ser qualquer nome de contêiner válido, mas que seja dedicado a essa definição de build
    
    Para obter os valores de saída:
    
@@ -163,7 +163,7 @@ Veja a seguir as etapas necessárias para configurar a implantação contínua n
 6. Escolha a etapa de build **Implantação do Grupo de Recursos do Azure** e preencha seus valores.
    
    * Tipo de Conexão do Azure: escolha **Azure Resource Manager**
-   * Assinatura do Azure RM: escolha a assinatura para a implantação na caixa de listagem suspensa **Assinatura do Azure**. Normalmente, será a mesma assinatura usada na etapa anterior.
+   * Assinatura do RM do Azure – selecione a assinatura para implantação na caixa de listagem suspensa **Assinatura do Azure**. Normalmente, será a mesma assinatura usada na etapa anterior
    * Ação – escolha **Criar ou Atualizar Grupo de Recursos**
    * Grupo de Recursos – escolha um grupo de recursos ou insira o nome de um novo grupo de recursos para a implantação
    * Local – escolha o local para o grupo de recursos
@@ -196,9 +196,3 @@ Leia [Visão geral do Azure Resource Manager](azure-resource-manager/resource-gr
 [15]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough16.png
 [16]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough17.png
 [17]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough18.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: eec7d1402bdea4e5433c473dd713eed23aa80464
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: b590fb06a3dba8aec66a380217269e1ca39bb5e7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Tutorial: DevOps com o Portal do Azure
 A plataforma do Azure está repleta de fluxos de trabalho flexíveis do DevOps. Neste tutorial, você aprenderá a aproveitar os recursos do Portal do Azure para desenvolver, testar, implantar, solucionar problemas, monitorar e gerenciar aplicativos em execução. Este tutorial se concentra no seguinte:
@@ -264,7 +263,7 @@ Este tutorial demonstrou um pouco das possibilidades com a plataforma do Azure p
 
 ## <a name="next-steps"></a>Próximas etapas
 * O Azure Resource Manager é importante para permitir DevOps na plataforma do Azure.  Para saber mais, visite [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-* Para saber mais sobre implantação do Serviço de Aplicativo do Azure, visite [implantar seu aplicativo no Serviço de Aplicativo do Azure](../app-service-web/web-sites-deploy.md)
+* Para saber mais sobre implantação do Serviço de Aplicativo do Azure, visite [implantar seu aplicativo no Serviço de Aplicativo do Azure](../app-service/app-service-deploy-local-git.md)
 
 [image1]: ./media/tutorial-azureportal-devops/image1.png
 [image2]: ./media/tutorial-azureportal-devops/image2.png
@@ -335,4 +334,3 @@ Este tutorial demonstrou um pouco das possibilidades com a plataforma do Azure p
 [image67]: ./media/tutorial-azureportal-devops/image67.png
 [image68]: ./media/tutorial-azureportal-devops/image68.png
 [image69]: ./media/tutorial-azureportal-devops/image69.png
-

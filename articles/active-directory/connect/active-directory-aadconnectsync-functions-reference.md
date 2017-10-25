@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 0f62c1f4f67bec12d1f71b1b02fd121402b0e25c
-ms.openlocfilehash: 70fe899087effca47b2b537facf1c3ed227657de
-
-
+ms.openlocfilehash: 0f556c786fdfdf775e00e68740351e7630e0e002
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: referência de funções
 No Azure Active Directory Sync, as funções são usadas para manipular um valor de atributo durante a sincronização.  
@@ -50,6 +50,13 @@ As funções com os tipos **mvbin**, **mvstr** e **mvref** funcionam somente nos
 ## <a name="functions-reference"></a>Referência de funções
 | Lista de funções |  |  |  |  |
 | --- | --- | --- | --- | --- | --- |
+| **Certificate** | | | | |
+| [CertExtensionOids](#certextensionoids) |[CertFormat](#certformat) |[CertFriendlyName](#certfriendlyname) |[CertHashString](#certhashstring) | |
+| [CertIssuer](#certissuer) |[CertIssuerDN](#certissuerdn) |[CertIssuerOid](#certissueroid) |[CertKeyAlgorithm](#certkeyalgorithm) | |
+| [CertKeyAlgorithmParams](#certkeyalgorithmparams) |[CertNameInfo](#certnameinfo) |[CertNotAfter](#certnotafter) |[CertNotBefore](#certnotbefore) | |
+| [CertPublicKeyOid](#certpublickeyoid) |[CertPublicKeyParametersOid](#certpublickeyparametersoid) |[CertSerialNumber](#certserialnumber) |[CertSignatureAlgorithmOid](#certsignaturealgorithmoid) | |
+| [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[CertThumbprint](#certthumbprint) | |
+[ CertVersion](#certversion) |[IsCert](#iscert) | | | |
 | **Conversão** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
@@ -69,7 +76,8 @@ As funções com os tipos **mvbin**, **mvstr** e **mvref** funcionam somente nos
 | [Contém:](#contains) |[Contagem](#count) |[Item](#item) |[ItemOrNull](#itemornull) | |
 | [Join](#join) |[RemoveDuplicates](#removeduplicates) |[Divisão](#split) | | |
 | **Fluxo do Programa** | | | | |
-| [Erro](#error) |[IIF](#iif) |[Switch](#switch) | | |
+| [Erro](#error) |[IIF](#iif) |[Seleção](#select) |[Switch](#switch) | |
+| [Onde](#where) |[With](#with) | | | |
 | **Texto** | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
 | [Left](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
@@ -148,6 +156,204 @@ retorna um DateTime com base na hora de início do funcionário
 `CDate("2013-01-10 4:00 PM -8")`  
 Retorna um DateTime que representa "11/01/2013 12:00"
 
+
+
+
+
+
+
+
+- - -
+### <a name="certextensionoids"></a>CertExtensionOids
+**Descrição:**  
+Retorna os valores de OID de todas as extensões críticas de um objeto de certificado.
+
+**Sintaxe:**  
+`mvstr CertExtensionOids(binary certificateRawData)`  
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+
+- - -
+### <a name="certformat"></a>CertFormat
+**Descrição:**  
+Retorna o nome do formato desse certificado X.509v3.
+
+**Sintaxe:**  
+`str CertFormat(binary certificateRawData)`  
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+
+- - -
+### <a name="certfriendlyname"></a>CertFriendlyName
+**Descrição:**  
+Retorna o alias associado de um certificado.
+
+**Sintaxe:**  
+`str CertFriendlyName(binary certificateRawData)`  
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+
+- - -
+### <a name="certhashstring"></a>CertHashString
+**Descrição:**  
+Retorna o valor de hash SHA1 do certificado X.509v3 como uma cadeia de caracteres hexadecimal.
+
+**Sintaxe:**  
+`str CertHashString(binary certificateRawData)`  
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+
+- - -
+### <a name="certissuer"></a>CertIssuer
+**Descrição:**  
+Retorna o nome da autoridade de certificação que emitiu o certificado X.509v3.
+
+**Sintaxe:**  
+`str CertIssuer(binary certificateRawData)`  
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+
+- - -
+### <a name="certissuerdn"></a>CertIssuerDN
+**Descrição:**  
+Retorna o nome diferenciado do emissor do certificado.
+
+**Sintaxe:**  
+`str CertIssuerDN(binary certificateRawData)`  
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+
+- - -
+### <a name="certissueroid"></a>CertIssuerOid
+**Descrição:**  
+Retorna o OID do emissor do certificado.
+
+**Sintaxe:**  
+`str CertIssuerOid(binary certificateRawData)`  
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+
+- - -
+### <a name="certkeyalgorithm"></a>CertKeyAlgorithm
+**Descrição:**  
+Retorna as informações de algoritmo de chave do certificado X.509v3 como uma cadeia de caracteres.
+
+**Sintaxe:**  
+`str CertKeyAlgorithm(binary certificateRawData)`  
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+
+- - -
+### <a name="certkeyalgorithmparams"></a>CertKeyAlgorithmParams
+**Descrição:**  
+Retorna os parâmetros de algoritmo de chave do certificado X.509v3 como uma cadeia de caracteres hexadecimal.
+
+**Sintaxe:**  
+`str CertKeyAlgorithm(binary certificateRawData)`  
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+
+- - -
+### <a name="certnameinfo"></a>CertNameInfo
+**Descrição:**  
+Retorna os nomes de entidade e emissor de um certificado.
+
+**Sintaxe:**  
+`str CertNameInfo(binary certificateRawData, str x509NameType, bool includesIssuerName)`  
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   X509NameType: o valor de X509NameType para a entidade.
+*   includesIssuerName: verdadeiro para incluir o nome do emissor; caso contrário, falso.
+
+- - -
+### <a name="certnotafter"></a>CertNotAfter
+**Descrição:**  
+Retorna a data, em hora local, depois da qual um certificado não será mais válido.
+
+**Sintaxe:**  
+`dt CertNotAfter(binary certificateRawData)`  
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+
+- - -
+### <a name="certnotbefore"></a>CertNotBefore
+**Descrição:**  
+Retorna a data, em hora local, na qual um certificado se torna válido.
+
+**Sintaxe:**  
+`dt CertNotBefore(binary certificateRawData)`  
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+
+- - -
+### <a name="certpublickeyoid"></a>CertPublicKeyOid
+**Descrição:**  
+Retorna o OID da chave pública do certificado X.509v3.
+
+**Sintaxe:**  
+`str CertKeyAlgorithm(binary certificateRawData)`  
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+
+- - -
+### <a name="certpublickeyparametersoid"></a>CertPublicKeyParametersOid
+**Descrição:**  
+Retorna o OID dos parâmetros de chave pública do certificado X.509v3.
+
+**Sintaxe:**  
+`str CertPublicKeyParametersOid(binary certificateRawData)`  
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+
+- - -
+### <a name="certserialnumber"></a>CertSerialNumber
+**Descrição:**  
+Retorna o número de série do certificado X.509v3.
+
+**Sintaxe:**  
+`str CertSerialNumber(binary certificateRawData)`  
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+
+- - -
+### <a name="certsignaturealgorithmoid"></a>CertSignatureAlgorithmOid
+**Descrição:**  
+Retorna o OID do algoritmo usado para criar a assinatura de um certificado.
+
+**Sintaxe:**  
+`str CertSignatureAlgorithmOid(binary certificateRawData)`  
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+
+- - -
+### <a name="certsubject"></a>CertSubject
+**Descrição:**  
+Obtém o nome diferenciado da entidade de um certificado.
+
+**Sintaxe:**  
+`str CertSubject(binary certificateRawData)`  
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+
+- - -
+### <a name="certsubjectnamedn"></a>CertSubjectNameDN
+**Descrição:**  
+Retorna o nome diferenciado da entidade de um certificado.
+
+**Sintaxe:**  
+`str CertSubjectNameDN(binary certificateRawData)`  
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+
+- - -
+### <a name="certsubjectnameoid"></a>CertSubjectNameOid
+**Descrição:**  
+Retorna o OID do nome da entidade de um certificado.
+
+**Sintaxe:**  
+`str CertSubjectNameOid(binary certificateRawData)`  
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+
+- - -
+### <a name="certthumbprint"></a>CertThumbprint
+**Descrição:**  
+Retorna a impressão digital de um certificado.
+
+**Sintaxe:**  
+`str CertThumbprint(binary certificateRawData)`  
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+
+- - -
+### <a name="certversion"></a>CertVersion
+**Descrição:**  
+Retorna a versão do formato X.509 de um certificado.
+
+**Sintaxe:**  
+`str CertThumbprint(binary certificateRawData)`  
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+
 - - -
 ### <a name="cguid"></a>CGuid
 **Descrição:**  
@@ -172,7 +378,7 @@ a função Contains localiza uma cadeia de caracteres dentro de um atributo de v
 * search: a cadeia de caracteres a localizar no atributo.
 * Casetype: CaseInsensitive ou CaseSensitive.
 
-Retorna o índice no atributo com vários valores em que a cadeia de caracteres foi encontrada. Se a cadeia de caracteres não for encontrada,&0; será retornado.
+Retorna o índice no atributo com vários valores em que a cadeia de caracteres foi encontrada. Se a cadeia de caracteres não for encontrada, 0 será retornado.
 
 **Comentários:**  
 para os atributos da cadeia de caracteres de valores múltiplos, a pesquisa encontra as subcadeias nos valores.  
@@ -222,7 +428,7 @@ retorna "*Hello world!*"
 ### <a name="converttobase64"></a>ConvertToBase64
 **Descrição:**  
 a função ConvertToBase64 converte uma cadeia de caracteres em uma cadeia de caracteres Unicode em base64.  
-Converte o valor de uma matriz de inteiros em sua representação equivalente de cadeia de caracteres, que é codificada com dígitos em base&64;.
+Converte o valor de uma matriz de inteiros em sua representação equivalente de cadeia de caracteres, que é codificada com dígitos em base 64.
 
 **Sintaxe:**  
 `str ConvertToBase64(str source)`
@@ -505,6 +711,14 @@ se a expressão puder ser avaliada como um tipo DateTime, a função IsDate ser�
 **Comentários:**  
 usada para determinar se CDate() pode ter êxito.
 
+- - -
+### <a name="iscert"></a>IsCert
+**Descrição:**  
+Retorna verdadeiro se os dados brutos puderem ser serializados no objeto de certificado .NET X509Certificate2.
+
+**Sintaxe:**  
+`bool CertThumbprint(binary certificateRawData)`  
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
 - - -
 ### <a name="isempty"></a>IsEmpty
 **Descrição:**  
@@ -954,6 +1168,24 @@ a função RTrim remove os espaços em branco à direita de uma cadeia de caract
 retorna "Test".
 
 - - -
+### <a name="select"></a>Selecionar
+**Descrição:**  
+Processa todos os valores em um atributo de valores múltiplos (ou a saída de uma expressão) com base na função especificada.
+
+**Sintaxe:**  
+`mvattr Select(variable item, mvattr attribute, func function)`  
+`mvattr Select(variable item, exp expression, func function)`
+
+* item: representa um elemento no atributo de valores múltiplos
+* attribute: o atributo de valores múltiplos
+* expression: uma expressão que retorna uma coleção de valores
+* condition: qualquer função que possa processar um item no atributo
+
+**Exemplos:**  
+`Select($item,[otherPhone],Replace($item,"-",""))`  
+Retorna todos os valores no atributo de valores múltiplos otherPhone depois que os hifens (-) foram removidos.
+
+- - -
 ### <a name="split"></a>Divisão
 **Descrição:**  
 a função Split obtém uma cadeia de caracteres separada por um delimitador e transforma-a em uma cadeia de caracteres de valores múltiplos.
@@ -1043,6 +1275,42 @@ a função UCase converte todos os caracteres de uma cadeia de caracteres em let
 retorna "test".
 
 - - -
+### <a name="where"></a>Where
+
+**Descrição:**  
+Retorna um subconjunto de valores de um atributo de valores múltiplos (ou a saída de uma expressão) com base em uma condição específica.
+
+**Sintaxe:**  
+`mvattr Where(variable item, mvattr attribute, exp condition)`  
+`mvattr Where(variable item, exp expression, exp condition)`  
+* item: representa um elemento no atributo de valores múltiplos
+* attribute: o atributo de valores múltiplos
+* condition: qualquer expressão que possa ser avaliada como verdadeira ou falsa
+* expression: uma expressão que retorna uma coleção de valores
+
+**Exemplo:**  
+`Where($item,[userCertificate],CertNotAfter($item)>Now())`  
+Retorna os valores do certificado no atributo de valores múltiplos userCertificate que não estão expirados.
+
+- - -
+### <a name="with"></a>With
+**Descrição:**  
+A função With fornece uma maneira para simplificar uma expressão complexa, usando uma variável para representar uma subexpressão que aparece uma ou mais vezes na expressão complexa.
+
+**Sintaxe:**
+`With(var variable, exp subExpression, exp complexExpression)`  
+* variable: representa a subexpressão.
+* subExpression: a subexpressão representada pela variável.
+* complexExpression: uma expressão complexa.
+
+**Exemplo:**  
+`With($unExpiredCerts,Where($item,[userCertificate],CertNotAfter($item)>Now()),IIF(Count($unExpiredCerts)>0,$unExpiredCerts,NULL))`  
+É funcionalmente equivalente à:  
+`IIF (Count(Where($item,[userCertificate],CertNotAfter($item)>Now()))>0, Where($item,[userCertificate],CertNotAfter($item)>Now()),NULL)`  
+Que retorna apenas os valores de certificado não expirados no atributo userCertificate.
+
+
+- - -
 ### <a name="word"></a>Word
 **Descrição:**  
 a função Word retorna uma palavra contida em uma cadeia de caracteres com base nos parâmetros que descrevem os delimitadores a serem usados e o número de palavras a serem retornadas.
@@ -1073,9 +1341,3 @@ retornaria "has"
 * [Noções básicas sobre expressões de provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-

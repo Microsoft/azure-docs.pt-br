@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
-ms.openlocfilehash: dbc544ad4dbb651aeb24faf2f89074c7aa59cf2a
-
-
+ms.openlocfilehash: 6ab73e5c79742ab548733f5712dee1e28461db9f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-google-accounts"></a>Azure Active Directory B2C: fornecer inscrição e conexão aos consumidores com contas do Google+
 ## <a name="create-a-google-application"></a>Criar um aplicativo do Google+
@@ -51,17 +51,11 @@ Para usar o Google+ como um provedor de identidade no Azure AD (Azure Active Dir
     ![Google+ – Segredo do cliente](./media/active-directory-b2c-setup-goog-app/google-client-secret.png)
 
 ## <a name="configure-google-as-an-identity-provider-in-your-tenant"></a>Configurar o Google+ como um provedor de identidade no locatário
-1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
+1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) no portal do Azure.
 2. Na folha de recursos do B2C, clique em **Provedores de identidade**.
 3. Clique em **+Adicionar** , na parte superior da folha.
 4. Forneça um **Nome** amigável para a configuração do provedor de identidade. Por exemplo, insira "G+".
 5. Clique em **Tipo de provedor de identidade**, selecione **Google** e clique em **OK**.
 6. Clique em **Configurar este provedor de identidade** e insira a ID do cliente e o segredo do cliente do aplicativo do Google+ criado anteriormente.
 7. Clique em **OK** e em **Criar** para salvar a configuração do Google+.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

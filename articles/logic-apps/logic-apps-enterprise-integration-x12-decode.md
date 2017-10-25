@@ -1,6 +1,6 @@
 ---
 title: "Decodificar mensagens X12 - Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Validar EDI e gerar o XML de conjuntos de transações com o decodificador de mensagem X12 no Enterprise Integration Pack para Aplicativo Lógico do Azure"
+description: "Validar EDI e gerar confirmações com o decodificador de mensagem X12 no Enterprise Integration Pack para Aplicativo Lógico do Azure"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -13,17 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 717069dbe211ea9cc04925875e0f28c85ef25ac2
-ms.lasthandoff: 03/10/2017
-
-
+ms.author: LADocs; padmavc
+ms.openlocfilehash: 18719a8f49c74973947517161f7306c233a9323f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Decodificar mensagens X12 para o Aplicativo Lógico do Azure com o Enterprise Integration Pack
 
-Com o conector de mensagem X12 de decodificação, você pode validar o EDI e as propriedades específicas de parceiro, gera um documento XML para cada conjunto de transações e gerar uma confirmação das transações processadas. Para usar esse conector, você deve adicionar o conector para um gatilho existente em seu aplicativo lógico.
+Com o conector de mensagem Decodificar X12, você pode validar o envelope no acordo entre parceiros comerciais, validar o EDI e propriedades específicas ao parceiro, dividir intercâmbios em conjuntos de transações ou preservar intercâmbios inteiros e gerar confirmações para transações processadas. Para usar esse conector, você deve adicionar o conector para um gatilho existente em seu aplicativo lógico.
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -40,7 +39,7 @@ Veja os itens necessários:
 
 2. O conector de mensagem X12 de decodificação não possui gatilhos, você deve adicionar um gatilho para iniciar seu aplicativo lógico, como um gatilho de Solicitação. No Designer de Aplicativo Lógico, adicione um gatilho e uma ação ao aplicativo lógico.
 
-3.    Na caixa de pesquisa, digite "x12" como filtro. Selecione **X12 - Decodificar mensagem X12**.
+3.  Na caixa de pesquisa, digite "x12" como filtro. Selecione **X12 - Decodificar mensagem X12**.
    
     ![Procure por “x12”](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage1.png)  
 
@@ -55,7 +54,7 @@ Veja os itens necessários:
     | Nome da Conexão * |Digite um nome para a conexão. |
     | Uma conta de integração * |Insira um nome para sua conta de integração. Verifique se sua conta de integração e o aplicativo lógico estão no mesmo local do Azure. |
 
-5.    Quando terminar, os detalhes de conexão devem ser semelhantes a este exemplo. Para concluir a criação da sua conexão, escolha **Criar**.
+5.  Quando terminar, os detalhes de conexão devem ser semelhantes a este exemplo. Para concluir a criação da sua conexão, escolha **Criar**.
    
     ![detalhes da conexão com a conta de integração](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage5.png) 
 
@@ -72,7 +71,6 @@ Veja os itens necessários:
 O conector de Decodificação X12 executa as seguintes tarefas:
 
 * Valida o envelope no contrato de parceiro comercial
-* Gera um documento XML para cada conjunto de transação.
 * Valida o EDI e as propriedades específicas de parceiro
   * Validação estrutural de EDI e validação de esquema estendido
   * Validação da estrutura do envelope de intercâmbio.
@@ -82,17 +80,23 @@ O conector de Decodificação X12 executa as seguintes tarefas:
 * Verifica se os números de controle de conjunto de intercâmbio, grupo e transações não são duplicatas
   * Verifica o número de controle de intercâmbio em relação aos intercâmbios recebidos anteriormente.
   * Verifica o número de controle de grupo em relação a outros números de controle no intercâmbio.
-  * Verifica o número de controle do conjunto de transação em relação a outros números de controle de conjunto de transação nesse grupo.
-* Converte o intercâmbio inteiro em XML 
-  * Divida o intercâmbio em conjuntos de transações – conjuntos de transação suspensos com erro: analisa cada conjunto de transações em um intercâmbio dentro de um documento XML separado. Se um ou mais conjuntos de transações no intercâmbio falharem na validação, a Decodificação X12 suspenderá somente estes conjuntos de transação.
-  * Divida o intercâmbio em conjuntos de transações – suspender intercâmbios com erro: analisa cada conjunto de transações em um intercâmbio dentro de um documento XML separado ao aplicar o envelope apropriado.  Se um ou mais conjuntos de transações do intercâmbio falharem na validação, a Decodificação X12 suspenderá o intercâmbio inteiro.
-  * Preservar intercâmbio – suspender conjuntos de transação com erro: cria um documento XML para o intercâmbio em lote inteiro. A Decodificação X12 suspende somente os conjuntos de transação com falha na validação, enquanto continua a processar todos os outros conjuntos de transação
-  * Preservar intercâmbio – suspender intercâmbio com erro: cria um documento XML para o intercâmbio em lote inteiro. Se um ou mais conjuntos de transações do intercâmbio falharem na validação, a Decodificação X12 suspenderá o intercâmbio inteiro. 
+  * Verifica o número de controle do conjunto de transações em relação a outros números de controle de conjunto de transações nesse grupo.
+* Divide o intercâmbio em conjuntos de transações ou preserva todo o intercâmbio:
+  * Dividir o Intercâmbio como conjuntos de transações – suspender conjuntos de transações em caso de erro: divide o intercâmbio em conjuntos de transações e analisa cada conjunto de transações. 
+  A ação Decodificar X12 gera apenas os conjuntos de transações que falharam na validação em `badMessages` e gera os conjuntos de transações restantes em `goodMessages`.
+  * Dividir o Intercâmbio como conjuntos de transações – suspender o intercâmbio em caso de erro: divide o intercâmbio em conjuntos de transações e analisa cada conjunto de transações. 
+  Se um ou mais conjuntos de transações no intercâmbio falharem na validação, a ação Decodificar X12 gerará todos os conjuntos de transações no intercâmbio em `badMessages`.
+  * Preservar intercâmbio – suspender conjuntos de transação em caso de erro: preserve o intercâmbio e processe todo o intercâmbio em lote. 
+  A ação Decodificar X12 gera apenas os conjuntos de transações que falharam na validação em `badMessages` e gera os conjuntos de transações restantes em `goodMessages`.
+  * Preservar intercâmbio – suspender intercâmbio em caso de erro: preserve o intercâmbio e processe todo o intercâmbio em lote. 
+  Se um ou mais conjuntos de transações no intercâmbio falharem na validação, a ação Decodificar X12 gerará todos os conjuntos de transações no intercâmbio em `badMessages`. 
 * Gera uma confirmação técnica e/ou funcional (se configurado).
   * Uma confirmação técnica é gerada como resultado da validação de cabeçalho. A confirmação técnica relata o status do processamento de um cabeçalho e rodapé de intercâmbio pelo destinatário no endereço.
   * Uma confirmação técnica é gerada como resultado da validação do corpo. A confirmação funcional relata cada erro encontrado durante o processamento de documentos recebidos
 
+## <a name="view-the-swagger"></a>Exibir o Swagger
+Consulte os [detalhes do Swagger](/connectors/x12/). 
+
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack") 
-
 

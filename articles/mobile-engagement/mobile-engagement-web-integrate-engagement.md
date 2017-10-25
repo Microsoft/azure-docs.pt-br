@@ -14,11 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 02/29/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 7d8eaa180e277741a583522ee62d68f5247b92bb
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-azure-mobile-engagement-in-a-web-application"></a>Integrar o Azure Mobile Engagement em um aplicativo Web
 > [!div class="op_single_selector"]
@@ -160,9 +160,3 @@ Se suas funções de URL retornarem uma cadeia de caracteres que começa com `/`
         scheme: '//'
       }
     };
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/22/2017
+ms.date: 06/22/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: b80ee30379e9aac207cfe420cae17da57ea123a5
-ms.openlocfilehash: 9159f40fed17e52e6576efa1ea7e8a2dee98728e
-ms.lasthandoff: 03/02/2017
-
-
+ms.openlocfilehash: 47152d05eb7e31e7fe1f35e33a10fe8e903e21e2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Criar um cluster do Service Fabric usando o Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -230,7 +229,7 @@ Se você já carregou os certificados para o cofre da chaves, ignore esta etapa.
 
 ```powershell
 
-$ResouceGroup = "chackowestuskv"
+$ResourceGroup = "chackowestuskv"
 $VName = "chackokv2"
 $SubID = "6c653126-e4ba-42cd-a1dd-f7bf96ae7a47"
 $locationRegion = "westus"
@@ -238,7 +237,7 @@ $newCertName = "chackotestcertificate1"
 $dnsName = "www.mycluster.westus.mydomain.com" #The certificate's subject name must match the domain used to access the Service Fabric cluster.
 $localCertPath = "C:\MyCertificates" # location where you want the .PFX to be stored
 
- Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResouceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
+ Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResourceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
 
 ```
 
@@ -460,7 +459,8 @@ A configuração do Azure AD que você criou anteriormente pode ser inserida dir
 }
 ```
 
-### <a name="a-configure-arm-aconfigure-resource-manager-template-parameters"></a><a "configure-arm" ></a>Configurar os parâmetros do modelo do Resource Manager
+### <a "configure-arm" ></a>Configurar os parâmetros do modelo do Resource Manager
+<!--- Loc Comment: It seems that <a "configure-arm" > must be replaced with <a name="configure-arm"></a> since the link seems not to be redirecting correctly --->
 Por fim, use os valores de saída dos comandos do cofre de chaves e do PowerShell do Azure AD para preencher o arquivo de parâmetros:
 
 ```json
@@ -555,7 +555,8 @@ Depois de criar os aplicativos para representar seu cluster, atribua os usuário
 >
 >
 
- <a name="secure-linux-cluster"></a>
+ <a name="secure-linux-clusters"></a>
+ <!--- Loc Comment: It seems that letter S in cluster was missing, which caused the wrong redirection of the link --->
 
 ## <a name="create-secure-clusters-on-linux"></a>Criar clusters seguros no Linux
 Para facilitar o processo, fornecemos um [script auxiliar](http://github.com/ChackDan/Service-Fabric/tree/master/Scripts/CertUpload4Linux). Antes de usar esse script auxiliar, verifique se você já tem a CLI (interface de linha de comando) do Azure instalada e se ele está em seu caminho. Certifique-se de que o script tenha permissões para execução ao executar `chmod +x cert_helper.py` após fazer o download. A primeira etapa é entrar na sua conta do Azure usando a CLI com o comando `azure login`. Depois de entrar na sua conta do Azure, use o script auxiliar com seu certificado da AC assinado, como mostra o seguinte comando:
@@ -589,7 +590,7 @@ CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
 
 O nome da referência do certificado deve corresponder ao domínio usado para acessar o cluster do Service Fabric. Essa correspondência é necessária para fornecer um SSL para os pontos de extremidade de gerenciamento de HTTPS e o Service Fabric Explorer do cluster. Você não pode obter um certificado SSL de uma AC para o domínio `.cloudapp.azure.com` . Você deve obter um nome de domínio personalizado para seu cluster. Quando você solicitar um certificado de uma autoridade de certificação, o nome de assunto do certificado deve corresponder ao nome de domínio personalizado usado para seu cluster.
 
-Esses nomes de referência são as entradas necessárias para criar um cluster do Service Fabric seguro (sem o Azure AD), conforme descrito em [Configurar parâmetros de modelo do Resource Manager](#configure-arm). Você pode se conectar ao cluster seguro seguindo as instruções para [autenticar o acesso de cliente a um cluster](service-fabric-connect-to-secure-cluster.md). Os clusters de visualização do Linux não dão suporte à autenticação do Azure AD. Você pode atribuir funções de administrador e cliente, conforme descrito na seção [Atribuir funções a usuários](#assign-roles). Quando você especifica funções de administrador e cliente para um cluster de visualização do Linux, precisa fornecer as impressões digitais de certificado para autenticação. (Você não fornece o nome da entidade porque nenhuma validação ou revogação de cadeia está sendo executada nessa versão de visualização.)
+Esses nomes de referência são as entradas necessárias para criar um cluster do Service Fabric seguro (sem o Azure AD), conforme descrito em [Configurar parâmetros de modelo do Resource Manager](#configure-arm). Você pode se conectar ao cluster seguro seguindo as instruções para [autenticar o acesso de cliente a um cluster](service-fabric-connect-to-secure-cluster.md). Os clusters do Linux não dão suporte à autenticação do Azure AD. Você pode atribuir funções de administrador e cliente, conforme descrito na seção [Atribuir funções a usuários](#assign-roles). Quando você especifica funções de administrador e de cliente para um cluster do Linux, é necessário fornecer as impressões digitais de certificado para autenticação. Você não fornece o nome da entidade, porque nenhuma validação ou revogação de cadeia está sendo executada.
 
 Se quiser usar um certificado autoassinado para testes, você poderá usar o mesmo script para gerá-lo. Em seguida, você pode carregar o certificado no cofre de chaves fornecendo o sinalizador `ss` em vez do caminho e do nome do certificado. Por exemplo, consulte o seguinte comando para criar e carregar um certificado autoassinado:
 

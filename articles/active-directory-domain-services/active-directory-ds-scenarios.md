@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 09/21/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 359653f29adc538a4fe2f2143e8132bdd9a9d15b
-ms.lasthandoff: 12/29/2016
-
-
+ms.openlocfilehash: b73bfc7703d79681f0de345f4ec994da540aa2a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Cenários de implantação e casos de uso
 Nesta seção, examinamos alguns cenários e casos de uso que podem aproveitar os Serviços de Domínio do AD (Azure Active Directory).
@@ -38,7 +37,7 @@ Conforme servidores e outras infraestruturas atingem o fim da vida útil, a Cont
 Considere os seguintes pontos importantes para este cenário de implantação:
 
 * Domínios gerenciados fornecidos pelos Serviços de Domínio do Azure AD fornecem uma única estrutura de UO (unidade organizacional) simples por padrão. Todos os computadores que ingressaram no domínio residem em uma única UO simples. No entanto, você pode optar por criar UOs personalizadas.
-* Os Serviços de Domínio do AD do Azure dão suporte à política de grupo simples na forma de um GPO interno para os usuários e um para os contêineres de computador. Você não pode definir GP por departamento/UO, realizar a filtragem WMI ou criar GPOs personalizados.
+* Os Serviços de Domínio do AD do Azure dão suporte à política de grupo simples na forma de um GPO interno para os usuários e um para os contêineres de computador. Você pode criar GPOs personalizados e direcioná-los às UOs personalizadas.
 * Os Serviços de Domínio do AD do Azure dão suporte ao esquema do objeto de computador AD base. Você não pode estender o esquema do objeto de computador.
 
 ## <a name="lift-and-shift-an-on-premises-application-that-uses-ldap-bind-authentication-to-azure-infrastructure-services"></a>Fazer a mudança de aplicativos locais que usam autenticação de associação LDAP para os Serviços de Infraestrutura do Azure
@@ -77,10 +76,13 @@ Considere os seguintes pontos importantes para este cenário de implantação:
 * Verifique se o aplicativo usa o nome de usuário e senha para autenticação. A autenticação com certificado/cartão inteligente não tem suporte dos Serviços de Domínio do AD do Azure.
 * Você não pode alterar senhas diretamente em relação ao domínio gerenciado. Os usuários finais podem alterar suas senhas ou usando o mecanismo de alteração de senha de autoatendimento do Azure AD ou no diretório local. Essas alterações são automaticamente sincronizadas e disponibilizadas no domínio gerenciado.
 
-## <a name="azure-remoteapp"></a>RemoteApp do Azure
-O RemoteApp do Azure permite que o administrador do Contoso crie uma coleção associada a um domínio. Esse recurso permite que aplicativos remotos atendidos pelo RemoteApp do Azure sejam executados em computadores associados ao domínio e acessem outros recursos usando a autenticação integrada do Windows. O Contoso pode usar os Serviços de Domínio do AD do Azure para fornecer um domínio gerenciado usado pelas coleções associadas ao domínio do RemoteApp do Azure.
+## <a name="windows-server-remote-desktop-services-deployments-in-azure"></a>Implantações de serviços de área de trabalho remota do Windows Server
+Você pode usar o Azure AD Domain Services para fornecer serviços de domínio do AD gerenciados aos servidores de área de trabalho remota implantados no Azure.
 
-![RemoteApp do Azure](./media/active-directory-domain-services-scenarios/azure-remoteapp.png)
+Para saber mais sobre esse cenário de implantação, confira [Integrate Azure AD Domain Services with your RDS deployment](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-azure-adds) (Integrar o Azure AD Domain Services à sua implantação do RDS).
 
-Para saber mais sobre esse cenário de implantação, confira o artigo do Blog de Serviços de Área de Trabalho Remota intitulado [Lift-and-shift your workloads with Azure RemoteApp and Azure AD Domain Services](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx)(Levantar e deslocar suas cargas de trabalho com o Azure RemoteApp e os Azure AD Domain Services).
 
+## <a name="domain-joined-hdinsight-clusters-preview"></a>Clusters do HDInsight ingressados no domínio (Versão Prévia)
+Você pode configurar um cluster do Azure HDInsight que tenha ingressado em um domínio gerenciado do Azure AD Domain Services com o Apache Ranger habilitado. Crie e aplique políticas de Hive por meio do Apache Ranger e permita que os usuários (por exemplo, os cientistas de dados) se conectem ao Hive usando ferramentas baseadas em ODBC, por exemplo, Excel, Tableau, etc. A Microsoft está trabalhando para adicionar outras cargas de trabalho como Spark, HBase e Storm ao HDInsight ingressado no domínio, em breve.
+
+Para obter mais informações sobre esse cenário de implantação, consulte como [configurar clusters do HDInsight ingressados em domínio](../hdinsight/hdinsight-domain-joined-configure.md)

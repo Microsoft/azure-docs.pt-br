@@ -3,7 +3,7 @@ title: "Histórico de lançamento de versão do conector | Microsoft Docs"
 description: "Este tópico lista todas as versões dos Conectores do FIM (Forefront Identity Manager) e MIM (Microsoft Identity Manager)"
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: fimguy
 manager: femila
 editor: 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
@@ -12,20 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/28/2017
-ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 244ca634cfd47ee37e3845380ac05dc68d406621
-ms.lasthandoff: 03/29/2017
-
-
+ms.date: 09/06/2017
+ms.author: fimguy
+ms.openlocfilehash: 98eb9b3a58737da2436eed591d69a900166c6af9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connector-version-release-history"></a>Histórico de lançamento de versão do conector
 Os Conectores do FIM (Forefront Identity Manager) e MIM (Microsoft Identity Manager) são atualizados com frequência.
 
 > [!NOTE]
-> Este tópico é somente para FIM e MIM. Esses conectores não têm suporte no Azure AD Connect.
+> Este tópico é somente para FIM e MIM. Esses conectores não são suportados para instalação no Azure AD Connect. Os conectores liberados são pré-instalados no AADConnect durante o upgrade para o Build especificado.
 
 Este tópico lista todas as versões dos conectores que foram lançadas.
 
@@ -38,11 +37,66 @@ Links relacionados:
 * [Conector do PowerShell](active-directory-aadconnectsync-connector-powershell.md)
 * [Conector do Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
 
+
+## <a name="116040-aadconnect-116140"></a>1.1.604.0 (AADConnect 1.1.614.0)
+
+
+### <a name="fixed-issues"></a>Problemas corrigidos:
+
+* Serviços Web genéricos:
+  * Correção de um problema que estava impedindo um projeto SOAP de ser criado quando havia dois ou mais pontos de extremidade.
+* SQL genérico:
+  * Na operação de importação, o GSQL não estava convertendo o tempo corretamente, quando salvo no espaço do conector. O formato de data e hora padrão para o espaço do conector do GSQL foi alterado de "aaaa-MM-dd hh:mm:ssZ'' para "aaaa-MM-dd HH:mm:ssZ'.
+
+## <a name="115510-aadconnect-115530"></a>1.1.551.0 (AADConnect 1.1.553.0)
+
+### <a name="fixed-issues"></a>Problemas corrigidos:
+
+* Serviços Web genéricos:
+  * A ferramenta Wsconfig não converteu corretamente a matriz JSON de "solicitação de exemplo" para o método de serviço REST. Isso causou problemas com a serialização dessa matriz Json para a solicitação REST.
+  * A Ferramenta de Configuração do Conector do Serviço Web não dá suporte ao uso de símbolos de espaço em nomes de atributo JSON 
+    * Um padrão de substituição pode ser adicionado manualmente ao arquivo WSConfigTool.exe.config, por exemplo ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+
+* Lotus Notes:
+  * Quando a opção **Permitir certificadores personalizados para a organização/as unidades organizacionais** está desabilitada, o conector falha durante a exportação (Atualização) Após o fluxo de exportação, todos os atributos são exportados para o Domino mas, no momento da exportação, uma KeyNotFoundException é retornada para Sincronização. 
+    * Isso acontece porque a operação de renomeação falha ao tentar alterar o DN (atributo UserName) alterando um dos atributos abaixo:  
+      - Sobrenome
+      - Nome
+      - MiddleInitial
+      - AltFullName
+      - AltFullNameLanguage
+      - ou
+      - altcommonname
+
+  * Quando a opção **Permitir certificadores personalizados para a organização/as unidades organizacionais** está habilitada, mas os certificadores necessários ainda estão vazios, ocorre uma KeyNotFoundException.
+
+### <a name="enhancements"></a>Melhorias:
+
+* SQL genérico:
+  * **Cenário: reprojetado implementado:** recurso "*"
+  * **Descrição da solução:** abordagem alterada para a [manipulação de atributos de referência de vários valores](active-directory-aadconnectsync-connector-genericsql.md).
+
+
+### <a name="fixed-issues"></a>Problemas corrigidos:
+
+* Serviços Web genéricos:
+  * Não será possível importar a configuração do servidor se houver um Conector WebService
+  * O Conector WebService não está funcionando com vários Serviços Web
+
+* SQL genérico:
+  * Nenhum tipo de objeto é listado para o atributo de referência de valor único
+  * A importação delta na estratégia de Controle de Alterações exclui o objeto quando o valor é removido da tabela de vários valores
+  * OverflowException no conector GSQL com DB2 no AS/400
+
+Lotus:
+  * Adicionada a opção de habilitar/desabilitar a pesquisa de UOs antes de abrir a página GlobalParameters
+
 ## <a name="114430"></a>1.1.443.0
 
 Lançamento: março de 2017
 
 ### <a name="enhancements"></a>Melhorias
+
 * SQL genérico:</br>
   **Sintomas de cenário:** são uma limitação conhecida com o conector do SQL onde podemos permitir somente uma referência a um tipo de objeto e exigir uma referência cruzada com membros. </br>
   **Descrição da solução:** na etapa de processamento de referências onde a opção "*" é escolhida, todas as combinações de tipos de objeto são retornadas para o mecanismo de sincronização.
@@ -55,7 +109,7 @@ Lançamento: março de 2017
 * LDAP genérico:</br>
  **Cenário:** quando apenas alguns contêineres são selecionados na partição específica e a pesquisa ainda será realizada na partição inteira. O específico será filtrado pelo serviço de sincronização, mas não pelo MA que pode causar degradação do desempenho. </br>
 
- **Descrição de solução:** o código do conector GLDAP é modificado para passar por todos os contêineres e objetos de pesquisa em cada um deles, em vez de pesquisar na partição inteira.
+ **Descrição de solução:**  o código do conector GLDAP é modificado para passar por todos os contêineres e objetos de pesquisa em cada um deles, em vez de pesquisar na partição inteira.
 
 
 * Lotus Domino:
@@ -154,4 +208,3 @@ Antes de março de 2016, os Conectores foram liberados como tópicos de suporte.
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-

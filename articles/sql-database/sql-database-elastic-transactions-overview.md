@@ -8,19 +8,18 @@ manager: jhubbard
 editor: torsteng
 ms.assetid: e14df7a3-7788-4cfb-bcd1-7ad6433ef1f9
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: sql-database
 ms.date: 05/27/2016
 ms.author: torsteng
-translationtype: Human Translation
-ms.sourcegitcommit: 144774c9106bf5a0e389c99075c822d1c5282692
-ms.openlocfilehash: f9c53a981376cf534c50d80ae2f60fc01f193e4d
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 795857b0670628b105a59ce5a802620881d30425
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transações distribuídas entre bancos de dados na nuvem
 As transações de banco de dados elástico para Banco de dados SQL (BD SQL) do Azure permitem que você execute transações que abranjam vários bancos de dados no BD SQL. As transações de banco de dados elástico do BD SQL estão disponíveis para aplicativos .NET usando ADO .NET e se integram à experiência de programação conhecida usando as classes [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Para obter a biblioteca, confira [.NET Framework 4.6.1 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=49981).
@@ -35,10 +34,10 @@ As transações de banco de dados elástico têm como objetivo os seguintes cen�
 
 * Aplicativos de vários bancos de dados no Azure: com esse cenário, os dados são particionados verticalmente em vários bancos de dados no BD SQL, de modo que os diferentes tipos de dados residam em bancos de dados diferentes. Algumas operações exigem alterações nos dados, que são mantidos em dois ou mais bancos de dados. O aplicativo usa transações de banco de dados elástico para coordenar as alterações nos bancos de dados e garantir a atomicidade.
 * Aplicativos de banco de dados fragmentado no Azure: com esse cenário, a camada de dados usa a [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md) ou a autofragmentação para particionar horizontalmente os dados em vários bancos de dados no Banco de Dados SQL. Um caso de uso importante é a necessidade de realizar mudanças atômicas em um aplicativo multilocatário fragmentado quando as alterações se estendem aos locatários. Pense, por exemplo, em uma transferência de um locatário para outro, ambos residentes em bancos de dados diferentes. Um segundo caso é a fragmentação refinada para acomodar as necessidades de capacidade de um locatário grande, o que, por sua vez, geralmente implica na necessidade de extensão de algumas operações atômicas em vários bancos de dados usados para o mesmo locatário. Um terceiro caso são as atualizações atômicas de dados de referência que são replicados nos bancos de dados. As operações atômicas e transacionadas, juntamente com estas linhas, agora podem ser coordenadas em vários bancos de dados usando a visualização.
-  As transações de banco de dados elástico usam o protocolo&2;PC para garantir a atomicidade das transações nos bancos de dados. É uma boa opção para as transações que envolvem menos de 100 bancos de dados por vez em uma única transação. Esses limites não são impostos, mas o desempenho e as taxas de êxito das transações de banco de dados elástico provavelmente serão prejudicados se eles forem ultrapassados.
+  As transações de banco de dados elástico usam o protocolo 2PC para garantir a atomicidade das transações nos bancos de dados. É uma boa opção para as transações que envolvem menos de 100 bancos de dados por vez em uma única transação. Esses limites não são impostos, mas o desempenho e as taxas de êxito das transações de banco de dados elástico provavelmente serão prejudicados se eles forem ultrapassados.
 
 ## <a name="installation-and-migration"></a>Instalação e migração
-Os recursos das transações de banco de dados elástico no BD SQL são fornecidos por meio de atualizações das bibliotecas .NET System.Data.dll e System.Transactions.dll. As DLLs garantem que o protocolo&2;PC seja usado quando necessário para garantir a atomicidade. Para começar a desenvolver aplicativos usando as transações de banco de dados elástico, instale o [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) ou uma versão posterior. Quando executadas em uma versão anterior do .NET Framework, as transações não serão promovidas a uma transação distribuída, e uma exceção será gerada.
+Os recursos das transações de banco de dados elástico no BD SQL são fornecidos por meio de atualizações das bibliotecas .NET System.Data.dll e System.Transactions.dll. As DLLs garantem que o protocolo 2PC seja usado quando necessário para garantir a atomicidade. Para começar a desenvolver aplicativos usando as transações de banco de dados elástico, instale o [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) ou uma versão posterior. Quando executadas em uma versão anterior do .NET Framework, as transações não serão promovidas a uma transação distribuída, e uma exceção será gerada.
 
 Após a instalação, você pode usar as APIs de transação distribuída em System.Transactions com conexões ao BD SQL. Se você já tiver aplicativos do MSDTC usando essas APIs, basta recompilar os aplicativos existentes para o .NET 4.6 depois de instalar o .NET Framework 4.6.1. Se seus projetos visam o .NET 4.6, eles usarão automaticamente as DLLs atualizadas da nova versão do Framework, e as chamadas à API de transação distribuída em conjunto com as conexões ao BD SQL passarão a funcionar.
 
@@ -95,7 +94,7 @@ As transações de banco de dados elástico do BD SQL também oferecem suporte a
 
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Instalação do .NET para os Serviços de Nuvem do Azure
-O Azure fornece várias ofertas para hospedar aplicativos .NET. Uma comparação entre as diferentes ofertas está disponível em [Comparação entre o Serviço de Aplicativo do Azure, os Serviços de Nuvem e as Máquinas Virtuais](../app-service-web/choose-web-site-cloud-service-vm.md). Se o SO convidado da oferta for inferior ao .NET 4.6.1 exigido para transações elásticas, será necessário atualizar o SO para 4.6.1. 
+O Azure fornece várias ofertas para hospedar aplicativos .NET. Uma comparação entre as diferentes ofertas está disponível em [Comparação entre o Serviço de Aplicativo do Azure, os Serviços de Nuvem e as Máquinas Virtuais](../app-service/choose-web-site-cloud-service-vm.md). Se o SO convidado da oferta for inferior ao .NET 4.6.1 exigido para transações elásticas, será necessário atualizar o SO para 4.6.1. 
 
 Para os Serviços de Aplicativos do Azure, não há suporte para atualizações para o SO convidado. Para as Máquinas virtuais do Azure, basta fazer logon na VM e executar o instalador do .NET Framework mais recente. Para os Serviços de Nuvem do Azure, você precisará incluir a instalação de uma versão mais recente do .NET em tarefas de inicialização da sua implantação. Os conceitos e as etapas estão documentados em [Instalar o .NET em uma Função do Serviço de Nuvem](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 
@@ -143,15 +142,13 @@ As seguintes limitações se aplicam atualmente para as transações de banco de
 
 * Há suporte somente para transações em bancos de dados no BD SQL. Outros provedores de recursos [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) e bancos de dados fora do BD SQL não podem participar de transações de banco de dados elástico. Isso significa que as transações de banco de dados elástico não podem se estender para o SQL Server e o Banco de Dados SQL do Azure no local. Para transações distribuídas no local, continue a usar o MSDTC. 
 * Há suporte somente para transações coordenadas pelo cliente a partir de um aplicativo .NET. Há planos para suporte do lado do servidor para o T-SQL, como INICIAR TRANSAÇÃO DISTRIBUÍDA, mas ainda não está disponível. 
-* Há suporte somente para bancos de dados no V12 do BD SQL do Azure.
 * Não há suporte para transações em serviços WCF. Por exemplo, você tem um método de serviço WCF que executa uma transação. Colocar a chamada dentro de um escopo de transação falhará como [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
 ## <a name="next-steps"></a>Próximas etapas
-Você ainda não está usando os recursos de banco de dados elástico nos seus aplicativos do Azure? Confira o nosso [Mapa da Documentação](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Em caso de dúvidas, entre em contato conosco pelo [fórum do Banco de Dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) e, para solicitações de recursos, adicione-as ao [fórum de comentários sobre o Banco de Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Em caso de dúvidas, entre em contato conosco pelo [fórum do Banco de Dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) e, para solicitações de recursos, adicione-as ao [fórum de comentários sobre o Banco de Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
-
 
 
 

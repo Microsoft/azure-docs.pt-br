@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
-ms.openlocfilehash: 6355c98f5c50d03b54cb4977bff4e51b8dfa669f
-
-
+ms.openlocfilehash: f2849fe25fd0d5b3dc26598ffba7591cb7433161
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="a-nameintroa-integrate-a-cloud-service-with-azure-cdn"></a><a name="intro"></a> Integrar um serviço de nuvem à CDN do Azure
+# <a name="intro"></a> Integrar um serviço de nuvem à CDN do Azure
 Um serviço de nuvem pode ser integrado com o CDN do Azure, fornecendo qualquer conteúdo do local do serviço de nuvem. Esta abordagem lhe dá as seguintes vantagens:
 
 * Implantar e atualizar, de maneira fácil, imagens, scripts e folhas de estilo nos diretórios de projetos de seu serviço de nuvem
@@ -161,11 +161,11 @@ Na verdade, com a configuração acima, você pode hospedar todo o serviço de n
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
-No entanto, isso não significa que sempre é uma boa ideia (ou uma boa ideia de modo geral) fornecer um serviço de nuvem inteiro por meio da CDN do Azure. Alguns dos empecilhos são:
+No entanto, isso não significa que sempre é uma boa ideia fornecer um serviço de nuvem inteiro por meio da CDN do Azure. 
 
-* Esta abordagem requer que todo o seu site seja público, por que a CDN do Azure não pode fornecer nenhum conteúdo privado neste momento.
-* Se o ponto de extremidade da CDN ficar offline por qualquer motivo, seja para uma manutenção programada ou por erro do usuário, todo o seu serviço de nuvem ficará offline a menos que os clientes possam ser redirecionados à URL de origem, **http://*&lt;serviceName>*.cloudapp.net/**.
-* Mesmo com as configurações personalizadas de controle de cache (consulte [Configurar opções de cache para arquivos estáticos em seu serviço de nuvem](#caching)), um ponto de extremidade CDN não melhora o desempenho de conteúdo altamente dinâmico. Se você tiver tentado carregar a página inicial de seu ponto de extremidade CDN conforme mostrado acima, observe que foram necessários pelo menos 5 segundos para carregar pela primeira vez a página inicial, que é uma página bem simples. Imagine o que aconteceria com a experiência do cliente se esta página tivesse conteúdo dinâmico que precisasse ser atualizado a cada minuto. Fornecer conteúdo dinâmico de um ponto de extremidade da CDN requer uma validade curta do cache, o que significa frequentes perdas de cache no ponto de extremidade da CDN. Isso prejudica o desempenho de seu serviço de nuvem e frustra o propósito de uma CDN.
+Uma CDN com otimização de entrega estática não acelera, necessariamente, a entrega de ativos dinâmicos que não devem ser armazenados em cache ou são atualizados com muita frequência, pois a CDN deve efetuar pull de uma nova versão do ativo do servidor de origem com bastante frequência. Para este cenário, você pode habilitar a otimização [DSA](cdn-dynamic-site-acceleration.md) (aceleração de site dinâmico), em seu ponto de extremidade da CDN, que usa várias técnicas para acelerar a entrega de ativos dinâmicos não armazenáveis em cache. 
+
+Se você tem um site com uma mistura de conteúdo estático e dinâmico, você pode escolher distribuir o conteúdo estático da CDN com um tipo de otimização estática (por exemplo, a entrega da Web geral) e distribuir o conteúdo dinâmico diretamente do servidor de origem ou por meio de um ponto de extremidade de CDN com otimização DSA ativada de acordo com cada caso. Para isso, você já viu como acessar arquivos de conteúdo individuais do ponto de extremidade CDN. Você verá como fornecer uma ação de controlador específica por meio de um ponto de extremidade de CDN específico em Fornecer conteúdo por meio de ações do controlador na CDN do Azure.
 
 A alternativa é determinar que conteúdo fornecer por meio da CDN do Azure caso a caso, em seu serviço de nuvem. Para isso, você já viu como acessar arquivos de conteúdo individuais do ponto de extremidade CDN. Você verá como fornecer uma ação de controlador específica por meio do ponto de extremidade CDN em [Fornecer conteúdo por meio de ações do controlador por meio da CDN do Azure](#controller).
 
@@ -600,9 +600,3 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 [cdn-new-endpoint-button]: ./media/cdn-cloud-service-with-cdn/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

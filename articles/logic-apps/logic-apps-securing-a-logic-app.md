@@ -13,15 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 86c293e735f766dbacc7d0b83574f254573d0de8
-ms.openlocfilehash: 3f119409e031ca2b88694a011916f52aa9ef5d36
-ms.lasthandoff: 02/15/2017
-
-
+ms.author: LADocs; jehollan
+ms.openlocfilehash: 45a4e476f930e0f5f6633dc5b3b35b66dc6dfa20
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="secure-access-to-your-logic-apps"></a>Proteger o acesso aos aplicativos lógicos
 
 Há muitas ferramentas disponíveis para ajudar a proteger seu aplicativo lógico.
@@ -38,7 +36,7 @@ Ao trabalhar com um aplicativo lógico que é acionado em uma solicitação HTTP
 
 ### <a name="shared-access-signature"></a>Assinatura de acesso compartilhado
 
-Cada ponto de extremidade de solicitação para um aplicativo lógico inclui uma [Assinatura de Acesso Compartilhado](../storage/storage-dotnet-shared-access-signature-part-1.md) (SAS) como parte da URL. Cada URL contém um parâmetro de consulta `sp`, `sv`, e `sig`. As permissões são especificadas por `sp`e correspondem aos métodos HTTP permitidos, `sv` é a versão usada para gerar e `sig` é usado para autenticar o acesso para disparar. A assinatura é gerada usando o algoritmo SHA256 com uma chave secreta em todos os caminhos de URL e propriedades. A chave secreta nunca é exposta e publicada e é mantida criptografada e armazenada como parte do aplicativo lógico. Seu aplicativo lógico somente autoriza gatilhos que contêm uma assinatura válida criada com a chave secreta.
+Cada ponto de extremidade de solicitação para um aplicativo lógico inclui uma [Assinatura de Acesso Compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (SAS) como parte da URL. Cada URL contém um parâmetro de consulta `sp`, `sv`, e `sig`. As permissões são especificadas por `sp`e correspondem aos métodos HTTP permitidos, `sv` é a versão usada para gerar e `sig` é usado para autenticar o acesso para disparar. A assinatura é gerada usando o algoritmo SHA256 com uma chave secreta em todos os caminhos de URL e propriedades. A chave secreta nunca é exposta e publicada e é mantida criptografada e armazenada como parte do aplicativo lógico. Seu aplicativo lógico somente autoriza gatilhos que contêm uma assinatura válida criada com a chave secreta.
 
 #### <a name="regenerate-access-keys"></a>Regenerar chaves de acesso
 
@@ -264,19 +262,14 @@ Aplicativos lógicos fornecem integração com diversos serviços que fornecem c
 
 #### <a name="on-premises-data-gateway"></a>Gateway de dados local
 
-Muitos dos conectores de aplicativos lógicos gerenciados fornecem conectividade segura para sistemas locais, incluindo o File System, SQL, SharePoint, DB2 e muito mais.  O gateway usa canais criptografados por meio do Barramento de Serviço do Azure para retransmissão de dados local e todo o tráfego origina-se do tráfego de saída seguro do agente de gateway.  Para obter mais detalhes sobre como o gateway funciona, consulte [este artigo](logic-apps-gateway-install.md#how-the-gateway-works).
+Muitos conectores gerenciados de aplicativo lógico fornecem conectividade segura para sistemas locais, incluindo o sistema de arquivos, SQL, SharePoint, DB2 e muito mais. O gateway retransmite dados de fontes locais em canais criptografados por meio do Barramento de Serviço do Azure. Todo o tráfego é originado como tráfego de saída seguro do agente de gateway. Saiba mais sobre [como o gateway de dados funciona](logic-apps-gateway-install.md#gateway-cloud-service).
 
 #### <a name="azure-api-management"></a>Gerenciamento de API do Azure
 
 O [Gerenciamento de API do Azure](https://azure.microsoft.com/services/api-management/) tem opções de conectividade local incluindo integração VPN e ExpressRoute site a site para proxy seguro e a comunicação com sistemas locais. No Designer de Aplicativos Lógicos, você pode selecionar rapidamente uma API exposta do Gerenciamento de API do Azure em um fluxo de trabalho, fornecendo acesso rápido a sistemas locais.
-
-#### <a name="hybrid-connections-from-azure-app-service"></a>Conexões híbridas do Serviço de Aplicativo do Azure
-
-Você pode usar o recurso de conexão híbrida local para a API do Azure e aplicativos da Web para se comunicar no local.  Detalhes sobre conexões híbridas e como configurá-las podem ser encontrados [neste artigo](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um modelo de implantação](logic-apps-create-deploy-template.md)  
 [Manipulação de exceção](logic-apps-exception-handling.md)  
 [Monitorar seus aplicativos lógicos](logic-apps-monitor-your-logic-apps.md)  
 [Diagnosticando falhas e problemas nos aplicativos lógicos](logic-apps-diagnosing-failures.md)  
-

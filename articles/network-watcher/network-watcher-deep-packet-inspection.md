@@ -3,7 +3,7 @@ title: "Inspeção de pacotes com o Observador de Rede do Azure | Microsoft Docs
 description: "Este artigo descreve como usar o Observador de Rede para realizar inspeções de pacotes detalhadas coletadas em uma VM"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 7b907d00-9c35-40f5-a61e-beb7b782276f
@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 62fa6a6d0cccc5545b94d4ae167f2fcc7e4cd0de
-ms.lasthandoff: 03/21/2017
-
+ms.author: jdial
+ms.openlocfilehash: 1ad6ca4abe73336ce9ce3539fdaf2a9d7dd23fa6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="packet-inspection-with-azure-network-watcher"></a>Inspeção de pacotes com o Observador de Rede do Azure
 
 Usando o recurso de captura de pacotes do Observador de Rede, você pode iniciar e gerenciar sessões de capturas em suas VMs do Azure no portal, PowerShell, CLI e por meio de programação com o SDK e a API REST. A captura de pacotes permite lidar com cenários que exigem dados no nível do pacote fornecendo as informações em um formato prontamente útil. Utilizando as ferramentas disponíveis gratuitamente para inspecionar os dados, você pode examinar as comunicações enviadas para e de suas VMs, e obter informações no tráfego de rede. Alguns usos de exemplo dos dados de captura de pacotes incluem: investigar problemas de rede ou do aplicativo, detectar tentativas de invasão e uso indevido da rede ou manter a conformidade normativa. Neste artigo, mostramos como abrir um arquivo de captura de pacotes fornecido pelo Observador de Rede usando uma ferramenta popular de software livre. Também forneceremos exemplos que mostram como calcular uma latência de conexão, identificar o tráfego anormal e examinar as estatísticas de rede.
@@ -135,7 +134,6 @@ Saiba mais sobre os outros recursos de diagnóstico do Observador de Rede visita
 [6]: ./media/network-watcher-deep-packet-inspection/figure6.png
 [7]: ./media/network-watcher-deep-packet-inspection/figure7.png
 [8]: ./media/network-watcher-deep-packet-inspection/figure8.png
-
 
 
 

@@ -1,6 +1,6 @@
 ---
 title: Use o Azure Machine Learning com o SQL Data Warehouse | Microsoft Docs
-description: "Tutorial para usar o Aprendizado de Máquina do Azure com o Data Warehouse do SQL Azure para desenvolver soluções."
+description: "Tutorial para usar o Azure Machine Learning com o Data Warehouse do SQL Azure para desenvolver soluções."
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
@@ -15,15 +15,14 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 30dcbe33b359afc3f118effce07f6574bb35d5d5
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: c19860c6b5b1c15d1e29ddc67f9cf9ad4618725b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="use-azure-machine-learning-with-sql-data-warehouse"></a>Use o Aprendizado de Máquina do Azure com o SQL Data Warehouse
-O Aprendizado de Máquina do Azure é um serviço de análise preditiva totalmente gerenciado que você pode usar para criar modelos preditivos em relação aos dados do SQL Data Warehouse e publicá-los como serviços Web prontos para consumo. Você pode aprender os fundamentos da análise preditiva e aprendizado de máquina lendo [Introdução ao Machine Learning no Azure][Introduction to Machine Learning on Azure].  Em seguida, você pode aprender a criar, treinar, pontuar e testar um modelo de aprendizado de máquina usando [Tutorial de criação de teste][Create experiment tutorial].
+# <a name="use-azure-machine-learning-with-sql-data-warehouse"></a>Use o Azure Machine Learning com o SQL Data Warehouse
+O Azure Machine Learning é um serviço de análise preditiva totalmente gerenciado que você pode usar para criar modelos preditivos em relação aos dados do SQL Data Warehouse e publicá-los como serviços Web prontos para consumo. Você pode aprender os fundamentos da análise preditiva e aprendizado de máquina lendo [Introdução ao Machine Learning no Azure][Introduction to Machine Learning on Azure].  Em seguida, você pode aprender a criar, treinar, pontuar e testar um modelo de aprendizado de máquina usando [Tutorial de criação de teste][Create experiment tutorial].
 
 Neste artigo, você aprenderá a fazer o seguinte usando o [Azure Machine Learning Studio][Azure Machine Learning Studio]:
 
@@ -34,7 +33,7 @@ Neste artigo, você aprenderá a fazer o seguinte usando o [Azure Machine Learni
 Leremos dados da tabela Produtos no banco de dados AdventureWorksDW.
 
 ### <a name="step-1"></a>Etapa 1
-Inicie um novo experimento clicando em +NOVO na parte inferior da janela do Estúdio de Aprendizado de Máquina, selecione EXPERIMENTO e selecione Experimento em branco. Selecione o nome de experimento padrão na parte superior da tela e renomeie para algo significativo, por exemplo, Previsão de preço de bicicleta.
+Inicie um novo experimento clicando em +NOVO na parte inferior da janela do Machine Learning Studio, selecione EXPERIMENTO e selecione Experimento em branco. Selecione o nome de experimento padrão na parte superior da tela e renomeie para algo significativo, por exemplo, Previsão de preço de bicicleta.
 
 ### <a name="step-2"></a>Etapa 2
 Procure o módulo Leitor na paleta de conjuntos de dados e módulos à esquerda da tela do experimento. Arraste o módulo à tela do experimento.
@@ -136,4 +135,3 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvime
 <!--Other Web references-->
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
-

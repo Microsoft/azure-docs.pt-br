@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 65c8a2c020d5ef7ce47905927a248b9e73d2ed1b
-ms.lasthandoff: 03/29/2017
-
-
+ms.custom: aaddev
+ms.openlocfilehash: 6ffcfcb7ed071a12b0b3495ad534fd00f6d6ad99
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que os aplicativos são adicionados ao AD do Azure
 Uma das coisas inicialmente confusas ao exibir uma lista de aplicativos na sua instância do Active Directory do Azure é compreender de onde vieram os aplicativos e por que eles existem.  Este artigo fornece uma visão geral de alto nível de como os aplicativos são representados no diretório, além de contexto que irá ajudá-lo a compreender como um aplicativo passou a estar em seu diretório.
@@ -144,4 +144,3 @@ Saiba mais sobre como adicionar aplicativos ao AD do Azure e como configurar ser
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]:../media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
-

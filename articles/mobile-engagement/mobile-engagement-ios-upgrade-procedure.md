@@ -1,6 +1,6 @@
 ---
 title: "Procedimento de atualização do SDK para iOS do Azure Mobile Engagement | Microsoft Docs"
-description: "Atualizações e procedimentos mais recentes para o SDK do iOS para Mobile Engagement do Azure"
+description: "Atualizações e procedimentos mais recentes para o SDK do iOS para Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: c4b5b8bc05365ddc63b0d7a6a3c63eaee31af957
 ms.openlocfilehash: 37c7f133d079186f828d58cabce0d2a259efd085
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-procedures"></a>Procedimentos de atualização
 Se você já tiver integrado uma versão anterior do Engagement no seu aplicativo, você deve considerar os seguintes pontos ao atualizar o SDK.
@@ -177,7 +177,7 @@ O método `application:didReceiveRemoteNotification:` precisa ser substituído p
     -(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
 ## <a name="from-1160-to-200"></a>De 1.16.0 a 2.0.0
-O seguinte descreve como migrar uma integração do SDK do serviço Capptain oferecido pelo Capptain SAS em um aplicativo acionado pelo Mobile Engagement do Azure.
+O seguinte descreve como migrar uma integração do SDK do serviço Capptain oferecido pelo Capptain SAS em um aplicativo acionado pelo Azure Mobile Engagement.
 Se você estiver migrando de uma versão anterior, consulte o site do Capptain para migrar primeiro para a 1.16 e depois aplicar o procedimento a seguir
 
 > [!IMPORTANT]
@@ -214,10 +214,4 @@ Exemplos:
 * A classe `CapptainTableViewController` foi renomeada para `EngagementTableViewController`.
 * A classe `CapptainUtils` foi renomeada para `EngagementUtils`.
 * A classe `CapptainViewController` foi renomeada para `EngagementViewController`.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

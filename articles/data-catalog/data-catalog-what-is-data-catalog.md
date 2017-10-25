@@ -1,6 +1,6 @@
 ---
 title: "Introdução ao Catálogo de Dados do Azure | Microsoft Docs"
-description: "Este artigo fornece uma visão geral do Catálogo de Dados do Microsoft Azure, incluindo seus recursos e problemas que ele deve endereçar. O Catálogo de Dados fornece recursos que permitem que qualquer usuário, desde analistas a cientistas de dados e desenvolvedores, registrar, descobrir, entender e consumir fontes de dados."
+description: "Este artigo fornece uma visão geral do Catálogo de Dados do Microsoft Azure, incluindo seus recursos e problemas que ele aborda. O Catálogo de Dados permite que qualquer usuário registre, descubra, entenda e consuma fontes de dados."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -13,53 +13,50 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 08/15/2017
 ms.author: maroche
-translationtype: Human Translation
-ms.sourcegitcommit: cd3184059a0970bb7c9b59803cf37125abbbd879
-ms.openlocfilehash: 19d4c3990c88f82f60cd253ffdcbd2005d00ad79
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: a28a7679831201fcf3a9d1c15497ff706c2752a1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-data-catalog"></a>O que é o Catálogo de Dados do Azure?
-O Catálogo de Dados do Azure é um serviço de nuvem totalmente gerenciado que permite aos usuários descobrir as fontes de dados de que precisam e entender as fontes de dados que encontram e também ajuda as empresas a obter mais valor de seus investimentos existentes. O Catálogo de Dados fornece recursos que permitem a qualquer usuário, desde analistas a cientistas de dados e desenvolvedores, descobrir, entender e consumir fontes de dados. O Catálogo de Dados inclui um modelo de crowdsourcing dos metadados e das anotações e permite que todos os usuários contribuam com seus conhecimentos para criar uma comunidade e uma cultura de dados.
+O Catálogo de Dados do Azure é um serviço de nuvem totalmente gerenciado cujos usuários podem descobrir e entender as fontes de dados de que precisam. Ao mesmo tempo, o Catálogo de Dados ajuda as organizações a obter mais valor sobre os investimentos existentes. 
+
+Com o Catálogo de Dados, qualquer usuário (analista, cientista de dados ou desenvolvedor) pode descobrir, entender e consumir fontes de dados. O Catálogo de Dados inclui um modelo de crowdsourcing de metadados e anotações. Ele é um local único e central para que todos os usuários da organização possam contribuir com seus conhecimentos e criar uma comunidade e uma cultura de dados.
 
 ## <a name="discovery-challenges-for-data-consumers"></a>Desafios de descoberta para consumidores de dados
-Tradicionalmente, a descoberta de fontes de dados da empresa tem sido um processo orgânico com base no conhecimento tribal. Isso apresenta vários desafios para as empresas que desejam obter o valor máximo de seus ativos de informações.
+Tradicionalmente, a descoberta de fontes de dados da empresa tem sido um processo orgânico com base no conhecimento tribal. Para as empresas que desejam obter o valor máximo de seus ativos de informações, essa abordagem apresenta vários desafios:
 
-* Os usuários não estão cientes de que as fontes de dados existem, a menos que entrem em contato com elas como parte de outro processo; não há um local central onde as fontes de dados são registradas.
-* A menos que um usuário saiba o local de uma fonte de dados, ele não pode se conectar aos dados usando um aplicativo cliente; experiências de consumo de dados exigem que os usuários conheçam a cadeia de conexão ou o caminho.
-* A menos que um usuário saiba a localização da documentação da fonte de dados, ele não entenderá o uso pretendido dos dados; documentação e fontes de dados residem em locais diferentes e são consumidas por meio de experiências diferentes.
-* Se um usuário tiver dúvidas sobre um ativo de informações, ele deve localizar o especialista ou a equipe responsável pelos dados e envolver os especialistas offline; não há nenhuma conexão explícita entre os dados e aqueles com perspectivas de especialistas sobre seu uso.
-* A menos que um usuário compreenda o processo de solicitação de acesso à fonte de dados, a descoberta da fonte de dados e de sua documentação ainda não permitirá que ele acesse os dados necessários.
+* Os usuários podem não estar cientes de que existe uma fonte de dados, a menos que entrem em contato com ela como parte de outro processo. Não há nenhum local central onde as fontes de dados são registradas.
+* A menos que os usuários saibam o local de uma fonte de dados, eles não podem se conectar aos dados por meio de um aplicativo cliente. As experiências de consumo de dados exigem que os usuários conheçam a cadeia de conexão ou o caminho.
+* A menos que os usuários saibam o local da documentação de uma fonte de dados, eles não conseguem entender o uso dos dados pretendido. A documentação e as fontes de dados podem residir em uma variedade de locais e ser consumidas por meio de uma variedade de experiências.
+* Se os usuários tiverem perguntas sobre um ativo de informação, eles devem localizar o especialista ou a equipe responsável pelos dados e entrar em contato com eles offline. Não há nenhuma conexão explícita entre os dados e aqueles com perspectivas de especialidade sobre seu uso.
+* A menos que os usuários compreendam o processo de solicitação de acesso à fonte de dados, a descoberta da fonte de dados e de sua documentação não será suficiente para ajudá-los a acessar os dados.
 
 ## <a name="discovery-challenges-for-data-producers"></a>Desafios de descoberta para produtores de dados
-Embora os consumidores de dados enfrentem esses desafios, os usuários responsáveis por produzir e manter informações também têm seus próprios obstáculos.
+Embora os consumidores de dados enfrentem os desafios mencionados, os usuários responsáveis por produzir e manter informações também têm seus próprios obstáculos:
 
-* A anotação de fontes de dados com metadados descritivos costuma ser um esforço perdido; aplicativos clientes geralmente ignoram descrições armazenadas na fonte de dados.
-* Criar documentação para fontes de dados geralmente é um esforço perdido; manter a documentação em sincronia com a fonte de dados é uma responsabilidade contínua e os usuários não têm confiança na documentação, uma vez que ela é geralmente percebida como desatualizada.
-* Restringir o acesso à fonte de dados e garantir que os consumidores de dados saibam como solicitar o acesso são um desafio contínuo.
+* A anotação de fontes de dados com metadados descritivos geralmente é um esforço à toa. Os aplicativos clientes geralmente ignoram descrições armazenadas na fonte de dados.
+* A criação de documentação para fontes de dados geralmente é um esforço à toa. Manter a documentação em sincronia com fontes de dados é uma responsabilidade perene, e os usuários talvez não confiem em documentos que pareçam estar desatualizados.
+* Criar e manter documentação para fontes de dados é um processo complexo e demorado. Disponibilizar essa documentação prontamente para qualquer pessoa que usa a fonte de dados geralmente pode ser ainda mais.
+* Restringir o acesso às fontes de dados e garantir que os consumidores de dados saibam como solicitar o acesso são um desafio contínuo.
 
-Criar e manter documentação para uma fonte de dados é um processo complexo e demorado. O desafio de tornar essa documentação prontamente disponível para qualquer pessoa que usa a fonte de dados geralmente é ainda mais.
-
-Quando combinados, esses desafios apresentam uma barreira significativa para as empresas que desejam encorajar e promover o uso e a compreensão dos dados da empresa.
+Quando esses desafios são combinados, eles apresentam uma barreira significativa para as empresas que desejam encorajar e promover o uso e a compreensão dos dados da empresa.
 
 ## <a name="azure-data-catalog-can-help"></a>O Catálogo de Dados do Azure pode ajudar
-O Catálogo de Dados foi projetado para resolver esses problemas e permitir que as empresas aproveitem ao máximo seus ativos de informações existentes. O Catálogo de Dados ajuda facilitando a descoberta das fontes de dados e sua compreensão pelos usuários que precisam dos dados que gerenciam.
+O Catálogo de Dados foi projetado para resolver esses problemas e ajudar as empresas a aproveitar ao máximo seus ativos de informações existentes. O Catálogo de Dados torna fontes de dados facilmente identificáveis e compreensíveis para os usuários que gerenciam os dados.
 
-O Catálogo de Dados fornece um serviço baseado em nuvem no qual a fonte de dados pode ser registrada. Os dados permanecem no local existente, mas uma cópia dos metadados é adicionada ao Catálogo de Dados, juntamente com uma referência ao local da fonte de dados. Esses metadados também são indexados para tornar cada fonte de dados fácil de descobrir por meio de pesquisa e compreensível para os usuários que os descobrirem.
+O Catálogo de Dados fornece um serviço baseado em nuvem no qual uma fonte de dados pode ser registrada. Os dados permanecem no local existente, mas uma cópia de seus metadados é adicionada ao Catálogo de Dados, juntamente com uma referência ao local da fonte de dados. Os metadados também são indexados para tornar cada fonte de dados fácil de descobrir por meio de pesquisa e compreensível para os usuários que os descobrirem.
 
-Depois que uma fonte de dados é registrada, seus metadados podem ser aprimorados pelo usuário que executou o registro ou por outros usuários na empresa. Qualquer usuário pode anotar uma fonte de dados, fornecendo descrições, marcas ou outros metadados, como documentação, e processos para a solicitação de acesso à fonte de dados. Esses metadados descritivos complementam os metadados estruturais (como nomes de colunas e tipos de dados) registrados da fonte de dados.
+Depois que uma fonte de dados é registrada, seus metadados podem ser aprimorados pelo usuário que o registrou ou por outros usuários na empresa. Qualquer usuário pode anotar uma fonte de dados, fornecendo descrições, marcas ou outros metadados, como documentação, e processos para a solicitação de acesso à fonte de dados. Esses metadados descritivos complementam os metadados estruturais (como nomes de colunas e tipos de dados) registrados da fonte de dados.
 
-Descobrir e entender fontes de dados e seu uso é o principal objetivo de registrar as fontes. Quando usuários corporativos precisam de dados para seus esforços (que podem ser de business intelligence, desenvolvimento de aplicativos, ciência de dados ou qualquer outra tarefa em que os dados certos são necessários), eles podem usar a experiência de descoberta do Catálogo de Dados para localizar rapidamente dados que correspondam às suas necessidades, compreendê-los para avaliar a adequação à finalidade e consumir dados abrindo a fonte de dados na ferramenta de sua preferência. Ao mesmo tempo, o Catálogo de Dados permite que os usuários contribuam com o catálogo, marcando, documentando e anotando as fontes de dados que já foram registradas, e registrando novas fontes de dados que podem ser descobertas, compreendidas e consumidas pela comunidade de usuários do catálogo.
+Descobrir e entender fontes de dados e seu uso é o principal objetivo de registrar as fontes. Usuários corporativos podem precisar de dados de business intelligence, desenvolvimento de aplicativos, ciência de dados ou outra tarefa em que os dados certos são necessários. Eles podem usar a experiência de descoberta do Catálogo de Dados para localizar dados que correspondam às suas necessidades rapidamente, compreender os dados para avaliar sua adequação à finalidade e consumir os dados ao abrir a fonte de dados na sua ferramenta de escolha. 
+
+Ao mesmo tempo, os usuários podem contribuir para o catálogo marcando, documentando e anotando as fontes de dados que já foram registradas. Eles também podem registrar novas fontes de dados, que podem então ser descobertas, entendidas e consumidas pela comunidade de usuários do catálogo.
 
 ![Recursos do Catálogo de Dados](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
-
-## <a name="get-started-with-data-catalog"></a>Introdução ao Catálogo de Dados
-Para começar a usar o Catálogo de Dados hoje, visite [www.azuredatacatalog.com](https://www.azuredatacatalog.com).
-
-Um Guia de introdução está disponível [aqui](data-catalog-get-started.md).
 
 ## <a name="learn-more-about-data-catalog"></a>Saiba mais sobre o Catálogo de Dados
 Para saber mais sobre os recursos do Catálogo de Dados, confira:
@@ -74,3 +71,7 @@ Para saber mais sobre os recursos do Catálogo de Dados, confira:
 * [Como configurar o Glossário de Negócios](data-catalog-how-to-business-glossary.md)
 * [Perguntas frequentes](data-catalog-frequently-asked-questions.md)
 
+## <a name="next-steps"></a>Próximas etapas
+Para uma introdução ao Catálogo de Dado, vá para:
+* [Catálogo de Dados do Microsoft Azure](https://www.azuredatacatalog.com)
+* [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md)

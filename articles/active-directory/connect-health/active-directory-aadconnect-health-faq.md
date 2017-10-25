@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 6ad2194a71e0d36ba4a0b9a46ca6dbcd58b619ff
-ms.openlocfilehash: 06a8b79f0740e902bb7f9412b449a98b2f0167ea
-ms.lasthandoff: 02/16/2017
-
+ms.openlocfilehash: 902e5bdfbbf04ab70989be8c41e16eb69e475908
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas frequentes do Azure AD Connect Health
 Este artigo inclui respostas para FAQs (perguntas frequentes) sobre o Azure AD (Azure Active Directory) Connect Health. Essas perguntas frequentes abordam perguntas sobre como usar o serviço, o que inclui o modelo de cobrança, os recursos, as limitações e o suporte.
@@ -67,7 +67,7 @@ O impacto da instalação do AD FS do Agente do Microsoft Azure AD Connect Healt
 
 Os números a seguir são uma aproximação:
 
-* Consumo de CPU: aumento de aproximadamente&1; a&5;%.
+* Consumo de CPU: aumento de aproximadamente 1 a 5%.
 * Consumo de memória: até 10% da memória total do sistema.
 
 > [!NOTE]
@@ -75,7 +75,7 @@ Os números a seguir são uma aproximação:
 >
 >
 
-* Armazenamento em buffer local para Agentes do Azure AD Connect Health: aproximadamente&20; MB.
+* Armazenamento em buffer local para Agentes do Azure AD Connect Health: aproximadamente 20 MB.
 * Para servidores do AD FS, é recomendável que você provisione um espaço em disco de 1.024 MB (1 GB) para o Canal de Auditoria do AD FS, de modo que Agentes do Azure AD Connect Health processem todos os dados de auditoria antes que tais dados sejam substituídos.
 
 **P: Será necessário reinicializar meus servidores durante a instalação dos agentes do Azure AD Connect Health?**
@@ -139,21 +139,43 @@ Não, a auditoria não precisa estar habilitada nos servidores proxy de aplicati
 
 Alertas do Azure AD Connect Health são resolvidos em uma condição de êxito. Os agentes do Azure AD Connect Health detectam e relatam as condições de sucesso para o serviço periodicamente. Para alguns alertas, a supressão é periódica. Em outras palavras, se a mesma condição de erro não for observada no período de 72 horas a partir da geração do alerta, este será resolvido automaticamente.
 
-## <a name="migration-questions"></a>Perguntas sobre migração
+**P: eu estou sendo alertado de que "A Solicitação de Autenticação de Teste (Transação Sintética) falhou ao obter um token." Como solucionar esse problema?**
 
-Esta seção se aplica somente aos clientes que foram notificados sobre uma migração próxima de seus dados do Azure AD Connect Health.
+O Azure AD Connect Health para AD FS gera este alerta quando o Agente de Integridade instalado em um servidor do AD FS falha ao obter um token como parte de uma transação sintética iniciada pelo Agente de Integridade. O agente de Integridade usa o contexto do sistema local e tenta obter um token para uma terceira parte confiável própria. Este é um teste de catch-all para garantir que o AD FS esteja em um estado de emissão de tokens.
 
-**P: Será necessário registrar novamente meus agentes ou redefinir as configurações de notificação após a migração?**
+Geralmente esse teste falha porque o Agente de Integridade não consegue resolver o nome do farm do AD FS. Isso poderá acontecer se os servidores do AD FS estiverem atrás de um balanceador de carga de rede e a solicitação for iniciada de um nó que esteja atrás do balanceador de carga (ao contrário de um cliente regular que está na frente do balanceador de carga). Isso pode ser corrigido através da atualização do arquivo "hosts" localizado em "C:\Windows\System32\drivers\etc" para incluir o endereço IP do servidor do AD FS ou um endereço IP de loopback (127.0.0.1) para o nome do farm do AD FS (por exemplo, sts.contoso.com). A adição do arquivo de host causará curto-circuito na chamada de rede, permitindo assim que o Agente de Integridade obtenha o token.
 
-Não, as configurações de notificação e informações de registro do agente são movidas como parte da migração.
+**P: recebi um email indicando que meus computadores NÃO têm patches para os ataques de ransomeware recentes. Por que eu recebi esse email?**
 
-**P: Quanto tempo após a migração eu começarei a ver os dados no portal?**
+O serviço Azure AD Connect Health verificou todos os computadores que ele monitora para garantir que os patches necessários fossem instalados. O email foi enviado aos administradores de locatário se um ou mais computadores não tinham os patches críticos. A seguinte lógica foi usada para fazer essa determinação.
+1. Localizar todos os hotfixes instalados no computador.
+2. Verificar se pelo menos um dos HotFixes da lista definida está presente.
+3. Se Sim, o computador está protegido. Se Não, o computador está correndo risco de ataque.
 
-Os dados começarão a aparecer no portal dentro de uma hora após a migração.
+Você pode usar o seguinte script do PowerShell para executar essa verificação manualmente. Ele implementa a lógica acima.
 
-**P: O que acontece com meus alertas ativos existentes?**
+```
+Function CheckForMS17-010 ()
+{
+    $hotfixes = "KB3205409", "KB3210720", "KB3210721", "KB3212646", "KB3213986", "KB4012212", "KB4012213", "KB4012214", "KB4012215", "KB4012216", "KB4012217", "KB4012218", "KB4012220", "KB4012598", "KB4012606", "KB4013198", "KB4013389", "KB4013429", "KB4015217", "KB4015438", "KB4015546", "KB4015547", "KB4015548", "KB4015549", "KB4015550", "KB4015551", "KB4015552", "KB4015553", "KB4015554", "KB4016635", "KB4019213", "KB4019214", "KB4019215", "KB4019216", "KB4019263", "KB4019264", "KB4019472", "KB4015221", "KB4019474", "KB4015219", "KB4019473"
 
-Todos os alertas aplicáveis serão reativados dentro de uma hora após a migração.
+    #checks the computer it's run on if any of the listed hotfixes are present
+    $hotfix = Get-HotFix -ComputerName $env:computername | Where-Object {$hotfixes -contains $_.HotfixID} | Select-Object -property "HotFixID"
+
+    #confirms whether hotfix is found or not
+    if (Get-HotFix | Where-Object {$hotfixes -contains $_.HotfixID})
+    {
+        "Found HotFix: " + $hotfix.HotFixID
+    } else {
+        "Didn't Find HotFix"
+    }
+}
+
+CheckForMS17-010
+
+```
+
+
 
 ## <a name="related-links"></a>Links relacionados
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
@@ -163,4 +185,3 @@ Todos os alertas aplicáveis serão reativados dentro de uma hora após a migra�
 * [Usando o Azure AD Connect Health para sincronização](active-directory-aadconnect-health-sync.md)
 * [Usar o Azure AD Connect Health com o AD DS](active-directory-aadconnect-health-adds.md)
 * [Histórico de versão do Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-

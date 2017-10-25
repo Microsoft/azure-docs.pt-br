@@ -4,24 +4,23 @@ description: "Saiba mais sobre os conjuntos de dados públicos que você pode us
 services: sql-database
 documentationcenter: 
 author: douglaslMS
-manager: jhubbard
+manager: craigg
 editor: 
 tags: 
+ms.custom: reference
 ms.assetid: 
 ms.service: sql-database
-ms.custom: 
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 03/20/2017
 ms.author: douglasl
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 53ae23dba61cf835c6a4826b528772b1cd2e1622
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: b6f8d327123fc0ebe13790cbb3760f6eba90f5b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Conjuntos de dados públicos para criação de protótipos e testes
 
@@ -60,4 +59,3 @@ Procure nesta lista de conjuntos de dados públicos os dados que você pode usar
 | [Arquivo morto do GitHub](https://www.githubarchive.org/) | "O Arquivo morto do GitHub é um projeto para gravar a linha do tempo pública do GitHub [de eventos], arquivá-la e torná-la facilmente acessível para análise posterior“. | Baixe arquivos mortos de eventos codificados em JSON no formato .gz (Gzip) de um cliente Web. |
 | [Dados de atividade do GitHub do projeto GHTorrent](http://ghtorrent.org/) | "O projeto GHTorrent [é] como uma tentativa de criar um espelho dimensionável, consultável e offline de dados oferecidos pela API REST do GitHub. O GHTorrent monitora a linha do tempo de eventos públicos do GitHub. Para cada evento, ele recupera seu conteúdo e suas dependências, exaustivamente“. | Os despejos de banco de dados MySQL estão no formato CSV. |
 | [Despejo de dados do Stack Overflow](https://archive.org/details/stackexchange) | "Este é um despejo anônimo de todo o conteúdo enviados por usuários na rede Stack Exchange [incluindo o Stack Overflow]". | "Cada site [como o Stack Overflow] é formatado como um arquivo separado que consiste em arquivos XML compactados com o 7-zip usando a compactação bzip2. Cada arquivo de site inclui publicações, usuários, votos, comentários, PostHistory e PostLinks“. |
-

@@ -10,8 +10,3 @@
    
     Ambos os controladores serão reiniciados. Quando a reinicialização estiver concluída, outra mensagem será exibida indicando que o dispositivo está em modo de Manutenção.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

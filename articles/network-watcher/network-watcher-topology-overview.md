@@ -3,7 +3,7 @@ title: "Introdução à topologia no Observador de Rede do Azure | Microsoft Doc
 description: "Esta página fornece uma visão geral dos recursos de tecnologia do Observador de Rede"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: e753a435-38e0-482b-846b-121cb547555c
@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: fa79ab0ab80481c8969c6fa653e92b10985cab3b
-ms.openlocfilehash: 42443f614b76b8180ac163b9889163021adbf048
-ms.lasthandoff: 03/31/2017
-
+ms.author: jdial
+ms.openlocfilehash: d5cb5ba431eeae1956a9dbf1d48561c66faef9a6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-topology-in-azure-network-watcher"></a>Introdução à topologia no Observador de Rede do Azure
 
 A topologia retorna um gráfico de recursos de rede em uma rede virtual. O gráfico mostra a interconexão entre os recursos para representar a conectividade de rede de ponta a ponta.
@@ -44,4 +43,3 @@ Aprenda a usar o PowerShell para recuperar o modo de exibição de Topologia vis
 <!--Image references-->
 
 [1]: ./media/network-watcher-topology-overview/topology.png
-

@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: dd9e7f672a9f991fd06530a968a3369b752148a2
 ms.openlocfilehash: 3e4f7bfd117696ddb25156e027e29c0d21f27804
-ms.lasthandoff: 03/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>O que são limites do sistema do StorSimple série 8000?
 ## <a name="overview"></a>Visão geral
@@ -53,9 +53,8 @@ O StorSimple fornece armazenamento escalonável e flexível para seu datacenter.
 
 &#42; A taxa de transferência máxima por tipo de E/S foi medida com cenários 100% de gravação e 100% de leitura. A taxa de transferência real pode ser menor e depende da combinação de E/S e das condições da rede.
 
-&42;&#42; Os números de desempenho antes da Atualização 3 podem ser menores.
+&#42;&#42; Os números de desempenho antes da Atualização 3 podem ser menores.
 
 ## <a name="next-steps"></a>Próximas etapas
 Analise os [requisitos de sistema do StorSimple](storsimple-system-requirements.md). 
-
 

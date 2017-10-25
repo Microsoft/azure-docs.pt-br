@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: f8cb0030290d200ab79e340b9b0fe8f5765d49f0
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: 35a21cb99ca4bad124a9f764cef9da453e1fe47f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gerenciar backups de máquinas virtuais do Azure
 > [!div class="op_single_selector"]
@@ -120,6 +119,11 @@ Para os procedimentos a seguir, o ponto de partida é o painel de itens do cofre
 
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
+> [!NOTE]
+> Ao gerenciar políticas de backup, certifique-se de seguir as [práticas recomendadas](backup-azure-vms-introduction.md#best-practices) para um desempenho de backup ideal
+>
+>
+
 ## <a name="on-demand-backup-of-a-virtual-machine"></a>Backup sob demanda de uma máquina virtual
 Você pode obter um backup sob demanda de uma máquina virtual quando ela estiver configurada para proteção. Se o backup inicial está pendente, o backup sob demanda cria uma cópia completa da máquina virtual no cofre dos Serviços de Recuperação. Se o backup inicial for concluído, um backup sob demanda enviará apenas as alterações do instantâneo anterior para o cofre dos Serviços de Recuperação. Ou seja, os backups subsequentes serão sempre incrementais.
 
@@ -166,7 +170,7 @@ Para interromper a proteção para uma máquina virtual:
 
     Se você não tiver certeza do nome do item, passe o mouse sobre o ponto de exclamação para exibir o nome. Além disso, o nome do item está sob **Interromper Backup** na parte superior da folha.
 4. Como opção, forneça um **Motivo** ou **Comentário**.
-5. Para interromper o trabalho de backup do item atual, clique no  ![Botão Interromper backup](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
+5. Para interromper o trabalho de backup do item atual, clique no ![botão Parar Backup](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
 
     Uma mensagem de notificação permite que você conheça os trabalhos de backup que foram interrompidos.
 
@@ -215,10 +219,9 @@ Para excluir os dados de backup em uma máquina virtual com o *Backup desabilita
 
     Se você não tiver certeza do nome do item, passe o mouse sobre o ponto de exclamação para exibir o nome. Além disso, o nome do item está sob **Excluir Dados do Backup** na parte superior da folha.
 3. Como opção, forneça um **Motivo** ou **Comentário**.
-4. Para excluir os dados do backup do item atual, clique no  ![Botão Interromper backup](./media/backup-azure-manage-vms/delete-button.png)
+4. Para excluir os dados do backup do item atual, clique no ![Botão Parar Backup](./media/backup-azure-manage-vms/delete-button.png)
 
     Uma mensagem de notificação permite que você conheça os dados do backup que foram excluídos.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter informações sobre como recriar uma máquina virtual a partir de um ponto de recuperação, verifique [Restaurar VMs do Azure](backup-azure-restore-vms.md). Se você precisar de informações sobre como proteger suas máquinas virtuais, consulte [Primeira consideração: fazer backup das VMs em um cofre dos Serviços de Recuperação](backup-azure-vms-first-look-arm.md). Para obter informações sobre o monitoramento de eventos, confira [Monitorar alertas para backups de máquina virtual do Azure](backup-azure-monitor-vms.md).
-

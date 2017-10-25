@@ -1,10 +1,10 @@
 ---
-title: Usar Ferramentas do Stream Analytics do Azure para Visual Studio | Microsoft Docs
+title: Usar ferramentas do Azure Stream Analytics para Visual Studio | Microsoft Docs
 description: "Tutorial de introdução para as Ferramentas do Stream Analytics do Azure para Visual Studio"
 keywords: visual studio
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: su-jie
 manager: jhubbard
 editor: cgronlun
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sujie
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: d0125dda4df69279e49a9fad4dc28dcbf6368322
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: b0304265dd43986a59515e8d68630a76d0364748
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="use-azure-stream-analytics-tool-for-visual-studio"></a>Usar Ferramentas do Stream Analytics do Azure para Visual Studio
-As Ferramentas do Stream Analytics do Azure para Visual Studio agora estão disponíveis para o público geral. Essas ferramentas permitem uma experiência mais avançada para o usuário do Stream Analytics solucionar problemas, bem como escrever consultas complexas e até mesmo escrever consultas localmente. Você também terá a capacidade de exportar um trabalho do Stream Analytics em um projeto do Visual Studio.
+# <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Usar ferramentas do Azure Stream Analytics para Visual Studio
+As Ferramentas do Stream Analytics do Azure para Visual Studio agora estão disponíveis para o público geral. Essas ferramentas permitem uma experiência mais avançada para os usuários do Stream Analytics solucionarem problemas, bem como escreverem consultas complexas e até mesmo escreverem consultas localmente. Você também terá a capacidade de exportar um trabalho do Stream Analytics em um projeto do Visual Studio.
 
 ## <a name="introduction"></a>Introdução
 Neste tutorial, você aprenderá como usar as Ferramentas do Stream Analytics do Azure para Visual Studio para criar, testar localmente, gerenciar e depurar os trabalhos do Stream Analytics do Azure. 
@@ -36,11 +35,10 @@ Depois de concluir este tutorial, você poderá:
 * Exportar os trabalhos existentes para projetos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
+Você precisará dos seguintes pré-requisitos para concluir este tutorial:
 * Concluir as etapas anteriores a **Criar um trabalho de Stream Analytics** do [tutorial Criar uma solução de IoT usando o Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
-* Visual Studio 2015, Visual Studio 2013 atualização 4 ou Visual Studio 2012. As edições Enterprise (Ultimate/Premium), Professional, Community têm suporte; não há suporte para a edição Express. O Visual Studio 2017 não tem suporte no momento. 
-* SDK do Microsoft Azure para .NET versão 2.7.1 ou posterior.  Instale-o usando o [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
-* Instalação das [Ferramentas do Stream Analytics do Azure para Visual Studio](http://aka.ms/asatoolsvs).
+* Instalar o Visual Studio 2017, Visual Studio 2015, Visual Studio 2013 atualização 4. As edições Enterprise (Ultimate/Premium), Professional, Community têm suporte; não há suporte para a edição Express. 
+* Siga as [instruções de instalação](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) para instalar o Stream Analytics Tools para o Visual Studio.
 
 ## <a name="create-a-stream-analytics-project"></a>Criar um projeto do Stream Analytics
 No Visual Studio, clique no **Menu Arquivo** e escolha **Novo Projeto**. Escolha **Stream Analytics** na lista de modelos à esquerda e clique em **Aplicativo do Stream Analytics do Azure**.
@@ -57,28 +55,28 @@ Você verá um projeto **Toll** gerado no **Gerenciador de Soluções**.
 2. Faça logon com sua Conta do Azure. 
 
 ## <a name="define-input-sources"></a>Definir fontes de entrada
-1.    Em **Gerenciador de Soluções**, expanda o nó **Entradas** e renomeie **Input.json** para **EntryStream.json**. Clique duas vezes em **EntryStream.json**.
-2.    O **ALIAS DE ENTRADA** agora deve ser **EntryStream**. Observe que o alias de entrada é o que será usado no script de consulta. 
-3.    O Tipo de Origem é **Fluxo de Dados**.
-4.    A Fonte é **Hub de eventos**.
-5.    O Namescape do Barramento de Serviço deve ser o **tollData** no menu suspenso.
-6.    O Nome do hub de eventos deve ser definido como **entrada**.
-7.    O nome da política do hub de eventos é **RootManageSharedAccessKey** (o valor padrão).
-8.    Selecione **JSON** como **FORMATO DE SERIALIZAÇÃO DO EVENTO** e **UTF8** como **CODIFICAÇÃO**.
+1.  Em **Gerenciador de Soluções**, expanda o nó **Entradas** e renomeie **Input.json** para **EntryStream.json**. Clique duas vezes em **EntryStream.json**.
+2.  O **ALIAS DE ENTRADA** agora deve ser **EntryStream**. Observe que o alias de entrada é o que será usado no script de consulta. 
+3.  O Tipo de Origem é **Fluxo de Dados**.
+4.  A Fonte é **Hub de eventos**.
+5.  O Namespace do barramento de serviço deve ser o **TollData** no menu suspenso.
+6.  O Nome do hub de eventos deve ser definido como **entrada**.
+7.  O nome da política do hub de eventos é **RootManageSharedAccessKey** (o valor padrão).
+8.  Selecione **JSON** como **FORMATO DE SERIALIZAÇÃO DO EVENTO** e **UTF8** como **CODIFICAÇÃO**.
    
-   As configurações ficarão semelhantes:
+   As configurações têm a seguinte aparência:
    
    ![Definir fontes de entrada](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-01.png)
    
-9.    Clique em **Salvar** na parte inferior da página para concluir o assistente. Agora você pode adicionar outra fonte de entrada para criar o fluxo de saída. Clique com o botão direito do mouse no nó de entradas e clique em **Novo Item**.
+9.  Clique em **Salvar** na parte inferior da página para concluir o assistente. Agora você pode adicionar outra fonte de entrada para criar o fluxo de saída. Clique com o botão direito do mouse no nó de entradas e clique em **Novo Item**.
    
    ![Definir fontes de entrada](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-02.png)
    
-10.    Na janela exibida, escolha **Entrada do Stream Analytics do Azure** e altere o Nome para **ExitStream.json**. Clique em **Adicionar**.
+10. Na janela exibida, escolha **Entrada do Stream Analytics do Azure** e altere o Nome para **ExitStream.json**. Clique em **Adicionar**.
    
    ![Definir fontes de entrada](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-03.png)
    
-11.    Clique duas vezes em **ExitStream.json** no projeto e siga as mesmas etapas do fluxo de entrada para preencher. Lembre-se de inserir valores para o nome do Hub de Eventos como mostra a captura de tela a seguir.
+11. Clique duas vezes em **ExitStream.json** no projeto e siga as mesmas etapas do fluxo de entrada para preencher. Lembre-se de inserir valores para o nome do Hub de Eventos como mostra a captura de tela a seguir:
    
    ![Definir fontes de entrada](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-04.png)
    
@@ -88,21 +86,21 @@ Você verá um projeto **Toll** gerado no **Gerenciador de Soluções**.
    
    Em seguida, você adicionará a entrada de dados de referência para o arquivo de blob que contém os dados de registro do carro.
    
-12.    Clique com o botão direito do mouse em **Entradas** e siga o mesmo processo para as entradas de fluxo, mas selecione **DADOS DE REFERÊNCIA** em vez de Fluxo de Dados e o Alias de Entrada é **Registro**.
+12. Clique com o botão direito do mouse em **Entradas** e siga o mesmo processo para as entradas de fluxo, mas selecione **DADOS DE REFERÊNCIA** em vez de Fluxo de Dados e o Alias de Entrada é **Registro**.
    
    ![Definir fontes de entrada](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-06.png)
    
-13.    Selecione a conta de armazenamento que contém **tolldata**. O nome do contêiner deve ser **tolldata** e o **PADRÃO DO CAMINHO** deve ser **registration.json**. Este nome de arquivo diferencia maiúsculas de minúsculas e deve estar em minúsculas.
-14.    Clique em **Salvar** para concluir o assistente.
+13. Selecione a conta de armazenamento que contém **tolldata**. O nome do contêiner deve ser **tolldata** e o **PADRÃO DO CAMINHO** deve ser **registration.json**. Este nome de arquivo diferencia maiúsculas de minúsculas e deve estar em minúsculas.
+14. Clique em **Salvar** para concluir o assistente.
 
 Agora, todas as entradas são definidas.
 
 ## <a name="define-output"></a>Definir saída
-1.    No **Gerenciador de Soluções**, expanda o nó **Entradas** e clique duas vezes em **Output.json**.
-2.    Defina o Alias de saída como **saída** e Coletor como Banco de Dados SQL.
-2.    Insira o nome do banco de dados: **TollDataDB**.
-3.    Digite **tolladmin** no campo **USERNAME**, **123toll!** no campo **SENHA**, e **TollDataRefJoin** no campo **TABELA**.
-4.    Clique em **Salvar**.
+1.  No **Gerenciador de Soluções**, expanda o nó **Entradas** e clique duas vezes em **Output.json**.
+2.  Defina o Alias de saída como **saída** e Coletor como Banco de Dados SQL.
+2.  Insira o nome do banco de dados: **TollDataDB**.
+3.  Digite **tolladmin** no campo **USERNAME**, **123toll!** no campo **SENHA**, e **TollDataRefJoin** no campo **TABELA**.
+4.  Clique em **Salvar**.
 
 ![Definir saída](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-output-01.png)
  
@@ -125,10 +123,9 @@ Para obter mais detalhes, leia sobre [Gerenciamento de tempo](https://msdn.micro
 
 Agora que você escreveu sua primeira consulta do Stream Analytics do Azure, é hora de testá-la usando os arquivos de dados de exemplo localizados na pasta TollApp no caminho a seguir:
 
-<seg>
-  **..\TollApp\TollApp\Data**</seg>
+**..\TollApp\TollApp\Data**
 
-Esta pasta contém os seguintes arquivos: •    Entry.json •    Exit.json •    Registration.json
+Esta pasta contém os seguintes arquivos: •   Entry.json •   Exit.json •   Registration.json
 
 ## <a name="question-number-of-vehicles-entering-a-toll-booth"></a>Pergunta: número de veículos que entram em uma cabine de pedágio
 No projeto, clique duas vezes em Script.asaql para abrir o script no editor e cole o script da seção anterior no editor. O editor de consulta dá suporte ao IntelliSense, cores de sintaxe e marcador de erro.
@@ -146,7 +143,7 @@ No projeto, clique duas vezes em Script.asaql para abrir o script no editor e co
    
    ![Adicionar entrada local](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-02.png)
    
-   Um arquivo chamado **local_EntryStream.json** será adicionado automaticamente à pasta de entradas.
+   Um arquivo chamado **local_EntryStream.json** é adicionado automaticamente à pasta de entradas.
    
    ![Adicionar entrada local](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-03.png)
    
@@ -186,7 +183,7 @@ Escolha Criar um Novo Trabalho do Stream Analytics do Azure. Insira o Nome do Tr
 ![Enviar trabalho](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-submit-job-02.png)
 
  
-### <a name="start-job"></a>Iniciar trabalho
+### <a name="start-the-job"></a>Iniciar o trabalho
 Agora, o trabalho foi criado e a exibição de trabalho é aberta automaticamente. Clique no botão **VERDE** para iniciar o trabalho.
 
 ![Iniciar trabalho](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-start-job-01.png)
@@ -212,7 +209,7 @@ Algumas estatísticas básicas de trabalho podem ser encontradas em **Métricas 
 ![Métricas do trabalho](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-job-metrics-01.png)
 
  
-## <a name="list-job-in-server-explorer"></a>Listar o trabalho no Gerenciador de Servidores
+## <a name="list-the-job-in-server-explorer"></a>Listar o trabalho no Gerenciador de Servidores
 Clique em **Trabalhos do Stream Analytics** no **Gerenciador de Servidores** e clique em **Atualizar**. Você deve ser capaz de ver seu trabalho exibido em **Trabalhos do Stream Analytics**.
 
 ![Listar trabalhos](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-list-jobs-01.png)
@@ -230,7 +227,7 @@ Há duas maneiras que você pode usar para exportar um trabalho para um projeto.
    
    ![Trabalho de exportação](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-01.png)
    
-   Você verá o projeto gerado no **Gerenciador de Soluções**.
+   O projeto gerado no **Gerenciador de Soluções**.
    
    ![Trabalho de exportação](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-02.png)
    
@@ -253,6 +250,5 @@ Há duas maneiras que você pode usar para exportar um trabalho para um projeto.
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 
 

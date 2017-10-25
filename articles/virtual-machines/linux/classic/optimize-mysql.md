@@ -13,20 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2015
+ms.date: 05/31/2017
 ms.author: ningk
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: bd313ae585667cc80d44ae50f9d97659b8de62eb
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: 8f2ec884fa98e989448ac11675e71f39aa21fa7f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>Otimizar o desempenho do MySQL em VMs Linux do Azure
 Há muitos fatores que afetam o desempenho do MySQL no Azure, tanto na configuração de software como na seleção de hardware virtual. Este artigo se concentra na otimização de desempenho por meio de armazenamento, sistema e configurações de banco de dados.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager](../../../resource-manager-deployment-model.md) e Clássico. Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para saber mais sobre as otimizações de VM Linux com o modelo do Resource Manager, veja [Otimizar sua VM Linux no Azure](../../virtual-machines-linux-optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager](../../../resource-manager-deployment-model.md) e Clássico. Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para saber mais sobre as otimizações de VM Linux com o modelo do Resource Manager, veja [Otimizar sua VM Linux no Azure](../optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="utilize-raid-on-an-azure-virtual-machine"></a>Utilizar RAID em uma máquina virtual do Azure
 O armazenamento é o principal fator que afeta o desempenho do banco de dados em ambientes de nuvem. Em comparação com um único disco, o RAID pode fornecer acesso mais rápido por meio de simultaneidade. Para obter mais informações, consulte [Níveis de RAID padrão](http://en.wikipedia.org/wiki/Standard_RAID_levels).   
@@ -42,27 +41,22 @@ Há limites para quantos discos você pode adicionar para diferentes tipos de m�
 Este artigo pressupõe que você já criou uma máquina virtual Linux e já tenha o MYSQL instalado e configurado. Para obter mais informações sobre como começar, consulte Como instalar o MySQL no Azure.  
 
 ### <a name="set-up-raid-on-azure"></a>Configurar o RAID no Azure
-As etapas a seguir mostram como criar o RAID no Azure usando o Portal Clássico do Azure. Você também pode configurar o RAID usando scripts do Windows PowerShell.
+As etapas a seguir mostram como criar o RAID no Azure usando o portal do Azure. Você também pode configurar o RAID usando scripts do Windows PowerShell.
 Neste exemplo, configuraremos o RAID 0 com quatro discos.  
 
 #### <a name="add-a-data-disk-to-your-virtual-machine"></a>Adicionar um disco de dados à sua máquina virtual
-Na página de máquinas virtuais do Portal Clássico do Azure, clique na máquina virtual para a qual você deseja adicionar um disco de dados. Neste exemplo, a máquina virtual é mysqlnode1.  
+No portal do Azure, vá para o painel e selecione a máquina virtual à qual você deseja adicionar um disco de dados. Neste exemplo, a máquina virtual é mysqlnode1.  
 
-![Máquinas virtuais][1]
+<!--![Virtual machines][1]-->
 
-Na página para a máquina virtual, clique em **Painel**.  
+Clique em **Discos** e depois em **Anexar Novo**.
 
-![Painel de máquina virtual][2]
+![Máquinas virtuais - adicionar disco](media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-Disks-option.png)
 
-Na barra de tarefas, clique em **Anexar**.
+Crie um novo disco de 500 GB. Verifique se a **Preferência de Cache do Host** está definida como **Nenhum**.  Quando tiver terminado, clique em **OK**.
 
-![Barra de tarefas da máquina virtual][3]
+![Anexar disco vazio](media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-attach-empty-disk.png)
 
-Em seguida, clique em **Anexar disco vazio**.  
-
-![Anexar disco vazio][4]
-
-Para discos de dados, a **Preferência de Cache do Host** deve ser definida como **Nenhum**.  
 
 Isso adiciona um disco vazio à sua máquina virtual. Repita essa etapa mais três vezes para que você tenha quatro discos de dados para o RAID.  
 
@@ -71,7 +65,7 @@ Você pode ver as unidades adicionadas na máquina virtual, observando o log de 
     sudo grep SCSI /var/log/dmesg
 
 #### <a name="create-raid-with-the-additional-disks"></a>Criar o RAID com os discos adicionais
-As etapas a seguir descrevem como [configurar o software RAID no Linux](../../virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+As etapas a seguir descrevem como [configurar o software RAID no Linux](../configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!NOTE]
 > Se você estiver usando o sistema de arquivos XFS, execute as etapas abaixo após criar o RAID.

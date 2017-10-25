@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/01/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: 86055605be6fe264fcb53b26d87a36bcba568a53
-
-
+ms.custom: aaddev
+ms.openlocfilehash: 9d59e7f0e8f326c40be86e199d7712f6c565cc13
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Tipos de aplicativo para o ponto de extremidade v2.0 do Azure Active Directory
 O ponto de extremidade v2.0 do Azure AD (Azure Active Directory) oferece suporte à autenticação para diversas arquiteturas de aplicativos modernos, que se baseiam nos protocolos padrão da indústria [OAuth 2.0 ou OpenID Connect](active-directory-v2-protocols.md). Este artigo descreve os tipos de aplicativos que você pode criar usando o Azure AD v2.0, independentemente de seu idioma ou plataforma. As informações neste artigo foram projetadas para ajudá-lo a entender os cenários de alto nível antes que você [comece a trabalhar com o código](active-directory-appmodel-v2-overview.md#getting-started).
@@ -32,7 +33,7 @@ O ponto de extremidade v2.0 do Azure AD (Azure Active Directory) oferece suporte
 Você deve registrar cada aplicativo que usa o ponto de extremidade v2.0 no [Portal de Registro de Aplicativo da Microsoft](https://apps.dev.microsoft.com). O processo de registro do aplicativo coleta e atribui estes valores para seu aplicativo:
 
 * Uma **ID de Aplicativo** que identifica exclusivamente o aplicativo
-* Um **URI de Redirecionamento** que pode ser usado para direcionar as respostas de volta ao aplicativo
+* Um **URI de Redirecionamento** que pode ser usado para direcionar as respostas novamente ao aplicativo
 * Alguns outros valores específicos de cenário
 
 Para obter detalhes, saiba como [registrar um aplicativo](active-directory-v2-app-registration.md).
@@ -92,9 +93,9 @@ Uma API da Web pode receber tokens de acesso de todos os tipos de aplicativos, i
 
 ![Fluxo de autenticação da API Web](../../media/active-directory-v2-flows/convergence_scenarios_webapi.png)
 
-Para saber mais sobre códigos de autorização, tokens de atualização e as etapas detalhadas de obtenção de tokens de acesso, leia sobre o [protocolo OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
-
 Para saber como proteger uma API Web com tokens de acesso do OAuth2, confira os exemplos de código da API Web em nossa seção [Introdução](active-directory-appmodel-v2-overview.md#getting-started).
+
+Em muitos casos, APIs Web também precisam fazer solicitações de saída para outras APIs Web downstream protegidas pelo Azure Active Directory.  Para fazer isso, as APIs Web podem utilizar o fluxo **On Behalf Of** do Azure AD, que permite que a API Web troque um token de acesso de entrada por outro token de acesso a ser usado em solicitações de saída.  O fluxo On Behalf Of do ponto de extremidade v2.0 é descrito em [detalhes aqui](active-directory-v2-protocols-oauth-on-behalf-of.md).
 
 ## <a name="mobile-and-native-apps"></a>Aplicativos móveis e nativos
 Os aplicativos instalados no dispositivo, como os aplicativos móveis e de desktop, geralmente precisam acessar serviços de back-end ou APIs da Web que armazenam dados e executam funções em nome de um usuário. Esses aplicativos podem adicionar credenciais e autorização a serviços de back-end usando o [fluxo de código de autorização do OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
@@ -112,7 +113,7 @@ Nesse fluxo, o aplicativo recebe tokens diretamente do ponto de extremidade de a
 
 Para ver esse cenário em ação, experimente um destes exemplos de código de aplicativo de página única em nossa seção de [Introdução](active-directory-appmodel-v2-overview.md#getting-started).
 
-### <a name="daemons-and-server-side-apps"></a>Daemons e aplicativos do lado do servidor
+## <a name="daemons-and-server-side-apps"></a>Daemons e aplicativos do lado do servidor
 Os aplicativos com processos de longa duração ou que operem sem interação com um usuário também precisam de uma maneira de acessar recursos protegidos, como APIs Web. Esses aplicativos podem se autenticar e obter tokens usando a identidade do aplicativo (em vez de a identidade delegada de um usuário) com o fluxo de credenciais do cliente OAuth 2.0.
 
 Nesse fluxo, o aplicativo interage diretamente com o ponto de extremidade do `/token` para obter pontos de extremidade:
@@ -120,18 +121,3 @@ Nesse fluxo, o aplicativo interage diretamente com o ponto de extremidade do `/t
 ![Fluxo de autenticação de aplicativo de daemon](../../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
 Para criar um aplicativo daemon, consulte o a documentação sobre credenciais do cliente em nossa seção [Introdução](active-directory-appmodel-v2-overview.md#getting-started) seção ou experimente um [aplicativo de exemplo .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
-
-## <a name="current-limitations"></a>Limitações atuais
-Atualmente, não há suporte para os tipos de aplicativos nesta seção pelo ponto de extremidade v2.0, mas eles estão no roteiro para desenvolvimento futuro. Para limitações adicionais e restrições para o ponto de extremidade v2.0, veja [Devo usar o ponto de extremidade v2.0?](active-directory-v2-limitations.md).
-
-### <a name="chained-web-apis-on-behalf-of"></a>APIs Web encadeadas (em nome de)
-Muitas arquiteturas incluem uma API Web que precisa chamar outra API Web downstream, ambas protegidas pelo ponto de extremidade v2.0. Este cenário é comum em clientes nativos que têm um back-end de API da Web que, por sua vez, chama uma instância dos Microsoft Online Services, como o Office 365 ou a API do Graph.
-
-Esse cenário de API Web encadeado pode ter suporte usando a concessão de credencial de portador JWT (Token Web JSON) do OAuth 2.0, também conhecida como [fluxo em nome de](active-directory-v2-protocols.md). No momento, o fluxo em nome de não está implementado no ponto de extremidade v2.0. Para ver como esse fluxo funciona no serviço do Azure AD disponível ao público geral, confira o [exemplo de código em nome de no GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-

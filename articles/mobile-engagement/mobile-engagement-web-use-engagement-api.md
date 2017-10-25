@@ -14,11 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 54c22ce6a03e382b1bbde102bccc97deec249b30
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-mobile-engagement-api-in-a-web-application"></a>Usar a API do Azure Mobile Engagement em um aplicativo Web
 Este documento é um complemento do documento que descreve como [integrar o Mobile Engagement a um aplicativo Web](mobile-engagement-web-integrate-engagement.md). Ele fornece detalhes aprofundados sobre como usar a API do Azure Mobile Engagement para relatar as estatísticas do aplicativo.
@@ -215,9 +215,3 @@ Informações do aplicativo são limitadas a 1024 caracteres por chamada (depois
 No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
 
     {"birthdate":"1983-12-07","gender":"female"}
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

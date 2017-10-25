@@ -8,18 +8,17 @@ manager: rochakm
 editor: rayne-wiselman
 ms.assetid: 8e7d868e-00f3-4e8b-9a9e-f23365abf6ac
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/19/2017
+ms.date: 06/05/2017
 ms.author: sutalasi
-translationtype: Human Translation
-ms.sourcegitcommit: 28e905a20d878eab1428a4b88113544aa742124a
-ms.openlocfilehash: 9c34ea792aa561b8155a915845ffb857dfef7a90
-ms.lasthandoff: 02/21/2017
-
-
+ms.openlocfilehash: 73a1f19177f23441f5f7165cf2bc92ba85e62aa5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-replication-policy-for-vmware-to-azure"></a>Gerenciar a política de replicação para VMware no Azure
 
@@ -30,7 +29,7 @@ ms.lasthandoff: 02/21/2017
 2. Selecione **Políticas de replicação** em **Para VMware e Computadores físicos**.
 3. Selecione **+ Política de replicação**.
 
-      ![Criar política de replicação](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
+    ![Criar política de replicação](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
 
 4. Insira o nome da política.
 
@@ -87,4 +86,3 @@ ms.lasthandoff: 02/21/2017
 
     > [!NOTE]
     > Você não poderá excluir uma política de replicação se ela tiver pelo menos um servidor de configuração associado a ela. Verifique se não há itens replicados usando a política e exclua todos os servidores de configuração associados antes de excluir a política.
-

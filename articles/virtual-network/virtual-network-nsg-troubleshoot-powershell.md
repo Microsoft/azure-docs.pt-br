@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 13ffe90e03dbe99366fb4f6e2788ba7a3c968a30
-
-
+ms.openlocfilehash: 5edaf7197576ac1c0bd1fc6bed21fd65ed135106
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Solucionar problemas de grupos de segurança de rede usando o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Embora este exemplo use a porta TCP 3389, as etapas a seguir podem ser seguidas 
 ## <a name="detailed-troubleshooting-steps"></a>Etapas de solução de problemas detalhadas
 Siga as etapas a seguir para solucionar problemas de NSGs em uma VM:
 
-1. Inicie uma sessão do Azure PowerShell e faça logon no Azure. Se você não estiver familiarizado com o uso do Azure PowerShell, leia o artigo [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+1. Inicie uma sessão do Azure PowerShell e faça logon no Azure. Se você não estiver familiarizado com o uso do Azure PowerShell, leia o artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) .
 2. Digite o seguinte comando para retornar todas as regras do NSG aplicadas a uma NIC denominada *VM1-NIC1* no grupo de recursos *RG1*:
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
@@ -197,10 +197,4 @@ Considere os seguintes pontos ao solucionar problemas de conectividade:
 * Se você tiver VNets emparelhadas, por padrão, a marcação VIRTUAL_NETWORK expandirá automaticamente para incluir prefixos para VNets emparelhadas. Você pode exibir esses prefixos na lista **ExpandedAddressPrefix** , para solucionar os problemas relacionados à conectividade de emparelhamento da VNet. 
 * As regras de segurança em vigor serão mostradas apenas se houver um NSG associado à NIC e/ou sub-rede da VM. 
 * Se não houver nenhum NSG associado à NIC ou à sub-rede e você tiver um endereço IP público atribuído à sua VM, todas as portas estarão abertas para acesso de entrada e saída. Se a VM tem um endereço IP público, recomenda-se aplicar NSGs à NIC ou à sub-rede.  
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

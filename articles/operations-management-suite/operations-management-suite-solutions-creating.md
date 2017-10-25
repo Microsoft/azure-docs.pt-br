@@ -15,16 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 9d1a89e84b7340bf4bb3d759b4ae856431efcc0e
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: 6ea959f1e95ea46c07eec3afa9d46bfeb72ca3e4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>Projetar e compilar uma solução de gerenciamento no OMS (Operations Management Suite) (Visualização)
 > [!NOTE]
-> Esta é uma documentação preliminar para criar soluções de gerenciamento no OMS, que estão atualmente em visualização. Os esquemas descritos a seguir estão sujeitos a alterações.   j
+> Esta é uma documentação preliminar para criar soluções de gerenciamento no OMS, que estão atualmente em visualização. Os esquemas descritos a seguir estão sujeitos a alterações.
 
 [As soluções de gerenciamento](operations-management-suite-solutions.md) estendem a funcionalidade do OMS (Operations Management Suite), fornecendo cenários de gerenciamento empacotados que os clientes podem adicionar ao seu espaço de trabalho do OMS.  Este artigo apresenta um processo básico para projetar e compilar uma solução de gerenciamento adequada às necessidades mais comuns.  Se você nunca tiver criado soluções de gerenciamento, use este processo como um ponto de partida e aproveite os conceitos para soluções mais complexas, conforme suas necessidades evoluem.
 
@@ -51,12 +50,12 @@ Se você precisar de dados que não podem ser acessados por meio de qualquer uma
 ### <a name="log-searches"></a>Pesquisas de log
 As [pesquisas de logs](../log-analytics/log-analytics-log-searches.md) são usadas para extrair e analisar dados no repositório do Log Analytics.  Eles são usados pelas exibições e alertas, além de permitir que o usuário execute análise ad hoc de dados no repositório.  
 
-Defina as consultas que você considera úteis para o usuário, mesmo se não forem usadas por modos de exibição ou alertas.  Elas estarão disponíveis como Pesquisas Salvas no portal, e você também pode incluí-las em uma [parte de visualização de Lista de Consultas](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) em seu modo de exibição personalizado.
+Defina as consultas que você considera úteis para o usuário, mesmo se não forem usadas por modos de exibição ou alertas.  Elas estarão disponíveis como Pesquisas Salvas no portal e você também pode incluí-las em uma [parte de visualização de Lista de Consultas](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) em seu modo de exibição personalizado.
 
 ### <a name="alerts"></a>Alertas
 [Alertas no Log Analytics](../log-analytics/log-analytics-alerts.md) identificam problemas por meio de [pesquisas de log](#log-searches) nos dados do repositório.  Eles notificam o usuário ou executam automaticamente uma ação como resposta. Identifique as condições de alerta diferentes para seu aplicativo e inclua regras de alerta correspondentes em seu arquivo de solução.
 
-Se o problema puder ser corrigido com um processo automatizado, normalmente criará um runbook na Automação do Azure para executar essa correção.  A maioria dos serviços do Azure pode ser gerenciada com [cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), que o runbook aproveitaria para executar essa funcionalidade.
+Se o problema puder ser corrigido com um processo automatizado, normalmente criará um runbook na Automação do Azure para executar essa correção.  A maioria dos serviços do Azure pode ser gerenciada com [cmdlets](/powershell/azure/overview), que o runbook aproveitaria para executar essa funcionalidade.
 
 Se a sua solução exigir uma funcionalidade externa em resposta a um alerta, use uma [resposta de webhook](../log-analytics/log-analytics-alerts-actions.md).  Isso permite que você chame um serviço Web externo que envia informações do alerta.
 
@@ -85,4 +84,3 @@ Depois de concluir e testar sua solução, disponibilize-a para clientes usando 
 * Saiba como [criar um arquivo de solução](operations-management-suite-solutions-solution-file.md) para sua solução de gerenciamento.
 * Aprenda os detalhes da [Criação de modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 * Pesquise entre os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates) para obter exemplos de diferentes modelos do Resource Manager.
-

@@ -75,8 +75,3 @@ As regras de segurança padrão têm as mesmas propriedades disponíveis nas reg
 * Obtenha mais informações sobre [NSGs](../articles/virtual-network/virtual-networks-nsg.md).
 * Leia a [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163615.aspx) para obter NSGs.
 * Leia a [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163580.aspx) para obter regras de segurança.
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
 ms.openlocfilehash: 145067c2ce50b41c4783f4de4052c0e7cb529fc7
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium"></a>Controle o comportamento do caching da CDN do Azure com cadeias de consulta - Premium
 > [!div class="op_single_selector"]
@@ -58,10 +58,4 @@ Existem três modos disponíveis:
 > As mudanças de configuração podem não estar visíveis imediatamente, pois o registro demora um pouco para se propagar pela CDN.  Para perfis da <b>CDN do Azure da Verizon</b>, a propagação geralmente é concluída em 90 minutos, mas em alguns casos pode levar mais tempo.
 > 
 > 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -5,83 +5,96 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: f0cae145-e346-4126-948f-3f699747b96e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 08/31/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 164e3b0af47cd98f2d20fce7344230608e9fbe8c
-ms.openlocfilehash: 6762a5c88b7a3bbc0424729865ae312d74f9059f
-ms.lasthandoff: 02/16/2017
-
-
+ms.reviewer: harshja
+ms.custom: it-pro
+ms.openlocfilehash: e1f992aede3af99fa7c2ffa661bccbcac9f52ba9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Como habilitar aplicativos clientes nativos para interagir com aplicativos de proxy
-O Proxy de Aplicativo Active Directory do Azure é amplamente usado para publicar os aplicativos de navegador, como SharePoint, Outlook Web Access e linha personalizada de aplicativos comerciais. Ele também pode ser usado para publicar aplicativos cliente nativos, que são diferentes de aplicativos Web porque são instalados em um dispositivo. Isso é feito com suporte a tokens emitidos pelo Azure AD que são enviados em cabeçalhos HTTP Authorize padrão.
+
+Além dos aplicativos Web, o Proxy de Aplicativo do Azure Active Directory também pode ser usado para publicar aplicativos cliente nativos configurados com a ADAL (Biblioteca de Autenticação do Azure AD). Os aplicativos cliente nativos diferem dos aplicativos Web porque eles são instalados em um dispositivo, enquanto os aplicativos Web são acessados por meio de um navegador. 
+
+O Proxy de Aplicativo dá suporte a aplicativos cliente nativos aceitando os tokens emitidos pelo Azure AD enviados no cabeçalho. O serviço de proxy de aplicativo executa a autenticação em nome dos usuários. Essa solução não usa tokens de aplicativo para autenticação. 
 
 ![Relação entre os usuários finais, o Active Directory do Azure e os aplicativos publicados](./media/active-directory-application-proxy-native-client/richclientflow.png)
 
-O método recomendado para publicar aplicativos é usar a Biblioteca de Autenticação do AD do Azure que se encarrega de todo o incômodo da autenticação e dá suporte a muitos ambientes de cliente diferentes. O Proxy de Aplicativo se encaixa no [cenário de Aplicativo Nativo para API Web](develop/active-directory-authentication-scenarios.md#native-application-to-web-api). O processo para realizar isso é o seguinte:
+Use a Biblioteca de Autenticação do Azure AD, que trata da autenticação e dá suporte a vários ambientes de cliente, para publicar aplicativos nativos. O Proxy de Aplicativo se encaixa no [cenário de Aplicativo Nativo para API Web](develop/active-directory-authentication-scenarios.md#native-application-to-web-api). 
+
+Este artigo explica as quatro etapas para publicar um aplicativo nativo com o Proxy de Aplicativo e a Biblioteca de Autenticação do Azure AD. 
 
 ## <a name="step-1-publish-your-application"></a>Etapa 1: publicar seu aplicativo
-Publique seu aplicativo proxy como faria com qualquer outro aplicativo, atribua usuários e dê a eles licenças basic ou premium. Para saber mais, consulte [Publicar aplicativos com o Proxy de Aplicativo](active-directory-application-proxy-publish.md).
+Publique seu aplicativo de proxy como faria com qualquer outro aplicativo e atribua aos usuários acesso a ele. Para saber mais, consulte [Publicar aplicativos com o Proxy de Aplicativo](active-directory-application-proxy-publish.md).
 
 ## <a name="step-2-configure-your-application"></a>Etapa 2: configurar seu aplicativo
 Configure seu aplicativo nativo da seguinte maneira:
 
-1. Entre no portal clássico do Azure.
-2. Selecione o ícone do Active Directory no menu esquerdo e selecione seu diretório.
-3. No menu superior, clique em **Aplicativos**. Se nenhum aplicativo tiver sido adicionado ao diretório, essa página mostrará apenas o link **Adicionar um Aplicativo** . Clique no link ou, se preferir, você poderá clicar no botão **Adicionar** , na barra de comandos.
-4. Na página **O que você deseja fazer**, clique no link **Adicionar um aplicativo que minha organização esteja desenvolvendo**.
-5. Na página **Conte-nos sobre seu aplicativo**, especifique um nome para seu aplicativo e selecione **Aplicativo cliente nativo**. Clique no ícone de seta para continuar.
-6. Na página **Informações do aplicativo**, forneça o **URI de redirecionamento** para o aplicativo cliente nativo e clique na marca de seleção para concluir.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. Navegue até **Azure Active Directory** > **Registros de aplicativo**.
+3. Selecione **Novo registro de aplicativo**.
+4. Especifique um nome para o aplicativo, selecione **Nativo** como o tipo de aplicativo e forneça o URI de Redirecionamento para seu aplicativo. 
 
-O aplicativo foi adicionado e você será levado para a página Início Rápido do seu aplicativo.
+   ![Criar um novo registro de aplicativo](./media/active-directory-application-proxy-native-client/create.png)
+5. Selecione **Criar**.
+
+Para obter informações mais detalhadas sobre como criar um novo registro de aplicativo, confira [Integrando aplicativos ao Azure Active Directory](.//develop/active-directory-integrating-applications.md).
+
 
 ## <a name="step-3-grant-access-to-other-applications"></a>Etapa 3: conceder acesso a outros aplicativos
 Habilite o aplicativo nativo para ser exposto a outros aplicativos no seu diretório:
 
-1. No menu superior, clique em **Aplicativos**, selecione o novo aplicativo nativo e clique em **Configurar**.
-2. Role para baixo até a seção **permissões para outros aplicativos** . Clique no botão **Adicionar aplicativo** , selecione o aplicativo de proxy ao qual você deseja conceder acesso de aplicativo nativo e clique na marca de seleção no canto inferior direito. No menu suspenso **Permissões Delegadas** , escolha a nova permissão.
+1. Ainda nos **Registros de aplicativo**, selecione o novo aplicativo nativo que você acabou de criar.
+2. Selecione **Permissões necessárias**.
+3. Selecione **Adicionar**.
+4. Abra a primeira etapa, **Selecionar uma API**.
+5. Use a barra de pesquisa para encontrar o aplicativo Proxy de Aplicativo que você publicou na primeira seção. Escolha esse aplicativo e clique em **Selecionar**. 
 
-![Captura de tela de Permissões para outros aplicativos - adicionar aplicativo](./media/active-directory-application-proxy-native-client/delegate_native_app.png)
+   ![Procurar o aplicativo de proxy](./media/active-directory-application-proxy-native-client/select_api.png)
+6. Abra a segunda etapa, **Selecionar permissões**.
+7. Use a caixa de seleção para conceder ao aplicativo nativo acesso ao aplicativo de proxy e clique em **Selecionar**.
+
+   ![Conceder acesso ao aplicativo de proxy](./media/active-directory-application-proxy-native-client/select_perms.png)
+8. Selecione **Concluído**.
+
 
 ## <a name="step-4-edit-the-active-directory-authentication-library"></a>Etapa 4: Edite a Biblioteca de Autenticação do Active Directory
-Edite o código de aplicativo nativo no contexto de autenticação da ADAL (Biblioteca de Autenticação do Active Directory) para incluir o seguinte:
+Edite o código de aplicativo nativo no contexto de autenticação da ADAL (Biblioteca de Autenticação do Active Directory) para incluir o seguinte texto:
 
-        // Acquire Access Token from AAD for Proxy Application
-        AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/<TenantId>");
-        AuthenticationResult result = authContext.AcquireToken("< Frontend Url of Proxy App >",
-                                                        "< Client Id of the Native app>",
-                                                        new Uri("< Redirect Uri of the Native App>"),
-                                                        PromptBehavior.Never);
+```
+// Acquire Access Token from AAD for Proxy Application
+AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/<Tenant ID>");
+AuthenticationResult result = authContext.AcquireToken("< External Url of Proxy App >",
+        "<App ID of the Native app>",
+        new Uri("<Redirect Uri of the Native App>"),
+        PromptBehavior.Never);
 
-        //Use the Access Token to access the Proxy Application
-        HttpClient httpClient = new HttpClient();
-        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
-        HttpResponseMessage response = await httpClient.GetAsync("< Proxy App API Url >");
+//Use the Access Token to access the Proxy Application
+HttpClient httpClient = new HttpClient();
+httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
+HttpResponseMessage response = await httpClient.GetAsync("< Proxy App API Url >");
+```
 
-As variáveis devem ser substituídas da seguinte maneira:
+As variáveis no exemplo de código devem ser substituídas da seguinte maneira:
 
-* **ID do locatário** pode ser encontrada no GUID na URL da página **Configuração** do aplicativo, logo após "/Directory/".
-* **URL de front-end** é a URL de front-end inserida no Aplicativo de Proxy e pode ser encontrada na página **Configuração** do aplicativo proxy.
-* A **Id do cliente** do aplicativo nativo pode ser encontrada na página **Configurar** do aplicativo nativo.
-* O **URI de redirecionamento do aplicativo nativo** podem ser encontrado na página **Configurar** do aplicativo nativo.
+* A **ID do locatário** pode ser encontrada no Portal do Azure. Navegue até **Azure Active Directory** > **Propriedades** e copie a ID de Diretório. 
+* A **URL externa** é a URL de front-end que você inseriu no Aplicativo de Proxy. Para encontrar esse valor, navegue até a seção **Proxy de aplicativo** do aplicativo de proxy.
+* A **ID do aplicativo** do aplicativo nativo pode ser encontrada na página **Propriedades** do aplicativo nativo.
+* O **URI de Redirecionamento do aplicativo nativo** pode ser encontrado na página **URIs de Redirecionamento** do aplicativo nativo.
 
-![Captura de tela da página Configurar novo aplicativo nativo](./media/active-directory-application-proxy-native-client/new_native_app.png)
+Quando a ADAL é editada com esses parâmetros, os usuários devem ser capazes de autenticar para aplicativos cliente nativos, mesmo quando eles estão fora da rede corporativa. 
 
-Para saber mais sobre o fluxo do aplicativo nativo, consulte [Aplicativo nativo para API Web](develop/active-directory-authentication-scenarios.md#native-application-to-web-api).
+## <a name="next-steps"></a>Próximas etapas
 
-## <a name="see-also"></a>Consulte também
-* [Publicar aplicativos usando seu próprio nome de domínio](active-directory-application-proxy-custom-domains.md)
-* [Habilitar o acesso condicional](active-directory-application-proxy-conditional-access.md)
-* [Trabalho com aplicativos com reconhecimento de declaração](active-directory-application-proxy-claims-aware-apps.md)
-* [Habilitar o logon único](active-directory-application-proxy-sso-using-kcd.md)
+Para saber mais sobre o fluxo do aplicativo nativo, confira [Aplicativo nativo para API Web](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)
 
-Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](http://blogs.technet.com/b/applicationproxyblog/)
-
+Saiba mais sobre como configurar o [Logon único para o proxy de aplicativo](application-proxy-sso-overview.md)

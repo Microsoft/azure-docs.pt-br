@@ -3,8 +3,3 @@
 2. Clique em **Máquinas Virtuais**e então selecione o dispositivo virtual.
 3. Clique em **Desligar**.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

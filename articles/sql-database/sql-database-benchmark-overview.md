@@ -8,19 +8,18 @@ manager: jhubbard
 editor: monicar
 ms.assetid: e26f8a66-2c12-49d7-8297-45b4d48a5c01
 ms.service: sql-database
-ms.custom: overview
+ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/21/2016
 ms.author: janeng
-translationtype: Human Translation
-ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
-ms.openlocfilehash: 7b9b222be1a131d2a80d37404cbdd309b61785f3
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: 57178352e0a402f3559c94ce25f125dcbefd1374
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sql-database-benchmark-overview"></a>Visão geral do parâmetro de comparação do Banco de Dados SQL do Azure
 ## <a name="overview"></a>Visão geral
@@ -133,4 +132,3 @@ O Parâmetro de Comparação do Banco de Dados SQL do Azure mede o desempenho re
 [Camadas de serviço e níveis de desempenho](sql-database-service-tiers.md)
 
 [Diretrizes de desempenho para bancos de dados únicos](sql-database-performance-guidance.md)
-

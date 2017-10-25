@@ -3,8 +3,8 @@ title: "Configurando seu projeto do Azure usando várias configurações de serv
 description: "Saiba como configurar um projeto de serviço de nuvem do Azure alterando os arquivos Servicedefinition e ServiceConfiguration."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: a4fb79ed-384f-4183-9f74-5cac257206b9
 ms.service: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7e720b7d1f874f83d7d2ff516704f61b5e39601d
-
-
+ms.author: kraigb
+ms.openlocfilehash: deb69101e855bcad56b9212736c52ace72631f0a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>Configurando seu projeto do Azure usando várias configurações de serviço
 Um projeto de serviço de nuvem do Azure inclui dois arquivos de configuração: ServiceDefinition.csdef e ServiceConfiguration.cscfg. Esses arquivos são empacotados com o aplicativo de serviço de nuvem do Azure e implantados no Azure.
@@ -64,9 +64,9 @@ Na página **Configurações** , você pode adicionar parâmetros de configuraç
 ### <a name="configuring-a-connection-string-to-a-storage-account"></a>Configurando uma cadeia de conexão para uma conta de armazenamento
 Uma cadeia de conexão é uma definição de configuração que fornece informações de conexão e autenticação para o emulador de armazenamento ou para uma conta de armazenamento do Azure. Sempre que o código precisar acessar dados de serviços de armazenamento do Azure – ou seja, blob, fila ou dados da tabela – do código em execução em uma função, você precisará definir uma cadeia de conexão para essa conta de armazenamento.
 
-Uma cadeia de conexão que aponta para uma conta de armazenamento do Azure deve usar um formato definido. Para obter informações sobre como criar cadeias de conexão, veja [Configurar cadeias de conexão do Armazenamento do Azure](storage/storage-configure-connection-string.md).
+Uma cadeia de conexão que aponta para uma conta de armazenamento do Azure deve usar um formato definido. Para obter informações sobre como criar cadeias de conexão, veja [Configurar cadeias de conexão do Armazenamento do Azure](storage/common/storage-configure-connection-string.md).
 
-Quando você estiver pronto para testar seu serviço em relação aos serviços de armazenamento do Azure, ou quando você estiver pronto para implantar seu serviço de nuvem no Azure, pode alterar o valor de qualquer cadeia de conexão para apontar para sua conta de armazenamento do Azure. Escolha (**...**) e **Inserir credenciais da conta de armazenamento**. Insira as informações de sua conta que incluem o nome da conta e a chave de conta. Na caixa de diálogo **Cadeia de conexão da conta de armazenamento** , você também pode indicar se deseja usar os pontos de extremidade HTTPS padrão (a opção padrão), os pontos de extremidade HTTP padrão ou pontos de extremidade personalizados. Você pode decidir usar pontos de extremidade personalizados se registrou um nome de domínio personalizado para seu serviço, conforme descrito em [Configurar um nome de domínio personalizado para seu ponto de extremidade de Armazenamento de Blobs](storage/storage-custom-domain-name.md).
+Quando você estiver pronto para testar seu serviço em relação aos serviços de armazenamento do Azure, ou quando você estiver pronto para implantar seu serviço de nuvem no Azure, pode alterar o valor de qualquer cadeia de conexão para apontar para sua conta de armazenamento do Azure. Escolha (**...**) e **Inserir credenciais da conta de armazenamento**. Insira as informações de sua conta que incluem o nome da conta e a chave de conta. Na caixa de diálogo **Cadeia de conexão da conta de armazenamento** , você também pode indicar se deseja usar os pontos de extremidade HTTPS padrão (a opção padrão), os pontos de extremidade HTTP padrão ou pontos de extremidade personalizados. Você pode decidir usar pontos de extremidade personalizados se registrou um nome de domínio personalizado para seu serviço, conforme descrito em [Configurar um nome de domínio personalizado para seu ponto de extremidade de Armazenamento de Blobs](storage/blobs/storage-custom-domain-name.md).
 
 > [!IMPORTANT]
 > Você deve modificar as cadeias de conexão para apontar para uma conta de armazenamento do Azure antes de implantar seu serviço. A falha em fazer isso pode fazer com que sua função não inicie, ou que ela alterne entre os estados inicializando, ocupado e parando.
@@ -105,10 +105,4 @@ Para definir configurações que se aplicam a todo um projeto de serviço de nuv
 | Eventos de compilação |Nessa página, você pode configurar eventos de pré e pós-compilação. |
 | Desenvolvimento |Nessa página, você pode especificar instruções de configuração da compilação e as condições sob as quais eventos de pós-compilação são executados. |
 | Web |Nessa página, você pode definir as configurações relacionadas ao servidor Web. |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

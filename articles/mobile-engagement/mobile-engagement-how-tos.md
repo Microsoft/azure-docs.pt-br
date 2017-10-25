@@ -1,6 +1,6 @@
 ---
-title: "Interface do usuário do Mobile Engagement do Azure - Passo a passo do Reach"
-description: "Visão geral da Interface de usuário para o Mobile Engagement do Azure"
+title: "Interface do usuário do Azure Mobile Engagement - Passo a passo do Reach"
+description: "Visão geral da Interface de usuário para o Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 3a423e42441c6b3b2f1917ba02f80078c759ec69
-ms.openlocfilehash: 4c114f470631ae6b06968c3cc8601bc1c76bc1da
-ms.lasthandoff: 02/02/2017
-
-
+ms.openlocfilehash: 33a0a9d0c399cb7f0a791c4c16dde2e2d62364ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-get-started-using-and-managing-pushes-to-reach-out-to-your-end-users"></a>Como começar a usar e gerenciar pushes para chegar aos seus usuários finais
 Depois que o SDK é totalmente integrado ao seu aplicativo, você pode começar a usar a seção Reach da interface do usuário para enviar notificações por Push aos usuários do seu aplicativo.  
@@ -311,5 +310,4 @@ Essa também é a oportunidade de apresentar um plano de ação, como redirecion
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
 

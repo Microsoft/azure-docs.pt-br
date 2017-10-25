@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 7b1b50f71158e62da6b8ceb741a5b8cf9795e3a4
 ms.openlocfilehash: 8e171d56bb67c971337fa383014988074ec828b1
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Habilitar a comunicação para instâncias de função no Azure
 As funções de serviço de nuvem se comunicam por meio de conexões internas e externas. As conexões externas são chamadas de **pontos de extremidade de entrada**, enquanto as conexões internas são chamadas de **pontos de extremidade internos**. Este tópico descreve como modificar a [definição de serviço](cloud-services-model-and-package.md#csdef) para criar pontos de extremidade.
@@ -371,10 +371,4 @@ Veja uma referência de esquema XML para os elementos usados acima [aqui](https:
 
 ## <a name="next-steps"></a>Próximas etapas
 Leia mais sobre o [modelo](cloud-services-model-and-package.md)de Serviço de Nuvem.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

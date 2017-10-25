@@ -1,6 +1,6 @@
 ---
 title: "Usar as recomendações da Central de Segurança do Azure para aprimorar a segurança | Microsoft Docs"
-description: " Saiba como usar as políticas de segurança e as recomendações na Central de Segurança do Azure para ajudar a atenuar uma violação de segurança. "
+description: " Saiba como usar as políticas de segurança e as recomendações da Central de Segurança do Azure para ajudar a atenuar um ataque de segurança. "
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 09/18/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 313801fc3b845cd30506b1a26918660e77d2a986
-ms.openlocfilehash: 67095e0d8752fb3a2bca692f65e77cde5fd1a966
-
-
+ms.openlocfilehash: 0616f5e501324bfd821c1455ce234602f1fcf1bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Usar as recomendações da Central de Segurança do Azure para aprimorar a segurança
 Você pode reduzir as chances de um evento de segurança significativo configurando uma política de segurança e implementando as recomendações fornecidas pela Central de Segurança do Azure. Esse artigo mostra como usar as políticas de segurança e as recomendações da Central de Segurança para ajudar a atenuar uma violação de segurança.
@@ -73,15 +73,15 @@ Vejamos as etapas que Jefferson realiza para ver como ele usa as recomendações
 ## <a name="how-to-implement-this-solution"></a>Como implementar esta solução
 Jefferson entra no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/) e abre o console da Central de Segurança. Como parte de suas atividades diárias de monitoramentos, ele verifica se há recomendações de segurança executando as seguintes etapas:
 
-1. Jefferson seleciona o bloco **Recomendações** para abrir a folha **Recomendações**.
+1. Jefferson seleciona o bloco **Recomendações** para abrir **Recomendações**.
    ![Selecionar o bloco de recomendações][3]
-2. Ele examina a lista de recomendações. Ele vê que a Central de Segurança forneceu a lista de recomendações na ordem de prioridade, da mais alta para a mais baixa. Ele decide tratar da primeira recomendação de alta prioridade da lista. Ele seleciona **Instalar o Endpoint Protection** na folha **Recomendações**.
-3. A folha **Instalar o Endpoint Protection** abre exibindo uma lista de máquinas virtuais sem antimalware habilitado. Jefferson examina a lista de VMs, seleciona todas elas e, em seguida, escolhe **Instalar em 3 VMs**.
+2. Ele examina a lista de recomendações. Ele vê que a Central de Segurança forneceu a lista de recomendações na ordem de prioridade, da mais alta para a mais baixa. Ele decide tratar de uma recomendação de Alta prioridade na lista. Ele seleciona **Instalar o Endpoint Protection** em **Recomendações**.
+3. **Instalar o Endpoint Protection** abre exibindo uma lista de VMs sem antimalware habilitado. Jefferson examina a lista de VMs, seleciona todas elas e, em seguida, escolhe **Instalar em 3 VMs**.
    ![Instalar o Endpoint Protection][4]
-4. A folha **Selecionar Endpoint Protection** se abre, fornecendo a Jefferson duas soluções antimalware. Jefferson seleciona a solução **Microsoft Antimalware**.
+4. **Selecionar Endpoint Protection** se abre, fornecendo a Jefferson duas soluções antimalware. Jefferson seleciona a solução **Microsoft Antimalware**.
 5. Informações adicionais sobre a solução antimalware são exibidas. Jefferson seleciona **Criar**.
    ![Microsoft antimalware][5]
-6. Ele insere as definições de configuração necessárias na folha **Instalar** e seleciona **OK**.
+6. Ele insere as definições de configuração necessárias em **Instalar** e seleciona **OK**.
 
 O [Microsoft Antimalware](../security/azure-security-antimalware.md) agora está ativo nas VMs selecionadas.
 
@@ -89,10 +89,10 @@ Jefferson continua a seguir as recomendações de alta e média prioridade, toma
 
 Ele descobre que o [MSRC (Microsoft Security Response Center)](../security/azure-security-response-center.md) executa monitoramento de segurança seleto na rede e na infraestrutura do Azure, bem como recebe inteligência de ameaça e reclamações de abuso de terceiros. Se Jefferson fornecer detalhes de contato de segurança para a assinatura do Azure da Contoso, a Microsoft contatará a Contoso se o MSRC descobrir que os dados dos clientes da Contoso foram acessados de forma ilegal ou não autorizada. Vamos acompanhar Jefferson para ver como ele aplica a recomendação para **Fornecer detalhes de contato de segurança** (uma recomendação com severidade Média na lista de recomendações acima).
 
-1. Jefferson seleciona **Fornecer detalhes de contato de segurança** na folha **Recomendações**, o que abre a folha **Fornecer detalhes de contato de segurança**.
+1. Jefferson seleciona **Fornecer detalhes de contato de segurança** em **Recomendações**, o que abre **Fornecer detalhes de contato de segurança**.
 2. Ele seleciona a assinatura do Azure à qual as informações de contato se referem. Uma segunda folha **Fornecer detalhes de contato de segurança** será aberta.
    ![Detalhes do contato de segurança][6]
-3. Na segunda folha **Fornecer detalhes de contato de segurança**, Jefferson insere:
+3. Em **Fornecer detalhes de contato de segurança**, Jefferson insere:
 
   - os endereços de email do contato de segurança são separados por vírgulas (não há um limite para o número de endereços de email que ele pode inserir)
   - um número de telefone do contato de segurança
@@ -106,6 +106,18 @@ Por fim, Jefferson examina a recomendação de baixa prioridade **Remediar as vu
 ## <a name="conclusion"></a>Conclusão
 Monitorar as recomendações na Central de Segurança pode ajudar a eliminar vulnerabilidades de segurança antes de uma violação ocorrer. Você pode impedir um incidente de segurança implementando e mantendo as proteções com políticas de segurança na Central de Segurança.
 
+## <a name="next-steps"></a>Próximas etapas
+Esse cenário mostrou como usar as políticas de segurança e as recomendações da Central de Segurança para ajudar a atenuar uma violação de segurança. Consulte o [cenário de resposta a incidente](security-center-incident-response.md) para saber como ter um plano de resposta a incidente em vigor antes que ocorra um ataque.
+
+Para saber mais sobre a Central de Segurança, confira:
+
+* [Monitoramento da integridade da segurança](security-center-monitoring.md) – saiba como monitorar a integridade dos seus recursos do Azure.
+* [Gerenciar e responder aos alertas de segurança](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e responder aos alertas de segurança.
+* [Monitoramento e processamento de eventos de segurança](security-center-events-dashboard.md) – saiba como monitorar e processar eventos de segurança coletados ao longo do tempo.
+* [Monitorar as soluções de parceiros](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
+* [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.
+* [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) : obtenha as últimas notícias de segurança e informações do Azure.
+
 <!--Image references-->
 [1]: ./media/security-center-using-recommendations/security-center-policy-inheritance.png
 [2]: ./media/security-center-using-recommendations/scenario-roles.png
@@ -114,9 +126,3 @@ Monitorar as recomendações na Central de Segurança pode ajudar a eliminar vul
 [5]:./media/security-center-using-recommendations/microsoft-antimalware.png
 [6]: ./media/security-center-using-recommendations/provide-security-contact-details.png
 [7]: ./media/security-center-using-recommendations/dismiss-recommendation.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
-

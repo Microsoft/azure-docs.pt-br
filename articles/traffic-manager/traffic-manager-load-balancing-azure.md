@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
-translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
 ms.openlocfilehash: ae9bd30b76786f94f0d836a39137da696fdb94a2
-ms.lasthandoff: 02/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-load-balancing-services-in-azure"></a>Usando os serviços de balanceamento de carga no Azure
 
 ## <a name="introduction"></a>Introdução
@@ -190,7 +189,7 @@ Para obter mais informações sobre como configurar um balanceador de carga inte
 
 #### <a name="configure-the-load-balancing-rules"></a>Configuração de regras de balanceamento de carga
 
-1. Em **Configurações **do balanceador de carga, selecione **Regras de balanceamento de carga** e, em seguida, clique em **Adicionar** para criar uma regra.
+1. Em **Configurações** do balanceador de carga, selecione **Regras de balanceamento de carga** e, em seguida, clique em **Adicionar** para criar uma regra.
 2. Na folha **Adicionar regra de balanceamento da carga**, insira o **Nome** para a regra de balanceamento de carga.
 3. Escolha o **Endereço de IP de front-end do balanceador de carga**, o **Protocolo** e a **Porta**.
 4. Em **Porta de back-end**, especifique a porta a ser usada no pool de back-end.
@@ -211,4 +210,3 @@ Agora podemos configurar o endereço IP e a porta de front-end do balanceador de
 * [Visão geral do Gerenciador de Tráfego](traffic-manager-overview.md)
 * [Visão geral do Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md)
 * [Visão geral do Azure Load Balancer](../load-balancer/load-balancer-overview.md)
-

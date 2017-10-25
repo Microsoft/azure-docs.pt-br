@@ -1,0 +1,68 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação do Site Recovery
+metadata:
+  title: 'Documentação do Azure Site Recovery - Tutoriais, Referência de API | Microsoft Docs'
+  meta.description: Learn how to set up cloud disaster recovery and business continuity for physical servers and virtual machines by deploying and managing replication.
+  services: site-recovery
+  author: czeumault
+  manager: carolz
+  ms.service: site-recovery
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/23/2017
+  ms.author: carolz
+abstract:
+  description: 'O Azure Site Recovery coordena e gerencia a recuperação de desastre para VMs do Azure, VMs locais e servidores físicos. Saiba como fazer replicação, failover e fail back com os nossos guias de início rápido e tutoriais.'
+sections:
+  - title: Guia de início rápido de 5 minutos
+    items:
+      - type: paragraph
+        text: Configure rapidamente a recuperação de desastre para uma VM do Azure
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/site-recovery/media/index/portal.svg
+            text: Portal do Azure
+            href: /azure/site-recovery/azure-to-azure-quickstart
+  - title: Tutoriais Passo a Passo
+    items:
+      - type: paragraph
+        text: Saiba como configurar a recuperação de desastre para VMs e servidores físicos.
+      - type: text
+        html: <h3>Azure para o Azure</h3>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="azure-to-azure-tutorial-enable-replication">Configurar recuperação de desastre</a>
+          - html: <a href="azure-to-azure-tutorial-dr-drill">Realizar uma simulação de recuperação de desastre</a>
+          - html: <a href="azure-to-azure-tutorial-failover-failback">Fazer failover e failback</a>
+      - type: text
+        html: <h3>VMware</h3>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-azure">Preparar o Azure</a>
+          - html: <a href="tutorial-prepare-on-premises-vmware">Preparar o VMware local</a>
+          - html: <a href="tutorial-vmware-to-azure">Configurar a recuperação de desastre</a>
+          - html: <a href="tutorial-dr-drill-azure">Realizar uma simulação de recuperação de desastre</a>
+          - html: <a href="tutorial-vmware-to-azure-failover-failback">Fazer failover e failback</a>
+      - type: text
+        html: <h3>Migrar para o Azure</h3>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-azure">Preparar o Azure</a>
+          - html: <a href="tutorial-migrate-on-premises-to-azure">Migrar computadores locais</a> ou <a href="tutorial-migrate-aws-to-azure">Instâncias do AWS para o Azure</a>
+  - title: Referência
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linha de comando
+            html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">PowerShell do Azure</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/site-recovery/">referência da API REST (a página pode estar em inglês)</a></p>

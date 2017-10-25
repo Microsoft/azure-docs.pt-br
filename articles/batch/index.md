@@ -2,7 +2,7 @@
 title: "Documentação do Lote do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como usar o Lote para executar aplicativos paralelos em larga escala de computação e de alto desempenho com eficiência. Tutoriais, referências de API e outras documentações."
 services: batch
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: e36c82b7fb93659ad2fb3b7af5b6660438293bc9
-ms.lasthandoff: 03/18/2017
-
+ms.openlocfilehash: 31e15ecb995f0a5b1164296132db15e8de7e4363
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="batch-documentation"></a>Documentação do Lote
 
@@ -113,6 +113,24 @@ Saiba como usar o Lote para executar aplicativos paralelos em larga escala de co
         </div>
         </a>
     </li>
+     <li>
+        <a href="/azure/batch/batch-nodejs-get-started">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/logos/logo_nodejs.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Introdução ao Lote usando Node.js</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 </ul>
 
 ---
@@ -140,7 +158,7 @@ Saiba como usar o Lote para executar aplicativos paralelos em larga escala de co
                         <h3>Linguagens</h3>
                         <p><a href="/dotnet/api/microsoft.azure.batch">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.batch">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest.azure.batch">Node.js</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/">Node.js</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html">Python</a></p>
                     </div>
                 </div>
@@ -159,7 +177,20 @@ Saiba como usar o Lote para executar aplicativos paralelos em larga escala de co
             </div>
         </div>
     </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Lote</h3>
+                        <p><a href="/azure/batch/batch-diagnostics">Logs de diagnóstico do Lote</a></p>
+                        <p><a href="/azure/batch/batch-analytics">Análise de Lote</a></p>
+                        <p><a href="/azure/batch/batch-compute-node-environment-variables">Variáveis de ambiente do nó de computação do Lote</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
-
 
 

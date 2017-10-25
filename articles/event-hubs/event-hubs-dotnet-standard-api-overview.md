@@ -3,7 +3,7 @@ title: "Visão geral das APIs do .NET Standard dos Hubs de Eventos do Azure | Mi
 description: "Visão geral da API do .NET Standard"
 services: event-hubs
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: a173f8e4-556c-42b8-b856-838189f7e636
@@ -12,35 +12,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
-ms.author: jotaub
-translationtype: Human Translation
-ms.sourcegitcommit: f77755bed5463c0c87f698ded5c80d824efbd8b0
-ms.openlocfilehash: 101727b54aa198411efaa5bfa7c0859bcfeb5417
-
+ms.date: 08/15/2017
+ms.author: sethm
+ms.openlocfilehash: eea682c40cd415b383a8b2f0004a5f3648e2f01f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-hubs-net-standard-api-overview"></a>Visão geral de API do .NET Standard de Hubs de Eventos
 Este artigo resume algumas das principais APIs de cliente .NET Standard de Hubs de Eventos. Atualmente, há duas bibliotecas de cliente do .NET Standard:
 * [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
   *  Esta biblioteca fornece todas as operações básicas de tempo de execução.
 * [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
-  * Esta biblioteca adiciona outra funcionalidade, que permite manter o controle de eventos processados e é a maneira mais fácil de ler de um Hub de Eventos.
+  * Esta biblioteca adiciona outra funcionalidade que permite manter o controle de eventos processados e é a maneira mais fácil de ler em um hub de eventos.
 
-## <a name="event-hub-client"></a>Cliente de Hub de Eventos
-[**EventHubClient** ](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) é o objeto principal que você usa para enviar eventos, criar receptores e para obter informações de tempo de execução. Esse cliente está vinculado a um Hub de Eventos específico e cria uma nova conexão para o ponto de extremidade de Hubs de Eventos.
+## <a name="event-hubs-client"></a>Cliente dos Hubs de Eventos
+[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) é o objeto principal que você usa para enviar eventos, criar receptores e obter informações de tempo de execução. Esse cliente está vinculado a um hub de eventos específico e cria uma nova conexão para o ponto de extremidade de Hubs de Eventos.
 
-### <a name="create-an-event-hub-client"></a>Criar um Hub de Eventos cliente
-Um objeto [**EventHubClient**](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) objeto é criado de uma cadeia de conexão. A maneira mais simples para instanciar um novo cliente é mostrada no exemplo a seguir:
+### <a name="create-an-event-hubs-client"></a>Criar um cliente de Hubs de Eventos
+Um objeto [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) é criado de uma cadeia de conexão. A maneira mais simples para instanciar um novo cliente é mostrada no exemplo a seguir:
 
 ```csharp
-var eventHubClient = EventHubClient.CreateFromConnectionString("{Event Hub connection string}");
+var eventHubClient = EventHubClient.CreateFromConnectionString("{Event Hubs connection string}");
 ```
 
-Para editar a cadeia de conexão programaticamente, você pode usar a classe [**EventHubsConnectionStringBuilder**](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) e passar a cadeia de conexão como um parâmetro para [**EventHubClient.CreateFromConnectionString**](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_).
+Para editar a cadeia de conexão programaticamente, você pode usar a classe [EventHubsConnectionStringBuilder](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) e passar a cadeia de conexão como um parâmetro para [EventHubClient.CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_).
 
 ```csharp
-var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hub connection string}")
+var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hubs connection string}")
 {
     EntityPath = EhEntityPath
 };
@@ -49,7 +49,7 @@ var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringB
 ```
 
 ### <a name="send-events"></a>Enviar eventos
-Para enviar eventos para um Hub de Eventos, use a classe [**EventData**](/dotnet/api/microsoft.azure.eventhubs.eventdata). O corpo deve ser uma matriz `byte` ou um segmento de matriz `byte`.
+Para enviar eventos a um hub de eventos, use a classe [EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata). O corpo deve ser uma matriz `byte` ou um segmento de matriz `byte`.
 
 ```csharp
 // Create a new EventData object by encoding a string as a byte array
@@ -61,13 +61,12 @@ await eventHubClient.SendAsync(data);
 ```
 
 ### <a name="receive-events"></a>Receber eventos
-A maneira recomendada para receber eventos de Hubs de Eventos é usar o [**EventProcessorHost**](##Event-Processor-Host-APIs), que fornece funcionalidade para controlar automaticamente o deslocamento e as informações de partição. No entanto, há algumas situações em que você talvez queira usar a flexibilidade da biblioteca principal do Hubs de Eventos para receber eventos.
+A maneira recomendada de receber eventos dos Hubs de Eventos é usar o [Host do Processador de Eventos](#event-processor-host-apis), que fornece funcionalidade para controlar automaticamente o deslocamento e as informações de partição. No entanto, há algumas situações em que você talvez queira usar a flexibilidade da biblioteca principal do Hubs de Eventos para receber eventos.
 
 #### <a name="create-a-receiver"></a>Criar um receptor
-Destinatários estão vinculados a partições específicas, então para receber todos os eventos em um Hub de Eventos, você precisará criar várias instâncias. Em geral, é uma boa prática para obter as informações de partição de forma programática, em vez de embutir a ID de partição. Para fazer isso, você pode usar o [ **GetRuntimeInformationAsync** ](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) método.
+Os destinatários estão vinculados a partições específicas, então, para receber todos os eventos em um hub de eventos, você precisará criar várias instâncias. Em geral, é uma boa prática para obter as informações de partição de forma programática, em vez de embutir a ID de partição. Para fazer isso, você pode usar o método [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync).
 
 ```csharp
-
 // Create a list to keep track of the receivers
 var receivers = new List<PartitionReceiver>();
 // Use the eventHubClient created above to get the runtime information
@@ -82,12 +81,12 @@ foreach (var partitionId in runTimeInformation.PartitionIds)
 }
 ```
 
-Como eventos nunca são removidos de um Hub de evento (e apenas expirarem), você precisará especificar o ponto de partida adequado. O exemplo a seguir mostra as combinações possíveis.
+Como os eventos nunca são removidos de um hub de eventos (e apenas expiram), é preciso especificar o ponto de partida adequado. O exemplo a seguir mostra as combinações possíveis.
 
 ```csharp
 // partitionId is assumed to come from GetRuntimeInformationAsync()
 
-// Using the constant 'PartitionReceiver.EndOfStream' will only receive all messages from this point forward.
+// Using the constant PartitionReceiver.EndOfStream only receives all messages from this point forward.
 var receiver = eventHubClient.CreateReceiver(PartitionReceiver.DefaultConsumerGroupName, partitionId, PartitionReceiver.EndOfStream);
 
 // All messages available
@@ -124,7 +123,7 @@ Essas APIs fornecem resiliência aos processos de trabalho que podem se tornar i
 
 // Read these connection strings from a secure location
 var ehConnectionString = "{Event Hubs connection string}";
-var ehEntityPath = "{Event Hub path/name}";
+var ehEntityPath = "{event hub path/name}";
 var storageConnectionString = "{Storage connection string}";
 var storageContainerName = "{Storage account container name}";
 
@@ -188,8 +187,3 @@ As referências de API .NET estão aqui:
 
 * [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
 * [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

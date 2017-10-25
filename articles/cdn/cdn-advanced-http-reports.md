@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
 ms.openlocfilehash: 2dfbc046674b2da692f30c945aee3ea25ae524eb
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analisar estatísticas de uso com os relatórios HTTP avançados da CDN do Azure
 ## <a name="overview"></a>Visão geral
@@ -203,10 +203,4 @@ Diretamente abaixo do gráfico de barras, as informações a seguir serão lista
 * [Estatísticas em tempo real na CDN do Microsoft Azure](cdn-real-time-stats.md)
 * [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-rules-engine.md)
 * [Analisar o desempenho de borda](cdn-edge-performance.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

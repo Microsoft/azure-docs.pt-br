@@ -15,13 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 02/08/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 08682b7986cc2210ed21f254e2a9a63b5355e583
-ms.openlocfilehash: bfed40417d800e86de7ef437c42162b1e1a0d886
-ms.lasthandoff: 02/24/2017
-
+ms.openlocfilehash: 26f5e71f3d00161a92de702209e224008ec8a5ae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Dimensionar os níveis de recursos para cargas de trabalho de consulta e indexação na Pesquisa do Azure
 Depois que você [escolhe um tipo de preço](search-sku-tier.md) e [provisiona um serviço de pesquisa](search-create-service-portal.md), a próxima etapa é, como opção, aumentar o número de réplicas ou partições usadas pelo serviço. Cada camada oferece um número fixo de unidades de cobrança. Este artigo explica como alocar essas unidades para obter uma configuração ideal que equilibra os requisitos para execução da consulta, indexação e armazenamento.
 
@@ -75,7 +74,7 @@ Recomendações gerais para alta disponibilidade são:
 
 Os SLAs (contratos de nível de serviço) do Azure Search são direcionados a operações de consulta e a atualizações de índice formadas pela adição, atualização ou exclusão de documentos.
 
-### <a name="index-availability-during-a-rebuild"></a>Disponibilidade de índice durante uma recompilação###
+### <a name="index-availability-during-a-rebuild"></a>Disponibilidade de índice durante uma recompilação
 
 A alta disponibilidade para a Pesquisa do Azure pertence a consultas e atualizações de índice que não envolvem a recompilação de um índice. Se você excluir um campo, alterar um tipo de dados ou renomear um campo, será necessário recompilar o índice. Para recompilar o índice, é necessário excluir o índice, recriar o índice e recarregar os dados.
 
@@ -128,4 +127,3 @@ SUs, preço e capacidade são explicados detalhadamente no site do Azure. Para o
 A fórmula para calcular quantas SUs são usadas para combinações específicas é o produto de réplicas e partições ou (R X P = SU). Por exemplo, três réplicas multiplicadas por três partições são cobradas como nove SUs.
 
 O custo por SU é determinado pela camada, com uma taxa de cobrança por unidade menor para Básico que para Standard. As taxas de cada camada podem ser encontradas em [Detalhes de Preço](https://azure.microsoft.com/pricing/details/search/).
-

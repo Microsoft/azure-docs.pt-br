@@ -19,8 +19,3 @@ Quando você pausa um banco de dados:
 * O armazenamento de dados não é afetado e seus dados permanecem intactos. 
 * O SQL Data Warehouse cancela todas as operações em execução ou em fila.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

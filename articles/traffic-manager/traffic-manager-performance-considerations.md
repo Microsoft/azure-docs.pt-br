@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
 ms.openlocfilehash: f686685138625a53971f1fc5fc754fd22c9d67b2
-ms.lasthandoff: 03/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="performance-considerations-for-traffic-manager"></a>Considerações de desempenho sobre Gerenciador de Tráfego
 
 Esta página explica as considerações de desempenho usando o Gerenciador de Tráfego. Considere este cenário:
@@ -33,7 +32,7 @@ O único impacto sobre o desempenho que o Gerenciador de Tráfego pode no seu si
 
 O Gerenciador de Tráfego é composto por vários componentes: servidores de nome DNS, um serviço de API, a camada de armazenamento e um serviço de monitoramento de ponto de extremidade. Se um componente de serviço do Gerenciador de Tráfego falhar, não haverá nenhum efeito sobre o nome DNS associado ao perfil do Gerenciador de Tráfego. Os registros nos servidores DNS da Microsoft permanecem inalterados. No entanto, o monitoramento de ponto de extremidade e a atualização de DNS não acontecem. Portanto, o Gerenciador de Tráfego não consegue atualizar o DNS para apontar para seu site de failover quando seu site primário fica inativo.
 
-A resolução de nome DNS é rápida e os resultados são armazenados em cache. A velocidade da pesquisa DNS inicial depende dos servidores DNS que o cliente usa para resolução de nomes. Normalmente, um cliente pode concluir uma pesquisa de DNS em cerca de&50; ms. Os resultados da pesquisa são armazenados em cache durante a TTL (vida útil) do DNS. A TTL padrão para o Gerenciador de Tráfego é de 300 segundos.
+A resolução de nome DNS é rápida e os resultados são armazenados em cache. A velocidade da pesquisa DNS inicial depende dos servidores DNS que o cliente usa para resolução de nomes. Normalmente, um cliente pode concluir uma pesquisa de DNS em cerca de 50 ms. Os resultados da pesquisa são armazenados em cache durante a TTL (vida útil) do DNS. A TTL padrão para o Gerenciador de Tráfego é de 300 segundos.
 
 O tráfego NÃO flui pelo Gerenciador de Tráfego. Uma vez concluída a pesquisa DNS, o cliente tem um endereço IP para uma instância do seu site. O cliente conecta-se diretamente ao endereço e não passa pelo Gerenciador de Tráfego. A política do Gerenciador de Tráfego que você escolhe não tem nenhuma influência sobre o desempenho do DNS. No entanto, um método de roteamento de Desempenho pode afetar negativamente a experiência do aplicativo. Por exemplo, se sua política redirecionar tráfego da América do Norte para uma instância hospedada na Ásia, a latência de rede para essas sessões poderá causar um problema de desempenho.
 
@@ -86,5 +85,4 @@ As ferramentas nesses sites medem as latências de DNS e exibem os endereços IP
 [Operações no Gerenciador de Tráfego (referência de API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
-
 

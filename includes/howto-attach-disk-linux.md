@@ -1,5 +1,5 @@
 
-Para saber mais sobre discos, consulte [Sobre discos e VHDs para máquinas virtuais](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para saber mais sobre discos, consulte [Sobre discos e VHDs para máquinas virtuais](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 <a id="attachempty"></a>
 

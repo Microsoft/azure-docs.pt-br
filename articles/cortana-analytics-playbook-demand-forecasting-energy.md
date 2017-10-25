@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2016
 ms.author: ilanr9;yijichen;garye
-translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 0c07495a932c8bfdabb97e8eebe8d99de19fbd15
-ms.lasthandoff: 01/30/2017
-
-
+ms.openlocfilehash: 275e387878900154660d044b26ff5ac03a17a65a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Manual do Modelo de Solução do Cortana Intelligence para a previsão de demanda de energia
 ## <a name="executive-summary"></a>Resumo executivo
-Nos últimos anos, a Internet das Coisas (IoT), fontes de energia alternativas e Big Data foram mesclados para criar grandes oportunidades no domínio de serviços e de energia. Ao mesmo tempo, o setor de energia e o setor de serviços têm visto a estagnação do consumo, com os clientes exigindo maneiras melhores de controlar o uso da energia. Portanto, as empresas de rede inteligente e de serviços têm grande necessidade de inovar e de renovar a si mesmos. Além disso, muitas redes de energia e de serviços estão ficando desatualizadas e muito caras de manter e de gerenciar. No ano passado, a equipe trabalhou em vários compromissos no domínio da energia. Durante esses compromissos, encontramos muitos casos em que os ISVs (fornecedores independentes de software) ou as empresas de serviços procuravam previsões sobre a futura demanda de energia. Essas previsões desempenham um papel importante nos negócios atuais e futuros e tornaram-se a base para vários casos de uso. Elas incluem, a curto e a longo prazos, a previsão, comércio, balanceamento de carga e otimização da rede da carga de energia, entre outras. Os métodos de big data e de Análise Avançada (AA), como o Aprendizado de Máquina, são os principais motivadores para a produção de previsões precisas e confiáveis.  
+Nos últimos anos, a Internet das Coisas (IoT), fontes de energia alternativas e Big Data foram mesclados para criar grandes oportunidades no domínio de serviços e de energia. Ao mesmo tempo, o setor de energia e o setor de serviços têm visto a estagnação do consumo, com os clientes exigindo maneiras melhores de controlar o uso da energia. Portanto, as empresas de rede inteligente e de serviços têm grande necessidade de inovar e de renovar a si mesmos. Além disso, muitas redes de energia e de serviços estão ficando desatualizadas e muito caras de manter e de gerenciar. No ano passado, a equipe trabalhou em vários compromissos no domínio da energia. Durante esses compromissos, encontramos muitos casos em que os ISVs (fornecedores independentes de software) ou as empresas de serviços procuravam previsões sobre a futura demanda de energia. Essas previsões desempenham um papel importante nos negócios atuais e futuros e tornaram-se a base para vários casos de uso. Elas incluem, a curto e a longo prazos, a previsão, comércio, balanceamento de carga e otimização da rede da carga de energia, entre outras. Os métodos de big data e de Análise Avançada (AA), como o Machine Learning, são os principais motivadores para a produção de previsões precisas e confiáveis.  
 
 Neste manual, reunimos as diretrizes de negócios e analíticas necessárias para o desenvolvimento e a implantação bem-sucedidos de uma solução de previsão de demanda de energia. Essas diretrizes propostas podem ajudar empresas de serviços, cientistas de dados e engenheiros de dados no estabelecimento de soluções totalmente operacionalizadas, baseadas em nuvem, de previsão de demanda. Para as empresas que estejam começando sua jornada de big data e de análise avançada, essa solução poderá representar a semente da estratégia de rede inteligente a longo prazo.
 
@@ -33,7 +32,7 @@ Neste manual, reunimos as diretrizes de negócios e analíticas necessárias par
 > 
 
 ## <a name="overview"></a>Visão geral
-Este documento aborda os negócios, os dados e os aspectos técnicos do uso do Cortana Intelligence e, especialmente, o AML (Aprendizado de Máquina do Azure) para a implementação e implantação de Soluções de Previsão de Energia. O documento consiste em três partes principais:  
+Este documento aborda os negócios, os dados e os aspectos técnicos do uso do Cortana Intelligence e, especialmente, o AML (Azure Machine Learning) para a implementação e implantação de Soluções de Previsão de Energia. O documento consiste em três partes principais:  
 
 1. Noções básicas sobre negócios  
 2. Noções básicas sobre dados  
@@ -50,7 +49,7 @@ Além disso, o documento inclui material de referência que você pode usar para
 É importante observar que, neste documento, não pretendemos abordar o processo de ciência de dados mais profundo, seus aspectos técnicos e matemáticos. Esses detalhes podem ser encontrados na documentação do [AM do Azure](http://azure.microsoft.com/services/machine-learning/) e em [blogs](http://blogs.microsoft.com/blog/tag/azure-machine-learning/).
 
 ### <a name="target-audience"></a>Público-alvo
-O público-alvo deste documento é o pessoal comercial e técnico que deseja obter conhecimento e compreensão das soluções baseadas em Aprendizado de Máquina e como elas estão sendo usadas especificamente no domínio da previsão de energia.
+O público-alvo deste documento é o pessoal comercial e técnico que deseja obter conhecimento e compreensão das soluções baseadas em Machine Learning e como elas estão sendo usadas especificamente no domínio da previsão de energia.
 
 Os cientistas de dados também podem se beneficiar da leitura deste documento para obter uma melhor compreensão do processo de alto nível que orienta a implantação de uma solução de previsão de energia. Neste contexto, ele também pode ser usado para estabelecer uma boa linha de base e um ponto de partida para um material mais detalhado e mais avançado.
 
@@ -161,7 +160,7 @@ O Cortana Intelligence e o aprendizado de máquina podem ser altamente eficazes 
 A qualificação de um caso de uso baseado nos critérios acima pode melhorar significativamente as taxas de êxito de um caso de uso e estabelecer uma boa base para a implementação de casos de uso futuros.
 
 ### <a name="cloud-based-solutions"></a>Soluções Baseadas em Nuvem
-O Cortana Intelligence Suite no Azure é um ambiente integrado que reside na nuvem. A implantação de uma solução de análise avançada em um ambiente de nuvem contém benefícios substanciais para as empresas e, ao mesmo tempo, pode significar uma grande mudança para as empresas que ainda usam soluções de TI no local. No setor de energia, há uma clara tendência de migração gradual de operações para a nuvem. Essa tendência anda de mãos dadas com o desenvolvimento da rede inteligente, como discutido acima, em **Tendências do Setor**. Como este manual se concentra em uma solução baseada em nuvem no domínio de energia, é importante explicar os benefícios e outras considerações de implantação de uma solução baseada em nuvem.
+O Cortana Intelligence Suite no Azure é um ambiente integrado que reside na nuvem. A implantação de uma solução de análise avançada em um ambiente de nuvem contém benefícios substanciais para as empresas e, ao mesmo tempo, pode significar uma grande mudança para as empresas que ainda usam soluções de TI locais. No setor de energia, há uma clara tendência de migração gradual de operações para a nuvem. Essa tendência anda de mãos dadas com o desenvolvimento da rede inteligente, como discutido acima, em **Tendências do Setor**. Como este manual se concentra em uma solução baseada em nuvem no domínio de energia, é importante explicar os benefícios e outras considerações de implantação de uma solução baseada em nuvem.
 
 Talvez a maior vantagem de uma solução baseada em nuvem seja o custo. Como as soluções utilizam componentes implantados na nuvem, não há custos iniciais ou COGS (Custo dos Bens Vendidos) associados a elas. Isso significa que não é necessário investir em hardware, software e na manutenção de TI e, portanto, há uma redução substancial dos riscos para o negócio.
 
@@ -172,7 +171,7 @@ Por fim, não há necessidade de investir em manutenção de TI ou em desenvolvi
 Para uma empresa que esteja iniciando sua transição para a nuvem, é altamente recomendável adotar uma abordagem gradual ao implementar um roteiro de migração na nuvem. Acreditamos que, para empresas de serviços e para as empresas no domínio de energia, os casos de uso abordados neste manual representam uma excelente oportunidade para a criação de pilotos de soluções de análise preditiva na nuvem.
 
 #### <a name="business-case-justification-considerations"></a>Considerações sobre a Justificativa de Casos de Negócios
-Em muitos casos, o cliente pode estar interessado em criar uma justificativa de negócios para um determinado caso de uso em que uma solução baseada em nuvem e o aprendizado de máquina são componentes importantes. Ao contrário de uma solução local, no caso de uma solução baseada em nuvem, o componente de custo inicial é mínimo e a maioria dos elementos de custo está associada ao uso real. Quando se trata de implantar uma solução de previsão de energia no Cortana Intelligence Suite, vários serviços podem ser integrados a uma única estrutura de custo comum. Por exemplo, os bancos de dados (*por exemplo*, o SQL Azure) podem ser usados para armazenar os dados brutos e, para as previsões reais, o AM do Azure será usado para hospedar os serviços de previsão. Neste exemplo, a estrutura de custo poderia incluir componentes transacionais e de armazenamento.
+Em muitos casos, o cliente pode estar interessado em criar uma justificativa de negócios para um determinado caso de uso em que uma solução baseada em nuvem e o Machine Learning são componentes importantes. Ao contrário de uma solução local, no caso de uma solução baseada em nuvem, o componente de custo inicial é mínimo e a maioria dos elementos de custo está associada ao uso real. Quando se trata de implantar uma solução de previsão de energia no Cortana Intelligence Suite, vários serviços podem ser integrados a uma única estrutura de custo comum. Por exemplo, os bancos de dados (*por exemplo*, o SQL Azure) podem ser usados para armazenar os dados brutos e, para as previsões reais, o AM do Azure será usado para hospedar os serviços de previsão. Neste exemplo, a estrutura de custo poderia incluir componentes transacionais e de armazenamento.
 
 Por outro lado, você deve ter uma boa compreensão do valor de negócio da operação de uma previsão de demanda de energia (a curto ou a longo prazo). Na verdade, é importante perceber o valor de negócio de cada operação de previsão. Por exemplo, prever uma carga de energia para as próximas 24 horas com precisão pode impedir a produção em excesso ou pode ajudar a impedir sobrecargas na rede, Isso pode ser quantificado em termos de economia financeira diariamente.
 
@@ -192,7 +191,7 @@ Isso é ilustrado no diagrama a seguir:
 O parágrafo a seguir descreve esse processo da 4 etapas:
 
 1. **Coleta de Dados** – qualquer solução baseada em análise avançada baseia-se em dados (veja **Noções básicas sobre dados**). Especificamente, quando se trata de análise preditiva e de previsão, nos baseamos em um fluxo de dados dinâmico e contínuo. No caso da previsão de demanda de energia, esses dados podem ser obtidos diretamente dos medidores inteligentes ou já podem estar agregados a um banco de dados local. Nós também utilizamos fontes de dados externas, como o clima e a temperatura. Esse fluxo contínuo de dados deve ser organizado, agendado e armazenado. [Data Factory do Azure](http://azure.microsoft.com/services/data-factory/) (ADF) é a nossa força de trabalho principal para realizar essa tarefa.
-2. **Modelagem** – para previsões de energia precisas e confiáveis, você deve desenvolver (treinar) e manter um excelente modelo que use os dados históricos e extraia os padrões significativos e de previsão dos dados. A área do Aprendizado de Máquina (AM) tem crescido rapidamente com algoritmos mais avançados, desenvolvidos de forma rotineira. O Estúdio AM do Azure fornece uma excelente experiência de usuário que ajuda a utilizar os algoritmos de AM mais avançados em um fluxo de trabalho completo. Esse fluxo de trabalho é ilustrado em um diagrama de fluxo intuitivo e inclui a preparação de dados, extração de recursos, modelagem e avaliação de modelos. O usuário pode reunir centenas de modelos variados que estão incluídos nesse ambiente. Até o final dessa fase, um cientista de dados terá um modelo de trabalho completamente avaliado e pronto para implantação.
+2. **Modelagem** – para previsões de energia precisas e confiáveis, você deve desenvolver (treinar) e manter um excelente modelo que use os dados históricos e extraia os padrões significativos e de previsão dos dados. A área do Machine Learning (ML) tem crescido rapidamente com algoritmos mais avançados, desenvolvidos de forma rotineira. O Estúdio AM do Azure fornece uma excelente experiência de usuário que ajuda a utilizar os algoritmos de AM mais avançados em um fluxo de trabalho completo. Esse fluxo de trabalho é ilustrado em um diagrama de fluxo intuitivo e inclui a preparação de dados, extração de recursos, modelagem e avaliação de modelos. O usuário pode reunir centenas de modelos variados que estão incluídos nesse ambiente. Até o final dessa fase, um cientista de dados terá um modelo de trabalho completamente avaliado e pronto para implantação.
    
    O diagrama a seguir é uma ilustração de um fluxo de trabalho típico:
    
@@ -401,5 +400,4 @@ O diagrama a seguir ilustra uma arquitetura típica do Cortana Intelligence que 
 ![Arquitetura de Implantação Completa](media/cortana-analytics-playbook-demand-forecasting-energy/architecture.png)
 
 Para saber mais sobre cada um dos componentes e sobre a arquitetura inteira, veja o Modelo de Solução de Energia.
-
 

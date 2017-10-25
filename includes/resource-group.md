@@ -1,0 +1,1 @@
+Um [grupo de recursos](../articles/azure-resource-manager/resource-group-overview.md#terminology) é um contêiner lógico no qual os recursos do Azure, como aplicativos Web, bancos de dados e contas de armazenamento, são implantados e gerenciados.

@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 08/30/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 0753fb3a4b08b3bda9da1f5a31c577b354197588
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: 535ea21a2c08be5f676ee24269b323a415b92607
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-networking-patterns"></a>Padrões de rede do Service Fabric
 Você pode integrar seu cluster do Azure Service Fabric a outros recursos de rede do Azure. Neste artigo, mostramos como criar clusters que usam os seguintes recursos:
@@ -74,7 +73,7 @@ DnsSettings              : {
 
 ### <a name="service-fabric-template"></a>Modelo do Service Fabric
 
-Nos exemplos neste artigo, usamos o template.json do Service Fabric. Você pode usar o Assistente do portal padrão para baixar o modelo por meio do Portal antes de criar um cluster. Você também pode usar um dos modelos da [galeria de modelos](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric), por exemplo o [cluster de cinco nós do Service Fabric](https://azure.microsoft.com/en-us/documentation/templates/service-fabric-unsecure-cluster-5-node-1-nodetype/).
+Nos exemplos neste artigo, usamos o template.json do Service Fabric. Você pode usar o Assistente do portal padrão para baixar o modelo por meio do Portal antes de criar um cluster. Você também pode usar um dos modelos da [galeria de modelos](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric), por exemplo o [cluster de cinco nós do Service Fabric](https://azure.microsoft.com/en-us/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 <a id="existingvnet"></a>
 ## <a name="existing-virtual-network-or-subnet"></a>Rede virtual ou sub-rede existente
@@ -599,4 +598,3 @@ Após a implantação, você poderá ver dois balanceadores de carga no grupo de
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um cluster](service-fabric-cluster-creation-via-arm.md)
-

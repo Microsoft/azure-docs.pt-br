@@ -1,6 +1,6 @@
 As Máquinas Virtuais do Azure têm suporte para a anexação de vários discos de dados. Para obter o desempenho ideal, você deverá limitar a quantidade de discos altamente utilizados anexados à máquina virtual para evitar possíveis limitações. A conta de armazenamento pode ter suporte para um grande número de discos, caso eles não sejam altamente utilizados ao mesmo tempo.
 
-* **Para Azure Managed Disks:** o limite de contagem de Managed Disks é regional para a assinatura. O limite flexível padrão é 2.000 por região, por assinatura. Para aumentar o limite, entre em contato com o suporte do Azure.
+* **Para Azure Managed Disks:** o limite de contagem de Managed Disks é regional e também depende do tipo de armazenamento. O padrão e também o limite máximo é 10.000 por assinatura, por região e por tipo de armazenamento. Por exemplo, você pode criar até 10.000 discos gerenciados standard e também 10.000 discos gerenciados premium em uma assinatura de uma região. 
 
     Os instantâneos e as imagens gerenciados são contados em relação ao limite de Managed Disks.
 

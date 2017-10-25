@@ -14,16 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: f8b0917b6eb0295641360c4e0a80e81100809f6e
-ms.openlocfilehash: e3ce01d20f6b47c6fe68fdbfe31679cc2c92f2e7
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 8ff76ea21ba684ae2a2afcb74d66b4912d7be053
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl"></a>Noções básicas sobre o esquema de nós para mapear um serviço web existente para OData por meio de CSDL
 > [!IMPORTANT]
-> **Neste momento, não estamos mais realizando a integração de novos editores de Serviço de Dados. Novos serviços de dados não serão ser aprovados para listagem.** Se você tiver um aplicativo de negócios de SaaS que deseja publicar no AppSource, encontre mais informações [aqui](https://appsource.microsoft.com/partners). Se você tiver aplicativos de IaaS ou serviços de desenvolvedor para publicar no Azure Marketplace, encontre mais informações [aqui](https://azure.microsoft.com/marketplace/programs/certified/).
+> **Neste momento, não estamos mais realizando a integração de novos editores de Serviço de Dados. Novos serviços de dados não serão ser aprovados para listagem.** Se você tiver um aplicativo de negócios de SaaS que quer publicar no AppSource, encontre mais informações [aqui](https://appsource.microsoft.com/partners). Se você tiver aplicativos de IaaS ou serviços de desenvolvedor para publicar no Azure Marketplace, encontre mais informações [aqui](https://azure.microsoft.com/marketplace/programs/certified/).
 >
 >
 
@@ -53,8 +52,7 @@ Há detalhes sobre esse nó [aqui][MSDNFunctionImportLink](https://msdn.microsof
 
 A seguir estão os atributos adicionais (ou adições aos atributos) que são expostos pelo nó FunctionImport:
 
-**d:BaseUri** -
-O modelo de URI do recurso REST que é exposto no Marketplace. O Marketplace usa o modelo para construir consultas ao serviço web de REST. O modelo de URI contém espaços reservados para os parâmetros na forma {parameterName}, onde o parameterName é o nome do parâmetro. Ex.: apiVersion={apiVersion}.
+**d:BaseUri** - O modelo de URI do recurso REST que é exposto no Marketplace. O Marketplace usa o modelo para construir consultas ao serviço web de REST. O modelo de URI contém espaços reservados para os parâmetros na forma {parameterName}, onde o parameterName é o nome do parâmetro. Ex.: apiVersion={apiVersion}.
 Os parâmetros podem ser exibidos como parâmetros de URI ou como parte do caminho do URI. É obrigatórios que sempre apareçam no caminho (não podem ser marcados como anuláveis). *Exemplo:* `d:BaseUri="http://api.MyWeb.com/Site/{url}/v1/visits?start={start}&amp;end={end}&amp;ApiKey=3fadcaa&amp;Format=XML"`
 
 **Nome** - o nome da função importada.  Não pode ser o mesmo que outros nomes definidos no CSDL.  Ex.: Name="GetModelUsageFile"
@@ -157,7 +155,7 @@ Uma página de documento detalhada muito útil sobre o nó de "Elemento do parâ
 | Atributo de parâmetro | Obrigatório | Valor |
 | --- | --- | --- |
 | Nome |Sim |O nome do parâmetro. Diferencia maiúsculas de minúsculas!  Corresponde o caso de BaseUri. **Exemplo:** `<Property Name="IsDormant" Type="Byte" />` |
-| Tipo |Sim |O tipo de parâmetro. O valor deve ser um **EDMSimpleType** ou um tipo complexo que está dentro do escopo do modelo. Para obter mais informações, consulte "Os&6; tipos de propriedade/parâmetro compatíveis".  (Diferencia maiúsculas de minúsculas! O primeiro caractere é maiúsculo, os demais são minúsculos.)  Confira também [Tipos de modelo conceituais (CSDL)][MSDNParameterLink](http://msdn.microsoft.com/library/bb399548.aspx). **Exemplo:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
+| Tipo |Sim |O tipo de parâmetro. O valor deve ser um **EDMSimpleType** ou um tipo complexo que está dentro do escopo do modelo. Para obter mais informações, consulte "Os 6 tipos de propriedade/parâmetro compatíveis".  (Diferencia maiúsculas de minúsculas! O primeiro caractere é maiúsculo, os demais são minúsculos.)  Confira também [Tipos de modelo conceituais (CSDL)][MSDNParameterLink](http://msdn.microsoft.com/library/bb399548.aspx). **Exemplo:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
 | Mode |Não |**In**, Out ou InOut dependendo se o parâmetro é uma entrada, saída ou parâmetro de entrada/saída. (Somente "IN" está disponível no Azure Marketplace.) **Exemplo:** `<Parameter Name="StudentID" Mode="In" Type="Int32" />` |
 | MaxLength |Não |O comprimento máximo permitido do parâmetro. **Exemplo:** `<Property Name="URI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />` |
 | Precisão |Não |A precisão do parâmetro. **Exemplo:** `<Property Name="PreviousDate" Type="DateTime" Precision="0" />` |
@@ -199,8 +197,7 @@ A expressão XPath deve ser /foo/bar porque cada nó de barra é o nó repetido 
 ## <a name="property-node"></a>Nó de propriedade
 Esse nó contém uma propriedade do registro.
 
-Os detalhes sobre esse nó podem ser encontrados em [http://msdn.microsoft.com/library/bb399546.aspx](http://msdn.microsoft.com/library/bb399546.aspx) (Use a lista suspensa **Outra versão** para selecionar uma versão diferente, se for necessário, para exibir a documentação). *Exemplo:*
-        `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
+Os detalhes sobre esse nó podem ser encontrados em [http://msdn.microsoft.com/library/bb399546.aspx](http://msdn.microsoft.com/library/bb399546.aspx) (Use a lista suspensa **Outra versão** para selecionar uma versão diferente, se for necessário, para exibir a documentação). *Exemplo:* `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
         <Property Name="Name"     Type="String" Nullable="true" d:Map="./Service/Name" d:IsPrimaryKey="true" DefaultValue=”Joe Doh” MaxLength="25" FixedLength="true" />
         ...
         </EntityType>`
@@ -275,4 +272,3 @@ A seguir estão os tipos compatíveis para parâmetros e propriedades. (Diferenc
 * Se estiver interessado em entender o processo e a finalidade geral do mapeamento de OData, leia este artigo [Mapeamento OData de Serviço de Dados](marketplace-publishing-data-service-creation-odata-mapping.md) para examinar as definições, as estruturas e as instruções.
 * Se estiver interessado em examinar exemplos, leia este artigo [Exemplos de mapeamento OData de Serviço de Dados](marketplace-publishing-data-service-creation-odata-mapping-examples.md) para ver um código de exemplo e compreender a sintaxe do código e o contexto.
 * Para retornar ao caminho indicado para a publicação de um Serviço de Dados no Azure Marketplace, leia este artigo [Guia de publicação de Serviço de Dados](marketplace-publishing-data-service-creation.md).
-

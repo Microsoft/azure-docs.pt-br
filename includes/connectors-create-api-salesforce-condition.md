@@ -16,8 +16,3 @@ Essa condição avaliará o campo de endereço de email de cada novo cliente pot
    ![Imagem de condição do Salesforce 7](./media/connectors-create-api-salesforce/condition-7.png)  
 8. Salve seus aplicativos lógicos.  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

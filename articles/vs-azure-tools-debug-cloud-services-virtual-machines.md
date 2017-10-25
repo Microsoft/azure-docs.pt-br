@@ -3,8 +3,8 @@ title: "Depurando um serviço de nuvem ou uma máquina virtual do Azure no Visua
 description: "Depuração de um Serviço de Nuvem ou Máquina Virtual no Visual Studio"
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 945e06e0-2100-41af-b218-72347367ddab
 ms.service: visual-studio-online
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: dd9019a6feb86d90fc6219b06bf1e69da4c2b18f
-
-
+ms.author: kraigb
+ms.openlocfilehash: 66f0a9b591b812a52dc6037dcfcb64a2c250f05c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="debugging-an-azure-cloud-service-or-virtual-machine-in-visual-studio"></a>Depurando um serviço de nuvem ou máquina virtual do Azure no Visual Studio
 O Visual Studio oferece a você opções diferentes de depuração dos serviços de nuvem e das máquinas virtuais do Azure.
@@ -26,7 +26,7 @@ O Visual Studio oferece a você opções diferentes de depuração dos serviços
 ## <a name="debug-your-cloud-service-on-your-local-computer"></a>Depurar o serviço de nuvem no computador local
 Você pode economizar tempo e dinheiro usando o emulador de computação para depurar o serviço de nuvem em um computador local. Ao depurar um serviço localmente antes de implantá-lo, você pode aprimorar a confiabilidade e o desempenho sem pagar pelo tempo de computação. No entanto, alguns erros podem ocorrer somente quando você executa um serviço de nuvem no Azure em si. Você poderá depurar esses erros se habilitar a depuração remota quando publica o serviço e depois anexar o depurador a uma instância de função.
 
-O emulador simula o serviço de computação do Azure e o executa no ambiente local para que você possa testar e depurar o serviço de nuvem antes de implantá-lo. O emulador trata o ciclo de vida das instâncias de função e fornece acesso a recursos simulados, como armazenamento local. Quando você depura ou executa seu serviço no Visual Studio, ele inicia automaticamente o emulador como um aplicativo em segundo plano e, em seguida, implanta o serviço para o emulador. É possível usar o emulador para exibir o serviço quando ele é executado no ambiente local. Você pode executar a versão completa ou a versão expressa do emulador. (A partir do Azure 2.3, a versão expressa do emulador é o padrão). Consulte [Usando o Emulator Expresso para executar e depurar um serviço de nuvem localmente](https://msdn.microsoft.com/library/dn339018.aspx).
+O emulador simula o serviço de computação do Azure e o executa no ambiente local para que você possa testar e depurar o serviço de nuvem antes de implantá-lo. O emulador trata o ciclo de vida das instâncias de função e fornece acesso a recursos simulados, como armazenamento local. Quando você depura ou executa seu serviço no Visual Studio, ele inicia automaticamente o emulador como um aplicativo em segundo plano e, em seguida, implanta o serviço para o emulador. É possível usar o emulador para exibir o serviço quando ele é executado no ambiente local. Você pode executar a versão completa ou a versão expressa do emulador. (A partir do Azure 2.3, a versão expressa do emulador é o padrão). Consulte [Usando o Emulator Expresso para executar e depurar um serviço de nuvem localmente](vs-azure-tools-emulator-express-debug-run.md).
 
 ### <a name="to-debug-your-cloud-service-on-your-local-computer"></a>Para depurar o serviço de nuvem no computador local
 1. Na barra de menus, escolha **Depurar**, **Iniciar Depuração** para executar o projeto de serviço de nuvem do Azure. Como alternativa, você pode pressionar F5. Será exibida uma mensagem informando que o Emulador de Computação está sendo iniciado. Quando o emulador é iniciado, o ícone da bandeja do sistema o confirma.
@@ -165,9 +165,3 @@ Os projetos ASP.NET do Visual Studio oferecem uma opção para criar uma máquin
 ## <a name="next-steps"></a>Próximas etapas
 * Use o **Intellitrace** para coletar um log de chamadas e eventos de um servidor de liberação. Consulte [Depurando um serviço de nuvem publicado com o IntelliTrace e o Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016).
 * Use o **Diagnóstico do Azure** para registrar em log informações detalhadas do código em execução nas funções, estejam elas em execução no ambiente de desenvolvimento ou no Azure. Consulte [Coletando dados de log usando o Diagnóstico do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

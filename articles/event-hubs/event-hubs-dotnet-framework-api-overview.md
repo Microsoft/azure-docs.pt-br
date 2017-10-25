@@ -12,25 +12,25 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
-ms.author: jotaub;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: 0e59d117bd9a1355b5b58c76cf9b39ec3005b122
-
-
+ms.date: 08/15/2017
+ms.author: sethm
+ms.openlocfilehash: bc525e7ca8b21e9e5f1e36b3152d71420b041700
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Visão geral da API do .NET Framework de Hubs de Eventos
 Este artigo resume algumas das principais APIs de cliente .NET Framework de Hubs de Eventos. Há duas categorias: APIs de gerenciamento e de tempo de execução. As APIs de tempo de execução consistem de todas as operações necessárias para enviar e receber uma mensagem. Operações de gerenciamento permitem gerenciar um estado da entidade Hubs de Eventos, ao criar, atualizar e excluir entidades.
 
-Os cenários de monitoramento abrangem tanto o gerenciamento quanto o tempo de execução. Para obter a documentação de referência detalhada sobre as APIs .NET, veja as referências [.NET do Barramento de Serviço](/dotnet/api) e [API EventProcessorHost](/dotnet/api).
+Os cenários de monitoramento abrangem tanto o gerenciamento quanto o tempo de execução. Para obter a documentação de referência detalhada sobre as APIs .NET, veja as referências [.NET do Barramento de Serviço](/dotnet/api/microsoft.servicebus.messaging) e [API EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor).
 
 ## <a name="management-apis"></a>APIs de gerenciamento
 Para executar as seguintes operações de gerenciamento, você deve ter permissões para **Gerenciar** no namespace de Hubs de Eventos:
 
 ### <a name="create"></a>Criar
 ```csharp
-// Create the Event Hub
+// Create the event hub
 var ehd = new EventHubDescription(eventHubName);
 ehd.PartitionCount = SampleManager.numPartitions;
 await namespaceManager.CreateEventHubAsync(ehd);
@@ -126,7 +126,7 @@ await host.RegisterEventProcessorAsync<SimpleEventProcessor>();
 await host.UnregisterEventProcessorAsync();
 ```
 
-A interface [IEventProcessor](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) é definida da seguinte maneira:
+A interface [IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) é definida da seguinte maneira:
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -177,10 +177,4 @@ Para saber mais sobre os cenários de Hubs de Eventos, consulte estes links:
 As referências de API .NET estão aqui:
 
 * [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
-* [Microsoft.Azure.ServiceBus.EventProcessorHost](/dotnet/api/microsoft.azure.servicebus.eventprocessorhost)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+* [Microsoft.Azure.EventHubs.EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)

@@ -3,7 +3,7 @@ title: Gerenciar as capturas de pacotes com o Observador de Rede do Azure - port
 description: "Esta página explica como gerenciar o recurso de captura de pacotes do Observador de Rede usando o portal do Azure"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 59edd945-34ad-4008-809e-ea904781d918
@@ -13,25 +13,23 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: c309151e3e3aa6ff235f0dee2ddf975940f34f44
-ms.lasthandoff: 03/24/2017
-
+ms.author: jdial
+ms.openlocfilehash: 818f6513625a2677668dd6b6869ef969fe015bf7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gerenciar as capturas de pacotes com o Observador de Rede do Azure usando o portal
 
 > [!div class="op_single_selector"]
 > - [Portal do Azure](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [CLI](network-watcher-packet-capture-manage-cli.md)
-> - [API REST](network-watcher-packet-capture-manage-rest.md)
+> - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
+> - [API REST do Azure](network-watcher-packet-capture-manage-rest.md)
 
-A captura de pacotes do Observador de Rede permite que você crie sessões de captura para controlar o tráfego para e a partir de uma máquina virtual. Os filtros são fornecidos para a sessão de captura garantir que somente o tráfego que você deseja capturar. Captura de pacote ajuda a diagnosticar problemas de rede reativo e proativo. Outros usos incluem a coleta de estatísticas de rede, obter informações sobre as invasões de rede, para depurar comunicações cliente-servidor e muito mais. Por poder remotamente disparar a captura de pacote, esse recurso alivia a carga da execução de uma captura de pacote e manualmente no computador desejado, o que economiza tempo.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+Captura de pacote do Observador de Rede permite que você crie sessões de captura para controlar o tráfego em uma máquina virtual. Os filtros são fornecidos para a sessão de captura garantir que somente o tráfego que você deseja capturar. Captura de pacote ajuda a diagnosticar problemas de rede reativo e proativo. Outros usos incluem a coleta de estatísticas de rede, obter informações sobre as invasões de rede, para depurar comunicações cliente-servidor e muito mais. Por poder remotamente disparar a captura de pacote, esse recurso alivia a carga da execução de uma captura de pacote e manualmente no computador desejado, o que economiza tempo.
 
 Este artigo o guiará durante as tarefas de gerenciamento diferentes que estão atualmente disponíveis para captura de pacote.
 
@@ -48,7 +46,7 @@ Este artigo pressupõe que você tem os seguintes recursos:
 - Uma máquina virtual com a extensão da captura de pacotes habilitada.
 
 > [!IMPORTANT]
-> A captura de pacotes requer uma extensão da máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/virtual-machines-windows-extensions-nwa.md) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/virtual-machines-linux-extensions-nwa.md).
+> A captura de pacotes requer uma extensão da máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ### <a name="packet-capture-agent-extension-through-the-portal"></a>Extensão do agente de Captura de Pacotes por meio do portal
 
@@ -88,7 +86,7 @@ As propriedades que podem ser definidas em uma captura de pacotes são:
 - **Caminho do arquivo local** - o caminho local em uma máquina virtual para salvar a captura de pacotes. (Habilitado somente se o **Arquivo** estiver selecionado). Um caminho válido deve ser fornecido
 - **Máximo de bytes por pacote** - o número de bytes capturados de cada pacote; todos os bytes serão capturados se deixado em branco.
 - **Máximo de bytes por sessão** – o número total de bytes capturados; quando o valor é atingido, a captura de pacotes é interrompida.
-- **Tempo limite (segundos)** -define um limite de tempo para a captura de pacotes parar. O padrão é 1.800 segundos.
+- **Tempo limite (segundos)** -define um limite de tempo para a captura de pacotes parar. O padrão é 18.000 segundos.
 
 > [!NOTE]
 > As contas de armazenamento Premium atualmente não têm suporte para armazenar as capturas de pacotes.
@@ -148,7 +146,6 @@ Localize se determinado tráfego é permitido dentro ou fora de sua VM visitando
 [3]: ./media/network-watcher-packet-capture-manage-portal/figure3.png
 [4]: ./media/network-watcher-packet-capture-manage-portal/figure4.png
 [agent]: ./media/network-watcher-packet-capture-manage-portal/agent.png
-
 
 
 

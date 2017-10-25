@@ -8,18 +8,17 @@ manager: lorenr
 editor: 
 ms.assetid: 1f8cd3ac-0522-48eb-a5f0-679ee9192ddb
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 08/01/2017
 ms.author: krnese
-translationtype: Human Translation
-ms.sourcegitcommit: 2b9a8b5d7b889926f1cdbb6787fea1579dd21190
-ms.openlocfilehash: 941bc07fa9be765403e8fe541caf660eef15585e
-ms.lasthandoff: 02/22/2017
-
-
+ms.openlocfilehash: bcc5f11afbecac8fe63935f3401dd3e2d767e8aa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>Implantar o serviço de Mobilidade com o DSC de Automação do Azure para replicação da VM
 No Operations Management Suite, oferecemos uma solução abrangente de backup e recuperação de desastre que pode ser usada como parte de seu plano de continuidade de negócios.
@@ -59,9 +58,8 @@ Este artigo fornece um exemplo de como você pode usar a DSC (Configuração de 
 * O WMF (Windows Management Framework) 5.0 instalado nos computadores que você deseja habilitar para proteção (requisito para o DSC de Automação)
 
   > [!NOTE]
-  > Se você quiser usar o DSC para computadores com Windows que tenham o WMF 4.0 instalado, consulte a seção [Usar o DSC em ambientes desconectados](#Use DSC in disconnected environments).
-  >
-  >
+  > Se você quiser usar o DSC para computadores com Windows que tenham o WMF 4.0 instalado, consulte a seção [Usar o DSC em ambientes desconectados](## Use DSC in disconnected environments).
+  
 
 O Serviço de Mobilidade pode ser instalado por meio da linha de comando e aceita vários argumentos. É por isso que você precisa ter os binários (após extraí-los de sua configuração) e armazená-los em algum lugar em que possa recuperá-los usando uma configuração de DSC.
 
@@ -511,5 +509,4 @@ New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois de implantar os agentes do Serviço de Mobilidade, você pode [habilitar a replicação](site-recovery-vmware-to-azure.md#enable-replication) para as máquinas virtuais.
-
+Depois de implantar os agentes do Serviço de Mobilidade, você pode [habilitar a replicação](site-recovery-vmware-to-azure.md) para as máquinas virtuais.

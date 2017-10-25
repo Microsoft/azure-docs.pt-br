@@ -1,12 +1,11 @@
-
 ---
-title: "Adicionar a ação de HTTP + Swagger em Aplicativos Lógicos | Microsoft Docs"
-description: "Visão geral das operações e da ação de HTTP + Swagger"
-services: 
-documentationcenter: 
+title: "Chamar pontos de extremidade REST com conector HTTP + Swagger para Aplicativo Lógico do Azure | Microsoft Docs"
+description: "Conectar-se aos pontos de extremidade REST de aplicativos lógicos por meio de Swagger com o conector HTTP + Swagger"
+services: logic-apps
 author: jeffhollan
-manager: erikre
+manager: anneta
 editor: 
+documentationcenter: 
 tags: connectors
 ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 ms.service: logic-apps
@@ -15,24 +14,24 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: c0edbe421050ad46f6d31fd6416df4b344b233ad
-ms.openlocfilehash: ade380b7fc6adfb929f42c0e6c75b3fa613c45b1
-ms.lasthandoff: 02/16/2017
-
-
+ms.author: jehollan; LADocs
+ms.openlocfilehash: 3e9229d94e96aad7b769d0e55d208d856e3b80bc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-http--swagger-action"></a>Introdução à ação de HTTP + Swagger
-Com a ação de HTTP + Swagger, você pode criar um conector de primeira classe para qualquer ponto de extremidade REST por meio de um [documento Swagger](https://swagger.io). Você também pode estender um aplicativo lógico para chamar qualquer ponto de extremidade REST com uma experiência de Designer de Aplicativo Lógico de primeira classe.
 
-Para começar com a ação HTTP + Swagger em um aplicativo lógico, confira [Criar um novo aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+Você pode criar um conector de primeira classe para qualquer ponto de extremidade REST por meio de um [documento Swagger](https://swagger.io) quando você usa a ação HTTP + Swagger no fluxo de trabalho de seu aplicativo lógico. Você também pode estender aplicativos lógicos para chamar qualquer ponto de extremidade REST com uma experiência de Designer de Aplicativo Lógico de primeira classe.
 
-- - -
+Para saber como criar aplicativos lógicos com conectores, consulte [Criar um novo aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+
 ## <a name="use-http--swagger-as-a-trigger-or-an-action"></a>Usar HTTP + Swagger como um gatilho ou uma ação
-As funções de gatilho e ação HTTP + Swagger funcionam da mesma forma que a [ação HTTP](connectors-native-http.md), porém, proporcionam uma melhor experiência de design, mostrando a forma da API e as saídas no designer dos [metadados do Swagger](https://swagger.io). Além disso, você pode usar HTTP + Swagger como um gatilho. Se você quiser implementar um gatilho de sondagem, ele deverá seguir o padrão de pesquisa descrito em [Criando uma API personalizada para usar com aplicativos lógicos](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
-[Saiba mais sobre gatilhos e ações de aplicativo lógico.](connectors-overview.md)
+O gatilho e ação HTTP + Swagger funcionam da mesma forma que a [ação HTTP](connectors-native-http.md), porém, proporcionam uma melhor experiência no Designer do Aplicativo Lógico mostrando a estrutura da API e as saídas dos [metadados do Swagger](https://swagger.io). Você também pode usar o conector HTTP + Swagger como um gatilho. Se você quiser implementar um gatilho de sondagem, siga o padrão de sondagem descrito em [Criar APIs personalizadas para chamar outras APIs, serviços e sistemas de aplicativos lógicos](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
+
+Saiba mais sobre [gatilhos e ações de aplicativo lógico](connectors-overview.md).
 
 Veja um exemplo de como usar a operação HTTP + Swagger como uma ação em um fluxo de trabalho em um aplicativo lógico.
 
@@ -49,17 +48,28 @@ Veja um exemplo de como usar a operação HTTP + Swagger como uma ação em um f
 6. Adicione todos os parâmetros necessários para a chamada HTTP.
    
     ![Concluir a ação HTTP](./media/connectors-native-http-swagger/using-action-2.png)
-7. Clique em **Salvar** no canto superior esquerdo da barra de ferramentas e seu aplicativo lógico será salvo e publicado (ativado).
+7. Para salvar e publicar seu aplicativo lógico, clique em **salvar** na barra de ferramentas do designer.
 
 ### <a name="host-swagger-from-azure-storage"></a>Hospedar o Swagger do Armazenamento do Azure
 Talvez você queira fazer referência a um documento do Swagger que não esteja hospedado ou que não atenda aos requisitos de segurança e entre origens do designer. Para resolver esse problema, você pode armazenar o documento do Swagger no Armazenamento do Azure e habilitar o CORS para fazer referência ao documento.  
 
 Veja as etapas para criar, configurar e armazenar documentos do Swagger no Armazenamento do Azure:
 
-1. [Crie uma conta de armazenamento do Azure com o armazenamento de Blobs do Azure](../storage/storage-create-storage-account.md). (Para fazer isso, defina as permissões como **Acesso Público**).
-2. Habilite o CORS no blob. Você pode usar [este script do PowerShell](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1) para definir a configuração automaticamente.
-3. Carregue o arquivo do Swagger no blob. Você pode fazer isso no [portal do Azure](https://portal.azure.com) ou em uma ferramenta como o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/).
-4. Faça referência a um link HTTPS para o documento no armazenamento de Blobs do Azure. (O link segue o formato `https://*storageAccountName*.blob.core.windows.net/*container*/*filename*`).
+1. [Crie uma conta de armazenamento do Azure com o armazenamento de Blobs do Azure](../storage/common/storage-create-storage-account.md). Para realizar essa etapa, defina as permissões como **Acesso Público**.
+
+2. Habilite o CORS no blob. 
+
+   Você pode usar [este script do PowerShell](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1) para definir essa configuração automaticamente.
+
+3. Carregue o arquivo do Swagger no blob. 
+
+   Você pode realizar essa etapa do [Portal do Azure](https://portal.azure.com) ou de uma ferramenta como o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/).
+
+4. Faça referência a um link HTTPS para o documento no armazenamento de Blobs do Azure. 
+
+   O link usa este formato:
+
+   `https://*storageAccountName*.blob.core.windows.net/*container*/*filename*`
 
 ## <a name="technical-details"></a>Detalhes técnicos
 A seguir, os detalhes dos gatilhos e das ações com suporte deste conector HTTP + Swagger.
@@ -91,7 +101,7 @@ Um asterisco (*) significa um campo obrigatório.
 | URI* |uri |URI da solicitação HTTP. |
 | Cabeçalhos |Cabeçalhos |Um objeto JSON de cabeçalhos HTTP a serem incluídos. |
 | Corpo |Corpo |O corpo da solicitação HTTP. |
-| Autenticação |Autenticação |A autenticação a ser usada para solicitação. [Para obter mais detalhes, consulte HTTP](connectors-native-http.md#authentication). |
+| Autenticação |Autenticação |A autenticação a ser usada para solicitação. Para obter mais informações, consulte [Conector HTTP](connectors-native-http.md#authentication). |
 
 **Detalhes de saída**
 
@@ -118,6 +128,6 @@ Ao fazer chamadas a várias ações, você pode obter determinadas respostas. A 
 
 - - -
 ## <a name="next-steps"></a>Próximas etapas
-Teste a plataforma e [crie um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md) agora mesmo. Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
 
-
+* [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Localizar outros conectores](apis-list.md)

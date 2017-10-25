@@ -4,9 +4,9 @@ description: "Saiba como conectar uma fonte de dados ao trabalho do Stream Analy
 keywords: dados de entrada, streaming de dados
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
-editor: cgronlun
+editor: 
 ms.assetid: 9e59bd24-2a80-4ecb-b6b2-309a07c70bcd
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,18 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f95fe2afab1205998f4c8401e162748b50ae9850
-ms.lasthandoff: 11/17/2016
-
-
+ms.author: samacha
+ms.openlocfilehash: 8bdbcf78f2892cbd1e1cc09cef220dff08dd9490
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Adicionar um fluxo de entrada ou dados de referência a um trabalho do Stream Analytics
 Saiba como conectar uma fonte de dados ao trabalho do Stream Analytics como fluxo de entrada de dados de Hubs de Eventos ou dados de referência do armazenamento de Blobs.
 
-Os trabalhos do Stream Analytics do Azure podem ser conectados a uma ou mais entradas de dados, o que define uma conexão com uma fonte de dados existente. Como os dados são enviados a essa fonte de dados, eles são consumidos pelo trabalho do Stream Analytics e processados em tempo real como dados de streaming. O Stream Analytics tem integração de primeira classe com [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/) e [Armazenamento de Blobs do Azure](../storage/storage-dotnet-how-to-use-blobs.md) dentro e fora da assinatura do trabalho.
+Os trabalhos do Stream Analytics do Azure podem ser conectados a uma ou mais entradas de dados, o que define uma conexão com uma fonte de dados existente. Como os dados são enviados a essa fonte de dados, eles são consumidos pelo trabalho do Stream Analytics e processados em tempo real como dados de streaming. O Stream Analytics tem integração de primeira classe com [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/) e [Armazenamento de Blobs do Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md) dentro e fora da assinatura do trabalho.
 
 Este artigo é uma etapa do [roteiro de aprendizagem do Stream Analytics](/documentation/learning-paths/stream-analytics/).
 
@@ -78,9 +77,8 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
-* [Introdução ao uso do Stream Analytics do Azure](stream-analytics-get-started.md)
+* [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

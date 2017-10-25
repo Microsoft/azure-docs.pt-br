@@ -80,8 +80,3 @@ Exemplo do Gerenciador de Tráfego no formato Json:
 ## <a name="additional-resources"></a>Recursos adicionais
 Leia a [documentação da API REST para o Gerenciador de Tráfego](https://msdn.microsoft.com/library/azure/mt163664.aspx) para saber mais.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

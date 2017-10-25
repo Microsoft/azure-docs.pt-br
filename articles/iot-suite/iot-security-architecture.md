@@ -13,16 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 07/03/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: de7db3f353f1f6c815ee61cbdfbf9b2b38471a8d
-ms.openlocfilehash: 938a08016b7566fde61e5b98a5da884ea9c5bd9d
-ms.lasthandoff: 03/02/2017
-
-
+ms.openlocfilehash: 2482dade7d17d05b2fc90fbf22b0466227a5983b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="internet-of-things-security-architecture"></a>Arquitetura de segurança da Internet das Coisas
 Durante a criação de um sistema, é importante compreender as ameaças potenciais para esse sistema e adicionar as defesas apropriadas da mesma forma, conforme o sistema é projetado e desenvolvido. É especialmente importante projetar o produto desde o início com segurança em mente porque a compreensão de como um invasor pode ser capaz de comprometer um sistema ajuda a garantir que as mitigações adequadas estão em vigor desde o início. 
 
@@ -98,7 +96,7 @@ Cada zona é separada por um limite de confiança, que é mostrada como a linha 
 
 Os componentes descritos em cada limite também estão sujeitos a STRIDE, permitindo uma exibição da modelagem de risco completa 360 da solução. As seções a seguir refletem sobre cada um dos componentes e soluções e preocupações de segurança específicas e que devem ser colocadas em vigor.
 
-As seções a seguir discutirão sobre os componentes standard geralmente encontrados nessas zonas.
+As seções a seguir discutirão sobre os componentes padrão geralmente encontrados nessas zonas.
 
 ### <a name="the-device-zone"></a>A zona de dispositivo
 O ambiente de dispositivo é o espaço físico imediato em torno do dispositivo no qual o acesso físico e/ou o acesso digital ponto a ponto de “rede local” ao dispositivo é possível. Uma "rede local" é considerada uma rede que é distinta e isolada da, mas potencialmente com ponte para, Internet pública e inclui qualquer tecnologia de rádio sem fio de curto alcance que permite a comunicação ponto a ponto de dispositivos. Ela *não* inclui qualquer tecnologia de virtualização de rede que cria a ilusão de uma rede local nem inclui redes de operador públicas que exigiriam que quaisquer dois dispositivos se comunicassem por meio do espaço de rede pública se entrassem em uma relação de comunicação ponto a ponto.
@@ -106,7 +104,7 @@ O ambiente de dispositivo é o espaço físico imediato em torno do dispositivo 
 ### <a name="the-field-gateway-zone"></a>A zona de gateway de campo
 Um gateway de campo é um dispositivo ou um software de computador servidor de finalidade geral que age como um habilitador de comunicação e, potencialmente, como um sistema de controle de dispositivo e um hub de processamento de dados do dispositivo. A zona do gateway de campo inclui o próprio gateway de campo e todos os dispositivos conectados a ele. Como o nome implica, os gateways de campo atuam fora dos recursos de processamento de dados dedicados, são geralmente associados ao local, são potencialmente sujeitos à invasão física e terão redundância operacional limitada. Tudo para dizer que um gateway de campo normalmente é algo que uma pessoa pode tocar e sabotar sabendo qual é sua função. 
 
-Um gateway de campo é diferente de um mero roteador de tráfego em que ele teve uma função ativa no gerenciamento de acesso e fluxo de informações, o que significa que ele é um terminal de sessão ou uma conexão de rede e entidade dirigida para o aplicativo. Um firewall ou dispositivos NAT, por outro lado, não se qualificam como gateways de campo, pois não são terminais de sessão ou conexão explícitos, mas sim sessões ou conexões de rota (ou bloqueio) feitas por meio deles. O gateway de campo tem duas áreas de superfície distintas. Uma é voltada para os dispositivos que estão conectados a ela e representa o interior da zona, e a outra é voltada para todos os parceiros externos e a borda da zona.   
+Um gateway de campo é diferente de um mero roteador de tráfego em que ele teve uma função ativa no gerenciamento de acesso e fluxo de informações, o que significa que ele é um terminal de sessão ou uma conexão de rede e entidade dirigida para o aplicativo. Um firewall ou dispositivos NAT, por outro lado, não se qualificam como gateways de campo, pois não são terminais de sessão nem de conexão explícitos, mas em vez disso roteiam (ou bloqueiam) sessões ou conexões feitas através deles. O gateway de campo tem duas áreas de superfície distintas. Uma é voltada para os dispositivos que estão conectados a ela e representa o interior da zona, e a outra é voltada para todos os parceiros externos e a borda da zona.   
 
 ### <a name="the-cloud-gateway-zone"></a>A zona de gateway de nuvem
 O gateway de nuvem é um sistema que permite a comunicação remota de e para dispositivos ou gateways de campo de diversos locais pelo espaço de rede pública, normalmente na direção de um controle baseado em nuvem e sistema de análise de dados, uma federação de tais sistemas. Em alguns casos, um gateway de nuvem pode imediatamente facilitar o acesso a dispositivos de finalidade especial de terminais, como telefones ou tablets. No contexto discutido aqui, "nuvem" destina-se a se referir a um sistema de processamento de dados dedicado que não está associado ao mesmo site que os dispositivos ou gateways de campo conectados. Além disso, em uma zona de nuvem, medidas operacionais impedem o acesso físico direcionado e não são necessariamente expostas a uma infraestrutura de "nuvem pública".  
@@ -129,7 +127,7 @@ Dispositivos de finalidade especial conectados têm um número significativo de 
 À medida que exploramos os padrões de interação, examinaremos o "controle de dispositivo" e os "dados de dispositivo" com o mesmo nível de atenção durante a modelagem de risco. O "controle de dispositivo" pode ser classificado como qualquer informação fornecida para um dispositivo por qualquer pessoa com o objetivo de alterar ou influenciar seu comportamento em relação ao seu estado ou o estado de seu ambiente. Os "dados de dispositivo" podem ser classificados como qualquer informação que um dispositivo emite para quaisquer terceiros sobre seu estado e o estado observado de seu ambiente. 
 
 ## <a name="threat-modeling-the-azure-iot-reference-architecture"></a>Fazendo a modelagem de risco da arquitetura de referência do IoT do Azure
-A Microsoft usa a estrutura descrita acima para fazer a modelagem de risco para a IoT do Azure. Na seção abaixo, portanto, usamos o exemplo concreto da arquitetura de referência da IoT do Azure para demonstrar como pensar sobre a modelagem de risco para IoT e como tratar as ameaças identificadas. Em nosso caso, identificamos quatro áreas principais de foco:
+A Microsoft usa a estrutura descrita acima para fazer a modelagem de ameaça para a IoT do Azure. Na seção abaixo, portanto, usamos o exemplo concreto da arquitetura de referência da IoT do Azure para demonstrar como pensar sobre a modelagem de risco para IoT e como tratar as ameaças identificadas. Em nosso caso, identificamos quatro áreas principais de foco:
 
 * Dispositivos e fontes de dados,
 * Transporte de dados,
@@ -169,7 +167,7 @@ Em cada uma das categorias de descritas na arquitetura e IoT do Azure, tentamos 
 | Dispositivo |S |Atribuição de identidade para o dispositivo e autenticação do dispositivo |Substituir o dispositivo ou parte dele por outro dispositivo. Como sabemos que estamos nos comunicando com o dispositivo certo? |Autenticar o dispositivo, usando o protocolo TLS ou IPsec. A infraestrutura deve dar suporte ao uso da PSK (chave pré-compartilhada) nos dispositivos que não conseguem lidar com a criptografia assimétrica completa. Aproveite o Azure AD, o [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
 | TRID |Aplicação de mecanismos à prova de violações no dispositivo, por exemplo, tornando muito difícil e até mesmo impossível extrair as chaves e outros materiais de criptografia do dispositivo. |O risco é se alguém está violando o dispositivo (interferência física). Como temos certeza de que o dispositivo não foi adulterado. |A mitigação mais eficaz é uma funcionalidade de TPM (trusted platform module) que permite armazenar chaves em circuitos on-chip especiais nos quais as chaves não podem ser lidas, mas apenas usadas para operações de criptografia que utilizam a chave, mas nunca a divulgam. Criptografia de memória do dispositivo. Gerenciamento de chaves para o dispositivo. Assinar o código. | |
 | E |Ter controle de acesso do dispositivo. Esquema de autorização. |Se o dispositivo permitir que ações individuais sejam executadas com base em comandos de uma fonte externa, ou até mesmo sensores comprometidos, isso permitirá que o ataque execute operações não acessíveis de outra forma. |Ter um esquema de autorização para o dispositivo | |
-| Gateway de campo |S |Autenticação do gateway de campo no gateway de nuvem (baseada em certificado, PSK, baseada em declarações etc.) |Se alguém pode falsificar o gateway de campo, pode se apresentar como qualquer dispositivo. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). As mesmas preocupações de confirmação e armazenamento de chave dos dispositivos em geral, o melhor caso é usar o TPM. Extensão de&6;LowPAN para o IPsec para dar suporte a WSN (Redes de Sensores Sem Fio). |
+| Gateway de campo |S |Autenticação do gateway de campo no gateway de nuvem (baseada em certificado, PSK, baseada em declarações etc.) |Se alguém pode falsificar o gateway de campo, pode se apresentar como qualquer dispositivo. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). As mesmas preocupações de confirmação e armazenamento de chave dos dispositivos em geral, o melhor caso é usar o TPM. Extensão de 6LowPAN para o IPsec para dar suporte a WSN (Redes de Sensores Sem Fio). |
 | TRID |Proteger o gateway de campo contra violação (TPM?) |Os ataques de falsificação que enganam gateway de nuvem pensando que ele está se comunicando com o gateway de campo podem resultar na divulgação não autorizada de informação e na violação dos dados. |Criptografia da memória, TPM, autenticação. | |
 | E |Mecanismo de controle de acesso para o gateway de campo | | | |
 
@@ -242,7 +240,7 @@ Um gateway de nuvem é o sistema que permite a comunicação remota de e para di
 O gateway de nuvem é principalmente uma peça de software personalizada em execução como um serviço com pontos de extremidade expostos aos quais o gateway de campo e os dispositivos se conectam. Como tal, deve ser projetado tendo em mente a segurança. Siga o processo de [SDL](http://www.microsoft.com/sdl) para projetar e criar esse serviço. 
 
 #### <a name="services-zone"></a>Zona de serviços
-Um sistema de controle (ou controlador) é uma solução de software que faz a interface com um dispositivo, um gateway de campo ou um gateway de nuvem a fim de controlar um ou vários dispositivos e/ou coletar, e/ou armazenar e/ou analisar os dados do dispositivo para fins de apresentação ou controle subsequente. Os sistemas de controle são as únicas entidades no escopo desta discussão que podem facilitar a interação com as pessoas imediatamente. A exceção são as superfícies de controle físico intermediário nos dispositivos, como uma chave que permite que uma pessoa desligue o dispositivo ou altere outras propriedades, e para as quais não há nenhum equivalente funcional que possa ser acessado digitalmente. 
+Um sistema de controle (ou controlador) é uma solução de software que faz a interface com um dispositivo, um gateway de campo ou um gateway de nuvem a fim de controlar um ou vários dispositivos e/ou coletar, e/ou armazenar e/ou analisar os dados do dispositivo para fins de apresentação ou controle subsequente. Os sistemas de controle são as únicas entidades no escopo desta discussão que podem facilitar a interação com as pessoas imediatamente. A exceção são as superfícies de controle físico intermediário nos dispositivos, como uma chave que permite que uma pessoa desligue o dispositivo ou altere outras propriedades e para as quais não há nenhum equivalente funcional que possa ser acessado digitalmente. 
 
 As superfícies de controle físico intermediário são aquelas em que qualquer tipo de lógica de controle restringe a função da superfície de controle físico, de modo que uma função equivalente possa ser iniciada remotamente ou os conflitos de entrada com a entrada remota possam ser evitado. Tais superfícies de controle intermediadas são conceitualmente anexadas a um sistema de controle local que utiliza a mesma funcionalidade subjacente que qualquer outro sistema de controle remoto que ao qual o dispositivo pode estar anexado em paralelo. As principais ameaças para a computação em nuvem podem ser lidas na página da [CSA (Cloud Security Alliance)](https://cloudsecurityalliance.org/research/top-threats/).
 

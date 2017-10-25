@@ -3,7 +3,7 @@ title: "Proteger um cluster em execução no Windows usando a Segurança do Wind
 description: "Saiba como configurar a segurança de nó para nó e de cliente para nó em um cluster autônomo em execução no Windows usando a Segurança do Windows."
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: ce3bf686-ffc4-452f-b15a-3c812aa9e672
@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/17/2017
-ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: b8842047351da6fdb547e0b09492b89fad962bee
-ms.lasthandoff: 03/29/2017
-
-
+ms.date: 08/24/2017
+ms.author: dekapur
+ms.openlocfilehash: e093a631b0cf81195981a8e3d345504ebce02723
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Proteger um cluster autônomo no Windows usando a Segurança do Windows
 Para evitar acesso não autorizado a um cluster do Service Fabric, você deve proteger o cluster. A segurança é especialmente importante quando o cluster executa cargas de trabalho de produção. Este artigo descreve como configurar a segurança de nó para nó e de cliente para nó usando a Segurança do Windows no arquivo *ClusterConfig.JSON*.  O processo corresponde à etapa configurar segurança de [Criar um cluster autônomo em execução no Windows](service-fabric-cluster-creation-for-windows-server.md). Para saber mais sobre como o Service Fabric usa a Segurança do Windows, veja [Cenários de segurança de cluster](service-fabric-cluster-security.md).
@@ -34,7 +33,6 @@ O arquivo de configuração *ClusterConfig.gMSA.Windows.MultiMachine.JSON* de ex
 
 ```  
 "security": {  
-            "ServerCredentialType": "Windows",  
             "WindowsIdentities": {  
                 "ClustergMSAIdentity": "accountname@fqdn"  
                 "ClusterSPN": "fqdn"  
@@ -140,4 +138,3 @@ Depois de configurar a segurança do Windows no arquivo *ClusterConfig.JSON* , r
 Para saber mais sobre a segurança de nó para nó, a segurança de cliente para nó e o controle de acesso baseado em função, consulte [Cenários de segurança de cluster](service-fabric-cluster-security.md).
 
 Consulte [Conectar a um cluster seguro](service-fabric-connect-to-secure-cluster.md) para obter exemplos de conexão usando o PowerShell ou o FabricClient.
-

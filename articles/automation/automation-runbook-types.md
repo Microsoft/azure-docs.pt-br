@@ -3,7 +3,7 @@ title: "Tipos de Runbook de Automação do Azure | Microsoft Docs"
 description: "Descreve os diferentes tipos de runbook que você pode usar na Automação do Azure e as considerações que devem ser levadas em conta ao determinar qual tipo usar. "
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 9265c975-4281-4819-a84f-d86641277f36
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/11/2016
+ms.date: 06/01/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: dd6b2fa2a1ca003578eaee82ef42741b9b1bf2a4
-ms.openlocfilehash: b509629ba0d6bbaea3de979a4e67f5c444e5e9e0
-
-
+ms.openlocfilehash: 4bf4a3d755afeee9930204a2dbae9ff9fada3517
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbook da Automação do Azure
-A Automação do Azure dá suporte a quatro tipos de runbooks descritos brevemente na tabela a seguir.  As seções abaixo fornecem mais informações sobre cada tipo, incluindo considerações sobre quando usar cada um.
+A Automação do Azure dá suporte a vários tipos de runbooks descritos brevemente na tabela a seguir.  As seções abaixo fornecem mais informações sobre cada tipo, incluindo considerações sobre quando usar cada um.
 
 | Tipo | Descrição |
 |:--- |:--- |
@@ -29,6 +29,8 @@ A Automação do Azure dá suporte a quatro tipos de runbooks descritos brevemen
 | [Fluxo de Trabalho Gráfico do PowerShell](#graphical-runbooks) |Com base no Fluxo de Trabalho do Windows PowerShell e criado e editado completamente no editor gráfico do portal do Azure. |
 | [PowerShell](#powershell-runbooks) |Runbook de texto com base no script do Windows PowerShell. |
 | [Fluxo de Trabalho do PowerShell](#powershell-workflow-runbooks) |Runbook de texto com base no Fluxo de Trabalho do Windows PowerShell. |
+| [Python](#python-runbooks) |Runbook de texto com base em Python. |
+| [Bash](#bash-runbooks) |Runbook de texto com base no Bash. |
 
 ## <a name="graphical-runbooks"></a>Runbooks gráficos
 [Gráfico](automation-runbook-types.md#graphical-runbooks) and Gráfico PowerShell Workflow runbooks are created and edited with the graphical editor in the Azure portal.  Você pode exportá-los para um arquivo e depois importá-los em outra conta de automação, mas não pode criá-los nem editá-los com outra ferramenta.  Os runbooks gráficos geram código do PowerShell, mas você não pode exibir nem modificar diretamente o código. Os runbooks gráficos não podem ser convertidos em um dos [formatos de texto](automation-runbook-types.md), nem um runbook de texto pode ser convertido em formato gráfico. Runbooks gráficos podem ser convertidos para runbooks de Fluxo de Trabalho Gráfico do PowerShell durante a importação e vice-versa.
@@ -51,7 +53,7 @@ Os runbooks do PowerShell se baseiam no Windows PowerShell.  Você edita o códi
 
 ### <a name="advantages"></a>Vantagens
 * Implemente toda a lógica complexa com o código do PowerShell sem as complexidades adicionais do Fluxo de Trabalho do PowerShell. 
-* O runbook inicia mais rápido do que os runbooks Gráficos ou de Fluxo de Trabalho do PowerShell, uma vez que não precisa ser compilado antes da execução.
+* O runbook inicia mais rapidamente do que os runbooks do Fluxo de Trabalho do PowerShell, uma vez que não precisa ser compilado antes da execução.
 
 ### <a name="limitations"></a>Limitações
 * Exige familiarização com a criação de script do PowerShell.
@@ -82,6 +84,10 @@ Os runbooks do Fluxo de Trabalho do PowerShell são runbooks de texto baseados n
 * O runbook demora mais para iniciar do que os runbooks do PowerShell pois precisa ser compilado antes da execução.
 * Os runbooks do PowerShell só podem ser incluídos como runbooks filho usando o cmdlet Start-AzureAutomationRunbook, que cria um novo trabalho.
 
+## <a name="python-runbooks"></a>Runbooks Python
+
+## <a name="bash-runbooks"></a>Runbooks do Bash
+
 ## <a name="considerations"></a>Considerações
 Você deve levar em conta as considerações adicionais a seguir ao determinar qual tipo usar para um runbook específico.
 
@@ -92,10 +98,4 @@ Você deve levar em conta as considerações adicionais a seguir ao determinar q
 * Para saber mais sobre a criação de runbooks Gráficos, veja [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md)
 * Para entender as diferenças entre o PowerShell e o os fluxos de trabalho do PowerShell para runbooks, consulte [Aprendendo sobre o fluxo de trabalho do Windows PowerShell](automation-powershell-workflow.md)
 * Para obter mais informações sobre como criar ou importar um Runbook, consulte [Criando ou Importando um Runbook](automation-creating-importing-runbook.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

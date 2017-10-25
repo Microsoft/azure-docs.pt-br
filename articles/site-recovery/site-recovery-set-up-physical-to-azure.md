@@ -11,19 +11,19 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 1/10/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/29/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: f849ea027022cc753bf818d7980170b5875221f0
-ms.openlocfilehash: 47431f934f092ea7c614599b6c8e3fe3a946a955
-
+ms.openlocfilehash: 49b9d2e21dbcb612828a25f21ed4382327d6f64c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>Configurar o ambiente de origem (servidor físico para Azure)
 > [!div class="op_single_selector"]
-> * [Máquinas Virtuais VMware](./site-recovery-set-up-vmware-to-azure.md)
-> * [Servidores físicos](./site-recovery-set-up-physical-to-azure.md)
+> * [VMware no Azure](./site-recovery-set-up-vmware-to-azure.md)
+> * [Físico para Azure](./site-recovery-set-up-physical-to-azure.md)
 
 Este artigo descreve como configurar seu ambiente local para iniciar a replicação de servidores físicos executando Windows ou Linux no Azure.
 
@@ -81,10 +81,3 @@ A tabela a seguir lista os requisitos mínimos de hardware, software e rede para
 ## <a name="next-steps"></a>Próximas etapas
 
 A próxima etapa envolve a [configuração do ambiente de destino](./site-recovery-prepare-target-physical-to-azure.md) no Azure.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

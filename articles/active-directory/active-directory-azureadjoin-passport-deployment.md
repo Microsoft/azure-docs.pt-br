@@ -13,14 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 07/05/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6f08fcdb4ec6dd124760cff54c522d998d5a0327
-ms.lasthandoff: 12/29/2016
-
-
+ms.openlocfilehash: 58943e1e29755c983e55c675dd4fe7b75ac47b34
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Habilitar o Microsoft Windows Hello for Business em sua organização
 Depois de [conectar os dispositivos integrados ao domínio do Windows 10 ao Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), faça o seguinte para habilitar o Microsoft Windows Hello para Empresas em sua organização:
@@ -77,7 +76,7 @@ Usar o System Center Configuration Manager é o método preferencial quando voc�
    
     a. Na caixa de diálogo **Nome**, digite um nome para seu perfil, por exemplo, **Meu Perfil WHfB**.
    
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 4. Na caixa de diálogo **Plataformas com Suporte**, selecione as plataformas que serão provisionadas com esse perfil do Windows Hello para Empresas e, em seguida, clique em **Próximo**.
    
     ![Configurar o Windows Hello for Business](./media/active-directory-azureadjoin-passport-deployment/04.png)
@@ -91,7 +90,7 @@ Usar o System Center Configuration Manager é o método preferencial quando voc�
    
     c. Em **Método de autenticação**, selecione **Baseado em certificado**.
    
-    d. Clique em **Próximo**.
+    d. Clique em **Avançar**.
 6. Na caixa de diálogo de **Resumo**, clique em **Avançar**.
 7. Na caixa de diálogo **Conclusão**, clique em **Fechar**.
 8. Na barra de ferramentas na parte superior, clique em **Implantar**.
@@ -113,5 +112,4 @@ Na página **Registro do SCEP** do perfil de certificado, você precisa escolher
 * [Saiba mais sobre cenários de uso da Junção do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
-
 

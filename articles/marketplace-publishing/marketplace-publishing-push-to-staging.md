@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Concluir a criação de oferta com conteúdo de marketing
 Nesta etapa do processo de publicação, você precisará de fornecer determinados conteúdos de marketing e detalhes sobre a sua oferta e/ou SKUs no Azure Marketplace. Por exemplo, você irá fornecer uma descrição do seu produto, logotipos da empresa, planos de preços, detalhes de planos e outras informações necessárias para enviar sua oferta de e/ou SKU para preparação. Essas informações são usadas como conteúdo de marketing no portal do Azure. Você começará esse processo no [portal de publicação][link-pubportal].
@@ -78,7 +78,7 @@ Todos os logotipos carregados no Portal de Publicação devem seguir as diretriz
 
 * O logotipo Hero é opcional. O editor pode optar por não carregar um logotipo Hero. **No entanto, uma vez carregado, o ícone Hero não pode ser excluído do portal de Publicação. Nessa ocasião, o parceiro deve seguir as diretrizes do Azure Marketplace para ícones Hero. Caso contrário, a oferta não será aprovada para produção.**
 * O nome de exibição do editor, o título do plano e o resumo longo da oferta são exibidas em uma fonte branca. Portanto, você deve evitar cores claras no plano de fundo do ícone Hero. Planos de fundo pretos, brancos e transparentes não são permitidos para ícones Hero.
-* O nome de exibição do editor, o título do plano, o resumo longo da oferta e o botão de criação são inseridos programaticamente no logotipo Hero depois que a oferta é listada. Portanto, você não deve inserir texto ao projetar o logotipo Hero. Deixe espaço vazio à direita porque o texto (ou seja, o nome de exibição do editor, o título do plano e o resumo longo da oferta) será incluído programaticamente por nós nessa área. O espaço vazio para o texto deve ser de 415x100 à direita (e ele é deslocado 370px à esquerda).
+* O nome de exibição do editor, o título do plano, o resumo longo da oferta e o botão de criação são inseridos programaticamente no logotipo Hero depois que a oferta é listada. Portanto, você não deve inserir texto ao projetar o logotipo Hero. Apenas deixe o espaço vazio à direita, porque o texto (ou seja, nome de exibição do fornecedor, título do plano, resumo longo da oferta) será incluído programaticamente nesse local. O espaço vazio para o texto deve ser de 415x100 à direita (e ele é deslocado 370px à esquerda).
   
   ![desenho](media/marketplace-publishing-push-to-staging/pubportal-herobanner.png)
 
@@ -287,9 +287,3 @@ Agora que o conteúdo do Marketplace está carregado, seguiremos para a testar s
 
 [link-pubportal]:https://publish.windowsazure.com
 [link-push-to-production]:marketplace-publishing-push-to-production.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

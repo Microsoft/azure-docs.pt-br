@@ -3,8 +3,8 @@ title: "Aprender sobre o Fluxo de Trabalho do PowerShell para Automação do Azu
 description: "Este artigo é concebido como uma lição rápida para autores familiarizados com o PowerShell para entender as diferenças entre o PowerShell e o fluxo de trabalho do PowerShell e conceitos aplicáveis aos runbooks de Automação."
 services: automation
 documentationcenter: 
-author: mgoedtel
-manager: jwhit
+author: eslesar
+manager: carmonm
 editor: tysonn
 ms.assetid: 84bf133e-5343-4e0e-8d6c-bb14304a70db
 ms.service: automation
@@ -12,38 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/21/2017
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 480a40bd5ecd58f11b10c27e7e0d2828bcae1f17
-ms.openlocfilehash: 50966ed518b79f2033680790432e29b0c9e7b289
-
-
+ms.openlocfilehash: 6dce88bdd85a28ce05e1621b08a0f4b148b02627
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Aprender sobre os principais conceitos de Fluxo de Trabalho do Windows PowerShell para runbooks de Automação 
-Os runbooks na Automação do Azure são implementados como Fluxos de Trabalho do Windows PowerShell.  Um fluxo de trabalho do Windows PowerShell é semelhante a um script do Windows PowerShell, mas tem algumas diferenças significativas que podem ser confusas para um novo usuário.  Embora este artigo sirva para ajudar você a escrever runbooks usando o Fluxo de Trabalho do PowerShell, recomendamos que você escreva os runbooks usando o PowerShell, a menos que você precise de pontos de verificação.  Há algumas diferenças de sintaxe quando se cria runbooks de Fluxo de trabalho do PowerShell, e essas diferenças exigem um pouco mais de trabalho para escrever fluxos de trabalho efetivos.  
+Os runbooks na Automação do Azure são implementados como Fluxos de Trabalho do Windows PowerShell.  Um fluxo de trabalho do Windows PowerShell é semelhante a um script do Windows PowerShell, mas tem algumas diferenças significativas que podem ser confusas para um novo usuário.  Embora este artigo sirva para ajudar você a escrever runbooks usando o Fluxo de Trabalho do PowerShell, recomendamos que você escreva os runbooks usando o PowerShell, a menos que você precise de pontos de verificação.  Há diversas diferenças de sintaxe quando se cria runbooks de Fluxo de trabalho do PowerShell, e essas diferenças exigem um pouco mais de trabalho para escrever fluxos de trabalho efetivos.  
 
-Um fluxo de trabalho é uma sequência de etapas programadas e conectadas que executam tarefas de longa duração ou exigem a coordenação de várias etapas em vários dispositivos ou nós gerenciados. Os benefícios de um fluxo de trabalho comparado com um script normal incluem a capacidade de realizar simultaneamente uma ação em vários dispositivos e a capacidade de se recuperar automaticamente de falhas. Um Fluxo de Trabalho do Windows PowerShell é um script do Windows PowerShell que utiliza o Windows Workflow Foundation. Embora o fluxo de trabalho seja escrito com a sintaxe do Windows PowerShell e inicializado pelo Windows PowerShell, ele é processado pelo Windows Workflow Foundation.
+Um fluxo de trabalho é uma sequência de etapas programadas e conectadas que executam tarefas de longa duração ou exigem a coordenação de várias etapas em vários dispositivos ou nós gerenciados. Os benefícios de um fluxo de trabalho comparado com um script normal incluem a capacidade de realizar simultaneamente uma ação em vários dispositivos e a capacidade de se recuperar automaticamente de falhas. Um Fluxo de Trabalho do Windows PowerShell é um script do Windows PowerShell que usa o Windows Workflow Foundation. Embora o fluxo de trabalho seja escrito com a sintaxe do Windows PowerShell e inicializado pelo Windows PowerShell, ele é processado pelo Windows Workflow Foundation.
 
 Para obter detalhes completos sobre os tópicos nesse artigo, consulte [Introdução ao fluxo de trabalho do Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx).
 
 ## <a name="basic-structure-of-a-workflow"></a>Estrutura básica de um fluxo de trabalho
-A primeira etapa para converter um script do PowerShell para um fluxo de trabalho do PowerShell é circunscrevê-lo com a palavra-chave **Workflow** .  Um fluxo de trabalho começa com a palavra-chave **Workflow** seguida do corpo do script entre chaves. O nome do fluxo de trabalho segue a palavra-chave **Workflow** , como mostra a sintaxe a seguir.
+A primeira etapa para converter um script do PowerShell para um fluxo de trabalho do PowerShell é circunscrevê-lo com a palavra-chave **Workflow** .  Um fluxo de trabalho começa com a palavra-chave **Workflow** seguida do corpo do script entre chaves. O nome do fluxo de trabalho segue a palavra-chave **Workflow**, conforme mostra a sintaxe a seguir:
 
     Workflow Test-Workflow
     {
        <Commands>
     }
 
-O nome do fluxo de trabalho deve corresponder ao nome do runbook de automação. Se o runbook está sendo importado, o nome do arquivo deve corresponder ao nome do fluxo de trabalho e deve terminar em. ps1.
+O nome do fluxo de trabalho deve corresponder ao nome do runbook de automação. Se o runbook está sendo importado, o nome do arquivo deve corresponder ao nome do fluxo de trabalho e deve terminar em *.ps1*.
 
 Para adicionar parâmetros ao fluxo de trabalho, use a palavra-chave **Param** , exatamente como faria para um script.
 
 ## <a name="code-changes"></a>Alterações de código
-O código de fluxo de trabalho do PowerShell é praticamente idêntico ao código de script do PowerShell, exceto por algumas alterações significativas.  As seções a seguir descrevem as alterações que você precisará fazer em um script do PowerShell para ele para funcionar em um fluxo de trabalho.
+O código de fluxo de trabalho do PowerShell é praticamente idêntico ao código de script do PowerShell, exceto por algumas alterações significativas.  As seções a seguir descrevem as alterações que você precisa fazer em um script do PowerShell para ele para executar em um fluxo de trabalho.
 
 ### <a name="activities"></a>Atividades
-Uma atividade é uma tarefa específica em um fluxo de trabalho. Assim como um script é composto de um ou mais comandos, um fluxo de trabalho é composto de uma ou mais atividades que são executadas em uma sequência. O fluxo de trabalho do Windows PowerShell converte automaticamente muitos dos cmdlets do Windows PowerShell para atividades ao executar um fluxo de trabalho. Quando você especifica um desses cmdlets em seu runbook, a atividade correspondente é efetivamente executada pelo Windows Workflow Foundation. Para esses cmdlets sem uma atividade correspondente, o Fluxo de Trabalho do Windows PowerShell executa o cmdlet automaticamente dentro de uma atividade de [InlineScript](#inlinescript) . Há um conjunto de cmdlets que são excluídos e não podem ser usados em um fluxo de trabalho, a menos que você o inclua explicitamente em um bloco de InlineScript. Para obter mais detalhes sobre esses conceitos, confira [Usando atividades em fluxos de trabalho de script](http://technet.microsoft.com/library/jj574194.aspx).
+Uma atividade é uma tarefa específica em um fluxo de trabalho. Assim como um script é composto de um ou mais comandos, um fluxo de trabalho é composto de uma ou mais atividades que são executadas em uma sequência. O fluxo de trabalho do Windows PowerShell converte automaticamente muitos dos cmdlets do Windows PowerShell para atividades ao executar um fluxo de trabalho. Quando você especifica um desses cmdlets em seu runbook, a atividade correspondente é executada pelo Windows Workflow Foundation. Para esses cmdlets sem uma atividade correspondente, o Fluxo de Trabalho do Windows PowerShell executa o cmdlet automaticamente dentro de uma atividade de [InlineScript](#inlinescript) . Há um conjunto de cmdlets que são excluídos e não podem ser usados em um fluxo de trabalho, a menos que você o inclua explicitamente em um bloco de InlineScript. Para obter mais detalhes sobre esses conceitos, confira [Usando atividades em fluxos de trabalho de script](http://technet.microsoft.com/library/jj574194.aspx).
 
 As atividades de fluxo de trabalho compartilham um conjunto de parâmetros comuns para configurar suas operações. Para obter detalhes sobre os parâmetros comuns do fluxo de trabalho, consulte [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
 
@@ -54,7 +54,7 @@ Por exemplo, considere o código a seguir que obtém todos os serviços em execu
 
      Get-Service | Where-Object {$_.Status -eq "Running"}
 
-Se você tentar executar esse mesmo código em um fluxo de trabalho, receberá uma mensagem como “O conjunto de parâmetros não pode ser resolvido usando os parâmetros nomeados especificados”.  Para corrigir isso, basta fornece o nome do parâmetro como a seguir.
+Se você tentar executar esse mesmo código em um fluxo de trabalho, receberá uma mensagem como "O conjunto de parâmetros não pode ser resolvido usando os parâmetros nomeados especificados".  Para corrigir isso, basta fornecer o nome do parâmetro como demonstrado a seguir.
 
     Workflow Get-RunningServices
     {
@@ -67,7 +67,7 @@ Os objetos em fluxos de trabalho são desserializados.  Isso significa que suas 
     $Service = Get-Service -Name MyService
     $Service.Stop()
 
-Se você tentar executá-lo em um fluxo de trabalho, obterá um erro dizendo “Não há suporte para a invocação de métodos em um Fluxo de Trabalho do Windows PowerShell”.  
+Se você tentar executá-lo em um fluxo de trabalho, receberá um erro dizendo "Não há suporte para a invocação de método em um Fluxo de Trabalho do Windows PowerShell".  
 
 Uma opção é encapsular essas duas linhas de código em um bloco [InlineScript](#inlinescript); neste caso, $Service seria um objeto de serviço dentro do bloco.
 
@@ -79,7 +79,7 @@ Uma opção é encapsular essas duas linhas de código em um bloco [InlineScript
         }
     }
 
-Outra opção é usar outro cmdlet que executa a mesma funcionalidade que o método, se houver um disponível.  No nosso exemplo, o cmdlet Stop-Service fornece a mesma funcionalidade que o método Stop e você pode usar o seguinte para um fluxo de trabalho.
+Outra opção é usar outro cmdlet que executa a mesma funcionalidade que o método, se houver um disponível.  No nosso exemplo, o cmdlet Stop-Service fornece a mesma funcionalidade que o método Stop, sendo que você pode usar o demonstrado a seguir para um fluxo de trabalho.
 
     Workflow Stop-MyService
     {
@@ -131,15 +131,15 @@ Você pode passar valores para um bloco InlineScript, mas deve usar o modificado
 Embora as atividades InlineScript possam ser essenciais em determinados fluxos de trabalho, elas não dão suporte a construtores de fluxo de trabalho e devem ser usadas somente quando necessário pelos seguintes motivos:
 
 * Não é possível usar [pontos de verificação](#checkpoints) dentro de um bloco InlineScript. Se uma falha ocorre dentro do bloco, ele deve ser retomado desde o início do bloco.
-* Não é possível usar a [execução paralela](#parallel-processing) dentro de um bloco InlineScript.
+* Não é possível usar a [execução paralela](#parallel-processing) dentro de um InlineScriptBlock.
 * O InlineScript afeta a escalabilidade do fluxo de trabalho, uma vez que retém a sessão do Windows PowerShell por toda a duração do bloco de InlineScript.
 
-Para obter mais detalhes sobre como usar o InlineScript, consulte [Executando Comandos do Windows PowerShell em um Fluxo de Trabalho](http://technet.microsoft.com/library/jj574197.aspx) e [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx).
+Para obter mais informações sobre como usar o InlineScript, consulte [Executando comandos do Windows PowerShell em um fluxo de trabalho](http://technet.microsoft.com/library/jj574197.aspx) e [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx).
 
 ## <a name="parallel-processing"></a>Processamento paralelo
 Uma vantagem dos Fluxos de Trabalho do Windows PowerShell é a capacidade de executar um conjunto de comandos em paralelo em vez de sequencialmente como com um script típico.
 
-Você pode usar a palavra-chave **Parallel** para criar um bloco de script com vários comandos que serão executados simultaneamente. Isso é feito através da sintaxe mostrada abaixo. Nesse caso, a Atividade1 e a Atividade2 vão começar ao mesmo tempo. A Atividade3 somente começará após conclusão da Atividade1 e da Atividade2.
+Você pode usar a palavra-chave **Parallel** para criar um bloco de script com vários comandos que são executados simultaneamente. Isso usa a sintaxe a seguir, mostrada abaixo. Nesse caso, Activity1 e a Activity2 começarão simultaneamente. A Activity3 começará somente após a conclusão da Activity1 e da Activity2.
 
     Parallel
     {
@@ -151,26 +151,26 @@ Você pode usar a palavra-chave **Parallel** para criar um bloco de script com v
 
 Por exemplo, considere os seguintes comandos do PowerShell que copiam vários arquivos para um destino de rede.  Esses comandos são executados em sequência, de forma que a cópia de um arquivo deve terminar antes que a do próximo seja iniciada.     
 
-    $Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
-    $Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
-    $Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
+    Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
+    Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
+    Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
 
-O fluxo de trabalho a seguir executa esses mesmos comandos em paralelo para que todos eles comecem a copiar ao mesmo tempo.  Somente depois que todos estiverem completamente copiados a mensagem de conclusão é exibida.
+O fluxo de trabalho a seguir executa esses mesmos comandos em paralelo para que todos eles comecem a copiar ao mesmo tempo.  A mensagem de conclusão será exibida somente depois que todos eles tiverem sido copiados.
 
     Workflow Copy-Files
     {
         Parallel
         {
-            $Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\\NetworkPath"
-            $Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\\NetworkPath"
-            $Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\\NetworkPath"
+            Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\\NetworkPath"
+            Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\\NetworkPath"
+            Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\\NetworkPath"
         }
 
         Write-Output "Files copied."
     }
 
 
-Você pode usar o construct **ForEach-Parallel** para processar comandos de cada item em uma coleção simultaneamente. Os itens na coleção são processados em paralelo, enquanto os comandos no bloco de script são executados em sequência. Isso é feito através da sintaxe mostrada abaixo. Nesse caso, a Atividade1 será iniciada ao mesmo tempo para todos os itens na coleção. Para cada item, a Atividade2 será iniciada após a conclusão da Atividade1. A Atividade3 somente começará depois que a Atividade1 e a Atividade2 forem concluídas para todos os itens.
+Você pode usar o construct **ForEach-Parallel** para processar comandos de cada item em uma coleção simultaneamente. Os itens na coleção são processados em paralelo, enquanto os comandos no bloco de script são executados em sequência. Isso usa a sintaxe a seguir, mostrada abaixo. Nesse caso, Activity1 será iniciada simultaneamente para todos os itens na coleção. Para cada item, a Activity2 será iniciada após a conclusão da Activity1. A Activity3 começará somente depois da conclusão da Activity1 e Activity2 para todos os itens.
 
     ForEach -Parallel ($<item> in $<collection>)
     {
@@ -187,7 +187,7 @@ O exemplo a seguir é semelhante ao exemplo anterior copiando os arquivos em par
 
         ForEach -Parallel ($File in $Files)
         {
-            $Copy-Item -Path $File -Destination \\NetworkPath
+            Copy-Item -Path $File -Destination \\NetworkPath
             Write-Output "$File copied."
         }
 
@@ -195,7 +195,7 @@ O exemplo a seguir é semelhante ao exemplo anterior copiando os arquivos em par
     }
 
 > [!NOTE]
-> Não recomendamos a execução de runbooks filho em paralelo, uma vez que isso demonstrou fornecer resultados não confiáveis.  Às vezes, a saída do runbook filho não será exibida e as configurações em um runbook filho podem afetar os outros runbooks filho paralelos
+> Não recomendamos a execução de runbooks filho em paralelo, uma vez que isso demonstrou fornecer resultados não confiáveis.  Às vezes, a saída do runbook filho não é exibida e as configurações em um runbook filho podem afetar os outros runbooks filho paralelos
 >
 
 ## <a name="checkpoints"></a>pontos de verificação
@@ -209,9 +209,9 @@ No código de exemplo a seguir, uma exceção ocorre após Activity2, fazendo co
     <Exception>
     <Activity3>
 
-Você deve definir pontos de verificação em um fluxo de trabalho para depois de atividades que possam estar sujeitas a exceção e não devam ser repetidas se o fluxo de trabalho for retomado. Por exemplo, o fluxo de trabalho pode criar uma máquina virtual. Você pode definir um ponto de verificação antes e depois dos comandos para criar a máquina virtual. Se a criação falhar, os comandos serão repetidos se o fluxo de trabalho for iniciado novamente. Se o fluxo de trabalho falhar após a criação bem-sucedida, a máquina virtual não será ser criada novamente quando o fluxo de trabalho for retomado.
+Você deve definir pontos de verificação em um fluxo de trabalho para depois de atividades que possam estar sujeitas a exceção e não devam ser repetidas se o fluxo de trabalho for retomado. Por exemplo, o fluxo de trabalho pode criar uma máquina virtual. Você pode definir um ponto de verificação antes e depois dos comandos para criar a máquina virtual. Se a criação falhar, os comandos serão repetidos se o fluxo de trabalho for iniciado novamente. Se o fluxo de trabalho falhar após a criação ser bem-sucedida, a máquina virtual não será criada novamente quando o fluxo de trabalho for retomado.
 
-O exemplo a seguir copia vários arquivos para um local de rede e define um ponto de verificação depois de cada arquivo.  Se o local de rede for perdido, o fluxo de trabalho terminará em erro.  Quando ele for iniciado novamente, ele continuará no último ponto de verificação, o que significa que somente os arquivos que já foram copiados serão ignorados.
+O exemplo a seguir copia vários arquivos para um local de rede e define um ponto de verificação depois de cada arquivo.  Se o local de rede for perdido, o fluxo de trabalho terminará em erro.  Quando ele for iniciado novamente, ele retomará do último ponto de verificação, o que significa que somente os arquivos que já tiverem sido copiados serão ignorados.
 
     Workflow Copy-Files
     {
@@ -219,7 +219,7 @@ O exemplo a seguir copia vários arquivos para um local de rede e define um pont
 
         ForEach ($File in $Files)
         {
-            $Copy-Item -Path $File -Destination \\NetworkPath
+            Copy-Item -Path $File -Destination \\NetworkPath
             Write-Output "$File copied."
             Checkpoint-Workflow
         }
@@ -260,9 +260,3 @@ Para saber mais sobre pontos de verificação, confira [Adicionando pontos de ve
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para começar a usar runbooks de fluxo de trabalho do PowerShell, veja [Meu primeiro runbook de Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

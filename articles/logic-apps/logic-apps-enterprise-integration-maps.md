@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: estfan
-translationtype: Human Translation
-ms.sourcegitcommit: 7729890157900d0211b3a7ec05096ca315018875
-ms.openlocfilehash: 23d79fb83c1c4b103407c001dcafb8b1f3cfa5a7
-
-
+ms.author: LADocs; padmavc
+ms.openlocfilehash: 4445a84a6c6425110e7d705019a28b5cc5447046
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-maps-for-xml-data-transform"></a>Adicionar mapas para a transformação de dados XML
 
@@ -98,10 +98,4 @@ Para carregar um novo mapa que substitui um mapa existente, siga estas etapas.
 * [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")  
 * [Saiba mais sobre os contratos](../logic-apps/logic-apps-enterprise-integration-agreements.md "Saiba mais sobre os contratos de integração corporativa")  
 * [Saiba mais sobre transformações](logic-apps-enterprise-integration-transform.md "Saiba mais sobre as transformações de integração corporativa")  
-
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

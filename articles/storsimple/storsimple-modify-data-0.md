@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 3a47ff1eed220cede820e8698c3384300e94688d
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-device"></a>Modificar as configurações de interface de rede DADOS 0 em seu dispositivo StorSimple
 ## <a name="overview"></a>Visão geral
@@ -68,10 +68,4 @@ Uma maneira alternativa de reconfigurar o adaptador de rede DADOS 0 é através 
 ## <a name="next-steps"></a>Próximas etapas
 * Para configurar as interfaces de rede que não sejam DATA 0, você pode usar a [página Configurar no Portal clássico do Azure](storsimple-modify-device-config.md). 
 * Se você tiver problemas ao configurar suas interfaces de rede, consulte [Solucionar problemas de implantação](storsimple-troubleshoot-deployment.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

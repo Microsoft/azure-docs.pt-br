@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 7185ab62ee0e4383a7128fe731bd68da0ae87e66
-ms.lasthandoff: 03/14/2017
-
-
+ms.openlocfilehash: a84096ba53a308855beedd76d9dec827c025cd57
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Referência técnica do conector SQL genérico
 Este artigo descreve o conector SQL genérico. O artigo se aplica aos seguintes produtos:
@@ -48,7 +47,7 @@ Partindo de um ponto de vista detalhado, os seguintes recursos têm suporte na v
 Para usar o conector, verifique se você tem os seguintes itens no servidor de sincronização:
 
 * Microsoft .NET 4.5.2 Framework ou posterior
-* Drivers de cliente ODBC de&64; bits
+* Drivers de cliente ODBC de 64 bits
 
 ### <a name="permissions-in-connected-data-source"></a>Permissões na fonte de dados conectada
 Para criar ou executar qualquer uma das tarefas com suporte no conector SQL genérico, você deve ter:
@@ -121,6 +120,7 @@ Esta página permite que você configure a âncora e o atributo DN para cada tip
 * Atributos de valores múltiplos e boolianos não são listados.
 * O mesmo atributo não pode usar DN e âncora, a menos que **DN é Âncora** seja selecionado na página Conectividade.
 * Se **DN é Âncora** estiver selecionado na página Conectividade, esta página só solicitará o atributo DN. Esse atributo será usado também como o atributo de âncora.
+
   ![schema3b](./media/active-directory-aadconnectsync-connector-genericsql/schema3b.png)
 
 ### <a name="schema-4-define-attribute-type-reference-and-direction"></a>Esquema 4 (Definir tipo de atributo, referência e direção)
@@ -130,7 +130,8 @@ Essa página permite que você configure o tipo de atributo, como inteiro, biná
 
 * **DataType**: usado para mapear o tipo de atributo para os tipos conhecidos do mecanismo de sincronização. O padrão é usar o mesmo tipo, conforme detectado no esquema SQL, mas DateTime e referência não são facilmente detectáveis. Para esses você precisa especificar **DateTime** ou **Referência**.
 * **Direção**: você pode definir a direção do atributo para Importar, Exportar ou ImportExport. ImportExport é o padrão.
-  ![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
+
+![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
 
 Observações:
 
@@ -150,6 +151,12 @@ A partir da atualização de março de 2017 há uma opção para "*" e quando es
 
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
 
+>[!IMPORTANT]
+ Desde maio de 2017 o "*" também conhecido como **qualquer opção** foi alterado para dar suporte ao fluxo de importação e exportação. Se você quiser usar essa opção, a exibição/tabela de vários valores deve ter um atributo que contém o tipo de objeto.
+
+![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
+
+ </br> Se "*" for selecionado, o nome da coluna com o tipo de objeto também deverá ser especificado.</br> ![](./media/active-directory-aadconnectsync-connector-genericsql/any-03.png)
 
 Após a importação você verá algo semelhante à imagem a seguir:
 
@@ -162,8 +169,7 @@ A página Parâmetros Globais é usada para configurar importação Delta, forma
 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
 
->[!IMPORTANT]
- "*" também conhecido como* *qualquer opção** não pode ser usado durante as operações de exportação/exclusão.
+
 
 O conector SQL genérico dá suporte aos seguintes métodos de importação Delta:
 
@@ -300,4 +306,3 @@ Se você escolher a opção de consulta SQL, a Exportação exigirá três consu
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 * Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
-

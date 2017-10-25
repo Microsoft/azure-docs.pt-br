@@ -1,5 +1,5 @@
 ---
-title: " Excluir um cofre de Backup no Azure | Microsoft Docs "
+title: " Exclua um cofre de Serviços de Recuperação no Azure | Microsoft Docs "
 description: "Como excluir um cofre do Backup e Serviços de Recuperação do Azure. Um cofre de backup pode ser chamado de cofre de nuvem do Azure ou cofre de recuperação do Azure. Solução de problemas quando não é possível excluir um cofre de backup no portal clássico ou no portal do Azure."
 services: service-name
 documentationcenter: dev-center-name
@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 3/14/2017
+ms.date: 08/11/2017
 ms.author: markgal;trinadhk
-translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 28f8ed91cd2305fdad5105428e50d1d9b3370dd9
-ms.lasthandoff: 03/15/2017
-
-
+ms.openlocfilehash: ae4a73d12898c62fe2c5cf3683bc7c1c8c845fdf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="delete-an-azure-backup-vault"></a>Excluir um Cofre de Backup do Azure
+# <a name="delete-a-recovery-services-vault"></a>Excluir um cofre dos Serviços de Recuperação
 O serviço de Backup do Azure tem dois tipos de cofres – o cofre de Backup e o cofre de Serviços de Recuperação. O Cofre de Backup veio primeiro. Em seguida, o Cofre dos Serviços de Recuperação surgiu no mercado para oferecer suporte às implantações expandidas do Gerenciador de Recursos. Devido às funcionalidades expandidas e às dependências de informações que devem ser armazenadas no cofre, a exclusão de um cofre do Backup ou dos Serviços de Recuperação pode ser confusa. Este artigo explica como excluir os cofres no portal clássico e no portal do Azure.  
 
 | **Tipo de implantação** | **Portal** | **Nome do cofre** |
@@ -32,12 +31,17 @@ O serviço de Backup do Azure tem dois tipos de cofres – o cofre de Backup e o
 > [!NOTE]
 > Cofres de backup não podem ser usados para proteger soluções implantadas pelo Resource Manager. No entanto, você pode usar um cofre de Serviços de Recuperação para proteger VMs e servidores implantados de modo clássico.  
 >
+
+> [!IMPORTANT]
+> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> **15 de outubro de 2017**, você não poderá mais usar o PowerShell para criar cofres de Backup. <br/> **A partir de 1º de novembro de 2017**:
+>- Nenhum cofre de Backup restante será atualizado automaticamente para os cofres dos Serviços de Recuperação.
+>- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
 >
 
 Neste artigo, usamos o termo cofre para nos referirmos à forma genérica do cofre de Backup ou ao cofre dos Serviços de Recuperação. Usamos o nome formal, cofre de Backup ou Cofre dos Serviços de Recuperação, quando for necessário fazer a distinção entre os cofres.
 
 ## <a name="deleting-a-recovery-services-vault"></a>Excluir um cofre dos Serviços de Recuperação
-A exclusão de um cofre dos Serviços de Recuperação é um processo de uma etapa - *desde que o cofre não contenha recursos*. Antes de excluir um cofre dos Serviços de Recuperação, você deverá remover ou excluir todos os recursos do cofre. Se você tentar excluir um cofre que contém recursos, obterá um erro como o da seguinte imagem:
+A exclusão de um cofre dos Serviços de Recuperação é um processo de uma etapa - *desde que o cofre não contenha recursos*. Antes de excluir um cofre dos Serviços de Recuperação, você deverá remover ou excluir todos os recursos do cofre. Se você tentar excluir um cofre que contém recursos, receberá um erro como o da seguinte imagem:
 
 ![Erro de exclusão de cofre](./media/backup-azure-delete-vault/vault-deletion-error.png) <br/>
 
@@ -222,4 +226,3 @@ Se você tiver vários servidores registrados em um cofre, pode ser difícil se 
 5. Para excluir um servidor da lista, clique com o botão direito do mouse no nome do servidor e, em seguida, clique em **Excluir**.
     A folha **Excluir** será aberta.
 6. Na folha **Excluir** , forneça o nome do servidor. Se for um nome longo, você poderá copiá-lo e colá-lo da lista de Servidores de Gerenciamento de Backup. Em seguida, clique em **Excluir**.  
-

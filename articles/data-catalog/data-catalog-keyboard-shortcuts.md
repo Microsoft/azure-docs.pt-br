@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/19/2017
+ms.date: 08/17/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 15e72950ef30b8540d0303292fb9882f500c875e
-ms.openlocfilehash: 809b010fbbc0b5c1cbc2d5d5474374a4467defb4
-
-
+ms.openlocfilehash: d498eac2d0dfe7d271bdb5e47159faa113545ab4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Atalhos de teclado do Catálogo de Dados do Azure
 ## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Atalhos de teclado para a ferramenta de registro de fonte de dados do Catálogo de Dados
@@ -85,10 +85,4 @@ ms.openlocfilehash: 809b010fbbc0b5c1cbc2d5d5474374a4467defb4
 | Alternar o menu de correspondências de pesquisa |ALT+S |
 | Ativar/desativar o menu **Abrir em** |ALT+O |
 | Explorar o contêiner, se o ativo for um contêiner |ALT + L |
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

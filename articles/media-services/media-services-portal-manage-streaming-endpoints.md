@@ -1,12 +1,11 @@
 ---
-
 title: Gerenciar pontos de extremidade de streaming com o portal do Azure | Microsoft Docs
 description: "Este tópico mostra como gerenciar pontos de extremidade de streaming usando o portal do Azure."
 services: media-services
 documentationcenter: 
 author: Juliako
 writer: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: bb1aca25-d23a-4520-8c45-44ef3ecd5371
 ms.service: media-services
@@ -14,16 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 09/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 80ba024cd219b10bce8d88c9f11fd2d14d4ed34f
-ms.openlocfilehash: 223fee8930b1aebff94eddaeb82b5c0e364e067c
-
-
+ms.openlocfilehash: 89b4f7cee6d00b5bbbca4799eeca74a280147fc7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Gerenciar pontos de extremidade de streaming com o portal do Azure
 
 Este tópico mostra como usar o Portal do Azure para gerenciar ponto de extremidade de streaming. 
@@ -62,7 +59,7 @@ Para adicionar\excluir um ponto de extremidade de streaming usando o portal do A
     ![Ponto de Extremidade de Streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
-## <a name="a-idconfigurestreamingendpointsaconfiguring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>Configurando o ponto de extremidade de streaming
+## <a id="configure_streaming_endpoints"></a>Configurando o ponto de extremidade de streaming
 O Ponto de Extremidade de Streaming permite que você configure as seguintes propriedades:
 
 * Controle de acesso
@@ -70,6 +67,9 @@ O Ponto de Extremidade de Streaming permite que você configure as seguintes pro
 * Políticas de acesso entre sites
 
 Para obter informações detalhadas sobre essas propriedades, consulte [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+
+>[!NOTE]
+>Quando a CDN está habilitada, não é possível acessar o IP de acesso. O IP de acesso só será aplicável quando não há uma CDN.
 
 Você pode configurar o ponto de extremidade de streaming fazendo o seguinte:
 
@@ -88,7 +88,7 @@ A seguir há uma breve descrição dos campos.
 
 Para obter mais informações, consulte [este](media-services-portal-scale-streaming-endpoints.md) tópico.
 
-## <a name="a-idenablecdnaenable-azure-cdn-integration"></a><a id="enable_cdn"></a>Habilitar a integração da CDN do Azure
+## <a id="enable_cdn"></a>Habilitar a integração da CDN do Azure
 
 Quando você cria uma nova conta, a integração padrão da CDN do Azure para Ponto de Extremidade de Streaming é habilitada por padrão.
 
@@ -121,10 +121,4 @@ Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

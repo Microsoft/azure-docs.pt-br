@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: a0582c71e786ae5365e39a5f161b63e946435b2e
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: 29d53e18539f2c24dd64090b2ac6f9dd4c783961
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transactions-in-sql-data-warehouse"></a>Transações no SQL Data Warehouse
 Como era esperado, o SQL Data Warehouse oferece suporte a transações como parte da carga de trabalho do data warehouse. No entanto, para garantir que o desempenho do SQL Data Warehouse seja mantido em grande escala, alguns recursos serão limitados em comparação com o SQL Server. Este artigo realça as diferenças e lista as outras. 
@@ -36,7 +35,7 @@ Na tabela abaixo, foram feitas as seguintes suposições:
 * Ocorreu uma distribuição uniforme dos dados 
 * O tamanho médio da linha é de 250 bytes
 
-| [DWU][DWU] | Limite por distribuição (GiB) | Número de distribuições | Tamanho máximo de transações (GiB) | # Nº de linhas por distribuição | Máximo de linhas por transação |
+| [DWU][DWU] | Limite por distribuição (GiB) | Número de distribuições | Tamanho máximo de transações (GiB) | Nº de linhas por distribuição | Máximo de linhas por transação |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4.000.000 |240.000.000 |
 | DW200 |1.5 |60 |90 |6.000.000 |360.000.000 |
@@ -191,4 +190,3 @@ Para saber mais sobre a otimização das transações, confira [Práticas recome
 <!--MSDN references-->
 
 <!--Other Web references-->
-

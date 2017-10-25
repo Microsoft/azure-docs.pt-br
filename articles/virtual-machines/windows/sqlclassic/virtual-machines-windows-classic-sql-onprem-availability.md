@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/12/2016
+ms.date: 05/31/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 38728a20527be060e63d2dbdea923263b3d6c7fa
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 50326a093adaf3558c56dfd0b38544f0e60be460
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Estender grupos de disponibilidade AlwaysOn locais para o Azure
 Os grupos de disponibilidade AlwaysOn fornecem alta disponibilidade para grupos de bancos de dados adicionando réplicas secundárias. Essas réplicas permitem o failover dos bancos de dados em caso de falha. Além disso, elas podem ser usadas para descarregar cargas de trabalho de leitura ou tarefas de backup.
@@ -31,7 +30,7 @@ Este tutorial pressupõe que você tenha o seguinte:
 
 * Uma assinatura ativa do Azure. Você pode [se inscrever para uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Um grupo de disponibilidade AlwaysOn local existente. Para obter mais informações sobre os grupos de disponibilidade, consulte [Grupos de disponibilidade AlwaysOn](https://msdn.microsoft.com/library/hh510230.aspx).
-* Conectividade entre a rede local e sua rede virtual do Azure. Para obter mais informações sobre como criar essa rede virtual, consulte [Configurar um VPN site a site no portal clássico do Azure](../../../vpn-gateway/vpn-gateway-site-to-site-create.md).
+* Conectividade entre a rede local e sua rede virtual do Azure. Para obter mais informações sobre como criar essa rede virtual, consulte [Criar uma conexão site a site usando o portal do Azure (clássico)](../../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md).
 
 > [!IMPORTANT] 
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
@@ -39,9 +38,12 @@ Este tutorial pressupõe que você tenha o seguinte:
 ## <a name="add-azure-replica-wizard"></a>Assistente de adição de réplica do Azure
 Esta seção mostra como usar o **Assistente de Adição de Réplica do Azure** para estender sua solução do grupo de disponibilidade AlwaysOn para incluir réplicas do Azure.
 
+> [!IMPORTANT]
+> O **Assistente para Adicionar uma Réplica do Azure** dá suporte apenas a máquinas virtuais criadas com o modelo de implantação Clássico. As novas implantações de VM devem usar o modelo mais novo do Resource Manager. Se você estiver usando VMs com o Resource Manager, deverá adicionar manualmente a réplica secundária do Azure usando comandos Transact-SQL (não mostrados aqui). Esse assistente não funcionará no cenário do Resource Manager.
+
 1. De dentro do SQL Server Management Studio, expanda **Alta Disponibilidade AlwaysOn** > **Grupos de Disponibilidade** > **[Nome do seu Grupo de Disponibilidade]**.
 2. Clique com o botão direito em **Réplicas da Disponibilidade**, em seguida, clique em **Adicionar Réplica**.
-3. Por padrão, o **Assistente de Adição de Réplica ao Grupo de Disponibilidade** é exibido. Clique em **Próximo**.  Se você tiver selecionado a opção **Não mostrar esta página novamente** na parte inferior da página durante uma inicialização anterior desse assistente, esta tela não será exibida.
+3. Por padrão, o **Assistente de Adição de Réplica ao Grupo de Disponibilidade** é exibido. Clique em **Avançar**.  Se você tiver selecionado a opção **Não mostrar esta página novamente** na parte inferior da página durante uma inicialização anterior desse assistente, esta tela não será exibida.
    
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742861.png)
 4. Você precisará se conectar a todas as réplicas secundárias existentes. Você pode clicar em **Conectar...** ao lado de cada réplica ou pode clicar em **Conectar Tudo...** na parte inferior da tela. Após a autenticação, clique em **Avançar** para prosseguir para a próxima tela.
@@ -71,9 +73,9 @@ Esta seção mostra como usar o **Assistente de Adição de Réplica do Azure** 
 10. A página **Especificar Réplicas** é exibida novamente. Verifique as configurações da nova réplica do Azure nas guias **Réplicas**, **Pontos de Extremidade**, e **Preferências de Backup**. Modifique as configurações para atender às suas necessidades de negócios.  Para obter mais informações sobre os parâmetros contidos nessas guias, consulte [Especificar Página de Réplicas (Assistente para Novo Grupo de Disponibilidade/Assistente para Adicionar Réplica)](https://msdn.microsoft.com/library/hh213088.aspx). Observe que os ouvintes não podem ser criados usando a guia Ouvinte para os Grupos de Disponibilidade que contêm réplicas do Azure. Além disso, se um ouvinte já tiver sido criado antes de iniciar o assistente, você receberá uma mensagem indicando que não há suporte no Azure. Veremos como criar os ouvintes na seção **Criar um Ouvinte do Grupo de Disponibilidade**.
     
      ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742865.png)
-11. Clique em **Próximo**.
+11. Clique em **Avançar**.
 12. Selecione o método de sincronização de dados que você deseja usar na página **Selecionar Sincronização de Dados Inicial** e clique em **Próximo**. Na maioria dos cenários, selecione **Sincronização Completa de Dados**. Para obter mais informações sobre métodos de sincronização de dados, consulte [Selecionar a página Sincronização de Dados Inicial (assistentes de grupo de disponibilidade AlwaysOn)](https://msdn.microsoft.com/library/hh231021.aspx).
-13. Examine os resultados na página **Validação** . Corrija os problemas pendentes e execute novamente a validação, se necessário. Clique em **Próximo**.
+13. Examine os resultados na página **Validação** . Corrija os problemas pendentes e execute novamente a validação, se necessário. Clique em **Avançar**.
     
      ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742866.png)
 14. Examine as configurações na página **Resumo**, em seguida, clique em **Concluir**.
@@ -91,5 +93,4 @@ Após o grupo de disponibilidade ter sido criado, você deve criar um ouvinte pa
 Além de usar o **Assistente de Adição de Réplica do Azure** para estender seu grupo de disponibilidade AlwaysOn ao Azure, você também pode mover algumas cargas de trabalho do SQL Server completamente para o Azure. Para começar, consulte [Provisionando uma Máquina Virtual do SQL Server no Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
 
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
 

@@ -5,20 +5,21 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: harshja
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/30/2016
+ms.date: 07/14/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: d7fe552e0c8856a8d7799ae8a7732e57a350fee3
-ms.openlocfilehash: 2a42605c75fe183d57030e4a3ff3f3218a7dbc2b
-
-
+ms.reviewer: harshja
+ms.custom: it-pro; oldportal
+ms.openlocfilehash: 96490c0d060fe5486a7235a5aa76380c8d9b5d4f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publicar aplicativos usando o Proxy de Aplicativo do AD do Azure
 
@@ -29,9 +30,7 @@ ms.openlocfilehash: 2a42605c75fe183d57030e4a3ff3f3218a7dbc2b
 O Proxy de Aplicativo do Azure AD o ajuda a dar suporte a funcionários remotos publicando aplicativos locais para serem acessados via Internet. Nesse ponto, você já deve ter [habilitado o Proxy de Aplicativo no portal clássico do Azure](active-directory-application-proxy-enable.md). Este artigo explica as etapas para publicar aplicativos que estão em execução em sua rede local e fornecer acesso remoto seguro de fora de sua rede. Depois de concluir este artigo, você estará pronto para configurar o aplicativo com informações personalizadas ou requisitos de segurança.
 
 > [!NOTE]
-> O Proxy de Aplicativo é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Básica do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
-> 
-> 
+> O Proxy de Aplicativo é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Básica do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md). Se você quiser usar o Proxy de Aplicativo, [Publique aplicativos no portal do Azure](application-proxy-publish-azure-portal.md).
 
 ## <a name="publish-an-app-using-the-wizard"></a>Publicar um aplicativo usando o assistente
 1. Entre como administrador no [portal clássico do Azure](https://manage.windowsazure.com/).
@@ -62,9 +61,9 @@ O Proxy de Aplicativo do Azure AD o ajuda a dar suporte a funcionários remotos 
 6. Para concluir o assistente, clique na marca de seleção na parte inferior da tela. O aplicativo agora está definido no AD do Azure.
 
 ## <a name="assign-users-and-groups-to-the-application"></a>Atribuir usuários e grupos ao aplicativo
-Para que os usuários acessem o aplicativo publicado, você precisa atribuí-los individualmente ou em grupos. (Lembre-se também de atribuir acesso a si mesmo.) Isso requer que cada usuário tenha uma licença para o Azure Basic ou superior. Você pode atribuir licenças individualmente ou em grupos. Veja [Atribuir usuários a um aplicativo](active-directory-applications-guiding-developers-assigning-users.md) para obter mais detalhes. 
+Para que os usuários acessem o aplicativo publicado, você precisa atribuí-los individualmente ou em grupos. (Lembre-se também de atribuir acesso a si mesmo.) Cada usuário que você atribui precisa de uma licença para o Azure Básico ou superior. Você pode atribuir licenças individualmente ou em grupos. Para saber mais, confira [Atribuir usuários a um aplicativo](active-directory-applications-guiding-developers-assigning-users.md). 
 
-Para aplicativos que exigem pré-autenticação, isso concede permissões para usar o aplicativo. Para aplicativos que não exigem pré-autenticação, os usuários ainda podem ser atribuídos ao aplicativo para que ele apareça na lista de aplicativos, como MyApps.
+Para aplicativos que exigem pré-autenticação, a atribuição de um usuário concede permissões para usar o aplicativo. Para aplicativos que não exigem pré-autenticação, a atribuição de um usuário significa que o usuário pode acessar o aplicativo por meio do painel de acesso.
 
 1. Após concluir o assistente Adicionar Aplicativo, você verá a página de Início Rápido para o aplicativo. Para gerenciar quem tem acesso ao aplicativo, selecione **Usuários e grupos**.
    
@@ -89,7 +88,7 @@ Na página Configurar você pode modificar aplicativos publicados ou configurar 
 
 Depois de publicar aplicativos usando o Proxy de Aplicativo do Active Directory do Azure, eles aparecerão na lista de aplicativos do AD do Azure e será possível gerenciá-los de lá.
 
-Se você desabilitar os serviços do Proxy de Aplicativo depois de publicar aplicativos, eles não poderão mais ser acessados de fora da rede privada. Isso não exclui os aplicativos.
+Se você desabilitar os serviços de Proxy do Aplicativo depois de publicar aplicativos, eles não poderão mais ser acessados de fora da rede privada. Os usuários ainda podem acessar normalmente os aplicativos no local.
 
 Para exibir um aplicativo e verificar se ele está acessível, clique duas vezes no nome do aplicativo. Se o serviço do Proxy de Aplicativo estiver desabilitado e o aplicativo não estiver disponível, uma mensagem de aviso será exibida na parte superior da tela.
 
@@ -102,10 +101,4 @@ Para excluir um aplicativo, selecione-o na lista e clique em **Excluir**.
 * [Trabalho com aplicativos com reconhecimento de declaração](active-directory-application-proxy-claims-aware-apps.md)
 
 Para ver as últimas notícias e atualizações, confira o [blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

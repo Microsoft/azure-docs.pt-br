@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 09/13/2016
 ms.author: xpillons
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: c83d39c87f789397116601e3e775a4f0ed3eac72
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: b45fcfb981287035da02fda62eaf5f9436ec2379
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-star-ccm-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Executar o STAR-CCM+ com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure
 Este artigo mostra como implantar um cluster do Microsoft HPC Pack no Azure e executar um trabalho do [STAR-CCM+ da CD-adapco](http://www.cd-adapco.com/products/star-ccm%C2%AE) em vários nós de computação Linux interconectados com InfiniBand.
@@ -32,7 +31,7 @@ O Microsoft HPC Pack fornece recursos para executar uma variedade de aplicativos
 ## <a name="set-up-an-hpc-pack-cluster"></a>Configurar um cluster do HPC Pack
 Baixe os scripts de implantação de IaaS do HPC Pack do [Centro de Download](https://www.microsoft.com/en-us/download/details.aspx?id=44949) e extraia-os localmente.
 
-O Azure PowerShell é um pré-requisito. Se o PowerShell não estiver configurado no computador local, leia [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+O Azure PowerShell é um pré-requisito. Se o PowerShell não estiver configurado no computador local, leia [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 No momento da redação deste artigo, as imagens do Linux do Azure Marketplace (que contém os drivers de InfiniBand para o Azure) são para o SLES 12, o CentOS 6.5 e o CentOS 7.1. Este artigo baseia-se no uso do SLES 12. Para recuperar o nome de todas as imagens do Linux que dão suporte ao HPC no Marketplace, você pode executar o seguinte comando do PowerShell:
 
@@ -119,7 +118,7 @@ Agora que todos os nós estão em funcionamento, há configurações de infraest
 ## <a name="set-up-an-azure-file-share-for-windows-and-linux-nodes"></a>Configurar um compartilhamento de arquivos do Azure para nós do Windows e Linux
 Você pode usar o serviço de arquivos do Azure para armazenar scripts, pacotes de aplicativos e arquivos de dados. O arquivo do Azure fornece funcionalidades CIFS sobre o Armazenamento de Blobs do Azure como um repositório persistente. Lembre-se de que essa não é a solução mais escalonável, mas é a mais simples e não requer VMs dedicadas.
 
-Crie um compartilhamento de arquivos do Azure seguindo as instruções no artigo [Introdução ao Armazenamento de Arquivos do Azure no Windows](../../../storage/storage-dotnet-how-to-use-files.md).
+Crie um compartilhamento de arquivos do Azure seguindo as instruções no artigo [Introdução ao Armazenamento de Arquivos do Azure no Windows](../../../storage/files/storage-dotnet-how-to-use-files.md).
 
 Mantenha o nome da sua conta de armazenamento como **saname**, o nome do compartilhamento de arquivos como **sharename** e a chave de conta de armazenamento **sakey**.
 
@@ -334,4 +333,3 @@ Tentar executar outras cargas de trabalho do Linux. Por exemplo, consulte:
 <!--Image references-->
 [hndeploy]:media/hpcpack-cluster-starccm/hndeploy.png
 [clustermanager]:media/hpcpack-cluster-starccm/ClusterManager.png
-

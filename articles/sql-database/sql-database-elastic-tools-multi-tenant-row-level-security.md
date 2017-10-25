@@ -8,18 +8,18 @@ manager: jhubbard
 author: tmullaney
 ms.assetid: e72d3cfe-e9be-4326-b776-9c6d96c0a18e
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: thmullan;torsteng
-translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 19afc13a1715890316b34ed1128b594105c53c69
-
-
+ms.openlocfilehash: 73f1210b8d1f5ceca8fac9534d498bdc23d96d48
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha
 As [ferramentas de banco de dados elástico](sql-database-elastic-scale-get-started.md) e a [RLS (segurança em nível de linha)](https://msdn.microsoft.com/library/dn765131) oferecem um conjunto avançado de funcionalidades para escalar a camada de dados de um aplicativo multilocatário com um Banco de Dados SQL do Azure de maneira flexível e eficiente. Confira [Padrões de design para aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md) para saber mais. 
@@ -27,7 +27,7 @@ As [ferramentas de banco de dados elástico](sql-database-elastic-scale-get-star
 Este artigo ilustra como usar essas tecnologias em conjunto para criar um aplicativo com uma camada de dados altamente escalonável e que dá suporte a fragmentos multilocatários, usando o **ADO.NET SqlClient** e/ou o **Entity Framework**.  
 
 * **Ferramentas de banco de dados elástico** permitem que os desenvolvedores expandir a camada de dados de um aplicativo por meio de práticas de fragmentação padrão do setor usando um conjunto de bibliotecas .NET e modelos de serviço do Azure. Gerenciar fragmentos usando a Biblioteca Cliente do Banco de Dados Elástico ajuda a automatizar e simplificar muitas das tarefas infraestruturais normalmente associadas à fragmentação. 
-* **segurança em nível de linha** permite aos desenvolvedores armazenar dados para vários locatários no mesmo banco de dados usando políticas de segurança para filtrar linhas que não pertencem ao locatário que está executando uma consulta. Centralizar a lógica de acesso com RLS no banco de dados, em vez de no aplicativo, simplifica a manutenção e reduz o risco de erros conforme a base de código de um aplicativo é expandida. A RLS exige o [Banco de Dados SQL do Azure (V12)](sql-database-technical-overview.md). 
+* **segurança em nível de linha** permite aos desenvolvedores armazenar dados para vários locatários no mesmo banco de dados usando políticas de segurança para filtrar linhas que não pertencem ao locatário que está executando uma consulta. Centralizar a lógica de acesso com RLS no banco de dados, em vez de no aplicativo, simplifica a manutenção e reduz o risco de erros conforme a base de código de um aplicativo é expandida. 
 
 Ao usar esses recursos em conjunto, um aplicativo pode desfrutar de ganhos de eficiência e economia de custo armazenando dados para vários locatários no mesmo banco de dados de fragmentos. Ao mesmo tempo, um aplicativo ainda terá a flexibilidade para oferecer fragmentos isolados de um locatário para locatários "premium" que exigem garantias de desempenho mais rígidas, já que os fragmentos multilocatários não garantem a distribuição uniforme dos recursos entre os locatários.  
 
@@ -316,11 +316,5 @@ Em caso de dúvidas, entre em contato conosco pelo [fórum do Banco de Dados SQL
 <!--Image references-->
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
-
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

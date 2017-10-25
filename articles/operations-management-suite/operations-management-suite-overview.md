@@ -14,17 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: a0080a847764d538175d6b22d50d584383bd2054
-ms.openlocfilehash: 3028da79b6a9bfae4c95a8139ecf8bbd7debc56a
-ms.lasthandoff: 02/17/2017
-
-
+ms.openlocfilehash: 452dd602387db6db04ca87f6834c9e8606185484
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-operations-management-suite-oms"></a>O que é Operations Management Suite (OMS)?
 Este artigo fornece uma introdução ao OMS (Operations Management Suite), incluindo uma visão geral sobre o valor de negócios que ele fornece, os serviços e as soluções de gerenciamento incluídos e as ofertas que reúnem serviços e soluções diferentes.  Há links para a documentação detalhada sobre como implantar e usar cada solução e serviço.
 
-## <a name="from-on-premise-to-the-cloud"></a>Do local para a nuvem
+## <a name="from-on-premises-to-the-cloud"></a>Do local para a nuvem
 A Microsoft vem há tempos oferecendo produtos para gerenciar ambientes corporativos.  Vários produtos foram consolidados no pacote de produtos de gerenciamento do System Center em 2007.  Isso incluiu o Configuration Manager, que fornece recursos como distribuição de e inventário de software, o Operations Manager, que oferece o monitoramento proativo de sistemas e aplicativos, o Orchestrator, que inclui runbooks para automatizar processos manuais e o Data Protection Manager para backup e recuperação de dados críticos.
 
 Conforme os recursos de computação vão mudando para a nuvem, os produtos do System Center ganharam mais recursos de nuvem, como os recursos de gerenciamento do Operations Manager e do Orchestrator no Azure.  No entanto, eles foram projetados como soluções locais e exigem um investimento significativo na implantação e manutenção do ambiente de gerenciamento local.  Para poder aproveitar totalmente a nuvem e dar suporte a aplicativos futuros, era necessária uma nova abordagem de gerenciamento.
@@ -143,8 +142,8 @@ O Azure Site Recovery fornece alta disponibilidade para servidores e aplicativos
 O Azure Site Recovery apresenta três cenários fundamentais de replicação.
 
 - **Replicação de máquinas virtuais Hyper-V.**  Se as máquinas virtuais Hyper-V forem gerenciadas em nuvens do VMM, será possível replicá-las em um data center secundário ou no armazenamento do Azure. A replicação no Azure é feita por uma conexão segura com a Internet. A replicação em um data center secundário é feita pela LAN.  Se as máquinas virtuais Hyper-V não forem gerenciadas pelo VMM, será possível replicar apenas o armazenamento do Azure. A replicação no Azure é feita por uma conexão segura com a Internet.<br><br>![Replicação de máquinas virtuais Hyper-V](media/operations-management-suite-overview/overview-siterecovery-hyperv.png)
-- **Replicação de máquinas virtuais VMWare.**  É possível replicar máquinas virtuais VMware em um data center secundário que executa o VMware ou no armazenamento do Azure. A replicação no Azure pode ocorrer por uma VPN site a site, pela Rota Expressa do Azure ou por uma conexão segura com a Internet. A replicação em um data center secundário ocorre pelo canal de dados do InMage Scout.<br><br>![Replicação de máquinas virtuais VMWare](media/operations-management-suite-overview/overview-siterecovery-vmware.png)
-- **Replicação de servidores físicos Windows e Linux**  É possível replicar servidores físicos em um data center secundário ou no armazenamento do Azure. A replicação no Azure pode ocorrer por uma VPN site a site, pela Rota Expressa do Azure ou por uma conexão segura com a Internet. A replicação em um data center secundário ocorre pelo canal de dados do InMage Scout. O Azure Site Recovery traz uma solução do OMS que exibe algumas estatísticas, mas é necessário usar o portal do Azure para qualquer operação.<br><br>![Replicação de servidores físicos do Windows e Linux](media/operations-management-suite-overview/overview-siterecovery-physical.png)
+- **Replicação de máquinas virtuais VMWare.**  É possível replicar máquinas virtuais VMware em um data center secundário que executa o VMware ou no armazenamento do Azure. A replicação no Azure pode ocorrer por uma VPN site a site, pelo Azure ExpressRoute ou por uma conexão segura com a Internet. A replicação em um data center secundário ocorre pelo canal de dados do InMage Scout.<br><br>![Replicação de máquinas virtuais VMWare](media/operations-management-suite-overview/overview-siterecovery-vmware.png)
+- **Replicação de servidores físicos Windows e Linux**  É possível replicar servidores físicos em um data center secundário ou no armazenamento do Azure. A replicação no Azure pode ocorrer por uma VPN site a site, pelo Azure ExpressRoute ou por uma conexão segura com a Internet. A replicação em um data center secundário ocorre pelo canal de dados do InMage Scout. O Azure Site Recovery traz uma solução do OMS que exibe algumas estatísticas, mas é necessário usar o portal do Azure para qualquer operação.<br><br>![Replicação de servidores físicos do Windows e Linux](media/operations-management-suite-overview/overview-siterecovery-physical.png)
 
 
 A Recuperação de Site armazena os metadados em cofres localizados em determinada região geográfica do Azure. Nenhum dado replicado é armazenado pelo serviço Site Recovery.
@@ -172,5 +171,4 @@ A Microsoft e seus parceiros adicionam soluções regularmente ao OMS, permitind
 * Saiba mais sobre o [Backup do Azure](http://azure.microsoft.com/documentation/services/backup).
 * Saiba mais sobre o [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery).
 * Descubra as [soluções disponíveis](../log-analytics/log-analytics-add-solutions.md) nas diferentes ofertas do OMS. 
-
 

@@ -3,7 +3,7 @@ title: Personalizar estilos no portal do desenvolvedor no Gerenciamento de API d
 description: "Saiba como modificar os estilos usados para qualquer página no portal do desenvolvedor no Gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
-author: antonba
+author: vladvino
 manager: vlvinogr
 editor: 
 ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
-translationtype: Human Translation
-ms.sourcegitcommit: 336d4f80f0357796fb29eb9314c11edfce831a69
-ms.openlocfilehash: bd08eb476a4bd7298c5650977b88ba0b24deddec
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: 89baf60d0204a1701e93309f09b90bc94c4ca57b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-the-styling-of-the-developer-portal-in-azure-api-management"></a>Personalizar o estilo do portal do desenvolvedor no Gerenciamento de API do Azure
 Há três maneiras básicas para personalizar o portal do desenvolvedor no Gerenciamento de API do Azure:
@@ -88,4 +87,3 @@ As alterações são visualizadas em tempo real como torná-los, mas ficam visí
 
 [bootstrap]: http://getbootstrap.com/
 [LESS variables]: http://getbootstrap.com/css/
-

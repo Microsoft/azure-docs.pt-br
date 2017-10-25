@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: 298679883416a871016563aa789522413ff4c019
-
-
+ms.openlocfilehash: 2d2cc04887d90b9f005bfe5310a9ce2fb2f7e217
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Apresentando o Microsoft Azure
 O Microsoft Azure é a plataforma de aplicativos da Microsoft para a nuvem pública.  A finalidade deste artigo é mostrar os princípios básicos do Azure, mesmo que você não saiba nada sobre computação em nuvem.
@@ -102,7 +102,7 @@ Existem duas funções a serem escolhidas quando você cria uma instância, amba
 Os Serviços de Nuvem são ideais para dar suporte à escala horizontal maciça quando você precisa de mais controle sobre a plataforma que o fornecido pelos Aplicativos Web do Azure, mas não precisa de controle sobre o sistema operacional subjacente.
 
 #### <a name="choosing-a-compute-model"></a>Escolhendo um Modelo de Computação
-A página [Comparação de Aplicativos Web, Serviços de Nuvem e Máquinas Virtuais do Azure](app-service-web/choose-web-site-cloud-service-vm.md) fornece informações mais detalhadas sobre como escolher um modelo de computação.
+A página [Comparação de Aplicativos Web, Serviços de Nuvem e Máquinas Virtuais do Azure](app-service/choose-web-site-cloud-service-vm.md) fornece informações mais detalhadas sobre como escolher um modelo de computação.
 
 ## <a name="data-management"></a>Gerenciamento de Dados
 Os aplicativos precisam de dados, e diferentes tipos de aplicativos precisam de diferentes tipos de dados. Por esse motivo, o Azure oferece várias maneiras diferentes de armazenar e gerenciar dados. O Azure oferece muitas opções de armazenamento, mas todas são projetadas para serem armazenamento muito durável.  Com todas essas opções, há sempre três cópias de seus dados mantidas sincronizadas por um datacenter do Azure -- ou seis, se você permitir que o Azure utilize redundância geográfica para dar suporte a outro datacenter a pelo menos 482,8 Km de distância.     
@@ -166,7 +166,7 @@ Em alguns casos, você deseja mover um grande volume dados para o Azure. Isso le
 
 ### <a name="file-service"></a>Serviço de arquivos
 ![Serviço de Arquivos do Azure](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png)    
-* Figura: os serviços de arquivo do Azure fornecem caminhos SMB \\\\server\share a aplicativos executados na nuvem.*
+*Figura: os serviços de arquivo do Azure fornecem caminhos SMB \\\\server\share a aplicativos executados na nuvem.*
 
 No local, é comum ter grandes volumes de armazenamento de arquivos acessíveis pelo protocolo SMB utilizando um formato \\\\Server\share. O Azure agora conta com um serviço que permite que você utilize esse protocolo em nuvem. Os aplicativos sendo executados no Azure podem utilizar esse serviço para compartilhar arquivos entre VMs utilizando APIs com um sistema de arquivos familiar, como ReadFile e WriteFile. Além disso, os arquivos também podem ser acessados simultaneamente via uma interface REST, que permite que você acesse os compartilhamentos diretamente do local quando você também configurar uma rede virtual. Os Arquivos do Azure são criados sobre o serviço Blob, de modo que herdam a mesma disponibilidade, durabilidade, escalabilidade e redundância geográfica existentes no Armazenamento do Azure.
 
@@ -194,15 +194,15 @@ Mas para que isso seja realmente útil, convém que os usuários tratem esses ap
 Para obter mais informações sobre planejamento e criação de uma rede virtual que funciona para você, consulte [Rede Virtual](virtual-network/virtual-networks-overview.md).
 
 ### <a name="express-route"></a>Rota Expressa
-![Rota Expressa](./media/fundamentals-introduction-to-azure/ExpressRouteIntroNew.png)   
+![ExpressRoute](./media/fundamentals-introduction-to-azure/ExpressRouteIntroNew.png)   
 
-*Figura: a Rota Expressa usa uma Rede Virtual do Azure, mas roteia as conexões por linhas dedicadas mais rápidas, em vez da Internet pública.*  
+*Figura: o ExpressRoute usa uma Rede Virtual do Azure, mas roteia as conexões por linhas dedicadas mais rápidas, em vez da Internet pública.*  
 
-Se você precisa de mais largura de banda ou segurança do que a oferecida por uma conexão de Rede Virtual do Azure, considere o Rota Expressa. Em alguns casos, o Rota Expressa também pode economizar o seu dinheiro. Você ainda precisará de uma rede virtual no Azure, mas a conexão entre o Azure e seu site utiliza uma conexão dedicada que não passa pela Internet pública. Para utilizar esse serviço, você precisará de um contrato com um provedor de serviços de rede, ou então um provedor de troca.
+Se você precisa de mais largura de banda ou segurança do que a oferecida por uma conexão de Rede Virtual do Azure, considere o ExpressRoute. Em alguns casos, o ExpressRoute também pode economizar o seu dinheiro. Você ainda precisará de uma rede virtual no Azure, mas a conexão entre o Azure e seu site utiliza uma conexão dedicada que não passa pela Internet pública. Para utilizar esse serviço, você precisará de um contrato com um provedor de serviços de rede, ou então um provedor de troca.
 
-Configurar uma conexão Rota Expressa exige mais tempo e planejamento, portanto, talvez seja melhor você começar utilizando um VPN site a site, para então migrar para uma conexão Rota Expressa.
+Configurar uma conexão ExpressRoute exige mais tempo e planejamento, portanto, talvez seja melhor você começar utilizando um VPN site a site, para então migrar para uma conexão ExpressRoute.
 
-Para obter mais informações sobre o Rota Expressa, consulte [Visão Geral Técnica do Rota Expressa](expressroute/expressroute-introduction.md).
+Para obter mais informações sobre o ExpressRoute, consulte [Visão Geral Técnica do ExpressRoute](expressroute/expressroute-introduction.md).
 
 ### <a name="traffic-manager"></a>Gerenciador de Tráfego
 ![TrafficManager](./media/fundamentals-introduction-to-azure/TrafficManagerIntroNew.png)   
@@ -537,9 +537,3 @@ O SendGrid é um aplicativo na Azure Store que permite que você envie emails. E
 Agora que você tem a visão geral, a próxima etapa é escrever seu primeiro aplicativo do Azure. Escolha a linguagem, [obtenha o SDK adequado](/downloads/)e vá em frente. Computação em nuvem é o novo padrão: comece agora.
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

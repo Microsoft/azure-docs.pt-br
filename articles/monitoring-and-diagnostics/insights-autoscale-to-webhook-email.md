@@ -1,8 +1,8 @@
 ---
 title: "Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook. | Microsoft Docs"
 description: "Consulte como usar ações de escala automática para chamar URLs da web ou enviar notificações por email no Azure Monitor. "
-author: kamathashwin
-manager: carolz
+author: anirudhcavale
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2016
-ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d5fb08bbeb5564566808cd8ff6d2e83dec89de6c
-
-
+ms.date: 04/03/2017
+ms.author: ancav
+ms.openlocfilehash: 16caf14028494800e9259f0296c292b606d0210a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Use ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor
 Este artigo mostra como configurar gatilhos para que você possa chamar URLs da web específicas ou enviar emails com base em ações de escala automática no Azure.  
@@ -34,7 +34,7 @@ Você pode aderir no portal do Azure para Serviços de Nuvem e Farms de Servidor
 
 * Escolha a métrica **escalar por** .
 
-![escalar por](./media/insights-autoscale-to-webhook-email/insights-autoscale-scale-by.png)
+![escalar por](./media/insights-autoscale-to-webhook-email/insights-autoscale-notify.png)
 
 ## <a name="virtual-machine-scale-sets"></a>Conjuntos de escala de Máquina Virtual
 Para ver as Máquinas Virtuais mais novas criadas com o Gerenciador de Recursos (conjuntos de escala da Máquina Virtual), você pode configurar isso usando a API REST, modelos do Gerenciador de Recursos, PowerShell e CLI. Uma interface de portal ainda não está disponível.
@@ -75,10 +75,7 @@ Ao usar o modelo da API REST ou do Gerenciador de Recursos, inclua o elemento de
 | propriedades |sim |o valor deve ser vazio {} ou pode conter pares de chave-valor |
 
 ## <a name="authentication-in-webhooks"></a>Autenticação em webhooks
-Há duas formas de URI de autenticação:
-
-1. Autenticação baseada em token, em que você salva o URI do webhook com uma ID de token como um parâmetro de consulta. Por exemplo, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
-2. Autenticação básica, em que você usa uma ID de usuário e senha. Por exemplo, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
+O webhook pode autenticar usando autenticação baseada em token, em que você salva o URI do webhook com uma ID de token como um parâmetro de consulta. Por exemplo, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>Escala automática do esquema de carga útil do webhook de notificação
 Quando a notificação de escala automática é gerada, os metadados a seguir são incluídos na carga útil do webhook:
@@ -128,10 +125,3 @@ Quando a notificação de escala automática é gerada, os metadados a seguir s�
 | oldCapacity |sim |A atual (antiga) contagem de instância quando Escala Automática adotou uma ação de escala |
 | newCapacity |sim |A nova contagem de instância para a qual a Escala Automática escalou o recurso |
 | propriedades |Não |Opcional. Conjunto de pares de <Chave, Valor> (por exemplo, Dicionário <Cadeia de caracteres, Cadeia de caracteres>). O campo de propriedades é opcional. Em uma interface do usuário personalizada ou fluxo de trabalho de aplicativo Lógico, você pode inserir as chaves e valores que podem ser passados usando a carga útil. Uma maneira alternativa de passar as propriedades personalizadas de volta para a chamada de saída do webhook é usar o URI do webhook em si (como parâmetros de consulta) |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

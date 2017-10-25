@@ -1,10 +1,9 @@
 ---
-
 title: "Monitorar os gateways de VPN com a solução de problemas do Observador de Rede do Azure | Microsoft Docs"
 description: "Este artigo descreve como diagnosticar a conectividade local com a Automação e o Observador de Rede do Azure"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.service: network-watcher
@@ -13,18 +12,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 9a6f42e9b7b737e9316dcc1ff39ea532c4b923c5
-ms.lasthandoff: 03/29/2017
-
-
+ms.author: jdial
+ms.openlocfilehash: 935431783b08919049c5c24b56285647bc7b35ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorar os gateways de VPN com a solução de problemas do Observador de Rede
 
-Obter informações detalhadas sobre o desempenho da rede é essencial para fornecer serviços confiáveis aos clientes. Portanto, é fundamental detectar as condições de interrupção da rede rapidamente e tomar medidas corretivas para reduzir a condição de interrupção. A Automação do Azure permite implementar e executar uma tarefa de forma programática por meio de runbooks. Usar a Automação do Azure cria uma receita perfeita para realizar um monitoramento contínuo e proativo da rede e alertas.
+Obter informações detalhadas sobre o desempenho da rede é essencial para fornecer serviços confiáveis aos clientes. Portanto, é fundamental detectar as condições de interrupção da rede rapidamente e adotar ações corretivas para reduzir a condição de interrupção. A Automação do Azure permite implementar e executar uma tarefa de forma programática por meio de runbooks. Usar a Automação do Azure cria uma receita perfeita para realizar um monitoramento contínuo e proativo da rede e alertas.
 
 ## <a name="scenario"></a>Cenário
 
@@ -43,17 +40,18 @@ Este cenário:
 
 Antes de começar este tutorial, você deve ter os seguintes pré-requisitos:
 
-- uma conta de automação no Azure.
+- uma conta de automação no Azure. Verifique se a conta de automação tem os módulos mais recentes e também tem o módulo AzureRM.Network. O módulo AzureRM.Network estará disponível na galeria de módulos se for necessário adicioná-lo à conta de automação.
 - deve ter um conjunto de credenciais configurado na Automação do Azure. Saiba mais em [Segurança da Automação do Azure](../automation/automation-security-overview.md)
 - Um servidor SMTP válido (Office 365, seu email local ou outro) e credenciais definidas na Automação do Azure
 - Um Gateway de Rede Virtual configurado no Azure.
+- Uma conta de armazenamento existente com um contêiner existente para armazenar os logs.
 
 > [!NOTE]
 > A infraestrutura representada na imagem anterior é para ilustrar e não é criada com as etapas contidas neste artigo.
 
 ### <a name="create-the-runbook"></a>Criar o runbook
 
-A primeira etapa para configurar o exemplo é criar o runbook. Este exemplo usa uma conta do tipo executar como. Para saber mais sobre as contas executar como, visite [Autenticar Runbooks com conta Executar Como do Azure](../automation/automation-sec-configure-azure-runas-account.md#create-an-automation-account-from-the-azure-portal)
+A primeira etapa para configurar o exemplo é criar o runbook. Este exemplo usa uma conta do tipo executar como. Para saber mais sobre as contas executar como, visite [Autenticar Runbooks com conta Executar Como do Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
 ### <a name="step-1"></a>Etapa 1
 
@@ -86,14 +84,27 @@ Nesta etapa, o runbook é criado e o exemplo de código a seguir fornece todo o 
 Use o seguinte código e clique em **Salvar**
 
 ```PowerShell
+# Set these variables to the proper values for your environment
+$o365AutomationCredential = "<Office 365 account>"
+$fromEmail = "<from email address>"
+$toEmail = "<to email address>"
+$smtpServer = "<smtp.office365.com>"
+$smtpPort = 587
+$runAsConnectionName = "<AzureRunAsConnection>"
+$subscriptionId = "<subscription id>"
+$region = "<Azure region>"
+$vpnConnectionName = "<vpn connection name>"
+$vpnConnectionResourceGroup = "<resource group name>"
+$storageAccountName = "<storage account name>"
+$storageAccountResourceGroup = "<resource group name>"
+$storageAccountContainer = "<container name>"
+
 # Get credentials for Office 365 account
-$MyCredential = "Office 365 account"
-$Cred = Get-AutomationPSCredential -Name $MyCredential
+$cred = Get-AutomationPSCredential -Name $o365AutomationCredential
 
 # Get the connection "AzureRunAsConnection "
-$connectionName = "AzureRunAsConnection"
-$servicePrincipalConnection=Get-AutomationConnection -Name $connectionName
-$subscriptionId = "<subscription id>"
+$servicePrincipalConnection=Get-AutomationConnection -Name $runAsConnectionName
+
 "Logging in to Azure..."
 Add-AzureRmAccount `
     -ServicePrincipal `
@@ -103,35 +114,34 @@ Add-AzureRmAccount `
 "Setting context to a specific subscription"
 Set-AzureRmContext -SubscriptionId $subscriptionId
 
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $region }
 $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
-$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
-$sa = New-AzureRmStorageAccount -Name "contosoexamplesa" -SKU "Standard_LRS" -ResourceGroupName "testrg" -Location "WestCentralUS"
-$result = Start-AzureRmNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)logs"
-
+$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name $vpnConnectionName -ResourceGroupName $vpnConnectionResourceGroup
+$sa = Get-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $storageAccountResourceGroup 
+$storagePath = "$($sa.PrimaryEndpoints.Blob)$($storageAccountContainer)"
+$result = Start-AzureRmNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath $storagePath
 
 if($result.code -ne "Healthy")
     {
-        $Body = "Connection for ${vpnconnectionName} is: $($result.code). View the logs at $($sa.PrimaryEndpoints.Blob)logs to learn more."
-        $subject = "${connectionname} Status"
+        $body = "Connection for $($connection.name) is: $($result.code) `n$($result.results[0].summary) `nView the logs at $($storagePath) to learn more."
+        Write-Output $body
+        $subject = "$($connection.name) Status"
         Send-MailMessage `
-        -To 'admin@contoso.com' `
+        -To $toEmail `
         -Subject $subject `
-        -Body $Body `
+        -Body $body `
         -UseSsl `
-        -Port 587 `
-        -SmtpServer 'smtp.office365.com' `
-        -From "${$username}" `
+        -Port $smtpPort `
+        -SmtpServer $smtpServer `
+        -From $fromEmail `
         -BodyAsHtml `
-        -Credential $Cred
+        -Credential $cred
     }
 else
     {
-    Write-Output ("Connection Status is: $($result.connectionStatus)")
+    Write-Output ("Connection Status is: $($result.code)")
     }
 ```
-
-![Etapa 5][5]
 
 ### <a name="step-6"></a>Etapa 6
 
@@ -189,4 +199,3 @@ Agora que você tem uma compreensão de como integrar a solução de problemas d
 [8]: ./media/network-watcher-monitor-with-azure-automation/figure8.png
 [9]: ./media/network-watcher-monitor-with-azure-automation/figure9.png
 [10]: ./media/network-watcher-monitor-with-azure-automation/figure10.png
-

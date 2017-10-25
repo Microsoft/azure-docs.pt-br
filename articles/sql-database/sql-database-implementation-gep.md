@@ -8,19 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: ae8bcb10-c251-4bac-b666-10a253918583
 ms.service: sql-database
-ms.custom: customer implementations
+ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 5730556f4d5af04481c771c8a70f003d6cd2917c
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: 64dec0bb789fe6e07975b1d403b6a37b5c2c2ed8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-gives-gep-global-reach-and-greater-efficiency"></a>O Azure oferece à GEP alcance global e maior eficiência
 ![Logotipo da GEP](./media/sql-database-implementation-gep/geplogo.png)
@@ -64,7 +63,7 @@ No coração do aplicativo SMART by GEP estão as instâncias do Banco de Dados 
 > 
 > 
 
-Ao usar o Banco de Dados SQL do Azure, a GEP tem automaticamente melhores recursos de recuperação de desastre do que poderia ter economicamente projetado no local devido aos recursos de tolerância a falhas criados no Banco de Dados SQL do Azure. A GEP usa o recurso de Replicação Geográfica Ativa no Banco de Dados SQL do Azure, em conjunto com várias réplicas secundárias ativas, legíveis e online (Grupos de Disponibilidade AlwaysOn) em diferentes regiões geográficas para formar pares de alta disponibilidade. A replicação dos dados do SMART by GEP entre regiões significa que, no caso de um desastre em toda a região, a GEP pode recuperar facilmente dados dos clientes com um RPO (objetivo de ponto de recuperação) e RTO (objetivo de tempo de recuperação) mínimos.
+Ao usar o Banco de Dados SQL do Azure, a GEP tem automaticamente melhores recursos de recuperação de desastre do que poderia ter economicamente projetado no local devido aos recursos de tolerância a falhas criados no Banco de Dados SQL do Azure. A GEP usa a funcionalidade de replicação geográfica ativa no Banco de dados SQL do Azure, em conjunto com várias réplicas secundárias ativas, legíveis e online (Grupos de disponibilidade AlwaysOn) em diferentes regiões geográficas para formar pares de alta disponibilidade. A replicação dos dados do SMART by GEP entre regiões significa que, no caso de um desastre em toda a região, a GEP pode recuperar facilmente dados dos clientes com um RPO (objetivo de ponto de recuperação) e RTO (objetivo de tempo de recuperação) mínimos.
 
 Cada cliente do SMART by GEP tem duas instâncias do Banco de Dados SQL do Azure: uma para OLTP (processamento de transação online) e uma para análise (como gastos do cliente e análise de relatório). Os pools elásticos do Banco de Dados SQL do Azure permitem que a GEP gerencie facilmente milhares de bancos de dados globalmente para lidar com demandas imprevisíveis de recursos de banco de dados. Os pools elásticos fornecem à GEP um meio de garantir que os bancos de dados de clientes possam ser dimensionados conforme a necessidade, sem provisionamento em excesso ou escasso, ao mesmo tempo que permitem que a GEP controle os custos. Além disso, como esse é um serviço PaaS, a GEP obtém todos os novos recursos do Banco de Dados SQL do Azure com atualizações automáticas.
 
@@ -104,5 +103,4 @@ Desde a migração dos datacenters locais para o Azure e a criação do SMART by
 * Huzaifa Matawala, diretor associado — arquiteto da GEP
 * Sathyan Narasingh, gerente de engenharia da GEP
 * Deepa Velukutty, arquiteto de banco de dados da GEP
-
 

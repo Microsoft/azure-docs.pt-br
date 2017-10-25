@@ -11,20 +11,19 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 1/10/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/29/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: eccc927550aef4c9cd71ffad64d2eddedb74326e
-ms.openlocfilehash: 18627223bdb4f0986f07f17233ce7daf29cb7dd9
-ms.lasthandoff: 02/13/2017
-
+ms.openlocfilehash: 49cc01e54158b68e440f1efbfe2f8b0d076a5692
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-up-the-source-environment-vmware-to-azure"></a>Configurar o ambiente de origem (VMware para Azure)
 > [!div class="op_single_selector"]
-> * [Máquinas Virtuais VMware](./site-recovery-set-up-vmware-to-azure.md)
-> * [Servidores físicos](./site-recovery-set-up-physical-to-azure.md)
+> * [VMware no Azure](./site-recovery-set-up-vmware-to-azure.md)
+> * [Físico para Azure](./site-recovery-set-up-physical-to-azure.md)
 
 Este artigo descreve como configurar seu ambiente local para iniciar a replicação de máquinas virtuais que são executadas no VMware dentro do Azure.
 
@@ -32,11 +31,15 @@ Este artigo descreve como configurar seu ambiente local para iniciar a replicaç
 
 O artigo supõe que você já tenha criado:
 - Um Cofre de Serviços de Recuperação no [portal do Azure](http://portal.azure.com "portal do Azure").
-- Uma conta dedicada no seu VMware vCenter que pode ser usada para [descoberta automática](./site-recovery-vmware-to-azure.md#vmware-account-permissions).
+- Uma conta dedicada no seu VMware vCenter que pode ser usada para [descoberta automática](./site-recovery-vmware-to-azure.md).
 - Uma máquina virtual na qual será instalado o servidor de configuração.
 
 ## <a name="configuration-server-minimum-requirements"></a>Requisitos mínimos do servidor de configuração
-O software do servidor de configuração deve ser implantado em uma máquina virtual VMware altamente disponível. A tabela a seguir lista os requisitos mínimos de hardware, software e rede para um servidor de configuração.
+A tabela a seguir lista os requisitos mínimos de hardware, software e rede para um servidor de configuração.
+
+> [!IMPORTANT]
+> Ao implantar um Servidor de Configuração para proteger máquinas virtuais VMware, recomendamos que você implante-o como máquina virtual **altamente disponível (HA)**.
+
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 > [!NOTE]
@@ -98,4 +101,3 @@ Selecione **+vCenter** para iniciar a conexão de um VMware vCenter Server ou um
 
 ## <a name="next-steps"></a>Próximas etapas
 [Configurar o ambiente de destino](./site-recovery-prepare-target-vmware-to-azure.md) no Azure.
-

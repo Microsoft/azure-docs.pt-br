@@ -3,7 +3,7 @@ title: "Introdução ao aplicativo de página única AngularJS .NET do Azure AD 
 description: "Como compilar um aplicativo de página única Angular JS que autentica usuários com contas da Microsoft pessoais e contas corporativas ou de estudante."
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: 6a341781-278f-461b-92ca-7572a06e6852
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
-ms.openlocfilehash: 0ab6506e14997c0c6d58afa22db63f928d7cceb9
-
-
+ms.author: jmprieur
+ms.custom: aaddev
+ms.openlocfilehash: c68180c0ecabf5c0732f0db77ef1f3cc93be965b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---net"></a>Adicionar as credenciais a um aplicativo de página única do AngularJS - .NET
 Neste artigo adicionaremos a entrada com contas da plataforma Microsoft a um aplicativo AngularJS usando o ponto de extremidade v2.0 do Azure Active Directory.  O ponto de extremidade v2.0 permite executar uma integração única em seu aplicativo e autenticar usuários com contas pessoais e corporativas/de estudante.
@@ -233,10 +234,4 @@ Para continuar aprendendo sobre o ponto de extremidade v2.0, confira nosso [guia
 
 ## <a name="get-security-updates-for-our-products"></a>Obter atualizações de segurança para nossos produtos
 Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

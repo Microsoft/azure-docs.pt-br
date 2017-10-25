@@ -3,7 +3,7 @@ title: Compreender a arquitetura do Azure Active Directory | Microsoft Docs
 description: "Explica o que é um locatário do Azure AD e como gerenciar o Azure por meio do Active Directory do Azure"
 services: active-directory
 documentationcenter: 
-author: markvi
+author: MarkusVi
 writer: v-lorisc
 manager: femila
 ms.assetid: 
@@ -12,14 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 08/02/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 5c60fa737c0133482af8b653f795bf9086c39969
-ms.lasthandoff: 03/28/2017
-
-
+ms.openlocfilehash: 50dad848cfbdab7f5b1fff0fcec3b5f754e6ae74
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Compreender a arquitetura do Azure Active Directory
 O Azure AD (Azure Active Directory) o habilita a gerenciar o acesso a recursos e serviços do Azure para os usuários. Está incluído no Azure AD um conjunto completo de recursos de gerenciamento de identidade. Para obter informações sobre os recursos do Azure AD, confira [O que é o Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis)
@@ -30,10 +29,10 @@ Com o Azure AD, você pode criar e gerenciar usuários e grupos e habilitar as p
 A arquitetura distribuída geograficamente do Azure AD combina monitoramento abrangente, redirecionamento automatizado, failover e recursos de recuperação para habilitar o desempenho e a disponibilidade de nível corporativo para nossos clientes.
 
 Os seguintes elementos de arquitetura são abordados neste artigo:
- *    Design de arquitetura de serviço
- *    Escalabilidade 
- *    Disponibilidade contínua
- *    Data centers
+ *  Design de arquitetura de serviço
+ *  Escalabilidade 
+ *  Disponibilidade contínua
+ *  Data centers
 
 ### <a name="service-architecture-design"></a>Design de arquitetura de serviço
 A maneira mais comum de criar um sistema altamente disponível, escalonável e com dados avançados é por meio de blocos de construção independentes ou unidades de escala para a camada de dados do Azure AD. As unidades de escala são chamadas de *partições*. 
@@ -86,7 +85,7 @@ O Azure AD opera em data centers com as seguintes características:
 
  * Autenticação, Graph e outros serviços do AD residem por trás do serviço de Gateway. O Gateway gerencia o balanceamento de carga desses serviços. O failover ocorrerá automaticamente se todos os servidores não íntegros forem detectados usando testes de integridade transacional. Com base nesses testes de integridade, o Gateway roteia dinamicamente o tráfego para os data centers íntegros.
  * Para *leituras*, o diretório tem réplicas secundárias e serviços de front-end correspondentes em uma configuração ativo-ativo operando em vários data centers. Em caso de falha de um data center inteiro, o tráfego será roteado para um data center diferente automaticamente.
- *    Para *gravações*, o diretório realizará o failover da réplica principal (mestre) em data centers por meio de procedimentos de failover planejados (o novo principal é sincronizado com o principal antigo) ou de emergência. A durabilidade dos dados é obtida por meio da replicação de qualquer confirmação para pelo menos dois data centers.
+ *  Para *gravações*, o diretório realizará o failover da réplica principal (mestre) em data centers por meio de procedimentos de failover planejados (o novo principal é sincronizado com o principal antigo) ou de emergência. A durabilidade dos dados é obtida por meio da replicação de qualquer confirmação para pelo menos dois data centers.
 
 **Consistência de dados**
 
@@ -118,5 +117,4 @@ Adotamos controles operacionais como MFA (autenticação multifator) para qualqu
 
 ## <a name="next-steps"></a>Próximas etapas
 [Guia do desenvolvedor do Active Directory do Azure](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
-
 

@@ -16,8 +16,3 @@ Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua
 5. Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico:   
    ![](./media/connectors-create-api-trello/trello-5.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -4,7 +4,7 @@ description: "Entenda como usar as associações do Armazenamento do Azure no Az
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"
@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/28/2016
 ms.author: chrande
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 67c308f8216ebd291ae483c9b18d43528687e9a9
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: 486b7c31c914ba7bb2d75e3f83ccf346a09104e8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-storage-table-bindings"></a>Associações de tabela de armazenamento do Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
@@ -61,7 +60,7 @@ A entrada da tabela de Armazenamento de uma função usa os seguintes objetos JS
 Observe o seguinte: 
 
 * Use `partitionKey` e `rowKey` juntos para ler uma única entidade. Essas propriedades são opcionais. 
-* `connection` deve conter o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. No portal do Azure, o editor padrão da guia **Integrar** define essa configuração de aplicativo para você quando você cria uma conta de Armazenamento ou seleciona uma conta existente. Você também pode [definir a configuração deste aplicativo manualmente](functions-how-to-use-azure-function-app-settings.md#application-settings).  
+* `connection` deve conter o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. No portal do Azure, o editor padrão da guia **Integrar** define essa configuração de aplicativo para você quando você cria uma conta de Armazenamento ou seleciona uma conta existente. Você também pode [definir a configuração deste aplicativo manualmente](functions-how-to-use-azure-function-app-settings.md#settings).  
 
 <a name="inputusage"></a>
 
@@ -114,7 +113,7 @@ Consulte a amostra específica da linguagem que lê uma única entidade de tabel
 
 <a name="inputcsharp"></a>
 
-### <a name="input-sample-in-c"></a>Amostra de entrada no C# #
+### <a name="input-sample-in-c"></a>Exemplo de entrada em C# #
 ```csharp
 public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
 {
@@ -132,7 +131,7 @@ public class Person
 
 <a name="inputfsharp"></a>
 
-### <a name="input-sample-in-f"></a>Amostra de entrada no F# #
+### <a name="input-sample-in-f"></a>Exemplo de entrada em F# #
 ```fsharp
 [<CLIMutable>]
 type Person = {
@@ -179,7 +178,7 @@ A saída da tabela de Armazenamento de uma função usa os seguintes objetos JSO
 Observe o seguinte: 
 
 * Use `partitionKey` e `rowKey` juntos para gravar uma única entidade. Essas propriedades são opcionais. Também especifique `PartitionKey` e `RowKey` ao criar os objetos de entidade no código da função.
-* `connection` deve conter o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. No portal do Azure, o editor padrão da guia **Integrar** define essa configuração de aplicativo para você quando você cria uma conta de Armazenamento ou seleciona uma conta existente. Você também pode [definir a configuração deste aplicativo manualmente](functions-how-to-use-azure-function-app-settings.md#application-settings). 
+* `connection` deve conter o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. No portal do Azure, o editor padrão da guia **Integrar** define essa configuração de aplicativo para você quando você cria uma conta de Armazenamento ou seleciona uma conta existente. Você também pode [definir a configuração deste aplicativo manualmente](functions-how-to-use-azure-function-app-settings.md#settings). 
 
 <a name="outputusage"></a>
 
@@ -226,7 +225,7 @@ Consulte a amostra específica da linguagem que cria várias entidades de tabela
 
 <a name="outcsharp"></a>
 
-### <a name="output-sample-in-c"></a>Amostra de saída no C# #
+### <a name="output-sample-in-c"></a>Amostra de saída em C# #
 ```csharp
 public static void Run(string input, ICollector<Person> tableBinding, TraceWriter log)
 {
@@ -253,7 +252,7 @@ public class Person
 ```
 <a name="outfsharp"></a>
 
-### <a name="output-sample-in-f"></a>Amostra de saída no F# #
+### <a name="output-sample-in-f"></a>Amostra de saída em F# #
 ```fsharp
 [<CLIMutable>]
 type Person = {
@@ -293,7 +292,7 @@ module.exports = function (context) {
 
 <a name="readmulti"></a>
 
-## <a name="sample-read-multiple-table-entities-in-c"></a>Amostra: Ler várias entidades de tabela em C#  #
+## <a name="sample-read-multiple-table-entities-in-c"></a>Amostra: ler várias entidades de tabela em C#  #
 O exemplo de código *function.json* e C# a seguir lê entidades para uma chave de partição especificada na mensagem de fila.
 
 ```json
@@ -341,5 +340,4 @@ public class Person : TableEntity
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
 

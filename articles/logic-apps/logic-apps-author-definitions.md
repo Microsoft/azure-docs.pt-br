@@ -14,13 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/29/2017
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: e94837bf79e42602e2f72cda747ea629eed45a20
-ms.openlocfilehash: 920940d8ebe23d24216d3e886bd8ae58be12ce34
-ms.lasthandoff: 03/01/2017
-
-
+ms.author: LADocs; jehollan
+ms.openlocfilehash: 7f9e5a10066df8a464c285273e77a85c0d562ebb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-workflow-definitions-for-logic-apps-using-json"></a>Criar definições de fluxo de trabalho para aplicativos lógicos usando JSON
 
@@ -276,9 +275,9 @@ Nesse caso, primeiro obtemos uma lista de artigos. Com base na categoria que foi
 
 Alguns itens a serem observados: 
 
-*    A função [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) verifica se a categoria corresponde a uma das categorias definidas conhecidas.
+*   A função [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) verifica se a categoria corresponde a uma das categorias definidas conhecidas.
 
-*    Depois que obtemos a categoria, podemos extrair o item do mapa usando colchetes: `parameters[...]`
+*   Depois que obtemos a categoria, podemos extrair o item do mapa usando colchetes: `parameters[...]`
 
 ## <a name="process-strings"></a>Cadeias de caracteres de processo
 
@@ -295,7 +294,7 @@ Também queremos uma subcadeia de caracteres do nome do autor da ordem, porque o
       "defaultValue": {
         "quantity": 10,
         "id": "myorder1",
-        "orderer": "NAME=St�ph�n__�?�i?ian�"
+        "orderer": "NAME=Contoso"
       },
       "type": "Object"
     }
@@ -451,4 +450,3 @@ Na verdadeira solicitação `PUT` para Aplicativos Lógicos, você pode fornecer
 Em cada ambiente, você pode fornecer um valor diferente para o parâmetro `connection` . 
 
 Para ver todas as opções disponíveis para criar e gerenciar aplicativos lógicos, confira a [documentação da API REST](https://msdn.microsoft.com/library/azure/mt643787.aspx). 
-

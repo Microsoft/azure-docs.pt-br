@@ -14,16 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/29/2016
 ms.author: cawa
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e7bd4398503566684187831bde1e82f334a59f32
-
-
+ms.openlocfilehash: c440c520d84fc503ff9e705555449e92555d4721
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="publish-an-application-to-a-remote-cluster-by-using-visual-studio"></a>Publicar um aplicativo em um cluster remoto usando o Visual Studio
+# <a name="deploy-and-remove-applications-using-visual-studio"></a>Implantar e remover aplicativos usando o Visual Studio
 > [!div class="op_single_selector"]
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+> * [APIs de FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 > 
 > 
 
@@ -42,17 +43,15 @@ Uma pasta no projeto de aplicativo do Service Fabric chamada **PublishProfiles**
 * Caminho para um arquivo de parâmetros de aplicativo
 * Configurações de atualização
 
-Por padrão, o aplicativo incluirá dois perfis de publicação: Local.xml e Cloud.xml. Você pode adicionar mais perfis copiando e colando um dos arquivos padrão.
+Por padrão, o aplicativo incluirá três perfis de publicação: Local.1Node.xml, Local.5Node.xml e Cloud.xml. Você pode adicionar mais perfis copiando e colando um dos arquivos padrão.
 
 ### <a name="application-parameter-files"></a>Arquivos de parâmetros de aplicativo
 Uma pasta no projeto de aplicativo do Service Fabric chamada **ApplicationParameters** contém arquivos XML com valores de parâmetro do manifesto do aplicativo especificados pelo usuário. Os arquivos de manifesto do aplicativo podem ser parametrizados, de modo que você possa usar valores diferentes para configurações de implantação. Para saber mais sobre a parametrização de aplicativo, confira [Gerenciar vários ambientes no Service Fabric](service-fabric-manage-multiple-environment-app-configuration.md).
 
 > [!NOTE]
 > Para serviços de ator, você deve compilar o projeto antes de tentar editar o arquivo em um editor ou por meio da caixa de diálogo de publicação. Isso ocorre porque parte dos arquivos de manifesto serão gerados durante a compilação.
-> 
-> 
 
-## <a name="to-publish-an-application-by-using-the-publish-service-fabric-application-dialog-box"></a>Publicar um aplicativo usando a caixa de diálogo Publicar Aplicativo do Service Fabric
+## <a name="to-publish-an-application-using-the-publish-service-fabric-application-dialog-box"></a>Para publicar um aplicativo usando a caixa de diálogo Publicar Aplicativo do Service Fabric
 As etapas a seguir demonstram como publicar um aplicativo usando a caixa de diálogo **Publicar Aplicativo do Service Fabric** fornecida pelas Ferramentas do Service Fabric do Visual Studio.
 
 1. No menu de atalho do projeto Aplicativo do Service Fabric, escolha **Publicar...** para exibir a caixa de diálogo **Publicar Aplicativo do Service Fabric**.
@@ -89,9 +88,9 @@ As etapas a seguir demonstram como publicar um aplicativo usando a caixa de diá
 6. Quando você terminar de especificar todas as configurações necessárias, escolha o botão **Publicar** para publicar seu aplicativo no cluster do Service Fabric selecionado. As configurações especificadas por você são aplicadas ao processo de publicação.
 
 ## <a name="publish-to-an-arbitrary-cluster-endpoint-including-party-clusters"></a>Publicar em um ponto de extremidade de cluster arbitrário (incluindo clusters de terceiros)
-A experiência de publicação do Visual Studio é otimizada para publicação em clusters remotos associados a uma de suas assinaturas do Azure. No entanto, é possível publicar em pontos de extremidade arbitrários (como clusters de parte do Service Fabric) editando diretamente o XML do perfil de publicação. Como descrito acima, dois perfis de publicação são fornecidos por padrão, **Local.xml** e **Cloud.xml**, mas você pode criar perfis adicionais para ambientes diferentes. Por exemplo, você pode querer criar um perfil de publicação em clusters de terceiros, talvez chamado **Party.xml**.
+A experiência de publicação do Visual Studio é otimizada para publicação em clusters remotos associados a uma de suas assinaturas do Azure. No entanto, é possível publicar em pontos de extremidade arbitrários (como clusters de parte do Service Fabric) editando diretamente o XML do perfil de publicação. Como descrito acima, três perfis de publicação são fornecidos por padrão, **Local.1Node.xml**, **Local.5Node.xml** e **Cloud.xml**, mas você pode criar perfis adicionais para ambientes diferentes. Por exemplo, você pode querer criar um perfil de publicação em clusters de terceiros, talvez chamado **Party.xml**.
 
-Se você está se conectando a um cluster não seguro, tudo de que precisa é o ponto de extremidade de conexão do cluster, como `partycluster1.eastus.cloudapp.azure.com:19000`. Nesse caso, o ponto de extremidade de conexão no perfil de publicação se assemelharia a este:
+Se você está se conectando a um cluster não seguro, tudo de que precisa é o ponto de extremidade de conexão do cluster, assim como `partycluster1.eastus.cloudapp.azure.com:19000`. Nesse caso, o ponto de extremidade de conexão no perfil de publicação se assemelharia a este:
 
 ```XML
 <ClusterConnectionParameters ConnectionEndpoint="partycluster1.eastus.cloudapp.azure.com:19000" />
@@ -113,9 +112,3 @@ Para saber como automatizar o processo de publicação em um ambiente de integra
 [2]: ./media/service-fabric-publish-app-remote-cluster/EditParams.png
 [3]: ./media/service-fabric-publish-app-remote-cluster/EditVersions.png
 [4]: ./media/service-fabric-publish-app-remote-cluster/publish-to-party-cluster.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

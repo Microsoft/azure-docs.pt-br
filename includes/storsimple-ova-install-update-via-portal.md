@@ -24,8 +24,3 @@
    
     ![atualizar dispositivo](../includes/media/storsimple-ova-install-update-via-portal/azupdate9m.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

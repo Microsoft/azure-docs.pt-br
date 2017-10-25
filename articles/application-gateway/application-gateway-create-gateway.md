@@ -3,7 +3,7 @@ title: Criar, iniciar ou excluir um gateway de aplicativo | Microsoft Docs
 description: "Esta página oferece instruções para criar, configurar, iniciar e excluir um gateway de aplicativo do Azure"
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: 577054ca-8368-4fbf-8d53-a813f29dc3bc
@@ -13,14 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
-ms.openlocfilehash: 8b72a3f26e356af588e9f5c2039bcc525366ce11
-ms.lasthandoff: 03/01/2017
-
-
+ms.date: 07/31/2017
+ms.author: davidmu
+ms.openlocfilehash: 7fb54e96d20d34f453b7b016094b84504348335b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>Criar, iniciar ou excluir um gateway de aplicativo com o PowerShell 
 
@@ -31,7 +30,7 @@ ms.lasthandoff: 03/01/2017
 > * [Modelo do Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [CLI do Azure](application-gateway-create-gateway-cli.md)
 
-O Azure Application Gateway é um balanceador de carga de camada&7;. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Gateway de Aplicativo fornece muitos recursos do ADC (Controlador de Entrega de Aplicativos), incluindo o balanceamento de carga de HTTP, a afinidade de sessão baseada em cookies, o descarregamento de SSL (Secure Sockets Layer), as sondas de integridade personalizadas, suporte para vários sites e muitos outros. Para localizar uma lista completa dos recursos com suporte, visite [Visão geral do Gateway de Aplicativo](application-gateway-introduction.md)
+O Gateway de Aplicativo do Azure é um balanceador de carga de camada 7. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Gateway de Aplicativo fornece muitos recursos do ADC (Controlador de Entrega de Aplicativos), incluindo o balanceamento de carga de HTTP, a afinidade de sessão baseada em cookies, o descarregamento de SSL (Secure Sockets Layer), as sondas de integridade personalizadas, suporte para vários sites e muitos outros. Para localizar uma lista completa dos recursos com suporte, visite [Visão geral do Gateway de Aplicativo](application-gateway-introduction.md)
 
 Este artigo orienta você pelas etapas para criar, configurar, iniciar e excluir um gateway de aplicativo.
 
@@ -106,11 +105,11 @@ DnsName       :
 
 Você pode configurar o gateway de aplicativo usando XML ou um objeto de configuração.
 
-## <a name="configure-the-application-gateway-by-using-xml"></a>Configurar o gateway de aplicativo usando XML
+### <a name="configure-the-application-gateway-by-using-xml"></a>Configurar o gateway de aplicativo usando XML
 
 No exemplo a seguir, você usará um arquivo XML para definir todas as configurações do Application Gateway e confirmá-las para o recurso do Application Gateway.  
 
-### <a name="step-1"></a>Etapa 1
+#### <a name="step-1"></a>Etapa 1
 
 Copie o seguinte texto no bloco de notas.
 
@@ -211,7 +210,7 @@ O exemplo a seguir mostra como usar um arquivo de configuração para configurar
 </ApplicationGatewayConfiguration>
 ```
 
-### <a name="step-2"></a>Etapa 2
+#### <a name="step-2"></a>Etapa 2
 
 Em seguida, defina o gateway de aplicativo. Use o cmdlet `Set-AzureApplicationGatewayConfig` com um arquivo XML de configuração.
 
@@ -219,14 +218,14 @@ Em seguida, defina o gateway de aplicativo. Use o cmdlet `Set-AzureApplicationGa
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
-## <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Configurar o gateway de aplicativo usando um objeto de configuração
+### <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Configurar o gateway de aplicativo usando um objeto de configuração
 
 O exemplo a seguir mostra como configurar o gateway de aplicativo usando objetos de configuração. Todos os itens de configuração devem ser configurados individualmente e, em seguida, adicionados a um objeto de configuração do gateway de aplicativo. Depois de criar o objeto de configuração, você usa o comando `Set-AzureApplicationGateway` para confirmar a configuração para o recurso do gateway de aplicativo criado anteriormente.
 
 > [!NOTE]
 > Antes de atribuir um valor a cada objeto de configuração, você precisa declarar que tipo de objeto do PowerShell vai armazená-lo. A primeira linha para criar os itens individuais define quais `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)` serão usados.
 
-### <a name="step-1"></a>Etapa 1
+#### <a name="step-1"></a>Etapa 1
 
 Crie todos os itens de configuração individuais.
 
@@ -297,7 +296,7 @@ $rule.Listener = "listener1"
 $rule.BackendAddressPool = "pool1"
 ```
 
-### <a name="step-2"></a>Etapa 2
+#### <a name="step-2"></a>Etapa 2
 
 Atribua todos os itens de configuração individuais a um objeto de configuração do gateway de aplicativo ($appgwconfig):
 
@@ -385,9 +384,9 @@ Vip           : 138.91.170.26
 DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
-## <a name="delete-an-application-gateway"></a>Excluir um gateway de aplicativo
+## <a name="delete-the-application-gateway"></a>Excluir o gateway de aplicativo
 
-Para excluir um gateway de aplicativo:
+Para excluir o gateway de aplicativo:
 
 1. Use o cmdlet `Stop-AzureApplicationGateway` para parar o gateway.
 2. Use o cmdlet `Remove-AzureApplicationGateway` para remover o gateway.
@@ -446,4 +445,3 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 * [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
 [scenario]: ./media/application-gateway-create-gateway/scenario.png
-

@@ -3,7 +3,7 @@ title: "Solução de Problemas do Hybrid Runbook Workers da Automação do Azure
 description: "Descreve os sintomas, causas e solução dos problemas mais comuns do Hybrid Runbook Worker na Automação do Azure."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 02c6606e-8924-4328-a196-45630c2255e9
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2017
+ms.date: 07/25/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: d4a1259e04c3e37d66581185015935eb962fc59a
-ms.openlocfilehash: 666395edb3d1d579b1c69d1b78840b2a381b5b2b
-
+ms.openlocfilehash: 1a72fcf2493396b4744a49b01f3c6da8eed0de40
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-tips-for-hybrid-runbook-worker"></a>Dicas de solução de problemas para o Hybrid Runbook Worker
 
 Este artigo fornece ajuda para solucionar erros que podem ser encontrados no Hybrid Runbook Worker da Automação do Azure e sugere possíveis soluções para resolvê-los.
 
-## <a name="hybrid-runbook-worker-a-runbook-job-terminates-with-a-status-of-suspended"></a>Hybrid Runbook Worker : um trabalho de runbook termina com o status Suspenso
+## <a name="a-runbook-job-terminates-with-a-status-of-suspended"></a>Um trabalho de runbook termina com o status suspenso
 
 Seu runbook foi suspenso logo depois de tentar executá-lo três vezes. Existem condições que podem impedir o runbook de ser concluído com êxito e a mensagem de erro relacionada não inclui informações adicionais indicando o motivo. Este artigo fornece etapas de solução de problemas relacionados a falhas de execução de runbook do Hybrid Runbook Worker.
 
@@ -36,14 +36,14 @@ Falha na execução de runbook e o erro retornado é "a ação do trabalho 'Acti
 Há várias causas possíveis para o erro: 
 
 1. O Hybrid Worker está usando um proxy ou firewall
-2. O computador em que o Hybrid Worker está em execução tem menos que os [requisitos](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-requirements) 
+2. O computador em que o Hybrid Worker está em execução não tem [requisitos de hardware](automation-offering-get-started.md#hybrid-runbook-worker) mínimos  
 3. Os runbooks não podem ser autenticados com recursos locais
 
 #### <a name="cause-1-hybrid-runbook-worker-is-behind-proxy-or-firewall"></a>Causa 1: o Hybrid Runbook Worker está protegido por proxy ou firewall
 O computador em que o Hybrid Runbook Worker está em execução está protegido por um servidor proxy ou firewall e o acesso de rede de saída não pode ser permitido ou configurado corretamente.
 
 #### <a name="solution"></a>Solução
-Verifique se o computador tem acesso de saída para *.cloudapp.net portas 443, 9354 e 30199-30000. 
+Verifique se o computador tem acesso de saída para *.azure automation.net na porta 443. 
 
 #### <a name="cause-2-computer-has-less-than-minimum-hardware-requirements"></a>Causa 2: o computador tem requisitos de hardware inferiores aos mínimos
 Os computadores que executam o Hybrid Runbook Worker devem atender aos requisitos mínimos de hardware antes de serem designados para hospedar esse recurso. Caso contrário, dependendo da utilização de recursos de outros processos em segundo plano e da contenção provocada por runbooks durante a execução, o computador ficará sobrecarregados e causará atrasos de trabalho de runbook ou tempos limite. 
@@ -54,13 +54,8 @@ Confirme se o computador designado para executar o recurso Hybrid Runbook Worker
 #### <a name="cause-3-runbooks-cannot-authenticate-with-local-resources"></a>Causa 3: os runbooks não podem ser autenticados com recursos locais
 
 #### <a name="solution"></a>Solução
-Verifique o log de eventos do **Microsoft SMA** para ver um evento correspondente com descrição *Processo Win32 Encerrado com o código [4294967295]*.  A causa desse erro é que você ainda não configurou a autenticação em seus runbooks ou especificou as credenciais Executar como para o grupo do Hybrid Worker.  Examine as [permissões de Runbook](automation-hybrid-runbook-worker.md#runbook-permissions) para confirmar que você configurou corretamente a autenticação para seus runbooks.  
+Verifique o log de eventos do **Microsoft SMA** para ver um evento correspondente com descrição *Processo Win32 Encerrado com o código [4294967295]*.  A causa desse erro é que você ainda não configurou a autenticação em seus runbooks ou especificou as credenciais Executar como para o grupo do Hybrid Worker.  Examine as [permissões de Runbook](automation-hrw-run-runbooks.md#runbook-permissions) para confirmar que você configurou corretamente a autenticação para seus runbooks.  
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para ajudar a solucionar outros problemas de Automação, veja [Solucionar de problemas comuns da Automação do Azure](automation-troubleshooting-automation-errors.md) 
-
-
-<!--HONumber=Jan17_HO4-->
-
-

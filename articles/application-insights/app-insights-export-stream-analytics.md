@@ -4,7 +4,7 @@ description: O Stream Analytics pode transformar, filtrar e rotear continuamente
 services: application-insights
 documentationcenter: 
 author: noamben
-manager: douge
+manager: carmonm
 ms.assetid: 31594221-17bd-4e5e-9534-950f3b022209
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
-ms.openlocfilehash: be47e9de14700b66a3f1c59554762303987f67be
-
-
+ms.author: bwren
+ms.openlocfilehash: 6a84d8ff67c420ce712de905ab1172632502a863
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Usar o Stream Analytics para processar os dados exportados do Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) é a ferramenta ideal para processar dados [exportados do Application Insights](app-insights-export-telemetry.md). O Stream Analytics pode extrair dados de várias fontes. Ele pode transformar e filtrar os dados e depois roteá-los a uma variedade de coletores.
@@ -238,11 +238,4 @@ Noam Ben Zeev mostra como processar dados exportados usando o Stream Analytics.
 * [Exportação contínua](app-insights-export-telemetry.md)
 * [Referência de modelo de dados detalhados para os tipos de propriedades e valores.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
-* [Mais exemplos e explicações passo a passo](app-insights-code-samples.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

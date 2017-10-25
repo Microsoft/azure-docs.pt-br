@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: ada8ffbbdc5565a517f5a06cb640a36aaf8879b4
 ms.openlocfilehash: b44b1a5b3e988a51db3325ec8a181651fa84e768
-ms.lasthandoff: 02/17/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Tutorial: integração do Active Directory do Azure ao Cisco Webex
 O objetivo deste tutorial é mostrar a integração do Azure ao Cisco Webex.  
@@ -96,12 +95,12 @@ Como parte deste procedimento, será necessário criar um certificado codificado
    
    ![Configuração de SSO Federado](./media/active-directory-saas-cisco-webex-tutorial/IC777623.png "Configuração de SSO Federado")  
    1. Na lista **Protocolo de Federação**, selecione **SAML 2.0**.
-   2. Crie um arquivo **codificado em base&64;** usando o certificado baixado.  
+   2. Crie um arquivo **codificado em base 64** usando o certificado baixado.  
     >[!TIP]
     >Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
     >  
    3. Abra seu certificado codificado em base-64 no bloco de notas e copie o conteúdo dele.
-   4. Clique em **Importar Metadados do SAML**e cole o certificado codificado em Base&64;.
+   4. Clique em **Importar Metadados do SAML**e cole o certificado codificado em Base 64.
    5. No portal clássico do Azure, na página do diálogo **Configurar logon único no Cisco Webex**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **Emissor para SAML (ID do IdP)**.
    6. No portal clássico do Azure, na página do diálogo **Configurar logon único no Cisco Webex**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon do Serviço SSO do Cliente**.
    7. Na lista **Formato de NameID**, selecione **Endereço de Email**.
@@ -149,5 +148,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
    ![Sim](./media/active-directory-saas-cisco-webex-tutorial/IC767830.png "Sim")
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
-
 

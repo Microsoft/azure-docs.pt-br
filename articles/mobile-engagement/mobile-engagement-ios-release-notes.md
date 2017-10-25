@@ -1,6 +1,6 @@
 ---
 title: "Notas de versão do SDK para iOS do Azure Mobile Engagement | Microsoft Docs"
-description: "Atualizações e procedimentos mais recentes para o SDK do iOS para Mobile Engagement do Azure"
+description: "Atualizações e procedimentos mais recentes para o SDK do iOS para Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -12,15 +12,22 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 07/17/2017
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: da3ef06433d2336159d0ae96f12019fd80dc5d07
-ms.openlocfilehash: 6b32e81bb6a714bd0c479c48d6982af4bcc0683d
-
-
+ms.openlocfilehash: 9bdaa57f9902373ccf796ff109332b64c66bf9e7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-mobile-engagement-ios-sdk-release-notes"></a>Notas de versão do SDK do iOS no Mobile Engagement do Azure
+# <a name="azure-mobile-engagement-ios-sdk-release-notes"></a>Notas de versão do SDK do iOS no Azure Mobile Engagement
+
+## <a name="410-07172017"></a>4.1.0 (07/17/2017)
+* Corrigidas as notificações apagadas na tela de fundo.
+* Corrigidos os avisos no XCode 9 sobre as APIs não chamadas na fila principal.
+* Corrigida uma perda de memória em pesquisas Reach.
+* Removido o suporte para iOS 6.X. Desta versão em diante, o destino da implantação do seu aplicativo deverá ser pelo menos o iOS 7.
+
 ## <a name="401-12132016"></a>4.0.1 (12/13/2016)
 * Melhor entrega de log em segundo plano.
 
@@ -64,16 +71,9 @@ ms.openlocfilehash: 6b32e81bb6a714bd0c479c48d6982af4bcc0683d
 * Corrigiu um problema quando o gerador de relatórios de falha do Mobile Engagement foi desabilitado.
 
 ## <a name="200-02172015"></a>2.0.0 (17/02/2015)
-* Versão Inicial do Mobile Engagement do Azure
+* Versão Inicial do Azure Mobile Engagement
 * A configuração appId/sdkKey é substituída por uma configuração de cadeia de conexão.
 * Removida a API para enviar e receber mensagens XMPP arbitrárias de entidades XMPP arbitrárias.
 * Removida a API para enviar e receber mensagens entre dispositivos.
 * Aprimoramentos de segurança.
 * Controle SmartAd removido.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

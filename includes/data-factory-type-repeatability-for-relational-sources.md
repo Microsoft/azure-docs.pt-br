@@ -10,7 +10,7 @@ Uma fatia pode ser reexecutada automaticamente no Azure Data Factory, de acordo 
 > 
 > 
 
-Geralmente, ao ler repositórios relacionais, convém ler apenas os dados correspondentes a essa fatia. Uma maneira de fazer isso é usando as variáveis WindowStart e WindowEnd disponíveis no Azure Data Factory. Leia sobre as variáveis e funções no Azure Data Factory aqui, no artigo [Planejamento e execução](../articles/data-factory/data-factory-scheduling-and-execution.md) . Exemplo: 
+Geralmente, ao ler repositórios relacionais, convém ler apenas os dados correspondentes a essa fatia. Uma maneira de fazer isso é usando as variáveis WindowStart e WindowEnd disponíveis no Azure Data Factory. Leia sobre as variáveis e funções no Azure Data Factory aqui, no artigo [Planejamento e execução](../articles/data-factory/v1/data-factory-scheduling-and-execution.md) . Exemplo: 
 
 ```json
 "source": {
@@ -29,8 +29,3 @@ Em outros casos, talvez seja conveniente ler a tabela inteira (por exemplo, para
     "sqlReaderQuery": "select * from MyTable"
 },
 ```
-
-
-<!--HONumber=Nov16_HO3-->
-
-

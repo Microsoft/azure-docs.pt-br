@@ -4,30 +4,34 @@ description: "Como usar as APIs de serviço de Injeção de falhas e análise de
 services: service-fabric
 documentationcenter: .net
 author: motanv
-manager: rsinha
-editor: toddabel
+manager: anmola
+editor: motanv
 ms.assetid: 2bd13443-3478-4382-9a5a-1f6c6b32bfc9
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/19/2017
+ms.date: 08/09/2017
 ms.author: motanv
-translationtype: Human Translation
-ms.sourcegitcommit: 1a9bec270650223cd40b3b60e5bc9fc7e212a207
-ms.openlocfilehash: ea8f76d146bd630cc8cb0a417d8c090b656150a4
-
-
+ms.openlocfilehash: 3b3b93bc9ec5ecdcfc289e5b62e84de6aa4172ed
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Induzir o Controlled Chaos em clusters do Service Fabric
-Os sistemas distribuídos em larga escala, como as infraestruturas de nuvem, não são confiáveis por natureza. O Azure Service Fabric permite aos desenvolvedores escrever serviços confiáveis sobre uma infraestrutura não confiável. Para escrever serviços robustos, os desenvolvedores precisam ser capazes de induzir falhas nessa infraestrutura não confiável para testar a estabilidade dos seus serviços.
+Os sistemas distribuídos em larga escala, como as infraestruturas de nuvem, não são confiáveis por natureza. O Azure Service Fabric permite aos desenvolvedores escrever serviços distribuídos confiáveis sobre uma infraestrutura não confiável. Para gravar serviços distribuídos robustos sobre uma infraestrutura não confiável, os desenvolvedores precisam poder testar a estabilidade de seus serviços enquanto a infraestrutura subjacente não confiável está passando por transições de estado complicadas devido a falhas.
 
-O serviço de Injeção de Falhas e Análise de Cluster (também conhecido como Serviço de Análise de Falhas) fornece aos desenvolvedores a capacidade de induzir ações de falha para testar os serviços. No entanto, as falhas simuladas direcionadas só levarão você até aí. Para aprofundar ainda mais o teste, use o Chaos.
+O [Serviço de Injeção de Falhas e Análise de Cluster](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-testability-overview) (também conhecido como Serviço de Análise de Falhas) fornece aos desenvolvedores a capacidade de induzir falhas para testar os serviços. Essas falhas simuladas direcionadas, como [reiniciar uma partição](https://docs.microsoft.com/en-us/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), podem ajudar a praticar as transições de estado mais comuns. No entanto, as falhas simuladas direcionadas são tendenciosas por definição e, portanto, podem ignorar bugs que aparecem apenas em uma sequência de transições de estado complicada, longa e difícil de prever. Para um teste imparcial, você pode usar o Chaos.
 
-O Chaos simula falhas intercaladas contínuas, amigáveis e não amigáveis, em todo o cluster durante longos períodos de tempo. Depois que você configura o Chaos com a taxa e o tipo de falhas, você pode ser iniciá-lo ou interrompê-lo por meio de APIs do C# ou do PowerShell para gerar falhas no cluster e no serviço.
+O Chaos simula falhas intercaladas periódicas (amigáveis e não amigáveis) em todo o cluster durante longos períodos de tempo. Depois que tiver configurado o Chaos com a taxa e o tipo de falhas, você pode iniciar o Chaos pela API do PowerShell ou C# para começar a gerar falhas no cluster e nos serviços. Você pode configurar o Chaos para ser executado por um período especificado (por exemplo, por uma hora), após o qual o Chaos para automaticamente ou pode chamar a API StopChaos (C# ou PowerShell) para pará-lo a qualquer momento.
 
-Enquanto o Chaos estiver em execução, ele produzirá eventos diferentes que capturam o estado da execução no momento. Por exemplo, um ExecutingFaultsEvent contém todas as falhas que estão sendo executadas na iteração. Um ValidationFailedEvent contém os detalhes de uma falha foi encontrada durante a validação de cluster. Você pode invocar a API GetChaosReportAsync para obter o relatório de execuções do Chaos.
+> [!NOTE]
+> Em sua forma atual, o Chaos induz apenas falhas seguras, o que significa que, na ausência de falhas externas, uma perda de quórum ou uma perda de dados nunca ocorrerá.
+>
+
+Enquanto o Chaos estiver em execução, ele produzirá eventos diferentes que capturam o estado da execução no momento. Por exemplo, um ExecutingFaultsEvent contém todas as falhas que o Chaos decidiu executar na iteração. Um ValidationFailedEvent contém os detalhes de uma falha de validação (problemas de integridade ou estabilidade) encontrada durante a validação do cluster. Você pode invocar a API GetChaosReport (C# ou PowerShell) para obter o relatório de execuções do Chaos. Esses eventos são persistidos em um [dicionário confiável](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-reliable-collections), que tem uma política de truncamento determinada por duas configurações: **MaxStoredChaosEventCount** (o valor padrão é 25000) e **StoredActionCleanupIntervalInSeconds** (o valor padrão é 3600). Todas as verificações do Chaos *StoredActionCleanupIntervalInSeconds* e todos os eventos *MaxStoredChaosEventCount*, exceto os mais recentes, são limpos do dicionário confiável.
 
 ## <a name="faults-induced-in-chaos"></a>Falhas induzidas no Chaos
 O Chaos gera falhas em todo o cluster do Service Fabric e compacta as falhas vistas em meses ou anos em poucas horas. A combinação de falhas intercaladas com a alta taxa de falhas localiza casos específicos que de outra forma seriam ignorados. Esse exercício do Chaos leva a uma melhoria significativa na qualidade do código do serviço.
@@ -41,26 +45,31 @@ O Chaos induz falhas a partir das seguintes categorias:
 * Mover uma réplica primária (configurável)
 * Mover uma réplica secundária (configurável)
 
-O Chaos é executado em várias iterações. Cada iteração é composta por falhas e validações de cluster para o período especificado. Você pode configurar o tempo gasto para o cluster se estabilizar e a validação de êxito. Se uma falha for encontrada na validação do cluster, o Chaos gerará e persistirá um ValidationFailedEvent com o carimbo de data/hora UTC e os detalhes da falha.
+O Chaos é executado em várias iterações. Cada iteração é composta por falhas e validações de cluster para o período especificado. Você pode configurar o tempo gasto para o cluster se estabilizar e a validação de êxito. Se uma falha for encontrada na validação do cluster, o Chaos gerará e persistirá um ValidationFailedEvent com o carimbo de data/hora UTC e os detalhes da falha. Por exemplo, considere uma instância do Chaos, definida para ser executada por uma hora com, no máximo, três falhas simultâneas. O Chaos induz três falhas e valida a integridade do cluster. Ele itera através da etapa anterior até que seja explicitamente interrompido por meio da API StopChaosAsync ou após uma hora. Se o cluster se tornar não íntegro em qualquer iteração (ou seja, não se estabilizar dentro do MaxClusterStabilizationTimeout repassado), o Chaos gerará um ValidationFailedEvent. Esse evento indica que algo deu errado e pode precisar de mais investigação.
 
-Por exemplo, considere uma instância do Chaos, definida para ser executada por uma hora com, no máximo, três falhas simultâneas. O Chaos induz três falhas e valida a integridade do cluster. Ele itera através da etapa anterior até que seja explicitamente interrompido por meio da API StopChaosAsync ou após uma hora. Se o cluster se tornar não íntegro em qualquer iteração, ou seja, não se estabilizar em um tempo configurado, o Chaos vai gerar um ValidationFailedEvent. Esse evento indica que algo deu errado e pode precisar de mais investigação.
-
-Em sua forma atual, o Chaos induz apenas falhas seguras. Isso significa que, na ausência de falhas externas, uma perda de quorum ou dados nunca ocorrerá.
+Para obter quais falhas o Chaos induziu, você pode usar a API GetChaosReport (PowerShell ou C#). A API obtém o próximo segmento do relatório do Chaos com base no token de continuação repassado ou no intervalo repassado. Você pode especificar o ContinuationToken para obter o próximo segmento do relatório do Chaos ou especificar o intervalo por meio de StartTimeUtc e EndTimeUtc, mas não pode especificar o ContinuationToken e o intervalo de tempo na mesma chamada. Quando há mais de 100 eventos do Chaos, o relatório do Chaos é retornado em segmentos, em que um segmento contém no máximo 100 eventos do Chaos.
 
 ## <a name="important-configuration-options"></a>Opções de configuração importantes
 * **TimeToRun**: tempo total durante o qual o Chaos é executado antes de ser finalizado com êxito. Você pode interromper o Chaos antes que ele seja executado pelo período de TimeToRun usando a API StopChaos.
-* **MaxClusterStabilizationTimeout**: a quantidade máxima de tempo de espera para que o cluster se torne íntegro antes de verificar novamente. Essa espera serve para reduzir a carga no cluster enquanto ele está se recuperando. As verificações executadas são:
+
+* **MaxClusterStabilizationTimeout**: a quantidade máxima de tempo de espera para que o cluster se torne íntegro antes de produzir um ValidationFailedEvent. Essa espera serve para reduzir a carga no cluster enquanto ele está se recuperando. As verificações executadas são:
   * Se a integridade do cluster está OK
   * Se a integridade do serviço está OK
   * Se o tamanho do conjunto de réplicas de destino é obtido para a partição de serviço
   * Não há réplicas InBuild
-* **MaxConcurrentFaults**: o número máximo de falhas simultâneas induzidas em cada iteração. Quanto mais alto o número, mais agressivo é o Chaos. Isso resulta em failovers mais complexos e combinações de transição. O Chaos garante que, na ausência de falhas externas, não haverá uma perda de quorum ou de dados, independentemente de quão alto o valor dessa configuração está.
+* **MaxConcurrentFaults**: o número máximo de falhas simultâneas induzidas em cada iteração. Quanto maior o número, mais agressivo o Chaos é e os failovers e as combinações de transição de estado pelos quais o cluster passa também são mais complexas. 
+
+> [!NOTE]
+> Independentemente de quão alto um valor de *MaxConcurrentFaults* está, o Chaos garante, na ausência de falhas externas, que não há perda de quorum ou perda de dados.
+>
+
 * **EnableMoveReplicaFaults**: habilita ou desabilita as falhas que causam a movimentação das réplicas primárias ou secundárias. Essas falhas estão desabilitadas por padrão.
-* **WaitTimeBetweenIterations**: o tempo de espera entre as iterações, isto é, após uma rodada de falhas e a validação correspondente.
-* **WaitTimeBetweenFaults**: o tempo de espera entre as duas falhas consecutivas em uma iteração.
+* **WaitTimeBetweenIterations**: a quantidade de tempo de espera entre as iterações. Ou seja, a quantidade de tempo que pela qual o Chaos fará uma pausa após ter executado uma rodada de falhas e ter concluído a validação correspondente da integridade do cluster. Quanto maior o valor, menor é a taxa de injeção de falhas média.
+* **WaitTimeBetweenFaults**: o tempo de espera entre as duas falhas consecutivas em uma única iteração. Quanto maior o valor, menor a simultaneidade (ou a sobreposição entre) de falhas.
+* **ClusterHealthPolicy**: a política de integridade do cluster é usada para validar a integridade do cluster entre iterações do Chaos. Se a integridade do cluster estiver em erro ou se ocorrer uma exceção inesperada durante a execução de falhas, o Chaos aguardará 30 minutos antes da próxima verificação de integridade, para fornecer ao cluster algum tempo para se recuperar.
+* **Contexto**: uma coleção pares chave/valor do tipo (cadeia de caracteres, cadeia de caracteres). O mapa pode ser usado para registrar informações sobre a execução do Chaos. Não pode haver mais de 100 desses pares e cada cadeia de caracteres (chave ou valor) pode ter no máximo 4095 caracteres. Esse mapa é definido pelo iniciador da execução do Chaos para armazenar opcionalmente o contexto sobre a execução específica.
 
 ## <a name="how-to-run-chaos"></a>Como executar o Chaos
-**C#:**
 
 ```csharp
 using System;
@@ -121,7 +130,7 @@ class Program
 
                 foreach (var chaosEvent in report.History)
                 {
-                    if (eventSet.add(chaosEvent))
+                    if (eventSet.Add(chaosEvent))
                     {
                         Console.WriteLine(chaosEvent);
                     }
@@ -142,7 +151,6 @@ class Program
     }
 }
 ```
-**PowerShell:**
 
 ```powershell
 $connection = "localhost:19000"
@@ -194,9 +202,3 @@ while($true)
 
 Stop-ServiceFabricChaos
 ```
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-

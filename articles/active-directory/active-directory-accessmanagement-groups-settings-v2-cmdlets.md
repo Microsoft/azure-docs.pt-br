@@ -1,5 +1,5 @@
 ---
-title: Cmdlets do PowerShell do Azure Active Directory para gerenciamento de grupos no Azure AD | Microsoft Docs
+title: Exemplos do PowerShell para gerenciamento de grupos no Azure Active Directory | Microsoft Docs
 description: "Esta página fornece exemplos do PowerShell para ajudar no gerenciamento de seus grupos no Azure Active Directory"
 keywords: Azure AD, Azure Active Directory, PowerShell, Grupos, Gerenciamento de grupos
 services: active-directory
@@ -13,46 +13,45 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 09/29/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: f4aeeaf13604443e0902112b4cc998ae1dcce4c2
-ms.lasthandoff: 03/08/2017
-
-
+ms.reviewer: rodejo
+ms.openlocfilehash: 5cad44dc7bf415002b3c9872fffdcf0d54bb6ad6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-active-directory-preview-cmdlets-for-group-management"></a>Cmdlets de visualização do Azure Active Directory para gerenciamento de grupos
+# <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets da versão 2 do Azure Active Directory para gerenciamento de grupos
 > [!div class="op_single_selector"]
 > * [Portal do Azure](active-directory-groups-create-azure-portal.md)
-> * [Portal clássico do Azure](active-directory-accessmanagement-manage-groups.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 >
 >
 
-O documento a seguir fornece exemplos de como usar o PowerShell para gerenciar os grupos no Azure AD (Azure Active Directory).  Ele também fornece informações sobre como configurar usando o módulo de visualização PowerShell do Azure AD. Primeiramente, você deve [baixar o módulo PowerShell do Azure AD](https://www.powershellgallery.com/packages/AzureAD/).
+Este artigo contém exemplos de como usar o PowerShell para gerenciar grupos no Azure AD (Azure Active Directory).  Ele também explica como configurar usando o módulo PowerShell do Azure AD. Primeiramente, você deve [baixar o módulo PowerShell do Azure AD](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="installing-the-azure-ad-powershell-module"></a>Instalando o módulo PowerShell do Azure AD
-Para instalar o módulo do PowerShell do AzureAD, use os seguintes comandos:
+Para instalar o módulo PowerShell do Azure AD, use os seguintes comandos:
 
     PS C:\Windows\system32> install-module azuread
 
-Para verificar se o módulo de visualização foi instalado, use o seguinte comando:
+Para verificar se o módulo foi instalado, use o seguinte comando:
 
-    PS C:\Windows\system32> get-module azureadpreview
+    PS C:\Windows\system32> get-module azuread
 
-    ModuleType Version    Name                                ExportedCommands
-    ---------- -------    ----                                ----------------
-    Binary     1.1.146.0  azureadpreview                      {Add-AzureADAdministrati...}
+    ModuleType Version      Name                                ExportedCommands
+    ---------- ---------    ----                                ----------------
+    Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
 
-Agora você pode começar a usar os cmdlets do módulo. Para obter uma descrição completa dos cmdlets no módulo do Azure AD, confira a [documentação de referência online](https://docs.microsoft.com/en-us/powershell/azuread/).
+Agora você pode começar a usar os cmdlets do módulo. Para obter uma descrição completa dos cmdlets no módulo do Azure AD, veja a documentação de referência online do [PowerShell versão 2 do Azure Active Directory](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 ## <a name="connecting-to-the-directory"></a>Conectando-se ao diretório
-Antes de começar a gerenciar grupos usando cmdlets do PowerShell do Azure AD, você deve conectar a sessão do PowerShell ao diretório que deseja gerenciar. Para isso, use o seguinte comando:
+Antes de começar a gerenciar grupos usando cmdlets do PowerShell do Azure AD, você deve conectar a sessão do PowerShell ao diretório que deseja gerenciar. Use o seguinte comando:
 
     PS C:\Windows\system32> Connect-AzureAD
 
-O cmdlet solicitará as credenciais que você deseja usar para acessar o diretório. Neste exemplo, estamos usando karen@drumkit.onmicrosoft.com para acessar o diretório de demonstração. O cmdlet retornará uma confirmação para mostrar que a conexão da sessão com o diretório foi bem-sucedida:
+O cmdlet solicita as credenciais que você deseja usar para acessar o diretório. Neste exemplo, estamos usando karen@drumkit.onmicrosoft.com para acessar o diretório de demonstração. O cmdlet retorna uma confirmação para mostrar que a conexão da sessão com o diretório foi bem-sucedida:
 
     Account                       Environment Tenant
     -------                       ----------- ------
@@ -65,13 +64,13 @@ Para recuperar grupos existentes do diretório, você pode usar o cmdlet Get-Azu
 
     PS C:\Windows\system32> get-azureadgroup
 
-O cmdlet retornará todos os grupos no diretório conectado.
+O cmdlet retorna todos os grupos no diretório conectado.
 
 Você pode usar o parâmetro -objectID para recuperar um grupo específico, para o qual especifica o objectID do grupo:
 
     PS C:\Windows\system32> get-azureadgroup -ObjectId e29bae11-4ac0-450c-bc37-6dae8f3da61b
 
-Agora, o cmdlet retornará o grupo cujo objectID corresponde ao valor do parâmetro inserido:
+Agora, o cmdlet retorna o grupo cujo objectID corresponde ao valor do parâmetro inserido:
 
     DeletionTimeStamp            :
     ObjectId                     : e29bae11-4ac0-450c-bc37-6dae8f3da61b
@@ -108,7 +107,8 @@ Você pode procurar um grupo específico usando o parâmetro -filter. Esse parâ
     ProxyAddresses               : {}
     SecurityEnabled              : True
 
-Observe que os cmdlets do PowerShell do Azure AD implementam o padrão de consulta OData. Mais informações podem ser encontradas [aqui](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
+> [!NOTE] 
+> Os cmdlets do PowerShell do Azure AD implementam o padrão de consulta OData. Para saber mais, confira **$filter** em [Opções de consulta do sistema OData usando o ponto de extremidade do OData](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
 
 ## <a name="creating-groups"></a>Criando grupos
 Para criar um novo grupo no seu diretório, use o cmdlet New-AzureADGroup. Esse cmdlet cria um novo grupo de segurança chamado "Marketing":
@@ -211,23 +211,37 @@ Para adicionar proprietários a um grupo, use o cmdlet Add-AzureADGroupOwner:
 
 O parâmetro -ObjectId é o ObjectID do grupo ao qual queremos adicionar um proprietário, e -RefObjectId é o ObjectID do usuário que queremos adicionar como um proprietário do grupo.
 
-Para recuperar os proprietários de um grupo, use o Get-AzureADGroupOwner:
+Para recuperar os proprietários de um grupo, use o cmdlet Get-AzureADGroupOwner:
 
     PS C:\Windows\system32> Get-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
 
-O cmdlet retornará a lista de proprietários para o grupo especificado:
+O cmdlet retorna a lista de proprietários para o grupo especificado:
 
     DeletionTimeStamp ObjectId                             ObjectType
     ----------------- --------                             ----------
                           e831b3fd-77c9-49c7-9fca-de43e109ef67 User
 
-Se você quer remover um proprietário de um grupo, use Remove-AzureADGroupOwner:
+Se quiser remover um proprietário de um grupo, use o cmdlet Remove-AzureADGroupOwner:
 
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
 
+## <a name="reserved-aliases"></a>Aliases reservados 
+Quando um grupo é criado, certos pontos de extremidade permitem que o usuário final especifique um mailNickname ou o alias a ser usado como parte do endereço de email do grupo. Os grupos com os seguintes aliases de email altamente privilegiados só podem ser criados por um administrador global do Azure AD. 
+  
+* abuso 
+* admin 
+* administrator 
+* hostmaster 
+* majordomo 
+* postmaster 
+* root 
+* seguro 
+* segurança 
+* ssl-admin 
+* webmaster 
+
 ## <a name="next-steps"></a>Próximas etapas
-Você pode encontrar mais documentação do PowerShell do Azure Active Directory em [Cmdlets do Azure Active Directory](https://docs.microsoft.com/en-us/powershell/azuread/).
+Você pode encontrar mais documentação do PowerShell do Azure Active Directory em [Cmdlets do Azure Active Directory](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 * [Gerenciamento de acesso a recursos com grupos do Active Directory do Azure](active-directory-manage-groups.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
-

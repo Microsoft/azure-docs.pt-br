@@ -5,7 +5,3 @@
 2.  Na folha que é aberta, clique em **Gerenciar &gt;** **Chaves**.
 
 3.  Clique no ícone de cópia para copiar a chave de registro de serviço e salvá-la para uso posterior.
-
-<!--HONumber=Nov16_HO4-->
-
-

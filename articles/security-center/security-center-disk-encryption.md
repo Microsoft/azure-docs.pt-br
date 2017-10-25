@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 5054ea1d5bd17712a4b343319d583e62a256752d
-ms.lasthandoff: 03/15/2017
-
-
+ms.openlocfilehash: 8d39aafb0ab7b0e87afdf4d2f50f1e224b8d251f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Criptografar uma Máquina Virtual do Azure
 A Central de Segurança do Azure alertará você se houver máquinas virtuais que não estejam criptografadas. Esses alertas serão mostrados como Alta Severidade e a recomendação é criptografar essas máquinas virtuais.
@@ -48,12 +47,12 @@ Há várias abordagens que podem ser usadas para configurar os pré-requisitos e
 >
 
 ## <a name="install-and-configure-azure-powershell"></a>Instalar e configurar o PowerShell do Azure
-Você precisa do Azure PowerShell versão 1.2.1, ou superior, instalado no computador. O artigo [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) contém todas as etapas necessárias para provisionar o computador para trabalhar com o Azure PowerShell. A abordagem mais simples é usar a abordagem de instalação do Web PI mencionado no artigo. Mesmo que você já tenha instalado o Azure PowerShell, instale novamente usando a abordagem do Web PI para que você tenha a versão mais recente do PowerShell do Azure.
+Você precisa do Azure PowerShell versão 1.2.1, ou superior, instalado no computador. O artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) contém todas as etapas necessárias para provisionar o computador para trabalhar com o Azure PowerShell. A abordagem mais simples é usar a abordagem de instalação do Web PI mencionado no artigo. Mesmo que você já tenha instalado o Azure PowerShell, instale novamente usando a abordagem do Web PI para que você tenha a versão mais recente do PowerShell do Azure.
 
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Obtenha e execute o script de configuração de pré-requisitos de criptografia de disco do Azure.
 O Script de Configuração de Pré-requisitos de Azure Disk Encryption configurará todos os pré-requisitos necessários para a criptografia de suas Máquinas Virtuais do Azure.
 
-1. Acesse a página do GitHub com o [Script de Configuração de Pré-requisito de Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
+1. Acesse a página do GitHub com o [Script de Configuração de Pré-requisito de Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
 2. Na página do GitHub, clique no botão **Bruto** .
 3. Use **CTRL-A** para selecionar todo o texto na página e use **CTRL-C** para copiar todo o texto da página para a área de transferência.
 4. Abra o **Bloco de Notas** e cole nele o texto copiado.
@@ -142,10 +141,10 @@ Pressione **ENTER**. Você deverá ver o nome da máquina virtual que deseja cri
 
 ![Saída do PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig7.png)
 
-Há duas maneiras de executar o comando de criptografia para criptografar a máquina virtual. O primeiro método é digitar o seguinte comando no console do ISE do PowerShell:
+Há dois métodos para executar o comando de criptografia para criptografar todas as unidades na máquina virtual. O primeiro método é digitar o seguinte comando no console do ISE do PowerShell:
 
 ~~~
-Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId
+Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId -VolumeType All
 ~~~
 
 Depois de digitar esse comando, pressione **ENTER**.
@@ -179,4 +178,3 @@ Neste documento, você aprendeu a criptografar uma Máquina Virtual do Azure. Pa
 * [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
 * [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço
 * [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
-

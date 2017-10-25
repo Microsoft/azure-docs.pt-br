@@ -3,7 +3,7 @@ title: Criar um SQL Data Warehouse no Portal do Azure | Microsoft Docs
 description: Saiba como criar um Azure SQL Data Warehouse no Portal do Azure
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: jhubbard
 editor: 
 tags: azure-sql-data-warehouse
@@ -15,13 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 75f4792ff2aa2b73ebc3ff976887a74ce09988f3
-ms.lasthandoff: 03/10/2017
-
-
+ms.author: elbutter;barbkess
+ms.openlocfilehash: 24ed2d8bad3090e378acf2a42fb909dee0a8517b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-sql-data-warehouse"></a>Criar um Azure SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -101,4 +100,3 @@ Também é uma ótima ideia dar uma olhada nas [práticas recomendadas][Best pra
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-

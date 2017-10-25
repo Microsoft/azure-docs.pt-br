@@ -3,7 +3,7 @@ title: Monitorar aplicativos do Docker no Azure Application Insights | Microsoft
 description: "Contadores de desempenho, eventos e exceções do Docker podem ser exibidos no Application Insights, juntamente com a telemetria dos aplicativos contidos."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: b888f3e7fd56aaf8104c1b76264a3753ca37f7c9
-ms.lasthandoff: 03/16/2017
-
-
+ms.author: bwren
+ms.openlocfilehash: b082e345ca1bb3b12c548e05e699474d3aa9306c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Monitorar aplicativos do Docker no Application Insights
 Os eventos de ciclo de vida e os contadores de desempenho dos contêineres [Docker](https://www.docker.com/) podem ser representados em gráfico no Application Insights. Instale a imagem [Application Insights](app-insights-overview.md) em um contêiner em seu host e ele exibirá os contadores de desempenho para o host, bem como para outras imagens.
@@ -130,4 +129,3 @@ Tempo do processador e contadores de desempenho de memória disponíveis, aprimo
 * [Application Insights para Java](app-insights-java-get-started.md)
 * [Application Insights para Node.js](app-insights-nodejs.md)
 * [Application Insights para ASP.NET](app-insights-asp-net.md)
-

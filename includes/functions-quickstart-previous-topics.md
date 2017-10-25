@@ -1,0 +1,1 @@
+Este tópico usa como ponto de partida os recursos criados em [Criar sua primeira função no portal do Azure](../articles/azure-functions/functions-create-first-azure-function.md). Se você ainda não fez isso, conclua estas etapas agora para criar seu aplicativo de funções.

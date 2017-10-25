@@ -6,21 +6,20 @@ documentationcenter:
 author: ronitr
 manager: jhubbard
 editor: 
-ms.assetid: 2
+ms.assetid: "2"
 ms.service: sql-database
-ms.custom: secure and protect
+ms.custom: security
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 11/22/2016
 ms.author: ronitr; ronmat
-translationtype: Human Translation
-ms.sourcegitcommit: 07913359addaa49fe8d408a8e363f554419e4de2
-ms.openlocfilehash: 16db41c83ca5c582aca7581ae9b6a03a3d99ab15
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 15184e14d4e1e23b56126bbf9f972c1619dcba80
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Introdução à máscara de dados dinâmicos do Banco de Dados SQL com o Portal do Azure
 

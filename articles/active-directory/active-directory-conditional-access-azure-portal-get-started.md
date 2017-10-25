@@ -1,5 +1,5 @@
 ---
-title: "Introdução ao acesso condicional no Azure Active Directory - visualização | Microsoft Docs"
+title: "Introdução ao acesso condicional no Azure Active Directory | Microsoft Docs"
 description: "Teste o acesso condicional usando uma condição de local."
 services: active-directory
 keywords: "acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional"
@@ -12,18 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/23/2017
+ms.date: 07/31/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: ae60cd810b4beb26f714e2ea2566e5354c482fa8
-ms.openlocfilehash: 3022f5e27ddaf125161bbf7132b41a27024f40b6
-ms.lasthandoff: 01/19/2017
-
-
+ms.reviewer: calebb
+ms.openlocfilehash: cd53e8be32d1e98aaf9f72177895871dba69df86
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="get-started-with-conditional-access-in-azure-active-directory---preview"></a>Introdução ao acesso condicional no Azure Active Directory - visualização
-
-O comportamento descrito neste tópico está em [visualização](active-directory-preview-explainer.md) no momento.
+# <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Introdução ao acesso condicional no Azure Active Directory
 
 O acesso condicional é um recurso do Azure Active Directory que permite que você defina as condições sob as quais os usuários autorizados possam acessar seus aplicativos. 
 
@@ -161,5 +159,4 @@ A autenticação multifator só será necessária durante uma tentativa de conex
 ## <a name="next-steps"></a>Próximas etapas
 
 Se você quiser saber mais sobre o acesso condicional, veja [Acesso condicional do Azure Active Directory](active-directory-conditional-access-azure-portal.md).
-
 

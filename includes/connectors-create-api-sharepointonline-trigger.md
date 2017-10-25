@@ -16,8 +16,3 @@ Neste exemplo, mostrarei como usar o gatilho **SharePoint Online – Quando um n
 
 Neste ponto, seu aplicativo lógico foi configurado com um gatilho que iniciará uma execução de outros gatilhos e ações no fluxo de trabalho. Isso ocorrerá sempre que um novo item é criado na lista do SharePoint Online que você selecionou.  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

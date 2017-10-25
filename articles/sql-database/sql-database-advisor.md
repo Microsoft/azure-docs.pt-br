@@ -1,6 +1,6 @@
 ---
-title: "Consulta de recomendações de ajuste de desempenho - Banco de dados SQL do Azure | Microsoft Docs"
-description: "O Advisor do Banco de Dados SQL do Azure fornece recomendações para seus Bancos de Dados SQL existentes que podem melhorar o desempenho de consulta atual."
+title: "Recomendações de desempenho - Banco de dados SQL do Azure | Microsoft Docs"
+description: "O Banco de Dados SQL do Azure fornece recomendações para seus Bancos de Dados SQL que podem melhorar o desempenho de consulta atual."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -8,30 +8,43 @@ manager: jhubbard
 editor: monicar
 ms.assetid: 1db441ff-58f5-45da-8d38-b54dc2aa6145
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/30/2016
+ms.date: 09/20/2017
 ms.author: sstein
-translationtype: Human Translation
-ms.sourcegitcommit: cf627b92399856af2b9a58ab155fac6730128f85
-ms.openlocfilehash: a8d0b08abc7e3c688f9ab79499b3459b33f06848
-
-
+ms.openlocfilehash: 53bfbd602c2c395d510529eacd5b8075b20437ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="sql-database-advisor"></a>Advisor do Banco de Dados SQL
+# <a name="performance-recommendations"></a>Recomendações do desempenho
 
-O Banco de Dados SQL do Azure aprende e adapta-se ao seu aplicativo e fornece recomendações personalizadas permitindo que você maximize o desempenho dos bancos de dados SQL. O Assistente do Banco de Dados SQL fornece recomendações para criar e descartar índices, parametrizar consultas e corrigir problemas de esquema. O assistente avalia o desempenho ao analisar seu o histórico de uso do banco de dados SQL. As recomendações mais adequadas para executar a carga de trabalho normal do seu banco de dados são recomendadas. 
+O Banco de Dados SQL do Azure aprende e adapta-se ao seu aplicativo e fornece recomendações personalizadas permitindo que você maximize o desempenho dos bancos de dados SQL. O desempenho é avaliado continuamente analisando seu histórico de uso do Banco de Dados SQL. As recomendações fornecidas são baseadas em um padrão de carga de trabalho exclusiva do banco de dados e ajudam a melhorar o desempenho.
 
-As recomendações a seguir estão disponíveis para servidores de Banco de Dados SQL do Azure. Atualmente, você pode definir as recomendações de criação e remoção de índice para que elas sejam aplicadas automaticamente. Consulte [Gerenciamento automático de índices](sql-database-advisor-portal.md#enable-automatic-index-management) para ver mais detalhes.
+> [!TIP]
+> [Ajuste automático](sql-database-automatic-tuning.md) é a maneira recomendada de ajustar o desempenho. [Insights inteligentes](sql-database-intelligent-insights.md) é a maneira recomendada de monitoramento de desempenho. 
+>
 
 ## <a name="create-index-recommendations"></a>Criar recomendações de índice
-**Criar Índice** aparecem quando o serviço de Banco de Dados SQL detecta um índice ausente que, se criado, pode beneficiar sua carga de trabalho de bancos de dados (somente índices não clusterizados).
+O Banco de Dados SQL do Azure monitora continuamente as consultas que estão sendo executadas e identifica os índices que podem melhorar o desempenho. Após haver certeza suficiente de que determinado índice está ausente, uma nova recomendação **Criar índice** será criada. O Banco de Dados SQL do Azure aumenta a confiança estimando o ganho de desempenho que o índice trará ao longo do tempo. Dependendo do ganho de desempenho estimado, as recomendações são categorizadas como alta, média ou baixa. 
+
+Índices criados usando as recomendações sempre são sinalizados como índices auto_created. Você pode ver quais índices são auto_created examinando a exibição sys.indexes. Índices criados automaticamente não bloqueiam os comandos ALTER/RENAME. Se você tentar remover a coluna que tem um índice criado automaticamente, o comando passará o índice criado automaticamente será descartado com o comando também. Índices regulares bloqueariam o comando ALTER/RENAME em colunas que são indexadas.
+
+Depois que a recomendação para criar índice for aplicada, o Banco de Dados do Azure SQL comparará o desempenho das consultas ao desempenho de linha de base. Se o novo índice tiver oferecido melhorias de desempenho, a recomendação será sinalizada como bem-sucedida e o relatório de impacto estará disponível. Caso o índice não traga os benefícios, ele será revertido automaticamente. Dessa forma, o Banco de Dados SQL do Azure garante que o uso das recomendações só melhore o desempenho do banco de dados.
+
+Qualquer recomendação **Criar Índice** tem uma política que não permite aplicar a recomendação se o uso de DTU do banco de dados ou o pool estiver acima de 80% nos últimos 20 minutos ou se o armazenamento estiver acima de 90% de uso. Nesse caso, a recomendação será adiada.
 
 ## <a name="drop-index-recommendations"></a>Recomendações para Remover Índice
-**Remover Índice** aparecem quando o serviço de Banco de Dados SQL detecta índices duplicados (atualmente em versão de visualização e aplica-se somente a índices duplicados).
+Além de detectar um índice ausente, o banco de dados do SQL Azure analisa continuamente o desempenho dos índices existentes. Se o índice não for usado, o banco de dados do SQL Azure recomendará cancelá-lo. Descartar um índice é recomendado em dois casos:
+* O índice é uma duplicata de outro índice (mesma coluna indexada e incluída, esquema de partição e filtros)
+* O índice é não utilizado por um período prolongado (93 dias)
+
+Recomendações para Remover Índice também passam por verificação após a implementação. Se o desempenho for melhorado, o relatório de impacto estará disponível. Caso uma degradação do desempenho seja detectada, a recomendação será revertida.
+
 
 ## <a name="parameterize-queries-recommendations"></a>Recomendações para parametrizar consultas
 Recomendações para **Parametrizar consultas** aparecem quando o serviço de Banco de Dados SQL detecta que você tem uma ou mais consultas que estão constantemente sendo recompiladas, mas terminam com o mesmo plano de execução de consulta. Essa condição abre uma oportunidade de aplicar parametrização forçada, o que permitirá que os planos de consulta sejam armazenados em cache e reutilizados no futuro, melhorando o desempenho e reduzindo o uso de recursos. 
@@ -63,17 +76,9 @@ Recomendações para “Corrigir problemas do esquema” aparecem quando o servi
 ## <a name="next-steps"></a>Próximas etapas
 Monitore suas recomendações e continue a aplicá-las para refinar o desempenho. Cargas de trabalho de banco de dados são dinâmicas e mudam continuamente. O assistente do Banco de Dados SQL continua a monitorar e fornecer recomendações que podem potencialmente melhorar o desempenho do seu banco de dados. 
 
-* Consulte [Advisor do Banco de Dados SQL no portal do Azure](sql-database-advisor-portal.md) para obter etapas para usar esse recurso no portal do Azure.
+* Consulte [Ajuste automático do banco de dados SQL do Azure](sql-database-automatic-tuning.md) para ajuste automático de índices do banco de dados e planos de execução de consulta.
+* Consulte [Insights inteligentes do SQL Azure](sql-database-intelligent-insights.md) para monitorar automaticamente o desempenho do banco de dados com diagnóstico automatizado e análise de causa raiz de problemas de desempenho.
+* Confira [Recomendações de desempenho no portal do Azure](sql-database-advisor-portal.md) para obter etapas sobre como usar as recomendações de desempenho no portal do Azure.
 * Consulte [Análise de desempenho de consultas](sql-database-query-performance.md) para saber mais e visualizar o impacto no desempenho de suas principais consultas.
-
-## <a name="additional-resources"></a>Recursos adicionais
-* [Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx)
-* [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Controle de acesso baseado em função](../active-directory/role-based-access-control-configure.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

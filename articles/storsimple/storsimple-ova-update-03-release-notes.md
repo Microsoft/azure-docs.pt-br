@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/15/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: fe9d4f6b232e9abcf1fe9fc5657044b6c72fedb8
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-virtual-array-update-03-release-notes"></a>Notas de versão da Atualização 0.3 da StorSimple Virtual Array
 ## <a name="overview"></a>Visão geral
@@ -41,8 +41,8 @@ A tabela a seguir fornece um resumo dos problemas corrigidos nesta versão.
 
 | Nº | Recurso | Problema |
 | --- | --- | --- |
-| 1 |Backups |Foi observado um problema na versão anterior em que os backups não podiam ser concluídos para um compartilhamento de arquivo. Se esse problema tiver ocorrido, o trabalho de backup falhará e um alerta crítico será gerado no serviço StorSimple Manager para notificar o usuário. Esse problema não afetou os dados nos compartilhamentos ou acesso aos dados. A causa raiz foi identificada e corrigida nesta versão. <br></br>  A correção não se aplica retroativamente a compartilhamentos que já estão observando esse problema. Os clientes que estão vendo esse problema primeiro devem aplicar a Atualização 0.3, contatar o Suporte da Microsoft para executar um backup completo do sistema para corrigir o problema. Em vez de entrar em contato com o Suporte da Microsoft, os clientes também podem restaurar para um novo compartilhamento de um backup íntegro para os compartilhamentos afetados. |
-| 2 |iSCSI |Um problema foi visto na versão anterior em que os volumes desaparecerão ao copiar dados para um volume do StorSimple Virtual Array. Esse problema foi corrigido nesta versão. <br></br>  As correções em vigor somente em volumes recém-criados. As correções não se aplicam retroativamente a volumes que já estão observando esse problema. Os clientes são aconselhados a colocar os volumes afetados online por meio do portal clássico do Azure, executar um backup para esses volumes e, em seguida, restaurar esses volumes para novos volumes. |
+| 1 |Backups |Foi observado um problema na versão anterior em que os backups não podiam ser concluídos para um compartilhamento de arquivo. Se esse problema tiver ocorrido, o trabalho de backup falhará e um alerta crítico será gerado no serviço StorSimple Manager para notificar o usuário. Esse problema não afetou os dados nos compartilhamentos ou acesso aos dados. A causa raiz foi identificada e corrigida nesta versão. <br></br> A correção não se aplica retroativamente a compartilhamentos que já estão observando esse problema. Os clientes que estão vendo esse problema primeiro devem aplicar a Atualização 0.3, contatar o Suporte da Microsoft para executar um backup completo do sistema para corrigir o problema. Em vez de entrar em contato com o Suporte da Microsoft, os clientes também podem restaurar para um novo compartilhamento de um backup íntegro para os compartilhamentos afetados. |
+| 2 |iSCSI |Um problema foi visto na versão anterior em que os volumes desaparecerão ao copiar dados para um volume do StorSimple Virtual Array. Esse problema foi corrigido nesta versão. <br></br> As correções em vigor somente em volumes recém-criados. As correções não se aplicam retroativamente a volumes que já estão observando esse problema. Os clientes são aconselhados a colocar os volumes afetados online por meio do portal clássico do Azure, executar um backup para esses volumes e, em seguida, restaurar esses volumes para novos volumes. |
 
 ## <a name="known-issues-in-the-update-03"></a>Problemas conhecidos na Atualização 0.3
 A tabela a seguir fornece um resumo dos problemas conhecidos para a StorSimple Virtual Array e inclui os problemas observados das versões anteriores. 
@@ -72,10 +72,4 @@ Procurando uma nota de versão mais antiga? Acesse:
 
 * [Notas de versão as Atualizações 0.1 e 0.2 do StorSimple Virtual Array](storsimple-ova-update-01-release-notes.md)
 * [Notas de versão de disponibilidade geral do StorSimple Virtual Array](storsimple-ova-pp-release-notes.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

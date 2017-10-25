@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 08/15/2017
 ms.author: maroche
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e9e1009bc20679a907e4bd2387865a6000b4a898
-
-
+ms.openlocfilehash: 557b529f45c7fbc286b7e1893d4b4688e088ed91
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologia do Catálogo de Dados do Azure
 ## <a name="catalog"></a>Catálogo
@@ -80,11 +80,5 @@ Um proprietário é um usuário que tem privilégios adicionais para gerenciar u
 Registro é o ato de extrair metadados de ativos de dados de uma fonte de dados e copiá-los no serviço de Catálogo de Dados do Azure. Ativos de dados que foram registrados podem ser anotados e descobertos.
 
 ## <a name="see-also"></a>Confira também
-* [O que é o Catálogo de Dados do Azure?](data-catalog-what-is-data-catalog.md)  - Este artigo fornece uma visão geral do serviço do Catálogo de Dados do Azure, a vantagem que ele oferece e os cenários aos quais ele dá suporte.
+* [O que é o Catálogo de Dados do Azure?](data-catalog-what-is-data-catalog.md) - Este artigo fornece uma visão geral do serviço do Catálogo de Dados do Azure, a vantagem que ele oferece e os cenários aos quais ele dá suporte.
 * [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) - este artigo apresenta um tutorial completo que mostra como usar o Catálogo de Dados do Azure para a descoberta de fonte de dados.  
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

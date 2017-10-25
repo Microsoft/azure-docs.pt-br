@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: c233439b78fb01beaa3183b79ab633aeb9357ef0
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: 773043f2841ec7539b0d49357dec6bcb9f4f78a1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Visão geral de IP público em nível de instância (Clássico)
 Um ILPIP (IP público em nível de instância) é um endereço IP público que pode ser atribuído diretamente a uma VM ou instância de função dos Serviços de Nuvem, em vez de ao serviço de nuvem no qual a VM ou a instância de função reside. Ele não substitui o VIP (IP virtual) que é atribuído ao serviço de nuvem. Ao contrário, é um endereço IP adicional que você pode usar para se conectar diretamente à sua VM ou instância de função.
@@ -44,8 +43,8 @@ Quando você cria um serviço de nuvem no Azure, registros DNS A correspondentes
 ## <a name="why-would-i-request-an-ilpip"></a>Por que solicitar um ILPIP?
 Se você quiser ser capaz de conectar a sua VM ou instância de função por um endereço IP atribuído diretamente a ela, em vez de usar o &lt;número da porta&gt; do VIP de serviço de nuvem, solicite um ILPIP para sua VM ou instância de função.
 
-* **FTP Passivo** – com a atribuição de um ILPIP a uma VM, ele pode receber o tráfego em praticamente qualquer porta. Pontos de extremidade não são necessários para que a VM receba o tráfego. Os ILPIPs permitem cenários como o FTP passivo, em que as portas são escolhidas dinamicamente.
-* **IP de saída** – O tráfego de saída proveniente da VM sai com o ILPIP, conforme a fonte e o ILPIP identificam exclusivamente a VM para entidades externas.
+* **FTP Ativo** – com a atribuição de um ILPIP a uma VM, ele pode receber o tráfego em qualquer porta. Pontos de extremidade não são necessários para que a VM receba o tráfego.  Consulte (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[FTP Protocol Overview] para obter detalhes sobre o protocolo FTP.
+* **IP de saída** – O tráfego de saída proveniente da VM é mapeado para o ILPIP, conforme a fonte e o ILPIP identificam exclusivamente a VM para entidades externas.
 
 > [!NOTE]
 > Anteriormente, um endereço ILPIP era conhecido como um endereço PIP (IP público).
@@ -92,7 +91,7 @@ Saída esperada:
     AvailabilitySetName         : 
     DNSName                     : http://ftpservice888.cloudapp.net/
     Status                      : ReadyRole
-    GuestAgentStatus            :     Microsoft.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
+    GuestAgentStatus            :   Microsoft.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
     ResourceExtensionStatusList : {Microsoft.Compute.BGInfo}
     PublicIPAddress             : 104.43.142.188
     PublicIPName                : ftpip
@@ -148,4 +147,3 @@ Para adicionar um ILPIP a uma instância de função dos Serviços de Nuvem, con
 ## <a name="next-steps"></a>Próximas etapas
 * Entenda como o [endereçamento IP](virtual-network-ip-addresses-overview-classic.md) funciona no modelo de implantação clássica.
 * Saiba mais sobre [IPs reservados](virtual-networks-reserved-public-ip.md).
-

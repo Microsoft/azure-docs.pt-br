@@ -1,6 +1,6 @@
 ---
 title: "Fluxos de trabalho para a configuração de um circuito da ExpressRoute | Microsoft Docs"
-description: "Esta página fornece uma orientação pelos fluxos de trabalho de configuração de emparelhamentos e circuito de Rota Expressa"
+description: "Esta página fornece uma orientação pelos fluxos de trabalho de configuração de emparelhamentos e circuito de ExpressRoute"
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -12,54 +12,54 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 05/12/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 570a98aafca6babc5a7089880d4120c2a8f4a0d8
-ms.openlocfilehash: 5a275620639a801d7e60ef9ada1af29062dfe440
-
-
+ms.openlocfilehash: cba1b2cfee379e7d2b079bcb3089981ef1044d66
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Fluxos de trabalho da Rota Expressa para provisionamento e estados do circuito
+# <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Fluxos de trabalho do ExpressRoute para provisionamento e estados do circuito
 Esta página fornece uma orientação de alto nível pelos fluxos de trabalho de provisionamento do serviço e de configuração do roteamento.
 
 ![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
-A figura e as etapas correspondentes a seguir mostram as tarefas que você deve executar para provisionar um circuito da Rota Expressa de ponta a ponta. 
+A figura e as etapas correspondentes a seguir mostram as tarefas que você deve executar para provisionar um circuito do ExpressRoute de ponta a ponta. 
 
-1. Use o PowerShell para configurar um circuito da Rota Expressa. Siga as instruções no artigo [Criar circuitos da Rota Expressa](expressroute-howto-circuit-classic.md) para obter mais detalhes.
+1. Use o PowerShell para configurar um circuito do ExpressRoute. Siga as instruções no artigo [Criar circuitos do ExpressRoute](expressroute-howto-circuit-classic.md) para obter mais detalhes.
 2. Solicite conectividade do provedor de serviço. Esse processo varia. Entre em contato com o provedor de conectividade para obter mais detalhes sobre a solicitação de conectividade.
-3. Confira se o circuito foi provisionado com sucesso verificando o estado de provisionamento do circuito da Rota Expressa por meio do PowerShell. 
+3. Confira se o circuito foi provisionado com sucesso verificando o estado de provisionamento do circuito do ExpressRoute por meio do PowerShell. 
 4. Configure os domínios de roteamento. Se seu provedor de conectividade gerencia a camada 3 para você, ele configurará o roteamento para o circuito. Se o seu provedor de conectividade oferecer somente os serviços de Camada 2, configure o roteamento de acordo com as diretrizes descritas nas páginas [requisitos de roteamento](expressroute-routing.md) e [configuração de roteamento](expressroute-howto-routing-classic.md).
    
    * Habilitar o emparelhamento privado do Azure - Você deve habilitar esse emparelhamento para se conectar a VMs/serviços de nuvem implantados dentro das redes virtuais.
    * Habilitar o emparelhamento público do Azure - Você deve habilitar o emparelhamento público do Azure se quiser se conectar aos serviços do Azure hospedados em endereços IP públicos. Esse é um requisito para acessar os recursos do Azure se você tiver optado por habilitar o roteamento padrão para emparelhamento privado do Azure.
-   * Habilitar o emparelhamento da Microsoft - você deve habilitar isso para acessar os serviços do Office 365 e do CRM Online. 
+   * Habilitar o emparelhamento da Microsoft – você deve habilitar isso para acessar o Office 365 e o Dynamics 365. 
      
      > [!IMPORTANT]
-     > Use um proxy/borda diferente da usada para a Internet para se conectar à Microsoft. Usar a mesma borda para a Rota Expressa e para a Internet causará o roteamento assimétrico e falhas de conectividade em sua rede.
+     > Use um proxy/borda diferente da usada para a Internet para se conectar à Microsoft. Usar a mesma borda para o ExpressRoute e para a Internet causará o roteamento assimétrico e falhas de conectividade em sua rede.
      > 
      > 
      
      ![](./media/expressroute-workflows/routing-workflow.png)
-5. Vinculando redes virtuais aos circuitos da Rota Expressa - Você pode vincular redes virtuais ao circuito da Rota Expressa. Siga as instruções [para vincular redes virtuais](expressroute-howto-linkvnet-arm.md) ao seu circuito. Essas redes virtuais podem estar na mesma assinatura do Azure que o circuito da Rota Expressa ou podem estar em uma assinatura diferente.
+5. Vinculando redes virtuais aos circuitos do ExpressRoute - Você pode vincular redes virtuais ao circuito do ExpressRoute. Siga as instruções [para vincular redes virtuais](expressroute-howto-linkvnet-arm.md) ao seu circuito. Essas redes virtuais podem estar na mesma assinatura do Azure que o circuito do ExpressRoute ou podem estar em uma assinatura diferente.
 
-## <a name="expressroute-circuit-provisioning-states"></a>Estados de provisionamento de circuito da Rota Expressa
-Cada circuito de Rota Expressa tem dois estados:
+## <a name="expressroute-circuit-provisioning-states"></a>Estados de provisionamento de circuito do ExpressRoute
+Cada circuito de ExpressRoute tem dois estados:
 
 * Estado de provisionamento do provedor de serviço
 * Status
 
 O status representa o estado de provisionamento da Microsoft. Essa propriedade é definida como Habilitada quando você cria um circuito de ExpressRoute
 
-O estado de provisionamento do provedor de conectividade representa o estado no lado do provedor de conectividade. Ele pode ser *Não Provisionado*, *Provisionando* ou *Provisionado*. O circuito da Rota Expressa deverá estar no estado Provisionado para que possa usá-lo.
+O estado de provisionamento do provedor de conectividade representa o estado no lado do provedor de conectividade. Ele pode ser *Não Provisionado*, *Provisionando* ou *Provisionado*. O circuito do ExpressRoute deverá estar no estado Provisionado para que possa usá-lo.
 
-### <a name="possible-states-of-an-expressroute-circuit"></a>Possíveis estados de um circuito da Rota Expressa
-Esta seção lista os possíveis estados de um circuito da Rota Expressa.
+### <a name="possible-states-of-an-expressroute-circuit"></a>Possíveis estados de um circuito do ExpressRoute
+Esta seção lista os possíveis estados de um circuito do ExpressRoute.
 
 **No momento da criação**
 
-Você verá o circuito da Rota Expressa no seguinte estado assim que executar o cmdlet do PowerShell para criar um circuito da Rota Expressa.
+Você verá o circuito do ExpressRoute no seguinte estado assim que executar o cmdlet do PowerShell para criar um circuito do ExpressRoute.
 
     ServiceProviderProvisioningState : NotProvisioned
     Status                           : Enabled
@@ -67,7 +67,7 @@ Você verá o circuito da Rota Expressa no seguinte estado assim que executar o 
 
 **Quando o provedor de conectividade estiver no processo de provisionamento do circuito**
 
-Você verá o circuito da Rota Expressa no estado a seguir assim que passar a chave de serviço para o provedor de conectividade, e ele tiver iniciado o processo de provisionamento.
+Você verá o circuito do ExpressRoute no estado a seguir assim que passar a chave de serviço para o provedor de conectividade, e ele tiver iniciado o processo de provisionamento.
 
     ServiceProviderProvisioningState : Provisioning
     Status                           : Enabled
@@ -75,7 +75,7 @@ Você verá o circuito da Rota Expressa no estado a seguir assim que passar a ch
 
 **Quando o provedor de conectividade tiver concluído o processo de provisionamento**
 
-Você verá o circuito da Rota Expressa no seguinte estado assim que o provedor de conectividade tiver concluído o processo de provisionamento.
+Você verá o circuito do ExpressRoute no seguinte estado assim que o provedor de conectividade tiver concluído o processo de provisionamento.
 
     ServiceProviderProvisioningState : Provisioned
     Status                           : Enabled
@@ -110,15 +110,9 @@ Se o estado de prefixo público anunciado for definido como *validação necess�
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Configurar sua conexão da Rota Expressa.
+* Configurar sua conexão do ExpressRoute.
   
-  * [Criar um circuito da Rota Expressa](expressroute-howto-circuit-arm.md)
+  * [Criar um circuito do ExpressRoute](expressroute-howto-circuit-arm.md)
   * [Configurar o roteamento](expressroute-howto-routing-arm.md)
-  * [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+  * [Vincular uma rede virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-arm.md)
 

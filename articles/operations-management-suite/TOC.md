@@ -3,15 +3,11 @@
 ## [Arquitetura do OMS](operations-management-suite-architecture.md)
 
 # Introdução
-## Insight e análises
-### [Inscrever-se no Log Analytics](../log-analytics/log-analytics-get-started.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Automação e controle
-### [Meu primeiro runbook](../automation/automation-first-runbook-graphical.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Proteção e recuperação
-### [Introdução ao Backup do Azure](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Segurança e conformidade
-### [Segurança e Auditoria](oms-security-getting-started.md)
-### [Segurança de dados](oms-security-data-security.md)
+## [Log Analytics](../log-analytics/log-analytics-get-started.md)
+## [Automação](../automation/automation-offering-get-started.md)
+## [Backup](../backup/backup-introduction-to-azure-backup.md)
+## [Recuperação de Site](../site-recovery/site-recovery-overview.md)
+
 
 # Como
 
@@ -33,20 +29,27 @@
 ### [Avaliação de malware](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Avaliação de atualização do sistema](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Conectar-se a produtos de segurança](oms-security-connect-products.md)
+### [Avaliação de linha de base](oms-security-web-baseline-assessment.md)
 
 ## Use as soluções
 ### [Soluções de gerenciamento](operations-management-suite-solutions.md)
+### [Soluções de destino](operations-management-suite-solution-targeting.md)
 ### Insight e análises
 #### [Avaliação do AD](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Status de replicação do AD](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### [Integridade do Agente](oms-solution-agenthealth.md)
 #### [Gerenciamento de alertas](../log-analytics/log-analytics-solution-alert-management.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-#### [Mapa do Serviço](operations-management-suite-service-map.md)
-##### [Configurar](operations-management-suite-service-map-configure.md)
 #### [Usar a Análise de Rede do Azure](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Contêineres](../log-analytics/log-analytics-containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Análise do Cofre de Chaves](../log-analytics/log-analytics-azure-key-vault.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Monitor de Desempenho de Rede](../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### [Office 365](oms-solution-office-365.md)
 #### [Análise do Service Fabric](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### Mapa do Serviço
+##### [Passo a passo](operations-management-suite-walkthrough-servicemap.md)
+##### [Uso](operations-management-suite-service-map.md)
+##### [Configurar](operations-management-suite-service-map-configure.md)
+##### [Integração com o Operations Manager](operations-management-suite-service-map-scom.md)
 #### [Avaliação do SQL](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Hub de Superfície](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Atualizar análise](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)
@@ -64,9 +67,16 @@
 ### [Recursos de automação](operations-management-suite-solutions-resources-automation.md)
 ### [Pesquisas de log e alertas](operations-management-suite-solutions-resources-searches-alerts.md)
 ### [Modos de exibição](operations-management-suite-solutions-resources-views.md)
+### [práticas recomendadas](operations-management-suite-solutions-best-practices.md)
+
+## Cenários para gerenciamento
+### [Coletar dados de análise do runbook](operations-management-suite-runbook-datacollect.md)
 
 ## [Integrar com o OMS](operations-management-suite-integration.md)
 
 # Referência
 ## [SDK](operations-management-suite-sdk.md)
 
+# Recursos
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)

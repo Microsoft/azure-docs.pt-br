@@ -1,6 +1,6 @@
 ---
 title: "Cotas e limites do Barramento de Serviço do Microsoft Azure | Microsoft Docs"
-description: "Limites e cotas do Barramento de Serviço do Azure"
+description: "Encontre os limites e cotas do Barramento de Serviço do Azure."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,19 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 06/28/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d86a6fb09e5b26dde749f2c3be0e3c4dc6d3179a
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 9a364adad3342b211a647eb743776a47812b75f4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-quotas"></a>Cotas do Barramento de Serviço
 Esta seção lista as cotas básicas e as limitações nas mensagens do Barramento de Serviço do Microsoft Azure.
 
 ## <a name="messaging-quotas"></a>Cotas de mensagens
 [!INCLUDE [service-bus-quotas-table](../../includes/service-bus-quotas-table.md)]
-
 

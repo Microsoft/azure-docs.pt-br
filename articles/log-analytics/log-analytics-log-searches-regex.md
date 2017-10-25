@@ -11,42 +11,44 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 08/08/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 73739f4f154bebe271ce29bd285122ea7f56d769
-ms.openlocfilehash: bcf36cdec6c1dda7aa0213c42adf8d0281dc28d2
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: 9746170f157ed5065adc953a31687ff18bd73708
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-regular-expressions-to-filter-log-searches-in-log-analytics"></a>Usando expressões regulares para filtrar pesquisas de logs no Log Analytics
 
-As [Pesquisas de logs](log-analytics-log-searches.md) permitem extrair informações do repositório do Log Analytics.  As [Expressões de filtro](log-analytics-search-reference.md#filter-expression) permitem filtrar os resultados da pesquisa de acordo com critérios específicos.  A palavra-chave **RegEx** permite que você especifique uma expressão regular para este filtro.  
+As [Pesquisas de logs](log-analytics-log-searches.md) permitem extrair informações do repositório do Log Analytics.  As [Expressões de filtro](log-analytics-search-reference.md#filter-expressions) permitem filtrar os resultados da pesquisa de acordo com critérios específicos.  A palavra-chave **RegEx** permite que você especifique uma expressão regular para este filtro.  
 
 Este artigo fornece detalhes sobre a sintaxe de expressão regular usada pelo Log Analytics.
+
+> [!NOTE]
+> Você só pode usar RegEx com campos pesquisáveis.  Para obter mais informações sobre campos de pesquisa, veja **tipos de campo** na [localizar os dados usando pesquisas de log na análise de Log](log-analytics-log-searches.md#use-additional-filters).
 
 
 ## <a name="regex-keyword"></a>Palavra-chave RegEx
 
-Utilize a seguinte sintaxe para usar a palavra-chave **RegEx** em uma pesquisa de logs.  É possível usar as outras seções deste artigo para determinar a sintaxe da expressão regular em si. 
+Utilize a seguinte sintaxe para usar a palavra-chave **RegEx** em uma pesquisa de logs.  É possível usar as outras seções deste artigo para determinar a sintaxe da expressão regular em si.
 
     field:Regex("Regular Expression")
     field=Regex("Regular Expression")
 
-Por exemplo, para usar uma expressão regular para retornar registros de alerta com um tipo de *Aviso* ou *Erro*, você usaria a seguinte pesquisa de logs. 
+Por exemplo, para usar uma expressão regular para retornar registros de alerta com um tipo de *Aviso* ou *Erro*, você usaria a seguinte pesquisa de logs.
 
     Type=Alert AlertSeverity=RegEx("Warning|Error")
 
 ## <a name="partial-matches"></a>Correspondências parciais
 Observe que a expressão regular deve corresponder a todo o texto da propriedade.  Correspondências parciais não retornarão nenhum registro.  Por exemplo, se você está tentando retornar registros de um computador chamado srv01.contoso.com, a seguinte pesquisa de logs **não** retornaria nenhum registro.
 
-    Computer=RegEx("srv..") 
+    Computer=RegEx("srv..")
 
-Isso ocorre porque a primeira parte do nome corresponde à expressão regular.  As duas pesquisas de logs seguintes retornariam registros deste computador porque correspondem ao nome completo. 
+Isso ocorre porque a primeira parte do nome corresponde à expressão regular.  As duas pesquisas de logs seguintes retornariam registros deste computador porque correspondem ao nome completo.
 
     Computer=RegEx("srv..@")
-    Computer=RegEx("srv...contoso.com") 
+    Computer=RegEx("srv...contoso.com")
 
 ## <a name="characters"></a>Caracteres
 Especificar caracteres diferentes.
@@ -73,7 +75,7 @@ Especifique várias ocorrências de um determinado caractere.
 |:--|:--|:--|:--|
 | a{n} |  *n* ocorrências do caractere. | Computer=RegEx("bw-win-sc01{3}.bwren.lab") | bw-win-sc0111.bwren.lab |
 | a{n,} |  *n* ou mais ocorrências do caractere. | Computer=RegEx("bw-win-sc01{3,}.bwren.lab") | bw-win-sc0111.bwren.lab<br>bw-win-sc01111.bwren.lab<br>bw-win-sc011111.bwren.lab<br>bw-win-sc0111111.bwren.lab |
-| a{n,m} |  *n* para *m* ocorrências do caractere. | Computer=RegEx("bw-win-sc01{3,5}.bwren.lab") | bw-win-sc0111.bwren.lab<br>bw-win-sc01111.bwren.lab<br>bw-win-sc011111.bwren.lab |
+| a{n,m} |  *n* a *m* ocorrências do caractere. | Computer=RegEx("bw-win-sc01{3,5}.bwren.lab") | bw-win-sc0111.bwren.lab<br>bw-win-sc01111.bwren.lab<br>bw-win-sc011111.bwren.lab |
 
 
 ## <a name="logical-expressions"></a>Expressões lógicas
@@ -96,4 +98,3 @@ Converter caracteres especiais em caracteres literais.  Isso inclui caracteres q
 ## <a name="next-steps"></a>Próximas etapas
 
 * Familiarizar-se com [pesquisas de logs](log-analytics-log-searches.md) para exibir e analisar dados no repositório do Log Analytics.
-

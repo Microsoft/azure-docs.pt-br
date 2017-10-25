@@ -4,7 +4,7 @@ description: "Oferece uma visão geral e links para mais informações sobre tar
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carolz
+manager: timlt
 editor: 
 ms.assetid: 1cdbb61d-bd16-4be4-ade2-ceab11508acb
 ms.service: storsimple
@@ -12,15 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/18/2016
+ms.date: 06/05/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5e3528d490cd11fab3fb10126713f81694d7e2d0
-
-
+ms.openlocfilehash: a99b3d7336c3dc1a1f249915d6971a49f4b69be6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Use o StorSimple Snapshot Manager para administrar sua solução de StorSimple
+
 ## <a name="overview"></a>Visão geral
 O StorSimple Snapshot Manager é um snap-in do Microsoft Management Console (MMC) que simplifica a proteção de dados e o gerenciamento de backup em um ambiente Microsoft Azure StorSimple. Com o StorSimple Snapshot Manager, você pode gerenciar dados do Microsoft Azure StorSimple no data center e na nuvem como uma solução única de armazenamento integrado, simplificando os processos de backup e reduzindo os custos.
 
@@ -39,8 +40,7 @@ Este artigo fornece links para tutoriais que descrevem o StorSimple Snapshot Man
 
 > [!NOTE]
 > Você não pode usar o StorSimple Snapshot Manager para gerenciar as Matrizes Virtuais do Microsoft Azure StorSimple (também conhecido como dispositivos virtuais locais StorSimple).
-> 
-> 
+
 
 ## <a name="storsimple-snapshot-manager-tasks-and-workflows"></a>Fluxos de trabalho e tarefas do StorSimple Snapshot Manager
 Você pode usar o StorSimple Snapshot Manager para monitorar e gerenciar trabalhos de backup atuais, agendados e concluídos. Além disso, o StorSimple Snapshot Manager fornece um catálogo de até 64 backups concluídos. Você pode usar o catálogo para localizar e restaurar volumes ou arquivos individuais. 
@@ -60,10 +60,4 @@ Você pode usar o StorSimple Snapshot Manager para monitorar e gerenciar trabalh
 
 ## <a name="next-steps"></a>Próximas etapas
 [Baixar o StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

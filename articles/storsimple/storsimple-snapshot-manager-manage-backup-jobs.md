@@ -4,7 +4,7 @@ description: "Descreve como usar o snap-in StorSimple Snapshot Manager MMC para 
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: bf4dcff6-c819-4766-b9d9-9922831cb200
 ms.service: storsimple
@@ -12,15 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/26/2016
+ms.date: 06/05/2017
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b31f6d51399dc0533d8cbefcafc3b55762cb6cf1
-
-
+ms.openlocfilehash: 03e306b62250f2bb033cc14e856a59760b5406c3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Usar o StorSimple Snapshot Manager para exibir e gerenciar trabalhos de backup
+
 ## <a name="overview"></a>Visão geral
 O nó **Trabalhos** no painel **Escopo** mostra as tarefas de backup **Agendado**, **Últimas 24 horas** e **Em execução** iniciadas interativamente ou por uma política configurada. 
 
@@ -38,9 +39,7 @@ Use o procedimento a seguir para exibir os trabalhos de backup agendados.
    * **Última execução** – a data e hora do instantâneo agendado mais recente
      
      > [!NOTE]
-     > Para instantâneos únicos, a **Próxima execução** e a **Última execução** serão iguais. 
-     > 
-     > 
+     > Para instantâneos únicos, a **Próxima execução** e a **Última execução** serão iguais.
      
      ![Trabalhos de backup agendados](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_scheduled.png) 
 3. Para executar ações adicionais em um trabalho específico, clique com o botão direito no nome do trabalho no painel **Resultados** e selecione uma das opções de menu.
@@ -63,14 +62,14 @@ Use o procedimento a seguir para exibir os trabalhos de backup e restauração q
      ![Trabalhos executados nas últimas 24 horas](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_Last_24_hours.png) 
 3. Para executar ações adicionais em um trabalho específico, clique com o botão direito no nome do trabalho no painel **Resultados** e selecione uma das opções de menu.
    
-    ![Excluir um trabalho](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Delete_backup.png) 
+    ![Excluir um trabalho](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Delete_backup.png)
 
 ## <a name="view-currently-running-jobs"></a>Exibir trabalhos em execução
 Use o procedimento a seguir para exibir os trabalhos que estão sendo executados.
 
 #### <a name="to-view-currently-running-jobs"></a>Para exibir os trabalhos em execução
 1. Clique no ícone da área de trabalho para iniciar o StorSimple Snapshot Manager.
-2. No painel **Escopo**, expanda o nó **Trabalhos** e clique em **Em execução**. Dependendo as opções de **Exibição** especificadas, as seguintes informações aparecem no painel **Resultados**: 
+2. No painel **Escopo**, expanda o nó **Trabalhos** e clique em **Em execução**. Dependendo as opções de **Exibição** especificadas, as seguintes informações aparecem no painel **Resultados**:
    
    * **Nome** – o nome do instantâneo agendado.
    * **Iniciado** – a data e a hora em que o instantâneo foi iniciado.
@@ -87,10 +86,4 @@ Use o procedimento a seguir para exibir os trabalhos que estão sendo executados
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 * Saiba como [usar o StorSimple Snapshot Manager para gerenciar o catálogo de backup](storsimple-snapshot-manager-manage-backup-catalog.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

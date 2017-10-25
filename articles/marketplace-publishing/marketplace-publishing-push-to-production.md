@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2016
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 12dc81642905cd9449a1032c7ab57298e6b69ba8
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>Implantar a oferta no Azure Marketplace
 Quando você estiver satisfeito com sua oferta (ou seja, os cenários de cliente, marketing, conteúdo etc. foram testados) e estiver pronto para começar, solicite **Enviar por push para produção** na guia **Publicar**.  
@@ -69,7 +69,7 @@ Quando você estiver satisfeito com sua oferta (ou seja, os cenários de cliente
 
 * O logotipo Hero é opcional. O editor pode optar por não carregar um logotipo Hero. **No entanto, uma vez carregado, o ícone Hero não pode ser excluído do portal de Publicação. Nessa ocasião, o parceiro deve seguir as diretrizes do Azure Marketplace para ícones Hero. Caso contrário, a oferta não será aprovada para produção.**
 * O nome de exibição do editor, o título da SKU e o resumo longo da oferta são exibidos em uma fonte branca. Portanto, você deve evitar cores claras no plano de fundo do ícone Hero. Planos de fundo pretos, brancos e transparentes não são permitidos para ícones Hero.
-* O nome de exibição do editor, o título da SKU, o resumo longo da oferta e o botão de criação são inseridos programaticamente no logotipo Hero depois que a oferta é listada. Portanto, você não deve inserir texto ao projetar o logotipo Hero. Deixe espaço vazio à direita porque o texto (ou seja, o nome de exibição do editor, o título do SKU e o resumo longo da oferta) será incluído programaticamente por nós nessa área. O espaço vazio para o texto deve ser de 415x100 à direita (e ele é deslocado 370px à esquerda).
+* O nome de exibição do editor, o título da SKU, o resumo longo da oferta e o botão de criação são inseridos programaticamente no logotipo Hero depois que a oferta é listada. Portanto, você não deve inserir texto ao projetar o logotipo Hero. Apenas deixe o espaço vazio à direita, porque o texto (ou seja, nome de exibição do fornecedor, título do SKU, resumo longo da oferta) será incluído programaticamente nesse local. O espaço vazio para o texto deve ser de 415x100 à direita (e ele é deslocado 370px à esquerda).
 
 ## <a name="additional-production-checklist-for-already-listed-virtual-machine-offers"></a>Lista de verificação adicional de produção para ofertas de VM já listadas
 * Verifique se já há uma oferta com o mesmo nome de oferta da sua empresa. Se houver, você deverá adicionar uma nova versão da SKU à oferta existente em vez de criar uma nova oferta duplicada.
@@ -85,9 +85,3 @@ Depois que a oferta ficar ativa, teste os cenários de cliente para validar todo
 [img-pubportal-walkthru-checked]:media/marketplace-publishing-push-to-production/pubportal-walkthru-checked.png
 [img-pubportal-menu-publish]:media/marketplace-publishing-push-to-production/pubportal-menu-publish.png
 [img-pubportal-publish-pushproduction]:media/marketplace-publishing-push-to-production/pubportal-publish-pushproduction.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

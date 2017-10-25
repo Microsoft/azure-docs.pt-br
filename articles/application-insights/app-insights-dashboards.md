@@ -3,7 +3,7 @@ title: "Painéis e navegação no Azure Application Insights | Microsoft Docs"
 description: "Crie exibições de suas consultas e gráficos principais do APM."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 39b0701b-2fec-4683-842a-8a19424f67bd
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 097a8aeecc783199b25d95dbc470dcabefa37ced
-ms.lasthandoff: 03/16/2017
-
-
+ms.author: bwren
+ms.openlocfilehash: 9987f04e7e71df5fe10c8bc209a390cb940ec4f2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navegação e painéis no portal do Application Insights
 Após de ter [Configurado o Application Insights no seu projeto](app-insights-overview.md), os dados de telemetria sobre desempenho e uso do aplicativo aparecerá no recurso do Application Insights do projeto no [portal do Azure](https://portal.azure.com).
@@ -56,8 +55,16 @@ Quando estiver vendo uma folha ou conjunto de gráficos que é particularmente i
 
 Observe que os gráficos são agrupados em blocos: um bloco pode conter mais de um gráfico. O bloco inteiro é fixado no painel.
 
+O gráfico é atualizado automaticamente com uma frequência que depende do intervalo de tempo do gráfico:
+
+* Intervalo de tempo até 1 hora: atualizar a cada 5 minutos
+* Intervalo de tempo de 1 a 24 horas: atualizar a cada 15 minutos
+* Intervalo de tempo acima de 24 horas: (intervalo de tempo)/60.
+
 ### <a name="pin-any-query-in-analytics"></a>Fixar qualquer consulta no Analytics
-Você também pode [fixar gráficos do Analytics](app-insights-analytics-using.md#pin-to-dashboard) a um painel [compartilhado](#share-dashboards-with-your-team). Isso permite que você adicione gráficos de qualquer consulta arbitrária junto com as métricas padrão. (Há uma cobrança para esse recurso).
+Você também pode [fixar gráficos do Analytics](app-insights-analytics-using.md#pin-to-dashboard) a um painel [compartilhado](#share-dashboards-with-your-team). Isso permite que você adicione gráficos de qualquer consulta arbitrária junto com as métricas padrão. 
+
+Os resultados são automaticamente recalculados a cada hora. Clique no ícone Atualizar no gráfico para recalcular imediatamente. (Atualizar do navegador não é recalculado.)
 
 ## <a name="adjust-a-tile-on-the-dashboard"></a>Ajustar um bloco no painel
 Quando um bloco estiver no painel, você poderá ajustá-lo.
@@ -145,9 +152,6 @@ CONFIGURAÇÕES
 * [**Bloqueios**](../azure-resource-manager/resource-group-lock-resources.md) - bloqueie recursos do Azure
 * [**Script de automação**](app-insights-powershell.md) - exporte uma definição do recurso do Azure para que você possa usá-la como modelo para criar novos recursos.
 
-SUPORTE
-
-* **Solicitação de suporte** -requer uma assinatura paga. Veja também [Obtendo ajuda](app-insights-get-dev-support.md).
 
 ## <a name="video"></a>Vídeo
 
@@ -160,4 +164,3 @@ SUPORTE
 | [Metrics explorer](app-insights-metrics-explorer.md)<br/>Métricas de filtro e de segmento |![Exemplo de pesquisa](./media/app-insights-dashboards/64.png) |
 | [Pesquisa de diagnóstico](app-insights-diagnostic-search.md)<br/>Localize e inspecione eventos, eventos relacionados e crie bugs |![Exemplo de pesquisa](./media/app-insights-dashboards/61.png) |
 | [Analytics](app-insights-analytics.md)<br/>Linguagem de consulta poderosa |![Exemplo de pesquisa](./media/app-insights-dashboards/63.png) |
-

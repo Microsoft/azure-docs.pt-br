@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 57b2abc37551a782cb7106b9fc4540ce2ba37732
-
-
+ms.openlocfilehash: 6a497189268c5a1b7e269cc57904ebc77c1906fd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-net-sdk-to-access-azure-mobile-engagement-service-apis"></a>Usar o SDK do .NET para acessar as APIs de serviço do Azure Mobile Engagement
-O Azure Mobile Engagement expõe um conjunto de APIs para gerenciar Dispositivos, Campanhas de Envio/Alcance, etc. Para interagir com essas APIs, também oferecemos um [arquivo Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json) que você pode usar com as ferramentas para gerar SDKs para seu idioma preferencial. Recomendamos usar a ferramenta [AutoRest](https://github.com/Azure/AutoRest) para gerar o SDK do nosso arquivo de Swagger. 
+O Azure Mobile Engagement expõe um conjunto de APIs para gerenciar Dispositivos, Campanhas de Envio/Alcance, etc. Para interagir com essas APIs, também oferecemos um [arquivo Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json) que você pode usar com as ferramentas para gerar SDKs para seu idioma preferencial. Recomendamos usar a ferramenta [AutoRest](https://github.com/Azure/AutoRest) para gerar o SDK do nosso arquivo de Swagger.
+
+> [!NOTE]
+> O serviço Azure Mobile Engagement será desativado em março de 2018 e, no momento, está disponível somente para os clientes existentes. Para saber mais, confira [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
 
 Criamos um SDK do .NET de forma semelhante que permite que você interaja com essas APIs usando um wrapper C#. Você não precisará fazer a negociação do token de autenticação e a atualização por conta própria.  
 
@@ -119,9 +122,3 @@ Este exemplo percorre o conjunto de etapas a seguir para usar o SDK do .NET:
 <!-- Images. -->
 
 [1]: ./media/mobile-engagement-dotnet-sdk-service-api/include-prerelease.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

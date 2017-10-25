@@ -3,7 +3,7 @@ title: Adicionar entrada a um aplicativo iOS usando o ponto de extremidade do Az
 description: "Como criar um aplicativo iOS que conecte usuários com a conta pessoal e as contas corporativas ou de estudante da Microsoft usando bibliotecas de terceiros."
 services: active-directory
 documentationcenter: 
-author: xerners
+author: brandwe
 manager: mbaldwin
 editor: 
 ms.assetid: fd3603c0-42f7-438c-87b5-a52d20d6344b
@@ -14,11 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
-translationtype: Human Translation
-ms.sourcegitcommit: 47dce83cb4e3e5df92e91f1ca9195326634d6c8b
-ms.openlocfilehash: 36c83ad9424c7c1e0bc096696148dda801bc4257
-
-
+ms.custom: aaddev
+ms.openlocfilehash: cf1455dc3d55ea3581195f7a315556d134c23a26
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-an-ios-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Adicionar entrada a um aplicativo iOS usando uma biblioteca de terceiros com a API do Graph usando o ponto de extremidade v2.0
 A plataforma de identidade da Microsoft usa padrões abertos, como OAuth2 e OpenID Connect. Os desenvolvedores podem usar qualquer biblioteca desejada para integrar aos nossos serviços. Para ajudar os desenvolvedores a usar nossa plataforma com outras bibliotecas, escrevemos alguns guias passo a passo como este para demonstrar como configurar bibliotecas de terceiros que se conectam à plataforma de identidade da Microsoft. A maioria das bibliotecas que implementa [a especificação RFC6749 do OAuth2](https://tools.ietf.org/html/rfc6749) pode se conectar à plataforma de identidade da Microsoft.
@@ -53,7 +54,7 @@ git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.g
 ```
 
 ## <a name="register-an-app"></a>Registrar um aplicativo
-Crie um novo aplicativo no [Portal de registro de aplicativos](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou siga as etapas detalhadas em [Como registrar um aplicativo com o ponto de extremidade v&2;.0](active-directory-v2-app-registration.md).  Não se esqueça de:
+Crie um novo aplicativo no [Portal de registro de aplicativos](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou siga as etapas detalhadas em [Como registrar um aplicativo com o ponto de extremidade v 2.0](active-directory-v2-app-registration.md).  Não se esqueça de:
 
 * Copiar a **ID do Aplicativo** atribuída ao seu aplicativo, pois você precisará dela em breve.
 * Adicione a plataforma **Móvel** de seu aplicativo.
@@ -568,10 +569,4 @@ Se você tiver usado o esqueleto ou seguido junto com o passo a passo, seu aplic
 
 ## <a name="get-security-updates-for-our-product"></a>Obter atualizações de segurança para nosso produto
 É recomendável obter notificações quando ocorrerem incidentes de segurança visitando a página [Segurança TechCenter](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

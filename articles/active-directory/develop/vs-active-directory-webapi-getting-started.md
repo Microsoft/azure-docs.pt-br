@@ -3,8 +3,8 @@ title: "Introdução ao Azure AD em projetos WebApi do Visual Studio | Microsoft
 description: "Como começar a usar o Active Directory do Azure em projetos da API Web após a conexão ou criação de um AD do Azure usando os serviços conectados do Visual Studio"
 services: active-directory
 documentationcenter: 
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: bf1eb32d-25cd-4abf-8679-2ead299fedaa
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 333db54fe01aad42cfcd050995b64f3725b31ae9
-ms.lasthandoff: 03/21/2017
-
-
+ms.author: kraigb
+ms.custom: aaddev
+ms.openlocfilehash: a756316054dd3bb63f3b0a9f59621bb1345bc693
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-active-directory-and-visual-studio-connected-services-webapi-projects"></a>Introdução ao Active Directory do Azure e aos serviços conectados do Visual Studio (projetos da API Web)
 > [!div class="op_single_selector"]
@@ -33,5 +33,4 @@ Todos os controladores em seu projeto foram marcados com o atributo **Autorizar*
 
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre o Active Directory do Azure](https://azure.microsoft.com/services/active-directory/)
-
 

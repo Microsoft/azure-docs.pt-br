@@ -1,0 +1,410 @@
+- name: Documentação de VMs Linux
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: Sobre Máquinas Virtuais
+      href: overview.md
+- name: Guia de início rápido
+  expanded: true
+  items:
+    - name: Criar VM - CLI do Azure
+      href: quick-create-cli.md
+    - name: Criar VM - Portal
+      href: quick-create-portal.md
+    - name: Criar VM – Azure PowerShell
+      href: quick-create-powershell.md
+- name: Tutoriais
+  items:
+    - name: 1 - Criar / gerenciar VMs
+      href: tutorial-manage-vm.md
+    - name: 1 - Criar / gerenciar discos
+      href: tutorial-manage-disks.md
+    - name: 3 - Automatizar a configuração
+      href: tutorial-automate-vm-deployment.md
+    - name: 4 - Criar imagens da VM
+      href: tutorial-custom-images.md
+    - name: 5 - VMs altamente disponíveis
+      href: tutorial-availability-sets.md
+    - name: 6 - Criar um conjunto de dimensionamento de VM
+      href: tutorial-create-vmss.md
+    - name: 7 - VMs de balanceamento de carga
+      href: tutorial-load-balancer.md
+    - name: 8 - Gerenciar a rede
+      href: tutorial-virtual-network.md
+    - name: 9 - Fazer o backup de máquinas virtuais
+      href: tutorial-backup-vms.md
+    - name: 10 – Monitorar e atualizar VMs
+      href: tutorial-monitoring.md
+    - name: 11 - Gerenciar a segurança da VM
+      href: tutorial-azure-security.md
+    - name: 12 - Implantar Jenkins
+      href: tutorial-jenkins-github-docker-cicd.md
+    - name: 13 - CI/CD com o Team Services
+      href: tutorial-build-deploy-jenkins.md
+    - name: 14a - Criar pilha LAMP
+      href: tutorial-lamp-stack.md
+    - name: 14b - Criar pilha LEMP
+      href: tutorial-lemp-stack.md
+    - name: 14c - Criar pilha MEAN
+      href: tutorial-mean-stack.md
+    - name: 15 - Proteger o servidor Web com SSL
+      href: tutorial-secure-web-server.md
+- name: Exemplos
+  items:
+    - name: CLI do Azure
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
+- name: Conceitos
+  items:
+    - name: Gerenciador de Recursos do Azure
+      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Regiões e disponibilidade
+      href: regions-and-availability.md
+    - name: Tamanhos e tipos de VM
+      href: sizes.md
+    - name: Distribuições endossadas
+      href: endorsed-distros.md
+    - name: Manutenção e atualizações
+      href: maintenance-and-updates.md
+    - name: Armazenamento
+      href: azure-vm-storage-overview.md
+    - name: Rede
+      href: network-overview.md
+    - name: Aplicativos de dimensionamento automático
+      href: autoscale.md
+    - name: Automação de infraestrutura
+      href: infrastructure-automation.md
+    - name: Segurança e política
+      href: security-policy.md
+    - name: Monitoramento
+      href: monitor.md
+    - name: Backup e recuperação
+      href: backup-recovery.md
+    - name: Computação de alto desempenho
+      href: high-performance-computing.md
+    - name: Considerações de implantação
+      items:
+        - name: Diretrizes de infraestrutura
+          href: infrastructure-example.md
+- name: Guias de instruções
+  items:
+    - name: Criar VMs
+      items:
+        - name: Como usar a CLI
+          href: create-cli-complete.md
+        - name: Como usar um modelo
+          href: create-ssh-secured-vm-from-template.md
+        - name: Como copiar ou clonar uma VM
+          href: copy-vm.md
+    - name: Como proteger VMs
+      items:
+        - name: Criptografar
+          href: encrypt-disks.md
+        - name: Como usar controles de acesso
+          href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Como usar políticas
+          href: policy.md
+        - name: Criar um cofre de chaves
+          href: key-vault-setup.md
+        - name: Como criar e usar as chaves de SSH
+          items:
+            - name: Em Linux ou macOS
+              href: mac-create-ssh-keys.md
+            - name: No Windows
+              href: ssh-from-windows.md
+            - name: Etapas detalhadas
+              href: create-ssh-keys-detailed.md
+    - name: Gerenciar VMs
+      items:
+        - name: Tarefas comuns de CLI
+          href: cli-manage.md
+        - name: Como mover uma VM
+          href: move-vm.md
+        - name: Como alterar o tamanho da VM
+          href: change-vm-size.md
+        - name: Marcar uma VM
+          href: tag.md
+        - name: Usar cloud-init
+          href: using-cloud-init.md
+        - name: Como executar scripts em uma VM
+          href: extensions-customscript.md
+        - name: Usar Área de Trabalho Remota
+          href: use-remote-desktop.md
+        - name: Como unir uma VM ao Azure Active Directory
+          href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
+        - name: Atualizações e patches
+          items:
+            - name: Infraestrutura de atualização do Red Hat
+              href: update-infrastructure-redhat.md
+        - name: Agente de VM do Azure
+          items:
+            - name: Visão geral
+              href: agent-user-guide.md
+            - name: Atualização do agente
+              href: update-agent.md
+        - name: Manutenção planejada
+          href: maintenance-notifications.md
+        - name: Eventos agendados
+          href: scheduled-events.md
+        - name: Monitorizar metadados
+          href: instance-metadata-service.md
+    - name: Como usar imagens
+      items:
+        - name: Como localizar e usar imagens
+          href: cli-ps-findimage.md
+        - name: Criar imagem personalizada
+          items:
+            - name: Etapas genéricas
+              href: create-upload-generic.md
+            - name: Ubuntu
+              href: create-upload-ubuntu.md
+            - name: CentOS
+              href: create-upload-centos.md
+            - name: Red Hat
+              href: redhat-create-upload-vhd.md
+            - name: Debian
+              href: debian-create-upload-vhd.md
+            - name: SUSE
+              href: suse-create-upload-vhd.md
+            - name: Oracle Linux
+              href: oracle-create-upload-vhd.md
+            - name: OpenBSD
+              href: create-upload-openbsd.md
+            - name: FreeBSD
+              href: freebsd-intro-on-azure.md
+        - name: Como capturar uma VM para imagem
+          href: capture-image.md
+        - name: Como criar uma imagem com o Packer
+          href: build-image-with-packer.md
+        - name: Como baixar o disco existente
+          href: download-vhd.md
+    - name: Disponibilidade e escala
+      items:
+        - name: Autoscale
+          href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Alta disponibilidade
+          href: manage-availability.md
+        - name: Como dimensionar verticalmente
+          href: vertical-scaling-automation.md
+        - name: Criar VM em zona de disponibilidade
+          href: create-cli-availability-zone.md
+    - name: Como usar as ferramentas de automação
+      items:
+        - name: Ansible
+          items:
+            - name: Instalar e configurar
+              href: ansible-install-configure.md
+            - name: Como criar uma VM básica
+              href: ansible-create-vm.md
+            - name: Como criar uma VM completa
+              href: ansible-create-complete-vm.md
+        - name: Terraform
+          items:
+            - name: Instalar e configurar
+              href: terraform-install-configure.md
+            - name: Como criar uma VM completa
+              href: terraform-create-complete-vm.md
+    - name: Como executar contêineres
+      items:
+        - name: Como criar host do Docker
+          href: dockerextension.md
+        - name: Como usar um computador do Docker
+          href: docker-machine.md
+        - name: Como usar o Docker Compose
+          href: docker-compose-quickstart.md
+    - name: Executar aplicativos
+      items:
+        - name: Cloud Foundry
+          items:
+            - name: Visão geral
+              href: cloudfoundry-get-started.md
+            - name: Implante seu primeiro aplicativo
+              href: cloudfoundry-deploy-your-first-app.md
+        - name: OpenShift
+          href: openshift-get-started.md
+        - name: SAP no Azure
+          href: ../workloads/sap/get-started.md
+        - name: Oracle
+          href: ../workloads/oracle/oracle-database-quick-create.md
+        - name: Filtro de pacote FreeBSD
+          href: freebsd-pf-nat.md
+        - name: Bancos de dados
+          items:
+            - name: MySQL
+              href: mysql-install.md
+            - name: MongoDB
+              href: install-mongodb.md
+            - name: PostgreSQL
+              href: postgresql-install.md
+            - name: MS SQL no Linux
+              href: /sql/linux/sql-server-linux-azure-virtual-machine
+        - name: HPC (Computação de Alto Desempenho)
+          href: hpcpack-cluster-options.md
+          items:
+            - name: Como executar NAMD
+              href: classic/hpcpack-cluster-namd.md
+            - name: Como instalar drivers de GPU NVIDIA
+              href: n-series-driver-setup.md
+    - name: Gerenciamento do armazenamento
+      href: about-disks-and-vhds.md
+      items:
+        - name: Saiba mais sobre Managed Disks
+          href: managed-disks-overview.md
+        - name: Perguntas frequentes de discos
+          href: faq-for-disks.md
+        - name: Adicionar um disco
+          items:
+            - name: CLI do Azure
+              href: add-disk.md
+            - name: Portal do Azure
+              href: attach-disk-portal.md
+        - name: Desanexar um disco
+          href: detach-disk.md
+        - name: Redimensionar um disco
+          href: expand-disks.md
+        - name: Instantâneo de um disco
+          href: snapshot-copy-managed-disk.md
+        - name: Backup de discos não gerenciados
+          href: incremental-snapshots.md
+        - name: Como converter em Managed Disks
+          href: convert-unmanaged-to-managed-disks.md
+        - name: Como converter disco entre Standard e Premium
+          href: convert-disk-storage.md
+        - name: Como copiar os arquivos para uma VM
+          href: copy-files-to-linux-vm-using-scp.md
+        - name: Como usar o armazenamento de arquivos
+          href: mount-azure-file-storage-on-linux-using-smb.md
+        - name: Implantar discos com modelo
+          href: using-managed-disks-template-deployments.md
+        - name: Otimizar desempenho
+          href: optimization.md
+          items:
+            - name: Configurar RAID de software
+              href: configure-raid.md
+            - name: Configurar o LVM
+              href: configure-lvm.md
+    - name: Como gerenciar a rede
+      items:
+        - name: Criar rede virtual
+          href: ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Como abrir as portas para uma VM
+          href: nsg-quickstart.md
+        - name: Como atribuir um endereço IP público
+          href: ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Como usar várias NICs
+          href: multiple-nics.md
+        - name: Como atribuir o nome DNS público
+          href: portal-create-fqdn.md
+        - name: Resolução DNS
+          href: azure-dns.md
+          items:
+            - name: Como usar o DNS interno
+              href: static-dns-name-resolution-for-linux-on-azure.md
+    - name: Usar extensões de VM
+      items:
+        - name: Visão geral da Extensão de VM
+          href: extensions-features.md
+        - name: Extensão de script personalizado
+          href: extensions-customscript.md
+        - name: Extensão do Agente do OMS
+          href: extensions-oms.md
+        - name: Extensão de Diagnóstico Linux
+          href: diagnostic-extension.md
+        - name: Agente do observador de rede
+          href: extensions-nwa.md
+        - name: Extensão do VMAccess
+          href: using-vmaccess-extension.md
+    - name: Migrar VMs
+      items:
+        - name: Como migrar AWS e VMs locais
+          href: ../windows/on-prem-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          items:
+            - name: Migrar do (AWS) Amazon Web Services para o Azure
+              href: ../windows/aws-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+            - name: Como carregar uma VM local
+              href: upload-vhd.md
+            - name: Como usar o Azure Site Recovery
+              href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Migrar do Clássico para o Azure Resource Manager
+          href: migration-classic-resource-manager-overview.md
+          items:
+            - name: Aprofunde-se na migração
+              href: migration-classic-resource-manager-deep-dive.md
+            - name: Planejar a migração
+              href: migration-classic-resource-manager-plan.md
+            - name: Migrar usando a CLI
+              href: migration-classic-resource-manager-cli.md
+            - name: Erros comuns de migração
+              href: migration-classic-resource-manager-errors.md
+            - name: Ferramentas da comunidade para a migração
+              href: ../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+            - name: Perguntas frequentes
+              href: migration-classic-resource-manager-faq.md
+    - name: Solucionar problemas
+      items:
+        - name: Conexões SSH
+          href: troubleshoot-ssh-connection.md
+          items:
+            - name: Etapas detalhadas de solução de problemas
+              href: detailed-troubleshoot-ssh-connection.md
+        - name: Redefinir a senha da máquina virtual
+          href: reset-password.md
+        - name: Compreensão da reinicialização do sistema
+          href: understand-vm-reboot.md
+        - name: Diagnóstico de inicialização
+          href: boot-diagnostics.md
+        - name: Acesso a aplicativos
+          href: troubleshoot-app-connection.md
+        - name: Falhas na alocação
+          href: allocation-failure.md
+        - name: Problemas de implantação
+          href: troubleshoot-deploy-vm.md
+        - name: Criar uma VM
+          href: troubleshoot-deployment-new-vm.md
+        - name: Nomes de dispositivo são alterados
+          href: troubleshoot-device-names-problems.md
+        - name: Reimplantar a VM em um novo nó do Azure
+          href: redeploy-to-new-node.md
+        - name: Mensagens de erro comuns
+          href: error-messages.md
+        - name: Acesso de recuperação da VM
+          items:
+            - name: CLI do Azure
+              href: troubleshoot-recovery-disks.md
+            - name: Portal do Azure
+              href: troubleshoot-recovery-disks-portal.md
+- name: Referência
+  items:
+    - name: CLI do Azure
+      href: /cli/azure/vm
+    - name: PowerShell
+      href: /powershell/azureps-cmdlets-docs
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.compute
+    - name: Java
+      href: /java/api
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST
+      href: /rest/api/compute
+- name: Recursos
+  items:
+    - name: Modelos de autor
+      href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Modelos da comunidade
+      href: 'https://azure.microsoft.com/documentation/templates'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/#Linux'
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
+    - name: Perguntas frequentes
+      href: faq.md

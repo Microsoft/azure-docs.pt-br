@@ -1,10 +1,10 @@
 ---
-title: "Associações de blob de armazenamento do Azure Functions | Microsoft Docs"
+title: "Associações de armazenamento de Blobs do Azure Functions | Microsoft Docs"
 description: "Entenda como usar gatilhos e associações do Armazenamento do Azure em Azure Functions."
 services: functions
 documentationcenter: na
-author: christopheranderson
-manager: erikre
+author: ggailey777
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"
@@ -14,100 +14,110 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/06/2017
-ms.author: chrande, glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 590cb831ad265d9b83713f573c92d8675e64db3d
-ms.lasthandoff: 03/22/2017
-
+ms.date: 05/25/2017
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: b123578dbac48018f674f85ec923e4c6e65fb9f8
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/29/2017
 
 ---
-# <a name="azure-functions-storage-blob-bindings"></a>Associações de blob de armazenamento do Azure Functions
+# <a name="azure-functions-blob-storage-bindings"></a>Associações de armazenamento de Blobs do Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Este artigo explica como configurar e codificar associações de blob do Armazenamento do Azure em Azure Functions. O Azure Functions dá suporte a associações de entrada, saída e gatilho para blobs do Armazenamento do Azure.
+Este artigo explica como configurar e trabalhar com associações do armazenamento de Blobs do Azure no Azure Functions. O Azure Functions dá suporte a associações de entrada, saída e gatilho para o armazenamento de Blobs do Azure. Para os recursos que estão disponíveis em todas as associações, veja [Gatilhos e conceitos de associações do Azure Functions](functions-triggers-bindings.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Não há suporte para [conta de armazenamento somente de blob](../storage/storage-create-storage-account.md#blob-storage-accounts). O Azure Functions requer uma conta de armazenamento de uso geral para ser usado com blobs. 
-> 
+> Não há suporte para [conta de armazenamento somente de blob](../storage/common/storage-create-storage-account.md#blob-storage-accounts). Gatilhos de armazenamento de blobs e associações exigem uma conta de armazenamento de uso geral. 
 > 
 
 <a name="trigger"></a>
+<a name="storage-blob-trigger"></a>
+## <a name="blob-storage-triggers-and-bindings"></a>Gatilhos e associações de armazenamento de blobs
 
-## <a name="storage-blob-trigger"></a>Gatilho de blob de armazenamento
-O gatilho de blob do Armazenamento do Azure permite monitorar um contêiner de armazenamento para blobs novos e atualizados, bem como executar seu código de função quando alterações são detectadas. 
+Usando o gatilho do armazenamento de blobs do Azure, seu código de função é chamado quando é detectado um blob novo ou atualizado. O conteúdo do blob é fornecido como entrada para a função.
 
-O gatilho de blob do Armazenamento de uma função usa os seguintes objetos JSON na matriz `bindings` de function.json:
+Defina um gatilho de armazenamento de blobs usando a guia **Integrar** no portal do Functions. O portal cria a seguinte definição na seção **Ligações** de *function.json*:
 
 ```json
 {
-    "name": "<Name of input parameter in function signature>",
+    "name": "<The name used to identify the trigger data in your code>",
     "type": "blobTrigger",
     "direction": "in",
     "path": "<container to monitor, and optionally a blob name pattern - see below>",
-    "connection":"<Name of app setting - see below>"
+    "connection": "<Name of app setting - see below>"
 }
 ```
 
-Observe o seguinte:
+As associações de entrada e saída de blob são definidas usando `blob` como o tipo de associação:
 
-* Para `path`, consulte [Padrões de nome](#pattern) para descobrir como formatar os padrões de nome de blob.
-* `connection` deve conter o nome de uma configuração de aplicativo que contenha uma cadeia de conexão de armazenamento. No Portal do Azure, o editor padrão na guia **Integrar** define essa configuração de aplicativo para você ao criar uma conta de armazenamento ou selecionar uma conta existente. Para criar essa configuração de aplicativo manualmente, consulte [Definir esta configuração de aplicativo manualmente](). 
+```json
+{
+  "name": "<The name used to identify the blob input in your code>",
+  "type": "blob",
+  "direction": "in", // other supported directions are "inout" and "out"
+  "path": "<Path of input blob - see below>",
+  "connection":"<Name of app setting - see below>"
+},
+```
 
-Durante a execução em um plano de Consumo, se um Aplicativo de funções tiver ficado ocioso, poderá haver até 10 minutos por dia de processamento de novos blobs. Quando o Aplicativo de funções está em execução, os blobs são processados mais rapidamente. Para evitar esse atraso inicial, use um Plano de Serviço de Aplicativo regular com Always On habilitado ou use outro mecanismo para disparar o processamento de blob, como uma mensagem da fila que contém o nome do blob. 
+* A propriedade `path` oferece suporte à associação de expressões e parâmetros de filtro. Veja [Padrões de nome](#pattern).
+* A propriedade `connection` deve conter o nome de uma configuração de aplicativo que contenha uma cadeia de conexão de armazenamento. No Portal do Azure, o editor padrão na guia **Integrar** define essa configuração de aplicativo para você ao selecionar uma conta de armazenamento.
 
-Além disso, consulte um destes subtítulos a seguir para obter mais informações:
-
-* [Padrões de nome](#pattern)
-* [Recebimentos de blob](#receipts)
-* [Manipulação de blobs suspeitos](#poison)
+> [!NOTE]
+> Ao usar um gatilho de blob em um plano de Consumo, pode haver um atraso de até 10 minutos no processamento de novos blobs depois que um aplicativo de funções ficar ocioso. Depois que o aplicativo de funções estiver em execução, os blobs serão processados imediatamente. Para evitar esse atraso inicial, considere uma das seguintes opções:
+> - Use um plano do Serviço de Aplicativo com a opçao Sempre ativado habilitada.
+> - Use outro mecanismo para disparar o processamento de blob, como uma mensagem de fila que contém o nome do blob. Para obter um exemplo, confira [Gatilho de fila com associação de entrada de blob](#input-sample).
 
 <a name="pattern"></a>
 
 ### <a name="name-patterns"></a>Padrões de nome
-É possível especificar um padrão de nome de blob na propriedade `path` . Por exemplo:
+Você pode especificar um padrão de nome de blob na propriedade `path`, que pode ser uma expressão de filtro ou associação. Veja [Padrões e expressões de associação](functions-triggers-bindings.md#binding-expressions-and-patterns).
+
+Por exemplo, para filtrar os blobs que começam com a cadeia de caracteres "original", use a seguinte definição. Esse caminho encontra um blob chamado *original-Blob1.txt* no contêiner *input* e o valor da `name` variável no código de função é `Blob1`.
 
 ```json
 "path": "input/original-{name}",
 ```
 
-Esse caminho encontraria um blob chamado *original-Blob1.txt* no contêiner *input* e o valor da `name` variável no código de função seria `Blob1`.
-
-Outro exemplo:
+Para associar ao nome do arquivo de blob e extensão separadamente, use dois padrões. Esse caminho também é um blob chamado *original-Blob1.txt* e o valor das variáveis `blobname` e `blobextension` no código de função é *original-Blob1* e *txt*.
 
 ```json
 "path": "input/{blobname}.{blobextension}",
 ```
 
-Esse caminho também poderia ser um blob chamado *original-Blob1.txt* e o valor das variáveis `blobname` e `blobextension` no código de função seria *original-Blob1* e *txt*.
-
-Você pode restringir o tipo de arquivo de blobs usando um valor fixo para a extensão de arquivo. Por exemplo:
+Você pode restringir o tipo de arquivo de blobs usando um valor fixo para a extensão de arquivo. Por exemplo, para disparar apenas em arquivos .png, use o seguinte padrão:
 
 ```json
 "path": "samples/{name}.png",
 ```
 
-Nesse caso, apenas blobs *.png* no contêiner *exemplos* disparam a função.
-
-As chaves são caracteres especiais nos padrões de nome. Para especificar nomes de blob com chaves, duplique as chaves. Por exemplo:
+As chaves são caracteres especiais nos padrões de nome. Para especificar nomes de blob com chaves, você pode ignorar as chaves usando chaves duplas. O exemplo a seguir encontra um blob denominado *{20140101}-soundfile.mp3* no contêiner *imagens* e o `name` valor da variável no código da função é *soundfile.mp3*. 
 
 ```json
 "path": "images/{{20140101}}-{name}",
 ```
 
-Esse caminho encontraria um blob denominado *{20140101}-soundfile.mp3* no contêiner *imagens* e o `name` valor da variável no código da função seria *soundfile.mp3*. 
+### <a name="trigger-metadata"></a>Metadados de gatilho
+
+O gatilho de blob fornece várias propriedades de metadados. Essas propriedades podem ser usadas como parte de expressões de associações em outras associações ou como parâmetros em seu código. Esses valores têm a mesma semântica que [CloudBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet).
+
+- **BlobTrigger**. Digite `string`. O caminho do blob de gatilho
+- **Uri**. Digite `System.Uri`. A URI do blob para o local principal.
+- **Propriedades**. Digite `Microsoft.WindowsAzure.Storage.Blob.BlobProperties`. As propriedades do sistema do blob.
+- **Metadados**. Digite `IDictionary<string,string>`. Os metadados definidos pelo usuário para o blob.
 
 <a name="receipts"></a>
 
 ### <a name="blob-receipts"></a>Recebimentos de blob
-O tempo de execução do Azure Functions garante que nenhuma função de gatilho de blob seja chamada mais de uma vez para o mesmo blob novo ou atualizado. Ele faz isso mantendo *recebimentos de blob* para determinar se uma versão de determinado blob foi processada.
+O tempo de execução do Azure Functions garante que nenhuma função de gatilho de blob seja chamada mais de uma vez para o mesmo blob novo ou atualizado. Para determinar se uma versão de determinado blob foi processada, ele mantém os *recebimentos de blob*.
 
-Os recebimentos de blob são armazenados em um contêiner denominado *azure-webjobs-hosts* na conta de armazenamento do Azure do seu aplicativo de funções (especificado na configuração do aplicativo `AzureWebJobsStorage`). Um recebimento de blob tem as seguintes informações:
+O Azure Functions armazena recibos do blob em um contêiner denominado *azure-webjobs-hosts* na conta de armazenamento do Azure do seu aplicativo de funções (definido na configuração do aplicativo `AzureWebJobsStorage`). Um recebimento de blob tem as seguintes informações:
 
-* A função disparada ("*&lt;nome do aplicativo de funções>*.Functions.*&lt;nome da função>*", por exemplo: "functionsf74b96f7.Functions.CopyBlob")
+* A função disparada ("*&lt;nome do aplicativo de funções>*.Functions.*&lt;nome da função>*", por exemplo: "MyFunctionApp.Functions.CopyBlob")
 * O nome do contêiner
 * O tipo de blob ("BlockBlob" ou "PageBlob")
 * O nome do blob
@@ -118,7 +128,9 @@ Para forçar o reprocessamento de um blob, exclua manualmente o recebimento dess
 <a name="poison"></a>
 
 ### <a name="handling-poison-blobs"></a>Manipulação de blobs suspeitos
-Quando uma função de gatilho de blob falhar, o Azure Functions repete essa função até cinco vezes por padrão (incluindo a primeira tentativa) para um determinado blob. Se todas as cinco tentativas falharem, o Functions adiciona uma mensagem para uma fila de armazenamento denominada *webjobs-blobtrigger-poison*. A mensagem da fila para blobs suspeitos é um objeto JSON que contém as seguintes propriedades:
+Quando uma função de gatilho de blob falhar para um determinado blob, o Azure Functions repete essa função até cinco vezes por padrão. 
+
+Se todas as cinco tentativas falharem, o Azure Functions adiciona uma mensagem para uma fila de armazenamento denominada *webjobs-blobtrigger-poison*. A mensagem da fila para blobs suspeitos é um objeto JSON que contém as seguintes propriedades:
 
 * FunctionId (no formato *&lt;nome do aplicativo de funções>*.Functions.*&lt;nome da função>*)
 * BlobType ("BlockBlob" ou "PageBlob")
@@ -127,35 +139,26 @@ Quando uma função de gatilho de blob falhar, o Azure Functions repete essa fun
 * ETag (um identificador de versão de blob, por exemplo: "0x8D1DC6E70A277EF")
 
 ### <a name="blob-polling-for-large-containers"></a>Sondagem de blobs para grandes contêineres
-Se o contêiner de blob observado pela associação contiver mais de 10.000 blobs, as verificações de tempo de execução do Functions varrerão os arquivos de log em busca de blobs novos ou alterados. Esse processo não ocorre em tempo real. Uma função não poderá ser disparada até que se passem vários minutos ou mais tempo depois da criação do blob. Além disso, [logs de armazenamento são criados da "melhor forma dentro do possível"](https://msdn.microsoft.com/library/azure/hh343262.aspx). Não há nenhuma garantia de que todos os eventos são capturados. Sob algumas condições, logs poderão ser perdidos. Se as limitações de velocidade e de confiabilidade de gatilhos de blob para grandes contêineres não forem aceitáveis para o seu aplicativo, o método recomendado será criar uma [mensagem de fila](../storage/storage-dotnet-how-to-use-queues.md) ao criar o blob e usar um [gatilho de fila](functions-bindings-storage-queue.md) em vez de um gatilho de blob para processar o blob.
+Se o contêiner de blob que está sendo monitorado contiver mais de 10.000 blobs, as verificações de tempo de execução do Functions varrerão os arquivos de log em busca de blobs novos ou alterados. Esse processo não ocorre em tempo real. Uma função não poderá ser disparada até que se passem vários minutos ou mais tempo depois da criação do blob. Além disso, [logs de armazenamento são criados da "melhor forma dentro do possível"](/rest/api/storageservices/About-Storage-Analytics-Logging). Não há nenhuma garantia de que todos os eventos são capturados. Sob algumas condições, logs poderão ser perdidos. Se você precisar de um processamento de blob mais rápido ou confiável, crie uma [mensagem de fila](../storage/queues/storage-dotnet-how-to-use-queues.md) ao criar o blob. Em seguida, use um [gatilho de fila](functions-bindings-storage-queue.md) em vez de um gatilho de blob para processar o blob.
 
 <a name="triggerusage"></a>
 
-## <a name="trigger-usage"></a>Uso de gatilho
-Em funções do C#, você associa aos dados de blob de entrada usando um parâmetro nomeado na assinatura da função, como `<T> <name>`.
-Em que `T` é o tipo de dados no qual você deseja desserializar os dados e `paramName` é o nome especificado no [gatilho JSON](#trigger). Em funções do Node.js, você acessa os dados de blob de entrada usando `context.bindings.<name>`.
+## <a name="using-a-blob-trigger-and-input-binding"></a>Usando um gatilho de blob e uma associação de entrada
+Nas funções do .NET, acesse os dados de blob usando um parâmetro de método, como `Stream paramName`. Aqui, `paramName` é o valor especificado na [configuração do gatilho](#trigger). Em funções do Node.js, acesse os dados do blob de entrada usando `context.bindings.<name>`.
 
-O blob pode ser desserializado em qualquer um destes tipos:
-
-* Qualquer [Objeto](https://msdn.microsoft.com/library/system.object.aspx) – útil para dados de blob serializados para JSON.
-  Se você declarar um tipo de entrada personalizado (por exemplo, `FooType`), o Azure Functions tenta desserializar os dados JSON para o tipo especificado.
-* Cadeia de caracteres - útil para dados de blob de texto.
-
-Em funções do C#, você também pode associar a qualquer um dos seguintes tipos, e o tempo de execução do Functions tentará desserializar os dados de blob usando esse tipo:
+No .NET, você pode associar a qualquer um dos tipos na lista abaixo. Se for usado como uma associação de entrada, alguns desses tipos exigem uma direção de associação `inout` no *function.json*. Não há suporte para essa direção pelo editor padrão. Use o editor avançado.
 
 * `TextReader`
 * `Stream`
-* `ICloudBlob`
-* `CloudBlockBlob`
-* `CloudPageBlob`
-* `CloudBlobContainer`
-* `CloudBlobDirectory`
-* `IEnumerable<CloudBlockBlob>`
-* `IEnumerable<CloudPageBlob>`
-* Outros tipos desserializados por [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb) 
+* `ICloudBlob` (exige a direção de associação "inout")
+* `CloudBlockBlob` (exige a direção de associação "inout")
+* `CloudPageBlob` (exige a direção de associação "inout")
+* `CloudAppendBlob` (exige a direção de associação "inout")
+
+Se blobs de texto forem esperados, você também poderá associar a um tipo `string` de .NET. Isso será recomendado apenas se o tamanho do blob for pequeno, porque o conteúdo inteiro do blob é carregado na memória. Geralmente, é preferível usar um tipo `Stream` ou `CloudBlockBlob`.
 
 ## <a name="trigger-sample"></a>Exemplo de gatilho
-Suponha que você tem o seguinte function.json, que define um gatilho de blob de armazenamento:
+Suponha que você tem o seguinte function.json, que define um gatilho de armazenamento de blobs:
 
 ```json
 {
@@ -166,7 +169,7 @@ Suponha que você tem o seguinte function.json, que define um gatilho de blob de
             "type": "blobTrigger",
             "direction": "in",
             "path": "samples-workitems",
-            "connection":""
+            "connection":"MyStorageAccount"
         }
     ]
 }
@@ -179,26 +182,31 @@ Veja o exemplo específico por linguagem que registra em log o conteúdo de cada
 
 <a name="triggercsharp"></a>
 
-### <a name="trigger-usage-in-c"></a>Uso de gatilho em C# #
+### <a name="blob-trigger-examples-in-c"></a>Exemplos de gatilho de blob em C# #
 
 ```cs
-public static void Run(string myBlob, TraceWriter log)
+// Blob trigger sample using a Stream binding
+public static void Run(Stream myBlob, TraceWriter log)
 {
-    log.Info($"C# Blob trigger function processed: {myBlob}");
+   log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
 }
 ```
 
-<!--
-<a name="triggerfsharp"></a>
-### Trigger usage in F# ##
-```fsharp
+```cs
+// Blob trigger binding to a CloudBlockBlob
+#r "Microsoft.WindowsAzure.Storage"
 
-``` 
--->
+using Microsoft.WindowsAzure.Storage.Blob;
+
+public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
+{
+    log.Info($"C# Blob trigger function Processed blob\n Name:{name}\nURI:{myBlob.StorageUri}");
+}
+```
 
 <a name="triggernodejs"></a>
 
-### <a name="trigger-usage-in-nodejs"></a>Uso de gatilho em Node.js
+### <a name="trigger-example-in-nodejs"></a>Exemplo de gatilho em Node.js
 
 ```javascript
 module.exports = function(context) {
@@ -206,53 +214,27 @@ module.exports = function(context) {
     context.done();
 };
 ```
+<a name="outputusage"></a>
+<a name="storage-blob-output-binding"></a>
 
-<a name="input"></a>
+## <a name="using-a-blob-output-binding"></a>Usando uma associação de saída de blob
 
-## <a name="storage-blob-input-binding"></a>Associação de entrada de blob de armazenamento
-A associação de entrada de blob de Armazenamento do Azure permite usar um blob de um contêiner de armazenamento na função. 
+Em funções do .NET, você deve usar um parâmetro `out string` em sua assinatura de função ou usar um dos tipos na lista a seguir. Em funções do Node.js, você acessa o blob de saída usando `context.bindings.<name>`.
 
-A entrada de blob de Armazenamento de uma função usa os seguintes objetos JSON na matriz `bindings` de function.json:
+Em funções do .NET, é possível executar a saída para qualquer um dos seguintes tipos:
 
-```json
-{
-  "name": "<Name of input parameter in function signature>",
-  "type": "blob",
-  "direction": "in"
-  "path": "<Path of input blob - see below>",
-  "connection":"<Name of app setting - see below>"
-},
-```
-
-Observe o seguinte:
-
-* `path` deve conter o nome do contêiner e o nome do blob. Por exemplo, se você tiver um [gatilho de fila](functions-bindings-storage-queue.md) em sua função, você pode usar `"path": "samples-workitems/{queueTrigger}"` para apontar para um blob no `samples-workitems` contêiner com um nome que corresponda ao nome de blob especificado na mensagem de gatilho.   
-* `connection` deve conter o nome de uma configuração de aplicativo que contenha uma cadeia de conexão de armazenamento. No portal do Azure, o editor padrão da guia **Integrar** define essa configuração de aplicativo para você quando você cria uma conta de Armazenamento ou seleciona uma conta existente. Para criar essa configuração de aplicativo manualmente, consulte [Definir esta configuração de aplicativo manualmente](). 
-
-<a name="inputusage"></a>
-
-## <a name="input-usage"></a>Uso de entrada
-Em funções do C#, você associa aos dados de blob de entrada usando um parâmetro nomeado na assinatura da função, como `<T> <name>`.
-Em que `T` é o tipo de dados no qual você deseja desserializar os dados e `paramName` é o nome especificado na [associação de entrada](#input). Em funções do Node.js, você acessa os dados de blob de entrada usando `context.bindings.<name>`.
-
-O blob pode ser desserializado em qualquer um destes tipos:
-
-* Qualquer [Objeto](https://msdn.microsoft.com/library/system.object.aspx) – útil para dados de blob serializados para JSON.
-  Se você declarar um tipo de entrada personalizado (por exemplo, `InputType`), o Azure Functions tenta desserializar os dados JSON para o tipo especificado.
-* Cadeia de caracteres - útil para dados de blob de texto.
-
-Em funções do C#, você também pode associar a qualquer um dos seguintes tipos, e o tempo de execução do Functions tentará desserializar os dados de blob usando esse tipo:
-
-* `TextReader`
+* `out string`
+* `TextWriter`
 * `Stream`
+* `CloudBlobStream`
 * `ICloudBlob`
 * `CloudBlockBlob` 
 * `CloudPageBlob` 
 
-<a name="inputsample"></a>
+<a name="input-sample"></a>
 
-## <a name="input-sample"></a>Amostra de entrada
-Suponha que você tem o function.json a seguir, que define um [gatilho de fila de armazenamento](functions-bindings-storage-queue.md), uma entrada de blob de armazenamento e uma saída de blob de armazenamento:
+## <a name="queue-trigger-with-blob-input-and-output-sample"></a>Gatilho de fila com amostra de entrada e saída de blob
+Suponha que você tenha o seguinte function.json, que define um [Gatilho de armazenamento de filas](functions-bindings-storage-queue.md), uma entrada de armazenamento de blobs e uma saída de armazenamento de blobs. Observe o uso da propriedade de metadados `queueTrigger`. Nas propriedades `path` de entrada e saída de blob:
 
 ```json
 {
@@ -290,82 +272,29 @@ Consulte o exemplo específico por linguagem que copia o blob de entrada para o 
 
 <a name="incsharp"></a>
 
-### <a name="input-usage-in-c"></a>Uso de entrada em C# #
+### <a name="blob-binding-example-in-c"></a>Exemplo de associação de blob em C# #
 
 ```cs
-public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
+// Copy blob from input to output, based on a queue trigger
+public static void Run(string myQueueItem, Stream myInputBlob, out string myOutputBlob, TraceWriter log)
 {
     log.Info($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
 }
 ```
 
-<!--
-<a name="infsharp"></a>
-### Input usage in F# ##
-```fsharp
-
-``` 
--->
-
 <a name="innodejs"></a>
 
-### <a name="input-usage-in-nodejs"></a>Uso de entrada em Node.js
+### <a name="blob-binding-example-in-nodejs"></a>Exemplo de associação de blob em Node.js
 
 ```javascript
+// Copy blob from input to output, based on a queue trigger
 module.exports = function(context) {
     context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
     context.bindings.myOutputBlob = context.bindings.myInputBlob;
     context.done();
 };
 ```
-
-<a name="output"></a>
-
-## <a name="storage-blob-output-binding"></a>Associação de saída de blob de armazenamento
-A associação de saída de blob de Armazenamento do Azure permite gravar blobs em um contêiner de armazenamento na função. 
-
-A saída de blob de Armazenamento de uma função usa os seguintes objetos JSON na matriz `bindings` de function.json:
-
-```json
-{
-  "name": "<Name of output parameter in function signature>",
-  "type": "blob",
-  "direction": "out",
-  "path": "<Path of input blob - see below>",
-  "connection": "<Name of app setting - see below>"
-}
-```
-
-Observe o seguinte:
-
-* `path` deve conter o nome do contêiner e o nome do blob de gravação. Por exemplo, se você tiver um [gatilho de fila](functions-bindings-storage-queue.md) em sua função, você pode usar `"path": "samples-workitems/{queueTrigger}"` para apontar para um blob no `samples-workitems` contêiner com um nome que corresponda ao nome de blob especificado na mensagem de gatilho.   
-* `connection` deve conter o nome de uma configuração de aplicativo que contenha uma cadeia de conexão de armazenamento. No Portal do Azure, o editor padrão na guia **Integrar** define essa configuração de aplicativo para você ao criar uma conta de armazenamento ou selecionar uma conta existente. Para criar essa configuração de aplicativo manualmente, confira [configure this app setting manually]() (definir essa configuração de aplicativo manualmente). 
-
-<a name="outputusage"></a>
-
-## <a name="output-usage"></a>Uso de saída
-Em funções do C#, você associa ao blob de saída usando o parâmetro `out` nomeado na assinatura da função, como `out <T> <name>`, em que `T` é o tipo de dados no qual você deseja serializar os dados, e `paramName` é o nome especificado na [associação de saída](#output). Em funções do Node.js, você acessa o blob de saída usando `context.bindings.<name>`.
-
-Você pode gravar no blob de saída usando qualquer um dos seguintes tipos:
-
-* Qualquer [Objeto](https://msdn.microsoft.com/library/system.object.aspx) - útil para serialização JSON.
-  Se você declarar um tipo de saída personalizada (por exemplo, `out OutputType paramName`), o Azure Functions tenta serializar o objeto em JSON. Se o parâmetro de saída for nulo quando a função for encerrada, o tempo de execução de funções criará um blob como objeto nulo.
-* Cadeia de caracteres - (`out string paramName`) útil para dados de blob de texto. o tempo de execução de funções criará um blob somente se o parâmetro de cadeia de caracteres não for nulo quando a função for encerrada.
-
-Em funções do C#, também é possível executar a saída para qualquer um dos seguintes tipos:
-
-* `TextWriter`
-* `Stream`
-* `CloudBlobStream`
-* `ICloudBlob`
-* `CloudBlockBlob` 
-* `CloudPageBlob` 
-
-<a name="outputsample"></a>
-
-## <a name="output-sample"></a>Amostra de saída
-Consulte [amostra de entrada](#inputsample).
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]

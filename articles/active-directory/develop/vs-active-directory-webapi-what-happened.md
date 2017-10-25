@@ -3,8 +3,8 @@ title: "Alterações feitas em um projeto WebApi quando você se conecta ao Azur
 description: "Descreve o que acontece ao seu projeto WebApi quando você se conecta ao Azure AD usando o Visual Studio"
 services: active-directory
 documentationcenter: 
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 8ca3234e54d8736aa187195640a103ac6eb145e7
-ms.lasthandoff: 03/21/2017
-
-
+ms.author: kraigb
+ms.custom: aaddev
+ms.openlocfilehash: 086e5a9622cad681cd282345d97e0c28ee7de2fa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu com meu projeto da API Web (serviço conectado do Active Directory do Azure do Visual Studio)
 > [!div class="op_single_selector"]
@@ -110,5 +110,4 @@ Seu aplicativo Azure Active Directory foi atualizado para incluir a permissão *
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Saiba mais sobre o Active Directory do Azure](https://azure.microsoft.com/services/active-directory/)
-
 

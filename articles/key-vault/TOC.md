@@ -14,25 +14,35 @@
 ### [Limites de serviço](key-vault-service-limits.md)
 ### [Chaves protegidas por HSM](key-vault-hsm-protected-keys.md)
 ### [Migrar para o .Net 2.0](key-vault-dotnet2api-release-notes.md)
+### Visões gerais
+#### [Mundos de segurança](key-vault-ovw-security-worlds.md)
+#### [Exclusão reversível](key-vault-ovw-soft-delete.md)
+#### [Chaves da conta de armazenamento](key-vault-ovw-storage-keys.md)
+#### [Limitação](key-vault-ovw-throttling.md)
 
 ## Gerenciar
 ### [Logs do Azure Key Vault](key-vault-logging.md)
 ### [Acesso por trás de firewalls](key-vault-access-behind-firewall.md)
-### [Alterar ID de locatário](key-vault-subscription-move-fix.md)
 ### [Disponibilidade e redundância](key-vault-disaster-recovery-guidance.md)
+### [Alterar ID de locatário](key-vault-subscription-move-fix.md)
+### [Criar e gerenciar usando a CLI do Azure](key-vault-manage-with-cli2.md)
+### [Como usar a exclusão reversível do Key Vault com a CLI](key-vault-soft-delete-cli.md)
+### [Como usar a exclusão reversível do Key Vault com o Azure PowerShell](key-vault-soft-delete-powershell.md)
+### [Usar grupos para conceder acesso](key-vault-group-permissions-for-apps.md)
 ### [Proteger seu cofre de chaves](key-vault-secure-your-key-vault.md)
 
 ## Automatizar
 ### [Automação do Azure](automation-manage-key-vault.md)
-### [Criar e gerenciar usando a CLI](key-vault-manage-with-cli.md)
-### [Criar e gerenciar usando a CLI 2.0](key-vault-manage-with-cli2.md)
 
 # Referência
-## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
-## [CLI 2.0 do Azure](/cli/azure/keyvault)
+## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
+## [PowerShell do Azure](/powershell/module/azurerm.keyvault)
+## [CLI do Azure](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
-## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+## Node.js
+### [Gerenciamento do cofre](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+### [Gerenciamento de conteúdo do cofre](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest)
 ## [REST](/rest/api/keyvault)
 
 # Relacionados
@@ -42,8 +52,10 @@
 ## [Autenticação Multifator](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Recursos
-## [Sobre chaves e segredos](https://msdn.microsoft.com/en-us/library/azure/dn903623)
-## [Exemplos de código](https://www.microsoft.com/download/details.aspx?id=45343)
-## [Preços](https://azure.microsoft.com/pricing/details/key-vault/)
+## [Sobre chaves, segredos e certificados](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog](http://blogs.technet.com/b/kv/)
+## [Exemplos de código](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Fóruns](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
+## [Preços](https://azure.microsoft.com/pricing/details/key-vault/)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)

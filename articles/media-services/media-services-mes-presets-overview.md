@@ -1,9 +1,9 @@
 ---
 title: "Predefinições de tarefa para MES (Media Encoder Standard) | Microsoft Docs"
-description: "Este tópico apresenta uma visão geral das Predefinições de tarefa para MES (Media Encoder Standard)."
+description: "Este tópico apresenta uma visão geral das predefinições de exemplo definidas pelo serviço para MES (Media Encoder Standard)."
 author: Juliako
-manager: erikre
-editor: 
+manager: cfow
+editor: johndeu
 services: media-services
 documentationcenter: 
 ms.assetid: f243ed1c-ac9c-4300-a5f7-f092cf9853b9
@@ -12,29 +12,29 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 10/01/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: e9018ffa74c2895560adbd4c0d2b83ee67e9eb1c
-ms.lasthandoff: 03/03/2017
-
-
+ms.openlocfilehash: 5753b1dffe5a1a4ee069b83f58e9c2dac433b89d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="sample-presets-for-media-encoder-standard-mes"></a>Predefinições de exemplo para MES (Media Encoder Standard)
 
-# <a name="task-presets-for-mes-media-encoder-standard"></a>Predefinições de tarefa para MES (Media Encoder Standard)
+O **Media Encoder Standard** define um conjunto de predefinições de codificação de sistema predefinido que pode ser usado ao criar trabalhos de codificação. Será recomendável usar a predefinição “Transmissão Adaptável” se você desejar codificar um vídeo para transmissão com os Serviços de Mídia. Ao especificar essa predefinição, o Media Encoder Standard [gerará uma escada de taxa de bits automaticamente](media-services-autogen-bitrate-ladder-with-mes.md). 
 
-O **Media Encoder Standard** define um conjunto de predefinições de codificação que pode ser usado ao criar trabalhos de codificação. Será recomendável usar a predefinição “Transmissão Adaptável” se você desejar codificar um vídeo para transmissão com os Serviços de Mídia. Ao especificar essa predefinição, o Media Encoder Standard [gerará uma escada de taxa de bits automaticamente](media-services-autogen-bitrate-ladder-with-mes.md). 
-
-No entanto, se precisar personalizar uma predefinição de codificação, use uma das predefinições de codificação definidas nesta seção como um modelo para a configuração personalizada. Para obter explicações sobre o significado de cada elemento nessas predefinições, e os valores válidos para cada elemento, veja o tópico [Esquema do Media Encoder Standard](media-services-mes-schema.md).  
+### <a name="creating-custom-presets-from-samples"></a>Criar predefinições personalizadas de exemplos
+Os Serviços de Mídia oferece suporte completo para a personalização de todos os valores em predefinições, a fim de atender às suas necessidades e requisitos de codificação. Se for necessário personalizar uma predefinição de codificação, comece com uma das predefinições de sistema oferecidas nesta seção como um modelo para a configuração personalizada. Para obter explicações sobre o significado de cada elemento nessas predefinições, e os valores válidos para cada elemento, veja o tópico [Esquema do Media Encoder Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Ao usar uma predefinição para codificações 4k, você deverá adquirir o tipo de unidade reservada `S3`. Para saber mais, confira [Como dimensionar a codificação](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).  
-  
-Ao trabalhar com o Media Encoder Standard, a rotação é habilitada por padrão. Se o vídeo foi gravado em um smartphone ou em outro dispositivo móvel no modo Retrato, essas predefinições o girarão por padrão para modo Paisagem antes da codificação (ao contrário de quando você trabalha com o Codificador de Mídia do Azure, no qual a rotação do vídeo é uma operação manual, conforme documentado [neste](http://azure.microsoft.com/blog/2014/08/21/advanced-encoding-features-in-azure-media-encoder/) blog, em "Video Rotation" [Rotação do vídeo]).  
-  
-Predefinições disponíveis:  
-  
+>  Ao usar uma predefinição para codificações 4k, você deverá adquirir o tipo de unidade reservada `S3`. Para saber mais, confira [Como dimensionar a codificação](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+
+#### <a name="video-rotation-default-setting-in-presets"></a>Configuração padrão de rotação de vídeo em predefinições:
+Ao trabalhar com o Media Encoder Standard, a rotação de vídeo é habilitada por padrão. Se o vídeo foi gravado em um dispositivo móvel no modo Retrato, essas predefinições giram eles para o modo de Paisagem antes da codificação.
+ 
+## <a name="available-presets"></a>Predefinições disponíveis: 
+
  [H264 Taxas de Bits Múltiplas 1080p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md) produz um conjunto de 8 arquivos MP4 alinhados a GOP, variando de 6000 kbps a 400 kbps, e áudio AAC 5.1.  
   
  [H264 Taxas de Bits Múltiplas 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md) produz um conjunto de 8 arquivos MP4 alinhados a GOP, variando de 6000 kbps a 400 kbps, e áudio AAC estéreo.  
@@ -86,4 +86,3 @@ Predefinições disponíveis:
  [H264 Taxa de Bits Única SD de Baixa Qualidade para Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md) produz um único arquivo MP4 com uma taxa de bits de 56 kbps e áudio AAC estéreo.  
   
  Para saber mais sobre os codificadores dos Serviços de Mídia, veja [Codificação sob demanda com os Serviços de Mídia do Azure](https://azure.microsoft.com/en-us/documentation/articles/media-services-encode-asset/).
-

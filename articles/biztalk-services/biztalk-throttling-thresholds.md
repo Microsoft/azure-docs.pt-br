@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: e14f42497d5ee0c89fe1fa0824431e2d82e6555a
-
-
+ms.openlocfilehash: 145e7470bbc01c676a1fb5856c0f9a8726e667fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="biztalk-services-throttling"></a>Serviços BizTalk: limitação
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Os Serviços BizTalk do Azure implementam a limitação do serviço com base em duas condições: uso de memória e número de mensagens simultâneas em processamento. Este tópico lista as limitações e descreve o comportamento da Execução quando ocorre uma condição de limitação.
 
 ## <a name="throttling-thresholds"></a>Limites da limitação
@@ -42,7 +45,7 @@ Quando os Serviços BizTalk do Azure entram em estado de limitação, o seguinte
   A InstânciadeFunçãoA está limitada. A InstânciadeFunçãoB não está limitada. Nesta situação, as mensagens da InstânciadeFunçãoB são processadas conforme o esperado. As mensagens na RoleInstanceA são descartadas e ocorre uma falha com o seguinte erro:<br/><br/>
   **O servidor está ocupado. Tente novamente.**<br/><br/>
 * Nenhuma origem de pull pode pesquisar ou baixar uma mensagem. Por exemplo:<br/>
-   um pipeline puxa as mensagens de uma origem de FTP externa. A instância de função que faz puxa entra em estado de limitação. Nessa situação, o pipeline interrompe o download de mensagens adicionais até que a instância de função saia da limitação.
+  um pipeline puxa as mensagens de uma origem de FTP externa. A instância de função que faz puxa entra em estado de limitação. Nessa situação, o pipeline interrompe o download de mensagens adicionais até que a instância de função saia da limitação.
 * Uma resposta é enviada ao cliente para que ele reenvie a mensagem.
 * Você deve aguardar até que a limitação seja resolvida. Especificamente, você deve aguardar até que o limite baixo seja atingido.
 
@@ -65,10 +68,4 @@ Quando os Serviços BizTalk do Azure entram em estado de limitação, o seguinte
 * [Serviços BizTalk: guias Painel, Monitor e Escala](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [Serviços BizTalk: backup e restauração](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 * [Serviços BizTalk: nome e chave do emissor](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 08/15/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
-ms.openlocfilehash: b6627ed7e3b08e0a94dec229d735114b3ed1b9df
-
-
+ms.openlocfilehash: 1be8500ec2cb78ef0edf57f4d8561336cf00ebcb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Fontes de dados de log de eventos do Windows no Log Analytics
 Logs de eventos do Windows são uma das mais comuns [fontes de dados](log-analytics-data-sources.md) para coletar dados usando agentes do Windows, pois muitos aplicativos escrevem o log de eventos do Windows.  Você pode coletar eventos de logs padrão como do sistema e aplicativo além de especificar todos os logs personalizados criados por aplicativos que você precisa monitorar.
@@ -37,7 +37,9 @@ Conforme você digita o nome de um log de eventos, o Log Analytics fornece suges
 ## <a name="data-collection"></a>Coleta de dados
 O Log Analytics coleta cada evento que corresponde a uma severidade selecionada de um log de evento monitorado conforme o evento é criado.  O agente registra seu lugar em cada log de eventos do qual ele realiza a coleta.  Se o agente ficar offline por um período de tempo, o Log Analytics coletará os eventos de onde ele parou, mesmo que os eventos tenham sido criados enquanto o agente estava offline.  Há a probabilidade de que os eventos não sejam coletados se o log de eventos é encapsulado com eventos não coletados sendo substituídos enquanto o agente estiver offline.
 
-
+>[!NOTE]
+>Análise de log não coleta eventos de auditoria criados pelo SQL Server de origem *MSSQLSERVER* com a ID de evento 18453 que contém as palavras-chave - *clássico* ou *sucesso de auditoria* e palavra-chave *0xa0000000000000*.
+>
 
 ## <a name="windows-event-records-properties"></a>Propriedades de registros de eventos do Windows
 Os registros de eventos do Windows têm um tipo de **Evento** e têm as propriedades na tabela a seguir:
@@ -69,15 +71,20 @@ A tabela a seguir fornece diferentes exemplos de pesquisas de log que recuperam 
 | Type=Event &#124; Measure count() by Source |Contagem de eventos do Windows por fonte. |
 | Type=Event EventLevelName=error &#124; Measure count() by Source |Contagem de eventos de erro do Windows por fonte. |
 
+
+>[!NOTE]
+> Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), as consultas acima seriam alteradas para o demonstrado a seguir.
+>
+>| Consultar | Descrição |
+|:---|:---|
+| Evento |Todos os eventos do Windows. |
+| Event &#124; where EventLevelName == "error" |Todos os eventos do Windows com severidade de erro. |
+| Event &#124; summarize count() by Source |Contagem de eventos do Windows por fonte. |
+| Event &#124; where EventLevelName == "error" &#124; summarize count() by Source |Contagem de eventos de erro do Windows por fonte. |
+
+
 ## <a name="next-steps"></a>Próximas etapas
 * Configure o Log Analytics para coletar outras [fontes de dados](log-analytics-data-sources.md) para análise.
 * Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções.  
 * Use [campos personalizados](log-analytics-custom-fields.md) para analisar os registros de eventos em campos individuais.
 * Configure a [coleta de contadores de desempenho](log-analytics-data-sources-performance-counters.md) de seus agentes do Windows.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

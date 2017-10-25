@@ -11,7 +11,7 @@
    
     ![Dispositivo de registro do StorSimple 2](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice2-include.png)
    
-     Conclua as etapas de 5 a 12 para definir as configurações de rede necessárias e mínimas para seu dispositivo. **Essas etapas de configuração devem ser executadas no controlador ativo do dispositivo.**  O menu do console serial indica o estado do controlador na mensagem de faixa. Se você não estiver conectado ao controlador ativo, desconecte e conecte-se ao controlador ativo.
+     Conclua as etapas de 5 a 12 para definir as configurações de rede necessárias e mínimas para seu dispositivo. **Essas etapas de configuração devem ser executadas no controlador ativo do dispositivo.** O menu do console serial indica o estado do controlador na mensagem de faixa. Se você não estiver conectado ao controlador ativo, desconecte e conecte-se ao controlador ativo.
 5. No prompt de comando, digite sua senha. A senha do dispositivo padrão é **Senha1**.
 6. Digite o seguinte comando:
    
@@ -73,9 +73,4 @@ Após o registro bem-sucedido do dispositivo, se ele não ficar online, você po
 ![Vídeo disponível](./media/storsimple-configure-and-register-device/Video_icon.png) **Vídeo disponível**
 
 Para assistir a um vídeo que demonstra como configurar e registrar seu dispositivo por meio do Windows PowerShell para StorSimple, clique [aqui](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

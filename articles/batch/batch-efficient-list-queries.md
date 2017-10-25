@@ -12,21 +12,27 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 08/02/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 791b7a22e5b7edd2e31f6ab01131530a8053ac2b
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: a80b207f591bd888d4749287527013c5e554fb6e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Criar consultas para listar recursos do Lote com eficiência
 
 Aqui, você aprenderá a melhorar o desempenho do aplicativo do Lote do Azure reduzindo a quantidade de dados retornados pelo serviço quando consulta trabalhos, tarefas e nós de computação com a biblioteca [.NET do Lote][api_net].
 
 Quase todos os aplicativos do Lote precisam executar algum tipo de monitoramento ou outra operação que consulta o serviço de Lote, geralmente em intervalos regulares. Por exemplo, para determinar se há qualquer tarefa em fila restante em um trabalho, você deve obter dados sobre cada tarefa no trabalho. Para determinar o status de nós em seu pool, você deve obter os dados em cada nó no pool. Este artigo explica como executar essas consultas da forma mais eficiente.
+
+> [!NOTE]
+> O serviço de Lote fornece suporte de API especial para o cenário comum de tarefas de contagem em um trabalho. Em vez de usar uma consulta de lista para elas, você pode chamar a operação [Obter Contagens de Tarefas][rest_get_task_counts]. Obter Contagens de Tarefas indica quantas tarefas estão pendentes, em execução ou concluídas e quantas tarefas tiveram êxito ou falharam. Obter Contagens de Tarefas é mais eficiente do que uma consulta de lista. Para obter mais informações, consulte [Contar tarefas para um trabalho por estado (versão prévia)](batch-get-task-counts.md). 
+>
+> A operação obter contagens de tarefa não está disponível em versões do serviço de Lote anteriores a 2017-06-01.5.1. Se você estiver usando uma versão mais antiga do serviço, use uma consulta de lista para contar tarefas em um trabalho em vez disso.
+>
+> 
 
 ## <a name="meet-the-detaillevel"></a>Atender DetailLevel
 Em um aplicativo do Lote de produção, as entidades, como trabalhos, tarefas e nós de computação, podem chegar a milhares. Quando você solicita informações sobre esses recursos, uma quantidade de dados potencialmente grande deve "cruzar a transmissão" do serviço do Lote para seu aplicativo em cada consulta. Limitando o número de itens e o tipo de informação retornada por uma consulta, você pode aumentar a velocidade de suas consultas e, portanto, o desempenho de seu aplicativo.
@@ -293,3 +299,4 @@ O [Fórum do Lote do Azure][forum] no MSDN é um ótimo lugar para discutir sobr
 [net_schedule]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjobschedule.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 
+[rest_get_task_counts]: https://docs.microsoft.com/rest/api/batchservice/get-the-task-counts-for-a-job

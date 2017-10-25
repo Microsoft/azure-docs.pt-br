@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: b8d2b49a416883376302c9b3cc5924877b404a95
-
-
+ms.openlocfilehash: 718b57a801a9ba62a0154ae42da2ac0c0741f203
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="biztalk-services-editions-chart"></a>Serviços BizTalk: gráfico de edições
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Os Serviços BizTalk do Azure oferecem várias edições. Use este tópico para determinar qual edição é adequada para seu cenário e suas necessidades comerciais.
 
 ## <a name="compare-the-editions"></a>Comparar edições
@@ -104,7 +107,7 @@ Inclui Contratos TPM</td>
 <td>Incluso. 1000 contratos por unidade.</td>
 </tr>
 <tr>
-<td><strong>Conexões Híbridas por Unidade</strong></td>
+<td><strong>Conexões híbridas por unidade</strong></td>
 <td>5</td>
 <td>5</td>
 <td>10</td>
@@ -130,7 +133,7 @@ Inclui Contratos TPM</td>
 <tr>
 <td align="left"><strong>Protocolos/sistemas com suporte:</strong>
 <ul>
-<li>HTTP</li>
+<li>http</li>
 <li>HTTPS</li>
 <li>FTP</li>
 <li>SFTP</li>
@@ -191,7 +194,7 @@ Inclui NRR (não repúdio de recebimento) e o download de mensagens rastreadas</
 <td>Incluso</td>
 </tr>
 <tr>
-<td><strong>Uso de Transformações, incluindo XSLT personalizado</strong></td>
+<td><strong>Uso de transformações, incluindo XSLT personalizado</strong></td>
 <td>Não incluso</td>
 <td>Incluso</td>
 <td>Incluso</td>
@@ -251,10 +254,4 @@ Para criar os Serviços BizTalk do Azure no Portal de Gerenciamento do Azure, co
 * [Serviços BizTalk: limitação](biztalk-throttling-thresholds.md)<br/>
 * [Serviços BizTalk: nome e chave do emissor](biztalk-issuer-name-issuer-key.md)<br/>
 * [Como começar a usar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

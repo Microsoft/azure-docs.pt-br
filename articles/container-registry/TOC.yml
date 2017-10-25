@@ -1,0 +1,59 @@
+- name: Registro de Contêiner do Azure
+  href: ./index.yml
+- name: Visão geral
+  items:
+    - name: Sobre o Registro de Contêiner
+      href: container-registry-intro.md
+- name: Guia de início rápido
+  expanded: true
+  items:
+    - name: Registro de Contêiner - CLI
+      href: container-registry-get-started-azure-cli.md
+    - name: Registro de Contêiner - Portal
+      href: container-registry-get-started-portal.md
+    - name: Registro de Contêiner - PowerShell
+      href: container-registry-get-started-powershell.md
+- name: Tutoriais
+  items:
+    - name: Instâncias de Contêiner do Azure
+      href: ../container-instances/container-instances-tutorial-prepare-app.md
+    - name: Serviço de Contêiner do Azure
+      href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
+    - name: Service Fabric
+      href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+- name: Conceitos
+  items:
+    - name: SKUs de registro de contêiner
+      href: container-registry-skus.md
+    - name: Replicação geográfica (versão prévia)
+      href: container-registry-geo-replication.md
+- name: Guias de instruções
+  items:
+    - name: Enviar e receber uma imagem
+      href: container-registry-get-started-docker-cli.md
+    - name: Exibir repositórios
+      href: container-registry-repositories.md
+    - name: Criar uma entidade de serviço
+      href: ../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json
+    - name: Autenticar com um registro
+      href: container-registry-authentication.md
+    - name: Usar webhooks de ACR
+      href: ./container-registry-webhook.md
+- name: Referência
+  items:
+    - name: CLI do Azure
+      href: /cli/azure/acr
+    - name: REST
+      href: /rest/api/containerregistry
+    - name: PowerShell
+      href: /powershell/module/azurerm.containerregistry
+- name: Recursos
+  items:
+    - name: Roteiro
+      href: 'https://aka.ms/acr/roadmap'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/container-registry/'
+    - name: Disponibilidade de região
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-container-registry'

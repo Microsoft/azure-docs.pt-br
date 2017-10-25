@@ -1,0 +1,371 @@
+- name: Documentação do Armazenamento do Azure
+  href: /azure/storage/
+- name: Visão geral
+  items:
+    - name: Introdução
+      href: storage-blobs-introduction.md
+    - name: 'Escolha os Blobs, Arquivos ou Discos de dados'
+      href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+- name: Guia de início rápido
+  items:
+    - name: Criar uma conta de armazenamento – PowerShell
+      href: ../common/storage-quickstart-create-storage-account-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Criar uma conta de armazenamento – CLI
+      href: ../common/storage-quickstart-create-storage-account-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Trabalhar com blobs – PowerShell
+      href: storage-quickstart-blobs-powershell.md
+    - name: Trabalhar com blobs – CLI
+      href: storage-quickstart-blobs-cli.md
+    - name: Trabalhar com blobs – .NET
+      href: storage-quickstart-blobs-dotnet.md
+    - name: Trabalhar com blobs – Python
+      href: storage-quickstart-blobs-python.md
+- name: Tutoriais
+  items:
+    - name: Carregar e processar uma imagem
+      items:
+        - name: 1 – Carregar e recuperar dados de imagem na nuvem
+          href: storage-upload-process-images.md
+        - name: 2 – Disparar o Azure Functions para processar blobs
+          href: ../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 3 – Proteger dados do aplicativo
+          href: storage-secure-access-application.md
+        - name: 4 – Monitorar e solucionar problemas de armazenamento
+          href: storage-monitor-troubleshoot-storage-application.md
+    - name: Design de alta disponibilidade no armazenamento em nuvem
+      items:
+        - name: Tornar seu aplicativo altamente disponível
+          href: storage-create-geo-redundant-storage.md
+        - name: Simular uma falha no armazenamento RA-GRS
+          href: storage-simulate-failure-ragrs-account-app.md
+    - name: Pesquisar dados não estruturados no armazenamento em nuvem
+      href: storage-unstructured-search.md
+- name: Exemplos
+  items:
+    - name: Azure PowerShell
+      href: storage-samples-blobs-powershell.md
+    - name: CLI do Azure
+      href: storage-samples-blobs-cli.md
+- name: Conceitos
+  items:
+    - name: Planejar e projetar
+      items:
+        - name: Replicação
+          href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'Camadas de arquivamento, dinâmicas e estáticas'
+          href: storage-blob-storage-tiers.md
+        - name: Reagindo a eventos
+          href: storage-blob-event-overview.md
+        - name: Escalabilidade e metas de desempenho
+          href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Lista de verificação de desempenho e escalabilidade
+          href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Simultaneidade
+          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Guia de recuperação de desastres
+          href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Mover dados para e do Armazenamento
+          href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Armazenamento Premium
+          items:
+            - name: Armazenamento Premium de alto desempenho para Discos de VM
+              href: ../common/storage-premium-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Migração para o Armazenamento Premium do Azure usando o Azure Site Recovery
+              href: ../common/storage-migrate-to-premium-storage-using-azure-site-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Design para alto desempenho
+              href: ../common/storage-premium-storage-performance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Armazenamento Standard
+          items:
+            - name: Armazenamento Standard econômico e discos de VM gerenciados e não gerenciados
+              href: ../common/storage-standard-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Segurança
+      items:
+        - name: Guia de segurança
+          href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Configurar firewalls e redes virtuais
+          href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Criptografia para dados em repouso
+          href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Criptografia em repouso com chaves do cliente
+          href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Requer transferência segura
+          href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Autenticação de chave compartilhada
+          href: /rest/api/storageservices/Authentication-for-the-Azure-Storage-Services
+        - name: SAS (Assinaturas de Acesso Compartilhado)
+          href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Acesso anônimo aos blobs
+          href: storage-manage-access-to-resources.md
+        - name: Usando a CDN do Azure para acessar blobs com domínios personalizados por HTTPs
+          href: storage-https-custom-domain-cdn.md
+    - name: Monitorar e solucionar problemas
+      items:
+        - name: Tutorial da solução de problemas
+          href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'Monitorar, diagnosticar e solucionar problemas'
+          href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Solucionar erro ao excluir a conta de armazenamento
+          href: ../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Métricas e logs
+          items:
+            - name: Métricas do Armazenamento do Azure no Azure Monitor
+              href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Análise de Armazenamento
+              href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Habilitar e exibir métricas
+              href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+- name: Como
+  items:
+    - name: Criar uma conta de armazenamento
+      href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Desenvolver
+      items:
+        - name: .NET
+          href: storage-dotnet-how-to-use-blobs.md
+        - name: Java
+          href: storage-java-how-to-use-blob-storage.md
+        - name: Node.js
+          href: storage-nodejs-how-to-use-blob-storage.md
+        - name: C++
+          href: storage-c-plus-plus-how-to-use-blobs.md
+        - name: PHP
+          href: storage-php-how-to-use-blobs.md
+        - name: Python
+          href: storage-python-how-to-use-blob-storage.md
+        - name: Ruby
+          href: storage-ruby-how-to-use-blob-storage.md
+        - name: iOS
+          href: storage-ios-how-to-use-blob-storage.md
+        - name: Xamarin
+          href: storage-xamarin-blob-storage.md
+        - name: PowerShell
+          href: storage-how-to-use-blobs-powershell.md
+        - name: CLI do Azure 2.0
+          href: storage-how-to-use-blobs-cli.md
+        - name: Exemplos de código do GitHub
+          items:
+            - name: .NET
+              href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Java
+              href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Gerenciar
+      items:
+        - name: PowerShell
+          href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: CLI do Azure 2.0
+          href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: CLI 1.0 do Azure
+          href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Gerenciar blobs com o Gerenciador de Armazenamento
+          href: ../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Automação do Azure
+          href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Criptografia do cliente
+      items:
+        - name: .NET
+          href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Java
+          href: ../common/storage-client-side-encryption-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Python
+          href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Configurar cadeias de conexão
+      href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Design de aplicativos HA usando RA-GRS
+      href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Criptografar e descriptografar blobs usando o Azure Key Vault
+      href: storage-encrypt-decrypt-blobs-key-vault.md
+    - name: Definir e recuperar as propriedades e os metadados
+      href: storage-properties-metadata.md
+    - name: Usar o Emulador de Armazenamento
+      href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Rotear eventos para um ponto de extremidade personalizado
+      href: storage-blob-event-quickstart.md
+    - name: Domínios personalizados
+      href: storage-custom-domain-name.md
+    - name: Pesquisando no Armazenamento de Blobs com o Azure Search
+      href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Transferir dados
+      items:
+        - name: AzCopy no Windows
+          href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: AzCopy no Linux
+          href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Uso do serviço de Importação/Exportação
+          href: ../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Uso da Ferramenta de Importação/Exportação
+          href: ../common/storage-import-export-tool-how-to.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          items:
+            - name: Configuração da Ferramenta de Importação/Exportação
+              href: ../common/storage-import-export-tool-setup.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Preparando discos rígidos para um trabalho de importação
+              href: ../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              items:
+                - name: Configurando propriedades e metadados durante o processo de importação
+                  href: ../common/storage-import-export-tool-setting-properties-metadata-import.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Fluxo de trabalho de exemplo para preparo dos discos rígidos para um trabalho de importação
+                  href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Referência rápida de comandos usados com frequência para trabalhos de importação
+                  href: ../common/storage-import-export-tool-quick-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Visualizando o uso da unidade de um trabalho de exportação
+              href: ../common/storage-import-export-tool-previewing-drive-usage-export-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Revisão do status do trabalho com arquivos de log de cópia
+              href: ../common/storage-import-export-tool-reviewing-job-status-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Reparação de um trabalho de importação
+              href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Reparação de um trabalho de exportação
+              href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Solução de problemas da Ferramenta de Importação/Exportação
+              href: ../common/storage-import-export-tool-troubleshooting-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Formato de arquivo de manifesto do serviço de Importação/Exportação
+              href: ../common/storage-import-export-file-format-manifest.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Formato de arquivo de propriedades e metadados do serviço de Importação/Exportação
+              href: ../common/storage-import-export-file-format-metadata-and-properties.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Formato de arquivo do log de serviço de Importação/Exportação
+              href: ../common/storage-import-export-file-format-log.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Uso da Ferramenta de Importação/Exportação (v1)
+          href: ../common/storage-import-export-tool-how-to-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          items:
+            - name: Configuração da Ferramenta de Importação/Exportação
+              href: ../common/storage-import-export-tool-setup-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Preparando discos rígidos para um trabalho de importação
+              href: ../common/storage-import-export-tool-preparing-hard-drives-import-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              items:
+                - name: Configurando propriedades e metadados durante o processo de importação
+                  href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Fluxo de trabalho de exemplo para preparo dos discos rígidos para um trabalho de importação
+                  href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Referência rápida de comandos usados com frequência para trabalhos de importação
+                  href: ../common/storage-import-export-tool-quick-reference-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Visualizando o uso da unidade de um trabalho de exportação
+              href: ../common/storage-import-export-tool-previewing-drive-usage-export-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Revisão do status do trabalho com arquivos de log de cópia
+              href: ../common/storage-import-export-tool-reviewing-job-status-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Reparação de um trabalho de importação
+              href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Reparação de um trabalho de exportação
+              href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Solução de problemas da Ferramenta de Importação/Exportação
+              href: ../common/storage-import-export-tool-troubleshooting-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Formato de arquivo de manifesto do serviço de Importação/Exportação
+              href: ../common/storage-import-export-file-format-manifest.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Formato de arquivo de propriedades e metadados do serviço de Importação/Exportação
+              href: ../common/storage-import-export-file-format-metadata-and-properties.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Formato de arquivo do log de serviço de Importação/Exportação
+              href: ../common/storage-import-export-file-format-log.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Usando a API REST do serviço de Importação/Exportação do Azure
+          href: ../common/storage-import-export-using-the-rest-api.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          items:
+            - name: Criação de um trabalho de importação
+              href: ../common/storage-import-export-creating-an-import-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Criação de um trabalho de exportação
+              href: ../common/storage-import-export-creating-an-export-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Recuperação de informações de estado para um trabalho
+              href: ../common/storage-import-export-retrieving-state-info-for-a-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Enumeração de trabalhos
+              href: ../common/storage-import-export-enumerating-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Cancelamento e exclusão de trabalhos
+              href: ../common/storage-import-export-cancelling-and-deleting-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Fazer backup de manifestos de unidade
+              href: ../common/storage-import-export-backing-up-drive-manifests.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Diagnóstico e recuperação de erro para trabalhos de Importação/Exportação
+              href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+- name: Referência
+  items:
+    - name: PowerShell
+      href: /powershell/module/azure.storage
+    - name: CLI do Azure
+      href: /cli/azure/storage
+    - name: .NET
+      items:
+        - name: 'Blobs, Filas, Tabelas e Arquivos'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client?view=azure-dotnet'
+        - name: Movimentação de dados
+          href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement?view=azure-dotnet'
+        - name: Gerenciador de Recursos
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management?view=azure-dotnet'
+    - name: Java
+      items:
+        - name: 'Blobs, Filas, Tabelas e Arquivos'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/clientlibrary'
+        - name: Gerenciador de Recursos
+          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/managementapi'
+    - name: Node.js
+      href: 'http://azure.github.io/azure-storage-node'
+    - name: Ruby
+      href: 'http://azure.github.io/azure-storage-ruby'
+    - name: PHP
+      href: 'http://azure.github.io/azure-storage-php/'
+    - name: Python
+      href: 'https://azure-storage.readthedocs.io/en/latest/index.html'
+    - name: C++
+      href: 'http://azure.github.io/azure-storage-cpp'
+    - name: iOS
+      href: 'http://azure.github.io/azure-storage-ios/'
+    - name: Android
+      href: 'http://azure.github.io/azure-storage-android'
+    - name: REST
+      items:
+        - name: 'Blobs, Filas, Tabelas e Arquivos'
+          href: /rest/api/storageservices
+        - name: Provedor de recursos
+          href: /rest/api/storagerp
+        - name: Importar/exportar
+          href: /rest/api/storageimportexport
+- name: Recursos
+  items:
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=storage'
+    - name: Ferramentas de cliente do Armazenamento do Microsoft Azure
+      href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Fórum
+      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/storage/blobs/'
+    - name: Calculadora de preço
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=storage'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
+    - name: Gerenciador de Armazenamento do Azure
+      items:
+        - name: Gerenciador de Armazenamento
+          href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Notas de versão do Gerenciador de Armazenamento
+          href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Solucionar problemas do Gerenciador de Armazenamento
+          href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Pacotes NuGet
+      items:
+        - name: Biblioteca do Cliente de Armazenamento do Azure para .NET
+          href: 'https://www.nuget.org/packages/WindowsAzure.Storage/'
+        - name: Biblioteca de movimentação de dados do Armazenamento do Microsoft Azure
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
+        - name: Azure Configuration Manager
+          href: 'https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/'
+    - name: Código-fonte
+      items:
+        - name: .NET
+          items:
+            - name: 'Blob, fila, tabela e arquivo'
+              href: 'https://github.com/Azure/azure-storage-net'
+            - name: Movimentação de dados
+              href: 'https://github.com/Azure/azure-storage-net-data-movement'
+            - name: Provedor de recursos
+              href: 'https://github.com/Azure/azure-sdk-for-net'
+        - name: Node.js
+          href: 'http://azure.github.io/azure-storage-node/'
+        - name: Java
+          href: 'https://github.com/Azure/azure-storage-java'
+        - name: C++
+          href: 'https://github.com/Azure/azure-storage-cpp'
+        - name: PHP
+          href: 'https://github.com/Azure/azure-storage-php'
+        - name: Python
+          href: 'https://github.com/Azure/azure-storage-python'
+        - name: Ruby
+          href: 'https://github.com/Azure/azure-storage-ruby'
+        - name: iOS
+          href: 'https://github.com/Azure/azure-storage-ios'

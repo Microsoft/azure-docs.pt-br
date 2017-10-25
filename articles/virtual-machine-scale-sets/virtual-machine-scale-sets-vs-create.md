@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 89db91d7ab8dc4340484054986b35583ed23b343
-ms.lasthandoff: 03/16/2017
-
-
+ms.openlocfilehash: 78a4b0c8d305f57f495402cecb92d18425ff6bff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Como criar um Conjunto de Dimensionamento de Máquinas Virtuais com o Visual Studio
 Este artigo mostra como implantar um Conjunto de Escala de Máquina Virtual do Azure usando uma Implantação de Grupo de Recursos do Visual Studio.
@@ -89,9 +88,9 @@ O balanceador de carga permite que você se conecte às instâncias da VM com o 
 ## <a name="exploring-your-virtual-machine-scale-set"></a>Explorando o Conjunto de Dimensionamento de Máquinas Virtuais
 Depois que a implantação for concluída, é possível exibir o novo Conjunto de Dimensionamento de Máquinas Virtuais no **Cloud Explorer** do Visual Studio (basta atualizar a lista). O Gerenciador de Nuvem permite que você gerencie recursos do Azure no Visual Studio ao mesmo tempo que desenvolve aplicativos. Você também pode exibir o Conjunto de Dimensionamento de Máquinas Virtuais no [portal do Azure](https://portal.azure.com) e no [Gerenciador de Recursos do Azure](https://resources.azure.com/).
 
-![Cloud Explorer][cloud_explorer]
+![Gerenciador de Nuvem][cloud_explorer]
 
- O portal fornece a melhor maneira de gerenciar visualmente sua infraestrutura do Azure com um navegador da Web, enquanto o Azure Resource Manager fornece uma maneira fácil de explorar e depurar recursos do Azure, oferecendo uma janela na “exibição de instância”, além de mostrar comandos do PowerShell para os recursos que você está examinando. Embora os Conjuntos de Dimensionamento de Máquinas Virtuais estejam em versão prévia, o Gerenciador de Recursos mostra a maioria dos detalhes dos Conjuntos de Dimensionamento de Máquinas Virtuais.
+ O portal fornece a melhor maneira de gerenciar visualmente sua infraestrutura do Azure com um navegador da Web, enquanto o Gerenciador de Recursos do Azure oferece uma maneira fácil de explorar e depurar recursos do Azure, proporcionando uma janela para a “exibição de instância”, além de mostrar comandos do PowerShell para os recursos que você está examinando.
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois de implantar os Conjuntos de Dimensionamento de Máquinas Virtuais com êxito por meio do Visual Studio, é possível personalizar o projeto ainda mais para atender às necessidades do aplicativo. Por exemplo, configurar a escala automática adicionando um recurso do **Insights**, adicionar a infraestrutura ao Modelo (como VMs independentes) ou implantar aplicativos usando a extensão de script personalizado. Encontre bons modelos de exemplo no repositório GitHub de [Modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates) (pesquise “vmss”).
@@ -107,4 +106,3 @@ Depois de implantar os Conjuntos de Dimensionamento de Máquinas Virtuais com ê
 [edit_parameters]: ./media/virtual-machine-scale-sets-vs-create/8-EditParameter.png
 [output_window]: ./media/virtual-machine-scale-sets-vs-create/9-Output.png
 [cloud_explorer]: ./media/virtual-machine-scale-sets-vs-create/12-CloudExplorer.png
-

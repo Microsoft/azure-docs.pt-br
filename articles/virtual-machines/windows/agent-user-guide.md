@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 6cf561b269c4d873a894b47265e39a057cc415c3
 ms.openlocfilehash: 24ad2c2d2872f844e32d3fae559683c3d992bd00
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Visão geral do Agente de Máquina Virtual do Azure
 
@@ -82,8 +82,3 @@ Quando conectado a uma VM do Microsoft Azure, o gerenciador de tarefas pode ser 
 ## <a name="upgrade-the-vm-agent"></a>Atualizar o Agente de VM
 
 O Agente de VM do Azure para Windows é atualizado automaticamente. Conforme novas máquinas virtuais são implantadas no Azure, elas receberão o agente de VM mais recente. Imagens de VM personalizadas devem ser atualizadas manualmente para incluir o novo agente de VM.
-
-
-<!--HONumber=Dec16_HO1-->
-
-

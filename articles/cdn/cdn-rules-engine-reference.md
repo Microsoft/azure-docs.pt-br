@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: c10145661a8c575381493c9aaa901c3ef92c2e81
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cdn-rules-engine"></a>Mecanismo de regras da CDN do Azure
 Este tópico lista descrições detalhadas dos recursos e das condições de correspondência disponíveis para o [mecanismo de regras](cdn-rules-engine.md)da CDN (Rede de Distribuição de Conteúdo do Azure)
@@ -80,9 +80,3 @@ Espaço | Normalmente, um caractere de espaço é tratado como um caractere lite
 * [Recursos do Mecanismo de Regras](cdn-rules-engine-reference-features.md)
 * [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-rules-engine.md)
 * [Visão geral da CDN do Azure](cdn-overview.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

@@ -8,18 +8,18 @@ author: ddove
 editor: 
 ms.assetid: e60dde9c-bb7b-4f2f-b52c-bdb506d49fcb
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2420d31c73fcb43e680edf2a95995e4ed4969236
-
-
+ms.openlocfilehash: f0a7b5ce61feaead608d457465f64813737fa112
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="elastic-database-tools-faq"></a>Pergunta Frequentes das ferramentas de banco de dados elástico
 #### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>Se eu tiver um único locatário por fragmento e nenhuma chave de fragmentação, como preencher a chave de fragmentação para as informações do esquema?
@@ -32,7 +32,7 @@ Consulte **[Adicionar um fragmento de um aplicativo usando a biblioteca de clien
 Usar a biblioteca de cliente do banco de dados elástico não incorrerá em todos os custos. Custos se acumulam apenas para os bancos de dados do SQL Azure que você usa para fragmentos e o Gerenciador de mapa de fragmento, bem como as funções web/de trabalho configuradas para a ferramenta de divisão e mesclagem.
 
 #### <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>Por que minhas credenciais não funcionam quando eu adiciono um fragmento de um servidor diferente?
-Não use credenciais na forma de “Usuário ID=username@servername”,. Em vez disso, basta usar “User ID = username”.  Além disso, certifique-se de que o logon “username” tem permissões no fragmento.
+Não use credenciais na forma de “ID do Usuário=username@servername”, em vez disso, basta usar “User ID = nome de usuário”.  Além disso, certifique-se de que o logon “username” tem permissões no fragmento.
 
 #### <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>É necessário criar um Gerenciador de mapa de fragmento e preencher os fragmentos sempre que iniciar meus aplicativos?
 Não, a criação do Gerenciador de mapa de fragmento (por exemplo, **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) é uma operação única.  Seu aplicativo deve usar a chamada **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** em tempo de inicialização do aplicativo.  Deve existir apenas uma chamada por domínio de aplicativo.
@@ -50,10 +50,4 @@ Sim, um fragmento é um banco de dados individual e, portanto, um fragmento pode
 Não. Para operações de **divisão** , o banco de dados de destino deve existir com o esquema apropriado e ser registrado com o Gerenciador de mapa do fragmento.  Para operações de **mesclagem** , você deve excluir o fragmento do Gerenciador do mapa de fragmento e, em seguida, excluir o banco de dados.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -3,7 +3,7 @@ title: "Habilitar a conexão de Área de Trabalho Remota para uma função nos S
 description: "Como configurar seu aplicativo de serviço de nuvem do Azure para permitir conexões de área de trabalho remota"
 services: cloud-services
 documentationcenter: 
-author: seanmck
+author: mmccrory
 manager: timlt
 editor: 
 ms.assetid: 73ea1d64-1529-4d72-b58e-f6c10499e6bb
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
-ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: b478251715076a254fe87abee1d709f47e2b3886
-ms.lasthandoff: 03/25/2017
-
-
+ms.author: mmccrory
+ms.openlocfilehash: 0ff7fde5f3753aa6a24fb0af54d68d0dc0bd96a4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Habilitar a conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure
 > [!div class="op_single_selector"]
@@ -67,10 +66,9 @@ Após a habilitação da Área de Trabalho Remota nas funções, você poderá i
 4. Clique em **Abrir** e em **Conectar** para iniciar a conexão de Área de Trabalho Remota.
 
 >[!NOTE]
-> Se o serviço de nuvem estiver atrás de um NSG, talvez você precise criar uma regra para abrir a porta **20000**.
+> Se o serviço de nuvem estiver atrás de um NSG, talvez você precisará criar regras que permitam tráfego nas portas **3389** e **20000**.  A Área de Trabalho Remota usa a porta **3389**.  Instâncias de serviço de nuvem têm a carga balanceada, de modo que você não pode controlar diretamente a escolha da instância à qual se conectar.  Os agentes *RemoteForwarder* e *RemoteAccess* gerenciam o tráfego RDP e permitem que o cliente envie um cookie RDP e especifique uma instância individual à qual se conectar.  Os agentes *RemoteForwarder* e *RemoteAccess* exigem que essa porta **20000*** esteja aberta, a qual poderá ser bloqueada se você tiver um NSG.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 [Como configurar os Serviços de Nuvem](cloud-services-how-to-configure.md)
-[Perguntas frequentes sobre os serviços de nuvem — Área de Trabalho Remota](cloud-services-faq.md#remote-desktop)
-
+[Perguntas frequentes sobre os serviços de nuvem — Área de Trabalho Remota](cloud-services-faq.md)

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/17/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
-ms.openlocfilehash: 07edc26f62fada8b5e32693a172cb23b48d36e1f
-
-
+ms.openlocfilehash: 40a6101576708936404447576d704a49666143fe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-analytics-view-designer-visualization-part-reference"></a>Referência da parte de visualização do Designer de modos de exibição do Log Analytics
 O Designer de modos de exibição do Log Analytics permite que você crie exibições personalizadas no console do OMS que contêm diferentes visualizações de dados do repositório do OMS. Este artigo fornece uma referência de configurações para cada uma das partes de visualização disponíveis para uso em exibições personalizadas.
@@ -26,7 +26,10 @@ O Designer de modos de exibição do Log Analytics permite que você crie exibi�
 Outros artigos disponíveis para o Designer de modo de exibição:
 
 * [Designer de Modos de Exibição](log-analytics-view-designer.md) – visão geral do Designer de Modos de Exibição e procedimentos para criar e editar modos de exibição personalizados.
-* [Referência de bloco](log-analytics-view-designer-tiles.md) – Referência das configurações de cada um dos blocos disponíveis para uso nas exibições personalizadas. 
+* [Referência de bloco](log-analytics-view-designer-tiles.md) – Referência das configurações de cada um dos blocos disponíveis para uso nas exibições personalizadas.
+
+>[!NOTE]
+> Se o seu espaço de trabalho tiver sido atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), consultas em todas as exibições deverão ser gravadas na [nova linguagem de consulta](https://go.microsoft.com/fwlink/?linkid=856078).  Todas as exibições que foram criadas antes de atualizar o espaço de trabalho serão automaticamente convertidas.
 
 A tabela a seguir lista os diferentes tipos de blocos disponíveis no Designer de modos de exibição.  As seções a seguir descrevem cada tipo de bloco em detalhes e suas propriedades.
 
@@ -304,17 +307,17 @@ Exibe três gráficos de linhas separados com várias séries de uma consulta de
 ## <a name="common-settings"></a>Configurações comuns
 As seções a seguir descrevem as configurações comuns para várias partes de visualização.
 
-### <a name="a-namename-value-separatorname--value-separatora"></a><a name="name-value-separator">Separador de valor e nome</a>
+### <a name="name-value-separator">Separador de valor e nome</a>
 Delimitador de caractere único se você desejar analisar a propriedade de texto de uma consulta de lista em vários valores.  Se você especificar um delimitador, poderá fornecer nomes para cada campo separado pelo mesmo delimitador na caixa Nome.
 
-Por exemplo, considere uma propriedade chamada *Localização* que incluía valores como *Redmond-Building 41* e *Bellevue-Building12*.  Você poderia especificar – para o Separador de Valor e nome e *Cidade–Edifício* para o Nome.  Isso analisaria cada valor em duas propriedades chamadas *Cidade* e *Edifício*. 
+Por exemplo, considere uma propriedade chamada *Localização* que incluía valores como *Redmond-Building 41* e *Bellevue-Building12*.  Você poderia especificar – para o Separador de Valor e nome e *Cidade–Edifício* para o Nome.  Isso analisaria cada valor em duas propriedades chamadas *Cidade* e *Edifício*.
 
-### <a name="a-namenavigation-querynavigation-querya"></a><a name="navigation-query">Consulta de navegação</a>
+### <a name="navigation-query">Consulta de navegação</a>
 Consulta a executar quando o usuário seleciona um item na lista.  Use *{selected item}* para incluir a sintaxe para o item selecionado pelo usuário.
 
 Por exemplo, se a consulta tiver uma coluna chamada *Computer* e a consulta de navegação for *{selected item}*, uma consulta como *Computer="MyComputer"* seria executado quando o usuário selecionasse um computador.  Se a consulta de navegação fosse do tipo *Type=Event {selected item}*, a consulta *Type=Event Computer="MyComputer"* seria executada.
 
-### <a name="a-namesparklinessparklinesa"></a><a name="sparklines">Minigráficos</a>
+### <a name="sparklines">Minigráficos</a>
 Um minigráfico é um pequeno gráfico de linha que ilustra o valor de uma entrada na lista ao longo do tempo.  Para partes de visualização com uma lista, é possível selecionar se deseja exibir uma barra horizontal que indica o valor relativo de uma coluna numérica ou de um minigráfico indicando seu valor ao longo do tempo horizontal.
 
 A tabela a seguir descreve as configurações de minigráficos.
@@ -324,7 +327,7 @@ A tabela a seguir descreve as configurações de minigráficos.
 | Habilitar minigráficos |Selecione para exibir minigráficos em vez de barras horizontais. |
 | Operação |Se os minigráficos estiverem habilitados, essa será a operação a ser executada em cada propriedade na lista para calcular os valores do minigráfico.<br><br>– Última Amostra: o último valor da série durante o intervalo.<br>– Máx: o valor máximo da série durante o intervalo.<br>– Mín: o valor mínimo da série durante o intervalo.<br>– Soma: soma dos valores da série durante o intervalo.<br>– Resumo: usa o mesmo comando de medida da consulta no cabeçalho. |
 
-### <a name="a-namethresholdsthresholdsa"></a><a name="thresholds">Limites</a>
+### <a name="thresholds">Limites</a>
 Os limites permitem que você exiba um ícone colorido ao lado de cada item em uma lista, oferecendo a você um indicador visual rápido de itens que excedem um valor específico ou se enquadram em um determinado intervalo.  Por exemplo, será possível exibir um ícone verde para itens com um valor aceitável; amarelo, se o valor estiver dentro de um intervalo que indica um aviso, e vermelho se ele exceder um valor de erro.
 
 Quando você habilitar os limites para uma parte, será necessário especificar um ou mais limites.  Se o valor de um item for maior do que um valor limite e menor do que o próximo valor limite, essa cor será usada.  Se o item for maior do que o maior valor limite, essa cor será definida.   
@@ -342,10 +345,3 @@ A tabela a seguir descreve as configurações de limites.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para dar suporte às consultas partes da visualização.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

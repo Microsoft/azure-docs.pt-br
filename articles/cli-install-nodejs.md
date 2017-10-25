@@ -15,16 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: de3f8cb4a603b3aab7cef21b06f9615ce7d892cb
-ms.lasthandoff: 03/21/2017
-
-
+ms.openlocfilehash: 63b35ed25b809a16b61b685fd35aa67474b0a369
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-the-azure-cli-10"></a>Instalar a CLI do Azure 1.0
 > [!div class="op_single_selector"]
-> * [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+> * [PowerShell](/powershell/azure/overview)
 > * [CLI 1.0 do Azure](cli-install-nodejs.md)
 > * [CLI 2.0 do Azure](/cli/azure/install-azure-cli)
 
@@ -139,4 +138,3 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 [linux-installer]: http://aka.ms/linux-azure-cli
 [cliasm]: /cli/azure/get-started-with-az-cli2
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md
-

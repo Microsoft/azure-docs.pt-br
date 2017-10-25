@@ -3,7 +3,7 @@ title: "Diagnóstico de Reliable Services com estado | Microsoft Docs"
 description: "Funcionalidade de diagnóstico para Reliable Services com monitoração de estado"
 services: service-fabric
 documentationcenter: .net
-author: AlanWarwick
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
-ms.author: alanwar
-translationtype: Human Translation
-ms.sourcegitcommit: 3ed67788fbbe0c4fb820cfd1525d8c9ee5154446
-ms.openlocfilehash: 5da5707900b35be69018ba4e9c8efb05d8a74a9d
-
-
+ms.date: 06/30/2017
+ms.author: dekapur
+ms.openlocfilehash: 63a7707f16bbf037c0c91da1d02093e2314dc06e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funcionalidade de diagnóstico para Reliable Services com estado
 A classe StatefulServiceBase de Reliable Services com estado emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) que podem ser usados para depurar o serviço, fornecer informações sobre como o tempo de execução está funcionando e ajudar a solucionar problemas.
@@ -48,9 +48,3 @@ StatefulRunAsyncSlowCancellation é emitido sempre que uma solicitação de canc
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Provedores de EventSource no PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-

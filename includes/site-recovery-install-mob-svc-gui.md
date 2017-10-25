@@ -1,10 +1,15 @@
 1. Copie a instalação para o servidor e, em seguida, abra o instalador.
-2. Na folha **Antes de Começar**, selecione **Instalar Serviço de Mobilidade**.
+2. Na folha **Opção de instalação**, selecione **Instalar Serviço de Mobilidade**.
 
-    ![Serviço de mobilidade](./media/site-recovery-install-mob-svc-gui/mobility3.png)
-3. Na folha **Detalhes do Servidor de Configuração**, insira o endereço IP e a frase secreta do servidor de configuração.
+    ![Página de Opção de instalação do Serviço de Mobilidade ](./media/site-recovery-install-mob-svc-gui/mobility1.png)
+3. Selecione o local de instalação e clique em **Instalar** para iniciar o procedimento de instalação.
 
-    ![Serviço de mobilidade](./media/site-recovery-install-mob-svc-gui/mobility6.png)
-4. Na folha **Local de Instalação**, mantenha a configuração padrão e clique em **Avançar** para iniciar a instalação.
-5. Na folha **Progresso da Instalação**, monitore a instalação. Se solicitado, reinicie o computador. Após a instalação do serviço, a atualização do status no portal do Azure pode levar cerca de 15 minutos.
+    ![Página de Local de instalação do Serviço de Mobilidade ](./media/site-recovery-install-mob-svc-gui/mobility2.png)
+4. Você pode usar a página **Progresso da instalação** para monitorar o progresso do instalador.
+    ![Progresso da instalação do Serviço de Mobilidade ](./media/site-recovery-install-mob-svc-gui/mobility3.png)
 
+5. Quando a instalação for concluída, clique no botão **Avançar para a configuração** para registrar o Serviço de Mobilidade com o servidor de configuração.
+    ![Página de Registro do Serviço de Mobilidade](./media/site-recovery-install-mob-svc-gui/mobility4.png)
+
+6. Clique no botão **Registrar** para concluir o registro.
+    ![Página de Registro do Serviço de Mobilidade](./media/site-recovery-install-mob-svc-gui/mobility5.png)

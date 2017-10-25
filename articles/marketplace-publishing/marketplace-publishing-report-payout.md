@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
-translationtype: Human Translation
-ms.sourcegitcommit: e86e4dcc39f9d34dc04afbdccb017d89969f548f
-ms.openlocfilehash: fade348a599c41a7f099e7bbd8b45a3b4ccbf910
-
-
+ms.openlocfilehash: 5a89e9ba4376d0c4f49feb3783692e28a28902a2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-your-azure-marketplace-payout-reports"></a>Entenda os relatórios de pagamento do Azure Marketplace
 ## <a name="access-and-view-your-payout-reports"></a>Acessar e exibir seus relatórios de pagamento
@@ -48,7 +48,7 @@ Os relatórios estarão disponíveis 45 dias após o encerramento do trimestre e
 ## <a name="view-your-payout-reports-in-dev-center"></a>Exibir relatórios de pagamento no Centro de Desenvolvimento
 O relatório de pagamento para cada trimestre registra todas as transações que ocorreram dentro desse trimestre.
 
-* O Valor reservado indica os pagamentos estão se acumulando fora do ciclo do próximo pagamento (por exemplo, esse valor será movido para o pagamento do mês seguinte).  Esse valor normalmente será US$&0; (a menos que um cliente pague com bastante antecedência).
+* O Valor reservado indica os pagamentos estão se acumulando fora do ciclo do próximo pagamento (por exemplo, esse valor será movido para o pagamento do mês seguinte).  Esse valor normalmente será US$ 0 (a menos que um cliente pague com bastante antecedência).
 * Clique nos links **Exibir detalhes** de Pagamentos futuros ou do Pagamento mais recente para ver uma observação sobre os pagamentos.
 * Clique em **Demonstrativos de Pagamento** para exibir os detalhes em receita por produto/aplicativo.
 * Clique no link **Exibir** para ver os demonstrativos individuais.
@@ -107,9 +107,3 @@ Para outras consultas de suporte, registre um problema em <https://portal.azure.
 [7]: ./media/marketplace-publishing-report-payout/financialdefinitions.png
 [8]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
 [9]: ./media/marketplace-publishing-report-payout/payoutquestions.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

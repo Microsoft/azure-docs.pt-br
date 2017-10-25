@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: estfan
-translationtype: Human Translation
-ms.sourcegitcommit: 03cd3f4edd7bb7895efa02475411d813ef44b8b3
-ms.openlocfilehash: ae0bb2cb090402f61bb10299e50024f1f2938489
-
-
+ms.author: LADocs; padmavc
+ms.openlocfilehash: 8558efffa354cc4bb93820c837077ee997924c95
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="validate-xml-for-enterprise-integration"></a>Validar XML para integração corporativa
 
@@ -60,10 +60,4 @@ Para testar a ação de validação, faça uma solicitação ao ponto de extremi
 
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")   
-
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

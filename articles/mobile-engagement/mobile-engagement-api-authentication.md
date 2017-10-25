@@ -14,11 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 716d2d95b5d68dbb7fdd2ef50d220a8c8c2c9f5e
-
-
+ms.openlocfilehash: b05181d9252c0a804648e01b4058019278ae5abe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis"></a>Autenticar com APIs REST do Mobile Engagement
 ## <a name="overview"></a>Visão geral
@@ -43,7 +43,7 @@ Há várias maneiras de obter um token. Como as APIs geralmente são chamadas de
 ### <a name="one-time-setup-using-script"></a>Configuração única (usando script)
 Você deve seguir o conjunto de instruções abaixo para executar a configuração usando um script do PowerShell, que leva o tempo mínimo para a configuração e usa os padrões mais permissivos. Você também pode seguir as instruções de [configuração manual](mobile-engagement-api-authentication-manual.md) para fazer isso diretamente do portal do Azure e chegar a uma configuração mais sofisticada. 
 
-1. Obtenha a versão mais recente do Azure PowerShell [aqui](http://aka.ms/webpi-azps). Para obter mais informações sobre as instruções de download, consulte este [link](/powershell/azureps-cmdlets-docs).  
+1. Obtenha a versão mais recente do Azure PowerShell [aqui](http://aka.ms/webpi-azps). Para obter mais informações sobre as instruções de download, consulte este [link](/powershell/azure/overview).  
 2. Depois de instalar o Azure PowerShell, use os seguintes comandos para garantir que o **módulo do Azure** esteja instalado:
    
     a. Verifique se o módulo do Azure PowerShell está disponível na lista de módulos disponíveis. 
@@ -149,11 +149,5 @@ Agora que você tem um token válido, você está pronto para fazer as chamadas 
 [3]: ./media/mobile-engagement-api-authentication/ps-cmdlets.png
 [4]: ./media/mobile-engagement-api-authentication/ad-app-creation.png
 
-
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

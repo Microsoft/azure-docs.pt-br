@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
-ms.openlocfilehash: f29b20ba11b030d98a7a5574f816ea132edc3f6d
-ms.lasthandoff: 12/06/2016
-
-
+ms.openlocfilehash: 6f4cfda6f367cb8a68d038fa0a3390442be034c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Avaliação de linha de base na Solução de Auditoria e Segurança do Operations Management Suite
 Este documento o ajuda a usar os recursos de avaliação da linha de base da [Solução de Segurança e Auditoria do Operations Management Suite (OMS)](operations-management-suite-overview.md) para acessar o estado de segurança de seus recursos monitorados.
@@ -40,7 +39,7 @@ Há três tipos de regras:
 > 
 
 ## <a name="security-baseline-assessment"></a>Avaliação de Linha de Base de Segurança
-Você pode examinar a avaliação da linha de base de segurança atual para todos os computadores que são monitorados pela Segurança e Auditoria do OMS usando o painel.  Execute as seguintes etapas para acessar o painel de avaliação de linha de base de segurança:
+Você pode examinar a avaliação da linha de base de segurança atual para todos os computadores que são monitorados pela Segurança e Auditoria do OMS usando o painel. Execute as seguintes etapas para acessar o painel de avaliação de linha de base de segurança:
 
 1. No painel principal **Microsoft Operations Management Suite**, clique no bloco **Segurança e Auditoria**.
 2. No painel **Segurança e Auditoria**, clique em **Avaliação de Atualização** em **Domínios de Segurança**. O painel **Avaliação de Linha de Base de Segurança** é exibido conforme mostrado na seguinte imagem:
@@ -85,5 +84,4 @@ Neste documento, você aprendeu sobre a avaliação de linha de base da Seguran�
 * [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
 * [Monitorando e respondendo a alertas de segurança na solução de Segurança e Auditoria do Operations Management Suite](oms-security-responding-alerts.md)
 * [Monitorando recursos na solução de Segurança e Auditoria do Operations Management Suite](oms-security-monitoring-resources.md)
-
 

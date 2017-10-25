@@ -1,0 +1,5 @@
+O serviço e o tipo de assinatura determinam o número de solicitações que você pode fazer por segundo (QPS) ou por mês (QPM). Certifique-se de que seu aplicativo inclui a lógica necessária para permanecer dentro da sua cota. Se você exceder seu QPM, a solicitação falhará com o código de status HTTP 403. Se você exceder seu QPS, a solicitação falhará com o código de status HTTP 429. A resposta também inclui o cabeçalho Retry-After, que contém o número de segundos que você deve esperar antes de enviar outra solicitação.  
+  
+### <a name="denial-of-service-dos-versus-throttling"></a>Negação de Serviço (DOS) versus Limitação
+
+O serviço faz distinção entre um ataque DOS e violação QPS. Se o serviço suspeitar de um ataque de negação de serviço, a solicitação é bem-sucedida (o código de status HTTP é 200 OK); no entanto, o corpo da resposta está vazio.

@@ -14,15 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: e6749bdf73acc9c05e71c85410bb3d95c57a0a9f
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 937f20d7c52bef12b7aa9451944515262a099bbe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Usar o Oozie com Hadoop para definir e executar um fluxo de trabalho no HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -60,7 +59,7 @@ O fluxo de trabalho que você deve implementar seguindo as instruções neste tu
 > 
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Antes de começar este tutorial, você deve ter o seguinte:
+Antes de começar este tutorial, você deve ter o seguinte item:
 
 * **Uma estação de trabalho com o PowerShell do Azure**. 
   
@@ -128,13 +127,13 @@ As definições de fluxos de trabalho do Oozie são escritas em hPDL (uma Lingua
 
 Existem duas ações definidas no fluxo de trabalho. A ação de início é *RunHiveScript*. Se a ação for executada, a próxima ação será *RunSqoopExport*.
 
-O RunHiveScript possui várias variáveis. Você irá passar os valores ao enviar o trabalho do Oozie de sua estação de trabalho usando o PowerShell do Azure.
+O RunHiveScript possui várias variáveis. Você passará os valores ao enviar o trabalho do Oozie de sua estação de trabalho usando o Azure PowerShell.
 
 <table border = "1">
 <tr><th>Variáveis de fluxo de trabalho</th><th>Descrição</th></tr>
 <tr><td>${jobTracker}</td><td>Especifica a URL do controlador do trabalho do Hadoop. Use <strong>jobtrackerhost: 9010</strong> nas versões 3.0 e 2.1 do HDInsight.</td></tr>
-<tr><td>${nameNode}</td><td>Especifica a URL do name node do Hadoop. Use o endereço padrão do sistema de arquivos, por exemplo, <i>wasbs://&lt;&gt;containerName@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
-<tr><td>${queueName}</td><td>Especifica o nome da fila para a qual o trabalho será enviado. Use o <strong>padrão</strong>.</td></tr>
+<tr><td>${nameNode}</td><td>Especifica a URL do name node do Hadoop. Use o endereço padrão do sistema de arquivos, por exemplo, <i>wasb://&lt;&gt;containerName@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
+<tr><td>${queueName}</td><td>Especifica o nome da fila para a qual o trabalho é enviado. Use o <strong>padrão</strong>.</td></tr>
 </table>
 
 <table border = "1">
@@ -147,7 +146,7 @@ O RunHiveScript possui várias variáveis. Você irá passar os valores ao envia
 <table border = "1">
 <tr><th>Variável de ação do Sqoop</th><th>Descrição</th></tr>
 <tr><td>${sqlDatabaseConnectionString}</td><td>Especifica a cadeia de conexão do Banco de Dados SQL do Azure.</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>A tabela do Banco de Dados SQL do Azure para onde os dados serão exportados.</td></tr>
+<tr><td>${sqlDatabaseTableName}</td><td>A tabela do Banco de Dados SQL do Azure para onde os dados são exportados.</td></tr>
 <tr><td>${hiveOutputFolder}</td><td>Especifica a pasta de saída para a instrução Hive INSERT OVERWRITE. Essa é a mesma pasta para a exportação do Sqoop (export-dir).</td></tr>
 </table>
 
@@ -171,7 +170,7 @@ Existem três variáveis usadas no script:
 
 O arquivo de definição do fluxo de trabalho (workflow.xml neste tutorial) irá passar esses valores para o script HiveQL em tempo de execução.
 
-O arquivo de fluxo de trabalho e o arquivo do HiveQL são armazenados em um contêiner de blob.  O script do PowerShell que você usará mais tarde neste tutorial copiará ambos os arquivos na conta de Armazenamento padrão. 
+O arquivo de fluxo de trabalho e o arquivo do HiveQL são armazenados em um contêiner de blob.  O script do PowerShell que você usará mais tarde neste tutorial copia ambos os arquivos na conta de Armazenamento padrão. 
 
 ## <a name="submit-oozie-jobs-using-powershell"></a>Enviar trabalhos do Oozie usando o PowerShell
 Atualmente, o PowerShell do Azure não fornece nenhum cmdlet para definir trabalhos do Oozie. Você pode usar o cmdlet **Invoke-RestMethod** para invocar os serviços Web do Oozie. A API de Serviços Web do Oozie é uma API REST HTTP JSON. Para saber mais sobre a API de serviços Web do Oozie, consulte a [Documentação do Apache Oozie 4.0][apache-oozie-400] (para o HDInsight versão 3.0) ou a [Documentação do Oozie Apache 3.3.2][apache-oozie-332] (para o HDInsight versão 2.1).
@@ -191,8 +190,8 @@ O script do PowerShell nesta seção realiza as seguintes etapas:
     Os dois arquivos são armazenados em um contêiner de Blob público.
    
    * Copiar o script do HiveQL (useoozie.hql) para o Armazenamento do Azure, wasb:///tutorials/useoozie/useoozie.hql.
-   * Copiar workflow.xml para wasbs:///tutorials/useoozie/workflow.xml.
-   * Copiar o arquivo de dados (/example/data/sample.log) para wasbs:///tutorials/useoozie/data/sample.log.
+   * Copie workflow.xml para wasb:///tutorials/useoozie/workflow.xml.
+   * Copie o arquivo de dados (/example/data/sample.log) para wasb:///tutorials/useoozie/data/sample.log.
 6. Enviar um trabalho do Oozie.
    
     Para examinar os resultados do trabalho do OOzie, use o Visual Studio ou outras ferramentas para se conectar ao Banco de Dados SQL do Azure.
@@ -447,7 +446,7 @@ Aqui está o script.  Você pode executar o script do ISE do Windows PowerShell.
 
     #region - submit Oozie job
 
-    $storageUri="wasbs://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net"
+    $storageUri="wasb://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net"
 
     $oozieJobName = $namePrefix + "OozieJob"
 
@@ -581,7 +580,7 @@ Aqui está o script.  Você pode executar o script do ISE do Windows PowerShell.
 
 **Para executar o tutorial novamente**
 
-Para executar novamente o fluxo de trabalho, execute o seguinte procedimento:
+Para executar novamente o fluxo de trabalho, exclua os seguintes itens:
 
 * Exclua o arquivo de saída do script do Hive
 * Exclua os dados na tabela log4jLogsCount
@@ -635,7 +634,7 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 
 
 
-[azure-data-factory-pig-hive]: ../data-factory/data-factory-data-transformation-activities.md
+[azure-data-factory-pig-hive]: ../data-factory/transform-data.md
 [hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
@@ -644,7 +643,7 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
@@ -658,7 +657,7 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 [sqldatabase-get-started]: ../sql-database-get-started.md
 
 [azure-management-portal]: https://portal.azure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account.md
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
@@ -677,4 +676,3 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
-

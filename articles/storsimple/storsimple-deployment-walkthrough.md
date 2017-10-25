@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a14be6bf8135cdfc7e5b9eb3b6d7af3bdd4561a7
-
-
+ms.openlocfilehash: 2063acbafd6766d00dee9509ee7def73bdc5b982
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device"></a>Implantação do seu dispositivo StorSimple local
 > [!div class="op_single_selector"]
@@ -141,7 +141,7 @@ Antes de começar, verifique se:
 |  | | |
 | **NTP** |Disparamos uma sincronização de horário assim que o servidor NTP é inserido. Verifique se a porta UDP 123 está aberta ao inserir `time.windows.com` ou servidores de tempo públicos. |[Baixar e usar esse script](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
 |  | | |
-| **Proxy (opcional)** |É uma porta e um URI de proxy válido? </br>  O modo de autenticação está correto? |<code>wget http://bing.com &#124; % {$_.StatusCode}</code></br>Esse comando deve ser executado imediatamente depois de configurar o proxy web. Se for retornado um código de status 200, isso indica que a conexão foi bem-sucedida. |
+| **Proxy (opcional)** |É uma porta e um URI de proxy válido? </br> O modo de autenticação está correto? |<code>wget http://bing.com &#124; % {$_.StatusCode}</code></br>Esse comando deve ser executado imediatamente depois de configurar o proxy web. Se for retornado um código de status 200, isso indica que a conexão foi bem-sucedida. |
 | &nbsp; |O tráfego é roteável por meio do proxy? |Execute a validação de DNS, verifique o NTP ou o HTTP uma vez após configurar o proxy no seu dispositivo. Isso lhe fornecerá uma visão clara de se o tráfego está sendo bloqueado no proxy ou em outro lugar. |
 |  | | |
 | **Registro** |Verifique se as portas TCP de saída 443, 80 e 9354 estão abertas. |`Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Mais informações sobre o cmdlet Test-NetConnection](https://technet.microsoft.com/library/dn372891.aspx) |
@@ -239,7 +239,7 @@ Você pode fazer um backup manual a qualquer momento. Para saber os procedimento
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Configurar uma nova conta de armazenamento para o serviço
 Esta é uma etapa opcional que você precisa executar somente se não tiver ativado a criação automática de uma conta de armazenamento com o seu serviço. É necessária uma conta de armazenamento do Microsoft Azure para criar um contêiner de volume StorSimple.
 
-Se você precisar criar uma conta de armazenamento do Azure em uma região diferente, consulte [Sobre Contas de Armazenamento do Azure](../storage/storage-create-storage-account.md) para obter instruções passo a passo.
+Se você precisar criar uma conta de armazenamento do Azure em uma região diferente, consulte [Sobre Contas de Armazenamento do Azure](../storage/common/storage-create-storage-account.md) para obter instruções passo a passo.
 
 Execute as etapas a seguir no portal clássico do Azure, na página **Serviço StorSimple Manager** .
 
@@ -282,10 +282,4 @@ Execute as etapas a seguir no portal clássico do Azure para criar um backup man
 ## <a name="next-steps"></a>Próximas etapas
 * Configurar um [dispositivo virtual](storsimple-virtual-device-u2.md).
 * Use o [Serviço StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) para gerenciar o seu dispositivo StorSimple.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

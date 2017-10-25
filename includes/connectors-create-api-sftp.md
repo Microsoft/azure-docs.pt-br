@@ -12,8 +12,3 @@ Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à con
 3. Observe que a conexão foi criada e agora você pode continuar com as outras etapas em seu aplicativo lógico:   
    ![Imagem de conexão online de SFTP 3](./media/connectors-create-api-sftp/sftp-3.png) 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

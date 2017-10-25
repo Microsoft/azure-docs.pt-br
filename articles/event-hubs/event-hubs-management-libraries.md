@@ -1,10 +1,10 @@
 ---
-title: Bibliotecas de gerenciamento de Hubs de eventos do Azure | Microsoft Docs
+title: Bibliotecas de gerenciamento dos Hubs de Eventos do Azure | Microsoft Docs
 description: Gerenciar namespaces de Hubs de eventos e entidades do .NET
 services: event-hubs
 cloud: na
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 ms.assetid: 
 ms.service: event-hubs
@@ -12,18 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/6/2017
-ms.author: jotaub;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: dfd1ae52cc56a4d4b4c7ee3f69f0c454be607401
-ms.openlocfilehash: 84075b60074b0607c14787db72c8dff8b701a8ea
-
-
+ms.date: 08/15/2017
+ms.author: sethm
+ms.openlocfilehash: 0d659cb860a6c98342b548212820efe046decfcc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-hubs-management-libraries"></a>Bibliotecas de gerenciamento dos Hubs de Eventos
 
-As bibliotecas de gerenciamento de Hubs de eventos podem provisionar dinamicamente entidades e namespaces de Hubs de eventos. Isso permite implantações e cenários de mensagens complexos, possibilitando que você determine programaticamente quais entidades provisionar. Essas bibliotecas estão atualmente disponíveis para .NET.
+As bibliotecas de gerenciamento de Hubs de eventos podem provisionar dinamicamente entidades e namespaces de Hubs de eventos. Isso permite implantações e cenários de mensagens complexos, de modo que você possa determinar de forma programática quais entidades provisionar. Essas bibliotecas estão atualmente disponíveis para .NET.
 
 ## <a name="supported-functionality"></a>Funcionalidade com suporte
 
@@ -39,15 +38,15 @@ Para começar a usar as bibliotecas de gerenciamento de Hubs de eventos, você d
 * [Usar o Azure PowerShell para criar uma entidade de serviço a fim de acessar recursos](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [Usar a CLI do Azure para criar uma entidade de serviço a fim de acessar recursos](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
-Estes tutoriais fornecerão uma `AppId` (ID do Cliente), `TenantId` e `ClientSecret` (Chave de Autenticação), todos usados para autenticação pelas bibliotecas de gerenciamento. Você deve ter as permissões 'Proprietário' para o grupo de recursos no qual você deseja executar.
+Estes tutoriais fornecem uma `AppId` (ID do Cliente), `TenantId` e `ClientSecret` (chave de autenticação), todas usadas para autenticação pelas bibliotecas de gerenciamento. Você deve ter permissões de **Proprietário** para o grupo de recursos no qual você deseja executar.
 
 ## <a name="programming-pattern"></a>Padrão de programação
 
 O padrão para manipular qualquer recurso de Hubs de eventos a seguir, um protocolo comum:
 
-1. Obter um token do Azure Active Directory usando a biblioteca `Microsoft.IdentityModel.Clients.ActiveDirectory`.
+1. Obtenha um token do AAD usando a biblioteca `Microsoft.IdentityModel.Clients.ActiveDirectory`.
     ```csharp
-    var context = new AuthenticationContext($"https://login.windows.net/{tenantId}");
+    var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
     var result = await context.AcquireTokenAsync(
         "https://management.core.windows.net/",
@@ -64,7 +63,7 @@ O padrão para manipular qualquer recurso de Hubs de eventos a seguir, um protoc
     };
     ```
 
-1. Defina os parâmetros de CreateOrUpdate para os valores especificados.
+1. Defina os parâmetros `CreateOrUpdate` com os valores especificados.
     ```csharp
     var ehParams = new EventHubCreateOrUpdateParameters()
     {
@@ -80,9 +79,3 @@ O padrão para manipular qualquer recurso de Hubs de eventos a seguir, um protoc
 ## <a name="next-steps"></a>Próximas etapas
 * [Exemplo do Gerenciamento do .NET](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Referência de Microsoft.Azure.Management.EventHub](/dotnet/api/Microsoft.Azure.Management.EventHub) 
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-

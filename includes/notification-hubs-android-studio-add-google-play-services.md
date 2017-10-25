@@ -16,8 +16,3 @@
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

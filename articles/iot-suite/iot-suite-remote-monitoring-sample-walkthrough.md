@@ -13,17 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 08/24/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: dc8ee6a0f17c20c5255d95c7b6f636d89ffe3aee
-ms.openlocfilehash: 9bd4232670256ec7889dd367ea2ea01a2845e789
-ms.lasthandoff: 02/27/2017
-
-
+ms.openlocfilehash: b28105f300723b542fa6d1aebc569439d5c73dc4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Passo a passo da solução pré-configurada de monitoramento remoto
-## <a name="introduction"></a>Introdução
+
 A [solução pré-configurada][lnk-preconfigured-solutions] de monitoramento remoto do IoT Suite é uma implementação de uma solução de monitoramento de ponta a ponta para vários computadores em execução em locais remotos. A solução combina os principais serviços do Azure para fornecer uma implementação genérica de cenário de negócios. Você pode usar a solução como um ponto de partida para sua própria implementação e [personalizar][lnk-customize] para atender às suas próprias necessidades de negócios específicas.
 
 Este artigo explica alguns dos principais elementos da solução de monitoramento remoto para que você possa entender como ela funciona. Esse conhecimento ajuda a:
@@ -33,14 +32,17 @@ Este artigo explica alguns dos principais elementos da solução de monitorament
 * Criar sua própria solução IoT que usa os serviços do Azure.
 
 ## <a name="logical-architecture"></a>Arquitetura lógica
+
 O seguinte diagrama descreve os componentes lógicos da solução pré-configurada:
 
 ![Arquitetura lógica](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
 ## <a name="simulated-devices"></a>Dispositivos simulados
+
 Na solução pré-configurada, o dispositivo simulado representa um dispositivo de resfriamento (como um ar-condicionado para edifícios ou uma unidade de tratamento de ar para instalações). Ao implantar a solução pré-configurada, você também provisiona automaticamente quatro dispositivos simulados que são executados em um [Trabalho Web do Azure][lnk-webjobs]. Os dispositivos simulados facilitam a exploração do comportamento da solução sem a necessidade de implantar dispositivos físicos. Para implantar um dispositivo físico real, consulte o tutorial [Conectar o dispositivo à solução pré-configurada de monitoramento remoto][lnk-connect-rm].
 
 ### <a name="device-to-cloud-messages"></a>Mensagens do dispositivo para a nuvem
+
 Cada dispositivo simulado pode enviar os seguintes tipos de mensagens ao Hub IoT:
 
 | Mensagem | Descrição |
@@ -50,11 +52,10 @@ Cada dispositivo simulado pode enviar os seguintes tipos de mensagens ao Hub IoT
 | Telemetria |Um dispositivo envia periodicamente uma mensagem de **telemetria** que relata os valores simulados de temperatura e umidade coletados nos sensores simulados do dispositivo. |
 
 > [!NOTE]
-> A solução armazena a lista de comandos com suporte pelo dispositivo em um DocumentDB e não no dispositivo gêmeo.
-> 
-> 
+> A solução armazena a lista de comandos com suporte pelo dispositivo em banco de dados Cosmos DB e não no dispositivo gêmeo.
 
 ### <a name="properties-and-device-twins"></a>Propriedades e dispositivos gêmeos
+
 Os dispositivos simulados enviam as seguintes propriedades do dispositivo para o [gêmeo][lnk-device-twins] no hub IoT como *propriedades relatadas*. O dispositivo envia propriedades relatadas na inicialização e em resposta a um comando ou método **Alterar Estado do Dispositivo**.
 
 | Propriedade | Finalidade |
@@ -77,6 +78,7 @@ Os dispositivos simulados enviam as seguintes propriedades do dispositivo para o
 | System.InstalledRAM |Quantidade de RAM instalada no dispositivo |
 
 O simulador propaga essas propriedades em dispositivos simulados com valores de exemplo. Sempre que o simulador inicializa um dispositivo simulado, o dispositivo posta os metadados predefinidos no Hub IoT como propriedades relatadas. As propriedades relatadas só podem ser atualizadas pelo dispositivo. Para alterar uma propriedade relatada, você pode definir uma propriedade desejada no portal de solução. É responsabilidade do dispositivo:
+
 1. Recuperar periodicamente as propriedades desejadas do hub IoT.
 2. Atualizar sua configuração com o valor da propriedade desejada.
 3. Enviar o novo valor para o hub como uma propriedade relatada.
@@ -87,6 +89,7 @@ No painel de solução, você pode usar *propriedades desejadas* para definir pr
 > O código do dispositivo simulado usa apenas as propriedades **Desired.Config.TemperatureMeanValue** e **Desired.Config.TelemetryInterval** desejadas para atualizar as propriedades relatadas enviadas de volta ao Hub IoT. Todas as outras solicitações de alteração de propriedade desejados são ignoradas no dispositivo simulado.
 
 ### <a name="methods"></a>Métodos
+
 Os dispositivos simulados podem lidar com os seguintes métodos ([métodos diretos][lnk-direct-methods]) chamados do portal de solução por meio do hub IoT:
 
 | Método | Descrição |
@@ -97,7 +100,8 @@ Os dispositivos simulados podem lidar com os seguintes métodos ([métodos diret
 
 Alguns métodos usam propriedades relatadas para relatar o progresso. Por exemplo, o método **InitiateFirmwareUpdate** simula a execuçã da atualização de maneira assíncrona no dispositivo. O método retorna imediatamente no dispositivo, enquanto a tarefa assíncrona continua a enviar atualizações de status de volta para o painel de solução usando as propriedades relatadas.
 
-### <a name="commands"></a>Comandos 
+### <a name="commands"></a>Comandos
+
 Os dispositivos simulados podem lidar com os seguintes comandos (mensagens de nuvem para dispositivos) enviados a partir do portal de solução por meio do hub IoT:
 
 | Command | Descrição |
@@ -111,10 +115,9 @@ Os dispositivos simulados podem lidar com os seguintes comandos (mensagens de nu
 
 > [!NOTE]
 > Para obter uma comparação desses comandos (mensagens da nuvem para o dispositivo) e métodos (métodos diretos), consulte [Orientação para comunicações entre o dispositivo e a nuvem][lnk-c2d-guidance].
-> 
-> 
 
 ## <a name="iot-hub"></a>Hub IoT
+
 O [hub IoT][lnk-iothub] consome os dados enviados dos dispositivos para a nuvem e os disponibiliza para os trabalhos do Stream Analytics do Azure (ASA). Cada trabalho de fluxo do ASA usa um grupo separado de consumidores do Hub IoT para ler o fluxo de mensagens dos dispositivos.
 
 O hub IoT na solução também:
@@ -126,6 +129,7 @@ O hub IoT na solução também:
 - Agenda trabalhos para definir propriedades para vários dispositivos ou chama métodos em vários dispositivos.
 
 ## <a name="azure-stream-analytics"></a>Stream Analytics do Azure
+
 Na solução de monitoramento remoto, o [Stream Analytics do Azure][lnk-asa] (ASA) envia mensagens do dispositivo recebidas pelo hub IoT para outros componentes de back-end para o processamento ou armazenamento. Diferentes trabalhos do ASA executam funções específicas com base no conteúdo das mensagens.
 
 **Trabalho 1: as Informações do Dispositivo** filtram as mensagens de informações do dispositivo a partir do fluxo de mensagens de entrada e enviam-nas para um ponto de extremidade do Hubs de Eventos. Um dispositivo envia mensagens de informações do dispositivo na inicialização e em resposta a um comando **SendDeviceInfo** . Esse trabalho usa a seguinte definição de consulta para identificar as mensagens de **informações do dispositivo** :
@@ -223,34 +227,41 @@ GROUP BY
 ```
 
 ## <a name="event-hubs"></a>Hubs de Eventos
+
 Os trabalhos do ASA de **informações do dispositivo** e **regras** enviam seus dados para os Hubs de Eventos para um encaminhamento confiável ao **Processador de Eventos** em execução no Trabalho Web.
 
 ## <a name="azure-storage"></a>Armazenamento do Azure
+
 A solução usa o armazenamento de blobs do Azure para persistir todos os dados de telemetria brutos e resumidos dos dispositivos na solução. O portal lê os dados de telemetria do armazenamento de blobs para popular os gráficos. Para exibir alertas, o portal da solução lê os dados do armazenamento de blobs que registra quando os valores de telemetria excederam os valores de limite configurados. A solução também usa o armazenamento de blobs para registrar os valores de limite definidos no portal da solução.
 
 ## <a name="webjobs"></a>Trabalhos Web
-Além de hospedar os simuladores de dispositivo, os Trabalhos Web na solução também hospedam o **Processador de Eventos** em execução em um Trabalho Web do Azure que lida com as respostas do comando. Ele usa mensagens de resposta de comando para atualizar o histórico de comandos do dispositivo (armazenados no banco de dados do DocumentDB).
 
-## <a name="documentdb"></a>DocumentDB
-A solução usa um Banco de Dados de Documentos para armazenar informações sobre os dispositivos conectados à solução. Essas informações incluem o histórico de comandos enviados aos dispositivos no portal de solução e os métodos invocados do portal de solução.
+Além de hospedar os simuladores de dispositivo, os Trabalhos Web na solução também hospedam o **Processador de Eventos** em execução em um Trabalho Web do Azure que lida com as respostas do comando. Ele usa mensagens de resposta de comando para atualizar o histórico de comandos do dispositivo (armazenados no banco de dados Cosmos DB).
+
+## <a name="cosmos-db"></a>Banco de Dados Cosmos
+
+A solução usa um banco de dados Cosmos DB para armazenar informações sobre os dispositivos conectados à solução. Essas informações incluem o histórico de comandos enviados aos dispositivos no portal de solução e os métodos invocados do portal de solução.
 
 ## <a name="solution-portal"></a>Portal de solução
 
 O portal de solução é um aplicativo Web implantado como parte da solução pré-configurada. As páginas principais no portal de solução são o painel e a lista de dispositivos.
 
 ### <a name="dashboard"></a>Painel
+
 Esta página no aplicativo Web usa os controles javascript do PowerBI (veja [Repositório PowerBI-visuals](https://www.github.com/Microsoft/PowerBI-visuals)) para visualizar os dados de telemetria dos dispositivos. A solução usa o trabalho de telemetria do ASA para gravar os dados de telemetria no armazenamento de blobs.
 
 ### <a name="device-list"></a>Lista de dispositivos
+
 Nesta página no portal de solução, você pode:
 
-* Provisione um novo dispositivo. Esta ação define a id do dispositivo exclusiva e gera a chave de autenticação. Ela grava as informações sobre o dispositivo no registro de identidade do Hub IoT e no Banco de Dados de Documentos específico da solução.
+* Provisione um novo dispositivo. Esta ação define a id do dispositivo exclusiva e gera a chave de autenticação. Ela grava as informações sobre o dispositivo no registro de identidade do Hub IoT e no banco de dados Cosmos DB específico da solução.
 * Gerencie propriedades de dispositivo. Esta ação inclui a exibição de propriedades existentes e a atualização com novas propriedades.
 * Envie comandos para um dispositivo.
 * Exiba o histórico de comandos de um dispositivo.
 * Habilite e desabilite dispositivos.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 As postagens de blog do TechNet abaixo fornecem mais detalhes sobre a solução pré-configurada de monitoramento remoto:
 
 * [IoT Suite - Under the Hood - Remote Monitoring (Monitoramento remoto)](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)

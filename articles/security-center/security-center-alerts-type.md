@@ -12,54 +12,29 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 09/20/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 5da00d1d64b258773fa485baa804b283fde731c3
-ms.lasthandoff: 03/17/2017
-
-
+ms.openlocfilehash: 274c50dad9b8a1d79a71a29b04cb8e44ad91893c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="security-alerts-by-type-in-azure-security-center"></a>Alertas de segurança por tipo na Central de Segurança do Azure
-Este artigo ajuda você a compreender os diferentes tipos de alertas de segurança disponíveis na Central de Segurança do Azure. Para saber mais sobre como gerenciar os alertas, confira [Gerenciar e responder aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md).
+# <a name="understanding-security-alerts-in-azure-security-center"></a>Noções básicas de alertas de segurança na Central de Segurança do Azure
+Este artigo ajuda você a compreender os diferentes tipos de alertas de segurança e as informações relacionadas disponíveis na Central de Segurança do Azure. Para saber mais sobre como gerenciar os alertas e os incidentes, confira [Gerenciar e responder aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md).
+
+Para configurar as detecções avançadas, atualize para a Central de Segurança do Azure Standard. Há uma avaliação gratuita de 60 dias disponível. Para atualizar, selecione **Tipo de Preço** na [política de segurança](security-center-policies.md). Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
-> Para configurar as detecções avançadas, atualize para a Central de Segurança do Azure Standard. Há uma avaliação gratuita de 60 dias disponível. Para atualizar, selecione **Tipo de Preço** na [política de segurança](security-center-policies.md). Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
->
->
+> A Central de Segurança foi lançada para visualização limitada de um novo conjunto de detecções que aproveitam os registros de auditoria, uma estrutura de auditoria comum, para detectar comportamentos mal-intencionados em máquinas Linux. Envie um email com suas IDs de assinatura para [nós](mailto:ASC_linuxdetections@microsoft.com) para ingressar na visualização.
 
 ## <a name="what-type-of-alerts-are-available"></a>Que tipo de alerta está disponível?
-A Central de Segurança do Azure fornece vários alertas que se alinham com os estágios da cadeia cyber kill. A ilustração a seguir mostra vários alertas e como eles se relacionam a alguns desses estágios.
-
-![Eliminar cadeia](./media/security-center-alerts-type/security-center-alerts-type-fig1.png)
-
-**Alvo e ataque**
-
-* Ataques RDP/SSH de entrada
-* Ataques de DDoS e aplicativo (parceiros WAF)
-* Detecção de intrusão (parceiros NG Firewall)
-
-**Instalar e explorar**
-
-* Assinaturas de malware conhecidas (parceiros AM)
-* Tentativas de malware e exploração na memória
-* Execução de processo suspeita
-* Manobras evasivas para evitar a descoberta
-* Movimento lateral
-* Reconhecimento interno
-* Atividade suspeita do PowerShell
-
-**Violação de postagem**  
-
-* Comunicação com um IP mal-intencionado conhecido (extração de dados ou comando e controle)
-* Usando recursos comprometidos para montar ataques adicionais (ataques de força bruta RDP/SSH para verificar porta de saída e spam)
-
-Diferentes tipos de ataques são associados a cada estágio e eles se destinam a diferentes subsistemas. Para endereçar os ataques durante os estágios, a Central de Segurança tem três categorias de alertas:
+A Central de Segurança do Azure usa uma variedade de [recursos de detecção](security-center-detection-capabilities.md) para alertar os clientes de possíveis ataques direcionados a seus ambientes. Esses alertas contêm informações valiosas sobre o que disparou o alerta, os recursos de destino e a origem do ataque. As informações incluídas em um alerta variam de acordo com o tipo de análise usado para detectar a ameaça. Os Incidentes também podem conter informações contextuais adicionais que podem ser úteis ao investigar uma ameaça.  Este artigo fornece informações sobre os seguintes tipos de alerta:
 
 * Análise de Comportamento da Máquina Virtual (VMBA)
 * Análise de Rede
 * Análise de Recursos
+* Informações Contextuais
 
 ## <a name="virtual-machine-behavioral-analysis"></a>Análise de comportamento da máquina virtual
 A Central de Segurança do Azure pode usar a análise de comportamento para identificar os recursos comprometidos com base na análise dos logs de evento da máquina virtual. Por exemplo, Eventos de Criação do Processos e Eventos de Logon. Além disso, há uma correlação com outros sinais para verificar se há suporte a evidências de uma campanha generalizada.
@@ -67,10 +42,9 @@ A Central de Segurança do Azure pode usar a análise de comportamento para iden
 > [!NOTE]
 > Para saber mais sobre como funcionam os recursos de detecção da Central de Segurança, confira [Recursos de detecção da Central de Segurança do Azure](security-center-detection-capabilities.md).
 >
->
 
 ### <a name="crash-analysis"></a>Análise de falha
-A análise do despejo de memória é um método usado para detectar um malware sofisticado capaz de escapar das soluções de segurança tradicionais. Várias formas de malware tentam reduzir a chance de serem detectadas por produtos antivírus nunca gravando no disco ou criptografando os componentes de software gravados no disco. Isso torna o malware difícil de detectar usando as abordagens tradicionais antimalware. No entanto, esse tipo de malware pode ser detectado usando a análise de memória, pois o malware deve deixar rastreamentos na memória para poder funcionar.
+A análise do despejo de memória é um método usado para detectar um malware sofisticado capaz de escapar das soluções de segurança tradicionais. Várias formas de malware tentam reduzir a chance de serem detectadas por produtos antivírus nunca gravando no disco ou criptografando os componentes de software gravados no disco. Esta técnica torna o malware difícil de detectar usando as abordagens tradicionais antimalware. No entanto, esse tipo de malware pode ser detectado usando a análise de memória, pois o malware deve deixar rastreamentos na memória para poder funcionar.
 
 Quando o software falha, um despejo de memória captura uma parte da memória no momento da falha. A falha pode ser causada por malware, problemas gerais do aplicativo ou do sistema. Analisando a memória no despejo de falha, a Central de Segurança pode detectar as técnicas usadas para explorar as vulnerabilidades no software, acessar os dados confidenciais e manter-se de maneira furtiva em uma máquina comprometida. Isso é feito com um mínimo de impacto no desempenho para os hosts quando a análise é executada pelo back-end da Central de Segurança.
 
@@ -87,7 +61,7 @@ Esse exemplo de alerta do Shellcode fornece o seguinte campo adicional:
 
 * ADDRESS: o local do shellcode na memória.
 
-Eis um exemplo desse tipo de alerta:
+Veja um exemplo desse tipo de alerta:
 
 ![Alerta de shellcode](./media/security-center-alerts-type/security-center-alerts-type-fig2.png)
 
@@ -103,7 +77,7 @@ Além dos campos comuns descritos na seção "Shellcode descoberto" acima, esse 
 * HIJACKEDMODULEPATH: o caminho do módulo do sistema Windows sequestrado.
 * HIJACKINGMODULEPATH: o caminho do módulo sequestrado.
 
-Eis um exemplo desse tipo de alerta:
+Veja um exemplo desse tipo de alerta:
 
 ![Alerta de sequestro de módulo](./media/security-center-alerts-type/security-center-alerts-type-fig3.png)
 
@@ -122,7 +96,7 @@ Além dos campos comuns descritos anteriormente na seção "Shellcode descoberto
 
 Esse alerta também extrai e exibe determinados campos do cabeçalho PE do módulo, como "CHECKSUM" e "TIMESTAMP". Esses campos serão exibidos somente se os campos estiverem presentes no módulo. Confira a [Especificação Microsoft PE e COFF](https://msdn.microsoft.com/windows/hardware/gg463119.aspx) para obter detalhes sobre esses campos.
 
-Eis um exemplo desse tipo de alerta:
+Veja um exemplo desse tipo de alerta:
 
 ![Alerta do Windows simulado](./media/security-center-alerts-type/security-center-alerts-type-fig4.png)
 
@@ -136,23 +110,75 @@ Além dos campos comuns descritos anteriormente na seção "Shellcode descoberto
 * MODULENAME: nome do binário do sistema modificado.
 * MODULEVERSION: versão do binário do sistema modificado.
 
-Eis um exemplo desse tipo de alerta:
+Veja um exemplo desse tipo de alerta:
 
 ![Alerta de binário do sistema](./media/security-center-alerts-type/security-center-alerts-type-fig5.png)
 
 ### <a name="suspicious-process-executed"></a>Processo suspeito executado
 A Central de Segurança identifica um processo suspeito executado na máquina virtual de destino e dispara um alerta. A detecção não procura o nome específico, mas procura pelo parâmetro do arquivo executável. Portanto, mesmo que o invasor renomeie o arquivo executável, a Central de Segurança ainda poderá detectar o processo suspeito.
 
-Eis um exemplo desse tipo de alerta:
+Veja um exemplo desse tipo de alerta:
 
 ![Alerta de processo suspeito](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
-### <a name="multiple-domain-accounts-queried"></a>Várias contas de domínio consultadas
-A Central de Segurança pode detectar várias tentativas para consultar as contas de domínio, sendo algo que normalmente é feito pelo invasores durante o reconhecimento da rede. Os invasores podem aproveitar essa técnica para consultar o domínio a fim de identificar os usuários, quais são as contas do administrador de domínio, quais computadores são os controladores de domínio e também a relação de confiança de domínio potencial com outros domínios.
+### <a name="multiple-domains-accounts-queried"></a>Várias contas de domínio consultadas
+A Central de Segurança pode detectar várias tentativas para consultar as contas do Domínio do Active Directory, sendo algo que normalmente é feito pelo invasores durante o reconhecimento da rede. Os invasores podem aproveitar essa técnica para consultar o domínio a fim de identificar os usuários, quais são as contas do administrador de domínio, quais computadores são os controladores de domínio e também a relação de confiança de domínio potencial com outros domínios.
 
-Eis um exemplo desse tipo de alerta:
+Veja um exemplo desse tipo de alerta:
 
 ![Alerta de conta de vários domínios](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
+
+### <a name="local-administrators-group-members-were-enumerated"></a>Os membros do grupo Administradores locais foram enumerados
+
+A Central de Segurança vai disparar um alerta quando o evento de segurança 4798, no Windows Server 2016 e no Windows 10, for disparado. Isso acontece quando os grupos de administradores locais são enumerados, que é algo normalmente feito por invasores durante o reconhecimento de rede. Os invasores podem aproveitar essa técnica para consultar a identidade de usuários com privilégios administrativos.
+
+Veja um exemplo desse tipo de alerta:
+
+![Administrador local](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
+
+### <a name="anomalous-mix-of-upper-and-lower-case-characters"></a>Mistura anormal de caracteres maiúsculos e minúsculos
+
+A Central de Segurança vai disparar um alerta ao detectar o uso de uma combinação de caracteres maiúsculos e minúsculos na linha de comando. Alguns invasores podem usar essa técnica para ocultar de maiúsculas e minúsculas ou regra de computador com base em hash.
+
+Veja um exemplo desse tipo de alerta:
+
+![Mistura anormal](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
+
+### <a name="suspected-kerberos-golden-ticket-attack"></a>Ataque de tíquete do ouro do Kerberos
+
+Uma chave [krbtgt](https://technet.microsoft.com/library/dn745899.aspx) comprometida pode ser usada por um invasor para criar "Tíquetes de ouro" Kerberos, permitindo que o invasor represente qualquer usuário desejado. A Central de segurança vai disparar um alerta quando detectar esse tipo de atividade.
+
+> [!NOTE] 
+> Para saber mais sobre o Tíquete de ouro Kerberos, leia [Guia de atenuação de roubo de credenciais do Windows 10](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx).
+
+Veja um exemplo desse tipo de alerta:
+
+![Tíquete de ouro](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
+
+### <a name="suspicious-account-created"></a>Conta suspeita criada
+
+A Central de Segurança vai disparar um alerta quando uma conta for criada com bastante semelhança à uma conta de privilégios de administrador interna existente. Essa técnica pode ser usada pelos invasores para criar uma conta de invasor que passe despercebida pela verificação humana.
+ 
+Veja um exemplo desse tipo de alerta:
+
+![Conta suspeita](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
+
+### <a name="suspicious-firewall-rule-created"></a>Regra de firewall suspeita criada
+
+Os invasores podem tentar contornar a segurança do host criando regras de firewall personalizadas para permitir que aplicativos mal-intencionados se comuniquem com o comando e controle, ou para iniciar ataques pela rede por meio do host comprometido. A Central de Segurança vai disparar um alerta quando detectar que uma nova regra de firewall foi criada de um arquivo executável em um local suspeito.
+ 
+Veja um exemplo desse tipo de alerta:
+
+![Regra de Firewall](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
+
+### <a name="suspicious-combination-of-hta-and-powershell"></a>Combinação suspeita de HTA e PowerShell
+
+A Central de Segurança vai disparar um alerta quando detectar que um host de aplicativo HTML da Microsoft (HTA) está iniciando comandos do PowerShell. Essa é uma técnica usada pelos invasores para iniciar scripts do PowerShell mal-intencionados.
+ 
+Veja um exemplo desse tipo de alerta:
+
+![HTA e PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
+
 
 ## <a name="network-analysis"></a>Análise de Rede
 A detecção de ameaças da rede da Central de Segurança funciona coletando automaticamente as informações de segurança de seu tráfego do Azure IPFIX (Internet Protocol Flow Information Export). Ele analisa essas informações geralmente correlacionando informações de várias fontes para identificar ameaças.
@@ -162,7 +188,7 @@ Os dispositivos de rede podem ser descobertos e analisados da mesma forma que ou
 
 ![Alerta de tráfego de saída suspeito](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
 
-Esse alerta fornece informações que você pode usar para identificar o recurso que foi usado para iniciar esse ataque. Esse alerta também fornece informações para identificar a máquina comprometida, o tempo de detecção, além do protocolo e da porta que foram usados. Essa folha também fornece uma lista de etapas de correção que podem ser usadas para atenuar esse problema.
+Esse alerta fornece informações que você pode usar para identificar o recurso que foi usado para iniciar esse ataque. Esse alerta também fornece informações para identificar a máquina comprometida, o tempo de detecção, além do protocolo e da porta que foram usados. Essa página também fornece uma lista de etapas de correção que podem ser usadas para atenuar esse problema.
 
 ### <a name="network-communication-with-a-malicious-machine"></a>Comunicação de rede com uma máquina mal-intencionada
 Aproveitando os feeds de inteligência de ameaças da Microsoft, a Central de Segurança do Azure pode detectar máquinas comprometidas que estão se comunicando com endereços IP mal-intencionados. Em muitos casos, o endereço mal-intencionado é um centro de comando e controle. Nesse caso, a Central de Segurança detectou que a comunicação foi feita usando o malware Pony Loader (também conhecido como [Fareit](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=PWS:Win32/Fareit.AF)).
@@ -179,7 +205,7 @@ Esse alerta fornece informações que permitem a identificação do recurso usad
 ### <a name="possible-outgoing-denial-of-service-attack-detected"></a>Possível saída do ataque de negação de serviço detectada
 O tráfego de rede anormal proveniente de uma máquina virtual pode levar a Central de Segurança a disparar um possível tipo de ataque de negação de serviço.
 
-Eis um exemplo desse tipo de alerta:
+Veja um exemplo desse tipo de alerta:
 
 ![DOS de Saída](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
@@ -207,6 +233,18 @@ Este alerta é disparado quando um evento de acesso de um endereço IP desconhec
 
 ![Alerta de acesso incomum](./media/security-center-alerts-type/security-center-alerts-type-fig13-new.png)
 
+## <a name="contextual-information"></a>Informações Contextuais
+Durante uma investigação, os analistas precisarão de contexto extra para atingirem um veredito sobre a natureza da ameaça e como resolvê-la.  Por exemplo, uma anomalia de rede foi detectada, mas sem compreender o que está acontecendo na rede ou em relação ao recurso de destino é cada difíceis de entender as ações a serem tomadas. Para ajudar com isso, um incidente de segurança pode incluir artefatos, eventos relacionados e informações que podem ajudar quem estiver investigando. A disponibilidade de informações adicionais irá variar com base no tipo de ameaça detectada e an configuração do seu ambiente e não estará disponível para todos os incidentes de segurança.
+
+Se houver informações adicionais disponíveis, elas serão mostradas no Incidente de Segurança abaixo da lista de alertas. Isso pode conter informações como:
+
+- Limpar eventos do log
+- Dispositivo PNP conectado de dispositivo desconhecido
+- Alertas que não são acionáveis 
+
+![Alerta de acesso incomum](./media/security-center-alerts-type/security-center-alerts-type-fig20.png) 
+
+
 ## <a name="see-also"></a>Consulte também
 Neste artigo, você aprendeu sobre os diferentes tipos de alertas de segurança na Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
@@ -215,4 +253,3 @@ Neste artigo, você aprendeu sobre os diferentes tipos de alertas de segurança 
 * [Guia de planejamento e operações da Central de Segurança do Azure](security-center-planning-and-operations-guide.md)
 * [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.
 * [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) encontre postagens no blog sobre conformidade e segurança do Azure.
-

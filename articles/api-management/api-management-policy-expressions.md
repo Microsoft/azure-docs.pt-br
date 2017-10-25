@@ -3,7 +3,7 @@ title: "Expressões de política no Gerenciamento de API do Azure | Microsoft Do
 description: "Saiba mais sobre expressões de política no Gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: ea160028-fc04-4782-aa26-4b8329df3448
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 3152a1306f2c3eeb42dd3b21cff62b696ed01e5d
-ms.openlocfilehash: 75ea0486a1b5abc71df3b7d9e8385717954b89f4
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 33bcc51466fa0918bf4484c58fac813d07ae14da
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-policy-expressions"></a>Expressões de política de Gerenciamento de API
 A sintaxe de expressões de política é C# 6.0. Cada expressão tem acesso à variável de [contexto](api-management-policy-expressions.md#ContextVariables) fornecida implicitamente e a um [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos do .NET Framework.  
@@ -172,7 +172,7 @@ A sintaxe de expressões de política é C# 6.0. Cada expressão tem acesso à v
   
 |Variável de contexto|Valores de métodos, propriedades e parâmetros permitidos|  
 |----------------------|-------------------------------------------------------|  
-|context|Api: IApi<br /><br /> Implantação<br /><br /> LastError<br /><br /> Operação<br /><br /> Produto<br /><br /> Solicitação<br /><br /> RequestId: cadeia de caracteres<br /><br /> Resposta<br /><br /> Assinatura<br /><br /> Tracing: bool<br /><br /> Usuário<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
+|context|Api: IApi<br /><br /> Implantação<br /><br /> LastError<br /><br /> Operação<br /><br /> Produto<br /><br /> Solicitação<br /><br /> RequestId: Guid<br /><br /> Resposta<br /><br /> Assinatura<br /><br /> Tracing: bool<br /><br /> Usuário<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
 |context.Api|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> ServiceUrl: IUrl|  
 |context.Deployment|Region: string<br /><br /> ServiceName: string|  
 |context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Para obter mais informações sobre context.LastError, consulte [Error handling](api-management-error-handling-policies.md) (Tratamento de erro).|  
@@ -186,7 +186,7 @@ A sintaxe de expressões de política é C# 6.0. Cada expressão tem acesso à v
 |context.User|Email: string<br /><br /> FirstName: string<br /><br /> Groups: IEnumerable<IGroup\><br /><br /> Id: string<br /><br /> Identities: IEnumerable<IUserIdentity\><br /><br /> LastName: string<br /><br /> Note: string<br /><br /> RegistrationDate: DateTime|  
 |IApi|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> Protocols: IEnumerable<string\><br /><br /> ServiceUrl: IUrl<br /><br /> SubscriptionKeyParameterNames: ISubscriptionKeyParameterNames|  
 |IGroup|Id: string<br /><br /> Name: string|  
-|IMessageBody|As<T\>(preserveContent: bool = false): em que T: string, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Os métodos `context.Request.Body.As<T>` e `context.Request.Body.As<T>` são usados para ler um corpo de mensagem de solicitação ou resposta em um dos formatos especificados. Observe que, por padrão, quando você acessa o corpo da mensagem, o corpo da mensagem original é perdido e deve ser definido por meio do retorno do corpo de volta na expressão que lê o corpo. Para preservar o conteúdo do corpo, defina o parâmetro `preserveContent` para `true` ao acessar a mensagem. O valor padrão de `preserveContent` é `false`. Se `preserveContent` for definido como `true` e um corpo for retornado pela expressão, o corpo retornado será usado. Para obter mais informações, consulte a política [Definir corpo](api-management-transformation-policies.md#SetBody).|  
+|IMessageBody|As<T\>(preserveContent: bool = false): em que T: string, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Os métodos `context.Request.Body.As<T>` e `context.Response.Body.As<T>` são usados para a leitura dos corpos de mensagens de solicitação e resposta em um tipo `T` especificado. Por padrão, o método usa o fluxo do corpo de mensagem original e o torna indisponível após seu retorno. Para evitar que o método opere em uma cópia do fluxo do corpo, defina o parâmetro `preserveContent` como `true`. Clique [aqui](api-management-transformation-policies.md#SetBody) para ver um exemplo.|  
 |IUrl|Host: string<br /><br /> Path: string<br /><br /> Port: int<br /><br /> Query: IReadOnlyDictionary<string, string[]><br /><br /> QueryString: string<br /><br /> Scheme: string|  
 |IUserIdentity|Id: string<br /><br /> Provider: string|  
 |ISubscriptionKeyParameterNames|Header: string<br /><br /> Query: string|  
@@ -202,4 +202,3 @@ A sintaxe de expressões de política é C# 6.0. Cada expressão tem acesso à v
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como trabalhar com políticas, veja [Políticas em Gerenciamento de API](api-management-howto-policies.md).  
-

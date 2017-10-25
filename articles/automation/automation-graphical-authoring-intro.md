@@ -3,8 +3,8 @@ title: "Criação Gráfica na Automação do Azure | Microsoft Docs"
 description: "A criação gráfica permite criar runbooks para a Automação do Azure sem trabalhar com código. Este artigo fornece uma introdução à criação gráfica e todos os detalhes necessários para iniciar a criação de um runbook gráfico."
 services: automation
 documentationcenter: 
-author: mgoedtel
-manager: jwhit
+author: eslesar
+manager: carmonm
 editor: tysonn
 ms.assetid: 4b6f840c-e941-4293-a728-b33407317943
 ms.service: automation
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/03/2016
+ms.date: 04/14/2017
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8d408f6ac49ea376508e025c53b09434c2ea164a
-
-
+ms.openlocfilehash: 137e8503b9759136510db59700c3032853246c89
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Criação gráfica na Automação do Azure
 ## <a name="introduction"></a>Introdução
@@ -198,7 +198,7 @@ Para um link de pipeline, você especifica uma condição para um único objeto,
     $ActivityOutput['Get Azure VMs'].Name -match "Group1"
 
 Para um link de sequência, a condição é avaliada apenas uma vez, pois é retornada uma única matriz que contém a saída de todos os objetos da atividade de origem.  Por isso, um link de sequência não pode ser usado para filtragem como um link de pipeline, mas simplesmente determinará se a próxima atividade é executada ou não. Considere o seguinte conjunto de atividades, por exemplo, em nosso runbook Iniciar VM.<br> ![Link Condicional com Sequências](media/automation-graphical-authoring-intro/runbook-conditional-links-sequence.png)<br>
- Há três links de sequência diferentes que estão verificando os valores fornecidos a dois parâmetros de entrada do runbook representando o nome da VM e o nome do Grupo de Recursos para determinar qual é a ação apropriada a tomar - iniciar uma única VM, iniciar todas as VMs no grupo de recursos ou todas as VMs em uma assinatura.  Para o link da sequência entre Conectar o Azure e Obter uma VM, aqui está a lógica da condição:
+Há três links de sequência diferentes que estão verificando os valores fornecidos a dois parâmetros de entrada do runbook representando o nome da VM e o nome do Grupo de Recursos para determinar qual é a ação apropriada a tomar - iniciar uma única VM, iniciar todas as VMs no grupo de recursos ou todas as VMs em uma assinatura.  Para o link da sequência entre Conectar o Azure e Obter uma VM, aqui está a lógica da condição:
 
     <# 
     Both VMName and ResourceGroupName runbook input parameters have values 
@@ -253,13 +253,13 @@ Você pode definir [pontos de verificação](automation-powershell-workflow.md#c
 Os pontos de verificação são habilitados somente nos runbooks do Fluxo de Trabalho do PowerShell Gráficos; eles não estão disponíveis nos runbooks Gráficos.  Se o runbook usa cmdlets do Azure, use AzureRMAccount após qualquer atividade com ponto de verificação, caso o runbook seja suspenso e reinicie nesse ponto de verificação em um trabalho diferente. 
 
 ## <a name="authenticating-to-azure-resources"></a>Autenticação para recursos do Azure
-Os runbooks na Automação do Azure que gerenciam os recursos do Azure irão requerer a autenticação do Azure.  O novo recurso [Executar Como Conta](automation-sec-configure-azure-runas-account.md) (também conhecido como entidade de serviço) é o método padrão para acessar os recursos do Azure Resource Manager em sua assinatura com os runbooks de Automação.  Você pode adicionar essa funcionalidade a um runbook gráfico adicionando o ativo de Conexão **AzureRunAsConnection**, que está usando o cmdlet [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) do PowerShell e o cmdlet [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx), à tela. Isso é ilustrado no exemplo a seguir.<br>![Atividades de Autenticação Executar Como](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
+Os runbooks na Automação do Azure que gerenciam os recursos do Azure irão requerer a autenticação do Azure.  O [Executar Como Conta](automation-offering-get-started.md#creating-an-automation-account) (também conhecido como uma entidade de serviço) é o método padrão para acessar os recursos do Azure Resource Manager em sua assinatura com os runbooks de Automação.  Você pode adicionar essa funcionalidade a um runbook gráfico adicionando o ativo de Conexão **AzureRunAsConnection**, que está usando o cmdlet [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) do PowerShell e o cmdlet [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx), à tela. Isso é ilustrado no exemplo a seguir.<br>![Atividades de Autenticação Executar Como](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
 A atividade Executar Como Conexão de Get (por exemplo, Get-AutomationConnection), é configurada com uma fonte de dados com valor constante denominada AzureRunAsConnection.<br>![Configuração da Conexão Executar Como](media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)<br>
 A próxima atividade, Add-AzureRmAccount, adiciona a conta Executar Como autenticada para usar no runbook.<br>
 ![Conjunto de parâmetros Add-AzureRmAccount](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)<br>
 Para os parâmetros **APPLICATIONID**, **CERTIFICATETHUMBPRINT** e **TENANTID**, você precisará especificar o nome da propriedade para o caminho Campo porque a atividade produz um objeto com várias propriedades.  Caso contrário, quando você executar o runbook, ele falhará ao tentar autenticar-se.  Isso é o que você precisa, no mínimo, para autenticar seu runbook com a conta Executar Como.
 
-Para manter a compatibilidade com versões anteriores para os assinantes que criaram uma conta de Automação usando uma [conta de Usuário do Azure AD](automation-sec-configure-aduser-account.md) para gerenciar os recursos de Gerenciamento de Serviço do Azure (ASM) ou Azure Resource Manager, o método de autenticação é o cmdlet Add-AzureAccount com um [ativo de credencial](http://msdn.microsoft.com/library/dn940015.aspx) que representa um usuário do Active Directory com acesso à conta do Azure.
+Para manter a compatibilidade com versões anteriores para os assinantes que criaram uma conta de Automação utilizando uma [conta de Usuário do Azure AD](automation-create-aduser-account.md) para gerenciar a implantação clássica do Azure ou os recursos do Azure Resource Manager, o método de autenticação é o cmdlet Add-AzureAccount com um [ativo de credencial](automation-credentials.md) que representa um usuário do Active Directory com acesso à conta do Azure.
 
 Você pode adicionar essa funcionalidade a um runbook gráfico adicionando um ativo de credencial à tela, seguido por uma atividade Add-AzureAccount.  Add-AzureAccount usa a atividade de credencial para sua entrada.  Isso é ilustrado no exemplo a seguir.
 
@@ -381,10 +381,4 @@ O exemplo a seguir usam a saída de uma atividade chamada *Obter conexão do Twi
 * Para começar a usar os runbooks Gráficos, consulte [Meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 * Para saber mais sobre os tipos de runbook, suas vantagens e limitações, consulte [Tipos de runbook de Automação do Azure](automation-runbook-types.md)
 * Para entender como autenticar usando a conta Executar Como de automação, consulte [Configurar Conta Executar Como do Azure](automation-sec-configure-azure-runas-account.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -3,7 +3,7 @@ title: Carregar dados do SQL Server no Azure SQL Data Warehouse (bcp) | Microsof
 description: Para um tamanho de dados pequeno, use bcp para exportar dados do SQL Server para arquivos simples e importar os dados diretamente no Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: ckarst
 manager: jhubbard
 editor: 
 ms.assetid: f87d8d7c-8276-43c5-90e7-d4ccc0e3a224
@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 8dc7c2fb833c1c51ecef772ba1cbe5f0405fe494
-ms.lasthandoff: 01/30/2017
-
-
-
+ms.author: cakarst;barbkess
+ms.openlocfilehash: dae7b5f7456f4ec0daf60d55f9c38b780896ff83
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-flat-files"></a>Carregar dados do SQL Server no Azure SQL Data Warehouse (arquivos simples)
 > [!div class="op_single_selector"]
@@ -200,4 +198,3 @@ Consulte [Visão geral da tabela][Table Overview] ou [Sintaxe CREATE TABLE][CREA
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
-

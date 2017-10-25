@@ -1,9 +1,9 @@
 ---
 title: Usando o Gateway de Aplicativo do Azure com o balanceador de carga interno | Microsoft Docs
-description: "Esta página fornece instruções para configurar um Application Gateway do Azure com um ponto de extremidade do Balanceador de Carga Interno"
+description: "Esta página fornece instruções para configurar um Gateway de Aplicativo do Azure com um ponto de extremidade do Balanceador de Carga Interno"
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: 7403d28e-909f-46a2-b282-43a8e942f53c
@@ -13,20 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: d6f3af61934c8c645be1f2c6b4c056fc7ee2e3aa
-
-
+ms.author: davidmu
+ms.openlocfilehash: 7ca9307e8a78f6dade4b231fa3a0d83a68af3f21
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Criar um Application Gateway com um ILB (Balanceador de Carga Interno)
+# <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Criar um Gateway de Aplicativo com um ILB (Balanceador de Carga Interno)
 
 > [!div class="op_single_selector"]
 > * [Azure Classic PowerShell](application-gateway-ilb.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-ilb-arm.md)
 
-O Application Gateway pode ser configurado com um IP virtual voltado para a Internet ou com um ponto de extremidade interno não exposto à Internet, também conhecido como ponto de extremidade ILB (Balanceador de Carga Interno). Configurar o gateway como um ILB é útil para aplicativos de linha de negócios internos não expostos à Internet. Isso também é útil para serviços/camadas em um aplicativo multicamada que reside em um limite de segurança não exposto à Internet, mas que ainda exige distribuição de carga round robin, adesão da sessão ou terminação SSL. Este artigo o orienta ao longo das etapas para configurar um Application Gateway com um ILB.
+O Gateway de Aplicativo pode ser configurado com um IP virtual voltado para a Internet ou com um ponto de extremidade interno não exposto à Internet, também conhecido como ponto de extremidade ILB (Balanceador de Carga Interno). Configurar o gateway como um ILB é útil para aplicativos de linha de negócios internos não expostos à Internet. Isso também é útil para serviços/camadas em um aplicativo multicamada que reside em um limite de segurança não exposto à Internet, mas que ainda exige distribuição de carga round robin, adesão da sessão ou terminação SSL. Este artigo o orienta ao longo das etapas para configurar um Application Gateway com um ILB.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -96,7 +96,7 @@ Você pode construir sua configuração criando um objeto de configuração ou u
 
 Observe o seguinte:
 
-* O elemento *FrontendIPConfigurations* descreve os detalhes do ILB relevantes para configurar o Application Gateway com ILB. 
+* O elemento *FrontendIPConfigurations* descreve os detalhes do ILB relevantes para configurar o Gateway de Aplicativo com ILB. 
 * O *Tipo* de IP front-end deve ser definido como ‘Privado’.
 * O *StaticIPAddress* deve ser definido para o IP interno desejado no qual o gateway recebe o tráfego. Observe que o elemento *StaticIPAddress* é opcional. Se não for definido, será escolhido um IP interno disponível na sub-rede implantada. 
 * O valor do elemento *Name* especificado em *FrontendIPConfiguration* deve ser usado no elemento *FrontendIP* de HTTPListener para fazer referência a FrontendIPConfiguration.
@@ -222,10 +222,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 
 * [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

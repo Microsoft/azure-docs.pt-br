@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 07/16/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: bd67dc463daee2d7763e722f079930d8712fe478
-ms.openlocfilehash: 81a08a3cbd14c4a61efe68d9dd9fcd032dd1e1cd
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: 4117b6020d2d75a953fd5f032b378e49d2c752ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para o Windows
 
@@ -32,11 +31,11 @@ Este documento detalha como usar a Extensão de Script Personalizado usando o m�
 
 ### <a name="operating-system"></a>Sistema operacional
 
-A Extensão de Script Personalizado para Windows pode ser executada nas versões 2008 R2, 2012, 2012 R2 e 2016 do Windows Server.
+A Extensão de Script Personalizado para Windows pode ser executada no Windows 10 Client e nas versões Windows Server 2008 R2, 2012, 2012 R2 e 2016.
 
 ### <a name="script-location"></a>Local do script
 
-O script precisa ser armazenado no armazenamento do Azure ou em qualquer outro local acessível por meio de uma URL válida.
+O script precisa ser armazenado no Armazenamento de Blobs do Azure ou em qualquer outro local acessível por meio de uma URL válida.
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 
@@ -49,7 +48,7 @@ O JSON a seguir mostra o esquema para a Extensão de Script Personalizado. A ext
 ```json
 {
     "apiVersion": "2015-06-15",
-    "type": "extensions",
+    "type": "Microsoft.Compute/virtualMachines/extensions",
     "name": "config-app",
     "location": "[resourceGroup().location]",
     "dependsOn": [
@@ -62,7 +61,7 @@ O JSON a seguir mostra o esquema para a Extensão de Script Personalizado. A ext
     "properties": {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.8",
+        "typeHandlerVersion": "1.9",
         "autoUpgradeMinorVersion": true,
         "settings": {
             "fileUris": [
@@ -85,11 +84,13 @@ O JSON a seguir mostra o esquema para a Extensão de Script Personalizado. A ext
 | apiVersion | 2015-06-15 |
 | publicador | Microsoft.Compute |
 | type | extensions |
-| typeHandlerVersion | 1.8 |
+| typeHandlerVersion | 1.9 |
 | fileUris (por exemplo) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
 | commandToExecute (por exemplo) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
 | storageAccountName (por exemplo) | examplestorageacct |
 | storageAccountKey (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== |
+
+**Observação** – esses nomes de propriedade diferenciam maiúsculas de minúsculas. Use os nomes conforme mostrado acima para evitar problemas de implantação.
 
 ## <a name="template-deployment"></a>Implantação de modelo
 
@@ -149,4 +150,3 @@ As informações de caminho após o primeiro segmento do URI são retidas para o
 ### <a name="support"></a>Suporte
 
 Caso precise de mais ajuda a qualquer momento neste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN] (https://azure.microsoft.com/en-us/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/en-us/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/en-us/support/faq/).
-

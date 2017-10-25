@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 85911fcc66dcedff0d43bd986bce4500a1a2f00b
-
-
+ms.openlocfilehash: db03b3cd668bf8e35913872ac4225de6d4d3edd1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple
 ## <a name="overview"></a>Visão geral
@@ -57,7 +57,7 @@ Esta seção contém a lista dos dispositivos que têm sido implantados com êxi
 | Comutador   versão do sistema operacional |JunOS 12.3R9.4 |
 | Folha   modelo |Portas integradas (PIC 0) |
 | Forma do transceptor |Juniper |
-| Transceptor   modelo |Peça número 740-021308  <br></br>  Peça número 740-030658 |
+| Transceptor   modelo |Peça número 740-021308  <br></br> Peça número 740-030658 |
 | Transceptor   versão do firmware |Rev 01 Versão 0.0 (reportada) |
 | Cabo   modelo |Duplex jumper LC/LC 50/125µ,   OM3, LSZH |
 | StorSimple   modelo |8600 |
@@ -122,10 +122,4 @@ A tabela a seguir lista as opções compatíveis com Mellanox. Não foram testad
 
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre os componentes de hardware e o status do StorSimple](storsimple-monitor-hardware-status.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

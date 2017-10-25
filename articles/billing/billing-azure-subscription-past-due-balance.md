@@ -4,7 +4,7 @@ description: Descreve como fazer um pagamento se a sua assinatura do Azure tiver
 services: 
 documentationcenter: 
 author: genlin
-manager: narmstr
+manager: jlian
 editor: 
 tags: billing
 ms.assetid: d0b88c92-fb9d-4d12-931b-c26104ad63e9
@@ -13,46 +13,40 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 08/30/2017
 ms.author: genli
-translationtype: Human Translation
-ms.sourcegitcommit: 09c18ca6a967c2930ddd2b16d37f0bc606712ea1
-ms.openlocfilehash: df50594117a3ea875e57bd2374c28b190917850e
-
-
+ms.openlocfilehash: 20761f9c6caf029b2b6bbc8e02b2f041c45abf01
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="why-have-you-received-a-notification-that-your-azure-subscription-has-a-past-due-balance"></a>Por que você recebeu uma notificação informando que sua assinatura do Azure tem um saldo devido anterior?
-Se você for o Administrador da Conta de sua assinatura do Azure e não tiver feito o pagamento no prazo, receberá uma notificação por email sobre seu saldo devido anterior ou verá um alerta no [Centro de Contas do Azure](https://account.windowsazure.com) ou no [portal do Azure](https://portal.azure.com).
+# <a name="resolve-past-due-balance-for-your-azure-subscription-after-getting-an-email-from-azure"></a>Resolver o saldo vencido de sua assinatura do Azure após receber um email do Azure
 
-Se não for possível processar o pagamento por algum motivo, você pode receber um email com uma mensagem semelhante a:
+Caso seu pagamento não seja recebido ou não seja possível processar o pagamento, você poderá receber um email ou ver um alerta no Centro de Contas ou no Portal do Azure. A mensagem pode ser semelhante a:
 
 **Não foi possível usar o cartão de crédito para pagar sua assinatura. Para evitar interrupções de serviço, atualize suas informações de pagamento.**
 
-Verifique se que você está recebendo emails de notificação. Se você não estiver recebendo emails de notificação, talvez esteja usando endereços de e-mail diferentes para logon e a Conta do Administrador. O endereço de email no perfil do administrador da conta é usado pela Microsoft para notificá-lo das atualizações importantes relacionadas à cobrança sobre a assinatura. É recomendável que você especifique um endereço de email de contato que verifica regularmente.
+Siga as etapas no artigo para resolver os últimos saldos vencidos.
 
-## <a name="what-will-happen-if-you-forget-to-pay"></a>O que acontecerá se você esquecer de fazer o pagamento
-O serviço será cancelado e os recursos não estarão mais disponíveis. Todos os dados serão excluídos 90 dias após o encerramento do serviço.
+## <a name="resolve-the-past-due-balance"></a>Resolver saldo vencido
 
-## <a name="what-can-you-do-to-resolve-the-issue"></a>O que você pode fazer para resolver o problema
-Pague o saldo pendente na íntegra.
+* Se o cartão de crédito no arquivo for recusado ou estiver vencido, [altere o cartão de crédito usado para pagar pela assinatura](billing-how-to-change-credit-card.md) ou contate seu banco para resolver o problema. Quando você atualiza a forma de pagamento, o Azure processa imediatamente o pagamento de todos os encargos pendentes. O pagamento também é processado para os outros serviços da Microsoft nos quais você tem encargos pendentes.
 
-**Cenário 1**: se você estiver em um modo de pagamento de fatura, envie seu pagamento para o local indicado na parte inferior de sua fatura. Se precisar de ajuda, entre em contato com o [Suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+* Se você estiver em um modo de pagamento de fatura, envie o pagamento para o local indicado na parte inferior da fatura. Se precisar de ajuda, entre em contato com o [Suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-**Cenário 2**: se a fatura não for paga porque o cartão de crédito registrado foi recusado ou expirou, use outro cartão de crédito ou forma de pagamento para as assinaturas, ou entre em contato com seu banco para resolver o problema. Se você atualizar a forma de pagamento, todos os encargos pendentes em relação a essa forma de pagamento serão automaticamente liquidados imediatamente. Isso inclui encargos pendentes para o Azure, bem como quaisquer outros serviços da Microsoft para os quais o cartão foi usado.
+* Se você não receber uma fatura porque o Administrador da Conta deixou a empresa ou mudou de função, contate o [Suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema.
 
-Para obter instruções sobre como alterar a forma de pagamento no Azure, veja [Como alterar o cartão de crédito usado para pagar uma assinatura do Azure](billing-how-to-change-credit-card.md). Você deve fazer logon como um Administrador da Conta para fazer essa alteração.
+* Caso esteja ciente de que o pagamento foi processado, mas sua assinatura ainda estiver desabilitada, entre em contato com o [Suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-**Cenário 3**: se o aviso de fatura não foi recebido porque o Administrador da Conta deixou a empresa ou mudou de função, entre em contato com o [Suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema.
+## <a name="not-getting-billing-email-notifications"></a>Não está recebendo notificações de email de cobrança?
 
-> [!NOTE]
-> Se sua assinatura do Azure for desabilitada, você poderá usar as etapas neste artigo para reabilitá-la: [O que fazer se minha assinatura do Azure for desabilitada?](billing-subscription-become-disable.md)
->
+Se você for o Administrador da Conta, [verifique qual endereço de email é usado para notificações](billing-how-to-change-azure-account-profile.md). Recomendamos que você use um endereço de email que é verificado regularmente. Se o email estiver correto, verifique a pasta de spam.
+
+## <a name="if-i-forget-to-pay-what-happens"></a>Se eu me esquecer de pagar, o que acontecerá?
+
+O serviço será cancelado e seus recursos não estarão mais disponíveis. Todos os seus dados do Azure serão excluídos 90 dias após o encerramento do serviço. Para saber mais, consulte a [Central de Confiabilidade da Microsoft – Como gerenciamos seus dados](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
+
 Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

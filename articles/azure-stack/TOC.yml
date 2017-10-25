@@ -1,0 +1,209 @@
+- name: Documentação do Operador do Azure Stack
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: O que é o Azure Stack?
+      href: azure-stack-poc.md
+- name: Guia de início rápido
+  expanded: true
+  items:
+    - name: Implantar o Azure Stack
+      href: azure-stack-deploy-overview.md
+- name: Tutoriais
+  items:
+    - name: Oferecer Máquinas Virtuais
+      href: azure-stack-tutorial-tenant-vm.md
+    - name: Oferecer bancos de dados SQL
+      href: azure-stack-tutorial-sql-server.md
+    - name: Oferecer Aplicativos Web
+      href: azure-stack-tutorial-app-service.md
+- name: Conceitos
+  items:
+    - name: Política de manutenção
+      href: azure-stack-servicing-policy.md
+    - name: Notas de versão
+      href: azure-stack-asdk-release-notes.md
+    - name: Principais recursos e conceitos
+      href: azure-stack-key-features.md
+    - name: Arquitetura do Kit de Desenvolvimento do Azure Stack
+      href: azure-stack-architecture.md
+    - name: Bases de administração
+      href: azure-stack-manage-basics.md
+- name: Guias de instruções
+  items:
+    - name: Implantar
+      items:
+        - name: Pré-requisitos
+          href: azure-stack-deploy.md
+        - name: Implantar
+          href: azure-stack-run-powershell-script.md
+        - name: Registrar
+          href: azure-stack-register.md
+        - name: Conectar-se ao Azure Stack
+          href: azure-stack-connect-azure-stack.md
+        - name: Adicionar imagem padrão
+          href: azure-stack-add-default-image.md
+        - name: Criar uma VM de teste
+          href: azure-stack-provision-vm.md
+    - name: Integração do datacenter
+      items:
+        - name: Integrar DNS
+          href: azure-stack-integrate-dns.md
+        - name: Publicar pontos de extremidade
+          href: azure-stack-integrate-endpoints.md
+    - name: Gerenciar
+      items:
+        - name: Gerenciamento da região
+          href: azure-stack-region-management.md
+        - name: Usando o portal do administrador
+          href: azure-stack-manage-portals.md
+        - name: Conectar-se ao Azure Stack
+          href: azure-stack-connect-azure-stack.md
+        - name: Habilitar a CLI para usuários
+          href: azure-stack-cli-admin.md
+        - name: Configurar ambiente de gerenciamento
+          items:
+            - name: Instalar o PowerShell do Azure Stack
+              href: azure-stack-powershell-install.md
+            - name: Baixar ferramentas
+              href: azure-stack-powershell-download.md
+            - name: Configurar o PowerShell - Operador de nuvem
+              href: azure-stack-powershell-configure-admin.md
+            - name: Iniciar e executar com o PowerShell
+              href: azure-stack-powershell-configure-quickstart.md
+        - name: Acessar ponto de extremidade de acesso privilegiado
+          href: azure-stack-privileged-endpoint.md
+        - name: Gerenciar atualizações
+          items:
+            - name: Visão geral do gerenciamento de atualizações
+              href: azure-stack-updates.md
+            - name: Aplicar atualizações
+              href: azure-stack-apply-updates.md
+        - name: Monitorar integridade e alertas
+          href: azure-stack-monitor-health.md
+        - name: Gerenciar recursos de rede
+          href: azure-stack-viewing-public-ip-address-consumption.md
+        - name: Gerenciar recursos de armazenamento
+          href: azure-stack-manage-storage-accounts.md
+        - name: Gerenciar VMs do Microsoft Azure Pack
+          href: azure-stack-manage-windows-azure-pack.md
+        - name: Substituir hardware
+          items:
+            - name: Substituir disco
+              href: azure-stack-replace-disk.md
+    - name: 'Segurança, conformidade e identidade'
+      items:
+        - name: Visão geral da segurança
+          href: azure-stack-security-foundations.md
+        - name: Identidade
+          items:
+            - name: Gerenciar o RBAC
+              href: azure-stack-manage-permissions.md
+            - name: Adicionar usuários do Azure AD
+              href: azure-stack-add-new-user-aad.md
+            - name: Adicionar usuários do AD FS
+              href: azure-stack-add-users-adfs.md
+            - name: Criar entidades de serviço
+              href: Azure-stack-create-service-principals.md
+            - name: Habilitar multilocação
+              href: azure-stack-enable-multitenancy.md
+    - name: Oferecer serviços
+      items:
+        - name: Visão geral da oferta de serviços
+          href: azure-stack-offer-services-overview.md
+        - name: 'Criar planos, ofertas e cotas'
+          items:
+            - name: 'Visão geral de plano, oferta, cotas e assinatura'
+              href: azure-stack-plan-offer-quota-overview.md
+            - name: Criar um plano
+              href: azure-stack-create-plan.md
+            - name: Criar uma oferta
+              href: azure-stack-create-offer.md
+            - name: Assinar uma oferta
+              href: azure-stack-subscribe-plan-provision-vm.md
+            - name: Delegar ofertas no Azure Stack
+              href: azure-stack-delegated-provider.md
+            - name: Tipos de cotas
+              href: azure-stack-quota-types.md
+        - name: Oferta do SQL ou MySQL como PaaS
+          items:
+            - name: Visão geral dos serviços PaaS
+              href: azure-stack-tools-paas-services.md
+            - name: Implantar provedor de recursos do MySQL
+              href: azure-stack-mysql-resource-provider-deploy.md
+            - name: Implantar provedor de recursos do SQL
+              href: azure-stack-sql-resource-provider-deploy.md
+        - name: Oferta de Serviço de Aplicativo como PaaS
+          items:
+            - name: Serviço de Aplicativo na visão geral do Azure Stack
+              href: azure-stack-app-service-overview.md
+            - name: Antes de começar
+              href: azure-stack-app-service-before-you-get-started.md
+            - name: Implantar provedor de recursos do Serviço de Aplicativo
+              href: azure-stack-app-service-deploy.md
+            - name: Implantar o Serviço de Aplicativo offline
+              href: azure-stack-app-service-deploy-offline.md
+            - name: Adicionar mais funções de trabalho da Web
+              href: azure-stack-app-service-add-worker-roles.md
+            - name: Configurar fontes de implantação
+              href: azure-stack-app-service-configure-deployment-sources.md
+        - name: Preencher o marketplace
+          items:
+            - name: Visão geral do Marketplace
+              href: azure-stack-marketplace.md
+            - name: Baixar itens do marketplace
+              href: azure-stack-download-azure-marketplace-item.md
+            - name: Itens do marketplace do Azure para o Azure Stack
+              href: azure-stack-marketplace-azure-items.md
+            - name: Criar e publicar um item do marketplace
+              href: azure-stack-create-and-publish-marketplace-item.md
+            - name: Use a ferramenta de Publicação do Marketplace
+              href: azure-stack-marketplace-publisher.md
+            - name: Adicionar uma imagem de máquina virtual personalizada
+              href: azure-stack-add-vm-image.md
+            - name: Adicionar conjuntos de dimensionamento de máquinas virtuais
+              href: azure-stack-compute-add-scalesets.md
+            - name: Implantar máquinas virtuais do Linux
+              href: azure-stack-linux.md
+        - name: Uso e cobrança
+          items:
+            - name: Visão geral
+              href: azure-stack-billing-and-chargeback.md
+            - name: Relatórios de dados de uso
+              href: azure-stack-usage-reporting.md
+            - name: API de uso do provedor
+              href: azure-stack-provider-resource-api.md
+            - name: API de uso do locatário
+              href: azure-stack-tenant-resource-usage-api.md
+            - name: Perguntas frequentes sobre o uso
+              href: azure-stack-usage-related-faq.md
+        - name: Conecte-se ao Azure
+          items:
+            - name: Conectar-se usando VPN
+              href: azure-stack-connect-vpn.md
+            - name: Conectar-se usando o ExpressRoute
+              href: azure-stack-connect-expressroute.md
+    - name: Solucionar problemas
+      items:
+        - name: Problemas conhecidos
+          href: azure-stack-troubleshooting.md
+        - name: Diagnósticos no Azure Stack
+          href: azure-stack-diagnostics.md
+        - name: Reimplantar o Kit de Desenvolvimento do Azure Stack
+          href: azure-stack-redeploy.md
+- name: Referência
+  items:
+    - name: Azure Stack PowerShell
+      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
+- name: Recursos
+  items:
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Fórum do MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack'
+    - name: Informações sobre preço
+      href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-stack'
+    - name: Treinamento e certificação
+      href: azure-stack-train-and-cert.md

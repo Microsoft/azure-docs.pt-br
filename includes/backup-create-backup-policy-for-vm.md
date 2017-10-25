@@ -26,8 +26,3 @@ Para criar uma política:
    
     A nova política será aplicada imediatamente no cofre.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

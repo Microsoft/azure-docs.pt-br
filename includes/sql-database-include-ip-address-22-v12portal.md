@@ -51,8 +51,3 @@ These includes/ files are a sequenced set, but you can pick and choose:
 includes/sql-database-include-ip-address-22-v12portal.md
 ? includes/sql-database-include-ip-address-*.md
 -->
-
-
-<!--HONumber=Nov16_HO3-->
-
-

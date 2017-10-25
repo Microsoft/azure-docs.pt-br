@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: osamam
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 10166e6b8b9144f0a5dde4f2fc10b492120e85d7
-
-
+ms.openlocfilehash: 8568c13d2834a0643e15ab1814a35c92123837d1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Roteamento assimétrico com vários caminhos de rede
 Este artigo explica como o encaminhamento e o retorno do tráfego de rede podem adotar rotas diferentes quando há vários caminhos disponíveis entre a origem e o destino da rede.
@@ -42,17 +42,17 @@ Os roteadores examinam o cabeçalho IP de um pacote para fazer o roteamento. Alg
 
 O firewall é um exemplo comum de dispositivo com estado. O firewall permite ou nega a passagem de um pacote nas interfaces com base em vários campos, como protocolo, porta TCP/UDP e cabeçalhos de URL. Esse nível de inspeção de pacotes coloca uma pesada carga de processamento no dispositivo. Para melhorar o desempenho, o firewall inspeciona o primeiro pacote de um fluxo. Se ele permitir que o pacote prossiga, manterá as informações de fluxo em sua tabela de estado. Todos os pacotes subsequentes relacionados a esse fluxo serão permitidos com base na determinação inicial. Um pacote que faz parte de um fluxo existente pode chegar no firewall. Se o firewall não tiver nenhuma informação do estado anterior sobre ele, irá descartar o pacote.
 
-## <a name="asymmetric-routing-with-expressroute"></a>Roteamento assimétrico com a Rota Expressa
+## <a name="asymmetric-routing-with-expressroute"></a>Roteamento assimétrico com o ExpressRoute
 Quando você conecta a Microsoft por meio do ExpressRoute do Azure, sua rede muda da seguinte maneira:
 
 * Você tem vários links para a Microsoft. Um link é sua conexão com a Internet existente e o outro é via ExpressRoute. Parte do tráfego para a Microsoft pode passar pela Internet, mas voltar por meio do ExpressRoute ou vice-versa.
-* Você recebe endereços IP mais específicos por meio da Rota Expressa. Portanto, o tráfego da rede para a Microsoft, para os serviços oferecidos por meio do ExpressRoute, sempre prefere o ExpressRoute.
+* Você recebe endereços IP mais específicos por meio do ExpressRoute. Portanto, o tráfego da rede para a Microsoft, para os serviços oferecidos por meio do ExpressRoute, sempre prefere o ExpressRoute.
 
 Para entender o efeito que essas duas alterações têm em uma rede, iremos considerar alguns cenários. Como exemplo, você tem apenas um circuito para a Internet e consome todos os serviços da Microsoft via Internet. O tráfego de ida e volta de sua rede para a Microsoft atravessa o mesmo link da Internet e passa pelo firewall. O firewall registra o fluxo ao ver o primeiro pacote e os pacotes de retorno são permitidos porque existe fluxo na tabela de estados.
 
-![Roteamento assimétrico com a Rota Expressa](./media/expressroute-asymmetric-routing/AsymmetricRouting1.png)
+![Roteamento assimétrico com o ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting1.png)
 
-Então, você ativa o ExpressRoute e consome os serviços oferecidos pela Microsoft por meio do ExpressRoute. Todos os outros serviços da Microsoft são consumidos por meio da Internet. Você pode implantar um firewall separado em sua borda conectada à Rota Expressa. A Microsoft anuncia os prefixos mais específicos para sua rede por meio do ExpressRoute dos serviços específicos. Sua infraestrutura de roteamento escolhe o ExpressRoute como o caminho preferido desses prefixos. Se você não estiver anunciando seus endereços IP públicos para a Microsoft no ExpressRoute, a Microsoft se comunicará com seus endereços IP públicos por meio da Internet. O tráfego de encaminhamento de sua rede para a Microsoft usa o ExpressRoute, enquanto o tráfego inverso da Microsoft usa a Internet. Quando o firewall na borda vir um pacote de resposta para um fluxo não encontrado na tabela de estados, ele descartará o tráfego de retorno.
+Então, você ativa o ExpressRoute e consome os serviços oferecidos pela Microsoft por meio do ExpressRoute. Todos os outros serviços da Microsoft são consumidos por meio da Internet. Você pode implantar um firewall separado em sua borda conectada à ExpressRoute. A Microsoft anuncia os prefixos mais específicos para sua rede por meio do ExpressRoute dos serviços específicos. Sua infraestrutura de roteamento escolhe o ExpressRoute como o caminho preferido desses prefixos. Se você não estiver anunciando seus endereços IP públicos para a Microsoft no ExpressRoute, a Microsoft se comunicará com seus endereços IP públicos por meio da Internet. O tráfego de encaminhamento de sua rede para a Microsoft usa o ExpressRoute, enquanto o tráfego inverso da Microsoft usa a Internet. Quando o firewall na borda vir um pacote de resposta para um fluxo não encontrado na tabela de estados, ele descartará o tráfego de retorno.
 
 Se você optar por usar o mesmo pool NAT (Conversão de Endereços de Rede) do ExpressRoute e da Internet, verá problemas semelhantes com os clientes nos endereços IP privados em sua rede. As solicitações dos serviços como o Windows Update passam pela Internet, pois os endereços IP para esses serviços não são divulgados via ExpressRoute. No entanto, o tráfego de retorno volta via ExpressRoute. Se a Microsoft receber um endereço IP com a mesma máscara de sub-rede da Internet e do ExpressRoute, preferirá o ExpressRoute na Internet. Se um firewall ou outro dispositivo com estado na borda da rede, voltado para o ExpressRoute, não tiver informações anteriores sobre o fluxo, descartará os pacotes que pertencem ao fluxo.
 
@@ -71,10 +71,4 @@ Outra maneira de solucionar os problemas do roteamento assimétrico é usando a 
 
 ## <a name="asymmetric-routing-detection"></a>Detecção de roteamento assimétrico
 O rastreamento de rotas é a melhor maneira de garantir que o tráfego de rede está atravessando o caminho esperado. Se você espera que o tráfego do servidor SMTP local para a Microsoft tome o caminho da Internet, o rastreamento de rotas esperado é do servidor SMTP para o Office 365. O resultado valida que o tráfego realmente sai de sua rede para a Internet, não na direção do ExpressRoute.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

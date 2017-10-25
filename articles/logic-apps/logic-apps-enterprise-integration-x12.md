@@ -5,7 +5,7 @@ services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
 manager: anneta
-editor: cgronlun
+editor: 
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.service: logic-apps
 ms.workload: integration
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
-ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 2c20d4c764129004b4e757854bcd1ecb106cecff
-ms.lasthandoff: 03/10/2017
-
-
+ms.author: LADocs; padmavc
+ms.openlocfilehash: 1bfaa7b31bfed3ada22c83516839ebd95a351854
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Troca de mensagens X12 para integração de empresas com aplicativos lógicos
 
@@ -40,14 +39,14 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
 
 ## <a name="create-an-x12-agreement"></a>Criar um contrato X12
 
-1.    Entre no [portal do Azure](http://portal.azure.com "portal do Azure"). No menu à esquerda, selecione **Mais serviços**. 
+1.  Entre no [portal do Azure](http://portal.azure.com "portal do Azure"). No menu à esquerda, selecione **Mais serviços**. 
 
     > [!TIP]
     > Se você não encontrar a opção **Mais serviços**, talvez seja necessário expandir o menu primeiro. Na parte superior do menu recolhido, selecione **Mostrar menu**.
 
     ![No menu à esquerda, selecione "Mais serviços"](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
-2.    Na caixa de pesquisa, digite "Integração" como filtro. Na lista de resultados, selecione **Contas de Integração**.  
+2.  Na caixa de pesquisa, digite "Integração" como filtro. Na lista de resultados, selecione **Contas de Integração**.  
 
     ![Filtre por "integração", selecione "Contas de Integração"](./media/logic-apps-enterprise-integration-x12/account-2.png)
 
@@ -86,7 +85,7 @@ Caso não encontre nenhuma conta de integração, [crie uma primeiro](../logic-a
 
 Depois de configurar as propriedades do contrato, você pode configurar como este contrato identifica e manipula mensagens de entrada recebidas do seu parceiro por meio deste contrato.
 
-1.    Em **Adicionar**, selecione **Configurações de recebimento**.
+1.  Em **Adicionar**, selecione **Configurações de Recebimento**.
 Configure essas propriedades com base em seu contrato com o parceiro que troca mensagens com você. Para obter as descrições da propriedade, confira as tabelas nesta seção.
 
     As **Configurações de recebimento** são organizadas nas seguintes seções: Identificadores, Confirmação, Esquemas, Envelopes, Números de controle, Validações e Configurações internas.
@@ -171,7 +170,7 @@ Quando você conclui cada linha de validação, outra é adicionada automaticame
 
 | Propriedade | Descrição |
 | --- | --- |
-| Converte o formato decimal implícito "Nn" para o valor numérico de base 10 |Converte um número de EDI especificado no formato "Nn" em um valor numérico de base&10; |
+| Converte o formato decimal implícito "Nn" para o valor numérico de base 10 |Converte um número de EDI especificado no formato "Nn" em um valor numérico de base 10 |
 | Criar marcas XML vazias se forem permitidos separadores à direita |Marque essa caixa de seleção para que o remetente do intercâmbio inclua marcas XML vazias para separadores à direita. |
 | Dividir Intercâmbio como conjuntos de transação – suspender conjuntos de transação com erro|Analisa cada conjunto de transações em um intercâmbio dentro de um documento XML separado ao aplicar o envelope apropriado ao conjunto de transações. Suspende somente as transações em que a validação falhar. |
 | Dividir Intercâmbio como conjuntos de transação – suspender intercâmbio com erro|Analisa cada conjunto de transações em um intercâmbio dentro de um documento XML separado ao aplicar o envelope apropriado. Suspende o intercâmbio inteiro se um ou mais conjuntos de transações no intercâmbio falharem na validação. | 
@@ -182,7 +181,7 @@ Quando você conclui cada linha de validação, outra é adicionada automaticame
 
 Você pode configurar como este contrato identifica e trata mensagens de saída enviadas a seus parceiros por meio deste contrato.
 
-1.    Em **Adicionar**, selecione **Configurações de Envio**.
+1.  Em **Adicionar**, selecione **Configurações de Envio**.
 Configure essas propriedades com base no seu contrato com seu parceiro que troca mensagens com você. Para obter as descrições da propriedade, confira as tabelas nesta seção.
 
     **Configurações de envio** é organizado nas seguintes seções: Identificadores, Confirmação, Esquemas, Envelopes, Conjuntos de caracteres e separadores, Números de controle e Validação.
@@ -272,6 +271,9 @@ Além do conjunto de caracteres, você pode inserir um conjunto diferente de del
 | Terminador de segmento |Insira um único caractere para indicar o final de um segmento EDI. |
 | Suffix |Selecionar o caractere a ser usado com o identificador de segmento. Se você designar um sufixo, o elemento de dados de terminador de segmento poderá ficar vazio. Se o terminador de segmento ficar vazio, você deverá designar um sufixo. |
 
+> [!TIP]
+> Para fornecer valores de caractere especial, edite o contrato como JSON e forneça o valor ASCII para o caractere especial.
+
 ### <a name="validation"></a>Validação
 
 ![Definição de propriedades de validação para o envio de mensagens](./media/logic-apps-enterprise-integration-x12/x12-10.png) 
@@ -289,15 +291,17 @@ Quando você conclui cada linha de validação, outra é adicionada automaticame
 
 ## <a name="find-your-created-agreement"></a>Como localizar seu contrato criado
 
-1.    Depois que você terminar de definir todas as suas propriedades de contrato, na folha **Adicionar**, escolha **OK** para terminar de criar o contrato e retornar para a folha da conta de integração.
+1.  Depois que você terminar de definir todas as suas propriedades de contrato, na folha **Adicionar**, escolha **OK** para terminar de criar o contrato e retornar para a folha da conta de integração.
 
-    Agora, seu contrato recém-adicionado é exibido na sua lista de **Contratos**.
+    Agora seu contrato recém-adicionado é exibido na lista **Contratos**.
 
-2.    Você também pode visualizar seus contratos na visão geral de conta de integração. Na folha de conta de integração, escolha **Visão geral** e selecione o bloco **Contratos**.
+2.  Você também pode visualizar seus contratos na visão geral de conta de integração. Na folha de conta de integração, escolha **Visão geral** e selecione o bloco **Contratos**.
 
     ![Escolha o bloco de "Contratos" para exibir todos os contratos](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
 
+## <a name="view-the-swagger"></a>Exibir o Swagger
+Consulte os [detalhes do Swagger](/connectors/x12/). 
+
 ## <a name="learn-more"></a>Saiba mais
 * [Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")  
-
 

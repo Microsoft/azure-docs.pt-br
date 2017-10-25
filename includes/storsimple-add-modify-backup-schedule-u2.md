@@ -19,15 +19,10 @@
        ![modificar programações 1](./media/storsimple-add-modify-backup-schedule-u2/AddModify2.png) 
    4. Especifique a frequência de backup, a retenção e a hora de início da agenda.
    5. Marque a caixa de seleção para habilitar ou desabilitar a política.
-   6. Clique no ícone de verificação  ![ícone de verificação](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png)  para salvar as configurações.
+   6. Clique no ícone de verificação  ![ícone de verificação](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png) para salvar as configurações.
 6. Na seção **Volumes** , escolha os volumes aos quais essa política será aplicada.
 7. Clique em **Salvar** na parte inferior da página para salvar as alterações à politica.
 8. Você será solicitado a fornecer sua confirmação. Clique em **OK** para salvar a política.
 
 A página **Políticas de Backup** será atualizada para salvar as alterações na política.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

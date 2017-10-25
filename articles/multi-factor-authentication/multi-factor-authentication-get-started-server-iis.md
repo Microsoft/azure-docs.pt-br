@@ -5,21 +5,21 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: d1bf1c8a-2c10-4ae6-9f4b-75f0c3df43eb
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/26/2017
+ms.date: 06/16/2017
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
-ms.openlocfilehash: 71ba44c00036b3ed45518f58fa534a1767ab8c34
-ms.lasthandoff: 02/28/2017
-
+ms.reviewer: yossib
+ms.custom: H1Hack27Feb2017,it-pro
+ms.openlocfilehash: ab6f9110dccd3cfc15092f535650e8d8cb1af13c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Configurar o Servidor de Autenticação Multifator do Azure para aplicativos Web do IIS
 
@@ -36,17 +36,17 @@ Para proteger um aplicativo Web do IIS que usa autenticação baseada em formul�
 4. Para detectar o nome do usuário, a senha e as variáveis de domínio automaticamente, insira a URL de Logon (como, https://localhost/contoso/auth/login.aspx) na caixa de diálogo Configurar Automaticamente Site Baseado em Formulário e clique em **OK**.
 5. Marque a caixa **Exigir correspondência do usuário da Autenticação Multifator** se todos os usuários foram ou vierem a ser importados para o Servidor e estiverem sujeitos à autenticação multifator. Se um número significativo de usuários ainda não tiver sido importado no Servidor e/ou for isentado da autenticação multifator, deixe a caixa desmarcada.
 6. Se as variáveis de página não puderem ser detectadas automaticamente, clique em **Especificar Manualmente** na caixa de diálogo Configurar Automaticamente Site Baseado em Formulário.
-7. Na caixa de diálogo Adicionar Site Baseado em Formulário, digite a URL para a página de logon no campo URL de envio e digite um nome de aplicativo (opcional). O nome do aplicativo aparece nos relatórios do Azure Multi-Factor Authentication e pode ser exibido nas mensagens de autenticação por SMS ou Aplicativo Móvel. 
+7. Na caixa de diálogo Adicionar Site Baseado em Formulário, digite a URL para a página de logon no campo URL de envio e digite um nome de aplicativo (opcional). O nome do aplicativo aparece nos relatórios do Azure Multi-Factor Authentication e pode ser exibido nas mensagens de autenticação por SMS ou Aplicativo Móvel.
 8. Selecione o formato correto da solicitação. Isso é definido como **POST ou GET** para a maioria dos aplicativos Web.
 9. Insira a variável de Nome de usuário, a variável de Senha e a variável de Domínio (se aparecer na página de logon). Para localizar os nomes das caixas de entrada navegue até a página de logon em um navegador da Web, clique com o botão direito do mouse na página e selecione **Exibir Fonte**.
-10. Marque a caixa **Exigir correspondência do usuário da Autenticação Multifator do Azure** se todos os usuários foram ou vierem a ser importados para o Servidor e estiverem sujeitos à autenticação multifator. Se um número significativo de usuários ainda não tiver sido importado no Servidor e/ou for isentado da autenticação multifator, deixe a caixa desmarcada. 
+10. Marque a caixa **Exigir correspondência do usuário da Autenticação Multifator do Azure** se todos os usuários foram ou vierem a ser importados para o Servidor e estiverem sujeitos à autenticação multifator. Se um número significativo de usuários ainda não tiver sido importado no Servidor e/ou for isentado da autenticação multifator, deixe a caixa desmarcada.
 11. Clique em **Avançado** para examinar as configurações avançadas, incluindo:
 
   - Selecionar um arquivo de página de negação personalizado
   - Armazenar em cache as autenticações bem-sucedidas no site, durante um período de tempo, usando cookies
   - Selecione se deseja autenticar as credenciais primárias em um Domínio do Windows, diretório LDAP. ou servidor RADIUS.
 
-12. Clique em **OK** para retornar à caixa de diálogo Adicionar Site Baseado em Formulário. 
+12. Clique em **OK** para retornar à caixa de diálogo Adicionar Site Baseado em Formulário.
 13. Clique em **OK**.
 14. Depois que as variáveis de URL e página forem detectadas ou inseridas, os dados do site serão exibidos no painel Baseado em Formulário.
 
@@ -54,11 +54,11 @@ Para proteger um aplicativo Web do IIS que usa autenticação baseada em formul�
 Para proteger um aplicativo Web do IIS que usa a autenticação HTTP integrada do Windows, instale o Servidor de MFA do Azure no servidor Web do IIS e, em seguida, configure o Servidor com as seguintes etapas:
 
 1. No Servidor de Autenticação Multifator do Azure, clique no ícone de Autenticação do IIS no menu esquerdo.
-2. Clique na guia **HTTP**. 
+2. Clique na guia **HTTP**.
 3. Clique em **Adicionar**.
 4. Na caixa de diálogo Adicionar URL Base, insira a URL para o site em que a autenticação HTTP é realizada (como http://localhost/owa) e forneça um Nome de aplicativo (opcional). O nome do aplicativo aparece nos relatórios do Azure Multi-Factor Authentication e pode ser exibido nas mensagens de autenticação por SMS ou Aplicativo Móvel.
 5. Ajuste o tempo limite de ociosidade e o tempo máximo de sessão se o padrão não for suficiente.
-6. Marque a caixa **Exigir correspondência do usuário da Autenticação Multifator** se todos os usuários foram ou vierem a ser importados para o Servidor e estiverem sujeitos à autenticação multifator. Se um número significativo de usuários ainda não tiver sido importado no Servidor e/ou for isentado da autenticação multifator, deixe a caixa desmarcada. 
+6. Marque a caixa **Exigir correspondência do usuário da Autenticação Multifator** se todos os usuários foram ou vierem a ser importados para o Servidor e estiverem sujeitos à autenticação multifator. Se um número significativo de usuários ainda não tiver sido importado no Servidor e/ou for isentado da autenticação multifator, deixe a caixa desmarcada.
 7. Marque a caixa de **Cache de cookie**, se desejado.
 8. Clique em **OK**.
 
@@ -76,5 +76,3 @@ Os IPs Confiáveis permitem que os usuários ignorem o Azure Multi-Factor Authen
 2. Clique em **Adicionar**.
 3. Quando a caixa de diálogo Adicionar IPs Confiáveis aparecer, selecione o botão de opção **IP Único**, **Intervalo de IP** ou **Sub-rede**.
 4. Insira o endereço IP, o intervalo dos endereços IP ou a sub-rede que devem ser colocados na lista branca. Se for inserir uma sub-rede, selecione a Máscara de Rede apropriada e clique em **OK**. A lista de autorizados agora foi adicionada.
-
-

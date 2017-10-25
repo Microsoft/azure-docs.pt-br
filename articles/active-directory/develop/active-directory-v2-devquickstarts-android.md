@@ -3,7 +3,7 @@ title: Aplicativo Android v2.0 do Azure Active Directory | Microsoft Docs
 description: "Como criar um aplicativo Android que conecte usuários com a conta pessoal e as contas corporativas ou de estudante da Microsoft e as chamadas à API do Graph usando bibliotecas de terceiros."
 services: active-directory
 documentationcenter: 
-author: xerners
+author: danieldobalian
 manager: mbaldwin
 editor: 
 ms.assetid: 16294c07-f27d-45c9-833f-7dbb12083794
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: brandwe
-translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 2dfe58c032888ca34e905f4e549fcc4d6e36d324
-
-
+ms.date: 05/07/2017
+ms.author: dadobali
+ms.custom: aaddev
+ms.openlocfilehash: c0a5a818c61f7af7ff04bf890b54e8364f3b21b1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Adicionar entrada a um aplicativo Android usando uma biblioteca de terceiros com a API do Graph usando o ponto de extremidade v2.0
 A plataforma de identidade da Microsoft usa padrões abertos, como OAuth2 e OpenID Connect. Os desenvolvedores podem usar qualquer biblioteca desejada para integrar aos nossos serviços. Para ajudar os desenvolvedores a usar nossa plataforma com outras bibliotecas, escrevemos alguns guias passo a passo como este para demonstrar como configurar bibliotecas de terceiros que se conectam à plataforma de identidade da Microsoft. A maioria das bibliotecas que implementa [a especificação RFC6749 do OAuth2](https://tools.ietf.org/html/rfc6749) pode se conectar à plataforma de identidade da Microsoft.
@@ -92,8 +93,7 @@ git@github.com:kalemontes/OIDCAndroidLib.git
     ![O módulo de aplicativo padrão](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample5.PNG)
 5. Importe os módulos do repositório clonado para o projeto atual.
    
-    ![Importar projeto gradle](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG)
-    ![Página Criar novo módulo](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)
+    ![Importar projeto gradle](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG)![Página Criar novo módulo](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)
 6. Repita essas etapas para o módulo `oidlib-sample` .
 7. Verifique as dependências de oidclib no módulo `oidlib-sample` .
    
@@ -188,10 +188,4 @@ Depois da autenticação bem-sucedida, escolha o botão **Solicitar Recurso Prot
 
 ## <a name="get-security-updates-for-our-product"></a>Obter atualizações de segurança para nosso produto
 É recomendável obter notificações sobre incidentes de segurança visitando a página [Segurança TechCenter](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

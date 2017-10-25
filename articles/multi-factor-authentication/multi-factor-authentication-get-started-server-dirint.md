@@ -5,21 +5,21 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/16/2017
+ms.date: 06/16/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
-ms.openlocfilehash: 07b14394b0e07fd78d70d77aeef8a2feb17284e0
-ms.lasthandoff: 02/17/2017
-
-
+ms.reviewer: yossib
+ms.custom: it-pro
+ms.openlocfilehash: c469dfaccf515bcd1ced43279decfefe6be8375b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integração de diretórios entre o Azure MFA Server e o Active Directory
 Use a seção Integração de Diretórios do Servidor do Azure MFA para se integrar com o Active Directory ou com outro diretório LDAP. Você pode configurar atributos para corresponder ao esquema de diretório e configurar a sincronização automática de usuários.
@@ -95,7 +95,7 @@ Os atributos podem ser inseridos manualmente e não precisam coincidir com um at
 | Extensão |Insira o nome do atributo que contém o ramal do número de telefone em um registro de usuário.  O valor do campo de ramal só será usado como ramal do número de telefone principal.  O padrão é em branco. <br><br>Se o atributo Ramal não for especificado, os ramais poderão ser incluídos como parte do atributo de telefone. Nesse caso, preceda a extensão com um 'x' para que ele é analisado corretamente.  Por exemplo, 3123-4567 x890 resultaria em 3123-4567 como o número de telefone e 890 como o ramal. |
 | Botão Restaurar Padrões |Clique em **Restaurar Padrões** para retornar todos os atributos ao valor padrão.  Os padrões devem funcionar corretamente com o esquema do Active Directory ou do ADAM normal. |
 
-Para editar atributos, clique em **editar** na guia atributos.  Isso abre uma janela onde você pode editar os atributos. Selecione o **... ** ao lado de qualquer atributo para abrir uma janela onde você pode escolher quais atributos a serem exibidos. 
+Para editar atributos, clique em **editar** na guia atributos.  Isso abre uma janela onde você pode editar os atributos. Selecione o **...**  ao lado de qualquer atributo para abrir uma janela onde você pode escolher quais atributos a serem exibidos.
 
 ![Editar Atributos](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)
 
@@ -138,5 +138,3 @@ Os botões Mover para cima e Mover para baixo permitem que o administrador alter
 Os servidores adicionais Multi-Factor Auth podem ser configurados para servir como um backup proxy RADIUS, proxy LDAP ou para autenticação IIS. A configuração da Sincronização será compartilhada entre todos os agentes. No entanto, apenas um desses agentes pode ter a execução do serviço de servidor Multi-Factor Auth. Essa guia permite que você selecione o servidor Multi-Factor Auth que deve ser habilitado para sincronização.
 
 ![Servidores Multi-Factor Auth](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
-
-

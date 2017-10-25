@@ -1,135 +1,252 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory com o Envoy | Microsoft Docs"
-description: "Saiba como usar o Envoy com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Envoy."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 71f7afcc-1033-4098-9b7e-4f9f2b26f734
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/10/2017
+ms.date: 08/08/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 913f0688d757829771a8456b3e3be13f69c5b1da
-ms.openlocfilehash: a72feeb919f2bbc1d96736e33c8c99e340ff6914
-ms.lasthandoff: 02/17/2017
-
-
+ms.openlocfilehash: 49211b35ab3e28e0df914061e7fa623907935638
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envoy"></a>Tutorial: integração do Active Directory do Azure ao Envoy
-O objetivo deste tutorial é mostrar a integração do Azure ao Envoy.  
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
-* Uma assinatura válida do Azure
-* Um locatário do Envoy
+Neste tutorial, você aprende a integrar o Envoy ao Azure AD (Azure Active Directory).
 
-Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Envoy poderão fazer logon único no aplicativo em seu site de empresa do Envoy (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+A integração do Envoy ao Azure AD oferece os seguintes benefícios:
 
-O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
+- No Azure AD, é possível controlar quem tem acesso ao Envoy.
+- Você pode permitir que seus usuários entrem automaticamente no Envoy (Logon Único) com as respectivas contas do Azure AD.
+- Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-* Habilitando a integração de aplicativos para o Envoy
-* Configurando o SSO (logon único)
-* Configurando o provisionamento de usuários
-* Atribuindo usuários
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![Cenário](./media/active-directory-saas-envoy-tutorial/IC776759.png "Cenário")
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="enable-the-application-integration-for-envoy"></a>Habilitar a integração de aplicativos para Envoy
-O objetivo desta seção é descrever como habilitar a integração de aplicativos para o Envoy.
+Para configurar a integração do Azure AD com o Envoy, você precisará dos seguintes itens:
 
-**Para habilitar a integração de aplicativos para o Envoy, execute as seguintes etapas:**
+- Uma assinatura do AD do Azure
+- Uma assinatura do Envoy habilitada para logon único
 
-1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-envoy-tutorial/IC700993.png "Active Directory")
-2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
-3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
-   
-   ![Aplicativos](./media/active-directory-saas-envoy-tutorial/IC700994.png "Aplicativos")
-4. Clique em **Adicionar** na parte inferior da página.
-   
-   ![Adicionar aplicativo](./media/active-directory-saas-envoy-tutorial/IC749321.png "Adicionar aplicativo")
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
-   
-   ![Adicionar um aplicativo da galeria](./media/active-directory-saas-envoy-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
-6. Na **caixa de pesquisa**, digite **Envoy**.
-   
-   ![Galeria de aplicativos](./media/active-directory-saas-envoy-tutorial/IC776760.png "Galeria de aplicativos")
-7. No painel de resultados, selecione **Envoy** e clique em** Concluir** para adicionar o aplicativo.
-   
-   ![Envoy](./media/active-directory-saas-envoy-tutorial/IC776777.png "Envoy")
-   
-## <a name="configure-single-sign-on"></a>Configurar o logon único
+> [!NOTE]
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
-O objetivo desta seção é descrever como permitir que os usuários autentiquem no Envoy com a própria conta no Azure AD usando federação baseada no protocolo SAML.  
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
-Configurar o SSO para o Envoy exige que você recupere um valor de impressão digital de um certificado. Se você não estiver familiarizado com este procedimento, consulte [Como recuperar o valor de impressão digital do certificado](http://youtu.be/YKQF266SAxI).
+- Não use o ambiente de produção, a menos que seja necessário.
+- Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
-**Para configurar o logon único, execute as seguintes etapas:**
+## <a name="scenario-description"></a>Descrição do cenário
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. No Portal Clássico do Azure, na página de integração do aplicativo **Envoy**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
-   
-   ![Habilitar logon único](./media/active-directory-saas-envoy-tutorial/IC776778.png "Habilitar logon único")
-2. Na página **Como você deseja que os usuários façam logon no Envoy**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
-   
-   ![Configurar logon único](./media/active-directory-saas-envoy-tutorial/IC776779.png "Configurar logon único")
-3. Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do Envoy**, digite sua URL usando o padrão "*https://\<nome-locatário\>.Envoy.com*" e clique em **Avançar**.
-   
-   ![Configurar URL do Aplicativo](./media/active-directory-saas-envoy-tutorial/IC776780.png "Configurar URL do Aplicativo")
-4. Na página **Configurar logon único no Envoy**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado localmente como **c:\\Envoy.cer**.
-   
-   ![Configurar logon único](./media/active-directory-saas-envoy-tutorial/IC776781.png "Configurar logon único")
-5. Em outra janela do navegador da Web, faça logon em seu site de empresa do Envoy como administrador.
-6. Na barra de ferramentas na parte superior, clique em **Configurações**.
-   
-   ![Envoy](./media/active-directory-saas-envoy-tutorial/IC776782.png "Envoy")
-7. Clique em **Empresa**.
-   
-   ![Empresa](./media/active-directory-saas-envoy-tutorial/IC776783.png "Empresa")
-8. Clique em **SAML**.
-   
-   ![SAML](./media/active-directory-saas-envoy-tutorial/IC776784.png "SAML")
-9. Na seção de configuração da **Autenticação SAML** , realize as seguintes etapas:
-   
-   ![Autenticação SAML](./media/active-directory-saas-envoy-tutorial/IC776785.png "Autenticação SAML")   
-   >[!NOTE]
-   >O valor para a ID de Local de Matriz é automaticamente gerada pelo aplicativo. 
-   > 
-   
-   1. Copie o valor de **Impressão digital** do certificado exportado e cole-o na caixa de texto **Impressão digital**.  
-   
-      >[!TIP]
-      >Para obter mais detalhes, consulte [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI). 
-      > 
-   2. No portal clássico do Azure, na página de diálogo **Configurar logon único no Envoy**, copie o valor da **URL de SSO de SAML** e cole-o na caixa de texto **URL do SAML de HTTP do Provedor de Identidade**.
-   3. Clique em **Salvar alterações**.
-10. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+1. Adicionar o Envoy por meio da galeria
+2. Configurar e testar o logon único do AD do Azure
+
+## <a name="adding-envoy-from-the-gallery"></a>Adicionar o Envoy por meio da galeria
+Para configurar a integração do Envoy com o Azure AD, você precisará adicionar o Envoy à sua lista de aplicativos SaaS gerenciados por meio da galeria.
+
+**Para adicionar o Envoy por meio da galeria, execute as seguintes etapas:**
+
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+
+    ![O botão Azure Active Directory][1]
+
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+
+    ![A folha Aplicativos empresariais][2]
     
-    ![Configurar logon único](./media/active-directory-saas-envoy-tutorial/IC776786.png "Configurar logon único")
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+
+    ![O botão Novo aplicativo][3]
+
+4. Na caixa de pesquisa, digite **Envoy**, selecione **Envoy** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+
+    ![Envoy na lista de resultados](./media/active-directory-saas-envoy-tutorial/tutorial_envoy_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
+
+Nesta seção, você configurará e testará o logon único do Azure AD com o Envoy, com base em um usuário de teste chamado “Brenda Fernandes”.
+
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Envoy é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Envoy.
+
+No Envoy, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+
+Para configurar e testar o logon único do Azure AD com o Envoy, você precisa concluir os seguintes blocos de construção:
+
+1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+3. **[Criar um usuário de teste do Envoy](#create-an-envoy-test-user)** – para ter um equivalente de Brenda Fernandes no Envoy que esteja vinculado à representação de usuário do Azure AD.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
+
+Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e configura o logon único no aplicativo Envoy.
+
+**Para configurar o logon único do Azure AD com o Envoy, realize as seguintes etapas:**
+
+1. No Portal do Azure, na página de integração do aplicativo **Envoy**, clique em **Logon único**.
+
+    ![Link Configurar logon único][4]
+
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+ 
+    ![Caixa de diálogo Logon único](./media/active-directory-saas-envoy-tutorial/tutorial_envoy_samlbase.png)
+
+3. Na seção **Domínio e URLs do Envoy**, execute as seguintes etapas:
+
+    ![Informações de logon único de Domínio e URLs do Envoy](./media/active-directory-saas-envoy-tutorial/tutorial_envoy_url.png)
+
+    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenant-name>.Envoy.com`
     
-## <a name="configure-user-provisioning"></a>Configurar provisionamento do usuário
+    > [!NOTE] 
+    > Esse valor não é real. Atualize esse valor com a URL de Logon real. Entre em contato com a [equipe de suporte ao cliente do Envoy](https://envoy.com/contact/) para obter esse valor.
 
-Não há qualquer item de ação para a configuração do provisionamento de usuário para o Envoy.  
-Quando um usuário atribuído tenta fazer logon no Envoy usando o painel de acesso, o Envoy verifica se o usuário existe.  
+4. Na seção **Certificado de Autenticação SAML**, copie o valor da **IMPRESSÃO DIGITAL** do certificado.
 
-* Se ainda não houver uma conta de usuário, ela será criada automaticamente pelo Envoy.
+    ![O link de download do Certificado](./media/active-directory-saas-envoy-tutorial/tutorial_envoy_certificate.png) 
 
-## <a name="assign-users"></a>Atribuir usuários
-Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
+5. Clique no botão **Salvar** .
 
-### <a name="to-assign-users-to-envoy-perform-the-following-steps"></a>Para atribuir usuários ao Envoy, execute as seguintes etapas:
-1. No Portal clássico do Azure, crie uma conta de teste.
-2. Na página de integração do aplicativo **Envoy**, clique em **Atribuir usuários**.
-   
-   ![Atribuir usuários](./media/active-directory-saas-envoy-tutorial/IC776787.png "Atribuir usuários")
-3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
-   
-   ![Sim](./media/active-directory-saas-envoy-tutorial/IC767830.png "Sim")
+    ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-envoy-tutorial/tutorial_general_400.png)
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+6. Na seção **Configuração do Envoy**, clique em **Configurar o Envoy** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
 
+    ![Configuração do Envoy](./media/active-directory-saas-envoy-tutorial/tutorial_envoy_configure.png)
+
+7. Em outra janela do navegador da Web, faça logon em seu site de empresa do Envoy como administrador.
+
+8. Na barra de ferramentas na parte superior, clique em **Configurações**.
+
+    ![Envoy](./media/active-directory-saas-envoy-tutorial/ic776782.png "Envoy")
+
+9. Clique em **Empresa**.
+
+    ![Empresa](./media/active-directory-saas-envoy-tutorial/ic776783.png "Empresa")
+
+10. Clique em **SAML**.
+
+    ![SAML](./media/active-directory-saas-envoy-tutorial/ic776784.png "SAML")
+
+11. Na seção de configuração da **Autenticação SAML** , realize as seguintes etapas:
+
+    ![Autenticação SAML](./media/active-directory-saas-envoy-tutorial/ic776785.png "Autenticação SAML")
+    
+    >[!NOTE]
+    >O valor para a ID de Local de Matriz é automaticamente gerada pelo aplicativo.
+    
+    a. Na caixa de texto **Impressão digital**, cole o valor da **Impressão Digital** do certificado copiado do Portal do Azure.
+    
+    b. Cole o valor da **URL do Serviço de Logon Único SAML** copiado do Portal do Azure na caixa de texto **URL SAML HTTP DO PROVEDOR DE IDENTIDADE**.
+    
+    c. Clique em **Salvar alterações**.
+
+> [!TIP]
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
+
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+
+   ![Criar um usuário de teste do Azure AD][100]
+
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+
+1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
+
+    ![O botão Azure Active Directory](./media/active-directory-saas-envoy-tutorial/create_aaduser_01.png)
+
+2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+
+    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/active-directory-saas-envoy-tutorial/create_aaduser_02.png)
+
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+
+    ![O botão Adicionar](./media/active-directory-saas-envoy-tutorial/create_aaduser_03.png)
+
+4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+
+    ![A caixa de diálogo Usuário](./media/active-directory-saas-envoy-tutorial/create_aaduser_04.png)
+
+    a. Na caixa **Nome**, digite **BrendaFernandes**.
+
+    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
+
+    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+
+    d. Clique em **Criar**.
+ 
+### <a name="create-an-envoy-test-user"></a>Criar um usuário de teste do Envoy
+
+Não há qualquer item de ação para a configuração do provisionamento de usuário para o Envoy. Quando um usuário atribuído tenta fazer logon no Envoy usando o painel de acesso, o Envoy verifica se o usuário existe. Se ainda não houver uma conta de usuário, ela será criada automaticamente pelo Envoy.
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao Envoy.
+
+![Atribuir a função de usuário][200] 
+
+**Para atribuir Brenda Fernandes ao Envoy, execute as seguintes etapas:**
+
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+
+    ![Atribuir usuário][201] 
+
+2. Na lista de aplicativos, escolha **Envoy**.
+
+    ![O link do Envoy na lista de Aplicativos](./media/active-directory-saas-envoy-tutorial/tutorial_envoy_app.png)  
+
+3. No menu à esquerda, clique em **usuários e grupos**.
+
+    ![O link “Usuários e grupos”][202]
+
+4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+
+    ![O painel Adicionar Atribuição][203]
+
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+
+6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+
+7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+    
+### <a name="test-single-sign-on"></a>Testar logon único
+
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+
+Quando você clicar no bloco Envoy no Painel de Acesso, deverá ser automaticamente conectado ao seu aplicativo Envoy.
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Recursos adicionais
+
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-envoy-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-envoy-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-envoy-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-envoy-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-envoy-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-envoy-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-envoy-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-envoy-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-envoy-tutorial/tutorial_general_203.png
 

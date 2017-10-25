@@ -2,7 +2,7 @@
 title: "Gerenciamento dos ativos e entidades relacionadas com o .NET SDK dos Serviços de Mídia"
 description: "Saiba como gerenciar ativos e entidades relacionadas com o SDK dos serviços de mídia para .NET."
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2017
+ms.date: 07/17/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 3a8f878502f6a7237212b467b2259fcbb48000ff
-ms.openlocfilehash: d0775971c76c5745f90cb6c5268fda5a2c905093
-
-
+ms.openlocfilehash: 5efe16a09808267d0797521f9e1df2b60aec9cbb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gerenciamento dos ativos e entidades relacionadas com o .NET SDK dos Serviços de Mídia
 > [!div class="op_single_selector"]
@@ -33,11 +33,11 @@ Este tópico mostra como gerenciar as entidades dos Serviços de Mídia do Azure
 > A partir de 1º de abril de 2017, qualquer registro de trabalho em sua conta com mais de 90 dias será excluído automaticamente, junto com seus registros de tarefas associados, mesmo que o número total de registros esteja abaixo da cota máxima. Por exemplo, no dia 1º de abril de 2017, qualquer registro de Trabalho em sua conta que seja mais antigo do que 31 de dezembro de 2016 será excluído automaticamente. Se você precisar arquivar as informações de trabalho/tarefa, poderá usar o código descrito neste tópico.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Consulte [Configurar seu ambiente](media-services-set-up-computer.md)
+
+Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="get-an-asset-reference"></a>Obter uma referência de ativo
-Uma tarefa frequente é obter uma referência a um ativo existente nos serviços de mídia. O exemplo de código a seguir mostra como obter uma referência de ativo da coleção de ativos no objeto de contexto do servidor, com base em uma ID de ativo.
-O exemplo de código a seguir usa uma consulta Linq para obter uma referência a um objeto IAsset existente.
+Uma tarefa frequente é obter uma referência a um ativo existente nos serviços de mídia. O exemplo de código a seguir mostra como obter uma referência de ativo da coleção de ativos no objeto de contexto do servidor, com base em uma ID de ativo. O exemplo de código a seguir usa uma consulta Linq para obter uma referência a um objeto IAsset existente.
 
     static IAsset GetAsset(string assetId)
     {
@@ -403,10 +403,4 @@ O exemplo de código a seguir mostra como obter uma referência a uma política 
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

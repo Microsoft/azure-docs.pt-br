@@ -8,19 +8,18 @@ author: ddove
 editor: 
 ms.assetid: d15a2e3f-5adf-41f0-95fa-4b945448e184
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-translationtype: Human Translation
-ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
-ms.openlocfilehash: f1f963c1401b785b3d4ee007b6ea61f221f9ec4d
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 5bb6d17ffd047ae91476c52750f293414d1dfdd5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Escalando horizontalmente com o Banco de Dados SQL do Azure
 Você pode escalar horizontalmente bancos de dados SQL do Azure com facilidade usando as ferramentas do **Banco de Dados Elástico** . Essas ferramentas e recursos permitem que você use os recursos de banco de dados praticamente ilimitados do **Banco de Dados SQL do Azure** para criar soluções para cargas de trabalho transacionais e, especialmente, aplicativos SaaS (software como serviço). Recursos do Banco de Dados Elástico são compostos pelo seguinte:
@@ -94,7 +93,7 @@ Para ver um aplicativo de exemplo que demonstra a biblioteca de cliente, confira
 
 Para converter os bancos de dados existentes para usar as ferramentas, consulte [Migrar bancos de dados existentes para escala horizontal](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-Para ver os detalhes do pool elástico, confira [Considerações de preço e desempenho para um pool elástico](sql-database-elastic-pool-guidance.md) ou crie um novo pool com os [pools elásticos](sql-database-elastic-pool-manage-portal.md).  
+Para ver os detalhes do pool elástico, confira [Considerações de preço e desempenho para um pool elástico](sql-database-elastic-pool.md) ou crie um novo pool com os [pools elásticos](sql-database-elastic-pool-manage-portal.md).  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -104,5 +103,4 @@ Para ver os detalhes do pool elástico, confira [Considerações de preço e des
 [2]:./media/sql-database-elastic-scale-introduction/h_versus_vert.png
 [3]:./media/sql-database-elastic-scale-introduction/overview.png
 [4]:./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
-
 

@@ -1,15 +1,15 @@
 # Visão geral
-## [Sobre máquinas virtuais](../../virtual-machines-windows-about.md)
-## [Discos e VHDs](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Sobre máquinas virtuais](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+## [Discos e VHDs](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Redes Virtuais](../../../virtual-network/virtual-networks-overview.md)
 ## [Perguntas frequentes](faq.md)
-## [Comparar VMs, sites e serviços de nuvem](../../../app-service-web/choose-web-site-cloud-service-vm.md)
+## [Comparar VMs, sites e serviços de nuvem](../../../app-service/choose-web-site-cloud-service-vm.md)
 ## [Contêineres](../../virtual-machines-windows-containers.md)
 
 # Introdução
-## [Criar uma VM usando o portal](tutorial.md)
+## [Criar uma VM usando o Portal do Azure](tutorial.md)
 ## [Fazer logon em uma VM](connect-logon.md)
-## [Instale o Azure PowerShell](/powershell/azureps-cmdlets-docs)
+## [Instale o Azure PowerShell](/powershell/azure/overview)
 ## [Instalar a CLI do Azure.](../../../cli-install-nodejs.md)
 
 # Como
@@ -43,6 +43,7 @@
 ### [Instalar e configurar o Trend Micro Deep Security como Serviço](install-trend.md)
 ### [Configurar um conjunto de disponibilidade](configure-availability.md)
 ### [Redimensionar uma VM do Windows criada no modelo de implantação clássico](resize-vm.md)
+### [Manutenção](planned-maintenance-schedule.md)
 
 ## Gerenciar
 ### [Migrar do Clássico para o Resource Manager](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
@@ -55,7 +56,6 @@
 ## Plano
 ### [Sobre imagens](about-images.md)
 ### [Tamanhos para VMs](../../virtual-machines-windows-sizes.md)
-#### [Sobre VMs série H ou série A com computação intensiva](../../virtual-machines-windows-a8-a9-a10-a11-specs.md)
 ### [Manutenção planejada para VMs do Azure](../../virtual-machines-windows-planned-maintenance.md)
 ### [Diretrizes de implementação dos Serviços de Infraestrutura do Azure](../../virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
 
@@ -70,11 +70,7 @@
 #### [Enviar trabalhos do local para o Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MongoDB](install-mongodb.md)
 ### [MySQL](mysql-2008r2.md)
-### [Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
-####[Configurar o Oracle Data Guard para o Azure](configure-oracle-data-guard.md)
-####[Configurar o Oracle GoldenGate para o Azure](configure-oracle-goldengate.md)
-####[Considerações diversas sobre imagens](oracle-considerations.md)
-####[Lista de imagens da VM do Oracle](oracle-images.md)
+### [Oracle](../../workloads/oracle/oracle-considerations.md)
 ### [SAP](sap-get-started.md)
 ### [SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 ### [Tomcat](java-run-tomcat-app-server.md)
@@ -85,21 +81,24 @@
 ### [Acesso a um aplicativo](../../virtual-machines-windows-troubleshoot-app-connection.md)
 ### [Problemas de implantação clássica ao criar uma nova VM](troubleshoot-deployment-new-vm.md)
 ### [Problemas de implantação clássica ao reiniciar ou redimensionar uma VM existente](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-## [Redefinir a senha RDP](reset-rdp.md)
+### [Redefinir a senha RDP](reset-rdp.md)
+### [Anexar um disco rígido virtual para solucionar problemas da VM](troubleshoot-recovery-disks-portal.md)
 
 # Referência
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell do Azure](/powershell/azure/overview)
 ## [CLI do Azure](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Criar modelos do Resource Manager](../../../resource-group-authoring-templates.md)
 ## [Modelos da comunidade](https://azure.microsoft.com/documentation/templates)
-## [REST de computação](/rest/api/compute)
-## [REST de rede](/rest/api)
-## [REST de armazenamento](/rest/api/storageservices)
+## [REST de computação](https://msdn.microsoft.com/library/jj157206.aspx)
+## [REST de rede](https://msdn.microsoft.com/library/jj157182.aspx)
+## [REST de armazenamento](https://msdn.microsoft.com/library/ee460790.aspx)
 
 # Recursos
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Preços](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Disponibilidade regional](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)

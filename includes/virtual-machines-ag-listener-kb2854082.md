@@ -5,14 +5,9 @@ Na sessão da área de trabalho remota para cada um de nós do cluster, baixe [K
 > [!WARNING]
 > Parar o serviço de cluster ou reiniciar o servidor afeta a integridade de quorum do seu cluster e o grupo de disponibilidade, e pode fazer com que o cluster fique offline. Para manter a alta disponibilidade do seu cluster durante a instalação, verifique se:
 > 
-> * O cluster está na integridade de quorum ideal, 
-> * Todos os nós de cluster estão online antes de instalar o hotfix em qualquer nó, e
-> * Permite a instalação do hotfix para executar até a conclusão em um nó, incluindo reinicialização completa do servidor, antes de instalar o hotfix em qualquer outro nó do cluster.
+> * O cluster está na integridade de quorum ideal. 
+> * Antes de instalar o hotfix em qualquer nó, todos os nós de cluster estão online.
+> * Antes de instalar o hotfix em qualquer outro nó do cluster deixe que a instalação do hotfix seja executada até o fim em um nó, incluindo a reinicialização completa do servidor.
 > 
 > 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

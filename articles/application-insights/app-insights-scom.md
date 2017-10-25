@@ -3,8 +3,8 @@ title: "Integração do SCOM com o Application Insights | Microsoft Docs"
 description: "Se você for um usuário do SCOM, monitore o desempenho e diagnostique problemas com o Application Insights. Painéis abrangentes, alertas inteligentes, poderosas ferramentas de diagnóstico e de consultas de análise."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 ms.assetid: 606e9d03-c0e6-4a77-80e8-61b75efacde0
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: 68ec072b972e38d8cd020adda4dcc85cdaccfb76
-
-
+ms.author: bwren
+ms.openlocfilehash: 9c205465981fabdbb696cdc44f765532bbb992b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-performance-monitoring-using-application-insights-for-scom"></a>Monitoramento de desempenho de aplicativos usando o Application Insights para SCOM
 Se você usar o SCOM (System Center Operations Manager) para gerenciar seus servidores, poderá monitorar o desempenho e diagnosticar os problemas de desempenho com a ajuda do [Azure Application Insights](app-insights-asp-net.md). O Application Insights monitora solicitações de entrada do seu aplicativo Web, chamadas REST e SQL de saída, exceções e rastreamentos de log. Ele fornece painéis com gráficos de métricas e alertas inteligentes, bem como poderosas consultas analíticas e pesquisa de diagnóstico sobre essa telemetria. 
@@ -98,10 +98,4 @@ No [portal do Azure](https://portal.azure.com), navegue até o recurso para o se
 * [Diagnosticar problemas de desempenho](app-insights-detect-triage-diagnose.md)
 * [Consultas de análise poderosas](app-insights-analytics.md)
 * [Testes de disponibilidade na Web](app-insights-monitor-web-app-availability.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

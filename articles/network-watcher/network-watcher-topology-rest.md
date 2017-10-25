@@ -3,7 +3,7 @@ title: Exibir a topologia do Observador de Rede do Azure - API REST | Microsoft 
 description: "Este artigo descreverá como usar a API REST para consultar sua topologia de rede."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: de9af643-aea1-4c4c-89c5-21f1bf334c06
@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 50d82847fb629880f298f79f9ab791a13836f01c
-ms.openlocfilehash: 4fa34050a8039cebebe30842469c596c83744313
-ms.lasthandoff: 03/31/2017
-
+ms.author: jdial
+ms.openlocfilehash: fefeae4e816994d3ee69d6ac1c1cbe6cf8bbd06e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="view-network-watcher-topology-with-rest-api"></a>Exibir a topologia do Observador de rede com a API REST
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-topology-powershell.md)
-> - [CLI](network-watcher-topology-cli.md)
+> - [CLI 1.0](network-watcher-topology-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-topology-cli.md)
 > - [API REST](network-watcher-topology-rest.md)
 
 O recurso de topologia do Observador de rede fornece uma representação visual dos recursos de rede em uma assinatura. No portal, essa visualização é apresentada para você automaticamente. As informações que seguem a visualização de topologia no portal podem ser recuperadas por meio do PowerShell.
@@ -116,6 +116,5 @@ s65qcto",
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como visualizar os logs do fluxo NSG com o Power BI visitando [Visualizar logs de fluxos NSG com o Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
-
+Para saber como visualizar os logs de fluxo NSG com o Power BI, veja [Como visualizar logs de fluxos NSG com Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 

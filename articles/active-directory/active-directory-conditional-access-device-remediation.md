@@ -1,6 +1,6 @@
 ---
-title: "Solução de problemas para problemas de acesso do Azure Active Directory | Microsoft Docs"
-description: "Saiba quais são as etapas que você pode executar para resolver problemas de acesso com recursos online da sua organização."
+title: "Você não consegue chegar lá a partir daqui no portal do Azure em um dispositivo do Windows | Microsoft Docs"
+description: "Saiba onde não é possível chegar lá a partir daqui e o que você pode verificar o para evitar essa caixa de diálogo."
 services: active-directory
 keywords: acesso condicional baseado em dispositivo, registro de dispositivo, habilitar registro de dispositivo, registro de dispositivo e MDM
 documentationcenter: 
@@ -12,63 +12,96 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/24/2017
+ms.date: 10/17/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: fbabf6f2e1e588ba509c4da84ab1700b1b5d4f87
-ms.openlocfilehash: ad9f9a8c5b370ffa916b9089ef3ce523fe0266c7
-ms.lasthandoff: 01/25/2017
-
+ms.reviewer: jairoc
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: d86e47507f7a578e8a0affb690b6d96673b6b69a
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/29/2017
 
 ---
-# <a name="troubleshooting-for-azure-active-directory-access-issues"></a>Solução de problemas para problemas de acesso do Azure Active Directory
-Tente acessar a intranet da organização do SharePoint Online e receba uma mensagem de erro "acesso negado". O que você faz?
+# <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Não é possível chegar lá a partir deste ponto em um dispositivo do Windows
+
+Durante uma tentativa de, por exemplo, acessar a intranet do SharePoint Online de sua organização, você pode encontrar uma página informando que *não é possível ir daqui até lá*. Você está vendo esta página, porque o administrador configurou uma política de acesso condicional que impede o acesso aos recursos de sua organização sob determinadas condições. Embora talvez seja necessário entrar em contato com a assistência técnica ou com o administrador para resolver esse problema, há algumas coisas que você pode experimentar por conta própria primeiro.
+
+Se você estiver usando um dispositivo com **Windows**, verifique o seguinte:
+
+- Você está usando um navegador com suporte?
+
+- Você está executando uma versão com suporte do Windows em seu dispositivo?
+
+- O dispositivo é compatível?
 
 
-Este artigo aborda as etapas de solução que podem ajudá-lo a resolver problemas de acesso com recursos online da sua organização.
 
-Para obter ajuda para resolver os problemas de acesso do Azure Active Directory (Azure AD), vá para a seção do artigo que aborda a sua plataforma de dispositivo:
 
-* Dispositivo Windows
-* Dispositivo iOS (volte em breve para obter assistência com iPhones e iPads).
-* Dispositivo Android (volte em breve para obter assistência com telefones e tablets Android).
 
-## <a name="access-from-a-windows-device"></a>Acesso por meio de um dispositivo Windows
-Se seu dispositivo executar uma das seguintes plataformas, examine as seções a seguir para obter a mensagem de erro mostrada quando você tentar acessar um aplicativo ou serviço:
 
-* Windows 10
-* Windows 8.1
-* Windows 8
-* Windows 7
-* Windows Server 2016
-* Windows Server 2012 R2
-* Windows Server 2012
-* Windows Server 2008 R2
+## <a name="supported-browser"></a>Navegador com suporte
 
-### <a name="device-is-not-registered"></a>O dispositivo não está registrado
-Se o dispositivo não estiver registrado no Azure AD e o aplicativo estiver protegido com uma política baseada em dispositivo, você poderá ver uma página que mostre as seguintes mensagens de erro:
+Se o administrador tiver configurado uma política de acesso condicional, você só poderá acessar os recursos de sua organização usando um navegador com suporte. Em um dispositivo com Windows, há suporte apenas para o **Internet Explorer** e o **Edge**.
 
+Basta olhar a seção de detalhes da página de erro para identificar facilmente se a falha no acesso a um recurso ocorreu devido à falta de suporte no navegador:
+
+![Mensagem "Você não pode acessar esse lugar daqui" para navegadores sem suporte](./media/active-directory-conditional-access-device-remediation/02.png "Cenário")
+
+A única correção consiste em usar um navegador ao qual o aplicativo dê suporte para sua plataforma de dispositivo. Para obter uma lista completa dos navegadores com suporte, consulte [Navegadores com suporte](active-directory-conditional-access-supported-apps.md).  
+
+
+## <a name="supported-versions-of-windows"></a>Versões com suporte do Windows
+
+As suposições a seguir devem ser verdadeiras com relação ao sistema operacional Windows em seu dispositivo: 
+
+- Se você estiver executando um sistema operacional Windows para desktop em seu dispositivo, deverá ser o Windows 7 ou posterior.
+- Se você estiver executando um sistema operacional Windows Server em seu dispositivo, deverá ser o Windows Server 2008 R2 ou posterior. 
+
+
+## <a name="compliant-device"></a>Dispositivo em conformidade
+
+O administrador pode ter configurado uma política de acesso condicional que permite o acesso aos recursos de sua organização somente em dispositivos compatíveis. Para ser compatível, seu dispositivo deve fazer parte de seu Active Directory local ou de seu Azure Active Directory.
+
+Basta olhar a seção de detalhes da página de erro para identificar facilmente se a falha no acesso a um recurso ocorreu devido à falta de compatibilidade do dispositivo:
+ 
 ![Mensagens "Você não pode acessar esse lugar daqui" para dispositivos não registrados](./media/active-directory-conditional-access-device-remediation/01.png "Cenário")
 
-Se o dispositivo for unido ao domínio para o Active Directory em sua organização, tente o seguinte:
+
+### <a name="is-your-device-joined-to-an-on-premises-active-directory"></a>Seu dispositivo está associado a um Active Directory local?
+
+**Se o dispositivo estiver associado a um Active Directory local em sua organização:**
 
 1. Verifique se você entrou no Windows usando sua conta corporativa (a conta do Active Directory).
 2. Conecte-se à rede corporativa por meio de uma rede virtual privada (VPN) ou DirectAccess.
 3. Depois de conectado, pressione a tecla de logotipo do Windows + a tecla L para bloquear a sessão do Windows.
-4. Insira as credenciais da sua conta de trabalho para desbloquear sua sessão do Windows.
+4. Desbloqueie a sessão do Windows inserindo as credenciais de sua conta corporativa.
 5. Aguarde um minuto e tente acessar o aplicativo ou o serviço novamente.
 6. Se você vir a mesma página, clique em **Mais detalhes** e contate seu administrador com os detalhes.
 
-Se o dispositivo não estiver unido ao domínio e executar o Windows 10, você terá duas opções:
+
+### <a name="is-your-device-not-joined-to-an-on-premises-active-directory"></a>Seu dispositivo não está associado a um Active Directory local?
+
+Se o dispositivo não estiver associado a um Active Directory local e executar o Windows 10, você terá duas opções:
 
 * Executar o Ingresso do Azure AD
 * Adicionar sua conta corporativa ou de estudante ao Windows
 
-Para saber mais sobre como essas opções são diferentes, veja [Usando dispositivos Windows 10 em seu local de trabalho](active-directory-azureadjoin-windows10-devices.md).
+Para saber mais sobre como essas opções são diferentes, veja [Usando dispositivos Windows 10 em seu local de trabalho](active-directory-azureadjoin-windows10-devices.md).  
+Se o seu dispositivo:
 
-Para executar a Junção do Azure AD, siga as etapas a seguir para a plataforma em que seu dispositivo é executado. (A junção do Azure AD não está disponível no Windows Phone).
+- Pertencer à sua organização, execute o Ingresso no Azure AD.
+- For um dispositivo pessoal ou um Windows phone, adicione sua conta corporativa de estudante ao Windows 
 
-**Atualização de Aniversário do Windows 10**
+
+
+#### <a name="azure-ad-join-on-windows-10"></a>Ingresso no Azure AD no Windows 10
+
+As etapas para ingressar seu dispositivo no Azure AD estão vinculadas a versão do Windows 10 que está em execução. Para determinar a versão do seu sistema operacional Windows 10, execute o comando **winver**: 
+
+![Versão do Windows](./media/active-directory-conditional-access-device-remediation/03.png )
+
+
+**Atualização de Aniversário do Windows 10 (Versão 1607):**
 
 1. Abra o aplicativo **Configurações** .
 2. Clique em **Contas** > **Acesso corporativo ou de estudante**.
@@ -78,7 +111,7 @@ Para executar a Junção do Azure AD, siga as etapas a seguir para a plataforma 
 6. Saia e entre com sua conta corporativa.
 7. Tente acessar o aplicativo novamente.
 
-**Atualização do Windows de 10 de novembro de 2015**
+**Atualização do Windows de 10 de novembro de 2015 (Versão 1511):**
 
 1. Abra o aplicativo **Configurações** .
 2. Clique em **Sistema** > **Sobre**.
@@ -87,23 +120,8 @@ Para executar a Junção do Azure AD, siga as etapas a seguir para a plataforma 
 5. Saia e entre com sua conta corporativa (sua conta do Azure AD).
 6. Tente acessar o aplicativo novamente.
 
-Para adicionar sua conta corporativa ou de estudante, execute as seguintes etapas:
 
-**Atualização de Aniversário do Windows 10**
-
-1. Abra o aplicativo **Configurações** .
-2. Clique em **Contas** > **Acesso corporativo ou de estudante**.
-3. Clique em **Conectar**.
-4. Autentique para sua organização, forneça autenticação multifator, se solicitado, e siga as etapas mostradas.
-5. Tente acessar o aplicativo novamente.
-
-**Atualização do Windows de 10 de novembro de 2015**
-
-1. Abra o aplicativo **Configurações** .
-2. Clique em **Contas** > **Suas contas**.
-3. Clique em **Adicionar conta corporativa ou de estudante**.
-4. Autentique para sua organização, forneça autenticação multifator, se solicitado, e siga as etapas mostradas.
-5. Tente acessar o aplicativo novamente.
+#### <a name="workplace-join-on-windows-81"></a>Workplace Join para Windows 8.1
 
 Se o dispositivo não estiver unido ao domínio e executar o Windows 8.1, você poderá executar o Workplace Join e registrar-se no Microsoft Intune, execute estas etapas:
 
@@ -114,17 +132,31 @@ Se o dispositivo não estiver unido ao domínio e executar o Windows 8.1, você 
 5. Clique em **Ativar**.
 6. Tente acessar o aplicativo novamente.
 
-### <a name="browser-is-not-supported"></a>Não há suporte para navegador
-Você pode ter seu acesso negado se estiver tentando acessar um aplicativo ou um serviço usando um dos seguintes navegadores:
 
-* Chrome, Firefox ou outro navegador diferente do Microsoft Edge ou do Microsoft Internet Explorer no Windows 10 ou no Windows Server 2016
-* Firefox no Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2
 
-Você verá uma página de erro parecida com esta:
+#### <a name="add-your-work-or-school-account-to-windows"></a>Adicionar sua conta corporativa ou de estudante ao Windows 
 
-![Mensagem "Você não pode acessar esse lugar daqui" para navegadores sem suporte](./media/active-directory-conditional-access-device-remediation/02.png "Cenário")
 
-A única correção consiste em usar um navegador ao qual o aplicativo dê suporte para sua plataforma de dispositivo.
+**Atualização de Aniversário do Windows 10 (Versão 1607):**
+
+1. Abra o aplicativo **Configurações** .
+2. Clique em **Contas** > **Acesso corporativo ou de estudante**.
+3. Clique em **Conectar**.
+4. Autentique para sua organização, forneça autenticação multifator, se solicitado, e siga as etapas mostradas.
+5. Tente acessar o aplicativo novamente.
+
+
+**Atualização do Windows de 10 de novembro de 2015 (Versão 1511):**
+
+1. Abra o aplicativo **Configurações** .
+2. Clique em **Contas** > **Suas contas**.
+3. Clique em **Adicionar conta corporativa ou de estudante**.
+4. Autentique para sua organização, forneça autenticação multifator, se solicitado, e siga as etapas mostradas.
+5. Tente acessar o aplicativo novamente.
+
+
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 [Acesso condicional ao Azure Active Directory](active-directory-conditional-access.md)

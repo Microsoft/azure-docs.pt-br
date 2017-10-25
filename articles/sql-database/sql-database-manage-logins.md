@@ -10,18 +10,18 @@ editor:
 tags: 
 ms.assetid: 0a65a93f-d5dc-424b-a774-7ed62d996f8c
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/23/2017
 ms.author: rickbyh
-translationtype: Human Translation
-ms.sourcegitcommit: 5eccb4705cd6c8f6170a48f3b3591518688651f1
-ms.openlocfilehash: c3a45973a04d5082bee777a98f8204ceedc888a5
-
-
+ms.openlocfilehash: 51edd390c065dd7312ecc54694b5a95ecc11eab8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="controlling-and-granting-database-access"></a>Controle e concessão de acesso de banco de dados
 
@@ -32,7 +32,7 @@ Quando as regras de firewall tiverem sido configuradas, as pessoas podem se cone
 >
 
 > [!TIP]
-> Para obter um tutorial sobre como usar a autenticação do SQL Server, confira [Tutorial: autenticação do SQL Server](sql-database-control-access-sql-authentication-get-started.md). Para obter um tutorial sobre como usar a autenticação do Azure Active Directory, confira [Tutorial: autenticação do AAD](sql-database-control-access-aad-authentication-get-started.md).
+> Para obter um tutorial, consulte [Proteger o Banco de Dados SQL do Azure](sql-database-security-tutorial.md).
 >
 
 
@@ -56,10 +56,8 @@ As contas do **Administrador do servidor** e do **Administrador do Azure AD** t�
 - Essas contas podem adicionar e remover membros das funções `dbmanager` e `loginmanager`.
 - Essas contas podem visualizar a tabela do sistema `sys.sql_logins`.
 
-
-
 ### <a name="configuring-the-firewall"></a>Configuração do firewall
-Quando o firewall no nível do servidor é configurado para um endereço IP individual ou para um intervalo de endereços IP, o **Administrador do servidor SQL** e o **Administrador do Azure Active Directory** podem se conectar ao banco de dados mestre e a todos os bancos de dados do usuário. O firewall no nível do servidor inicial pode ser configurado por meio do [portal do Azure](sql-database-configure-firewall-settings.md), usando o [PowerShell](sql-database-configure-firewall-settings-powershell.md) ou usando a [API REST](sql-database-configure-firewall-settings-rest.md). Depois que uma conexão é estabelecida, as regras de firewall adicionais no nível do servidor também podem ser configuradas usando o [Transact-SQL](sql-database-configure-firewall-settings-tsql.md).
+Quando o firewall no nível do servidor é configurado para um endereço IP individual ou para um intervalo de endereços IP, o **Administrador do servidor SQL** e o **Administrador do Azure Active Directory** podem se conectar ao banco de dados mestre e a todos os bancos de dados do usuário. O firewall no nível do servidor inicial pode ser configurado por meio do [portal do Azure](sql-database-get-started-portal.md), usando o [PowerShell](sql-database-get-started-powershell.md) ou usando a [API REST](https://msdn.microsoft.com/library/azure/dn505712.aspx). Depois que uma conexão é estabelecida, as regras de firewall adicionais no nível do servidor também podem ser configuradas usando o [Transact-SQL](sql-database-configure-firewall-settings.md).
 
 ### <a name="administrator-access-path"></a>Caminho de acesso do administrador
 Quando o firewall no nível de servidor é configurado corretamente, o **Administrador do servidor SQL** e o **Administrador do Azure Active Directory** podem se conectar usando ferramentas de cliente, como o SQL Server Management Studio ou o SQL Server Data Tools. Somente as ferramentas mais recentes fornecem todos os recursos e capacidades. O diagrama a seguir mostra uma configuração típica para as duas contas de administrador.
@@ -69,7 +67,7 @@ Quando o firewall no nível de servidor é configurado corretamente, o **Adminis
 Ao usar uma porta aberta no firewall no nível do servidor, os administradores podem se conectar a qualquer Banco de Dados SQL.
 
 ### <a name="connecting-to-a-database-by-using-sql-server-management-studio"></a>Conectar-se a um banco de dados usando o SQL Server Management Studio
-Para obter uma explicação passo a passo da criação de um servidor, de um banco de dados, de regras de firewall no nível do servidor e do uso do SQL Server Management Studio para consultar um banco de dados, veja [Introdução aos servidores, bancos de dados e regras de firewall do Banco de Dados SQL usando o portal do Azure e o SQL Server Management Studio](sql-database-get-started.md).
+Para obter uma explicação passo a passo da criação de um servidor, de um banco de dados, de regras de firewall no nível do servidor e do uso do SQL Server Management Studio para consultar um banco de dados, veja [Introdução aos servidores, bancos de dados e regras de firewall do Banco de Dados SQL usando o portal do Azure e o SQL Server Management Studio](sql-database-get-started-portal.md).
 
 > [!IMPORTANT]
 > Recomendamos que você sempre use a versão mais recente do Management Studio a fim de permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. [Atualizar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -191,14 +189,6 @@ Ao gerenciar logons e usuários no Banco de Dados SQL, considere o seguinte:
 
 - Para saber mais sobre regras de firewall, veja [Firewall do Banco de Dados SQL do Azure](sql-database-firewall-configure.md).
 - Para obter uma visão geral de todos os recursos de segurança do Banco de Dados SQL, veja a [visão geral de segurança do SQL](sql-database-security-overview.md).
-- Para obter um tutorial, veja [Introdução à segurança do SQL](sql-database-control-access-sql-authentication-get-started.md)
+- Para obter um tutorial, consulte [Proteger o Banco de Dados SQL do Azure](sql-database-security-tutorial.md).
 - Para saber mais sobre exibições e procedimentos armazenados, veja [Criação de exibições e procedimentos armazenados](https://msdn.microsoft.com/library/ms365311.aspx)
 - Para saber mais sobre como conceder acesso a um objeto de banco de dados, veja [Concessão de acesso a um objeto de banco de dados](https://msdn.microsoft.com/library/ms365327.aspx)
-- Para obter um tutorial sobre como usar a autenticação do SQL Server, confira [Tutorial: autenticação do SQL Server](sql-database-control-access-sql-authentication-get-started.md).
-- Para obter um tutorial sobre como usar a autenticação do Azure Active Directory, confira [Tutorial: autenticação do AAD](sql-database-control-access-aad-authentication-get-started.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-

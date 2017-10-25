@@ -1,0 +1,2 @@
+**P**: por que o local de meu gateway existente foi alterado? <br/>
+**R**: recursos de gateway criados antes de 3 de maio de 2017 foram movidos para os locais originais do locatário do Azure AD para a conta corporativa ou de estudante que criou os gateways. No entanto, essas alterações não devem afetar aplicativos lógicos em execução no momento, os quais devem continuar funcionando normalmente. Com a disponibilidade geral do gateway em maio, os locais de recursos de gateway podem ser diferentes dos locais de aplicativos lógicos.

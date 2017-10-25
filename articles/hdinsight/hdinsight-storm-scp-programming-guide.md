@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: raviperi
-translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 6410ea44861c59841d945390de326a805ee4b8e1
-ms.lasthandoff: 12/09/2016
-
-
+ms.openlocfilehash: 3d76aebd2a1fd729c8e0639e6afcbde4c3fb752b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scp-programming-guide"></a>Guia de programação do SCP
 SCP é uma plataforma para a criação de aplicativos de processamento de dados em tempo real, confiáveis, consistentes e de alto desempenho. Ele é baseado no [Apache Storm](http://storm.incubator.apache.org/) , um sistema de processamento de fluxo projetado pelas comunidades de OSS. O Storm foi projetado por Nathan Marz e tornou-se um software livre por meio do Twitter. Ele aproveita o [Apache ZooKeeper](http://zookeeper.apache.org/), outro projeto da Apache, para habilitar uma coordenação distribuída e gerenciamento de estado altamente confiáveis. 
@@ -105,7 +104,7 @@ ISCPTxSpout é a interface para spout transacional.
         void Fail(long seqId, Dictionary<string, Object> parms);        
     }
 
-Assim como suas contrapartes não transacionais, `NextTx()`, `Ack()` e `Fail()` são chamados em um loop coeso em um único thread no processo C\#. Quando não há dados a serem emitidos, é recomendável fazer com que `NextTx` entre em repouso por um curto período de tempo (como&10; milissegundos) para não sobrecarregar a CPU.
+Assim como suas contrapartes não transacionais, `NextTx()`, `Ack()` e `Fail()` são chamados em um loop coeso em um único thread no processo C\#. Quando não há dados a serem emitidos, é recomendável fazer com que `NextTx` entre em repouso por um curto período de tempo (como 10 milissegundos) para não sobrecarregar a CPU.
 
 O `NextTx()` é chamado para iniciar uma nova transação, e o parâmetro de saída `seqId` é usado para identificar a transação, que também é usado em `Ack()` e `Fail()`. No `NextTx()`, o usuário pode emitir dados para o lado do Java. Os dados serão armazenados no ZooKeeper para oferecer suporte à reprodução. Como a capacidade do ZooKeeper é bastante limitada, o usuário deve emitir somente metadados, e não dados em massa no spout transacional.
 
@@ -642,7 +641,7 @@ Quando `FinishBatch()` é chamado, o `lastCommittedTxId` será atualizado se nã
 
 
 ### <a name="hybridtopology"></a>HybridTopology
-Essa topologia contém um Spout do Java e um Bolt do C\#. Ela usa a implementação de serialização e desserialização padrão fornecida pela plataforma do SCP. Consulte ** HybridTopology.spec** na pasta **examples\\HybridTopology** para obter os detalhes do arquivo de especificações e **SubmitTopology.bat** para saber como especificar o caminho de classe de Java.
+Essa topologia contém um Spout do Java e um Bolt do C\#. Ela usa a implementação de serialização e desserialização padrão fornecida pela plataforma do SCP. Consulte **HybridTopology.spec** na pasta **examples\\HybridTopology** para obter os detalhes do arquivo de especificações e **SubmitTopology.bat** para saber como especificar o caminho de classe de Java.
 
 ### <a name="scphostdemo"></a>SCPHostDemo
 Este exemplo é igual ao HelloWorld em essência. A única diferença é que o código do usuário é compilado como DLL e a topologia é enviada usando SCPHost.exe. Consulte a seção “Modo de host do SCP” para obter explicações mais detalhadas.
@@ -657,5 +656,4 @@ Para obter exemplos de topologias Storm criadas usando o SCP, consulte o seguint
 * [Processar dados do sensor do veículo a partir de Hubs de Evento usando o Storm no HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
 * [ETL (Extração, Transformação e Carregamento) de Hubs de Eventos do Azure para HBase](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)
 * [Correlacionar eventos usando Storm e HBase no HDInsight](hdinsight-storm-correlation-topology.md)
-
 

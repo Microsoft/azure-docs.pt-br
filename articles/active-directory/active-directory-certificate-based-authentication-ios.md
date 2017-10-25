@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2017
+ms.date: 08/28/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 28c2ef4878305d5cdb37ab8c0802644b1f236337
-ms.lasthandoff: 03/07/2017
-
-
+ms.reviewer: nigu
+ms.openlocfilehash: af9d0c7ba9c1a3026cc042872e1ab773eb3c4c8e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticação baseada em certificado do Azure Active Directory no iOS
 
@@ -29,7 +29,7 @@ A CBA (autenticação baseada em certificado) permite que você seja autenticado
 
 Configurar esse recurso elimina a necessidade de digitar uma combinação de nome de usuário e senha em determinados emails e aplicativos do Microsoft Office no seu dispositivo móvel. 
 
-Este tópico fornece os requisitos e os cenários com suporte para configurar a CBA em um dispositivo Android para os usuários de locatários nos planos do Office 365 Enterprise, Business, Education e Governamental dos EUA. 
+Este tópico fornece os requisitos e os cenários com suporte para configurar a CBA em um dispositivo iOS(Android) para usuários de locatários nos planos do Office 365 Enterprise, Business, Education, US Government, China e Germany.
 
 Esse recurso está disponível na visualização em planos do governo federal e para defesa governamental dos EUA do Office 365.
 
@@ -40,12 +40,16 @@ Esse recurso está disponível na visualização em planos do governo federal e 
 
 | Aplicativos | Suporte |
 | --- | --- |
-| Word/Excel/PowerPoint |![Verificação][1] |
+| Aplicativo de Proteção de Informações do Azure |![Verificação][1] |
+| Equipes da Microsoft |![Verificação][1] |
 | OneNote |![Verificação][1] |
 | OneDrive |![Verificação][1] |
 | Outlook |![Verificação][1] |
-| Yammer |![Verificação][1] |
+| Power BI |![Verificação][1] |
 | Skype for Business |![Verificação][1] |
+| Word/Excel/PowerPoint |![Verificação][1] |
+| Yammer |![Verificação][1] |
+
 
 ## <a name="requirements"></a>Requisitos 
 
@@ -71,7 +75,7 @@ Como prática recomendada, você deve atualizar as páginas de erro do ADFS com 
 
 Para obter mais detalhes, confira [Personalizando as páginas de entrada do AD FS](https://technet.microsoft.com/library/dn280950.aspx).
 
-Alguns aplicativos do Office (com autenticação moderna habilitada) enviam '*prompt=login*' ao Azure AD na solicitação. Por padrão, o Azure AD converte isso na solicitação ao ADFS para '*wauth=usernamepassworduri*' (solicita que o ADFS faça a autenticação U/P) e '*wfresh=0*' (solicita que o ADFS ignore o estado do SSO e faça uma nova autenticação). Se você quiser habilitar a autenticação baseada em certificado para esses aplicativos, precisará modificar o comportamento padrão do Azure AD. Basta definir o '*PromptLoginBehavior*' em suas configurações de domínio federado como '*Disabled*'. Você pode usar o cmdlet [MSOLDomainFederationSettings](https://docs.microsoft.com/en-us/powershell/msonline/v1/set-msoldomainfederationsettings) para executar essa tarefa:
+Alguns aplicativos do Office (com autenticação moderna habilitada) enviam '*prompt=login*' ao Azure AD na solicitação. Por padrão, o Azure AD converte isso na solicitação ao ADFS para '*wauth=usernamepassworduri*' (solicita que o ADFS faça a autenticação U/P) e '*wfresh=0*' (solicita que o ADFS ignore o estado do SSO e faça uma nova autenticação). Se você quiser habilitar a autenticação baseada em certificado para esses aplicativos, precisará modificar o comportamento padrão do Azure AD. Basta definir o '*PromptLoginBehavior*' em suas configurações de domínio federado como '*Disabled*'. Você pode usar o cmdlet [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) para executar essa tarefa:
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
   
@@ -87,4 +91,3 @@ Se você quiser configurar a autenticação baseada em certificado em seu ambien
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-ios/ic195031.png
-

@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 09/23/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 20cc8290663b4931ed3c7ef6769312da1b4b34e1
-ms.lasthandoff: 12/29/2016
-
-
+ms.openlocfilehash: 3747f87cad4b3701129b7460321b50ee54336585
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="administer-dns-on-an-azure-ad-domain-services-managed-domain"></a>Administrar o DNS em um domínio gerenciado dos Serviços de Domínio do Azure AD
 Os Serviços de Domínio do Azure Active Directory incluem um servidor DNS (resolução de nomes de domínio) que fornece a resolução DNS para o domínio gerenciado. Ocasionalmente, talvez seja necessário configurar o DNS no domínio gerenciado. Talvez seja necessário criar registros DNS para computadores que não ingressaram no domínio, configurar endereços IP virtuais para balanceadores de carga ou configurar encaminhadores DNS externos. Por esse motivo, os usuários que pertencem ao grupo 'Administradores do AAD DC' recebem privilégios para administração de DNS no domínio gerenciado.
@@ -45,11 +44,12 @@ A primeira etapa é provisionar uma máquina virtual do Windows Server que tenha
 ## <a name="task-2---install-dns-server-tools-on-the-virtual-machine"></a>Tarefa 2 - Instalar as ferramentas de Servidor DNS na máquina virtual
 Execute as etapas a seguir para instalar as Ferramentas de administração de DNS na máquina virtual ingressada no domínio. Para obter mais informações sobre como [instalar e usar Ferramentas de Administração de Servidor Remoto](https://technet.microsoft.com/library/hh831501.aspx), consulte o Technet.
 
-1. Navegue até o nó **Máquinas Virtuais** no portal clássico do Azure. Selecione a máquina virtual que você criou na Tarefa 1 e clique em **Conectar** na barra de comandos na parte inferior da janela.
+1. Navegue até o Portal do Azure. Clique em **Todos os recursos** no painel esquerdo. Localize e clique na máquina virtual criada na Tarefa 1.
+2. Clique no botão **Conectar** na guia Visão Geral. Um arquivo do Protocolo RDP (.rdp) é criado e baixado.
 
     ![Conectar-se à máquina virtual do Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-2. O portal clássico solicita que você abra ou salve um arquivo com uma extensão '.rdp', que é usada para se conectar à máquina virtual. Clique no arquivo quando o download for concluído.
-3. No prompt de logon, use as credenciais de um usuário pertencente ao grupo “Administradores do AAD DC”. Por exemplo, usamos 'bob@domainservicespreview.onmicrosoft.com' no nosso caso.
+3. Para se conectar à sua VM, abra o arquivo RDP baixado. Se solicitado, clique em **Conectar**. No prompt de logon, use as credenciais de um usuário pertencente ao grupo “Administradores do AAD DC”. Por exemplo, usamos “bob@domainservicespreview.onmicrosoft.com” no nosso caso. Você pode receber um aviso do certificado durante o processo de logon. Clique em Sim ou em Continuar para prosseguir com a conexão.
+
 4. Na tela inicial, abra **Gerenciador do Servidor**. Clique em **Adicionar Funções e Recursos** no painel central da janela do Gerenciador do Servidor.
 
     ![Iniciar o Gerenciador do Servidor na máquina virtual](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
@@ -102,4 +102,3 @@ Para obter mais informações sobre como gerenciar o DNS, veja o [artigo sobre f
 * [Ingressar uma máquina virtual do Windows Server em um domínio gerenciado dos Serviços de Domínio do Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Administrar um domínio gerenciado dos Serviços de Domínio do Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 * [Ferramentas de administração do DNS](https://technet.microsoft.com/library/cc753579.aspx)
-

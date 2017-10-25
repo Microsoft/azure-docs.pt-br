@@ -29,8 +29,3 @@ Para configurar essa ação, você precisará fornecer as seguintes informaçõe
 10. Salve as alterações no fluxo de trabalho  
 11. Parabéns, agora você tem um aplicativo lógico totalmente funcional que é disparado quando um novo item é adicionado a uma lista do SharePoint Online. O aplicativo criará um arquivo, usando algumas das propriedades do novo item de lista.  Agora você pode testá-lo, criando um novo item na lista do SharePoint. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -1,228 +1,190 @@
 ---
-title: "Introdução ao Apache Storm no HDInsight | Microsoft Docs"
-description: "Obtenha uma introdução ao Apache Storm no HDInsight."
+title: "O que é o Apache Storm - Azure HDInsight | Microsoft Docs"
+description: "O Apache Storm permite que você processe fluxos de dados em tempo real. O Azure HDInsight permite que você crie clusters Storm em nuvem do Azure facilmente. Com o Visual Studio, você pode criar soluções Storm usando C# e depois implantar seus clusters Storm do HDInsight."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
+keywords: "casos de uso do apache storm, cluster storm, o que é o apache storm"
 ms.assetid: 72d54080-1e48-4a5e-aa50-cce4ffc85077
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/11/2017
+ms.date: 08/03/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 0aa2a7075f64b353f6b052ab6b973a06622a9339
-ms.lasthandoff: 03/24/2017
-
-
+ms.openlocfilehash: 073672f1223313938baedee027072cb96062294b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="introduction-to-apache-storm-on-hdinsight-real-time-analytics-for-hadoop"></a>Introdução ao Apache Storm no HDInsight: análise em tempo real para o Hadoop
+# <a name="what-is-apache-storm-on-azure-hdinsight"></a>O que é o Apache Storm no Azure HDInsight?
 
-O Apache Storm no HDInsight permite que você crie soluções de análise em tempo real distribuídas no Azure.
+O [Apache Storm](http://storm.apache.org/) é um sistema de computação distribuída, tolerante a falhas e de software livre. Você pode usar o Storm para processar streams de dados em tempo real com o Hadoop. As soluções do Storm também podem oferecer um processamento de dados garantido, com a capacidade de reproduzir dados que não tenham sido processados com sucesso da primeira vez.
 
-O Apache Storm é um sistema de computação distribuído e tolerante a falhas, sendo um software livre, que permite processar dados em tempo real com o Hadoop. As soluções do Storm também podem oferecer um processamento de dados garantido, com a capacidade de reproduzir dados que não tenham sido processados com sucesso da primeira vez.
+O Storm no HDInsight oferece os seguintes benefícios:
 
-## <a name="why-use-storm-on-hdinsight"></a>Por que usar o Storm no HDInsight
+* É executado como um serviço gerenciado com um SLA de 99,9% de tempo de atividade.
 
-O Apache Storm no HDInsight é um cluster gerenciado integrado ao ambiente do Azure. O Storm e outros componentes do Hadoop no HDInsight baseiam-se no HDP (Hortonworks Data Platform), enquanto o sistema operacional para o cluster é o Ubuntu (uma distribuição do Linux). Essa configuração fornece uma plataforma compatível com ferramentas e serviços populares no ecossistema do Hadoop.
+* Dá suporte à personalização fácil executando scripts em relação a um cluster Storm durante ou após a criação. Para obter mais informações, confira [Personalizar clusters HDInsight usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-> [!IMPORTANT]
-> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+* Usa vários idiomas. Você pode escrever componentes do Storm na linguagem de sua escolha, como Java, C# e Python.
 
-O Apache Storm no HDInsight oferece os seguintes benefícios:
+    * Integra o Visual Studio ao HDInsight para desenvolvimento, gerenciamento e monitoramento de topologias em C#. Para obter mais informações, confira [Desenvolver topologias Storm C# com as Ferramentas do HDInsight para Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
-* Executa como um serviço gerenciado com um SLA de 99,9% de tempo de atividade.
+    * Dá suporte à interface Java Trident. Você pode criar topologias Storm que dão suporte ao processamento de mensagens exatamente uma vez, à persistência de armazenamento de dados transacional e a um conjunto de operações de análise de fluxo comuns.
 
-* Personalização fácil executando scripts em relação ao cluster durante ou após a criação. Para obter mais informações, confira [Personalizar clusters HDInsight usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md).
+*  Dimensione clusters Storm facilmente. Você pode adicionar ou remover nós de trabalho sem afetar a execução de topologias Storm.
 
-* Use a linguagem de sua escolha: os componentes do Storm podem ser escritos em várias linguagens, como **Java**, **C#** e **Python**.
+* Integra-se com os seguintes serviços do Azure:
 
-  * Integração do Visual Studio ao HDInsight para desenvolvimento, gerenciamento e monitoramento de topologias em C#. Para obter mais informações, confira [Desenvolver topologias Storm C# com as Ferramentas do HDInsight para Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+    * Hubs de eventos do Azure
 
-  * Dá suporte à interface Java **Trident**. Essa interface permite que você crie topologias Storm que dão suporte ao processamento de mensagens "exatamente uma vez", à persistência de armazenamento de dados "transacional" e a um conjunto de operações de análise de fluxo comuns.
+    * Rede Virtual do Azure
 
-* Fácil ampliação e redução do cluster: adicione ou remova nós de trabalho sem afetar a execução de topologias Storm.
+    * Banco de Dados SQL do Azure
 
-* Integre com os seguintes serviços do Azure:
-
-    * Hubs de evento
-    * Rede Virtual
-    * Banco de Dados SQL
     * Armazenamento do Azure
-    * do Azure.
 
-  * Combine de forma segura as funcionalidades de vários clusters HDInsight usando a Rede Virtual do Azure: crie pipelines analíticas que usam clusters Hadoop, HBase ou HDInsight.
+    * Azure Cosmos DB
+
+* Combina com segurança os recursos de vários clusters HDInsight usando a Rede Virtual. Você pode criar pipelines analíticos que usam clusters Storm, Kafka, Spark, HBase ou Hadoop.
 
 Para obter uma lista de empresas que estão usando o Apache Storm em suas soluções de análise em tempo real, consulte [Empresas que estão usando o Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
 Para começar a usar o Storm, consulte [Introdução ao uso do Storm no HDInsight][gettingstarted].
 
-### <a name="ease-of-creation"></a>Fácil de criar
+## <a name="how-does-storm-work"></a>Como funciona o Storm
 
-Você pode provisionar um novo Storm no cluster HDInsight em minutos. Especifique o nome do cluster, o tamanho, a conta de administrador e a conta de armazenamento. O Azure cria o cluster com topologias de exemplo e um painel de gerenciamento da Web.
+O Storm processa topologias em vez dos trabalhos do MapReduce com que você pode estar familiarizado. As topologias do Storm são compostas por vários componentes organizados em um DAG (gráfico acíclico dirigido). Fluxo de dados entre os componentes no gráfico. Cada componente consome um ou mais fluxos de dados e, opcionalmente, pode emitir um ou mais fluxos. O diagrama a seguir ilustra como os dados fluem entre componentes em uma topologia de contagem de palavras básica:
 
-> [!NOTE]
-> Você também pode provisionar os clusters Storm usando a [CLI do Azure](../cli-install-nodejs.md) ou o [Azure PowerShell](/powershell/azureps-cmdlets-docs).
+![Exemplo de como os componentes são organizados em uma topologia do Storm](./media/hdinsight-storm-overview/example-apache-storm-topology-diagram.png)
 
-Após 15 minutos do envio da solicitação, você terá um novo cluster Storm em execução e pronto para o primeiro pipeline de análise em tempo real.
+* Os componentes Spout trazem dados para uma topologia. Eles emitem um ou mais fluxos na topologia.
 
-### <a name="ease-of-use"></a>Fácil de uso
+* Os componentes Bolt consomem fluxos emitidos de spouts ou de outros bolts. Os bolts podem opcionalmente emitir fluxos na topologia. Os bolts também são responsáveis por gravar dados em armazenamentos ou serviço externos, como HDFS, Kafka ou HBase.
 
-* __Proteger a conectividade do Shell__: você pode acessar os nós principais do cluster HDInsight pela Internet usando o SSH. O SSH permite que você execute comandos diretamente no cluster.
+## <a name="ease-of-creation"></a>Fácil de criar
+
+Você pode provisionar um novo cluster Storm no HDInsight em minutos. Para saber mais sobre como criar um cluster Storm, confira [Introdução ao Storm no HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md).
+
+## <a name="ease-of-use"></a>Fácil de uso
+
+* __Conectividade SSH (Secure Shell)__: você pode acessar os nós principais do cluster Storm pela Internet usando o SSH. Você pode executar comandos diretamente no cluster usando SSH.
 
   Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* __Conectividade da Web__: clusters HDInsight fornecem a interface da Web do Ambari. A interface de usuário da Web do Ambari permite que você monitore, configure e gerencie facilmente serviços no cluster. O Storm no HDInsight também fornece a interface do usuário do Storm, que permite que você monitore e gerencie topologias Storm em execução no navegador.
+* __Conectividade da Web__: todos os clusters HDInsight fornecem a interface da Web do Ambari. Você pode facilmente monitorar, configurar e gerenciar serviços no cluster usando a interface da Web do Ambari. Os clusters do Storm também fornecem a interface do usuário do Storm. Você pode monitorar e gerenciar topologias Storm em execução no navegador usando a interface do usuário do Storm.
 
-  Para obter mais informações, confira [Administrar o HDInsight usando a interface do usuário do Ambari](hdinsight-hadoop-manage-ambari.md) e [Monitorar e gerenciar usando a interface do usuário do Storm](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui).
+  Para obter mais informações, confira os documentos [Administrar o HDInsight usando a interface do usuário do Ambari](hdinsight-hadoop-manage-ambari.md) e [Monitorar e gerenciar usando a interface do usuário do Storm](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui).
 
-* __Azure PowerShell e CLI__: o Azure PowerShell e a CLI do Azure fornecem utilitários de linha de comando que você pode usar no sistema cliente para trabalhar com o HDInsight e outros serviços do Azure.
+* __Azure PowerShell e CLI do Azure__: o PowerShell e a CLI fornecem utilitários de linha de comando que você pode usar no sistema cliente para trabalhar com o HDInsight e outros serviços do Azure.
 
-* __Integração do Visual Studio__: o Data Lake Tools para Visual Studio inclui modelos de projeto para criar topologias Storm em C#, bem como ferramentas para monitorar Storm no HDInsight. Você pode criar, implantar, monitorar e gerenciar topologias em C# do Visual Studio.
+* __Integração do Visual Studio__: o Ferramentas do Azure Data Lake para Visual Studio inclui modelos de projeto para criar topologias Storm em C# usando a estrutura SCP.Net. O Data Lake Tools também fornece ferramentas para implantar, monitorar e gerenciar soluções com o Storm no HDInsight.
 
   Para obter mais informações, confira [Desenvolver topologias Storm C# com as Ferramentas do HDInsight para Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
-* __Integração a outros serviços do Azure__
+## <a name="integration-with-other-azure-services"></a>Integração a outros serviços do Azure
 
-  * Para desenvolvimento em __Java__, a Microsoft usa componentes Storm existentes para integração a outros serviços do Azure sempre que possível. Em alguns casos, pode ser necessário um componente específico do serviço ou uma solução.
+* __Azure Data Lake Store__: para obter um exemplo de como usar o Data Lake Store com um cluster Storm, confira [Usar o Azure Data Lake Store com Apache Storm no HDInsight](hdinsight-storm-write-data-lake-store.md).
 
-    * __Azure Data Lake Store__: topologias em Java podem acessar o Data Lake Store usando o bolt do Storm HDFS com um esquema de URI de `adl://`. Para obter um exemplo de uso do bolt do Storm HDFS, confira [Uso do Azure Data Lake Store com Apache Storm no HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-write-data-lake-store).
+* __Hubs de Eventos__: para obter um exemplo de como usar os Hubs de Eventos com um cluster Storm, confira os seguintes documentos:
 
-    * __Armazenamento do Azure__ (quando usado como armazenamento para HDInsight): topologias em Java podem acessar o Armazenamento do Azure usando o bolt do Storm HDFS com um esquema de URI de `wasb://`.
+    * [Desenvolver uma topologia baseada em Java para Storm no HDInsight](hdinsight-storm-develop-java-topology.md)
 
-    * __Hubs de Eventos do Azure__: podem ser acessados usando os componentes EventHubSpout e EventHubBolt fornecidos pela Microsoft. Esses componentes são escritos em Java e fornecidos como um arquivo .jar autônomo.
+    * [Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight (C#)](hdinsight-storm-develop-csharp-event-hub-topology.md)
 
-    Para obter mais informações sobre como desenvolver soluções em Java, confira [Desenvolver uma topologia baseada em Java para Storm no HDInsight](hdinsight-storm-develop-java-topology.md).
+* __Banco de dados SQL__, __Cosmos DB__, __Hubs de Eventos__ e __HBase__: exemplos de modelo são incluídos nas Ferramentas Data Lake para Visual Studio. Para saber mais,confira [Desenvolver uma topologia em C# para Storm no HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
-  * Para desenvolvimento em __C#__, geralmente você pode usar o SDK do .NET para o serviço do Azure. Em alguns casos, o SDK pode contar com estruturas que não estão disponíveis no Linux (o sistema operacional host para HDInsight 3.4 e superior.) Nesse caso, você pode usar componentes Java dentro de sua solução em C#.
+## <a name="reliability"></a>Confiabilidade
 
-    * Exemplos para trabalhar com __banco de dados SQL__, __DocumentDB__, __EventHub__ e __HBase__ são incluídos como modelos no Azure Data Lake Tools for Visual Studio. Para saber mais,confira [Desenvolver uma topologia em C# para Storm no HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+O Apache Storm sempre faz com que cada mensagem de entrada seja sempre totalmente processada, mesmo quando a análise de dados é difundida por centenas de nós.
 
-    * __Hubs de Eventos do Azure__: para obter um exemplo do uso de componentes Java de uma solução em C#, confira [Processar eventos de Hubs de Eventos do Azure com Storm no HDInsight (C#)](hdinsight-storm-develop-csharp-event-hub-topology.md).
+O nó Nimbus fornece uma funcionalidade semelhante ao Hadoop JobTracker e atribui tarefas a outros nós em um cluster por meio do Zookeeper. Os Nós do Zookeeper fazem a coordenação de um cluster e facilitam a comunicação entre o Nimbus e o processo Supervisor nos nós de trabalho. Quando um nó de processamento falha, o nó Nimbus é informado e atribui a tarefa e os dados associados a outro nó.
 
-    Para obter mais informações sobre como desenvolver soluções em C#, confira [Desenvolver uma topologia em C# para Storm no HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
-
-### <a name="reliability"></a>Confiabilidade
-
-O Apache Storm sempre faz com que cada mensagem de entrada seja totalmente processada, mesmo quando a análise de dados é difundida por centenas de nós.
-
-O **nó Nimbus** fornece uma funcionalidade semelhante ao Hadoop JobTracker e atribui tarefas a outros nós no cluster por meio do **Zookeeper**. Os Nós do Zookeeper fazem a coordenação do cluster e facilitam a comunicação entre o Nimbus e o processo **Supervisor** nos nós de trabalho. Quando um nó de processamento falha, o nó Nimbus é informado e atribui a tarefa e os dados associados a outro nó.
-
-A configuração padrão do Apache Storm é ter apenas um nó Nimbus. O Storm no HDInsight executa dois nós Nimbus. Se o nó primário falhar, o cluster HDInsight alternará para o nó secundário enquanto o nó primário é recuperado.
+A configuração padrão dos clusters Apache Storm é ter apenas um nó Nimbus. O Storm no HDInsight oferece dois nós Nimbus. Se o nó primário falhar, o cluster Storm alternará para o nó secundário enquanto o nó primário é recuperado. O diagrama a seguir ilustra a configuração de fluxo de tarefa para o Storm no HDInsight:
 
 ![Diagrama do Nimbus, Zookeeper e Supervisor](./media/hdinsight-storm-overview/nimbus.png)
 
-### <a name="scale"></a>Escala
+## <a name="scale"></a>Escala
 
-Embora você possa especificar o número de nós no cluster durante a criação, convém aumentar ou reduzir o cluster de acordo com a carga de trabalho. Todos os clusters HDInsight permitem que você altere o número de nós no cluster, mesmo durante o processamento de dados.
+Os clusters HDInsight podem ser dimensionados dinamicamente com a adição ou remoção de nós de trabalho. Essa operação pode ser executada durante o processamento de dados.
 
-> [!NOTE]
-> Para tirar proveito dos novos nós adicionados por meio do dimensionamento, você precisa balancear novamente as topologias iniciadas antes do tamanho do cluster ser aumentado.
+> [!IMPORTANT]
+> Para tirar proveito dos novos nós adicionados por meio do dimensionamento, você precisa balancear novamente as topologias do Storm iniciadas antes do tamanho do cluster ser aumentado.
 
-### <a name="support"></a>Suporte
+## <a name="support"></a>Suporte
 
-O Storm no HDInsight é fornecido com suporte completo de nível empresarial 24 horas por dia, 7 dias por semana. O Storm no HDInsight também tem um SLA de 99,9%. Isso significa que garantimos que o cluster terá conectividade externa em, no mínimo, 99,9% do tempo.
+O Storm no HDInsight é fornecido com suporte contínuo completo de nível empresarial. O Storm no HDInsight também tem um SLA de 99,9%. Isso significa que podemos garantir que um cluster Storm tenha conectividade externa pelo menos 99,9% do tempo.
 
-## <a name="common-use-cases-for-real-time-analytics"></a>Casos de uso comuns de análise em tempo real
+Para saber mais, confira o [Suporte do Azure](https://azure.microsoft.com/support/options/).
 
-Abaixo estão alguns cenários comuns em que você pode usar o Apache Storm no HDInsight. Para saber mais sobre cenários reais, confira [Como as empresas estão usando o Storm](https://storm.apache.org/documentation/Powered-By.html).
+## <a name="apache-storm-use-cases"></a>Casos de uso do Apache Storm
+
+Abaixo estão alguns cenários comuns em que você pode usar o Storm no HDInsight:
 
 * Internet das coisas (IoT)
 * Detecção de fraude
 * Análise das redes sociais
-* ETL (extrair, transformar e carregar)
+* Extração, transformação e carregamento (ETL)
 * Monitoramento de rede
 * Pesquisar
 * Mobile Engagement
 
-## <a name="how-is-data-in-hdinsight-storm-processed"></a>Como os dados no HDInsight Storm são processados
+Para saber mais sobre cenários reais, confira o documento [Como as empresas estão usando o Storm](https://storm.apache.org/documentation/Powered-By.html).
 
-O Apache Storm processa **topologias** em vez dos trabalhos do MapReduce com que você pode estar familiarizado no HDInsight ou no Hadoop. Um Storm no cluster HDInsight contém dois tipos de nós: os nós principais que executam o **Nimbus** e nós de trabalho que executam o **Supervisor**.
+## <a name="development"></a>Desenvolvimento
 
-* **Nimbus**: semelhante ao JobTracker no Hadoop, é responsável por distribuir o código no cluster, atribuindo tarefas às máquinas virtuais e monitorando falhas. O HDInsight oferece dois nós Nimbus, de forma que não haja um único ponto de falha para Storm no HDInsight
-* **Supervisor**: O supervisor de cada nó de trabalho é responsável por iniciar e interromper os **processos de trabalho** no nó.
-* **Processo de trabalho**: executa um subconjunto de uma **topologia**. Uma topologia em execução é distribuída entre vários processos de trabalho no cluster.
-* **Topologia**: define um gráfico de computação que processa os **fluxos** de dados. Diferentemente dos trabalhos do MapReduce, as topologias são executadas até que você as interrompa.
-* **Fluxo**: uma coleção não vinculada de **tuplas**. Os fluxos são produzidos por **spouts** e **bolts**, e eles serão consumidos por **bolts**.
-* **Tupla**: uma lista nomeada de valores inseridos dinamicamente.
-* **Spout**: consome os dados de uma fonte de dados e emite um ou mais **fluxos**.
+Os desenvolvedores do .NET podem projetar e implementar topologias em C# usando Data Lake Tools para Visual Studio. Você também pode criar topologias híbridas que usam componentes Java e C#.
 
-  > [!NOTE]
-  > Frequentemente, os dados são lidos de uma fila, como hubs Kafka ou Evento do Azure. Se houver uma interrupção, a fila assegurará que os dados sejam persistidos.
+Para obter mais informações, consulte [Desenvolver topologias C# para o Storm no HDInsight usando o Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
-* **Bolt**: consome os **fluxos**, faz o processamento nas **tuplas** e pode emitir **fluxos**. Os bolts também são responsáveis por gravar dados em armazenamentos externos, como uma fila, o HBase, o HDInsight, um blob ou outro armazenamento de dados.
-* **Apache Thrift**: é uma estrutura de software para o desenvolvimento de serviço escalável em qualquer idioma. Ele permite que você compile serviços que funcionam entre C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, JavaScript, Node.js, Smalltalk e outras linguagens.
+Você também pode desenvolver soluções Java usando o IDE de sua escolha. Para saber mais, confira [Desenvolver topologias em Java para o Storm no HDInsight](hdinsight-storm-develop-java-topology.md).
 
-Para obter mais informações sobre os componentes do Storm, consulte o [Tutorial do Storm][apachetutorial] em apache.org.
+Também é possível usar Python para desenvolver componentes do Storm. Para saber mais, confira [Desenvolver topologias Storm usando Python no HDInsight](hdinsight-storm-develop-python-topology.md).
 
-## <a name="what-programming-languages-can-i-use"></a>Quais linguagens de programação posso usar
-
-### <a name="c35"></a>C&#35;
-
-As Ferramentas do Data Lake para Visual Studio permitem que os desenvolvedores do .NET projetem e implementem uma topologia em C#. Você também pode criar topologias híbridas que usam componentes Java e C#.
-
-Para obter mais informações, consulte [Desenvolver topologias C# para o Apache Storm no HDInsight usando o Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
-
-### <a name="java"></a>Java
-
-A maioria dos exemplos com Java encontrados são Java ou Trident simples. Trident é uma abstração de alto nível que torna mais fácil realizar coisas como junções, agregações, agrupamentos e filtragens. No entanto, o Trident age em lotes de tuplas, ao passo que uma solução bruta em Java processa um fluxo com uma tupla de cada vez.
-
-Para obter mais informações sobre o Trident, consulte o [Tutorial do Trident](https://storm.apache.org/documentation/Trident-tutorial.html) em apache.org.
-
-Para obter exemplos de topologias Java e Trident, consulte o [lista de exemplo de topologias Storm](hdinsight-storm-example-topology.md) ou os exemplos Storm-Starter no seu cluster HDInsight.
-
-Os exemplos de storm-starter estão localizados no diretório **/usr/hdp/current/storm-client/contrib/storm-starter** no cluster HDInsight.
-
-### <a name="python"></a>Python
-
-Para obter um exemplo do uso de componentes de Python, consulte [Desenvolver topologias Storm usando Python no HDInsight](hdinsight-storm-develop-python-topology.md).
-
-## <a name="what-are-some-common-development-patterns"></a>Quais são alguns dos padrões de desenvolvimento comuns
+## <a name="common-development-patterns"></a>Padrões de desenvolvimento comuns
 
 ### <a name="guaranteed-message-processing"></a>Processamento de mensagem garantido
 
-O Storm pode oferecer diferentes níveis de processamento de mensagem garantido. Por exemplo, um aplicativo básico Storm pode garantir um processamento pelo menos uma vez e o Trident pode garantir o processamento exatamente uma vez.
+O Apache Storm pode oferecer diferentes níveis de processamento de mensagem garantido. Por exemplo, um aplicativo básico Storm pode garantir um processamento pelo menos uma vez e o Trident pode garantir o processamento exatamente uma vez.
 
 Para obter mais informações, consulte [Garantias do processamento de dados](https://storm.apache.org/about/guarantees-data-processing.html) em apache.org.
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-O padrão de leitura de uma tupla de entrada, emitindo zero ou mais tuplas, e depois confirmando a tupla de entrada imediatamente no final do método de execução é comum. O Storm oferece a interface [IBasicBolt](https://storm.apache.org/apidocs/backtype/storm/topology/IBasicBolt.html) para automatizar esse padrão.
+O padrão de leitura de uma tupla de entrada, emitindo zero ou mais tuplas, e depois confirmando a tupla de entrada imediatamente no final do método de execução é comum. O Storm oferece a interface [IBasicBolt](https://storm.apache.org/releases/1.0.3/javadocs/org/apache/storm/topology/IBasicBolt.html) para automatizar esse padrão.
 
 ### <a name="joins"></a>Junções
 
-O modo como os fluxos de dados são unidos varia entre aplicativos. Por exemplo, você pode juntar cada tupla de vários fluxos em um novo fluxo ou pode juntar somente lotes de tuplas para uma janela específica. De qualquer forma, a junção pode ser realizada usando [fieldsGrouping](http://javadox.com/org.apache.storm/storm-core/0.9.1-incubating/backtype/storm/topology/InputDeclarer.html#fieldsGrouping%28java.lang.String,%20backtype.storm.tuple.Fields%29), que é uma maneira de definir como as tuplas são roteadas aos bolts.
+O modo como os fluxos de dados são unidos varia entre aplicativos. Por exemplo, você pode juntar cada tupla de vários fluxos em um novo fluxo ou pode juntar somente lotes de tuplas para uma janela específica. De qualquer forma, a junção pode ser realizada usando [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-). O agrupamento de campo é uma maneira de definir como as tuplas são roteadas para os bolts.
 
-No exemplo de Java a seguir, fieldsGrouping é usado para rotear tuplas provenientes dos componentes "1", "2" e "3" para o bolt **MyJoiner** .
+No exemplo de Java a seguir, fieldsGrouping é usado para rotear tuplas provenientes dos componentes "1", "2" e "3" para o bolt MyJoiner:
 
     builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
 
-### <a name="batching"></a>Envio em lote
+### <a name="batches"></a>Lotes
 
-O Storm oferece um mecanismo de cronometragem interno conhecido como "tupla em escala", que pode ser usado para emitir um lote a cada X segundos.
+O Apache Storm fornece um mecanismo de cronometragem interno conhecido como "tupla em escala". Você pode definir quantas vezes uma tupla em escala é emitida em sua topologia.
 
 Para obter um exemplo de como usar uma tupla de escala de um componente em C#, confira [PartialBoltCount.cs](https://github.com/hdinsight/hdinsight-storm-examples/blob/3b2c960549cac122e8874931df4801f0934fffa7/EventCountExample/EventCountTopology/src/main/java/com/microsoft/hdinsight/storm/examples/PartialCountBolt.java).
 
-Se estiver usando o Trident, ele se baseia no processamento de lotes de tuplas.
+### <a name="caches"></a>Caches
 
-### <a name="caching"></a>Cache
+O cache na memória geralmente é usado como um mecanismo para acelerar o processamento, uma vez que mantém os ativos usados com mais frequência na memória. Como uma topologia é distribuída entre vários nós, e entre vários processos dentro de cada nó, considere o uso de [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-). Use `fieldsGrouping` para garantir que as tuplas que contêm os campos que são usados para pesquisa em cache sejam sempre roteadas para o mesmo processo. Essa funcionalidade de agrupamento evita a duplicação de entradas de cache entre os processos.
 
-O cache na memória geralmente é usado como um mecanismo para acelerar o processamento, uma vez que mantém os ativos usados com mais frequência na memória. Como uma topologia é distribuída entre vários nós, e entre vários processos dentro de cada nó, considere o uso de [fieldsGrouping](http://javadox.com/org.apache.storm/storm-core/0.9.1-incubating/backtype/storm/topology/InputDeclarer.html#fieldsGrouping%28java.lang.String,%20backtype.storm.tuple.Fields%29). `fieldsGrouping` garante que as tuplas contendo os campos que são usados para pesquisa em cache sejam sempre roteadas para o mesmo processo. Essa funcionalidade de agrupamento evita a duplicação de entradas de cache entre os processos.
+### <a name="stream-top-n"></a>Fluxo "N Superior"
 
-### <a name="streaming-top-n"></a>Transmitindo os principais valores N
+Quando sua topologia depende do cálculo de um valor de N principal, calcule o valor N principal paralelamente. Em seguida, mescle o resultado desses cálculos em um valor global. Essa operação pode ser feita usando [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) para rotear por campo no processamento paralelo. Em seguida, você pode rotear para um bolt que determina o valor N principal globalmente.
 
-Quando a sua topologia depende do cálculo de um valor “N principal”, você deve calcular o valor N principal paralelamente e depois mesclar o resultado desses cálculos em um valor global. Isso pode ser feito usando [fieldsGrouping](http://javadox.com/org.apache.storm/storm-core/0.9.1-incubating/backtype/storm/topology/InputDeclarer.html#fieldsGrouping%28java.lang.String,%20backtype.storm.tuple.Fields%29) para rotear por campo para processamento em paralelo e depois rotear para um bolt que determina globalmente o valor N principal.
+Para obter um exemplo do cálculo de um valor de N principal, confira o exemplo [RollingTopWords](https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/org/apache/storm/starter/RollingTopWords.java).
 
-Para obter um exemplo do cálculo de um valor de "N principal", consulte o exemplo [RollingTopWords](https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/RollingTopWords.java) .
-
-## <a name="what-type-of-logging-does-storm-use"></a>Que tipo de registro em log o Storm utiliza
+## <a name="logging"></a>Registro em log
 
 O Storm usa o Apache Log4j para registrar informações em log. Por padrão, uma grande quantidade de dados é registrada e pode ser difícil classificar as informações. Você pode incluir um arquivo de configuração de log como parte de sua topologia do Storm para controlar o comportamento de log.
 
@@ -230,13 +192,12 @@ Para uma topologia de exemplo que demonstra como configurar o log, veja o exempl
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre as soluções de análise em tempo real com o Apache Storm no HDInsight:
+Saiba mais sobre as soluções de análise em tempo real com o Storm no HDInsight:
 
-* [Introdução ao Storm no HDInsight][gettingstarted]
-* [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
+* [Introdução ao Apache Storm no HDInsight][gettingstarted]
+* [Topologias de exemplo para Apache Storm no HDInsight](hdinsight-storm-example-topology.md)
 
 [stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
 [apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
-

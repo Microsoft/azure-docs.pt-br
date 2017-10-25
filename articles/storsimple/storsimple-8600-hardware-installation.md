@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/24/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: 309ceba2d65c0745ba1acac698acb62526ab8078
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Desembalar, montar em rack e cabear o dispositivo StorSimple 8600.
 ## <a name="overview"></a>Visão geral
@@ -203,8 +203,8 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
    
    | Rótulo | Descrição |
    | --- | --- |
-   |   0,1,4,5 |Interfaces de rede de&1; GbE |
-   |   2,3 |Interfaces de rede de&10; GbE |
+   |   0,1,4,5 |Interfaces de rede de 1 GbE |
+   |   2,3 |Interfaces de rede de 10 GbE |
    |   6 |Portas seriais |
 2. Consulte o diagrama a seguir para cabeamento de rede. (A configuração mínima de rede é mostrada pelas linhas azuis sólidas. Para alta disponibilidade e desempenho, a configuração adicional necessária é mostrada pelas linhas pontilhadas).
 
@@ -267,10 +267,4 @@ Você concluiu o cabeamento do dispositivo para conexão serial, de energia e ac
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora você está pronto para [implantar e configurar seu dispositivo StorSimple no local](storsimple-deployment-walkthrough-u2.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

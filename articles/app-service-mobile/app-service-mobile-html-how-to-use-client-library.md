@@ -3,8 +3,8 @@ title: "Como usar o SDK do JavaScript para os Aplicativos Móveis do Azure"
 description: "Como usar o v para os Aplicativos Móveis do Azure"
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 53b78965-caa3-4b22-bb67-5bd5c19d03c4
 ms.service: app-service-mobile
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: 013956232d1fdfdc1f35741c25294a37b7e9bd92
-ms.openlocfilehash: 3914d5bdc8feff7d7de5c6f7255396acade341b9
-ms.lasthandoff: 02/07/2017
-
-
+ms.author: glenga
+ms.openlocfilehash: 0c4b4de560d70592f5bbdee28b56a7686b5689f4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Como usar a biblioteca de cliente JavaScript para os Aplicativos Móveis do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -107,5 +106,3 @@ Após a atualização do back-end, você poderá usar as novas URLs de loopback 
 [Portal do Azure]: https://portal.azure.com/
 [SDK do JavaScript para os Aplicativos Móveis do Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
 [Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
-
-

@@ -4,7 +4,7 @@ description: Saiba como usar a ferramenta iothub-explorer da CLI para monitorar 
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: iothub explorer, sistema de mensagens de dispositivo de nuvem, nuvem ao dispositivo do Hub IoT, sistema de mensagens da nuvem para o dispositivo
 ms.assetid: 04521658-35d3-4503-ae48-51d6ad3c62cc
@@ -13,19 +13,19 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 08/24/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 8c25b8f558aae638a95d6e7186e19e77d02edbb2
-ms.lasthandoff: 03/30/2017
-
-
+ms.openlocfilehash: 30151b7bdc544bc36e959cc3528d37897198fc7e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Use o iothub-explorer para enviar e receber mensagens entre o dispositivo e o Hub IoT
 
-> [!NOTE]
-> Antes de iniciar este tutorial, certifique-se de ter concluído [Conectar a ESP8266 ao Hub IoT do Azure](/iot-hub-arduino-huzzah-esp8266-get-started.md). Em [Conectar a ESP8266 ao Hub IoT do Azure](/iot-hub-arduino-huzzah-esp8266-get-started.md), você configura seu dispositivo IoT e Hub IoT e implanta um aplicativo de exemplo para executar no seu dispositivo. O aplicativo envia dados de sensor coletados para o Hub IoT.
+![Diagrama de ponta a ponta](media/iot-hub-get-started-e2e-diagram/2.png)
+
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 O [iothub-explorer](https://github.com/azure/iothub-explorer) tem alguns comandos que facilitam o gerenciamento do Hub IoT. Este tutorial se concentra em como usar o iothub-explorer para enviar e receber mensagens entre o dispositivo e o Hub IoT.
 
@@ -40,9 +40,9 @@ Saiba como usar o iothub-explorer para monitorar mensagens do dispositivo para a
 
 ## <a name="what-you-need"></a>O que você precisa
 
-- Tutorial [Conectar a ESP8266 ao Hub IoT do Azure](/iot-hub-arduino-huzzah-esp8266-get-started.md) concluído, que aborda os seguintes requisitos:
+- Tutorial [Configurar seu dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) concluído que aborda os seguintes requisitos:
   - Uma assinatura ativa do Azure.
-  - Um Hub IoT do Azure em sua assinatura.
+  - Um hub IoT do Azure em sua assinatura.
   - O aplicativo cliente que envia mensagens para o Hub IoT do Azure.
 - iothub-explorer. ([Instalar o iothub-explorer](https://github.com/azure/iothub-explorer))
 
@@ -54,11 +54,11 @@ Para monitorar as mensagens enviadas do seu dispositivo ao seu Hub IoT, siga est
 1. Execute o comando a seguir:
 
    ```bash
-   iothub-explorer monitor-events <device-id> --login <IoTHubConnectionString>
+   iothub-explorer monitor-events <device-id> --login "<IoTHubConnectionString>"
    ```
 
    > [!Note]
-   > Obtenha `<device-id>` e `<IoTHubConnectionString>` do seu Hub IoT. Certifique-se de ter concluído o tutorial anterior.
+   > Obtenha `<device-id>` e `<IoTHubConnectionString>` do seu Hub IoT. Certifique-se de ter concluído o tutorial anterior. Ou então, você pode tentar usar `iothub-explorer monitor-events <device-id> --login "HostName=<my-hub>.azure-devices.net;SharedAccessKeyName=<my-policy>;SharedAccessKey=<my-policy-key>"` se você tiver `HostName`, `SharedAccessKeyName` e `SharedAccessKey`.
 
 ## <a name="send-cloud-to-device-messages"></a>Envie mensagens da nuvem para o dispositivo
 
@@ -68,7 +68,7 @@ Para enviar uma mensagem do Hub IoT para o dispositivo, siga estas etapas:
 1. Inicie uma sessão no Hub IoT, executando o seguinte comando:
 
    ```bash
-   iothub-explorer login <IoTHubConnectionString>
+   iothub-explorer login `<IoTHubConnectionString>`
    ```
 
 1. Envie uma mensagem para o dispositivo, executando o seguinte comando:
@@ -86,6 +86,4 @@ O comando envia a mensagem ao dispositivo e pisca o LED conectado a ele.
 
 Você aprendeu como monitorar mensagens do dispositivo para a nuvem e enviar mensagens da nuvem para o dispositivo entre o dispositivo IoT e o Hub IoT do Azure.
 
-Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, confira:
-
-- [Salvar mensagens do Hub IoT para o armazenamento de dados do Azure](iot-hub-store-data-in-azure-table-storage.md)
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

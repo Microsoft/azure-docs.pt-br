@@ -9,7 +9,17 @@
 | Comprimento do valor da marca |256 |256 |
 
 
+#### <a name="template-limits"></a>Limites de modelo
 
-<!--HONumber=Dec16_HO2-->
+| Valor | Limite padrão | Limite máximo |
+| --- | --- | --- |
+| Parâmetros |256 |256 |
+| Variáveis |256 |256 |
+| Recursos (incluindo a contagem de cópias) |800 |800 |
+| outputs |64 |64 |
+| Expressão de modelo |24.576 caracteres |24.576 caracteres |
+| Recursos em modelos exportados |200 |200 | 
+| Tamanho do modelo |1 MB |1 MB |
+| Tamanho do arquivo de parâmetro |64 KB |64 KB |
 
-
+Você pode exceder alguns limites de modelo usando um modelo aninhado. Para saber mais, confira [Uso de modelos vinculados ao implantar recursos do Azure](../articles/azure-resource-manager/resource-group-linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, você pode combinar vários valores em um objeto. Para saber mais, veja [Objetos como parâmetros](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).

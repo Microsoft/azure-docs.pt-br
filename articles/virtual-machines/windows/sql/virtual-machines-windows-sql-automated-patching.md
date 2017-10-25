@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/31/2017
+ms.date: 07/05/2017
 ms.author: jroth
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: c48e23c1904d824ce2360f83c9df9c8e17d6200a
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 7d501ab45a85010a8dbfd6135d77f18f1743354e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Aplicação de patch automatizada para o SQL Server em Máquinas Virtuais do Azure (Gerenciador de Recursos)
 > [!div class="op_single_selector"]
@@ -42,6 +41,7 @@ Para usar a Aplicação de Patch Automatizada, considere os seguintes pré-requi
 
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 **Versão do SQL Server**:
 
@@ -51,7 +51,7 @@ Para usar a Aplicação de Patch Automatizada, considere os seguintes pré-requi
 
 **Azure PowerShell**:
 
-* [Instalar os comandos mais recentes do Azure PowerShell](/powershell/azureps-cmdlets-docs) se você planeja configurar a Aplicação de Patch Automatizada com o PowerShell.
+* [Instalar os comandos mais recentes do Azure PowerShell](/powershell/azure/overview) se você planeja configurar a Aplicação de Patch Automatizada com o PowerShell.
 
 > [!NOTE]
 > A aplicação de Patch automatizada depende da Extensão do Agente IaaS do SQL Server. As imagens atuais da galeria da máquina virtual do SQL adicionam essa extensão por padrão. Para obter mais informações, consulte [Extensão do agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
@@ -127,5 +127,4 @@ Para desabilitar a aplicação de Patch automatizada, execute o mesmo script sem
 Para obter informações sobre outras tarefas de automação disponíveis, consulte [Extensão do agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
 Para obter mais informações sobre como executar o SQL Server em VMs do Azure, consulte [Visão geral do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
 

@@ -3,7 +3,7 @@ title: "Referência à API de auditoria do Azure Active Directory | Microsoft Do
 description: "Como começar a usar a API de auditoria do Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
@@ -12,12 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/16/2016
+ms.date: 10/17/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: b1de516d907826d3e6ede0783649f6101b381852
-ms.openlocfilehash: 261cce0b8424f73df4c7ca86784a14e95a8336f1
-
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 573e940c5390e7b990d889681eb37b73c5b253d9
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/17/2017
 
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Referência à API de auditoria do Azure Active Directory
@@ -27,10 +29,17 @@ O escopo deste tópico é fornecer informações de referência sobre a **API de
 
 Consulte:
 
-* [Logs de auditoria](active-directory-reporting-azure-portal.md#audit-logs) para obter mais informações conceituais
+* [Logs de auditoria](active-directory-reporting-azure-portal.md#activity-reports) para obter mais informações conceituais
+
 * [Introdução à API de relatório do Azure Active Directory](active-directory-reporting-api-getting-started.md) para saber mais sobre a API de relatório.
 
-Para dúvidas, problemas ou comentários, entre em contato com a [Ajuda de relatório do AAD](mailto:aadreportinghelp@microsoft.com).
+
+Para:
+
+- Perguntas frequentes, leia nossas [Perguntas Frequentes](active-directory-reporting-faq.md) 
+
+- Solucionar problemas, [registre um tíquete de suporte](active-directory-troubleshooting-support-howto.md) 
+
 
 ## <a name="who-can-access-the-data"></a>Quem pode acessar os dados?
 * Usuários na função de Administrador de segurança ou Leitor de segurança
@@ -75,6 +84,8 @@ Para entrar dados de entrada relacionados à API, os filtros a seguir recebem su
 Para especificar o tipo de registro com o qual você se preocupa, compile uma instrução de filtro que possa conter um ou uma combinação dos campos de filtro a seguir:
 
 * [activityDate](#activitydate) – define uma data ou intervalo de datas
+* [categoria](#category) – define a categoria pela qual você deseja filtrar.
+* [activityStatus](#activitystatus) – define o status de uma atividade
 * [activityType](#activitytype) – define o tipo de uma atividade
 * [activity](#activity) – Define a atividade como uma cadeia de caracteres  
 * [actor/name](#actorname) – define o ator na forma de nome do ator
@@ -97,6 +108,45 @@ Para especificar o tipo de registro com o qual você se preocupa, compile uma in
 datetime deve estar no formato UTC
 
 - - -
+### <a name="category"></a>categoria
+
+**Valores com suporte**:
+
+| Categoria                         | Valor     |
+| :--                              | ---       |
+| Diretório principal                   | Diretório |
+| Gerenciamento de senhas de auto-atendimento | SSPR      |
+| Gerenciamento de grupos de autoatendimento    | SSGM      |
+| Provisionamento de conta de usuário             | Sincronizar      |
+| Substituição de senha automática      | Substituição de senha automática |
+| Identity Protection              | IdentityProtection |
+| Usuários Convidados                    | Usuários Convidados |
+| Serviço MIM                      | Serviço MIM |
+
+
+
+**Operadores com suporte**: eq
+
+**Exemplo**:
+
+    $filter=category eq 'SSPR'
+- - -
+### <a name="activitystatus"></a>activityStatus
+
+**Valores com suporte**:
+
+| Status da Atividade | Valor |
+| :--             | ---   |
+| Sucesso         | 0     |
+| Failure         | - 1   |
+
+**Operadores com suporte**: eq
+
+**Exemplo**:
+
+    $filter=activityStatus eq -1    
+
+---
 ### <a name="activitytype"></a>activityType
 **Operadores com suporte**: eq
 
@@ -139,6 +189,7 @@ não diferenciam maiúsculas de minúsculas
 **Exemplo**:
 
     $filter=actor/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba'    
+
 
 - - -
 ### <a name="targetname"></a>target/name
@@ -190,10 +241,5 @@ não diferenciam maiúsculas de minúsculas
 ## <a name="next-steps"></a>Próximas etapas
 * Quer ver exemplos para atividades do sistema filtradas? Confira os [exemplos de API de auditoria do Azure Active Directory](active-directory-reporting-api-audit-samples.md).
 * Quer saber mais sobre a API de relatório do Azure AD? Confira [Introdução à API de relatório do Azure Active Directory](active-directory-reporting-api-getting-started.md).
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

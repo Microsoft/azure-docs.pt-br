@@ -4,7 +4,7 @@ description: "Este tópico oferece uma visão geral dos conceitos de Serviços d
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: dcefc8bc-e2ea-4b38-a643-9010f4436fb5
 ms.service: media-services
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2017
+ms.date: 07/07/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 59ccb7a043e1db750e596f173af0791099ea1827
-ms.lasthandoff: 03/14/2017
-
-
+ms.openlocfilehash: 5322b5f3231b067937b685c69b916ed74dfe9a6e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos dos Serviços de Mídia do Azure
 Este tópico fornece uma visão geral dos conceitos mais importantes dos Serviços de Mídia.
@@ -45,7 +44,8 @@ Você não deve tentar alterar o conteúdo de contêineres de blob que foram ger
 ### <a name="asset-encryption-options"></a>Opções de criptografia de ativos
 Dependendo do tipo de conteúdo que você deseja carregar, armazenar e fornecer, o Serviços de Mídia fornece várias opções de criptografia dentre as quais você pode escolher.
 
-**None** - nenhuma criptografia é usada. Esse é o valor padrão. Observe que, ao usar essa opção, seu conteúdo não será protegido quando estiver em trânsito ou em repouso no armazenamento.
+>[!NOTE]
+>Nenhuma criptografia é usada. Esse é o valor padrão. Ao usar essa opção, seu conteúdo não é protegido quando está em trânsito ou em repouso no armazenamento.
 
 Se você pretende enviar um MP4 usando o download progressivo, use essa opção para carregar seu conteúdo.
 
@@ -55,7 +55,7 @@ Para entregar um ativo de armazenamento criptografado, você deve configurar a p
 
 **CommonEncryptionProtected** - use esta opção se você desejar criptografar conteúdo (ou carregar conteúdo que já foi criptografado) com criptografia comum ou DRM PlayReady (por exemplo, Smooth Streaming protegido com DRM PlayReady).
 
-**EnvelopeEncryptionProtected** – Use esta opção se você deseja proteger conteúdo (ou carregar conteúdo já protegido) HLS (HTTP Live Streaming) criptografado com AES. Observe que se você estiver carregando um HLS já criptografado com AES, ele deve ter sido criptografado com o Transform Manager.
+**EnvelopeEncryptionProtected** – Use esta opção se você deseja proteger conteúdo (ou carregar conteúdo já protegido) HLS (HTTP Live Streaming) criptografado com AES. Observe que, se você estiver carregando um HLS já criptografado com AES, ele deverá ter sido criptografado pelo Transform Manager.
 
 ### <a name="access-policy"></a>Política de acesso
 Uma [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) define permissões (como leitura, gravação e lista) e a duração do acesso a um ativo. Normalmente, você passaria um objeto AccessPolicy para um localizador que deve ser usado para acessar os arquivos contidos em um ativo.
@@ -66,7 +66,7 @@ Uma [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspo
 ### <a name="blob-container"></a>Contêiner de blob
 Um contêiner de blob fornece um agrupamento de um conjunto de blobs. Contêineres de blob são usados nos serviços de mídia como ponto limite para controle de acesso e localizadores de assinatura de acesso compartilhado (SAS) em ativos. Uma conta de armazenamento do Azure pode conter um número ilimitado de contêineres de blob. Um contêiner pode armazenar um número ilimitado de blobs.
 
-> [!NOTE]
+>[!NOTE]
 > Você não deve tentar alterar o conteúdo de contêineres de blob que foram gerados pelos serviços de mídia sem o uso de APIs de serviços de mídia.
 > 
 > 
@@ -76,7 +76,8 @@ Os [localizadores](https://docs.microsoft.com/rest/api/media/operations/locator)
 
 Os Serviços de Mídia suportam dois tipos de localizadores: localizadores OnDemandOrigin, usados para transmitir mídia (por exemplo, MPEG DASH, HLS ou Smooth Streaming) ou baixar, de maneira progressiva, mídia; e localizadores de URL SAS, usados para carregar ou baixar arquivos de mídia para\do armazenamento do Azure. 
 
-Observe que a permissão de lista (AccessPermissions.List) não deve ser usada ao criar um localizador OnDemandOrigin. 
+>[!NOTE]
+>A permissão de lista (AccessPermissions.List) não deve ser usada ao criar um localizador OnDemandOrigin. 
 
 ### <a name="storage-account"></a>Conta de armazenamento
 Todo o acesso ao Armazenamento do Azure ocorre por meio de uma conta de armazenamento. Uma conta do Serviço de Mídia pode ser associada a uma ou mais contas de armazenamento. Uma conta pode conter um número ilimitado de contêineres, desde que seu tamanho total esteja abaixo de 500 TB por conta de armazenamento.  Os Serviços de Mídia fornecem ferramentas de nível de SDK que permitem a você gerenciar várias contas de armazenamento e balancear a carga da distribuição de seus ativos durante o carregamento nessas contas com base em métricas ou na distribuição aleatória. Para saber mais, consulte Trabalhando com [Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
@@ -96,7 +97,7 @@ Os Serviços de Mídia fornecem empacotamento dinâmico, o que permite distribui
 
 Para aproveitar o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md), você precisa codificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável, além de ter pelo menos um ponto de extremidade de streaming Standard ou Premium no estado iniciado.
 
-Os Serviços de Mídia são compatíveis com os seguintes codificadores sob demanda descritos neste artigo:
+Os Serviços de Mídia dão suporte aos seguintes codificadores sob demanda descritos neste artigo:
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
 * [Fluxo de trabalho do Media Encoder Premium](media-services-encode-asset.md#media-encoder-premium-workflow)
@@ -117,7 +118,7 @@ Você pode obter a URL de ingestão e a URL de visualização prévia quando voc
 Cada conta dos Serviços de Mídia pode conter vários canais, vários programas e vários StreamingEndpoints. Dependendo das necessidades de largura de banda e segurança, serviços de StreamingEndpoint podem ser dedicados a um ou mais canais. Qualquer StreamingEndpoint pode executar pull de qualquer canal.
 
 ### <a name="program-event"></a>Programa (evento)
-Um [Programa (evento)](https://docs.microsoft.com/rest/api/media/operations/program) permite que você controle a publicação e o armazenamento de segmentos em um fluxo ao vivo. Canais gerenciam Programas (eventos). A relação entre canal e programa é muito semelhante à mídia tradicional, onde um canal tem um fluxo constante de conteúdo e um programa tem como escopo algum evento programado naquele canal.
+Um [Programa (evento)](https://docs.microsoft.com/rest/api/media/operations/program) permite que você controle a publicação e o armazenamento de segmentos em um fluxo ao vivo. Canais gerenciam Programas (eventos). A relação entre Canal e Programa é semelhante à mídia tradicional, em que um canal tem um fluxo constante de conteúdo e um programa tem como escopo algum evento regulado naquele canal.
 Você pode especificar o número de horas pelo qual deseja manter o conteúdo gravado para o programa, definindo a propriedade **ArchiveWindowLength** . Esse valor pode ser definido entre o mínimo de 5 minutos e o máximo de 25 horas.
 
 ArchiveWindowLength também determina que a quantidade máxima de clientes de tempo pode buscar de volta no tempo a partir da posição atual em tempo real. Programas podem ser executados sobre o período de tempo especificado, mas o conteúdo que sair do comprimento da janela será continuamente descartado. Esse valor desta propriedade também determina por quanto tempo os manifestos do cliente podem crescer.
@@ -157,10 +158,10 @@ Para obter mais informações, consulte os seguintes artigos:
 
 ## <a name="delivering"></a>Fornecimento
 ### <a id="dynamic_packaging"></a>Empacotamento dinâmico
-Quando trabalhar com os Serviços de Mídia, é recomendado codificar seus arquivos de mezanino em uma conjunto de MP4 de taxa de bits adaptável e, em seguida, converter o conjunto para o formato desejado usando o [Empacotamento Dinâmico](media-services-dynamic-packaging-overview.md).
+Ao trabalhar com os Serviços de Mídia, é recomendado codificar seus arquivos de mezanino em uma conjunto MP4 de taxa de bits adaptável e, em seguida, converter o conjunto para o formato desejado usando o [Empacotamento Dinâmico](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>ponto de extremidade de streaming
-Um StreamingEndpoint representa um serviço de streaming que pode fornecer conteúdo diretamente a um aplicativo de player de cliente ou para uma CDN (Rede de Distribuição de Conteúdo) para a distribuição (os Serviços de Mídia do Azure agora fornecem a integração com o Azure CDN). O fluxo de saída de um serviço de ponto de extremidade de streaming pode ser uma transmissão ao vivo ou um ativo de vídeo sob demanda em sua conta dos Serviços de Mídia. Os clientes de Serviços de Mídia escolhem um ponto de extremidade de streaming **Standard** ou um ou mais pontos de extremidade de streaming **Premium** de acordo com suas necessidades. O ponto de extremidade de streaming Standard é adequado para a maioria das cargas de trabalho de streaming. 
+Um StreamingEndpoint representa um serviço de streaming que pode fornecer conteúdo diretamente a um aplicativo de player de cliente ou para uma CDN (Rede de Distribuição de Conteúdo) para a distribuição (os Serviços de Mídia do Azure agora fornecem a integração com o Azure CDN). O fluxo de saída de um serviço de ponto de extremidade de streaming pode ser uma transmissão ao vivo ou um Ativo de vídeo sob demanda em sua conta dos Serviços de Mídia. Os clientes de Serviços de Mídia escolhem um ponto de extremidade de streaming **Standard** ou um ou mais pontos de extremidade de streaming **Premium** de acordo com suas necessidades. O ponto de extremidade de streaming Standard é adequado para a maioria das cargas de trabalho de streaming. 
 
 O Ponto de Extremidade de Streaming Standard é adequado para a maior parte de cargas de trabalho de streaming. Os Pontos de Extremidade de Streaming Standard proporcionam flexibilidade para distribuição de conteúdo a praticamente qualquer dispositivo por meio de empacotamento dinâmico em HLS, MPEG-DASH e Smooth Streaming, bem como a criptografia dinâmica para o Microsoft PlayReady, Google Widevine, Apple Fairplay e AES128.  Eles também são dimensionados para públicos-alvo muito pequenos para muito grandes com milhares de visualizadores simultâneos por meio da integração de CDN do Azure. Se você tiver uma carga de trabalho avançada, ou os requisitos de capacidade de streaming não se ajustarem às metas de taxa de transferência do ponto de extremidade de streaming padrão, ou se você quiser controlar a capacidade do serviço StreamingEndpoint para lidar com as crescentes necessidades de largura de banda, é recomendável alocar unidades de escala (também conhecidas como unidades de streaming Premium).
 
@@ -183,7 +184,8 @@ Se você tiver um ativo de armazenamento criptografado, antes que possa ser tran
 ### <a name="progressive-download"></a>Download progressivo
 O download progressivo permite iniciar a reprodução da mídia antes do arquivo inteiro ter sido baixado. Você só pode baixar apenas progressivamente um arquivo MP4.
 
-Observe que é necessário descriptografar ativos criptografados se você deseja que estejam disponíveis para download progressivo.
+>[!NOTE]
+>Será necessário descriptografar ativos criptografados se você desejar que eles estejam disponíveis para download progressivo.
 
 Para fornecer aos usuários URLs de download progressivo, você deve primeiro criar um localizador OnDemandOrigin. Criar o localizador oferece a você o caminho base para o ativo. Em seguida, é necessário acrescentar o nome do arquivo MP4. Por exemplo:
 
@@ -192,9 +194,10 @@ http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba01
 ### <a name="streaming-urls"></a>URLs de streaming
 Transmitindo seu conteúdo para clientes. Para fornecer aos usuários URLs de streaming, você deve primeiro criar um localizador OnDemandOrigin. Criar o localizador oferece a você o caminho base para o ativo que contém o conteúdo que você deseja transmitir. No entanto, para poder transmitir este conteúdo você precisa modificar esse caminho ainda mais. Para construir uma URL completa para o arquivo de manifesto de streaming, você deve concatenar o valor do caminho do localizador e o nome de arquivo de manifesto (ISM). Em seguida, anexe um formato apropriado (se necessário) ao caminho do localizador.
 
-Você também pode transmitir seu conteúdo por uma conexão SSL. Para fazer isso, certifique-se de que suas URLs de streaming começam com HTTPS. Observe que, atualmente, o AMS não dá suporte ao SSL com domínios personalizados.  
+Você também pode transmitir seu conteúdo por uma conexão SSL. Para fazer isso, certifique-se de que suas URLs de streaming começam com HTTPS. Atualmente, o AMS não dá suporte ao SSL com domínios personalizados.  
 
-Observe que você só pode transmitir por SSL se o ponto de extremidade de streaming por meio do qual você pode distribuir o conteúdo tiver sido criado depois de 10 de setembro de 2014. Se suas URLs de streaming baseiam-se nos pontos de extremidade de streaming criados após 10 de setembro, a URL conterá "streaming.mediaservices.windows.net" (o novo formato). As URLs de streaming que contêm "origin.mediaservices.windows.net" (o formato antigo) não são compatíveis com SSL. Se sua URL está no formato antigo e você deseja ser capaz de transmitir por SSL, crie um novo ponto de extremidade de streaming. Use URLs criadas com base no novo ponto de extremidade de streaming para transmitir seu conteúdo por SSL.
+>[!NOTE]
+>Você só poderá transmitir por SSL se o ponto de extremidade de streaming do qual você pode distribuir o conteúdo tiver sido criado depois de 10 de setembro de 2014. Se suas URLs de streaming baseiam-se nos pontos de extremidade de streaming criados após 10 de setembro, a URL conterá "streaming.mediaservices.windows.net" (o novo formato). As URLs de streaming que contêm "origin.mediaservices.windows.net" (o formato antigo) não são compatíveis com SSL. Se sua URL está no formato antigo e você deseja ser capaz de transmitir por SSL, crie um novo ponto de extremidade de streaming. Use URLs criadas com base no novo ponto de extremidade de streaming para transmitir seu conteúdo por SSL.
 
 A lista a seguir descreve os diferentes formatos de streaming e fornece exemplos:
 
@@ -227,5 +230,4 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

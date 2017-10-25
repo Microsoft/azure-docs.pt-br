@@ -1,8 +1,3 @@
 
 * [Registrar uma ID para seu aplicativo](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html#//apple_ref/doc/uid/TP40012582-CH30-SW991). Crie uma ID de aplicativo explícita (não uma ID de aplicativo de caractere curinga) e, para **ID do Pacote**, use a ID do pacote exata em seu projeto de início rápido do Xcode. É também crucial que você marque a opção **Notificações por Push** . 
 * Em seguida, [para se preparar para configurar notificações por push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6), crie um certificado SSL de "Desenvolvimento" ou "Distribuição".
-
-
-<!--HONumber=Dec16_HO2-->
-
-

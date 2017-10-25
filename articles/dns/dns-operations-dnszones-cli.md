@@ -13,19 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 1481fcb070f383d158c5a6ae32504e498de4a66b
-ms.openlocfilehash: ca6347e079c0e85d1e9583f77b2e43632bedb206
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 1414baf9e51d648cc3a46c4f8635040b4d276910
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Como gerenciar Zonas DNS no DNS do Azure usando a CLI do Azure 2.0
 
 > [!div class="op_single_selector"]
+> * [Portal](dns-operations-dnszones-portal.md)
+> * [PowerShell](dns-operations-dnszones.md)
 > * [CLI 1.0 do Azure](dns-operations-dnszones-cli-nodejs.md)
 > * [CLI 2.0 do Azure](dns-operations-dnszones-cli.md)
-> * [PowerShell](dns-operations-dnszones.md)
+
 
 Este guia mostra como gerenciar as zonas DNS usando a CLI do Azure entre plataformas, que está disponível para Windows, Mac e Linux. Você também pode gerenciar seus registros DNS usando o [Azure PowerShell](dns-operations-dnszones.md) ou o Portal do Azure.
 
@@ -66,7 +67,7 @@ Verificar as assinaturas da conta.
 az account list
 ```
 
-### <a name="choose-which-of-your-azure-subscriptions-to-use"></a>Escolha quais das suas assinaturas do Azure deseja usar.
+Escolha quais das suas assinaturas do Azure deseja usar.
 
 ```azurecli
 az account set --subscription "subscription name"
@@ -102,7 +103,7 @@ O exemplo a seguir cria uma zona DNS chamada *contoso.com* no grupo de recursos 
 az network dns zone create --resource-group MyResourceGroup --name contoso.com
 ```
 
-### <a name="to-create-a-dns-zone-with-tags"></a>Para criar uma zona DNS com marcas.
+### <a name="to-create-a-dns-zone-with-tags"></a>Para criar uma zona DNS com marcas
 
 O exemplo a seguir mostra como criar uma zona DNS com duas [marcas do Azure Resource Manager](dns-zones-records.md#tags), *project = demo* e *env = test*, usando o parâmetro `--tags` (forma abreviada `-t`):
 
@@ -195,5 +196,4 @@ az network dns zone delete --resource-group myresourcegroup --name contoso.com
 Saiba como [gerenciar conjuntos de registros e registros](dns-getstarted-create-recordset-cli.md) em sua zona DNS.
 
 Saiba como [delegar seu domínio ao DNS do Azure](dns-domain-delegation.md).
-
 

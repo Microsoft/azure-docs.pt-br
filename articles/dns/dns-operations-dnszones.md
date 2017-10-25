@@ -11,18 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 09/22/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
-ms.openlocfilehash: c86004a14983e9eea543fbd3aa09f2a447414291
-
+ms.openlocfilehash: 3f28e70bb6ef46f53375d256a520db40fcb71ad0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Como gerenciar as zonas DNS usando o PowerShell
 
 > [!div class="op_single_selector"]
-> * [CLI do Azure](dns-operations-dnszones-cli.md)
+> * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
+> * [CLI 1.0 do Azure](dns-operations-dnszones-cli-nodejs.md)
+> * [CLI 2.0 do Azure](dns-operations-dnszones-cli.md)
 
 Este artigo mostra como gerenciar suas zonas DNS usando o Azure PowerShell. Você também pode gerenciar as zonas DNS usando a plataforma cruzada [CLI do Azure](dns-operations-dnszones-cli.md) ou o portal do Azure.
 
@@ -46,6 +49,8 @@ O exemplo a seguir mostra como criar uma zona DNS com duas [marcas do Azure Reso
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
+
+O DNS do Azure agora também dá suporte a zonas DNS privadas (atualmente um recurso em versão prévia).  Para obter um exemplo de como criar uma zona DNS privada, consulte [Introdução às zonas privadas do DNS do Azure usando o PowerShell](./private-dns-getstarted-powershell.md).
 
 ## <a name="get-a-dns-zone"></a>Obter uma zona DNS
 
@@ -166,11 +171,5 @@ Saiba como [gerenciar conjuntos de registros e registros](dns-operations-records
 <br>
 Saiba como [delegar seu domínio ao DNS do Azure](dns-domain-delegation.md).
 <br>
-Examine a [documentação de referência do PowerShell do DNS do Azure](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+Examine a [documentação de referência do PowerShell do DNS do Azure](/powershell/module/azurerm.dns).
 

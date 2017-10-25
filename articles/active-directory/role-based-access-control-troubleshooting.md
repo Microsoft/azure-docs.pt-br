@@ -3,23 +3,22 @@ title: Solucionar problemas de RBAC do Azure | Microsoft Docs
 description: "Obtenha ajuda para problemas ou dúvidas sobre recursos do Controle de Acesso Baseado em Função."
 services: azure-portal
 documentationcenter: na
-author: kgremban
+author: andredm7
 manager: femila
-editor: 
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
-ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 32b335d8a1f84348ab28bcc081cc42fd79fb08fc
-ms.lasthandoff: 03/04/2017
-
-
+ms.date: 07/12/2017
+ms.author: andredm
+ms.reviewer: rqureshi
+ms.openlocfilehash: 407c030ea159915d4d7ac21760a3d17ec2204372
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="role-based-access-control-troubleshooting"></a>Solução de problemas de Controle de Acesso baseado em função
 
@@ -46,14 +45,14 @@ Se você conceder a um usuário o acesso somente leitura a um aplicativo Web, pa
 * Testes da Web
 * Rede virtual (somente visível para um leitor se uma rede virtual foi anteriormente configurada por um usuário com acesso para gravação).
 
-Se você não conseguir acessar nenhum desses blocos, precisará solicitar ao seu administrador o acesso de Colaborador para o aplicativo Web.
+Se você não conseguir acessar nenhum desses blocos, precisará solicitar ao administrador o acesso de Colaborador ao aplicativo Web.
 
 ### <a name="dealing-with-related-resources"></a>Lidando com recursos relacionados
 Os aplicativos Web são complicados pela presença de alguns recursos diferentes que interagem. Aqui encontra-se um grupo de recursos típico com alguns sites:
 
 ![Grupo de recursos do aplicativo Web](./media/role-based-access-control-troubleshooting/website-resource-model.png)
 
-Como resultado, se você conceder a alguém acesso somente ao aplicativo Web, muitas das funcionalidades na folha do site no portal do Azure serão desabilitadas.
+Como resultado, se você conceder a alguém o acesso somente ao aplicativo Web, muitas das funcionalidades na folha do site no portal do Azure estarão desabilitadas.
 
 Estes itens exigem acesso para **gravação** no **Plano do Serviço de Aplicativo** que corresponde ao seu site:  
 
@@ -63,7 +62,7 @@ Estes itens exigem acesso para **gravação** no **Plano do Serviço de Aplicati
 
 Estes itens exigem acesso para **gravação** no **Grupo de recursos** inteiro que contém o seu site:  
 
-* Associações e certificados SSL (Isso ocorre porque certificados SSL podem ser compartilhados entre sites no mesmo grupo de recursos e localização geográfica)  
+* Associações e Certificados SSL (os certificados SSL podem ser compartilhados entre sites no mesmo grupo de recursos e localização geográfica)  
 * Regras de alerta  
 * Configurações de autoescala  
 * Componentes do Application insights  
@@ -87,12 +86,11 @@ Estes exigem acesso para **gravação** tanto na **Máquina virtual** quanto no 
 * Conjunto de balanceamento de carga  
 * Regras de alerta  
 
-Se você não conseguir acessar nenhum desses blocos, precisará solicitar ao administrador o acesso de Colaborador para o Grupo de recursos.
+Se você não conseguir acessar nenhum desses blocos, solicite ao administrador o acesso de Colaborador ao Grupo de recursos.
 
 ## <a name="see-more"></a>Veja mais
 * [Controle de Acesso Baseado em Função](role-based-access-control-configure.md): introdução ao RBAC no portal do Azure.
 * [Funções internas](role-based-access-built-in-roles.md): obter detalhes sobre as funções que são incluídas por padrão no RBAC.
 * [Funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md): aprenda a criar funções personalizadas para atender às suas necessidades de acesso.
 * [Criar um relatório de histórico de alterações de acesso](role-based-access-control-access-change-history-report.md): mantenha o controle das alterações de atribuições de função no RBAC.
-
 

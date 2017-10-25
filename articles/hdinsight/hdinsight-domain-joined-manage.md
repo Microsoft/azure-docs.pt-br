@@ -1,5 +1,5 @@
 ---
-title: "Gerenciar clusters do HDInsight Ingressado no Domínio | Microsoft Docs"
+title: "Gerenciar clusters do HDInsight ingressados no domínio – Azure | Microsoft Docs"
 description: "Saiba como gerenciar clusters do HDInsight Ingressado no Domínio"
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: e2b2e8d6110062efb99201f4daac1e1295d9b904
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 9b56ce6cc5bdd3b8d48d047751e978cad08598e1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-domain-joined-hdinsight-clusters-preview"></a>Gerenciar clusters do HDInsight Ingressado no Domínio (Preview)
 Conheça os usuários e as funções do HDInsight Ingressado no Domínio e como gerenciar seus clusters.
@@ -111,4 +110,3 @@ O HDInsight Ingressado no Domínio tem as seguintes funções:
 * Para configurar um cluster do HDInsight ingressado no domínio, confira [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md) (Configurar clusters do HDInsight Ingressado no Domínio).
 * Para configurar políticas do Hive e executar consultas do Hive, confira [Configurar políticas do Hive para clusters HDInsight associados ao domínio](hdinsight-domain-joined-run-hive.md).
 * Para executar consultas Hive usando SSH em clusters HDInsight adicionados ao domínio, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-

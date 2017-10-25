@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 08/15/2017
 ms.author: maroche
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ba15ebc176ada48943fb6afa5f9c723e3d906099
-
-
+ms.openlocfilehash: 4518fc126c717cc79ca7950c0b1ddcd9f1d8c7d2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-annotate-data-sources"></a>Como anotar fontes de dados
 ## <a name="introduction"></a>Introdução
@@ -68,9 +68,3 @@ O registro de uma fonte de dados no Catálogo de Dados torna os dados descobrív
 
 ## <a name="see-also"></a>Confira também
 * [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como anotar fontes de dados.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -3,8 +3,8 @@ title: Executar Cassandra com Linux no Azure | Microsoft Docs
 description: "Como executar um cluster Cassandra no Linux em máquinas virtuais do Azure de um aplicativo Node.js"
 services: virtual-machines-linux
 documentationcenter: nodejs
-author: hanuk
-manager: erikre
+author: tomarcher
+manager: routlaw
 editor: 
 tags: azure-service-management
 ms.assetid: 30de1f29-e97d-492f-ae34-41ec83488de0
@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2016
-ms.author: hanuk;robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 1cc14b99a4c0dfeb9eec0afaf72200e93cd22e12
-ms.lasthandoff: 03/27/2017
-
-
+ms.date: 08/17/2017
+ms.author: tarcher
+ms.openlocfilehash: 1ff3d77ced6c9d90029b251490c05e52d9b43515
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Executando Cassandra com Linux no Azure e acessando-a do Node.js
 > [!IMPORTANT] 
@@ -79,14 +78,14 @@ Configuração de cluster de Cassandra de região única:
 
 **Considerações do azure para o cluster do Cassandra:** o recurso de máquinas virtuais do Microsoft Azure usa o armazenamento de Blob do Azure para persistência de disco; o Armazenamento do Azure salva 3 réplicas de cada disco para alta durabilidade. Isso significa que cada linha de dados inseridos em uma tabela do Cassandra já está armazenada em 3 réplicas e, portanto, a consistência dos dados já estará resolvida, mesmo se o fator de replicação (RF) for 1. O principal problema com o Fator de Replicação ser 1 é que o aplicativo terá um tempo de inatividade, mesmo se um único nó do Cassandra falhar. No entanto, se um nó estiver inativo para os problemas (por exemplo, falhas de hardware, software do sistema) reconhecidos pelo Controlador de Malha do Azure, ele provisionará um novo nó em seu lugar usando as mesmas unidades de armazenamento. O provisionamento de um novo nó para substituir o antigo pode levar alguns minutos.  Da mesma forma, para atividades de manutenção planejada como alterações do sistema operacional convidado, atualizações do Cassandra e alterações de aplicativo, o Controlador de Malha do Azure executa atualizações sem interrupções de nós no cluster.  Atualizações sem interrupção também podem desativar alguns nós por vez; portanto, o cluster pode apresentar um breve tempo de inatividade para algumas partições. No entanto, os dados não serão perdidos devido à redundância interna do Armazenamento do Azure.  
 
-Para sistemas implantados no Azure que não exijam alta disponibilidade (por exemplo, cerca 99,9 que equivale a 8,76 h/ano; confira [Alta disponibilidade](http://en.wikipedia.org/wiki/High_availability) para obter mais detalhes), você poderá executar com RF = 1 e Nível de Consistência = UM.  Para aplicativos com requisitos de alta disponibilidade, RF = 3 e Nível de Consistência = QUORUM tolerarão o tempo de inatividade de um dos nós de uma das réplicas. RF = 1 em implantações tradicionais (por exemplo, locais) não pode ser usado devido à possível perda de dados resultante de problemas, como falhas no disco.   
+Para sistemas implantados no Azure que não exijam alta disponibilidade (por exemplo, cerca 99,9 que equivale a 8,76 h/ano; confira [Alta disponibilidade](http://en.wikipedia.org/wiki/High_availability) para obter mais detalhes), você poderá executar com RF = 1 e Nível de Consistência = UM.  Para aplicativos com requisitos de alta disponibilidade, RF = 3 e Nível de Consistência = QUORUM tolerarão o tempo de inatividade de um dos nós de uma das réplicas. RF=1 em implantações tradicionais (por exemplo, locais) não pode ser usado devido à possível perda de dados resultante de problemas, como falhas no disco.   
 
 ## <a name="multi-region-deployment"></a>Implantação em várias regiões
 A replicação de reconhecimento e o modelo de consistência de data center de Cassandra, descritos acima, ajudam com a implantação de várias regiões fora da caixa sem a necessidade de qualquer ferramenta externa. Isto é bem diferente dos bancos de dados relacionais tradicionais em que a configuração de espelhamento de banco de dados para gravações de vários mestres pode ser bastante complexa. Cassandra em uma configuração de várias regiões pode ajudar com os cenários de uso, incluindo os seguintes:
 
 **Implantação com base em proximidade:** aplicativos multilocatário, com mapeamento claro de usuários locatários para região, podem ser beneficiados pelas baixas latências do cluster de várias regiões. Por exemplo, sistemas de gerenciamento de aprendizado para instituições de ensino podem implantar um cluster distribuído nas regiões leste e oeste dos EUA para atender aos respectivos campus para transacional, bem como análise. Os dados podem ser localmente consistentes no momento das leituras e gravações e podem ser eventualmente consistentes em ambas as regiões da. Existem outros exemplos, como distribuição de mídia, comércio eletrônico e qualquer coisa que sirva à base de usuários concentrada geograficamente é um bom caso de uso esse modelo de implantação.
 
-**Alta disponibilidade:** a redundância é um fator importante na obtenção de alta disponibilidade de software e hardware; confira Criando sistemas de nuvem confiáveis no Microsoft Azure para obter detalhes. No Microsoft Azure, o único modo confiável de conseguir redundância real é implantando um cluster de várias regiões. Os aplicativos podem ser implantados em um modo ativo-ativo ou ativo-passivo e se uma das regiões estiver inativa, o Gerenciador de Tráfego do Azure pode redirecionar o tráfego para a região ativa.  Com a implantação de região única, se a disponibilidade for 99,9, uma implantação de duas regiões poderá atingir uma disponibilidade de 99,9999 calculada pela fórmula: (1-(1-0,999) *(1-0,999))*100); confira o artigo anterior para obter detalhes.
+**Alta disponibilidade:** a redundância é um fator importante na obtenção de alta disponibilidade de software e hardware; confira Criando sistemas de nuvem confiáveis no Microsoft Azure para obter detalhes. No Microsoft Azure, o único modo confiável de conseguir redundância real é implantando um cluster de várias regiões. Os aplicativos podem ser implantados em um modo ativo-ativo ou ativo-passivo e se uma das regiões estiver inativa, o Gerenciador de Tráfego do Azure pode redirecionar o tráfego para a região ativa.  Com a implantação de região única, se a disponibilidade for 99,9, uma implantação de duas regiões poderá atingir uma disponibilidade de 99,9999 calculada pela fórmula: (1-(1-0.999) * (1-0.999))*100); confira o artigo anterior para obter detalhes.
 
 **Recuperação de desastres:** o cluster Cassandra de várias regiões, se projetado adequadamente, pode resistir a interrupções catastróficas do data center. Se uma região estiver inativa, o aplicativo implantado em outras regiões pode começar a servir os usuários finais. Como as outras implementações de continuidade de negócios, o aplicativo precisa ser tolerante a falhas para alguma perda de dados resultante dos dados no pipeline assíncrono. No entanto, o Cassandra torna a recuperação muito mais rápida que os processos de recuperação de banco de dados tradicionais. A Figura 2 mostra o modelo de implantação de várias regiões típico com oito nós em cada região. Ambas as regiões são imagens espelhadas uma da outra para a mesma simetria; designs reais dependem do tipo de carga de trabalho (por exemplo, transacional ou analítica), RPO, RTO, consistência de dados e requisitos de disponibilidade.
 
@@ -303,15 +302,13 @@ Certifique-se de que a máquina virtual esteja realçada e clique no link CAPTUR
 Isto levará alguns segundos e a imagem deverá estar disponível na seção MINHAS IMAGENS da galeria de imagens. A VM de origem será automaticamente excluída depois que a imagem for capturada com êxito. 
 
 ## <a name="single-region-deployment-process"></a>Processo de implantação de região única
-**Etapa 1: Criar a Rede Virtual** Faça logon no portal clássico do Azure e crie uma Rede Virtual com os atributos mostrados na tabela. Confira [Configurar uma rede virtual somente na nuvem no portal clássico do Azure](../../../virtual-network/virtual-networks-create-vnet-classic-portal.md) para obter as etapas detalhadas do processo.      
+**Etapa 1: Criar a Rede Virtual** Faça logon no portal do Azure e crie uma Rede Virtual (clássica) com os atributos mostrados na tabela a seguir. Confira [Criar uma rede virtual (clássica) usando o portal do Azure](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para obter as etapas detalhadas do processo.      
 
 <table>
 <tr><th>Nome do atributo da VM</th><th>Valor</th><th>Comentários</th></tr>
 <tr><td>Nome</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>Região</td><td>Oeste dos EUA</td><td></td></tr>
-<tr><td>Servidores DNS    </td><td>Nenhum</td><td>Ignore isso, pois não estamos usando um servidor DNS</td></tr>
-<tr><td>Configurar uma VPN ponto a site</td><td>Nenhum</td><td> Ignore isso</td></tr>
-<tr><td>Configurar uma VPN site a site</td><td>Nenhum</td><td> Ignore isso</td></tr>
+<tr><td>Servidores DNS</td><td>Nenhum</td><td>Ignore isso, pois não estamos usando um servidor DNS</td></tr>
 <tr><td>Espaço de endereço</td><td>10.1.0.0/16</td><td></td></tr>    
 <tr><td>IP Inicial</td><td>10.1.0.0</td><td></td></tr>    
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
@@ -685,5 +682,4 @@ O Microsoft Azure é uma plataforma flexível que permite a execução tanto de 
 * [http://cassandra.apache.org](http://cassandra.apache.org)
 * [http://www.datastax.com](http://www.datastax.com)
 * [http://www.nodejs.org](http://www.nodejs.org)
-
 

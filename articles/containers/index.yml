@@ -1,0 +1,106 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure para Contêineres
+metadata:
+  document_id: null
+  title: 'Azure para Contêineres - Tutoriais, API Referências'
+  description: 'Comece a desenvolver aplicativos com o Azure usando os recursos a seguir para localizar ótimos inícios rápidos, tutoriais e ferramentas para contêineres.'
+  keywords: 'Azure, Contêineres, Docker, API, Kubernetes'
+  author: bketelsen
+  ms.author: brketels
+  manager: listonb
+  ms.date: 09/14/2017
+  ms.topic: article
+  ms.prod: azure
+  featureFlags:
+    - clicktale
+  ms.technology: azure
+  ms.devlang: multiple
+  ms.service: multiple
+sections:
+  - items:
+      - type: markdown
+        text: |
+          Comece a desenvolver aplicativos com o Azure usando os recursos a seguir para localizar ótimos tutoriais e ferramentas para contêineres.
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: 'https://docs.microsoft.com/azure/container-instances/container-instances-quickstart'
+            html: <p>Criar um aplicativo em contêiner com as Instâncias de Contêiner do Azure</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_get-started.svg'
+            title: Introdução
+          - href: 'https://docs.microsoft.com/azure/container-service/kubernetes/cli-samples'
+            html: <p>Exemplos da CLI do Azure para o Serviço de contêiner do Azure</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_code-samples.svg'
+            title: Exemplos de código
+  - title: Guia de início rápido de 5 minutos
+    items:
+      - type: paragraph
+        text: Saiba como usar contêineres com os serviços do Azure.
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers'
+            title: Implantar um aplicativo de contêiner do Windows com o Service Fabric
+            image:
+              src: /azure/media/index/Fabric.svg
+          - href: 'https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough'
+            title: Criar um cluster Kubernetes para os Contêineres do Linux
+            image:
+              src: /azure/media/index/ContainerService.svg
+          - href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-swarm-walkthrough'
+            title: Implantar um cluster do Docker Swarm
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_docker.svg'
+          - href: 'https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli'
+            title: Criar um registro Docker privado no Registro de Contêiner do Azure
+            image:
+              src: /azure/media/index/container-registry.svg
+          - href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image'
+            title: Criar um aplicativo em contêiner com os Aplicativos Web para Contêineres do Azure
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+          - href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-dcos-quickstart'
+            title: Implantar um cluster de DC/SO
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+  - title: Treinamento em vídeo gratuito do Pluralsight para o Azure e contêineres
+    items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+            title: Máquinas Virtuais do Microsoft Azure – Introdução
+  - title: Exemplos
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://azure.microsoft.com/resources/samples/app-service-java-deploy-image-from-acr-to-linux/">Introdução ao Serviço de Aplicativo - gerenciar o Aplicativo Web do Linux com o Registro de Contêiner - em Java</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-containers/">Exemplos de Contêiner do Service Fabric</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/samples/container-service-python-manage/">Implantar e conectar-se a um contêiner do Docker em um cluster do Azure</a>'
+  - title: Tutoriais Passo a Passo
+    items:
+      - type: paragraph
+        text: Saiba como usar os contêineres do Azure
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Criar imagens de contêiner a partir de um aplicativo</a>'
+          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-acr">Carregar imagens de contêiner para o Registro de Contêiner do Azure</a>'
+          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster">Implantar um cluster Kubernetes no Serviço de Contêiner do Azure</a>'
+          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-application">Executar as imagens de contêiner no Kubernetes</a>'
+          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-scale">Dimensionar um aplicativo e a infraestrutura do Kubernetes</a>'
+          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-app-update">Atualizar um aplicativo em execução no Kubernetes</a>'
+          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-monitor">Monitorar o Kubernetes com o OMS</a>'

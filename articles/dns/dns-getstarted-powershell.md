@@ -15,13 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 627f0004cd4d558150c1603681431e7638caef88
-ms.lasthandoff: 03/11/2017
-
+ms.openlocfilehash: 48f7ba325f61b4a91c0208b4c99058da801bee19
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-azure-dns-using-powershell"></a>Introdução ao DNS do Azure usando o PowerShell
 
 > [!div class="op_single_selector"]
@@ -35,6 +34,14 @@ Este artigo explica as etapas para criar sua primeira zona e registro DNS usando
 Uma zona DNS é usada para hospedar os registros DNS para um domínio específico. Para iniciar a hospedagem do seu domínio no DNS do Azure, você precisará criar uma zona DNS para esse nome de domínio. Cada registro DNS para seu domínio é criado dentro dessa zona DNS. Por fim, para publicar sua zona DNS na Internet, você precisa configurar os servidores de nome para o domínio. Cada uma dessas etapas é descrita abaixo.
 
 Essas instruções pressupõem que você já instalou e entrou no Azure PowerShell. Para obter ajuda, confira [Como gerenciar as zonas DNS usando o PowerShell](dns-operations-dnszones.md).
+
+## <a name="create-the-resource-group"></a>Criar o grupo de recursos
+
+Antes de criar a zona DNS, um grupo de recursos é criado para conter a zona DNS. O código a seguir mostra o comando.
+
+```powershell
+New-AzureRMResourceGroup -name MyResourceGroup -location "westus"
+```
 
 ## <a name="create-a-dns-zone"></a>Criar uma zona DNS
 
@@ -84,6 +91,13 @@ MaxNumberOfRecordSets : 5000
 
 Esses servidores de nome devem ser configurados com o registrador de nome de domínio (onde você adquiriu o nome de domínio). Seu registrador oferecerá a opção de configurar os servidores de nome do domínio. Para saber mais, confira [Delegar um domínio ao DNS do Azure](dns-domain-delegation.md).
 
+## <a name="delete-all-resources"></a>Excluir todos os recursos
+
+Para excluir todos os recursos criados neste artigo, execute as seguintes etapas:
+
+```powershell
+Remove-AzureRMResourceGroup -Name MyResourceGroup
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -92,5 +106,4 @@ Para saber mais sobre o DNS do Azure, veja [Visão geral do DNS do Azure](dns-ov
 Para saber mais sobre como gerenciar as zonas DNS no DNS do Azure, consulte [Gerenciar zonas DNS no DNS do Azure usando o PowerShell](dns-operations-dnszones.md).
 
 Para saber mais sobre como gerenciar os registros DNS no DNS do Azure, consulte [Gerenciar registros DNS e conjuntos de registros no DNS do Azure usando o PowerShell](dns-operations-recordsets.md).
-
 

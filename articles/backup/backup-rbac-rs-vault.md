@@ -12,16 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/10/2017
+ms.date: 8/22/2017
 ms.author: trinadhk;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: 4bf4814c25f09c4c8637f13753316cd9f200fc42
-ms.openlocfilehash: f7e090916dbe6c6db84c1a110a6627feeb7e20ab
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: b6e4c6761e1bd5c17c9c3428491113042d3b1d31
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Use o Controle de Acesso baseado em função para gerenciar pontos de recuperação de Backup do Azure
 O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Azure. Com o RBAC, você pode separar as tarefas dentro de sua equipe e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos.
 
@@ -46,8 +44,8 @@ A tabela a seguir captura as ações de gerenciamento de backups e a função RB
 | Criar cofre de Serviços de Recuperação | Colaborador no Grupo de recursos do cofre |
 | Habilitar backup de VMs do Azure | Operador de Backup no cofre, Colaborador de máquina virtual em VMs |
 | Backup sob demanda de VM | Operador de backup |
-| Restaurar VM | Operador de backup, Colaborador do grupo de recursos|no qual a VM e as redes virtuais serão implantadas |
-| Restaurar discos, arquivos individuais do backup da VM | Operador de backup |
+| Restaurar VM | Operador de backup, colaborador do grupo de recursos no qual VM e Vnets serão implantadas |
+| Restaurar discos, arquivos individuais do backup da VM | Operador de backup, Colaborador da máquina virtual em VMs |
 | Criar política de backup para backup da VM do Azure | Colaborador de backup |
 | Modificar a política de backup da VM do Azure | Colaborador de backup |
 | Excluir a política de backup da VM do Azure | Colaborador de backup |
@@ -62,4 +60,3 @@ A tabela a seguir captura as ações de gerenciamento de backups e a função RB
   * [CLI do Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md)
   * [API REST](../active-directory/role-based-access-control-manage-access-rest.md)
 * [Solução de problemas de Controle de Acesso Baseado em Função](../active-directory/role-based-access-control-troubleshooting.md): obtenha sugestões para corrigir problemas comuns.
-

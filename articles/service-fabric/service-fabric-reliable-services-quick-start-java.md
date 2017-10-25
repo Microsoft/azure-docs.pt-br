@@ -12,14 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
-ms.openlocfilehash: 5a29d6838af7f3952ad96158e5962b17c0f4cb6b
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 1ebabe4844732412e04bab8c277f7ebbc4a5737c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-reliable-services"></a>Introdução aos Reliable Services
 > [!div class="op_single_selector"]
@@ -158,15 +157,23 @@ public static void main(String[] args) throws Exception {
 ```
 
 ## <a name="run-the-application"></a>Executar o aplicativo
-O scaffolding Yeoman inclui um script gradle para compilar o aplicativo e os scripts bash para implantar e cancelar a implantação do aplicativo. Para executar o aplicativo, primeiro compile o aplicativo com gradle:
+
+O scaffolding Yeoman inclui um script gradle para compilar o aplicativo e os scripts bash para implantar e remover o aplicativo. Para executar o aplicativo, primeiro compile o aplicativo com gradle:
 
 ```bash
 $ gradle
 ```
 
-Isso produz um pacote de aplicativos do Service Fabric que poderá ser implantado usando a CLI do Service Fabric do Azure. O script install.sh contém os comandos da CLI do Azure necessários para implantar o pacote de aplicativos. Execute o script install.sh para implantar:
+Isso produz um pacote de aplicativos do Service Fabric que poderá ser implantado usando a CLI do Service Fabric.
+
+### <a name="deploy-with-service-fabric-cli"></a>Implantar com a CLI do Service Fabric
+
+O script install.sh contém os comandos da CLI do Service Fabric necessários para implantar o pacote de aplicativos. Execute o script install.sh para implantar o aplicativo.
 
 ```bash
 $ ./install.sh
 ```
 
+## <a name="next-steps"></a>Próximas etapas
+
+* [Introdução à CLI do Service Fabric](service-fabric-cli.md)

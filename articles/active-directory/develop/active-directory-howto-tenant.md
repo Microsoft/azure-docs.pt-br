@@ -3,8 +3,8 @@ title: "Como obter um locatário do Azure AD| Microsoft Docs"
 description: "Como obter um locatário do Active Directory do Azure para registrar e criar aplicativos."
 services: active-directory
 documentationcenter: 
-author: dstrockis
-manager: terrylan
+author: bryanla
+manager: mbaldwin
 editor: 
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/28/2015
-ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 151b9bd8f29a1112c9ad839f2729309dba97c283
-
-
+ms.date: 07/19/2017
+ms.author: bryanla
+ms.custom: aaddev
+ms.openlocfilehash: fe33d490b754e2f793f5c7a13dc55ca038b1b71c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Como obter um locatário do Active Directory do Azure
 No AD do Azure, um [locatário](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) é representativo de uma organização.  Ele é uma instância dedicada do serviço Azure AD que uma organização recebe e detém como sua propriedade quando se inscreve em um serviço de nuvem da Microsoft, como o Azure, o Microsoft InTune ou o Office 365.  Cada locatário do AD do Azure é distinto e separado de outros diretórios do AD do Azure.  
@@ -47,7 +48,7 @@ Para fazer isso, siga essas etapas.  Como alternativa, você poderá criar um no
 3. Você deve entrar automaticamente no "Diretório Padrão". Se isso não acontecer, alterne pastas clicando no nome da sua conta no canto superior direito.
 4. Na seção **Tarefas Rápidas**, escolha **Adicionar um usuário**.
 5. No formulário Adicionar Usuário, forneça os detalhes a seguir:
-   
+
    * Nome: (escolha um valor apropriado)
    * Nome de usuário: (escolha um nome de usuário para esse administrador)
    * Perfil: (preencha os valores apropriados para Nome, Sobrenome, Cargo e Departamento)
@@ -57,16 +58,9 @@ Para fazer isso, siga essas etapas.  Como alternativa, você poderá criar um no
 8. Para alterar a senha temporária, acesse [https://login.microsoftonline.com](https://login.microsoftonline.com) usando essa nova conta de usuário e altere a senha quando for solicitado.
 
 ## <a name="use-an-organizational-azure-subscription"></a>Use uma assinatura organizacional do Azure
-Se você já se inscreveu anteriormente para uma assinatura do Azure com sua conta organizacional, você já tem um locatário!  No [Portal do Azure](https://portal.azure.com), você deve encontrar um locatário ao navegar até "Mais Serviços" e "Azure Active Directory".  Você é livre para usar esse locatário como desejar. 
+Se você já se inscreveu anteriormente para uma assinatura do Azure com sua conta organizacional, você já tem um locatário!  No [Portal do Azure](https://portal.azure.com), você deve encontrar um locatário ao navegar até "Mais Serviços" e "Azure Active Directory".  Você é livre para usar esse locatário como desejar.
 
 ## <a name="start-from-scratch"></a>Começar do zero
 Se todos os itens acima forem sem sentido para você, não se preocupe.  Basta visitar [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) para inscrever-se no Azure com uma nova organização.  Depois de concluir o processo, você terá seu próprio locatário do AD do Azure com o nome de domínio escolhido durante a inscrição.  No [Portal do Azure](https://portal.azure.com), você pode localizar seu locatário navegando até "Azure Active Directory" no painel de navegação à esquerda.
 
 Como parte do processo de inscrição para o Azure, será solicitado que você forneça detalhes de cartão de crédito.  Você pode prosseguir com confiança - você não será cobrado para publicar aplicativos no AD do Azure nem para criar novos locatários.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

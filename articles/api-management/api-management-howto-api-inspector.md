@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: a9d4d3be7f046af975f6dc25670070204848588c
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-api-inspector-to-trace-calls-in-azure-api-management"></a>Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure
 O Gerenciamento de API oferece uma ferramenta de Inspetor de API para ajudá-lo a depurar e solucionar problemas de suas APIs. O Inspetor de API pode ser usado de forma programática e pode também ser usado diretamente do portal do desenvolvedor. 
@@ -263,11 +264,5 @@ Para revisar os valores no rastreamento, baixe o arquivo de rastreamento da URL 
 [api-management-send-results]: ./media/api-management-howto-api-inspector/api-management-send-results.png
 
 
-
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

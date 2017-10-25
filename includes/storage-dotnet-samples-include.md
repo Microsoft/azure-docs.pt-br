@@ -14,7 +14,3 @@ Veja uma lista de todos os nossos repositórios de exemplo para a Biblioteca de 
 * [Gerenciamento do Trabalho de Importação e Exportação por meio da API REST](https://azure.microsoft.com/resources/samples/storage-dotnet-import-export-job-management/)
 * [MyDriving - Um aplicativo de exemplo móvel e de IoT do Azure](https://azure.microsoft.com/resources/samples/mydriving/)
 * [Biblioteca do Cliente de Armazenamento do .NET](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted)
-
-<!--HONumber=Jan17_HO3-->
-
-

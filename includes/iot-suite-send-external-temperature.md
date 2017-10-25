@@ -44,7 +44,3 @@ A solução de monitoramento remoto detecta automaticamente o tipo de telemetria
 [lnk-github-repo]: https://github.com/Azure/azure-iot-sdk-node
 [image1]: media/iot-suite-send-external-temperature/image1.png
 [image2]: media/iot-suite-send-external-temperature/image2.png
-
-<!--HONumber=Dec16_HO3-->
-
-

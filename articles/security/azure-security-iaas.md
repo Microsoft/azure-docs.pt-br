@@ -12,18 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 08/29/2017
 ms.author: barclayn
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 3123c8d780406c92f04592767e47c217c0a0ba73
-ms.lasthandoff: 03/28/2017
-
-
-
-
+ms.openlocfilehash: f93211d289553b7a8afbe8c17fa4847f3d4585a8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Práticas recomendadas de segurança para as cargas de trabalho IaaS no Azure
 
 Quando você começou a pensar sobre como mover as cargas de trabalho para o Azure IaaS (infraestrutura como um serviço), provavelmente chegou à conclusão de que algumas questões são familiares. Talvez você já tenha experiência em proteger os ambientes virtuais. Ao mudar para o Azure IaaS, você poderá aplicar seu conhecimento em proteger os ambientes virtuais e usar um novo conjunto de opções para ajudar a proteger seus ativos.
@@ -42,11 +38,11 @@ Abordaremos algumas das opções disponíveis no Azure que podem ajudá-lo a ate
 
 As organizações geralmente são vítimas de ataques cibernéticos por causa dos administradores que executam ações enquanto usam contas com direitos elevados. Geralmente, isso não é feito com más intenções, mas porque a configuração existente e os processos permitem fazê-lo. A maioria desses usuários entende o risco dessas ações na teoria, mas ainda optam por executá-las.
 
-Ações como verificação de email e navegação na Internet parecem seguras. Mas elas podem expor contas com privilégios elevados ao perigo por atores mal-intencionados que podem usar atividades de navegação, emails criados especificamente ou outras técnicas para obter acesso à sua empresa. Recomendamos o uso de estações de trabalho de gerenciamento seguro para realizar todas as tarefas de administração do Azure como uma maneira de reduzir a exposição a um comprometimento acidental.
+Ações como verificação de email e navegação na Internet parecem seguras. Porém, elas podem expor contas com privilégios elevados a serem comprometidas por atores mal-intencionados. Atividades de navegação, emails especialmente criados ou outras técnicas podem ser usados para obter acesso à sua empresa. É altamente recomendável o uso de SAWs (estações de trabalho de gerenciamento seguro) para realizar todas as tarefas de administração do Azure. As SAWs são uma maneira de reduzir a exposição a comprometimentos acidentais.
 
-As Estações de Trabalho com Acesso Privilegiado (PAWs) fornecem um sistema operacional dedicado para as tarefas confidenciais protegido contra ataques da Internet e vetores de ameaça. Separar essas tarefas confidenciais e contas das estações de trabalho de uso diário e dispositivos fornece proteção contra ataques de phishing, aplicativo e vulnerabilidades do SO, vários ataques de representação e ataques de roubo de credenciais, como o registro de teclas pressionadas, Passagem de Hash e Passagem de Tíquete.
+As Estações de Trabalho com Acesso Privilegiado (PAWs) fornecem um sistema operacional dedicado para as tarefas confidenciais protegido contra ataques da Internet e vetores de ameaça. Separar essas contas e tarefas confidenciais de dispositivos e estações de trabalho de uso diário proporciona proteção forte. Essa separação limita o impacto de ataques de phishing, vulnerabilidades de SO e aplicativos, vários ataques de representação e ataques de roubo de credenciais. (registro de pressionamento de teclas, Pass-the-Hash e Pass-the-Ticket)
 
-A abordagem PAW é uma extensão da prática recomendada e bem estabelecida de usar uma conta administrativa individualmente atribuída separada de uma conta de usuário padrão. Uma PAW fornece uma estação de trabalho confiável para essas contas confidenciais.
+A abordagem PAW é uma extensão da prática recomendada e bem estabelecida de usar uma conta administrativa individualmente atribuída. A conta administrativa é separada de uma conta de usuário padrão. Uma PAW fornece uma estação de trabalho confiável para essas contas confidenciais.
 
 Para obter mais informações e orientações de implementação, confira [Estações de trabalho de acesso privilegiado](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations).
 
@@ -68,7 +64,7 @@ A captura de tela a seguir mostra algumas das opções disponíveis para a Auten
 
 ## <a name="limit-and-constrain-administrative-access"></a>Limitar e restringir o acesso administrativo
 
-Proteger as contas que podem gerenciar sua assinatura do Azure é extremamente importante. O comprometimento de alguma dessas contas nega o valor de todas as outras etapas que você pode tomar para garantir a confidencialidade e a integridade dos dados. Como ilustrado recentemente por [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden), que vazou informações confidenciais, os ataques internos representam uma enorme ameaça à segurança geral de qualquer organização.
+Proteger as contas que podem gerenciar sua assinatura do Azure é extremamente importante. O comprometimento de alguma dessas contas nega o valor de todas as outras etapas que você pode tomar para garantir a confidencialidade e a integridade dos dados. Como ilustrado recentemente por [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden), ataques internos representam uma enorme ameaça à segurança geral de qualquer organização.
 
 Avalie os direitos administrativos que devem ser concedidos a cada pessoa usando critérios semelhantes a estes:
 
@@ -146,7 +142,7 @@ O [Azure Disk Encryption](https://gallery.technet.microsoft.com/Azure-Disk-Encry
 
 Para saber mais, confira [Azure Disk Encryption em VMs IaaS com Windows e Linux](azure-security-disk-encryption.md).
 
-A [Criptografia do Serviço de Armazenamento do Azure](../storage/storage-service-encryption.md) ajuda a proteger seus dados em repouso. Ela é habilitada no nível da conta de armazenamento. Ela criptografa os dados conforme eles são gravados em nossos data centers e eles são descriptografados automaticamente quando você a acessa. Ele oferece suporte para os seguintes cenários:
+A [Criptografia do Serviço de Armazenamento do Azure](../storage/common/storage-service-encryption.md) ajuda a proteger seus dados em repouso. Ela é habilitada no nível da conta de armazenamento. Ela criptografa os dados conforme eles são gravados em nossos data centers e eles são descriptografados automaticamente quando você a acessa. Ele oferece suporte para os seguintes cenários:
 
 - Criptografia de blobs de bloco, blobs de acréscimo e blobs de páginas
 - Criptografia de VHDs arquivados e modelos colocados no Azure localmente
@@ -228,12 +224,8 @@ A captura de tela a seguir mostra um exemplo das informações que podem ser exi
 
 ![Linhas de base de segurança do Operations Management Suite](./media/azure-security-iaas/oms-security-baseline.png)
 
-
-
 ## <a name="next-steps"></a>Próximas etapas
-
 
 * [Blog da equipe de segurança do Azure](https://blogs.msdn.microsoft.com/azuresecurity/)
 * [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
 * [Padrões e práticas recomendadas de segurança do Azure](security-best-practices-and-patterns.md)
-

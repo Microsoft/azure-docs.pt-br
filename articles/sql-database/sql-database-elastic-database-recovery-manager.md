@@ -7,19 +7,18 @@ manager: jhubbard
 author: ddove
 ms.assetid: 45520ca3-6903-4b39-88ba-1d41b22da9fe
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: ddove
-translationtype: Human Translation
-ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
-ms.openlocfilehash: 15b4e8d2de44b71ec0fd65a9c78879b5613bb748
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: e60e2295484873ea15d52108b7d619319a57827f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Usando a classe RecoveryManager para corrigir problemas do mapa de fragmentos
 A classe [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) fornece aos aplicativos ADO.Net a capacidade de detectar e de corrigir facilmente qualquer inconsistência entre o GSM (mapa de fragmentos global) e o LSM (mapa de fragmentos local) em um ambiente de banco de dados fragmentado. 
@@ -37,11 +36,11 @@ Em um ambiente de banco de dados fragmentado, há um locatário por banco de dad
 
 O GSM e o LSM podem ficar fora de sincronia pelos seguintes motivos:
 
-1. Exclusão de um fragmento cujo intervalo acredita-se não estar mais sendo usado, ou renomeação de um fragmento. A exclusão de um fragmento resulta em um **mapeamento de fragmento órfão**. De modo semelhante, um banco de dados renomeado pode causar um mapeamento de fragmentos órfãos. Dependendo da intenção da alteração, o fragmento pode precisar ser removido ou a localização do fragmento precisa ser atualizada. Para recuperar um banco de dados excluído, consulte [Restaurar um banco de dados excluído](sql-database-restore-deleted-database-portal.md).
+1. Exclusão de um fragmento cujo intervalo acredita-se não estar mais sendo usado, ou renomeação de um fragmento. A exclusão de um fragmento resulta em um **mapeamento de fragmento órfão**. De modo semelhante, um banco de dados renomeado pode causar um mapeamento de fragmentos órfãos. Dependendo da intenção da alteração, o fragmento pode precisar ser removido ou a localização do fragmento precisa ser atualizada. Para recuperar um banco de dados excluído, consulte [Restaurar um banco de dados excluído](sql-database-recovery-using-backups.md).
 2. Ocorre um evento de failover geográfico. Para continuar, é necessário atualizar o nome do servidor e o nome do banco de dados do gerenciador do mapa de fragmento no aplicativo e atualizar os detalhes do mapeamento de fragmento para todos os fragmentos em um mapa de fragmentos. Em caso de um failover geográfico, tal lógica de recuperação deverá ser automatizada no fluxo de trabalho do failover. A automação das ações de recuperação proporciona capacidade de gerenciamento ininterrupta para bancos de dados habilitados geograficamente e evita ações humanas manuais. Para saber mais sobre as opções para recuperar um banco de dados no caso de uma interrupção do data center, consulte [Continuidade dos negócios](sql-database-business-continuity.md) e [Recuperação de desastre](sql-database-disaster-recovery.md).
 3. Um fragmento ou o banco de dados ShardMapManager é restaurado para um ponto anterior. Para saber mais sobre recuperação pontual usando backups, consulte [Recuperação usando backups](sql-database-recovery-using-backups.md).
 
-Para saber mais sobre as ferramentas do Banco de Dados Elástico do Banco de Dados SQL do Azure, a Replicação Geográfica e a Restauração, consulte os artigos a seguir: 
+Para saber mais sobre as ferramentas do Banco de dados elástico do Banco de dados SQL do Azure, a Restauração e a Replicação geográfica, consulte os artigos a seguir: 
 
 * [Visão geral: continuidade de negócios em nuvem e recuperação de desastre do banco de dados com o banco de dados SQL](sql-database-business-continuity.md) 
 * [Comece com ferramentas de banco de dados elástico](sql-database-elastic-scale-get-started.md)  
@@ -77,7 +76,7 @@ Este exemplo remove fragmentos do mapa do fragmento.
    rm.DetachShard(s.Location, customerMap);
    ``` 
 
-O mapa do local de fragmento no GSM antes da exclusão do fragmento. Como o fragmento foi excluído, é pressuposto que isso foi intencional, e o intervalo de chaves de fragmentação não está mais em uso. Se esse não for o caso, você poderá executar a restauração pontual. para recuperar o fragmento de um ponto no tempo anterior. (Nesse caso, examine a seção a seguir para detectar inconsistências de fragmento.) Para recuperar, consulte [Recuperação pontual](sql-database-point-in-time-restore-portal.md).
+O mapa de fragmento reflete a localização do fragmento no GSM antes de sua exclusão. Como o fragmento foi excluído, é pressuposto que isso foi intencional, e o intervalo de chaves de fragmentação não está mais em uso. Se esse não for o caso, você poderá executar a restauração pontual. para recuperar o fragmento de um ponto no tempo anterior. (Nesse caso, examine a seção a seguir para detectar inconsistências de fragmento.) Para recuperar, consulte [Recuperação pontual](sql-database-recovery-using-backups.md).
 
 Uma vez que é pressuposto que a exclusão do banco de dados foi intencional, a ação de limpeza administrativa final é excluir a entrada para o fragmento no gerenciador de mapas de fragmentos. Isso impede que o aplicativo grave informações inadvertidamente em um intervalo não esperado.
 
@@ -124,7 +123,7 @@ Este exemplo adiciona um fragmento ao Mapa de Fragmentos que foi restaurado rece
    ```
 
 ## <a name="updating-shard-locations-after-a-geo-failover-restore-of-the-shards"></a>Atualizando os locais do fragmento depois de um failover geográfico (restauração) dos fragmentos
-Em caso de um failover geográfico, o banco de dados secundário será disponibilizado para gravação e se tornará o novo banco de dados primário. O nome do servidor e, possivelmente, do banco de dados (dependendo da sua configuração) podem ser diferentes do primário original. Portanto, as entradas do mapeamento para o fragmento no GSM e LSM devem ser corrigidas. Da mesma forma, se o banco de dados for restaurado para um nome ou local diferente, ou para um ponto anterior no tempo, isso poderá causar inconsistências nos mapas de fragmentos. O Gerenciador de Mapas de Fragmentos manipula a distribuição de conexões abertas para o banco de dados correto. A distribuição baseia-se nos dados no mapa de fragmentos e no valor da chave de fragmentação que é o destino da solicitação do aplicativo. Após um failover geográfico, essas informações devem ser atualizadas com o nome de servidor, nome do banco de dados e mapeamento de fragmentos precisos do banco de dados recuperado. 
+Em caso de um failover geográfico, o banco de dados secundário será disponibilizado para gravação e se tornará o novo banco de dados primário. O nome do servidor e, possivelmente, do banco de dados (dependendo da sua configuração) podem ser diferentes do primário original. Portanto, as entradas do mapeamento para o fragmento no GSM e LSM devem ser corrigidas. Da mesma forma, se o banco de dados for restaurado para um nome ou local diferente, ou para um ponto anterior no tempo, isso poderá causar inconsistências nos mapas de fragmentos. O Gerenciador de Mapas de Fragmentos manipula a distribuição de conexões abertas para o banco de dados correto. A distribuição baseia-se nos dados no mapa de fragmentos e no valor da chave de fragmentação que é o destino da solicitação dos aplicativos. Após um failover geográfico, essas informações devem ser atualizadas com o nome de servidor, nome do banco de dados e mapeamento de fragmentos precisos do banco de dados recuperado. 
 
 ## <a name="best-practices"></a>Práticas recomendadas
 O failover geográfico e a recuperação são operações normalmente gerenciadas por um administrador de nuvem do aplicativo intencionalmente utilizando um dos recursos de continuidade de negócios dos Bancos de Dados SQL do Azure. O planejamento da continuidade de negócios exige processos, procedimentos e medidas para garantir que as operações de negócios possam continuar sem interrupção. Os métodos disponíveis como parte da classe RecoveryManager devem ser usados dentro desse fluxo de trabalho para garantir que o GSM e LSM sejam mantidos atualizados com base na ação de recuperação tomada. Há cinco etapas básicas para garantir que o GSM e o LSM reflitam adequadamente as informações precisas depois de um evento de failover. O código do aplicativo para executar essas etapas pode ser integrado ao fluxo de trabalho e às ferramentas existentes. 
@@ -169,5 +168,4 @@ Este exemplo executa as seguintes etapas:
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
-
 

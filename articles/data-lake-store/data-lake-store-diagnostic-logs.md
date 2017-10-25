@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
-ms.openlocfilehash: f139674f96793b8486c541c9e3f1ead751b97232
-
-
+ms.openlocfilehash: 73d0dabe5b8b179cbc0847c2819947febd6ef4d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Acessando os logs de diagnóstico do Azure Data Lake Store
-Saiba mais sobre como habilitar o log de diagnóstico em sua conta do Data Lake Store e como exibir os logs coletados em sua conta.
+Saiba como habilitar o log de diagnóstico em sua conta do Data Lake Store e como exibir os logs coletados em sua conta.
 
 As organizações podem habilitar o log de diagnóstico para que suas contas do Azure Data Lake Store coletem trilhas de auditoria de acesso a dados que forneçam informações, como a lista de usuários que acessam os dados, a frequência que os dados são acessados, a quantidade de dados armazenados na conta, etc.
 
@@ -30,7 +30,7 @@ As organizações podem habilitar o log de diagnóstico para que suas contas do 
 * **Conta do Repositório Azure Data Lake**. Siga as instruções em [Introdução ao Repositório Azure Data Lake usando o Portal do Azure](data-lake-store-get-started-portal.md).
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Habilitar o log de diagnóstico em sua conta do Data Lake Store
-1. Entre no novo [Portal do Azure](https://portal.azure.com).
+1. Inscreva-se no novo [portal do Azure](https://portal.azure.com).
 2. Abra sua conta Data Lake Store e na folha da conta Data Lake Store, clique em **Configurações**, em seguida, clique em **Logs de diagnóstico**.
 3. No **os logs de diagnóstico** folha, clique em **Ativar diagnóstico**.
 
@@ -40,7 +40,7 @@ As organizações podem habilitar o log de diagnóstico para que suas contas do 
    
     ![Habilitar o log de diagnóstico](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "habilitar logs de diagnóstico")
    
-   * Defina **Status** para **Ativado** para habilitar o log de diagnóstico.
+   * Para **Nome**, insira um valor para a configuração de log de diagnóstico.
    * Você pode optar por armazenar/processar os dados de maneiras diferentes.
      
         * Selecione a opção **Arquivar em uma conta de armazenamento** para armazenar os logs em uma conta de armazenamento do Azure. Use esta opção se quiser arquivar os dados que serão processados em lote em uma data posterior. Se escolher esta opção, você deverá fornecer uma conta de armazenamento do Azure para salvar os logs.
@@ -69,12 +69,12 @@ Há duas maneiras de exibir os dados do log da sua conta no Data Lake Store.
    
    * Os Logs de Solicitação capturam todas as solicitações de API feitas na conta do Data Lake Store.
    * Os Logs de Auditoria são semelhantes aos Logs de Solicitação, mas fornecem uma análise mais detalhada das operações que estão sendo executadas na conta do Data Lake Store. Por exemplo, uma única chamada à API de upload nos logs de solicitação poderá resultar em várias operações do tipo "Anexar" nos logs de auditoria.
-3. Clique no link **Download** em cada entrada de log para baixar os logs.
+3. Para baixar os logs, clique no link **Baixar** de cada entrada de log.
 
 ### <a name="from-the-azure-storage-account-that-contains-log-data"></a>Na conta de Armazenamento do Azure que contém dados de log
 1. Abra a folha Conta de armazenamento do Azure associada ao Data Lake Store para registro em log e clique em Blobs. A folha **serviço Blob** lista dois contêineres.
    
-    ![Log de diagnóstico de exibição](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "exibir logs de diagnóstico")
+    ![Exibir logs de diagnóstico](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Exibir logs de diagnóstico")
    
    * O contêiner **insights-logs-audit** contém os logs de auditoria.
    * O contêiner **insights-logs-requests** contém os logs de solicitação.
@@ -182,10 +182,4 @@ O Azure Data Lake Store fornece um exemplo sobre como processar e analisar os da
 ## <a name="see-also"></a>Confira também
 * [Visão geral do repositório Azure Data Lake](data-lake-store-overview.md)
 * [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

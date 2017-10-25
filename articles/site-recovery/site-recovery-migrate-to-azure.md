@@ -8,18 +8,17 @@ manager: jwhit
 editor: 
 ms.assetid: c413efcd-d750-4b22-b34b-15bcaa03934a
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 04/05/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 981155c38bdc8cb54639d2271be1f3bd3036125c
-ms.lasthandoff: 03/09/2017
-
-
+ms.openlocfilehash: f4dfe430fba51bd009431ca72279a21be55e3a40
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-to-azure-with-site-recovery"></a>Migrar para o Azure com o Site Recovery
 
@@ -49,9 +48,16 @@ Você pode:
 
 ## <a name="migrate-on-premises-vms-and-physical-servers"></a>Migrar servidores físicos e VMs locais
 
-Para migrar VMs Hyper-V locais, VMs VMware e servidores físicos, você segue quase as mesmas etapas usadas para a replicação normal. Você configura um cofre de serviços de recuperação, configura os servidores de gerenciamento (dependendo do que deseja migrar), adiciona-os ao cofre e especifica as configurações de replicação. Você pode habilitar a replicação para os computadores que deseja migrar e executar um failover de teste rápido para garantir que tudo funcione adequadamente.
+Para migrar VMs Hyper-V locais, VMs VMware e servidores físicos, você segue quase as mesmas etapas usadas para a replicação normal.
 
-Após verificar se o ambiente de replicação está funcionando, você usa um failover planejado ou não, dependendo do [que tem suporte](site-recovery-failover.md) para seu cenário. Para a migração, você não precisa confirmar um failover. Em vez disso, você seleciona a opção **Migração Completa** para cada máquina que deseja migrar. A ação **Concluir Migração** conclui o processo de migração, remove a replicação da máquina e interrompe a cobrança de Recuperação de Site para a máquina.
+1. Configurar um cofre dos Serviços de Recuperação
+2. Configure os servidores de gerenciamento requeridos (VMware, VMM, Hyper-V, dependendo do que você deseja migrar), adicione-os ao cofre e especifique as configurações de replicação.
+3. Habilitar a replicação para as máquinas que você deseja migrar
+4. Após a migração inicial, execute um failover de teste rápido para garantir que tudo está funcionando como deveria.
+5. Após verificar se o ambiente de replicação está funcionando, você usa um failover planejado ou não, dependendo do [que tem suporte](site-recovery-failover.md) para seu cenário. Recomendamos que você use um failover planejado, quando possível.
+6. Para a migração, você não precisa confirmar um failover nem exclui-lo. Em vez disso, você seleciona a opção **Migração Completa** para cada máquina que deseja migrar.
+     - Em **Itens Replicados**, clique com botão direito na VM e clique em **Concluir a Migração**. Clique em **OK** para concluir. Você pode acompanhar o progresso nas propriedades da VM, monitorando o trabalho de Migração Completa em **trabalhos do Site Recovery**.
+     - A ação **Concluir Migração** conclui o processo de migração, remove a replicação da máquina e interrompe a cobrança de Recuperação de Site para a máquina.
 
 ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 
@@ -73,4 +79,5 @@ Você pode migrar instâncias do AWS para VMs do Azure. Nesse cenário, apenas a
 - [Migrar VMs do Hyper-V sem VMM para o Azure](site-recovery-hyper-v-site-to-azure.md)
 - [Migrar VMs do Azure entre regiões do Azure](site-recovery-migrate-azure-to-azure.md)
 - [Migrar instâncias do AWS para o Azure](site-recovery-migrate-aws-to-azure.md)
-
+- [Prepare as máquinas migradas para habilitar a replicação](site-recovery-azure-to-azure-after-migration.md) em outra região para necessidades de recuperação de desastres.
+- Inicie a proteção de suas cargas de trabalho ao [replicar máquinas virtuais do Azure.](site-recovery-azure-to-azure.md)

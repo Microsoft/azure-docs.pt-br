@@ -12,18 +12,18 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 03/30/2017
 ms.author: elioda
-translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 26a6cd170e47204e16bb5799af8dcece7f4bb844
-
-
+ms.openlocfilehash: 8f9626fc47e7d32cb104b960bea9b7de9efa6f3e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-desired-properties-to-configure-devices"></a>Usar as propriedades desejadas para configurar os dispositivos
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
-No fim deste tutorial, você terá dois aplicativos de console do Node.js:
+No fim deste tutorial, você terá dois aplicativos de console:
 
 * **SimulateDeviceConfiguration.js**, um aplicativo de dispositivo simulado que aguarda uma atualização da configuração desejada e reporta o status de um processo simulado de atualização de configuração.
 * **SetDesiredConfigurationAndQuery**, um aplicativo de back-end .NET que define a configuração desejada em um dispositivo e consulta o processo de atualização de configuração.
@@ -35,31 +35,32 @@ No fim deste tutorial, você terá dois aplicativos de console do Node.js:
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Microsoft Visual Studio 2015.
-* Node.js versão 0.10.x ou posterior.
-* Uma conta ativa do Azure. (Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
+* Visual Studio 2015 ou Visual Studio 2017.
+* Node.js versão 4.0.x ou posterior.
+* Uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
 
-Caso tenha seguido o tutorial [Introdução aos dispositivos gêmeos][lnk-twin-tutorial], você já terá um Hub IoT e uma identidade de dispositivo chamada **myDeviceId**; você poderá pular para a seção [Criar o aplicativo do dispositivo simulado][lnk-how-to-configure-createapp].
+Caso tenha seguido o tutorial [Introdução aos dispositivos gêmeos][lnk-twin-tutorial], você já terá um Hub IoT e uma identidade de dispositivo chamada **myDeviceId**. Nesse caso, você pode pular para a seção [Criar o aplicativo do dispositivo simulado][lnk-how-to-configure-createapp].
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
+<a id="#create-the-simulated-device-app"></a>
 ## <a name="create-the-simulated-device-app"></a>Criar o aplicativo de dispositivo simulado
 Nesta seção, você cria um aplicativo de console do Node.js que se conecta ao seu hub como **myDeviceId**, aguarda uma atualização de configuração desejada e, em seguida, reporta atualizações sobre o processo simulado de atualização de configuração.
 
-1. Crie uma nova pasta vazia denominada **simulatedeviceconfiguration**. Na pasta **simulatedeviceconfiguration**, crie um novo arquivo package.json usando o comando a seguir no prompt de comando. Aceite todos os padrões:
+1. Crie uma nova pasta vazia denominada **simulatedeviceconfiguration**. Na pasta **simulatedeviceconfiguration**, crie um novo arquivo package.json usando o comando a seguir no prompt de comando. Aceite todos os padrões.
    
     ```
     npm init
     ```
-2. No prompt de comando, na pasta **simulatedeviceconfiguration**, execute o seguinte comando para instalar os pacotes **azure-iot-device** e **azure-iot-device-mqtt**:
+1. No prompt de comando, na pasta **simulatedeviceconfiguration**, execute o comando a seguir para instalar os pacotes **azure-iot-device** e **azure-iot-device-mqtt**:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Usando um editor de texto, crie um novo arquivo **SimulateDeviceConfiguration.js** na pasta **simulatedeviceconfiguration**.
-4. Adicione o seguinte código ao arquivo **SimulateDeviceConfiguration.js** e substitua o espaço reservado **{cadeia de conexão do dispositivo}** pela cadeia de conexão do dispositivo copiada quando você criou a identidade do dispositivo **myDeviceId**:
+1. Usando um editor de texto, crie um novo arquivo **SimulateDeviceConfiguration.js** na pasta **simulatedeviceconfiguration**.
+1. Adicione o seguinte código ao arquivo **SimulateDeviceConfiguration.js** e substitua o espaço reservado **{cadeia de conexão do dispositivo}** pela cadeia de conexão do dispositivo copiada quando você criou a identidade do dispositivo **myDeviceId**:
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -93,15 +94,15 @@ Nesta seção, você cria um aplicativo de console do Node.js que se conecta ao 
             }
         });
    
-    O objeto **Client** expõe todos os métodos necessários para você, do dispositivo, interagir com gêmeos de dispositivo. O código anterior, depois de inicializar o objeto **Client**, recupera o dispositivo gêmeo para **myDeviceId** e anexa um manipulador para a atualização em propriedades desejadas. O manipulador verifica que há uma solicitação de alteração de configuração real ao comparar as configIds, então invoca um método que inicia a alteração de configuração.
+    O objeto **Client** expõe todos os métodos necessários para você, do dispositivo, interagir com gêmeos de dispositivo. Esse código inicializa o objeto **Client**, recupera o dispositivo gêmeo para **myDeviceId** e então anexa um manipulador para a atualização em *propriedades desejadas*. O manipulador verifica que há uma solicitação de alteração de configuração real ao comparar as configIds, então invoca um método que inicia a alteração de configuração.
    
-    Observe que, para simplificar, o código anterior usa um padrão embutido em código para a configuração inicial. Um aplicativo real provavelmente carregaria essa configuração de um armazenamento local.
+    Observe que, para simplificar, esse código usa um padrão embutido em código para a configuração inicial. Um aplicativo real provavelmente carregaria essa configuração de um armazenamento local.
    
    > [!IMPORTANT]
-   > Eventos de alteração de propriedade desejada são sempre emitidos uma vez no ato da conexão com o dispositivo, não deixe de verificar se há uma alteração real nas propriedades desejadas antes de executar qualquer ação.
+   > Eventos de alteração da propriedade desejada sempre são emitidos uma vez na conexão do dispositivo. Certifique-se de verificar se há uma alteração real nas propriedades desejadas antes de executar qualquer ação.
    > 
    > 
-5. Adicione os seguintes métodos antes da invocação de `client.open()`:
+1. Adicione os seguintes métodos antes da invocação de `client.open()`:
    
         var initConfigChange = function(twin) {
             var currentTelemetryConfig = twin.properties.reported.telemetryConfig;
@@ -150,7 +151,7 @@ Nesta seção, você cria um aplicativo de console do Node.js que se conecta ao 
    > Este tutorial não simula nenhum comportamento para atualizações de configuração simultâneas. Alguns processos de atualização de configuração podem ser capazes de acomodar as alterações de configuração de destino enquanto a atualização está em execução, outros podem colocá-las em fila e outros poderiam ainda rejeitá-las com uma condição de erro. Certifique-se de considerar o comportamento desejado para o seu processo de configuração específico e adicione a lógica apropriada antes de iniciar a alteração de configuração.
    > 
    > 
-6. Execute o aplicativo do dispositivo:
+1. Execute o aplicativo do dispositivo:
    
         node SimulateDeviceConfiguration.js
    
@@ -162,20 +163,20 @@ Nesta seção, você criará um aplicativo de console .NET que atualiza as *prop
 1. No Visual Studio, adicione um projeto da Área de Trabalho Clássica do Windows no Visual C# à solução atual usando o modelo de projeto **Aplicativo do Console** . Nomeie o projeto **SetDesiredConfigurationAndQuery**.
    
     ![Novo projeto da Área de Trabalho Clássica do Windows no Visual C#][img-createapp]
-2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **SetDesiredConfigurationAndQuery** e clique em **Gerenciar Pacotes NuGet**.
-3. Na janela **Gerenciador de Pacotes Nuget**, selecione **Procurar**, procure **microsoft.azure.devices**, selecione **Instalar** para instalar o pacote **Microsoft.Azure.Devices** e aceite os termos de uso. O procedimento baixa, instala e adiciona uma referência ao [pacote Nuget do SDK do Dispositivo IoT do Azure][lnk-nuget-service-sdk] e suas dependências.
+1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **SetDesiredConfigurationAndQuery** e clique em **Gerenciar Pacotes NuGet...**.
+1. Na janela **Gerenciador de Pacotes Nuget**, selecione **Procurar**, procure **microsoft.azure.devices**, selecione **Instalar** para instalar o pacote **Microsoft.Azure.Devices** e aceite os termos de uso. O procedimento baixa, instala e adiciona uma referência ao [pacote Nuget do SDK do Dispositivo IoT do Azure][lnk-nuget-service-sdk] e suas dependências.
    
     ![Janela do Gerenciador de Pacotes NuGet][img-servicenuget]
-4. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
+1. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
    
         using Microsoft.Azure.Devices;
         using System.Threading;
         using Newtonsoft.Json;
-5. Adicione os seguintes campos à classe **Program** . Substitua o valor do espaço reservado pela cadeia de conexão do Hub IoT criado na seção anterior.
+1. Adicione os seguintes campos à classe **Program** . Substitua o valor do espaço reservado pela cadeia de conexão do Hub IoT criado na seção anterior.
    
         static RegistryManager registryManager;
         static string connectionString = "{iot hub connection string}";
-6. Adicione o seguinte método à classe **Programa** :
+1. Adicione o seguinte método à classe **Programa** :
    
         static private async Task SetDesiredConfigurationAndQuery()
         {
@@ -194,35 +195,45 @@ Nesta seção, você criará um aplicativo de console .NET que atualiza as *prop
             await registryManager.UpdateTwinAsync(twin.DeviceId, JsonConvert.SerializeObject(patch), twin.ETag);
             Console.WriteLine("Updated desired configuration");
    
-            while (true)
+            try
             {
-                var query = registryManager.CreateQuery("SELECT * FROM devices WHERE deviceId = 'myDeviceId'");
-                var results = await query.GetNextAsTwinAsync();
-                foreach (var result in results)
+                while (true)
                 {
-                    Console.WriteLine("Config report for: {0}", result.DeviceId);
-                    Console.WriteLine("Desired telemetryConfig: {0}", JsonConvert.SerializeObject(result.Properties.Desired["telemetryConfig"], Formatting.Indented));
-                    Console.WriteLine("Reported telemetryConfig: {0}", JsonConvert.SerializeObject(result.Properties.Reported["telemetryConfig"], Formatting.Indented));
-                    Console.WriteLine();
+                    var query = registryManager.CreateQuery("SELECT * FROM devices WHERE deviceId = 'myDeviceId'");
+                    var results = await query.GetNextAsTwinAsync();
+                    foreach (var result in results)
+                    {
+                        Console.WriteLine("Config report for: {0}", result.DeviceId);
+                        Console.WriteLine("Desired telemetryConfig: {0}", JsonConvert.SerializeObject(result.Properties.Desired["telemetryConfig"], Formatting.Indented));
+                        Console.WriteLine("Reported telemetryConfig: {0}", JsonConvert.SerializeObject(result.Properties.Reported["telemetryConfig"], Formatting.Indented));
+                        Console.WriteLine();
+                    }
+                    Thread.Sleep(10000);
                 }
-                Thread.Sleep(10000);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception: {ex.Message}");
             }
         }
    
-    O objeto **Registry** expõe todos os métodos necessários para interagir com gêmeos de dispositivo do serviço. O código anterior, depois de inicializar o objeto **Registry**, recupera o dispositivo gêmeo para **myDeviceId** e atualiza as propriedades desejadas com um novo objeto de configuração de telemetria.
-    Depois disso, a cada 10 segundos, ele consulta os dispositivos gêmeos armazenados no Hub IoT e imprime as configurações de telemetria desejadas e reportadas. Veja a [Linguagem de consulta do Hub IoT][lnk-query] para saber como gerar relatórios detalhados em todos os seus dispositivos.
+    O objeto **Registry** expõe todos os métodos necessários para interagir com gêmeos de dispositivo do serviço. Esse código inicializa o objeto **Registry**, recupera o dispositivo gêmeo para **myDeviceId** e então atualiza as propriedades desejadas com um novo objeto de configuração de telemetria.
+    Depois disso, a cada 10 segundos, ele consulta os dispositivos gêmeos armazenados no Hub IoT e imprime as configurações de telemetria desejadas e relatadas. Consulte a [Linguagem de consulta de Hub IoT][lnk-query] para saber como gerar relatórios em todos os seus dispositivos.
    
    > [!IMPORTANT]
-   > Esse aplicativo consulta o Hub IoT a cada 10 segundos para fins ilustrativos. Use consultas para gerar relatórios voltados para o usuário em vários dispositivos, não para detectar alterações. Se sua solução exigir notificações em tempo real de eventos de dispositivo, use [mensagens do dispositivo para a nuvem][lnk-d2c].
+   > Esse aplicativo consulta o Hub IoT a cada 10 segundos para fins ilustrativos. Use consultas para gerar relatórios voltados para o usuário em vários dispositivos, não para detectar alterações. Se sua solução exigir notificações em tempo real de eventos de dispositivo, use [notificações gêmeas][lnk-twin-notifications].
    > 
    > 
-7. Por fim, adicione as seguintes linhas ao método **Main** :
+1. Por fim, adicione as seguintes linhas ao método **Main** :
    
         registryManager = RegistryManager.CreateFromConnectionString(connectionString);
-        SetDesiredConfigurationAndQuery();
+        SetDesiredConfigurationAndQuery().Wait();
         Console.WriteLine("Press any key to quit.");
         Console.ReadLine();
-8. Com **SimulateDeviceConfiguration.js** em execução, execute o aplicativo .NET no Visual Studio usando **F5** e você deverá ver a configuração reportada mudar de **Êxito** para **Pendente** e para **Êxito** novamente com a nova frequência de envio ativo de cinco minutos em vez de 24 horas.
+1. No Gerenciador de Soluções, abra **Definir projetos de StartUp...** e certifique-se de que a **Ação** para o projeto **SetDesiredConfigurationAndQuery** é **Iniciar**. Compilar a solução.
+1. Com **SimulateDeviceConfiguration.js** em execução, execute o aplicativo .NET no Visual Studio usando **F5** e você deverá ver a configuração reportada mudar de **Êxito** para **Pendente** e para **Êxito** novamente com a nova frequência de envio ativo de cinco minutos em vez de 24 horas.
+
+ ![Dispositivo configurado com êxito][img-deviceconfigured]
    
    > [!IMPORTANT]
    > Há um atraso de até um minuto entre a operação de relatório de dispositivo e o resultado da consulta. Isso é para habilitar a infraestrutura de consulta a trabalhar em escala muito alta. Para recuperar os modos de exibição consistentes de um único dispositivo gêmeo, use o método **getDeviceTwin** na classe **Registry**.
@@ -239,8 +250,9 @@ Veja os recursos a seguir para saber como:
 * Controlar dispositivos interativamente (como ativar uma ventoinha de um aplicativo controlado pelo usuário), com o tutorial [Uso de métodos diretos][lnk-methods-tutorial].
 
 <!-- images -->
-[img-servicenuget]: media/iot-hub-csharp-node-twin-getstarted/servicesdknuget.png
-[img-createapp]: media/iot-hub-csharp-node-twin-getstarted/createnetapp.png
+[img-servicenuget]: media/iot-hub-csharp-node-twin-how-to-configure/servicesdknuget.png
+[img-createapp]: media/iot-hub-csharp-node-twin-how-to-configure/createnetapp.png
+[img-deviceconfigured]: media/iot-hub-csharp-node-twin-how-to-configure/deviceconfigured.png
 
 <!-- links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
@@ -249,7 +261,7 @@ Veja os recursos a seguir para saber como:
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-query]: iot-hub-devguide-query-language.md
-[lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-twin-notifications]: iot-hub-devguide-device-twins.md#back-end-operations
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
@@ -257,16 +269,9 @@ Veja os recursos a seguir para saber como:
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
-[lnk-how-to-configure-createapp]: iot-hub-node-node-twin-how-to-configure.md#create-the-simulated-device-app
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-
+[lnk-how-to-configure-createapp]: iot-hub-csharp-node-twin-how-to-configure.md#create-the-simulated-device-app

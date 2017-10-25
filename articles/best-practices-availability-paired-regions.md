@@ -12,20 +12,19 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 09/27/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 43e0bb0c921be3992321d0a202fce1fa09053f99
-ms.openlocfilehash: 67edd136737e6af372c3c898c34a8bc6681a8c6d
-ms.lasthandoff: 02/21/2017
-
+ms.openlocfilehash: 27491e34ad9e47aec2f424cfc439fad614f0e435
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidade dos negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure
 
 ## <a name="what-are-paired-regions"></a>O que são regiões emparelhadas?
 
-O Azure opera em várias regiões geográficas em todo o mundo. Uma geografia do Azure é uma área definida do mundo que contém, pelo menos, uma Região do Azure. Uma região do Azure é uma área dentro de uma região geográfica que contém um ou mais data centers.
+O Azure opera em várias regiões geográficas em todo o mundo. Uma geografia do Azure é uma área definida do mundo que contém, pelo menos, uma Região do Azure. Uma região do Azure é uma área dentro de uma região geográfica que contém um ou mais datacenters.
 
 Cada região do Azure é emparelhada com outra região na mesma área geográfica, formando juntas um par regional. A exceção é o Sul do Brasil, que está associado a uma região fora de sua área geográfica.
 
@@ -35,22 +34,27 @@ Figura 1 – Diagrama do par da região do Azure
 
 | painel Geografia do app&#39;s selecionado | Regiões emparelhadas |  |
 |:--- |:--- |:--- |
+| Ásia |Ásia Oriental |Sudeste Asiático |
+| Austrália |Leste da Austrália |Sudeste da Austrália |
+| Canadá |Canadá Central |Leste do Canadá |
+| China |Norte da China |Leste da China|
+| Índia |Índia Central |Sul da Índia |
+| Japão |Leste do Japão |Oeste do Japão |
+| Coreia |Coreia Central |Sul da Coreia |
 | América do Norte |Centro-Norte dos EUA |Centro-Sul dos Estados Unidos |
 | América do Norte |Leste dos EUA |Oeste dos EUA |
 | América do Norte |Leste dos EUA 2 |Centro dos EUA |
 | América do Norte |Oeste dos EUA 2 |Centro-Oeste dos EUA |
 | Europa |Norte da Europa |Europa Ocidental |
-| Ásia |Sudeste da Ásia |Ásia Oriental |
-| China |China Oriental |Norte da China |
 | Japão |Leste do Japão |Oeste do Japão |
 | Brasil |Sul do Brasil (1) |Centro-Sul dos Estados Unidos |
-| Austrália |Leste da Austrália |Sudeste da Austrália |
 | Governo dos EUA |Gov do Iowa nos EUA |Gov. dos EUA – Virgínia |
-| Índia |Índia Central |Sul da Índia |
-| Canadá |Canadá Central |Leste do Canadá |
+| Governo dos EUA |Governo dos EUA do Arizona |Governo dos EUA do Texas |
+| Departamento de Defesa dos EUA |DoD do Leste dos EUA |DoD Central dos EUA |
 | Reino Unido |Oeste do Reino Unido |Sul do Reino Unido |
+| Alemanha |Alemanha Central |Nordeste da Alemanha |
 
-Tabela 1 - Mapeamento de pares regionais do Azure
+Tabela 1 – mapeamento de pares regionais do Azure
 
 > (1) O Sul do Brasil é exclusivo porque ele está associado a uma região fora de sua própria região geográfica. A região secundária do Sul do Brasil é o Centro-Sul dos EUA. No entanto, a região secundária do Centro-Sul dos EUA não é o Sul do Brasil.
 
@@ -69,7 +73,7 @@ Como mencionado na Figura 2.
 
 ![PaaS](./media/best-practices-availability-paired-regions/1Green.png) **Computação do Azure (PaaS)** – Você deve provisionar recursos de computação adicionais com antecedência para garantir que os recursos estejam disponíveis em outra região durante um desastre. Para saber mais, confira as [Orientação técnica de resiliência do Azure](resiliency/resiliency-technical-guidance.md).
 
-![Armazenamento](./media/best-practices-availability-paired-regions/2Green.png) **Armazenamento do Azure** – O GRS (armazenamento com redundância geográfica) é configurado por padrão quando uma conta de armazenamento do Azure é criada. Com o GRS, seus dados são replicados automaticamente três vezes na região primária e três vezes na região emparelhada. Para saber mais, consulte [Opções de redundância do Armazenamento do Azure](storage/storage-redundancy.md).
+![Armazenamento](./media/best-practices-availability-paired-regions/2Green.png) **Armazenamento do Azure** – O GRS (armazenamento com redundância geográfica) é configurado por padrão quando uma conta de armazenamento do Azure é criada. Com o GRS, seus dados são replicados automaticamente três vezes na região primária e três vezes na região emparelhada. Para saber mais, consulte [Opções de redundância do Armazenamento do Azure](storage/common/storage-redundancy.md).
 
 ![SQL Azure](./media/best-practices-availability-paired-regions/3Green.png) **Bancos de Dados SQL do Azure** – Com a replicação geográfica padrão do SQL Azure, você pode configurar a replicação assíncrona de transações como uma região emparelhada. Com a replicação geográfica premium, você pode configurar a replicação para qualquer região do mundo. No entanto, é recomendável que esses recursos sejam implantados em uma região emparelhada para a maioria dos cenários de recuperação de desastre. Para saber mais, confira [Replicação geográfica no Banco de Dados SQL do Azure](sql-database/sql-database-geo-replication-overview.md).
 
@@ -92,4 +96,3 @@ Como mencionado na Figura 2.
 
 ![Dados](./media/best-practices-availability-paired-regions/9Orange.png)
 **Residência dos dados** – Uma região reside na mesma região geográfica que seu par (com exceção do Sul do Brasil) para atender aos requisitos de residência de dados para fins de jurisdição de imposição fiscal e legal.
-

@@ -3,7 +3,7 @@ title: "Tratamento de erro em políticas de Gerenciamento de API do Azure | Micr
 description: "Saiba como responder às condições de erro que podem ocorrer durante o processamento de solicitações no Gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 672b36fc80d8826247b3104ca8c5ffb13e45fa59
-
+ms.openlocfilehash: e8837b8d62bb8caeee9460661438368c2d11697a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="error-handling-in-api-management-policies"></a>Tratamento de erro em políticas de Gerenciamento de API
 O Gerenciamento de API do Azure permite que os editores respondam a condições de erro que podem ocorrer durante o processamento de solicitações para o proxy fornecendo um objeto `ProxyError`. O objeto `ProxyError` é acessado por meio da propriedade [context.LastError](api-management-policy-expressions.md#ContextVariables) e pode ser usado por políticas na seção da política `on-error`. Este tópico fornece uma referência para os recursos de tratamento de erro no Gerenciamento de API do Azure.  
@@ -127,9 +128,4 @@ O Gerenciamento de API do Azure permite que os editores respondam a condições 
 |validate-jwt|Outras falhas de validação|JwtInvalid|<mensagem da biblioteca jwt\>|
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre como trabalhar com políticas, consulte [Políticas do Gerenciamento de API](api-management-howto-policies.md).  
-
-
-<!--HONumber=Jan17_HO2-->
-
-
+Para saber mais sobre como trabalhar com políticas, veja [Políticas em Gerenciamento de API](api-management-howto-policies.md).  

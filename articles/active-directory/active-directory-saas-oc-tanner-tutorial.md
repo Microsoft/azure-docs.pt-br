@@ -1,57 +1,55 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao O. C. Tanner - AppreciateHub | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o O. C. Tanner - AppreciateHub."
+title: "Tutorial: Integração do Azure Active Directory ao O.C. Tanner - AppreciateHub | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o O.C. Tanner - AppreciateHub."
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
 ms.assetid: dee8fbca-0b60-4a21-8917-1fb6919de5a0
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 06/27/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 1b5527090a41c274b590ed9d1ac7b561b6f4ed14
-ms.openlocfilehash: 10faa27e0c82e59c35e00258a2d90bea977dc28f
-ms.lasthandoff: 02/15/2017
-
-
+ms.openlocfilehash: 9af12372b30d9ee1575e46be3b4144fc3b73ec69
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-o-c-tanner---appreciatehub"></a>Tutorial: Integração do Azure Active Directory ao O. C. Tanner - AppreciateHub
-O objetivo deste tutorial é mostrar como integrar o O.C. Tanner - AppreciateHub ao Azure Active Directory (Azure AD)  
-Integração do O.C. O Tanner - AppreciateHub ao AD do Azure oferece os seguintes benefícios: 
+# <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>Tutorial: Integração do Azure Active Directory ao O.C. Tanner - AppreciateHub
 
-* Você pode controlar no AD do Azure quem terá acesso ao O.C. Tanner - AppreciateHub 
-* Você pode permitir que seus usuários façam logon automaticamente no O.C. Tanner - AppreciateHub (Logon Único) com suas contas do AD do Azure
-* Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
+Neste tutorial, você aprenderá a integrar o O.C. Tanner - AppreciateHub ao Azure Active Directory (Azure AD)
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
+Integração do O.C. O Tanner - AppreciateHub ao AD do Azure oferece os seguintes benefícios:
+
+- Você pode controlar no AD do Azure quem terá acesso ao O.C. Tanner - AppreciateHub
+- Você pode permitir que seus usuários façam logon automaticamente no O.C. Tanner - AppreciateHub (Logon Único) com suas contas do AD do Azure
+- Você pode gerenciar suas contas em um única localização: o Portal do Azure
+
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Para configurar a integração do AD do Azure ao O.C. Tanner - AppreciateHub, você precisa dos seguintes itens:
 
-* Uma assinatura do AD do Azure
-* Um Logon único do Tanner - AppreciateHub em uma assinatura habilitada
+- Uma assinatura do AD do Azure
+- Um Assinatura habilitada para logon único do Tanner – AppreciateHub
 
 > [!NOTE]
 > Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-> 
-> 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
-* Não use o ambiente de produção, a menos que seja necessário.
-* Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/). 
+- Não use o ambiente de produção, a menos que seja necessário.
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste.  
-O cenário descrito neste tutorial consiste em três blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar o O.C. Tanner - AppreciateHub a partir da galeria 
+1. Adicionar o O.C. Tanner - AppreciateHub a partir da galeria
 2. Configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-oc-tanner---appreciatehub-from-the-gallery"></a>Adicionar o O.C. Tanner - AppreciateHub a partir da galeria
@@ -59,197 +57,180 @@ Para configurar a integração do O.C. Tanner - AppreciateHub no AD do Azure, vo
 
 **Para adicionar o O.C. Tanner - AppreciateHub da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
-   
-    ![Active Directory][1] 
-2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
-3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
-   
-    ![Aplicativos][2] 
-4. Clique em **Adicionar** na parte inferior da página.
-   
-    ![Aplicativos][3] 
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
-   
-    ![Aplicativos][4] 
-6. Na caixa de pesquisa, digite **O.C. Tanner - AppreciateHub**.
-   
-    ![Aplicativos][5] 
-7. No painel de resultados, selecione **O.C. Tanner - AppreciateHub** e clique em **Concluir** para adicionar o aplicativo.
-   
-    ![Aplicativos][25] 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
-O objetivo desta seção é mostrar como configurar e testar o logon único do AD do Azure com o O.C. Tanner - AppreciateHub com base em um usuário de teste chamado "Brenda Fernandes".
+    ![Active Directory][1]
 
-Para que o logon único funcione, o AD do Azure precisa saber qual o usuário do O.C. Tanner - AppreciateHub é equivalente a um usuário no AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do AD do Azure e o usuário relacionado no O.C. Tanner - o AppreciateHub precisa ser estabelecido.  
-Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** ao Azure AD como sendo o valor de **nome de usuário** no O.C. Tanner - AppreciateHub.
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+
+    ![Aplicativos][2]
+    
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+
+    ![Aplicativos][3]
+
+4. Na caixa de pesquisa, digite **O.C. Tanner - AppreciateHub**.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-oc-tanner-tutorial/tutorial_octannerappreciatehub_search.png)
+
+5. No painel de resultados, selecione **O.C. Tanner – AppreciateHub** e clique no botão **Adicionar** para adicionar o aplicativo.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-oc-tanner-tutorial/tutorial_octannerappreciatehub_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+Nesta seção, configura e testa o logon único do Azure AD com o O.C. Tanner - AppreciateHub com base em um usuário de teste chamado "Brenda Fernandes".
+
+Para que o logon único funcione, o AD do Azure precisa saber qual o usuário do O.C. Tanner – AppreciateHub é para um usuário no Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do AD do Azure e o usuário relacionado no O.C. Tanner - o AppreciateHub precisa ser estabelecido.
+
+No O.C. Tanner – AppreciateHub, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
 
 Para configurar e testar o logon único do AD do Azure com O.C. Tanner - AppreciateHub, é necessário concluir os seguintes blocos de criação:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
 2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar logon único do Azure AD com Britta Simon.
-3. **[Criar um usuário teste do O.C. Tanner - AppreciateHub](#creating-a-halogen-software-test-user)** - ter um equivalente de Brenda Fernandes no O.C. Tanner - AppreciateHub que é vinculado à representação dela no AD do Azure.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do Azure AD.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+3. **[Criar um usuário teste do O.C. Tanner - AppreciateHub](#creating-a-oc-tanner---appreciatehub-test-user)** - ter um equivalente de Brenda Fernandes no O.C. Tanner – AppreciateHub que é vinculado à representação do usuário no Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do AD do Azure
-O objetivo desta seção é habilitar o logon único do Azure AD no portal clássico do Azure e configurar o logon único em seu aplicativo do O.C. Aplicativo Tanner - AppreciateHub.
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+
+Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e configura o logon único no seu aplicativo O.C. Aplicativo Tanner - AppreciateHub.
 
 **Para configurar o logon único do AD do Azure com O.C. Tanner - AppreciateHub, execute as seguintes etapas:**
 
-1. No portal clássico do Azure, na página de integração de aplicativos do **O.C. Tanner - AppreciateHub** clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
-   
-    ![Configurar o logon único][6]
-2. Em **Como você gostaria que os usuários fizessem logon na página O.C. Tanner - AppreciateHub**, selecione **Logon Único do AD do Azure** e clique em **Avançar**.
-   
-    ![Logon Único do AD do Azure][7]
-3. Na página de diálogo **Definir Configurações de Aplicativo** , execute as seguintes etapas:
-   
-    ![Definir Configurações de Aplicativo][8]
-   
-     a. Abra o arquivo de metadados usando o seguinte link: [https://fed.appreciatehub.com/fed/sp/metadata](https://fed.appreciatehub.com/fed/sp/metadata).
-   
-     b. Localize o nó **md:AssertionConsumerService** . 
-   
-     c. Copie o valor do atributo **Local** . 
-   
-     ![Definir Configurações de Aplicativo][12]
-   
-     d. Na caixa de texto **URL do Logon** , antes do valor que você obteve na etapa anterior.
-   
-    > [!NOTE]
-    > Se você estiver tendo problemas para obter a URL de resposta do arquivo de metadados, entre em contato com a equipe de suporte do O.C. Tanner - AppreciateHub por meio do sso@octanner.com[sso@octanner.com](mailto:sso@octanner.com).
-    > 
-    > 
-   
-    e. Clique em **Próximo**.
+1. No Portal do Azure, na página de integração de aplicativos do **O.C. Tanner – AppreciateHub**, clique em **Logon único**.
 
-4. Na página **Configurar logon único no O.C. Tanner - AppreciateHub**, clique em **Baixar metadados** e então salve o arquivo de metadados localmente em seu computador.
+    ![Configurar Logon Único][4]
+
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+ 
+    ![Configurar Logon Único](./media/active-directory-saas-oc-tanner-tutorial/tutorial_octannerappreciatehub_samlbase.png)
+
+3. Na seção **URLs e Domínio do O.C. Tanner – AppreciateHub**, execute as seguintes etapas:
+
+    ![Configurar Logon Único](./media/active-directory-saas-oc-tanner-tutorial/tutorial_octannerappreciatehub_url.png)
+
+    a. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<companyname>.appreciatehub.com/fed/sp/authnResponse20`
+
+    > [!NOTE] 
+    > Esse valor não é real. Atualize esse valor com a URL de Resposta real. Contate a [Equipe de suporte do O.C. Tanner – AppreciateHub](mailto:sso@octanner.com) para obter esse valor.
+
+    b. Abra o arquivo de metadados usando o seguinte link: [https://fed.appreciatehub.com/fed/sp/metadata](https://fed.appreciatehub.com/fed/sp/metadata).
    
-    ![O que é o Azure AD Connect][9]
-5. Entre em contato com a equipe de suporte do O.C. Tanner - AppreciateHub por meio do xyz, forneça o arquivo de metadados e avise que eles devem habilitar o SSO para você.
-6. No Portal Clássico do Azure, selecione a confirmação de configuração de logon único e clique em **Avançar**. 
+    c. Localize o nó **md:AssertionConsumerService** . 
    
-    ![O que é o Azure AD Connect][10]
-7. Na página **Confirmação de logon único**, clique em **Concluir**.  
+    d. Copie o valor do atributo **Local** . 
    
-    ![O que é o Azure AD Connect][11]
+    ![Definir configurações de aplicativo][12]
+   
+    e. Na caixa de texto **URL do Logon** , antes do valor que você obteve na etapa anterior.
+
+4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+
+    ![Configurar o logon único](./media/active-directory-saas-oc-tanner-tutorial/tutorial_octannerappreciatehub_certificate.png) 
+
+5. Clique no botão **Salvar** .
+
+    ![Configurar Logon Único](./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_400.png)
+
+6. Para configurar o logon único no lado do aplicativo do **O.C. Tanner – AppreciateHub**, você precisa enviar o **XML de Metadados** baixado para a [equipe de suporte do O.C. Tanner – AppreciateHub](mailto:sso@octanner.com).
+
+> [!TIP]
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.  
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-![Criar um usuário do AD do Azure][20]
+![Criar um usuário do AD do Azure][100]
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
-   
+1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_01.png) 
+
+2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_02.png) 
-2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
-3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
-   
+
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+ 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_03.png) 
-4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. 
-   
+
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+ 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_04.png) 
-5. Na página do diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas: 
-   
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_05.png) 
-   
-    a. Em Tipo de Usuário, selecione Novo usuário na organização.
-   
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
-   
-    c. Clique em **Próximo**.
-6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas: 
-   
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_06.png)
-   
-    a. Na caixa de texto **Nome**, digite **Brenda**.  
-   
-    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-   
-    c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
-   
-    d. Na lista **Função**, selecione **Usuário**.
-    e. Clique em **Próximo**.
 
-7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
-   
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_07.png) 
-8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
-   
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_08.png) 
-   
-    a. Anote o valor da **Nova Senha**.
-   
-    b. Clique em **Concluído**.   
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+
+    d. Clique em **Criar**.
+ 
 ### <a name="creating-a-oc-tanner---appreciatehub-test-user"></a>Criar um usuário teste do O.C. Usuário de teste do Tanner - AppreciateHub
+
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no O.C. Tanner - AppreciateHub.
 
 **Para criar um usuário chamado Brenda Fernandes no O.C. Tanner - AppreciateHub, execute as seguintes etapas:**
 
-Peça à sua equipe de suporte do OC Tanner para criar um usuário que tenha o atributo nameID com o mesmo valor que o nome de usuário Brenda Fernandes no AD do Azure.
+Peça à sua [equipe de suporte do O.C. Tanner – AppreciateHub](mailto:sso@octanner.com) para criar um usuário que tenha o atributo nameID com o mesmo valor que o nome de usuário Brenda Fernandes no Azure AD.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
-O objetivo desta seção é habilitar Brenda Fernandes para usar o logon único do Azure, concedendo a ela acesso ao O.C. Tanner - AppreciateHub.
 
-![Atribuir usuário][200]
+Nesta seção, você concederá a Brenda Fernandes acesso ao O.C. para que ela fique habilitada a usar o logon único do Azure. Tanner - AppreciateHub.
+
+![Atribuir usuário][200] 
 
 **Para atribuir Brenda Fernandes ao O.C. Tanner - AppreciateHub, execute as seguintes etapas:**
 
-1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
-   
-    ![Atribuir usuário][201]
-2. Na lista de aplicativos, selecione **O.C. Tanner - AppreciateHub**.
-   
-    ![Atribuir usuário][202]
-3. No menu na parte superior, clique em **Usuários**.
-   
-    ![Atribuir usuário][203]
-4. Na lista de usuários, selecione **Brenda Fernandes**.
-5. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
-   
-    ![Atribuir usuário][205]
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
+    ![Atribuir usuário][201] 
+
+2. Na lista de aplicativos, selecione **O.C. Tanner - AppreciateHub**.
+
+    ![Configurar Logon Único](./media/active-directory-saas-oc-tanner-tutorial/tutorial_octannerappreciatehub_app.png) 
+
+3. No menu à esquerda, clique em **usuários e grupos**.
+
+    ![Atribuir usuário][202] 
+
+4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+
+    ![Atribuir usuário][203]
+
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+
+6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+
+7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+    
 ### <a name="testing-single-sign-on"></a>Teste do logon único
+
 O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.  
 Quando você clica no bloco O.C. Tanner - AppreciateHub no Painel de Acesso, deve fazer logon automaticamente no seu aplicativo O.C. Aplicativo Tanner - AppreciateHub.
 
 ## <a name="additional-resources"></a>Recursos adicionais
+
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
+
 [1]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_02.png
 [3]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_04.png
-[5]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_octanner_01.png
-[25]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_octanner_25.png
 
-
-[6]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_05.png
-[7]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_octanner_02.png
-[8]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_octanner_03.png
-[9]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_octanner_04.png
-[10]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_octanner_05.png
-[11]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_octanner_06.png
 [12]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_octanner_08.png
-[20]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_100.png
+
+[100]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_octanner_07.png
+[202]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_205.png
-
-
-
-
-
-
 

@@ -3,21 +3,21 @@ title: "Monitorando uso e desempenho de aplicativos de área de trabalho do Wind
 description: "Analise o uso e o desempenho do seu aplicativo da área de trabalho do Windows usando o HockeyApp e o Application Insights."
 services: application-insights
 documentationcenter: windows
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 ms.assetid: 19040746-3315-47e7-8c60-4b3000d2ddc4
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 08/26/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: 6f87eaf58c9c8dcd301a6ac245119621244a1c27
-
-
+ms.author: bwren
+ms.openlocfilehash: 9d7e2a390adf10cbf5d88dd0084ce09136987309
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Monitorando uso e desempenho de aplicativos de área de trabalho do Windows
 
@@ -47,7 +47,7 @@ ms.openlocfilehash: 6f87eaf58c9c8dcd301a6ac245119621244a1c27
 5. [Use a API](app-insights-api-custom-events-metrics.md) para enviar telemetria.
 6. Execute o aplicativo e veja a telemetria no recurso criado no Portal do Azure.
 
-## <a name="a-nametelemetryaexample-code"></a><a name="telemetry"></a>Código de exemplo
+## <a name="telemetry"></a>Código de exemplo
 ```C#
 
     public partial class Form1 : Form
@@ -89,10 +89,4 @@ ms.openlocfilehash: 6f87eaf58c9c8dcd301a6ac245119621244a1c27
 * [Pesquisa de Diagnóstico](app-insights-diagnostic-search.md)
 * [Explorar métricas](app-insights-metrics-explorer.md)
 * [Escrever consultas do Analytics](app-insights-analytics.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

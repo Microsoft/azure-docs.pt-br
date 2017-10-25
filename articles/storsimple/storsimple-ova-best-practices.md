@@ -12,14 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 06/08/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: f04cf73d9cb651bf97aff855bf7d19e296796e50
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: 264764c5e9c32574d97beb2cc3c1bb1cfb555568
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Práticas recomendadas do StorSimple Virtual Array
 ## <a name="overview"></a>Visão geral
@@ -27,13 +26,13 @@ A Matriz Virtual Microsoft Azure StorSimple é uma solução de armazenamento in
 
 Este artigo aborda as práticas recomendadas implementadas durante a configuração inicial, a implantação e o gerenciamento do StorSimple Virtual Array. Essas práticas recomendadas oferecem diretrizes validadas para a instalação e o gerenciamento da sua matriz virtual. Este artigo é destinado a administradores de TI que implantam e gerenciam as matrizes virtuais em seus datacenters.
 
-É recomendável uma revisão periódica das práticas recomendadas para ajudar a garantir que seu dispositivo ainda esteja em conformidade quando forem feitas alterações no fluxo de instalação ou de operação. Se você encontrar problemas ao implementar essas práticas recomendadas em sua matriz virtual, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para obter assistência.
+É recomendável uma revisão periódica das práticas recomendadas para ajudar a garantir que seu dispositivo ainda esteja em conformidade quando forem feitas alterações no fluxo de instalação ou de operação. Se você encontrar problemas ao implementar essas práticas recomendadas em sua matriz virtual, [contate o Suporte da Microsoft](storsimple-virtual-array-log-support-ticket.md) para obter assistência.
 
 ## <a name="configuration-best-practices"></a>Práticas recomendadas de configuração
 Essas práticas recomendadas abrangem as diretrizes que precisam ser seguidas durante a instalação inicial e a implantação das matrizes virtuais. As práticas recomendadas incluem aquelas relacionadas ao provisionamento da máquina virtual, às configurações da política de grupo, ao dimensionamento, à configuração da rede, à configuração de contas de armazenamento e à criação de compartilhamentos e volumes para a matriz virtual. 
 
 ### <a name="provisioning"></a>Provisionamento
-O StorSimple Virtual Array é uma máquina virtual (VM) provisionada no hipervisor (Hyper-V ou VMware) do seu servidor host. Ao provisionar a máquina virtual, verifique se seu host é capaz de dedicar recursos suficientes. Para saber mais, vá para [requisitos mínimos de recurso](storsimple-ova-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements) para provisionar uma matriz. 
+O StorSimple Virtual Array é uma máquina virtual (VM) provisionada no hipervisor (Hyper-V ou VMware) do seu servidor host. Ao provisionar a máquina virtual, verifique se seu host é capaz de dedicar recursos suficientes. Para saber mais, vá para [requisitos mínimos de recurso](storsimple-virtual-array-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-array-requirements) para provisionar uma matriz.
 
 Implemente as seguintes práticas recomendadas ao provisionar a matriz virtual:
 
@@ -61,13 +60,13 @@ Com base nos fatores citados, os requisitos de dimensionamento podem ser represe
 Os exemplos a seguir ilustram como você pode dimensionar uma matriz virtual com base em seus requisitos.
 
 #### <a name="example-1"></a>Exemplo 1:
-Em sua matriz virtual, você deseja ser capaz de 
+Em sua matriz virtual, você deseja ser capaz de
 
 * provisionar um volume ou um compartilhamento em camadas de 2 TB.
 * provisionar um volume ou um compartilhamento em camadas de 1 TB.
 * provisionar um volume ou um compartilhamento fixado localmente de 300 GB.
 
-Para os volumes ou os compartilhamentos citados, vamos calcular os requisitos de espaço na camada local. 
+Para os volumes ou os compartilhamentos citados, vamos calcular os requisitos de espaço na camada local.
 
 Primeiro, para cada volume/compartilhamento em camadas, a reserva local seria igual a 12% do tamanho do volume/compartilhamento. Para o volume/compartilhamento localmente fixados, a reserva local é 10% do tamanho do volume/compartilhamento localmente fixado (além do tamanho provisionado). Nesse exemplo, você precisa de
 
@@ -86,11 +85,10 @@ Incluindo o crescimento inesperado e novas restaurações, você deverá provisi
 
 > [!NOTE]
 > Também é recomendável que o disco local seja escassamente provisionado. Isso porque o espaço de restauração será necessário apenas quando você quiser restaurar dados com mais de cinco dias. A recuperação no nível do item permite que você restaure os dados dos últimos cinco dias sem exigir espaço extra para a restauração.
-> 
-> 
+
 
 #### <a name="example-2"></a>Exemplo 2:
-Em sua matriz virtual, você deseja ser capaz de 
+Em sua matriz virtual, você deseja ser capaz de
 
 * provisionar um volume em camadas de 2 TB
 * provisionar um volume fixado localmente de 300 GB
@@ -102,9 +100,9 @@ Com base em 12% de reserva do espaço local para volumes/compartilhamentos em ca
 
 O espaço total necessário na camada local é de: 240 GB + 330 GB = 570 GB
 
-O espaço local mínimo necessário para restauração é de 330 GB. 
+O espaço local mínimo necessário para restauração é de 330 GB.
 
-15% do disco total é usado para armazenar instantâneos, de forma que somente 0,85 esteja disponível. Portanto, o tamanho do disco é (900&ast;(1/0,85)) = 1,06 TB ~ 1,25 TB (arredondamento para o quartil mais próximo) 
+15% do disco total é usado para armazenar instantâneos, de forma que somente 0,85 esteja disponível. Portanto, o tamanho do disco é (900&ast;(1/0,85)) = 1,06 TB ~ 1,25 TB (arredondamento para o quartil mais próximo)
 
 Incluindo qualquer crescimento inesperado, você poderá provisionar um disco local de 1,25-1,5 TB.
 
@@ -115,29 +113,29 @@ Se a matriz virtual estiver associada a um domínio, os GPOs poderão ser aplica
 
 Portanto, recomendamos que você:
 
-* Certifique-se de que a matriz virtual esteja em sua própria OU (unidade organizacional) do Active Directory. 
+* Certifique-se de que a matriz virtual esteja em sua própria OU (unidade organizacional) do Active Directory.
 * Certifique-se de que nenhum GPO (objeto de política de grupo) seja aplicado à matriz virtual. Você pode bloquear a herança para garantir que a matriz virtual (nó filho) não herde automaticamente qualquer GPO do pai. Para saber mais, acesse [bloquear herança](https://technet.microsoft.com/library/cc731076.aspx).
 
 ### <a name="networking"></a>Rede
-A configuração de rede para sua matriz virtual é feita por meio da interface do usuário da Web local. Uma interface de rede virtual é habilitada por meio do hipervisor em que a matriz virtual é provisionada. Use a página [Configurações de Rede](storsimple-ova-deploy3-fs-setup.md) para configurar o endereço IP da interface de rede virtual, a sub-rede e o gateway.  Você também pode configurar o servidor DNS primário e secundário, as configurações de hora e as configurações de proxy opcionais para o seu dispositivo. A maior parte da configuração de rede é uma configuração única. Examine os [requisitos de rede do StorSimple](storsimple-ova-system-requirements.md#networking-requirements) antes de implantar a matriz virtual.
+A configuração de rede para sua matriz virtual é feita por meio da interface do usuário da Web local. Uma interface de rede virtual é habilitada por meio do hipervisor em que a matriz virtual é provisionada. Use a página [Configurações de Rede](storsimple-virtual-array-deploy3-fs-setup.md) para configurar o endereço IP da interface de rede virtual, a sub-rede e o gateway.  Você também pode configurar o servidor DNS primário e secundário, as configurações de hora e as configurações de proxy opcionais para o seu dispositivo. A maior parte da configuração de rede é uma configuração única. Examine os [requisitos de rede do StorSimple](storsimple-ova-system-requirements.md#networking-requirements) antes de implantar a matriz virtual.
 
 Ao implantar sua matriz virtual, recomendamos que você siga estas práticas recomendadas:
 
-* Certifique-se de que a rede na qual a matriz virtual está implantada sempre tenha a capacidade de dedicar uma largura de banda de Internet de 5 Mbps (ou mais). 
+* Certifique-se de que a rede na qual a matriz virtual está implantada sempre tenha a capacidade de dedicar uma largura de banda de Internet de 5 Mbps (ou mais).
   
   * A largura de banda da Internet necessária varia de acordo com as características da carga de trabalho e com a taxa de alteração de dados.
-  * A alteração de dados que pode ser tratada é diretamente proporcional à sua largura de banda da Internet. Como um exemplo, ao fazer um backup, uma largura de banda de 5 Mbps pode acomodar uma alteração de dados de cerca de 18 GB em 8 horas. Com quatro vezes mais largura de banda (20 Mbps), você poderá lidar com uma alteração de dados quatro vezes maior (72 GB). 
+  * A alteração de dados que pode ser tratada é diretamente proporcional à sua largura de banda da Internet. Como um exemplo, ao fazer um backup, uma largura de banda de 5 Mbps pode acomodar uma alteração de dados de cerca de 18 GB em 8 horas. Com quatro vezes mais largura de banda (20 Mbps), você poderá lidar com uma alteração de dados quatro vezes maior (72 GB).
 * Verifique se a conectividade com a Internet está sempre disponível. As conexões da Internet esporádicas ou não confiáveis com os dispositivos podem resultar em perda de acesso aos dados na nuvem e podem resultar em uma configuração sem suporte.
-* Se você planeja implantar o dispositivo como um servidor iSCSI: 
+* Se você planeja implantar o dispositivo como um servidor iSCSI:
   
-  * É recomendável desabilitar a opção **Obter endereço IP automaticamente** (DHCP). 
+  * É recomendável desabilitar a opção **Obter endereço IP automaticamente** (DHCP).
   * Configure endereços IP estáticos. Você deve configurar um servidor DNS principal e um secundário.
   * Se você estiver definindo várias interfaces de rede na matriz virtual, apenas a primeira interface de rede (por padrão, essa interface é **Ethernet**) poderá acessar a nuvem. Para controlar o tipo de tráfego, você poderá criar várias interfaces de rede virtual na matriz virtual (configurada como um servidor iSCSI) e conectá-las a sub-redes diferentes.
-* Para limitar somente a largura de banda da nuvem (usada pela matriz virtual), configure a limitação no roteador ou no firewall. Se você definir a limitação em seu hipervisor, ele limitará todos os protocolos, incluindo iSCSI e SMB, em vez de apenas a largura de banda de nuvem. 
+* Para limitar somente a largura de banda da nuvem (usada pela matriz virtual), configure a limitação no roteador ou no firewall. Se você definir a limitação em seu hipervisor, ele limitará todos os protocolos, incluindo iSCSI e SMB, em vez de apenas a largura de banda de nuvem.
 * Verifique se a sincronização de hora para hipervisores está ativada. Se estiver usando o Hyper-V, escolha a matriz virtual no Gerenciador do Hyper-V, vá para **Configurações &gt; Serviços de Integração** e verifique se a **Sincronização de data/hora** está marcada.
 
 ### <a name="storage-accounts"></a>Contas de armazenamento
-O StorSimple Virtual Array pode ser associado a uma única conta de armazenamento. Essa conta de armazenamento pode ser uma conta de armazenamento gerada automaticamente, uma conta na mesma assinatura que o serviço ou uma conta de armazenamento relacionada a outra assinatura. Para saber mais, confira como [gerenciar contas de armazenamento para sua matriz virtual](storsimple-ova-manage-storage-accounts.md).
+O StorSimple Virtual Array pode ser associado a uma única conta de armazenamento. Essa conta de armazenamento pode ser uma conta de armazenamento gerada automaticamente, uma conta na mesma assinatura que o serviço ou uma conta de armazenamento relacionada a outra assinatura. Para saber mais, confira como [gerenciar contas de armazenamento para sua matriz virtual](storsimple-virtual-array-manage-storage-accounts.md).
 
 Use as seguintes recomendações para contas de armazenamento associadas à sua matriz virtual.
 
@@ -146,7 +144,7 @@ Use as seguintes recomendações para contas de armazenamento associadas à sua 
   
   * É recomendável que você a crie na região mais próxima ao escritório remoto/filial onde o StorSimple Virtual Array foi implantado para minimizar as latências.
   * Tenha em mente que você não pode mover uma conta de armazenamento entre regiões diferentes. Também é possível mover um serviço entre assinaturas.
-  * Use uma conta de armazenamento que implemente a redundância entre os data centers. O GRS (Armazenamento com Redundância Geográfica), o ZRS (Armazenamento com Redundância Local) e o LRS (Armazenamento Localmente Redundante) têm suporte para serem usados com a matriz virtual. Para saber mais sobre os diferentes tipos de contas de armazenamento, vá para [replicação de armazenamento do Azure](../storage/storage-redundancy.md).
+  * Use uma conta de armazenamento que implemente a redundância entre os data centers. O GRS (Armazenamento com Redundância Geográfica), o ZRS (Armazenamento com Redundância Local) e o LRS (Armazenamento Localmente Redundante) têm suporte para serem usados com a matriz virtual. Para saber mais sobre os diferentes tipos de contas de armazenamento, vá para [replicação de armazenamento do Azure](../storage/common/storage-redundancy.md).
 
 ### <a name="shares-and-volumes"></a>Compartilhamentos e volumes
 Para seu StorSimple Virtual Array, você pode provisionar compartilhamentos quando ele estiver configurado como um servidor de arquivos e volumes como um servidor iSCSI. As práticas recomendadas para a criação de compartilhamentos e volumes estão relacionadas ao tamanho e ao tipo configurados.
@@ -161,10 +159,10 @@ Tenha em mente as seguintes práticas recomendadas ao provisionar compartilhamen
 * Ao criar um volume, inclua o consumo de dados esperado, bem como o crescimento futuro. O volume não pode ser expandido posteriormente.
 * Assim que o volume tiver sido criado, não será possível reduzir o tamanho do volume no StorSimple.
 * Ao gravar em um volume em camadas no StorSimple, quando os dados do volume atingirem um certo limite (em relação ao espaço local reservado para o volume), a E/S será restringida. Continuar gravando nesse volume reduz significativamente a E/S. Embora seja possível gravar em um volume em camadas além da sua capacidade provisionada (nós não impedimos ativamente o usuário de gravar além da capacidade provisionada), você verá uma notificação de alerta informando que há um excesso de assinaturas. Quando receber o alerta, é fundamental que você tome medidas corretivas, como excluir dados do volume (atualmente, não há suporte para a expansão do volume).
-* Para casos de uso da recuperação de desastre, como o número de compartilhamentos/volumes permitidos é 16 e o número máximo de compartilhamentos/volumes que podem ser processados em paralelo também é 16, o número de compartilhamentos/volumes não influenciará o RPO e os RTOs. 
+* Para casos de uso da recuperação de desastre, como o número de compartilhamentos/volumes permitidos é 16 e o número máximo de compartilhamentos/volumes que podem ser processados em paralelo também é 16, o número de compartilhamentos/volumes não influenciará o RPO e os RTOs.
 
 #### <a name="volumeshare-type"></a>Tipo de volume/compartilhamento
-O StorSimple oferece suporte a dois tipos de volume/compartilhamento baseados no uso: fixados localmente e em camadas. Os volumes/compartilhamentos localmente fixados são fortemente provisionados, enquanto os volumes/compartilhamentos em camadas têm provisionamento dinâmico. 
+O StorSimple oferece suporte a dois tipos de volume/compartilhamento baseados no uso: fixados localmente e em camadas. Os volumes/compartilhamentos localmente fixados são fortemente provisionados, enquanto os volumes/compartilhamentos em camadas têm provisionamento dinâmico. Não é possível converter um volume/compartilhamento localmente afixado em camadas ou *vice-versa* depois de criado.
 
 É recomendável que você implemente as seguintes práticas recomendadas ao configurar volumes/compartilhamentos do StorSimple:
 
@@ -190,7 +188,7 @@ Ao configurar os volumes iSCSI no Array Virtual StorSimple, é importante contro
 Use as seguintes práticas recomendadas ao configurar ACRs para volumes do StorSimple:
 
 * Sempre associe pelo menos um ACR a um volume.
-* Defina vários ACRs somente em um ambiente clusterizado.
+
 * Ao atribuir mais de um ACR a um volume, verifique se o volume não está exposto de uma maneira em que possa ser acessado simultaneamente por mais de um host não clusterizado. Se vários ACRs tiverem sido atribuídos a um volume, uma mensagem de aviso será exibida para você verificar sua configuração.
 
 ### <a name="data-security-and-encryption"></a>Segurança e criptografia de dados
@@ -205,7 +203,7 @@ O StorSimple Virtual Array tem recursos de segurança e criptografia de dados qu
 As práticas recomendadas operacionais são diretrizes que devem ser seguidas durante a operação da matriz virtual ou no gerenciamento diário. Essas práticas incluem tarefas de gerenciamento específicas, como fazer backups, restaurar de um conjunto de backups, realizar um failover, desativar e excluir a matriz, monitorar o uso e a integridade do sistema e executar verificações de vírus na matriz virtual.
 
 ### <a name="backups"></a>Backups
-É feito backup dos dados em sua matriz virtual para a nuvem de duas maneiras: um backup padrão diário automatizado do dispositivo inteiro começando às 22:30 ou por meio de um backup manual sob demanda. Por padrão, o dispositivo cria automaticamente instantâneos de nuvem diários de todos os dados que residem nela. Para saber mais, acesse [fazer backup do seu StorSimple Virtual Array](storsimple-ova-backup.md).
+É feito backup dos dados em sua matriz virtual para a nuvem de duas maneiras: um backup padrão diário automatizado do dispositivo inteiro começando às 22:30 ou por meio de um backup manual sob demanda. Por padrão, o dispositivo cria automaticamente instantâneos de nuvem diários de todos os dados que residem nela. Para saber mais, acesse [fazer backup do seu StorSimple Virtual Array](storsimple-virtual-array-backup.md).
 
 A frequência e a retenção associadas aos backups padrão não podem ser alteradas, mas você pode configurar a hora em que os backups diários são iniciados todos os dias. Ao configurar a hora de início para os backups automatizados, recomendamos que:
 
@@ -213,7 +211,7 @@ A frequência e a retenção associadas aos backups padrão não podem ser alter
 * Inicie um backup manual sob demanda ao planejar a execução de um failover de dispositivo ou antes da janela de manutenção para proteger os dados em sua matriz virtual.
 
 ### <a name="restore"></a>Restaurar
-Você pode restaurar de um conjunto de backup de duas maneiras: restaure para outro volume ou compartilhamento ou realize uma recuperação no nível de item (disponível apenas em uma matriz virtual configurada como um servidor de arquivos). A recuperação no nível do item permite fazer uma recuperação granular de arquivos e pastas de um backup de nuvem de todos os compartilhamentos no dispositivo StorSimple. Para saber mais, vá para [restaurar de um backup](storsimple-ova-restore.md).
+Você pode restaurar de um conjunto de backup de duas maneiras: restaure para outro volume ou compartilhamento ou realize uma recuperação no nível de item (disponível apenas em uma matriz virtual configurada como um servidor de arquivos). A recuperação no nível do item permite fazer uma recuperação granular de arquivos e pastas de um backup de nuvem de todos os compartilhamentos no dispositivo StorSimple. Para saber mais, vá para [restaurar de um backup](storsimple-virtual-array-clone.md).
 
 Ao realizar uma restauração, lembre-se das seguintes diretrizes:
 
@@ -225,7 +223,7 @@ Ao realizar uma restauração, lembre-se das seguintes diretrizes:
 ### <a name="failover-and-disaster-recovery"></a>Failover e recuperação de desastres
 Um failover de dispositivo permitirá que você migre os dados de um dispositivo de *origem* no datacenter para outro dispositivo de *destino* localizado no mesmo local geográfico ou em outro. O failover de dispositivo é para todo o dispositivo. Durante o failover, a propriedade dos dados de nuvem para o dispositivo de origem é alterada para aquela do dispositivo de destino.
 
-Para seu StorSimple Virtual Array, só será possível fazer failover para outra matriz virtual gerenciada pelo mesmo serviço do StorSimple Manager. Não é permitido um failover para um dispositivo da série 8000 ou para uma matriz gerenciada por um serviço do StorSimple Manager diferente (daquele para o dispositivo de origem). Para saber mais sobre as considerações de failover, acesse os [pré-requisitos para failover de dispositivo](storsimple-ova-failover-dr.md).
+Para seu StorSimple Virtual Array, só será possível fazer failover para outra matriz virtual gerenciada pelo mesmo serviço do StorSimple Manager. Não é permitido um failover para um dispositivo da série 8000 ou para uma matriz gerenciada por um serviço do StorSimple Manager diferente (daquele para o dispositivo de origem). Para saber mais sobre as considerações de failover, acesse os [pré-requisitos para failover de dispositivo](storsimple-virtual-array-failover-dr.md).
 
 Ao fazer um failover para sua matriz virtual, tenha o seguinte em mente:
 
@@ -239,7 +237,7 @@ Ao fazer um failover para sua matriz virtual, tenha o seguinte em mente:
   * O failover foi concluído e depois dele o dispositivo de origem foi excluído, mas o dispositivo de destino tem problemas e não é possível acessar os dados. Os dados ainda estão seguros na nuvem e podem ser facilmente recuperados por meio da criação de outra matriz virtual ; depois eles serão usados como um dispositivo de destino para a recuperação de desastre.
 
 ### <a name="deactivate"></a>Desativar
-Quando você desativar uma Matriz Virtual StorSimple, você dividirá a conexão entre o dispositivo e o serviço StorSimple Manager correspondente. A desativação é uma operação **permanente** e não pode ser desfeita. Um dispositivo desativado não pode ser registrado com o serviço StorSimple Manager novamente. Para saber mais, acesse [desativar e excluir um dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
+Quando você desativar uma Matriz Virtual StorSimple, você dividirá a conexão entre o dispositivo e o serviço StorSimple Manager correspondente. A desativação é uma operação **permanente** e não pode ser desfeita. Um dispositivo desativado não pode ser registrado com o serviço StorSimple Manager novamente. Para saber mais, acesse [desativar e excluir um dispositivo StorSimple](storsimple-virtual-array-deactivate-and-delete-device.md).
 
 Lembre-se das seguintes práticas recomendadas ao desativar sua matriz virtual:
 
@@ -250,7 +248,7 @@ Lembre-se das seguintes práticas recomendadas ao desativar sua matriz virtual:
 ### <a name="monitoring"></a>Monitoramento
 Para garantir que seu StorSimple Virtual Array esteja em um estado de integridade contínuo, você precisará monitorar a matriz e garantir que receberá informações do sistema, incluindo alertas. Para monitorar a integridade geral da matriz virtual, implemente as seguintes práticas recomendadas:
 
-* Configure o monitoramento para acompanhar o uso do disco de dados da matriz virtual, bem como o disco do sistema operacional. Se você estiver executando o Hyper-V, poderá usar uma combinação do SCVMM (System Center Virtual Machine Manager) e do SCOM (System Center Operations Manager) para monitorar seus hosts de virtualização.   
+* Configure o monitoramento para acompanhar o uso do disco de dados da matriz virtual, bem como o disco do sistema operacional. Se você estiver executando o Hyper-V, poderá usar uma combinação do SCVMM (System Center Virtual Machine Manager) e do SCOM (System Center Operations Manager) para monitorar seus hosts de virtualização.
 * Configure notificações por email em sua matriz virtual para enviar alertas em determinados níveis de uso.                                                                                                                                                                                                
 
 ### <a name="index-search-and-virus-scan-applications"></a>Aplicativos de pesquisa de índice e de verificação de vírus
@@ -285,6 +283,5 @@ Talvez seja necessário implantar várias matrizes virtuais para responder por u
 * Várias matrizes virtuais (quando configuradas como um servidor de arquivos ou como um servidor iSCSI) podem ser implantadas em um Namespace de Sistema de Arquivos Distribuído . Para ver as etapas detalhadas, acesse [Distributed File System Namespace Solution with Hybrid Cloud Storage Deployment Guide (Guia de solução de namespace de sistema de arquivos distribuído com armazenamento em nuvem híbrida)](https://www.microsoft.com/download/details.aspx?id=45507). Atualmente, a replicação DFS não é recomendada para uso com a matriz virtual. 
 
 ## <a name="see-also"></a>Confira também
-Saiba como [administrar o StorSimple Virtual Array](storsimple-ova-manager-service-administration.md) por meio do serviço StorSimple Manager.
-
+Saiba como [administrar o StorSimple Virtual Array](storsimple-virtual-array-manager-service-administration.md) por meio do serviço StorSimple Manager.
 

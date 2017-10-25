@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 08ec09275bbcaffaf25cf45a0f2f466fdeb60dc5
-ms.openlocfilehash: 954923e699ef2160b0a16cb369f8a86b3beacd39
-
-
+ms.openlocfilehash: b723ad800ccc0f3040eb480bb72960943b1fdb16
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Sincronização do Azure AD Connect: práticas recomendadas para alterar a configuração padrão
 O objetivo deste tópico é descrever as alterações com e sem suporte para a sincronização do Azure AD Connect.
@@ -70,9 +70,3 @@ Na regra clonada, faça as alterações necessárias no escopo, na associação 
 
 * [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-

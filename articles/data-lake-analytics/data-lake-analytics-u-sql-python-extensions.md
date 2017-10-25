@@ -4,7 +4,7 @@ description: "Saiba como executar o código Python em Scripts U-SQL"
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
-manager: sukvg
+manager: jhubbard
 editor: cgronlun
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.service: data-lake-analytics
@@ -12,23 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2016
+ms.date: 06/20/2017
 ms.author: saveenr
-translationtype: Human Translation
-ms.sourcegitcommit: 624b0370a85827cb9feaa48924bfa76d9ae19d0f
-ms.openlocfilehash: b3a9434df566d391e50e7755f9ab7fa880fe1d53
-
-
+ms.openlocfilehash: d18ef1f747aee2fa01cef9891432d0461031ee4c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="tutorial-get-started-with-extending-u-sql-with-python"></a>Tutorial: introdução à extensão do U-SQL com o Python
 
 As extensões do Python para o U-SQL permitem aos desenvolvedores a realização de execução massivamente paralela do código Python. O exemplo a seguir ilustra as etapas básicas:
 
-* Use a instrução REFERENCE ASSEMBLY para habilitar as extensões do Python para o Script U-SQL
-* Usando a operação REDUCE para particionar os dados de entrada em uma chave
-* As extensões do Python para o U-SQL incluem um redutor interno (Extension.Python.Reducer) que executa o código Python em cada vértice atribuído ao redutor
-* O script U-SQL contém o código Python incorporado, que tem uma função chamada usqlml_main que aceita um DataFrame pandas como entrada e retorna um DataFrame pandas como saída.
+* Use a instrução `REFERENCE ASSEMBLY` para habilitar as extensões Python para o Script U-SQL
+* Usando a operação `REDUCE` para particionar os dados de entrada em uma chave
+* As extensões do Python para U-SQL incluem um redutor interno (`Extension.Python.Reducer`) que executa o código Python em cada vértice atribuído ao redutor
+* O script U-SQL contém o código Python inserido, que tem uma função chamada `usqlml_main` que aceita um DataFrame pandas como entrada e retorna um DataFrame pandas como saída.
 
 --
 
@@ -68,7 +67,7 @@ As extensões do Python para o U-SQL permitem aos desenvolvedores a realização
 ### <a name="datatypes"></a>Tipos de dados
 
 * As cadeias de caracteres e colunas numéricas do U-SQL são convertidas como estão entre Pandas e U-SQL
-* Os nulos do U-SQL são convertidos de/para valores Pandas "NA"
+* Os Nulos do U-SQL são convertidos de/para valores Pandas `NA`
 
 ### <a name="schemas"></a>Esquemas
 
@@ -99,10 +98,4 @@ Cada vértice tem uma quantidade limitada de memória atribuída a ele. Atualmen
 * [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 * [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Usar funções da janela do U-SQL para trabalhos de análise do Azure Data Lake](data-lake-analytics-use-window-functions.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

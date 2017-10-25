@@ -3,23 +3,22 @@ title: "Gerenciar o RBAC (Controle de Acesso Baseado em Função) com o Azure Po
 description: "Como gerenciar o RBAC com o Azure PowerShell, incluindo listagem e atribuição e funções, e exclusão de atribuições de funções."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: andredm7
 manager: femila
-editor: 
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/02/2017
-ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 32c6224b36c73394c6bbd2aa5f6439f54f39f306
-ms.lasthandoff: 03/04/2017
-
-
+ms.date: 07/12/2017
+ms.author: andredm
+ms.reviewer: rqureshi
+ms.openlocfilehash: d7b11df21650b5cb27f9c3dd8306f8d12664185e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>Gerenciar o Controle de Acesso baseado em função com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -31,8 +30,8 @@ Você pode usar o RBAC (Controle de Acesso Baseado em Função) no portal do Azu
 
 Antes de poder usar o PowerShell para gerenciar o RBAC, você precisa dos seguintes pré-requisitos:
 
-* PowerShell do Azure, versão 0.8.8 ou posterior. Para instalar a última versão e associá-la à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
-* Cmdlets do Azure Resource Manager. Instale os [cmdlets do Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) no PowerShell.
+* PowerShell do Azure, versão 0.8.8 ou posterior. Para instalar a última versão e associá-la à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+* Cmdlets do Azure Resource Manager. Instale os [cmdlets do Azure Resource Manager](/powershell/azure/overview) no PowerShell.
 
 ## <a name="list-roles"></a>Listar funções
 ### <a name="list-all-available-roles"></a>Relacionar todas as funções disponíveis
@@ -87,7 +86,7 @@ Para listar as atribuições para administrador e coadministradores da assinatur
 ### <a name="search-for-object-ids"></a>Pesquisar IDs de objeto
 Para atribuir uma função, você precisa identificar o objeto (usuário, grupo ou aplicativo) e o escopo.
 
-Se você não souber a ID da assinatura, poderá encontrá-la na folha **Assinaturas** no portal do Azure. Para saber como consultar a ID da assinatura, consulte [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) no MSDN.
+Se você não souber a ID da assinatura, poderá encontrá-la na folha **Assinaturas** no portal do Azure. Para saber como consultar a ID da assinatura, consulte [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) no MSDN.
 
 Para obter a ID de objeto para um grupo do Azure AD, use:
 
@@ -128,7 +127,7 @@ Para remover o acesso a usuários, grupos e aplicativos, use:
 ## <a name="create-a-custom-role"></a>Criar uma função personalizada
 Para criar uma função personalizada, use o comando ```New-AzureRmRoleDefinition``` . Há dois métodos de estruturar a função, usando PSRoleDefinitionObject ou um modelo JSON. 
 
-## <a name="get-actions-from-particular-resource-provider"></a>Obter ações do provedor de recursos particular
+## <a name="get-actions-for-a-resource-provider"></a>Obter ações para um provedor de recursos
 Quando estiver criando funções personalizadas do zero, é importante conhecer todas as possíveis operações dos provedores de recursos.
 Use o comando ```Get-AzureRMProviderOperation``` para obter essas informações.
 Por exemplo, se desejar verificar todas as operações disponíveis para a máquina virtual, use este comando:
@@ -166,7 +165,7 @@ New-AzureRmRoleDefinition -Role $role
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - captura de tela](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
 ### <a name="create-role-with-json-template"></a>Criar função com modelo JSON
-Um modelo JSON pode ser usado como a definição da fonte para a função personalizada. O exemplo a seguir cria uma função personalizada que permite acesso de leitura ao armazenamento e aos recursos de computação, acesso ao suporte e adiciona essa função a duas assinaturas. Crie um novo arquivo `C:\CustomRoles\customrole1.json` com o conteúdo a seguir. A ID deve ser definida como `null` na criação de função inicial, pois uma nova ID é gerada automaticamente. 
+Um modelo JSON pode ser usado como a definição da fonte para a função personalizada. O exemplo a seguir cria uma função personalizada que permite acesso de leitura ao armazenamento e aos recursos de computação, acesso ao suporte e adiciona essa função a duas assinaturas. Crie um novo arquivo `C:\CustomRoles\customrole1.json` com o exemplo a seguir. A ID deve ser definida como `null` na criação de função inicial, pois uma nova ID é gerada automaticamente. 
 
 ```
 {
@@ -280,5 +279,4 @@ No exemplo a seguir, a função personalizada *Operador de Máquina Virtual* nã
 ## <a name="see-also"></a>Consulte também
 * [Usando o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md)
   [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-
 

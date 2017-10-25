@@ -1,6 +1,6 @@
 ---
-title: "Interface do usuário do Mobile Engagement do Azure - Painel"
-description: "Saiba como exibir e gerenciar os gráficos de dados sobre seu aplicativo usando o Mobile Engagement do Azure"
+title: "Interface do usuário do Azure Mobile Engagement - Painel"
+description: "Saiba como exibir e gerenciar os gráficos de dados sobre seu aplicativo usando o Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>Como exibir e gerenciar os gráficos de dados sobre seu aplicativo
 A seção do painel de controle da interface do usuário permite aos clientes criar gráficos personalizados para maximizar seu tempo fornecendo as informações exatas que desejam em vez de procurá-las na seção de análise. Um painel mostra as tendências de seu aplicativo e a contas de usuário ativas para versões diferentes do seu aplicativo durante um determinado momento (hora/dia/semana/mês/personalizado). As tendências mostradas baseiam-se nos últimos 7 dias.
@@ -132,5 +131,4 @@ A seção do painel de controle da interface do usuário permite aos clientes cr
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
 

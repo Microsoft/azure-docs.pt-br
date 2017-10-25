@@ -4,23 +4,25 @@
 ## [Disponibilidade](configure-availability.md)
 ## [Perguntas frequentes](faq.md)
 
-# [Introdução](../opensource-links.md)
-## [Criar uma VM do Linux com o portal](createportal.md)
+# Introdução
+## [Criar uma VM do Linux com o Portal do Azure](createportal.md)
 ## [Instalar a CLI do Azure.](../../../cli-install-nodejs.md)
 ## [Criar chaves SSH](../mac-create-ssh-keys.md)
 
 # Como
-## [Computação](../intro-on-azure.md)
+## Computação
 ### [Criar uma VM personalizada](create-custom.md)
 ### [Capturar uma VM](capture-image.md)
 ### [Usar a Área de Trabalho Remota com uma VM Linux](remote-desktop.md)
 ### [Gerenciar extensões de VM](manage-extensions.md)
 ### [Gerenciar VMs com o Visual Studio](manage-visual-studio.md)
-### [Monitorar as VMs usando a Extensão de VM de Diagnóstico](diagnostic-extension.md)
+### [Monitorar as VMs usando a Extensão de VM de Diagnóstico](../diagnostic-extension.md)
+### [Monitorar as VMs usando a v2.x da Extensão de VM de Diagnóstico](diagnostic-extension-v2.md)
 ### [Injetar dados personalizados](inject-custom-data.md)
 ### [Redefinir senhas ou chaves do Linux, corrigir SSH e verificar discos](reset-access.md)
+### [Manutenção](planned-maintenance-schedule.md)
 ### [Criar um host do Docker usando a CLI](cli-use-docker.md)
-### [Criar um host do Docker usando o portal](portal-use-docker.md)
+### [Criar um host do Docker usando o Portal do Azure](portal-use-docker.md)
 ### [Como usar o docker com o swarm](../../virtual-machines-linux-docker-swarm.md)
 
 ## Usar o Armazenamento
@@ -52,32 +54,33 @@
 ### [Aplicativo Web com Visual Studio](web-app-visual-studio.md)
 ### [Cluster RDMA para executar aplicativos MPI](rdma-cluster.md)
 ### [Como usar o plug-in subordinado do Azure com a Integração contínua do Hudson](../../virtual-machines-azure-slave-plugin-for-hudson.md)
-
-
-## HPC Pack
-### [Cluster RDMA do Windows para executar aplicativos MPI](hpcpack-cluster.md)
-### [Cluster HPC Windows com o script de implantação de IaaS do HPC Pack](hpcpack-cluster-starccm.md)
-### [Gerenciar o número e a disponibilidade de nós de computação](hpcpack-cluster-powershell-script.md)
-### [Adicionar nós sob demanda](hpcpack-cluster-openfoam.md)
-### [Dimensionar os recursos automaticamente](hpcpack-cluster-namd.md)
+### HPC Pack
+#### [Criar um cluster para cargas de trabalho do Linux](hpcpack-cluster-powershell-script.md)
+#### [Gerenciar um cluster nós do Linux](hpcpack-cluster.md)
+#### [Executar STAR-CCM+](hpcpack-cluster-starccm.md)
+#### [Executar OpenFOAM](hpcpack-cluster-openfoam.md)
+#### [Executar NAMD](hpcpack-cluster-namd.md)
 
 ## Solucionar problemas
 ### [Implantações de VM](troubleshoot-deployment-new-vm.md)
 ### [Reiniciar ou redimensionar uma VM](restart-resize-error-troubleshooting.md)
+### [Anexar um disco rígido virtual para solucionar problemas da VM](troubleshoot-recovery-disks-portal.md)
 
 # Referência
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell do Azure](/powershell/azure/overview)
 ## [CLI do Azure](/cli/azure/vm)
 ## [Java](/java/api)
 ## [Criar modelos do Resource Manager](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Modelos da comunidade](https://azure.microsoft.com/documentation/templates)
-## [REST de computação](/rest/api/compute)
-## [REST de rede](/rest/api)
-## [REST de armazenamento](/rest/api/storageservices)
+## [REST de computação](https://msdn.microsoft.com/library/jj157206.aspx)
+## [REST de rede](https://msdn.microsoft.com/library/jj157182.aspx)
+## [REST de armazenamento](https://msdn.microsoft.com/library/ee460790.aspx)
 
 
 # Recursos
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Preços](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Disponibilidade regional](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4f2fcfecf0d888997b0b0061dc9ed2a8f862d78b
-
-
+ms.openlocfilehash: e345b2e22daae5b24c23645f7d2636f66df630ff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scheduler-outbound-authentication"></a>Autenticação de Saída do Agendador
 Os trabalhos do Agendador podem precisar chamar serviços que requerem autenticação. Dessa forma, um serviço chamado pode determinar se o trabalho do Agendador poderá acessar seus recursos. Alguns desses serviços incluem outros serviços do Azure, Salesforce.com, Facebook e sites seguros personalizados.
@@ -391,10 +391,4 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
  [Alta disponibilidade e confiabilidade do Agendador do Azure](scheduler-high-availability-reliability.md)
 
  [Limites, padrões e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

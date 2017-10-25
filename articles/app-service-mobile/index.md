@@ -1,22 +1,22 @@
 ---
 title: "Documentação dos Aplicativos Móveis do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como usar os Aplicativos Móveis no Serviço de Aplicativo do Azure para compilar e hospedar aplicativos nativos do iOS, do Android ou do Windows, ou aplicativos de plataforma cruzada usando Xamarin ou Cordova."
-services: app-service\mobile
-author: carolz
+services: app-service-mobile
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
-ms.service: app-service\mobile
+ms.service: app-service-mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 6f1ca5fe5125728b51a6d46e55415afb72405910
-ms.openlocfilehash: f660922fa2f7d5d21b4e6678233792ad6cb84041
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: d602d833286d1906a2e9bd38d3e99d737146310b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="mobile-apps-documentation"></a>Documentação dos Aplicativos Móveis
 
@@ -142,7 +142,7 @@ Saiba como usar os Aplicativos Móveis no Serviço de Aplicativo do Azure para c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução à criação de um aplicativo xamarin.Android</h3>
+                        <h3>Introdução à criação de um aplicativo Xamarin.Android</h3>
                     </div>
                 </div>
             </div>
@@ -160,7 +160,7 @@ Saiba como usar os Aplicativos Móveis no Serviço de Aplicativo do Azure para c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução à criação de um aplicativo xamarin.Forms</h3>
+                        <h3>Introdução à criação de um aplicativo Xamarin.Forms</h3>
                     </div>
                 </div>
             </div>
@@ -209,4 +209,3 @@ Saiba como usar os Aplicativos Móveis no Serviço de Aplicativo do Azure para c
         </div>
     </li>
 </ul>
-

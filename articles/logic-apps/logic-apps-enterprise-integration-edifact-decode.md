@@ -1,6 +1,6 @@
 ---
 title: "Decodificar mensagens EDIFACT - Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Validar EDI e gerar o XML de conjuntos de transações com o decodificador de mensagem EDIFACT no Enterprise Integration Pack para Aplicativo Lógico do Azure"
+description: "Validar EDI e gerar confirmações com o decodificador de mensagem EDIFACT no Enterprise Integration Pack para Aplicativo Lógico do Azure"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -13,18 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 176963837f4f3fc8b89e31000ef8722ef3258b11
-ms.lasthandoff: 03/10/2017
-
-
+ms.author: LADocs; padmavc
+ms.openlocfilehash: e3787b48037360bf6066ddce2bacba6842213b2d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Decodificar mensagens EDIFACT para o Aplicativo Lógico do Azure com o Enterprise Integration Pack
 
-Com o conector de mensagem EDIFACT de decodificação, você pode validar o EDI e as propriedades específicas de parceiro, gerar um documento XML para cada conjunto de transações e gerar uma confirmação das transações processadas. Para usar esse conector, você deve adicionar o conector para um gatilho existente em seu aplicativo lógico.
+Com o conector Decodificar mensagem EDIFACT, você pode validar EDI e propriedades específicas de parceiro, dividir intercâmbios em conjuntos de transações ou preservar intercâmbios inteiros e gerar confirmações para transações processadas. Para usar esse conector, você deve adicionar o conector para um gatilho existente em seu aplicativo lógico.
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -72,30 +70,35 @@ Veja os itens necessários:
 
 O conector EDIFACT de decodificação executa as seguintes tarefas: 
 
-* Resolve o contrato correspondendo o qualificador e o identificador do remetente com o qualificador e o identificador do receptor
-* Divide diversos intercâmbios em uma única mensagem em mensagens separadas.
-* Valida o envelope no contrato de parceiro comercial
+* Valida o envelope com relação ao acordo entre parceiros comerciais.
+* Resolve o contrato combinando o qualificador e o identificador do remetente com o qualificador e o identificador do receptor.
+* Divide um intercâmbio em várias transações quando o intercâmbio tem mais de uma transação com base nas configurações de definições de recebimento do contrato.
 * Desmonta o intercâmbio.
-* Valida o EDI e as propriedades específicas de parceiro incluem
-  * Validação da estrutura do envelope de intercâmbio.
-  * Validação de esquema do envelope em relação ao esquema de controle.
-  * Validação de esquema dos elementos de dados do conjunto de transações em relação ao esquema de mensagem.
+* Valida propriedades específicas do parceiro e EDI, incluindo:
+  * Validação da estrutura de envelope de intercâmbio
+  * Validação de esquema do envelope em relação ao esquema de controle
+  * Validação de esquema dos elementos de dados do conjunto de transações em relação ao esquema de mensagem
   * Validação de EDI executadas em elementos de dados do conjunto de transação
 * Verifica se os números de controle de conjunto de intercâmbio, grupo e transações não estão duplicados (se configurados) 
   * Verifica o número de controle de intercâmbio em relação aos intercâmbios recebidos anteriormente. 
   * Verifica o número de controle de grupo em relação a outros números de controle no intercâmbio. 
   * Verifica o número de controle do conjunto de transações em relação a outros números de controle de conjunto de transações nesse grupo.
-* Gera um documento XML para cada conjunto de transações.
-* Converte o intercâmbio inteiro em XML 
-  * Dividir intercâmbio como conjuntos de transação – suspender conjuntos de transações no erro: analisa cada conjunto de transações em um intercâmbio dentro de um documento XML separado. Se a validação de um ou mais conjuntos de transações no intercâmbio falhar, a Decodificação EDIFACT suspenderá somente esses conjuntos de transações. 
-  * Dividir intercâmbio como conjuntos de transação – suspender intercâmbio no erro: analisa cada conjunto de transações em um intercâmbio dentro de um documento XML separado.  Se a validação de um ou mais conjuntos de transações do intercâmbio falhar, a Decodificação EDIFACT suspenderá o intercâmbio inteiro.
-  * Preservar intercâmbio - suspender conjuntos de transações no erro: cria um documento XML para o intercâmbio em lote inteiro. A Decodificação EDIFACT suspende somente os conjuntos de transações com falha na validação, enquanto continua processando todos os outros conjuntos de transações
-  * Preservar intercâmbio - suspender intercâmbio no erro: cria um documento XML para o intercâmbio em lote inteiro. Se a validação de um ou mais conjuntos de transações do intercâmbio falhar, a Decodificação EDIFACT suspenderá o intercâmbio inteiro. 
+* Divide o intercâmbio em conjuntos de transações ou preserva todo o intercâmbio:
+  * Dividir o Intercâmbio como conjuntos de transações – suspender conjuntos de transações em caso de erro: divide o intercâmbio em conjuntos de transações e analisa cada conjunto de transações. 
+  A ação Decodificar X12 gera apenas os conjuntos de transações que falharam na validação em `badMessages` e gera os conjuntos de transações restantes em `goodMessages`.
+  * Dividir o Intercâmbio como conjuntos de transações – suspender o intercâmbio em caso de erro: divide o intercâmbio em conjuntos de transações e analisa cada conjunto de transações. 
+  Se um ou mais conjuntos de transações no intercâmbio falharem na validação, a ação Decodificar X12 gerará todos os conjuntos de transações no intercâmbio em `badMessages`.
+  * Preservar intercâmbio – suspender conjuntos de transação em caso de erro: preserve o intercâmbio e processe todo o intercâmbio em lote. 
+  A ação Decodificar X12 gera apenas os conjuntos de transações que falharam na validação em `badMessages` e gera os conjuntos de transações restantes em `goodMessages`.
+  * Preservar intercâmbio – suspender intercâmbio em caso de erro: preserve o intercâmbio e processe todo o intercâmbio em lote. 
+  Se um ou mais conjuntos de transações no intercâmbio falharem na validação, a ação Decodificação X12 gerará todos os conjuntos de transações no intercâmbio em `badMessages`.
 * Gera uma confirmação técnica (controle) e/ou funcional (se configurado).
   * Uma confirmação técnica ou o CONTRL ACK reporta os resultados de uma verificação sintática do intercâmbio completo recebido.
   * Uma confirmação funcional confirma aceitar ou rejeitar um intercâmbio recebido ou um grupo
 
+## <a name="view-swagger-file"></a>Exibir o arquivo do Swagger
+Para exibir os detalhes de Swagger para o conector do EDIFACT, consulte [EDIFACT](/connectors/edifact/).
+
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack") 
-
 

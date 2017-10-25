@@ -3,41 +3,42 @@ title: "Introdução à verificação em duas etapas | Microsoft Docs"
 description: "Esta é a página do Azure Multi-Factor Authentication que ajudará os usuários finais a seguir adiante com o Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
-editor: curtland
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 4ff028f88e984f28bc0f4a228aabed1fabc90560
-ms.openlocfilehash: dd9b0692dbc044e4bed26cfe7e9e4be11450a595
-
-
+ms.date: 06/15/2017
+ms.author: barlan
+ms.reviewer: yossib
+ms.custom: end-user
+ms.openlocfilehash: 5b6694afc0bafaf2be5f98c625dd6724b91234fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>O que o Azure Multi-Factor Authentication significa para mim?
-Então, você recebeu um email de alguém da TI ou talvez do seu chefe informando que incluíram verificação de segurança adicional à sua conta.  E o que isso significa?
+Então, você recebeu um email de alguém de TI ou do seu chefe informando que incluíram uma verificação de segurança adicional à sua conta.  E o que isso significa?
 
-Não se preocupe.  Isso simplesmente significa que sua organização deseja tomar algumas medidas extras para garantir que você é quem diz ser quando entra no Office 365, por exemplo.  Isso é feito usando uma combinação do seu nome de usuário, senha e um telefone.  Pode ser o telefone comercial ou um smartphone.
+Não se preocupe. Sua organização deseja apenas adotar etapas extras para garantir que você é quem diz ser ao entrar. Essa verificação é feita usando uma combinação do seu nome de usuário, senha e um telefone.  
 
 Sendo assim, a primeira coisa que você precisa fazer é concluir o processo de registro.  Porém, antes de iniciarmos esse processo, há algumas decisões a serem tomadas.
 
 * **Telefone comercial ou telefone celular** : escolha entre usar o telefone comercial ou o celular.
-* **Ligação telefônica, texto ou aplicativo móvel no celular** : se estiver usando um celular, escolha entre receber uma ligação, um texto ou usar o aplicativo móvel.
+* **Ligação telefônica, texto ou aplicativo móvel no celular**: se estiver usando um celular, escolha entre receber uma chamada, um texto ou usar o aplicativo móvel.
 * **Aplicativo móvel com um código de notificação ou verificação** : se estiver usando o aplicativo móvel, escolha entre receber uma notificação a qual responder ou um código de verificação.
 
 > [!NOTE]
-> Esteja ciente de que seu departamento de TI pode desabilitar uma ou mais das opções acima.  Se esse for o caso, essas opções não serão disponibilizadas durante o processo de registro.  
+> Seu departamento de TI pode desabilitar uma ou mais dessas opções.  Nesse caso, essas opções não estarão disponíveis durante o processo de registro.  
 
-Agora que você decidiu sobre seu método de verificação, é hora de fazer o registro.  Use o link [Experiência de Configuração](multi-factor-authentication-end-user-first-time.md) para começar com um passo a passo sobre o processo de registro.
+Agora que você decidiu sobre seu método de verificação, é hora de fazer o registro. Use o link [Experiência de Configuração](multi-factor-authentication-end-user-first-time.md) para começar com um passo a passo sobre o processo de registro.
 
-## <a name="how-to-get-going-with-multi-factor-authentication"></a>Como seguir adiante com o Multi-Factor Authentication
-Selecione um dos tópicos a seguir para começar.
+## <a name="how-to-get-going-with-two-step-verification"></a>Como começar com a verificação em duas etapas
+Selecione um desses tópicos para começar.
 
 | Tópico | Descrição |
 |:--- |:--- |
@@ -46,10 +47,3 @@ Selecione um dos tópicos a seguir para começar.
 | [Alterando suas configurações](multi-factor-authentication-end-user-manage-settings.md) |Mostra como você pode alterar suas configurações, como número de telefone ou método de registro preferido. |
 | [Ajuda com senhas de aplicativo](multi-factor-authentication-end-user-app-passwords.md) |Encontre informações sobre como criar e usar senhas de aplicativo. |
 | [Usar o aplicativo móvel](microsoft-authenticator-app-how-to.md) |O aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
-

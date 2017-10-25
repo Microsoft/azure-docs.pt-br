@@ -3,8 +3,8 @@ title: "Criar um aplicativo Cordova nos Aplicativos Móveis do Serviço de Aplic
 description: "Siga este tutorial para começar a usar back-ends de aplicativos móveis do Azure para desenvolvimento do Apache Cordova"
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 tags: 
 keywords: "cordova,javascript,móvel,cliente"
@@ -14,14 +14,13 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
-ms.date: 10/30/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: bf5691dbf4aaae585373de454ad7a0672dd17b84
-ms.openlocfilehash: aab35cdbbc6dc73551ca436985b51e5fe7a50fb6
-ms.lasthandoff: 12/01/2016
-
-
+ms.date: 07/07/2017
+ms.author: glenga
+ms.openlocfilehash: b620465cdc3cfa04933dc6e70163fc32aa9a839b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-apache-cordova-app"></a>Criar um aplicativo Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -34,7 +33,7 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 
-* Um computador com o [Visual Studio Community 2015] ou mais recente.
+* Um computador com o [Visual Studio Community 2017] ou mais recente.
 * [Ferramentas do Visual Studio para Apache Cordova].
 * Uma [conta ativa do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -74,7 +73,7 @@ Saiba como usar os SDKs.
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2015]: http://www.visualstudio.com/
+[Visual Studio Community 2017]: http://www.visualstudio.com/
 [Ferramentas do Visual Studio para Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Dados Off-line]: app-service-mobile-offline-data-sync.md
 [Autenticação]: app-service-mobile-auth.md
@@ -82,4 +81,3 @@ Saiba como usar os SDKs.
 [SDK do Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
 [SDK do Servidor ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [SDK do Servidor Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
-

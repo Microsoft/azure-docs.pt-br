@@ -15,26 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/13/2016
 ms.author: sashan
-translationtype: Human Translation
-ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
-ms.openlocfilehash: ae06e6855a11f91ce18e3b12698b3d01e23a6a2c
-ms.lasthandoff: 01/07/2017
-
-
+ms.openlocfilehash: 48b35f761273c68b03af1fc5e977bb99455a01e0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurar e gerenciar a segurança do Banco de Dados SQL para restauração geográfica ou failover 
 
 > [!NOTE]
-> A [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md) agora está disponível para todos os bancos de dados em todas as camadas de serviço.
+> A [Replicação geográfica ativa](sql-database-geo-replication-overview.md) agora está disponível para todos os bancos de dados em todas as camadas de serviço.
 >  
 
 ## <a name="overview-of-authentication-requirements-for-disaster-recovery"></a>Visão geral dos requisitos de autenticação para a recuperação de desastre
-Este tópico descreve os requisitos de autenticação para configurar e controlar a [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md) e as etapas necessárias para configurar o acesso de usuário ao banco de dados secundário. Ele também descreve como habilitar o acesso ao banco de dados recuperado depois de usar a [restauração geográfica](sql-database-recovery-using-backups.md#geo-restore). Para obter mais informações sobre as opções de recuperação, confira [Visão geral de continuidade dos negócios](sql-database-business-continuity.md).
+Este tópico descreve os requisitos de autenticação para configurar e controlar a [replicação geográfica ativa](sql-database-geo-replication-overview.md) e as etapas necessárias para configurar o acesso de usuário ao banco de dados secundário. Ele também descreve como habilitar o acesso ao banco de dados recuperado depois de usar a [restauração geográfica](sql-database-recovery-using-backups.md#geo-restore). Para obter mais informações sobre as opções de recuperação, confira [Visão geral de continuidade dos negócios](sql-database-business-continuity.md).
 
 ## <a name="disaster-recovery-with-contained-users"></a>Recuperação de desastre com usuários independentes
 Ao contrário de usuários tradicionais, que devem ser mapeados para logons no banco de dados mestre, um usuário independente é totalmente gerenciado pelo próprio banco de dados. Isso oferece dois benefícios. No cenário de recuperação de desastre, os usuários podem continuar a conectar ao novo banco de dados primário recuperado usando restauração geográfica sem qualquer configuração adicional, pois o banco de dados gerencia os usuários. Também há possíveis benefícios de desempenho e escalabilidade com esta configuração de uma perspectiva de logon. Para obter mais informações, consulte [Usuários do banco de dados independente - Tornando o banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx). 
 
-A principal desvantagem é que gerenciar o processo de recuperação de desastre em grande escala é mais desafiador. Quando você tiver vários bancos de dados que usam o mesmo logon, manter as credenciais usando usuários independentes em vários banco de dados pode invalidar os benefícios de usuários independentes. Por exemplo, a política de rotação de senha requer que alterações ocorram consistentemente em vários bancos de dados em vez de alterar a senha do logon apenas uma vez no banco de dados mestre. Por esse motivo, se você tiver vários bancos de dados que usam o mesmo nome de usuário e senha, a utilização de usuários independentes não será recomendada. 
+A principal desvantagem é que gerenciar o processo de recuperação de desastre em grande escala é mais desafiador. Quando você tiver vários bancos de dados que usam o mesmo logon, manter as credenciais usando usuários independentes em vários bancos de dados pode invalidar os benefícios de usuários independentes. Por exemplo, a política de rotação de senha requer que alterações ocorram consistentemente em vários bancos de dados em vez de alterar a senha do logon apenas uma vez no banco de dados mestre. Por esse motivo, se você tiver vários bancos de dados que usam o mesmo nome de usuário e senha, a utilização de usuários independentes não será recomendada. 
 
 ## <a name="how-to-configure-logins-and-users"></a>Como configurar logons e usuários
 Se estiver usando logons e usuários (em vez de usuários independentes), será necessário realizar etapas extras para garantir que os mesmos logons existam no banco de dados mestre. As seções a seguir descrevem as etapas envolvidas e considerações adicionais.
@@ -44,10 +43,10 @@ Para o banco de dados secundário poder ser usado como banco de dados secundári
 
 As permissões específicas para cada etapa são descritas posteriormente neste tópico.
 
-A preparação do acesso do usuário a uma replicação geográfica secundária deve ser realizada como parte da configuração da Replicação Geográfica. A preparação do acesso do usuário aos bancos de dados restaurados geograficamente pode ser realizada a qualquer momento em que o servidor original estiver online (ex.: como parte do teste de DR).
+A preparação do acesso do usuário a uma replicação geográfica secundária deve ser realizada como parte da configuração da replicação geográfica. A preparação do acesso do usuário aos bancos de dados restaurados geograficamente pode ser realizada a qualquer momento em que o servidor original estiver online (ex.: como parte do teste de DR).
 
 > [!NOTE]
-> Se o failover ou a restauração geográfica for para um servidor que não tem acesso de logons configurado corretamente, eles ficarão limitados à conta de administrador do servidor.
+> Se o failover ou a restauração geográfica for para um servidor que não tem acesso de logons configurado corretamente, o acesso a ele será limitado à conta do administrador do servidor.
 > 
 > 
 
@@ -101,7 +100,6 @@ A última etapa é acessar o servidor de destino, ou servidores, e gerar os logo
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre como gerenciar o acesso ao banco de dados e os logons, veja [Segurança do Banco de Dados SQL: gerenciar a segurança de acesso e de logon do banco de dados](sql-database-manage-logins.md).
 * Para saber mais sobre usuários de bancos de dados independentes, confira [Usuários de bancos de dados independentes - Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
-* Para saber como usar e configurar a replicação geográfica ativa, veja [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
-* Para obter informações sobre como usar a restauração geográfica, confira [Restauração Geográfica](sql-database-recovery-using-backups.md#geo-restore)
-
+* Para saber como usar e configurar a replicação geográfica ativa, confira [replicação geográfica ativa](sql-database-geo-replication-overview.md)
+* Para obter informações sobre como usar a restauração geográfica, confira [restauração geográfica](sql-database-recovery-using-backups.md#geo-restore)
 

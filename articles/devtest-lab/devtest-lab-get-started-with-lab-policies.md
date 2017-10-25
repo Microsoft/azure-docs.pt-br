@@ -12,16 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 06/29/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: e5b622be66c3e009c67a00dd380efd87b013c920
-ms.lasthandoff: 03/17/2017
-
-
+ms.openlocfilehash: ed35d081b191ec41ed9e5970515057a4715c0d59
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Gerenciar políticas básicas para um laboratório no Azure DevTest Labs
 
 O Azure DevTest Labs permite que você controle o custo e minimize o desperdício nos laboratórios gerenciando políticas (configurações) para cada laboratório. Neste artigo, você começa com políticas aprendendo como definir duas das políticas mais importantes - limitando o número de VMs (máquinas virtuais) que podem ser criadas ou declaradas por um único usuário e configurando o desligamento automático. Para ver como definir cada política de laboratório, veja o artigo [Definir políticas de laboratório no Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
@@ -73,7 +71,21 @@ A política de desligamento automático ajuda a minimizar o desperdício de labo
 
     Por padrão, uma vez habilitada, essa política se aplicará a todas as VMs do laboratório atual. Para remover essa configuração de uma VM específica, abra a folha da VM e altere sua configuração de **Desligamento Automático** 
 
+## <a name="set-auto-start"></a>Definir início automático
+A política de início automático permite que você especifique quando as VMs do laboratório atual deverão ser iniciadas.  
+
+1. Na folha **Configuração e políticas** do laboratório, selecione **Início automático**.
+   
+    ![Início automático](./media/devtest-lab-set-lab-policy/auto-start.png)
+
+2. Selecione **Ativado** para habilitar essa política e **Desativado** para desabilitá-la.
+
+3. Se você habilitar esta política, especifique o horário de início agendado, o fuso horário e os dias da semana para os quais o horário se aplica. 
+
+4. Selecione **Salvar**.
+
+    Quando habilitada, essa política não será aplicada automaticamente a quaisquer máquinas virtuais do laboratório atual. Para aplicar essa configuração a uma VM específica, abra a folha da VM e altere sua configuração de **Início automático** 
+
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Definir políticas de laboratório no Azure DevTest Labs](devtest-lab-set-lab-policy.md) - saiba como modificar outras políticas de laboratório 
-

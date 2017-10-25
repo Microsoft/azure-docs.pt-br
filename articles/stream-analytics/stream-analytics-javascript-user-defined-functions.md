@@ -3,7 +3,7 @@ title: "Funções definidas pelo usuário do JavaScript do Stream Analytics do A
 description: "Executar o mecanismo de consulta avançada com funções definidas pelo usuário do JavaScript"
 keywords: "javascript, funções definidas pelo usuário, udf"
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: a8334d146877ccc3988784c7a74a1c887dba68ab
-ms.openlocfilehash: 57027b97cebf8accccd91f135a13825047fd211e
-ms.lasthandoff: 02/09/2017
-
+ms.author: samacha
+ms.openlocfilehash: e8c1c784a598416b478d1430258201053185fdee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Funções definidas pelo usuário do JavaScript do Stream Analytics do Azure
 O Stream Analytics do Azure dá suporte a funções definidas pelo usuário gravadas em JavaScript. Com o conjunto avançado dos métodos **String**, **RegExp**, **Math**, **Array** e **Date** fornecidos pelo JavaScript, as transformações de dados complexas com trabalhos do Stream Analytics se tornam mais fáceis de serem criadas.
 
@@ -43,11 +42,11 @@ Embora funções como **Date.GetDate()** ou **Math.random()** não estejam bloqu
 ## <a name="add-a-javascript-user-defined-function-in-the-azure-portal"></a>Adicionar uma função definida pelo usuário do JavaScript no portal do Azure
 Para criar uma função definida pelo usuário do JavaScript simples em um trabalho do Stream Analytics existente, siga essas etapas:
 
-1.    No portal do Azure, encontre seu trabalho do Stream Analytics.
+1.  No portal do Azure, encontre seu trabalho do Stream Analytics.
 2.  Em **TOPOLOGIA DO TRABALHO**, selecione sua função. Uma lista vazia de funções é exibida.
-3.    Para criar uma nova função definida pelo usuário, selecione **Adicionar**.
-4.    Na folha **Nova Função**, para **Tipo de Função**, selecione **JavaScript**. Um modelo de função padrão aparece no editor.
-5.    Para o **alias da UDF**, insira **hex2Int** e altere a implementação da função, conforme mostrado a seguir:
+3.  Para criar uma nova função definida pelo usuário, selecione **Adicionar**.
+4.  Na folha **Nova Função**, para **Tipo de Função**, selecione **JavaScript**. Um modelo de função padrão aparece no editor.
+5.  Para o **alias da UDF**, insira **hex2Int** e altere a implementação da função, conforme mostrado a seguir:
 
     ```
     // Convert Hex value to integer.
@@ -56,13 +55,13 @@ Para criar uma função definida pelo usuário do JavaScript simples em um traba
     }
     ```
 
-6.    Selecione **Salvar**. Sua função é exibida na lista de funções.
-7.    Selecione a nova função **hex2Int** e verifique a definição de função. Todas as funções têm um prefixo **UDF** adicionado ao alias de função. Você precisa *incluir o prefixo* ao chamar a função na consulta do Stream Analytics. Nesse caso, você chama **UDF.hex2Int**.
+6.  Selecione **Salvar**. Sua função é exibida na lista de funções.
+7.  Selecione a nova função **hex2Int** e verifique a definição de função. Todas as funções têm um prefixo **UDF** adicionado ao alias de função. Você precisa *incluir o prefixo* ao chamar a função na consulta do Stream Analytics. Nesse caso, você chama **UDF.hex2Int**.
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Chamar uma função definida pelo usuário do JavaScript em uma consulta
 
 1. No editor de consulta, em **TOPOLOGIA DO TRABALHO**, selecione **Consulta**.
-2.    Edite sua consulta e, em seguida, chame a função definida pelo usuário da seguinte forma:
+2.  Edite sua consulta e, em seguida, chame a função definida pelo usuário da seguinte forma:
 
     ```
     SELECT
@@ -74,8 +73,8 @@ Para criar uma função definida pelo usuário do JavaScript simples em um traba
         InputStream
     ```
 
-3.    Para carregar o arquivo de dados de exemplo, clique com o botão direito do mouse na entrada do trabalho.
-4.    Para testar sua consulta, selecione **Teste**.
+3.  Para carregar o arquivo de dados de exemplo, clique com o botão direito do mouse na entrada do trabalho.
+4.  Para testar sua consulta, selecione **Teste**.
 
 
 ## <a name="supported-javascript-objects"></a>Objetos JavaScript com suporte
@@ -144,8 +143,7 @@ Para obter ajuda adicional, experimente nosso [Fórum do Stream Analytics do Azu
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
-* [Introdução ao uso do Stream Analytics do Azure](stream-analytics-get-started.md)
+* [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de linguagem de consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referência da API REST do gerenciamento do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

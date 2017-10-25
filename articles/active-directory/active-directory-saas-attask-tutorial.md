@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: integração do Azure Active Directory ao @Task| Microsoft Docs"
+title: "Tutorial: Integração do Azure Active Directory com o @Task | Microsoft Docs"
 description: "Saiba como configurar o logon único entre o Azure Active Directory e o @Task."
 services: active-directory
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 1a2ff324cfa65977685f6a0eee9cd398b0717519
-ms.openlocfilehash: cba595704af8e48506a25d592770ec273cb9bd30
-
-
+ms.openlocfilehash: ebb19ca6cbaf04106fbce937d95651e709854cfd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-task"></a>Tutorial: Integração do Active Directory do Azure com @Task
 O objetivo desse tutorial é mostrar como integrar @Task ao Azure Active Directory (AD do Azure).  
@@ -31,7 +31,7 @@ A integração de @Task ao AD do Azure oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para configurar a integração do AD do Azure com @Task,, você precisará dos seguintes itens:
+Para configurar a integração do Azure AD com o @Task, você precisará dos seguintes itens:
 
 * Uma assinatura do AD do Azure
 * Uma assinatura habilitada para logon único @Task
@@ -84,9 +84,9 @@ O objetivo desta seção é mostrar como configurar e testar o logon único do A
 Para que o logon único funcione, o AD do Azure precisa saber qual usuário de @Task é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do AD do Azure e o usuário relacionado em @Task.   
 Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** ao Azure AD como sendo o valor de **Nome de usuário** no @Task.
 
-Para configurar e testar o logon único do AD do Azure com @Task,, você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o logon único do Azure AD com o @Task, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
 2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criar um @Tasktest usuário](#creating-a-halogen-software-test-user)** - para ter um equivalente de Brenda Fernandes em @Taskthat que esteja vinculado à representação dela no AD do Azure.
 4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
@@ -95,7 +95,7 @@ Para configurar e testar o logon único do AD do Azure com @Task,, você precisa
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do AD do Azure
 O objetivo desta seção é habilitar o logon único do AD do Azure no portal clássico do Azure e configurar o logon único em seu aplicativo de @Task.
 
-**Para configurar o logon único do AD do Azure com @Task,, execute as seguintes etapas:**
+**Para configurar o logon único do Azure AD com o @Task, execute as seguintes etapas:**
 
 1. No portal clássico do Azure, na página de integração de aplicativos **@Task**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
    
@@ -109,7 +109,7 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal cl
    
      a. Na caixa de texto **URL de Resposta**, digite a URL usada pelos usuários para entrar no site @Task (por exemplo: *https://<Tenant name>.attask-ondemand.com*).
    
-     b. Clique em **Próximo**.
+     b. Clique em **Avançar**.
 4. Na página **Configurar logon único em @Task**, clique em **Baixar metadados** e salve o arquivo de metadados localmente no computador e clique em **Avançar**.
    
     ![O que é o Azure AD Connect][9] 
@@ -162,7 +162,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
    
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas: 
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-attask-tutorial/create_aaduser_06.png) 
@@ -175,7 +175,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    
     d. Na lista **Função**, selecione **Usuário**.
 
-    e. Clique em **Próximo**.
+    e. Clique em **Avançar**.
 
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
@@ -191,7 +191,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 ### <a name="creating-an-task-test-user"></a>Criando um usuário de teste de @Task
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no @Task.
 
-**Para criar um usuário chamado Brenda Fernandes em @Task,, realize as seguintes etapas:**
+**Para criar um usuário chamado Brenda Fernandes em @Task, execute as seguintes etapas:**
 
 1. Faça logon no site da empresa @Task como administrador.
 2. No menu na parte superior, clique em **Pessoas**.
@@ -213,9 +213,9 @@ O objetivo desta seção é habilitar Brenda Fernandes para usar o logon único 
 
 ![Atribuir usuário][200] 
 
-**Para atribuir Brenda Fernandes a @Task,, execute as seguintes etapas:**
+**Para atribuir Brenda Fernandes a @Task, execute as seguintes etapas:**
 
-1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
+1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior.
    
     ![Atribuir usuário][201] 
 2. Na lista de aplicativos, selecione **@Task**.
@@ -269,11 +269,5 @@ Ao clicar no bloco de @Task no Painel de Acesso, você deverá ser conectado aut
 
 
 
-
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

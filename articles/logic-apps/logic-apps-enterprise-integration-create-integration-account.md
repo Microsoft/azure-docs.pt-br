@@ -13,22 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
-ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 2a7ecec310f4e321417364eee854409b2f85e2d3
-ms.lasthandoff: 03/10/2017
-
-
+ms.author: LADocs; mandia
+ms.openlocfilehash: 716e7b5bab8725dea0fd2b760d0e46e8e892c5b4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-an-integration-account"></a>O que é uma conta de integração?
 
 Uma conta de integração permite aos aplicativos de integração corporativa gerenciar artefatos, incluindo esquemas, mapas, certificados, parceiros e contratos. Qualquer aplicativo de integração que você criar usará uma conta de integração para acessar esses esquemas, mapas, certificados etc.
 
 ## <a name="create-an-integration-account"></a>Criar uma conta de integração
 
-1.    Entre no [portal do Azure](http://portal.azure.com "portal do Azure"). No menu à esquerda, selecione **Mais serviços**.
+1.  Entre no [portal do Azure](http://portal.azure.com "portal do Azure"). No menu à esquerda, selecione **Mais serviços**.
 
     ![Escolha “Mais serviços”](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
@@ -130,5 +128,4 @@ Para mover uma conta de integração para outro grupo de recursos ou de assinatu
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Saiba mais sobre os contratos](../logic-apps/logic-apps-enterprise-integration-agreements.md "Saiba mais sobre os contratos de integração corporativa")  
-
 

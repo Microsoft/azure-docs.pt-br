@@ -12,15 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/08/2017
+ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 8a850f8b1cccda631786f89f2c88647604fba9ed
-ms.lasthandoff: 03/15/2017
-
-
+ms.openlocfilehash: a99f96db0c1e8bcd0cf29c564e5badf0eb728e56
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-intrinsically-parallel-workloads-with-batch"></a>Executar cargas de trabalho intrinsecamente paralelas com o Lote
 
@@ -47,7 +46,7 @@ Alguns exemplos de cargas de trabalho que normalmente são processadas usando es
 
 O lote também pode realizar cálculos paralelos com uma etapa de redução no final, além de executar cargas de trabalho HPC mais complexas, como aplicativos [MPI (nterface de Transmissão de Mensagens)](batch-mpi.md) .
 
-Para obter uma comparação entre o Lote e outras opções de solução HPC no Azure, confira [Soluções do Lote e HPC](batch-hpc-solutions.md).
+Para obter uma comparação entre o Lote e outras opções de solução HPC no Azure, confira [Soluções do HPC, Lote e Big Compute](../virtual-machines/linux/high-performance-computing.md).
 
 [!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
 
@@ -87,4 +86,3 @@ Agora que você já viu uma visão geral de alto nível do serviço Lote, é hor
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
-

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/13/2017
+ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 408394e529c262c0a47aae680c8f6ea1bc8eb7c6
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: e098e27e32f7b7ae2009580a430f262aa7225206
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-your-seller-insights-report"></a>Entenda o relatório de insights do vendedor
 **O que são os Insights do Vendedor?**
@@ -85,8 +84,7 @@ Leia atentamente a isenção de responsabilidade legal. Se você tiver perguntas
 Navegue para https://publish.windowsazure.com/ e entre com as credenciais da sua conta da Microsoft.
 ![passwordreminder][7]
 
-Selecione a guia **Editoras** .
-![selectpublisherstab][8]
+Selecione a guia **Editores**. ![selectpublisherstab][8]
 
 Localize a ID do publicador na URL:
 
@@ -115,4 +113,3 @@ Se você tiver perguntas relacionadas a relatórios e insights, entre em contato
 [8]: ./media/marketplace-publishing-report-seller-insights/selectpublisherstab.png
 [9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png
 [10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png
-

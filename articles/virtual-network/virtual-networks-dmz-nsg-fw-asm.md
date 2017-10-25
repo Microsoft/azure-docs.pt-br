@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: cc0e8a3fa749eb2e6f65ef92c2d3cb404cfc8bc0
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Exemplo 2: criar uma DMZ para proteger aplicativos com firewall e NSGs
 [Voltar à página Práticas recomendadas de limite de segurança][HOME]
 
 Este exemplo criará uma DMZ com um firewall, quatro servidores Windows e Grupos de Segurança de Rede. Ele também orientará você em cada um dos comandos relevantes para fornecer um entendimento mais profundo de cada etapa. Também há uma seção Cenário de Tráfego para fornecer um passo a passo detalhado sobre como o tráfego passa pelas camadas de defesa da rede de perímetro. Por fim, na seção de referências, há o código e as instruções completas para criar este ambiente para testar e experimentar diversos cenários. 
 
-![DMZ de entrada com NVA e NSG][1]
+![Rede de perímetro de entrada com NVA e NSG][1]
 
 ## <a name="environment-description"></a>Descrição do ambiente
 Neste exemplo, há uma assinatura que contém o seguinte:
@@ -94,7 +94,7 @@ Para criar a regra a seguir (ou verificar as regras padrão existentes), começa
 
 Crie uma nova regra e forneça um nome, como "WebTraffic". 
 
-O ícone da regra NAT de Destino tem esta aparência:  ![Ícone de NAT de Destino][2]
+O ícone da regra NAT de Destino tem esta aparência: ![Ícone de NAT de Destino][2]
 
 A própria regra seria semelhante a esta:
 
@@ -111,7 +111,7 @@ Depois que a regra for criada, deverá ser enviada por push para o firewall e at
 ## <a name="rule-activation"></a>Ativação da regra
 Com o conjunto de regras modificado para adicionar essa regra, o conjunto de regras deverá ser carregado no firewall e ativado.
 
-![Ativação de Regra de Firewall][4]
+![Ativação de regra de firewall][4]
 
 No canto superior direito do cliente de gerenciamento, há um cluster de botões. Clique no botão "Enviar Alterações" para enviar as regras modificadas para o firewall, então clique no botão "Ativar".
 
@@ -579,9 +579,3 @@ Se você desejar instalar um aplicativo de exemplo para esse e outros Exemplos d
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

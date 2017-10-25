@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3216868d867f4c840a610c45855d22575ded609c
-
-
+ms.openlocfilehash: f01d3b43a7953697a6b03e176dace33448d95cd9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Solucionar problemas de grupos de segurança de rede usando o Portal do Azure
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Uma VM denominada *VM1* faz parte de uma sub-rede denominada *Subnet1* em uma VN
 
 Embora este exemplo use a porta TCP 3389, as etapas a seguir podem ser seguidas para determinar falhas de conexão de entrada e saída em qualquer porta.
 
-### <a name="view-effective-security-rules-for-a-virtual-machine"></a>Exibir regras de segurança em vigor para uma máquina virtual
+### <a name="vm"></a>Exibir regras de segurança em vigor para uma máquina virtual
 Siga as etapas a seguir para solucionar problemas de NSGs em uma VM:
 
 Você pode exibir uma lista completa das regras de segurança em vigor em uma NIC, por meio da VM em si. Você também poderá adicionar, modificar e excluir tanto a NIC quanto as regras NSG da sub-rede da folha regras em vigor, se você tiver permissões para realizar essas operações.
@@ -92,7 +92,7 @@ Você pode exibir uma lista completa das regras de segurança em vigor em uma NI
    
     Confirme que a porta TCP 3389 está aberta abrindo uma conexão RDP com a VM ou usando a ferramenta PsPing. Você pode saber mais sobre o PsPing lendo a [página de download do PsPing](https://technet.microsoft.com/sysinternals/psping.aspx).
 
-### <a name="view-effective-security-rules-for-a-network-interface"></a>Exibir regras de segurança em vigor para um adaptador de rede
+### <a name="nic"></a>Exibir regras de segurança em vigor para um adaptador de rede
 Se seu fluxo de tráfego da VM for afetado para uma NIC específica, você poderá ver uma lista completa das regras em vigor para a NIC no contexto de adaptadores de rede concluindo as seguintes etapas:
 
 1. Entre no Portal do Azure em https://portal.azure.com.
@@ -109,7 +109,7 @@ Se seu fluxo de tráfego da VM for afetado para uma NIC específica, você poder
    > 
 4. Você pode editar diretamente as regras para NSGs associados a uma NIC e a uma sub-rede. Para saber como fazer isso, leia a etapa 8 da seção **Exibir regras de segurança em vigor para uma máquina virtual** deste artigo.
 
-## <a name="view-effective-security-rules-for-a-network-security-group-nsg"></a>Exibir regras de segurança em vigor para um NSG (grupo de segurança de rede)
+## <a name="nsg"></a>Exibir regras de segurança em vigor para um NSG (grupo de segurança de rede)
 Ao modificar as regras do NSG, convém analisar o impacto das regras que estão sendo adicionadas em uma VM específica. Agora você pode ver uma lista completa das regras de segurança em vigor para todas as NICs às quais um NSG fornecido é aplicado, sem precisar mudar o contexto da folha de NSG fornecida. Para solucionar problemas de regras em vigor em um NSG, siga as etapas a seguir:
 
 1. Entre no Portal do Azure em https://portal.azure.com.
@@ -148,10 +148,4 @@ Considere os seguintes pontos ao solucionar problemas de conectividade:
 * Se você tiver VNets emparelhadas, por padrão, a marcação VIRTUAL_NETWORK expandirá automaticamente para incluir prefixos para VNets emparelhadas. Você pode exibir esses prefixos na lista **ExpandedAddressPrefix** , para solucionar os problemas relacionados à conectividade de emparelhamento da VNet. 
 * As regras de segurança em vigor serão mostradas apenas se houver um NSG associado à NIC e/ou sub-rede da VM. 
 * Se não houver nenhum NSG associado à NIC ou à sub-rede e você tiver um endereço IP público atribuído à sua VM, todas as portas estarão abertas para acesso de entrada e saída. Se a VM tem um endereço IP público, recomenda-se aplicar NSGs à NIC ou à sub-rede.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

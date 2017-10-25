@@ -14,8 +14,3 @@ Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua
 4. Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico:   
    ![Etapa de criação da conexão com os Usuários do Office 365](./media/connectors-create-api-office365users/office365users-4.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

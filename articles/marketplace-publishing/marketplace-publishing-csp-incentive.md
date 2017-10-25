@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2017
+ms.date: 08/31/2017
 ms.author: DavidBosland
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 97cd45563dbd2341620658e05dbbd9ff0519b1aa
-
-
+ms.openlocfilehash: 5ac1f509ca90a09d8bd8e67a04df99516a6da072
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="view-and-change-your-cloud-solution-provider-reseller-incentive-in-the-azure-marketplace"></a>Exibir e alterar o provedor de soluções de nuvem "Incentivo ao Revendedor" no Azure Marketplace
 Em 15 de março de 2016, nós disponibilizaremos a solução CSPs (provedores nuvem) "Incentivo ao Revendedor" para editores de Marketplace.  A configuração padrão para este valor de incentivo é **Sim**.  Como um editor, você pode decidir sair do programa de incentivo.  Este artigo mostra como alterar a configuração em seu perfil do editor para que você possa recusar.
@@ -45,9 +45,3 @@ Para exibir ou alterar seu status de "Incentivo do Revendedor", siga estas etapa
 [2]: ./media/marketplace-publishing-csp-incentive/profile-boxes.png
 [3]: ./media/marketplace-publishing-csp-incentive/profile-publishers-boxes.png
 [4]: ./media/marketplace-publishing-csp-incentive/profile-publishers-change-boxes.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

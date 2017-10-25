@@ -1,8 +1,8 @@
 ---
-title: "Publicar o conteúdo dos Serviços de Mídia do Azure usando o .NET"
+title: "Publicar o conteúdo dos Serviços de Mídia do Azure usando o .NET | Microsoft Docs"
 description: "Saiba como criar um localizador que é usado para construir um URL de transmissão. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET."
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 08/09/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 5598a16511713a76193c13c4521e4884d8f5b75d
-ms.lasthandoff: 03/14/2017
-
-
+ms.openlocfilehash: 2bcb012eef84faa7c1e13ed22e88e45e4300ed54
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publish-azure-media-services-content-using-net"></a>Publicar o conteúdo dos Serviços de Mídia do Azure usando o .NET
 > [!div class="op_single_selector"]
@@ -42,7 +41,7 @@ Você também pode usar um localizador de streaming sob demanda para criar URLs 
 Este tópico mostra como criar um localizador de streaming sob demanda para publicar seu ativo e compilar um Smooth, MPEG DASH e URLs de streaming do HLS. Ele também mostra se mostra muito interessado em criar URLs de download progressivo. 
 
 ## <a name="create-an-ondemand-streaming-locator"></a>Criar um localizador de streaming sob demanda
-Para criar o localizador de streaming sob demanda e obter URLs, você precisa fazer o seguinte:
+Para criar o localizador de streaming sob demanda e obter URLs, você precisa fazer as seguintes coisas:
 
 1. Se o conteúdo for criptografado, defina uma política de acesso.
 2. Criar um localizador de streaming sob demanda.
@@ -53,7 +52,7 @@ Para criar o localizador de streaming sob demanda e obter URLs, você precisa fa
 
 
 >[!NOTE]
->Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
+>Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política se estiver sempre usando os mesmos dias/permissões de acesso. Por exemplo, políticas de localizadores que devam permanecer no local por um longo período (políticas sem carregamento). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
 
 ### <a name="use-media-services-net-sdk"></a>Usar o SDK do .NET dos Serviços de Mídia
 Criar URLs de streaming 
@@ -95,7 +94,7 @@ Criar URLs de streaming
         Console.WriteLine();
     }
 
-As saídas do código:
+As saídas:
 
     URL to manifest for client streaming using Smooth Streaming protocol:
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
@@ -106,7 +105,7 @@ As saídas do código:
 
 
 > [!NOTE]
-> Você também pode transmitir seu conteúdo por uma conexão SSL. Para fazer isso, certifique-se de que suas URLs de streaming começam com HTTPS. Observe que, atualmente, o AMS não dá suporte ao SSL com domínios personalizados.  
+> Você também pode transmitir seu conteúdo por uma conexão SSL. Para seguir essa abordagem, certifique-se de que suas URLs de streaming começam com HTTPS. Atualmente, o AMS não dá suporte ao SSL com domínios personalizados.
 > 
 > 
 
@@ -140,7 +139,7 @@ Crie URLs de download progressivo
             Console.WriteLine(originLocator.Path + pd.Name);
     }
 
-As saídas do código:
+As saídas:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4
@@ -175,8 +174,7 @@ O código a seguir chama métodos de extensões do SDK do .NET que criam um loca
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
-[Baixar ativos](media-services-deliver-asset-download.md)
-[Configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md)
-
+## <a name="next-steps"></a>Próximas etapas
+* [Baixar ativos](media-services-deliver-asset-download.md)
+* [Configurar política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md)
 

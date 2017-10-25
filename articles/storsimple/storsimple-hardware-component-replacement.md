@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: f2d197264f066a23468db80686444bd24f6d796f
 ms.openlocfilehash: ae37f49916445a9486457af61aa9bf8bc1d7eb87
-ms.lasthandoff: 02/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Substituir um componente de hardware no dispositivo StorSimple série 8000
 
@@ -66,11 +65,11 @@ Seu dispositivo StorSimple da série 8000 consiste de vários módulos de plug-i
 
 Os principais componentes de hardware do dispositivo são resumidos nas tabelas a seguir. Clique no link na coluna **Procedimento de substituição** para ir para o tutorial relacionado.
 
-| Componentes | # Presente | Módulo plug-in? | Procedimento de substituição |
+| Componentes | Quantidade presente | Módulo plug-in? | Procedimento de substituição |
 |:--- |:--- |:--- |:--- |
 | Chassi |1 |Não |[Substituir o chassi em seu dispositivo StorSimple](storsimple-chassis-replacement.md) |
 | Controladores principais |2 |Sim |[Substituir um módulo de controlador em seu dispositivo StorSimple](storsimple-controller-replacement.md) |
-| Módulos de energia e resfriamento (PCMs) de&764;W |2 |Sim |[Substituir um módulo de energia e resfriamento em seu dispositivo StorSimple](storsimple-power-cooling-module-replacement.md) |
+| Módulos de energia e resfriamento (PCMs) de 764W |2 |Sim |[Substituir um módulo de energia e resfriamento em seu dispositivo StorSimple](storsimple-power-cooling-module-replacement.md) |
 | Bateria de backup |2 |Sim |[Substituir o módulo de bateria de backup em seu dispositivo StorSimple](storsimple-battery-replacement.md) |
 | Unidades de disco |12 |Sim |[Substituir uma unidade de disco em seu dispositivo StorSimple](storsimple-disk-drive-replacement.md) |
 
@@ -78,11 +77,11 @@ Os principais componentes de hardware do dispositivo são resumidos nas tabelas 
 
 O compartimento primário e o compartimento EBOD têm módulos de E/S diferentes. Além disso, os PCMs têm potências diferentes. Os PCMs no compartimento primário são de 764 W, enquanto aqueles no compartimento EBOD são de 580 W. Os PCMs no compartimento primário também contêm um módulo de bateria de backup.
 
-| Componentes | # Presente | Módulo plug-in? | Procedimento de substituição |
+| Componentes | Quantidade presente | Módulo plug-in? | Procedimento de substituição |
 |:--- |:--- |:--- |:--- |
 | Chassi |1 |Não |[Substituir o chassi em seu dispositivo StorSimple](storsimple-chassis-replacement.md) |
 | Controladores do EBOD |2 |Sim |[Substituir um controlador EBOD em seu dispositivo StorSimple](storsimple-ebod-controller-replacement.md) |
-| Módulos de energia e resfriamento (PCMs) de&580;W |2 |Sim |[Substituir um módulo de energia e resfriamento em seu dispositivo StorSimple](storsimple-power-cooling-module-replacement.md) |
+| Módulos de energia e resfriamento (PCMs) de 580W |2 |Sim |[Substituir um módulo de energia e resfriamento em seu dispositivo StorSimple](storsimple-power-cooling-module-replacement.md) |
 | Unidades de disco |12 |Sim |[Substituir uma unidade de disco em seu dispositivo StorSimple](storsimple-disk-drive-replacement.md) |
 
 **Tabela 2** Componentes de hardware no compartimento EBOD
@@ -125,8 +124,8 @@ Tanto compartimento primário como o compartimento EBOD têm módulos de suporte
 As seguintes unidades renováveis (FRUs) estão disponíveis para seu dispositivo StorSimple:
 
 * Chassis (incluindo o painel de operações integrado)
-* PCM de CA de&764; W
-* PCM de CA de&580; W
+* PCM de CA de 764 W
+* PCM de CA de 580 W
 * Unidade de disco rígido com módulo de suporte de unidade
 * Módulo de controlador
 * Módulo de controlador do EBOD
@@ -137,5 +136,4 @@ As seguintes unidades renováveis (FRUs) estão disponíveis para seu dispositiv
 
 ## <a name="next-steps"></a>Próximas etapas
 Examine todas as [informações de segurança](storsimple-safety.md) antes de tentar substituir um componente de hardware do StorSimple.
-
 

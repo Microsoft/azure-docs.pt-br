@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: be14485c9070d7dce5ecbaea778f31f30e13cfa9
-ms.lasthandoff: 03/10/2017
-
-
+ms.author: LADocs; jehollan
+ms.openlocfilehash: 9af2f71b3d288cc6f4e271d0915545d43a1249bc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Tratar erros e exceções em Aplicativos Lógicos do Azure
 
@@ -208,7 +207,7 @@ Para executar diferentes padrões de tratamento de exceções, você pode usar a
 ## <a name="azure-diagnostics-and-telemetry"></a>Diagnósticos do Azure e telemetria
 
 Os padrões anteriores são uma ótima maneira de identificar erros e exceções dentro de uma execução, mas você também pode identificar e responder a erros independentemente da execução em si. 
-[Diagnóstico do Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md) fornece uma maneira simples de enviar todos os eventos de fluxo de trabalho (incluindo todos os status de execução e de ação) a uma conta de Armazenamento do Azure ou a um Hub de Eventos do Azure. Para avaliar o status de execução, você pode monitorar os logs e as métricas ou publicá-los em qualquer ferramenta de monitoramento que preferir. Uma opção possível é transmitir todos os eventos usando o Hub de Eventos do Azure no [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). No Stream Analytics, você pode dar baixa em consultas nas anomalias, médias ou falhas dos logs de diagnóstico. O Stream Analytics pode enviar a saída facilmente para outras fontes de dados, como filas, tópicos, SQL, Banco de Dados de Documentos e Power BI.
+[Diagnóstico do Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md) fornece uma maneira simples de enviar todos os eventos de fluxo de trabalho (incluindo todos os status de execução e de ação) a uma conta de Armazenamento do Azure ou a um Hub de Eventos do Azure. Para avaliar o status de execução, você pode monitorar os logs e as métricas ou publicá-los em qualquer ferramenta de monitoramento que preferir. Uma opção possível é transmitir todos os eventos usando o Hub de Eventos do Azure no [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). No Stream Analytics, você pode dar baixa em consultas nas anomalias, médias ou falhas dos logs de diagnóstico. O Stream Analytics pode enviar a saída facilmente para outras fontes de dados, como filas, tópicos, o SQL, o Azure Cosmos DB e o Power BI.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -219,4 +218,3 @@ Os padrões anteriores são uma ótima maneira de identificar erros e exceções
 
 <!-- References -->
 [retryPolicyMSDN]: https://docs.microsoft.com/rest/api/logic/actions-and-triggers#Anchor_9
-

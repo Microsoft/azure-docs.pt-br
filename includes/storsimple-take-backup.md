@@ -16,7 +16,7 @@
    3. Selecione um tempo de retenção. As opções de retenção dependem da frequência do backup. Por exemplo, para uma política diária, a retenção pode ser especificada em semanas, enquanto a retenção para uma política mensal é especificada em meses.
    4. Selecione a hora e a data de início para a política de backup.
    5. Marque a caixa de seleção **Habilitar** para habilitar a política de backup. 
-   6. Clique no ícone de verificação  ![check-icon](./media/storsimple-take-backup/HCS_CheckIcon-include.png)  para salvar a política.
+   6. Clique no ícone de verificação  ![check-icon](./media/storsimple-take-backup/HCS_CheckIcon-include.png) para salvar a política.
       
       ![Add-backup-policy](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard2M-include.png)
       
@@ -27,9 +27,4 @@ Você concluiu a configuração do dispositivo.
 ![Vídeo disponível](./media/storsimple-take-backup/Video_icon.png) **Vídeo disponível**
 
 Para assistir a um vídeo que demonstra como realizar um backup do StorSimple, clique [aqui](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

@@ -40,8 +40,3 @@ Após a criação do cofre de Backup do Azure, um agente deverá ser instalado e
     
     ![Configurar o Backup do Azure](./media/backup-install-agent/configure.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

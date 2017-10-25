@@ -1,0 +1,159 @@
+- name: Banco de dados do Azure para documentos do MySQL
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: Banco de dados do Azure para MySQL
+      href: overview.md
+- name: Guia de início rápido
+  expanded: true
+  items:
+    - name: Criar Banco de dados - Portal
+      href: quickstart-create-mysql-server-database-using-azure-portal.md
+    - name: Criar Banco de dados - CLI do Azure
+      href: quickstart-create-mysql-server-database-using-azure-cli.md
+    - name: Conectar e consultar
+      items:
+        - name: PHP
+          href: connect-php.md
+        - name: Java
+          href: connect-java.md
+        - name: .Net
+          href: connect-csharp.md
+        - name: Python
+          href: connect-python.md
+        - name: Node.js
+          href: connect-nodejs.md
+        - name: Ruby
+          href: connect-ruby.md
+        - name: C++
+          href: connect-cpp.md
+        - name: Go
+          href: connect-go.md
+        - name: Workbench do MySQL
+          href: connect-workbench.md
+- name: Tutoriais
+  items:
+    - name: 1 - Criar um banco de dados
+      items:
+        - name: Portal do Azure
+          href: tutorial-design-database-using-portal.md
+        - name: CLI do Azure
+          href: tutorial-design-database-using-cli.md
+    - name: 2 - Criar um aplicativo Web
+      items:
+        - name: WordPress - Portal
+          href: 'https://portal.azure.com/#create/WordPress.WordPress'
+        - name: PHP - CLI do Azure
+          href: ../app-service/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json
+- name: Exemplos
+  items:
+    - name: CLI do Azure
+      href: sample-scripts-azure-cli.md
+- name: Conceitos
+  items:
+    - name: Banco de dados e Servidores
+      items:
+        - name: Servidores
+          href: concepts-servers.md
+        - name: Versões com suporte
+          href: concepts-supported-versions.md
+        - name: Logs do servidor
+          href: concepts-server-logs.md
+        - name: Alta disponibilidade
+          href: concepts-high-availability.md
+    - name: Recursos
+      items:
+        - name: Tipos de preço
+          href: concepts-service-tiers.md
+        - name: Unidades de computação
+          href: concepts-compute-unit-and-storage.md
+        - name: limites
+          href: concepts-limits.md
+    - name: Acesso a dados e segurança
+      items:
+        - name: Regras de firewall
+          href: concepts-firewall-rules.md
+        - name: Configuração do SSL
+          href: concepts-ssl-connection-security.md
+    - name: Monitoramento
+      href: concepts-monitoring.md
+    - name: Desenvolvimento
+      items:
+        - name: Bibliotecas de conexão
+          href: concepts-connection-libraries.md
+        - name: Desenvolvimento de aplicativo
+          href: concepts-database-application-development.md
+    - name: Migre seu banco de dados
+      items:
+        - name: Despejar e restaurar
+          href: concepts-migrate-dump-restore.md
+        - name: Importação e exportação
+          href: concepts-migrate-import-export.md
+- name: Guias de instruções
+  items:
+    - name: Gerenciar um servidor
+      items:
+        - name: Portal do Azure
+          href: howto-create-manage-server-portal.md
+    - name: Regras de firewall
+      items:
+        - name: Portal do Azure
+          href: howto-manage-firewall-using-portal.md
+        - name: CLI do Azure
+          href: howto-manage-firewall-using-cli.md
+    - name: Restaurar um servidor
+      items:
+        - name: Portal do Azure
+          href: howto-restore-server-portal.md
+    - name: Conectar aplicativos
+      items:
+        - name: Cadeias de conexão
+          href: howto-connection-string.md
+        - name: Configurar SSL
+          href: howto-configure-ssl.md
+        - name: Aplicativos Web
+          href: howto-connect-webapp.md
+    - name: Configurar parâmetros do servidor
+      items:
+        - name: Portal do Azure
+          href: howto-server-parameters.md
+        - name: CLI do Azure
+          href: howto-configure-server-parameters-using-cli.md
+    - name: Acessar logs do servidor
+      items:
+        - name: Portal do Azure
+          href: howto-configure-server-logs-in-portal.md
+        - name: CLI do Azure
+          href: howto-configure-server-logs-in-cli.md
+    - name: Monitoramento
+      items:
+        - name: Criar alertas nas métricas
+          href: howto-alert-on-metric.md
+- name: Referência
+  items:
+    - name: CLI do Azure
+      href: /cli/azure/mysql
+    - name: API REST
+      href: /rest/api/mysql
+- name: Recursos
+  items:
+    - name: Modelos de implantação
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformysql'
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=databases'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/mysql/'
+    - name: Fórum do MSDN
+      href: 'https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-database-mysql'
+    - name: Vídeos
+      href: videos.md
+    - name: Solicitar um recurso
+      href: 'https://feedback.azure.com/forums/597982-azure-database-for-mysql'
+    - name: Disponibilidade de região
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Opções de suporte
+      href: 'https://azure.microsoft.com/support/options/'
+    - name: Relatos de clientes
+      href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20MySQL%20"'

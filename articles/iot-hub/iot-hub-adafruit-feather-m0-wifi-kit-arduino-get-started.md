@@ -1,144 +1,241 @@
 ---
-title: "Conecte o Arduino (C) ao IoT do Azure - Introdução | Microsoft Docs"
-description: "Veja uma introdução ao Adafruit Feather M0 WiFi, crie seu Hub IoT do Azure e conecte o Adafruit Feather M0 WiFi ao Hub IoT"
+title: "M0 para a nuvem – conectar o Feather M0 WiFi ao Hub IoT do Azure | Microsoft Docs"
+description: "Saiba como configurar e conectar o Adafruit Feather M0 WiFi ao Hub IoT do Azure para enviar dados à plataforma de nuvem do Azure neste tutorial."
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
-keywords: "hub iot do azure, introdução à Internet das coisas, tutorial de Internet das coisas, Internet das coisas adafruit, introdução ao arduino"
+keywords: 
 ms.assetid: 51befcdb-332b-416f-a6a1-8aabdb67f283
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/21/2017
+ms.date: 8/16/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: 6789e6f1c094f8809163e29349c8ea54e1e97683
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 9b278735ce3af9e6e61a85c5e95ea218622361c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="get-started-with-your-arduino-board-adafruit-feather-m0-wifi"></a>Introdução à placa Arduino: Adafruit Feather M0 WiFi
+# <a name="connect-adafruit-feather-m0-wifi-to-azure-iot-hub-in-the-cloud"></a>Conectar o Adafruit Feather M0 WiFi ao Hub IoT do Azure na nuvem
+[!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
+
+![Conexão entre BME280, Feather M0 WiFi e Hub IoT](media/iot-hub-adafruit-feather-m0-wifi-get-started/1_connection-m0-feather-m0-iot-hub.png)
 
 Neste tutorial, você começa aprendendo as noções básicas de como trabalhar com sua placa Arduino. Em seguida, aprenderá a conectar seus dispositivos diretamente à nuvem usando o [Hub IoT do Azure](iot-hub-what-is-iot-hub.md).
 
-## <a name="lesson-1-configure-your-device"></a>Lição 1: Configurar seu dispositivo
-![Diagrama de ponta a ponta da Lição 1][Lesson-1-end-to-end-diagram]
+## <a name="what-you-do"></a>O que fazer
 
-Nesta lição, você configura sua placa Arduino com um sistema operacional, configura o ambiente de desenvolvimento e implanta um aplicativo para sua placa Arduino.
+Conecte o Adafruit Feather M0 WiFi a um Hub IoT criado por você. Em seguida, você executa um aplicativo de exemplo no M0 WiFi para coletar dados de temperatura e umidade de um BME280. Por fim, você envia os dados do sensor para o Hub IoT.
 
-### <a name="configure-your-device"></a>Configurar seu dispositivo
-Configure sua placa Arduino para o primeiro uso montando a placa e ligando-a.
 
-*Tempo estimado para conclusão: 5 minutos*
+## <a name="what-you-learn"></a>O que você aprenderá
 
-Vá até [Configurar seu dispositivo][configure-your-device].
+* Como criar um Hub IoT e registrar um dispositivo para o Feather M0 WiFi
+* Como conectar o Feather M0 WiFi ao sensor e ao seu computador
+* Como coletar dados de sensor executando um aplicativo de exemplo no Feather M0 WiFi
+* Como enviar os dados do sensor para o Hub IoT
 
-### <a name="get-the-tools"></a>Obter as ferramentas
-Baixe as ferramentas e o software para compilar e implantar seu primeiro aplicativo para a placa Arduino.
+## <a name="what-you-need"></a>O que você precisa
 
-*Tempo estimado para conclusão: 20 minutos*
+![Partes necessárias para o tutorial](media/iot-hub-adafruit-feather-m0-wifi-get-started/2_parts-needed-for-the-tutorial.png)
 
-Acesse [Obter as ferramentas][get-the-tools]
+Para concluir esta operação, você precisará das seguintes partes do seu Kit de Início do Feather M0 WiFi:
 
-### <a name="create-and-deploy-the-blink-application"></a>Criar e implantar o aplicativo de piscar
-Clone o aplicativo de piscar de exemplo do Arduino do GitHub e use o gulp para implantar o aplicativo na placa Arduino. Esse aplicativo de exemplo pisca o LED conectado à placa no GPIO núm. 13 a cada dois segundos.
+* A placa Feather M0 WiFi
+* Um cabo Micro USB para USB Tipo A
 
-*Tempo estimado para conclusão: 5 minutos*
+Você também precisa destes itens para seu ambiente de desenvolvimento:
 
-Vá até [Criar e implantar o aplicativo de piscar][create-and-deploy-the-blink-application].
+* Uma assinatura ativa do Azure. Se não tiver uma conta do Azure, [crie uma conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/) em apenas alguns minutos.
+* Um Mac ou PC que esteja executando Windows ou Ubuntu.
+* Uma rede sem fio à qual o Feather M0 WiFi deve se conectar.
+* Uma conexão com a Internet para baixar a ferramenta de configuração.
+* [IDE do Arduino](https://www.arduino.cc/en/main/software) versão 1.6.8 ou posterior. Versões anteriores não funcionam com a biblioteca do Hub IoT do Azure.
 
-## <a name="lesson-2-create-your-iot-hub"></a>Lição 2: Criar seu hub IoT
-![Diagrama de ponta a ponta da Lição 2][lesson-2-end-to-end-diagram]
+Se você não tiver um sensor, os itens a seguir serão opcionais. Você também tem a opção de usar dados de sensor simulados:
 
-Nesta lição, você cria sua conta gratuita do Azure, provisiona o Hub IoT do Azure e cria seu primeiro dispositivo no Hub IoT.
+* Um sensor de temperatura e umidade BME280
+* Uma placa universal
+* Cabos de jumper macho/macho
 
-Conclua a Lição 1 antes de iniciar esta lição.
+[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
-### <a name="get-the-azure-tools"></a>Obter as ferramentas do Azure
-Instalar a interface de linha de comando do Azure (CLI do Azure).
+## <a name="connect-feather-m0-wifi-with-the-sensor-and-your-computer"></a>Conectar o Feather M0 WiFi ao sensor e ao seu computador
+Nesta seção, você conecta os sensores à sua placa. Em seguida, você conecta o dispositivo ao seu computador para uso posterior.
 
-*Tempo estimado para conclusão: 10 minutos*
+### <a name="connect-a-dht22-temperature-and-humidity-sensor-to-feather-m0-wifi"></a>Conectar um sensor de temperatura e umidade DHT22 ao Feather M0 WiFi
 
-Vá até [Obter ferramentas do Azure][get-azure-tools].
+Use os cabos da placa universal e jumper para fazer a conexão. Se você não tiver um sensor, ignore esta seção porque você pode usar dados de sensor simulado em vez disso.
 
-### <a name="create-your-iot-hub-and-register-your-arduino-board"></a>Criar seu Hub IoT e registrar sua placa Arduino
-Crie seu grupo de recursos, provisione seu primeiro Hub IoT do Azure e adicione seu primeiro dispositivo ao Hub IoT usando a CLI do Azure.
+![Referência de conexões](media/iot-hub-adafruit-feather-m0-wifi-get-started/3_connections_on_breadboard.png)
 
-*Tempo estimado para conclusão: 10 minutos*
 
-Vá até [Criar seu Hub IoT e registrar sua placa Arduino][create-your-iot-hub-and-register-your-arduino-board].
+Use a seguinte fiação para os pinos do sensor:
 
-## <a name="lesson-3-send-device-to-cloud-messages"></a>Lição 3: Enviar mensagens do dispositivo para a nuvem
-![Diagrama de ponta a ponta da Lição 3][lesson-3-end-to-end-diagram]
 
-Nesta lição, você envia mensagens da placa Arduino para o Hub IoT. Você também cria um aplicativo de funções do Azure que obtém as mensagens recebidas de seu Hub IoT e as grava no Armazenamento de Tabelas do Azure.
+| Início (sensor)           | Fim (placa)            | Cor do cabo   |
+| -----------------------  | ---------------------- | ------------: |
+| VDD (pino 27A)            | 3V (pino 3A)            | Cabo vermelho     |
+| GND (pino 29A)            | GND (pino 6A)           | Cabo preto   |
+| SCK (pino 30A)            | SCK (pino 12A)          | Cabo amarelo  |
+| SDO (pino 31A)            | MI (pino 14A)           | Cabo branco   |
+| SDI (pino 32A)            | M0 (pino 13A)           | Cabo azul    |
+| CS (pino 33A)             | GPIO 5 (pino 15J)       | Cabo laranja  |
 
-Conclua a Lição 1 e a Lição 2 antes de iniciar esta lição.
+Para obter mais informações, consulte [Saídas do sensor de umidade, pressão barométrica e temperatura Adafruit BME280](https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout/wiring-and-test?view=all) e [Pinagem do Adafruit Feather M0 WiFi](https://learn.adafruit.com/adafruit-feather-m0-wifi-atwinc1500/pinouts).
 
-### <a name="create-an-azure-function-app-and-azure-storage-account"></a>Criar um aplicativo de funções do Azure e uma conta de armazenamento do Azure
-Use um modelo do Azure Resource Manager para criar um aplicativo de funções do Azure e uma conta de Armazenamento do Azure.
 
-*Tempo estimado para conclusão: 10 minutos*
 
-Vá até [Criar um aplicativo de funções do Azure e uma conta de Armazenamento do Azure][create-an-azure-function-app-and-azure-storage-account].
+Agora seu Feather M0 WiFi deve estar conectado a um sensor ativo.
 
-### <a name="run-a-sample-application-to-send-device-to-cloud-messages"></a>Executar um aplicativo de exemplo para enviar mensagens do dispositivo para a nuvem
-Implante e execute um aplicativo de exemplo em sua placa Arduino que envia mensagens ao Hub IoT.
+![Conectar o DHT22 com o Feather Huzzah](media/iot-hub-adafruit-feather-m0-wifi-get-started/4_connect-bme280-feather-m0-wifi.png)
 
-*Tempo estimado para conclusão: 10 minutos*
+### <a name="connect-feather-m0-wifi-to-your-computer"></a>Conectar o Feather M0 WiFi ao seu computador
 
-Acesse [Executar o aplicativo de exemplo para enviar mensagens do dispositivo para a nuvem][send-device-to-cloud-messages].
+Conforme mostrado a seguir, use o cabo Micro USB para USB Tipo A para conectar o Feather M0 WiFi ao seu computador, conforme mostrado:
 
-### <a name="read-messages-persisted-in-azure-storage"></a>Ler mensagens mantidas no Armazenamento do Azure
-Monitore as mensagens do dispositivo para a nuvem conforme são gravadas no Armazenamento do Azure.
+![Conectar o Feather Huzzah ao seu computador](media/iot-hub-adafruit-feather-m0-wifi-get-started/5_connect-feather-m0-wifi-computer.png)
 
-*Tempo estimado para conclusão: 5 minutos*
+### <a name="add-serial-port-permissions-ubuntu-only"></a>Adicionar permissões de porta serial (somente Ubuntu)
 
-Vé até [Ler mensagens persistentes no Armazenamento do Azure][read-messages-persisted-in-azure-storage].
+Se você usa o Ubuntu, verifique se tem as permissões para operar na porta USB do Feather M0 WiFi. Para adicionar permissões de porta serial, siga estas etapas:
 
-## <a name="lesson-4-send-cloud-to-device-messages"></a>Lição 4: Enviar mensagens da nuvem para o dispositivo
-![Diagrama de ponta a ponta da Lição 4][lesson-4-end-to-end-diagram]
 
-Essa lição mostra como enviar mensagens do Hub IoT do Azure para a placa Arduino. As mensagens de controlam o comportamento de ligar e desligar do LED no GPIO núm. 13 da placa. Um aplicativo de exemplo está preparado para você realizar essa tarefa.
+1. Em um terminal, execute os seguintes comandos:
 
-Conclua a Lição 1, a Lição 2 e a Lição 3 antes de iniciar esta lição.
+   ```bash
+   ls -l /dev/ttyUSB*
+   ls -l /dev/ttyACM*
+   ```
 
-### <a name="run-the-sample-application-to-receive-cloud-to-device-messages"></a>Executar o aplicativo de exemplo para receber mensagens da nuvem para o dispositivo
-O aplicativo de exemplo na Lição 4 é executado em sua placa Arduino e monitora mensagens de entrada de seu Hub IoT. Uma nova tarefa gulp envia mensagens para dua placa Arduino seu Hub IoT para piscar o LED.
+   Você recebe uma das seguintes saídas:
 
-*Tempo estimado para conclusão: 10 minutos*
+   * crw-rw---- 1 root uucp xxxxxxxx
+   * crw-rw---- 1 root dialout xxxxxxxx
 
-Vá até [Executar o aplicativo de exemplo para receber mensagens da nuvem para o dispositivo][receive-cloud-to-device-messages].
+   Na saída, observe se `uucp` ou `dialout` é o nome do proprietário do grupo da porta USB.
 
-### <a name="optional-section-change-the-on-and-off-behavior-of-the-led"></a>Seção opcional: alterar o comportamento de ativar e desativar do LED
-Personalize as mensagens para alterar o comportamento liga e desliga do LED.
+2. Para adicionar o usuário ao grupo, execute o seguinte comando:
 
-*Tempo estimado para conclusão: 10 minutos*
+   ```bash
+   sudo usermod -a -G <group-owner-name> <username>
+   ```
 
-Vá até [Seção opcional: alterar o comportamento de ativar e desativar do LED][change-the-on-and-off-behavior-of-the-led].
+   Na etapa anterior, você obteve o nome de proprietário do grupo `<group-owner-name>`. Seu nome de usuário do Ubuntu é `<username>`.
 
-## <a name="troubleshooting"></a>Solucionar problemas
-Se tiver problemas durante as lições, procure por soluções no artigo [Solução de problemas][troubleshooting].
+3. Saia do Ubuntu e entre novamente para que a alteração seja exibida.
 
-<!-- Images and links -->
+## <a name="collect-sensor-data-and-send-it-to-your-iot-hub"></a>Coletar dados de sensor e enviá-los para o hub IoT
 
-[Lesson-1-end-to-end-diagram]: media/iot-hub-adafruit-feather-m0-wifi-lessons/e2e-lesson1.png
-[configure-your-device]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md
-[get-the-tools]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md
-[create-and-deploy-the-blink-application]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md
-[lesson-2-end-to-end-diagram]: media/iot-hub-adafruit-feather-m0-wifi-lessons/e2e-lesson2.png
-[get-azure-tools]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md
-[create-your-iot-hub-and-register-your-arduino-board]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md
-[lesson-3-end-to-end-diagram]: media/iot-hub-adafruit-feather-m0-wifi-lessons/e2e-lesson3.png
-[create-an-azure-function-app-and-azure-storage-account]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md
-[send-device-to-cloud-messages]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md
-[read-messages-persisted-in-azure-storage]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md
-[lesson-4-end-to-end-diagram]: media/iot-hub-adafruit-feather-m0-wifi-lessons/e2e-lesson4.png
-[receive-cloud-to-device-messages]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md
-[change-the-on-and-off-behavior-of-the-led]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md
-[troubleshooting]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md
+Nesta seção, você implanta e executa um aplicativo de exemplo no Feather M0 WiFi. O aplicativo de exemplo faz o LED piscar no Feather M0 WiFi. Em seguida, ele envia os dados de temperatura e umidade coletados do sensor BME280 para o hub IoT.
+
+### <a name="get-the-sample-application-from-github-and-prepare-the-arduino-ide"></a>Obtenha o aplicativo de exemplo do GitHub e prepare o IDE do Arduino
+
+O aplicativo de exemplo está hospedado no GitHub. Clone o repositório de exemplo que contém o aplicativo de exemplo do GitHub. Para clonar o repositório de exemplo, siga estas etapas:
+
+1. Abra um prompt de comando ou uma janela de terminal.
+
+2. Ir para uma pasta onde você deseja que o aplicativo de exemplo a ser armazenado.
+3. Execute o comando a seguir:
+
+   ```bash
+   git clone https://github.com/Azure-Samples/iot-hub-Feather-M0-WiFi-client-app.git
+   ```
+
+### <a name="install-the-package-for-feather-m0-wifi-in-the-arduino-ide"></a>Instale o pacote para o Feather M0 WiFi no IDE do Arduino
+
+1. Abra a pasta onde o aplicativo de exemplo está armazenado.
+
+2. Abra o arquivo app.ino na pasta do aplicativo no IDE do Arduino.
+
+   ![Abrir o aplicativo de exemplo no IDE do Arduino](media/iot-hub-adafruit-feather-m0-wifi-get-started/6_arduino-ide-open-sample-app.png)
+
+
+1. Clique em **Arquivo** > **Preferências** (Windows/Linux) ou **Arduino** > **Preferências** (Mac) e copie e cole o link abaixo para na opção **URLs adicionais do Gerenciador de Placas** nas preferências do IDE do Arduino.
+   
+   ```
+   https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
+   ```
+
+1. Clique em **Ferramentas** > **Placa** > **Gerenciador de Placas** e, em seguida, instale o `Arduino SAMD Boards` versão `1.6.2` ou posterior. 
+
+1. Em seguida, na mesma janela, instale o pacote `Adafruit SAMD Boards` para adicionar as definições do arquivo de placa.
+
+   ![O pacote esp8266 está instalado](media/iot-hub-adafruit-feather-m0-wifi-get-started/7_arduino-ide-package-url.png)
+
+4. Clique em **Ferramentas** > **Placa** > **Adafruit M0 WiFi**.
+
+5. Instale os drivers (apenas para Windows). Quando você conecta o Feather M0 Wi-Fi, pode precisar instalar um driver. Clique no [link de download na página da Web](https://github.com/adafruit/Adafruit_Windows_Drivers/releases/download/1.1/adafruit_drivers.exe) para baixar o instalador do driver. Siga as etapas para instalar os drivers que deseja.
+
+### <a name="install-necessary-libraries"></a>Instalar as bibliotecas necessárias
+
+1. No IDE Arduino, clique em **esboço** > **biblioteca incluem** > **gerenciar bibliotecas**.
+
+2. Procure a seguinte biblioteca nomes individualmente. Para cada biblioteca que você localizar, clique em **Instalar**:
+
+   * `RTCZero`
+   * `NTPClient`
+   * `AzureIoTHub`
+   * `AzureIoTUtility`
+   * `AzureIoTProtocol_HTTP`
+   * `ArduinoJson`
+   * `Adafruit BME280 Library`
+   * `Adafruit Unified Sensor`
+
+3. Instale o `Adafruit_WINC1500` manualmente. Vá para [este site](https://github.com/adafruit/Adafruit_WINC1500) e clique em **Clonar ou baixar** > **Baixar ZIP**. Em seguida, no IDE do Arduino, acesse **Esboço** > **Incluir Biblioteca** > **Adicionar Biblioteca .zip** e adicione o arquivo zip.
+
+### <a name="use-the-sample-application-if-you-dont-have-a-real-bme280-sensor"></a>Use o aplicativo de exemplo se você não tiver um sensor BME280 real
+
+Caso você não tenha um sensor BME280 real, o aplicativo de exemplo poderá simular os dados de temperatura e umidade. Para configurar o aplicativo de exemplo para usar dados simulados, siga estas etapas:
+
+1. Abra o `config.h` arquivo o `app` pasta.
+
+2. Localize a seguinte linha de código e altere o valor de `false` para `true`:
+
+   ```c
+   define SIMULATED_DATA true
+   ```
+   ![Configurar o aplicativo de exemplo para usar dados simulados](media/iot-hub-adafruit-feather-m0-wifi-get-started/8_arduino-ide-configure-app-use-simulated-data.png)
+
+3. Salve o arquivo com `Control-s`.
+
+### <a name="deploy-the-sample-application-to-feather-m0-wifi"></a>Implantar o aplicativo de exemplo para o Feather M0 WiFi
+
+1. No IDE do Arduino, clique em **Ferramenta** > **Porta** e clique na porta serial do Feather M0 WiFi.
+
+2. Clique em **Esboço** > **Carregar** para criar e implantar o aplicativo de exemplo do Feather M0 WiFi.
+
+### <a name="enter-your-credentials"></a>Inserir suas credenciais
+
+Depois que o upload for concluído com êxito, siga estas etapas para inserir suas credenciais:
+
+1. No IDE Arduino, clique em **ferramentas** > **Serial Monitor**.
+
+2. No canto inferior direito da janela do monitor serial, selecione **Nenhum final de linha** na lista suspensa à esquerda.
+3. Selecione **115200 baud** na lista suspensa à direita.
+4. Na caixa de entrada na parte superior, insira as seguintes informações se você for solicitado a fornecê-las e, em seguida, clique em **Enviar**:
+
+   * SSID Wi-Fi
+   * Senha de Wi-Fi
+   * Cadeia de conexão de dispositivo
+
+> [!Note]
+> As informações de credencial são armazenadas na EEPROM do Feather M0 WiFi. Se você clicar no botão de redefinir na placa do Feather M0 WiFi, o aplicativo de exemplo perguntará se você deseja apagar as informações. Digite `Y` para apagar as informações. Você é solicitado a fornecer as informações uma segunda vez.
+
+### <a name="verify-that-the-sample-application-is-running-successfully"></a>Verifique se o aplicativo de exemplo está sendo executado com êxito
+
+Caso você veja a seguinte saída na janela do monitor serial e o LED piscando no Feather M0 WiFi, o aplicativo de exemplo estará sendo executado com êxito:
+
+![Saída final no IDE do Arduino](media/iot-hub-adafruit-feather-m0-wifi-get-started/9_arduino-ide-final-output.png)
+
+## <a name="next-steps"></a>Próximas etapas
+
+Você conectou um Feather M0 WiFi ao hub IoT e enviou os dados capturados pelo sensor para o hub IoT com sucesso. 
+
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

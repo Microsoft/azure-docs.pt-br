@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/23/2017
+ms.date: 06/07/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 08682b7986cc2210ed21f254e2a9a63b5355e583
-ms.openlocfilehash: c7094a92355a199e9b94bc695c8499271b9adc39
-ms.lasthandoff: 02/24/2017
-
-
+ms.openlocfilehash: 60e63401e3915e62e1ec5ac03cd548c291580b24
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de serviço na Pesquisa do Azure
 Os limites máximos de armazenamento, cargas de trabalho, quantidades de índices, documentos e outros objetos dependem do tipo de preço ao qual o [Azure Search é provisionado](search-create-service-portal.md), que pode ser **Gratuito**, **Básico** ou **Standard**.
@@ -45,16 +44,18 @@ Há uma correspondência entre os limites em índices e aqueles em indexadores. 
 | Recurso | Grátis | Basic | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
 | Índice: campos máximos por índice |1000 |100 <sup>1</sup> |1000 |1000 |1000 |1000 |
-| Índice: máximo de perfis de pontuação por índice |16 |16 |16 |16 |16 |16 |
+| Índice: máximo de perfis de pontuação por índice |100 |100 |100 |100 |100 |100 |
 | Índice: funções máximas por perfil |8 |8 |8 |8 |8 |8 |
 | Indexadores: carga de indexação máxima por invocação |10.000 documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |N/D <sup>2</sup> |
-| Indexadores: tempo de execução máximo |3 minutos |24 horas |24 horas |24 horas |24 horas |N/D <sup>2</sup> |
+| Indexadores: tempo de execução máximo | 1 a 3 minutos <sup>3</sup> |24 horas |24 horas |24 horas |24 horas |N/D <sup>2</sup> |
 | Indexador de blob: tamanho máximo do blob, MB |16 |16 |128 |256 |256 |N/D <sup>2</sup> |
 | Indexador de blob: número máximo de caracteres de conteúdo extraído de um blob |32.000 |64.000 |4 milhões |4 milhões |4 milhões |N/D <sup>2</sup> |
 
 <sup>1</sup> A camada do tipo Básico é a única SKU que tem limite inferior de 100 campos por índice.
 
 <sup>2</sup> O S3 HD atualmente não dá suporte a indexadores. Contate o suporte do Azure se você tiver uma necessidade urgente para essa funcionalidade.
+
+<sup>3</sup> O tempo máximo de execução do indexador para a Camada gratuita é de três minutos para fontes de blob e um minuto para todas as outras fontes de dados.
 
 ## <a name="document-size-limits"></a>Limites de tamanho do documento
 | Recurso | Grátis | Basic | S1 | S2 | S3 | S3 HD |
@@ -94,4 +95,3 @@ As chaves de API são usadas para autenticação de serviço. Há dois tipos. Ch
 
 * Máximo de duas chaves de administração por serviço
 * Máximo de 50 chaves de consulta por serviço
-

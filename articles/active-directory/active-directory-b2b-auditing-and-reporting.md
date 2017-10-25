@@ -13,19 +13,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/15/2017
+ms.date: 04/12/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 867a1c8dda37815663fa3fb095351fa3854a52cc
-ms.lasthandoff: 03/17/2017
-
-
+ms.openlocfilehash: ba782270f3280e52235bc13148d232284b55762a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Auditoria e relatórios de um usuário de colaboração B2B
-Com usuários convidados, nesta versão prévia, você conta com funcionalidades de auditoria similares àquelas dos usuários membros. Este é um exemplo do histórico de convites e resgates do convidado Davi Barros:
+Com usuários convidados, você conta com funcionalidades de auditoria semelhantes àquelas dos usuários membros. Este é um exemplo do histórico de convites e resgates do convidado Davi Barros:
 
 ![log de auditoria](./media/active-directory-b2b-auditing-and-reporting/audit-log.png)
 
@@ -50,4 +47,3 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Mapeamento de declarações de usuário de colaboração B2B](active-directory-b2b-claims-mapping.md)
 * [Compartilhamento externo do Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitações atuais da colaboração B2B](active-directory-b2b-current-limitations.md)
-

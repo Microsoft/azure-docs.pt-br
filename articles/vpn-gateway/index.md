@@ -2,7 +2,7 @@
 title: "Documentação do Gateway de VPN do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Aprenda a configurar os gateways de rede virtual privada (VPN) para gerenciar o tráfego entre redes virtuais da nuvem e locais ou entre redes virtuais da nuvem."
 services: vpn-gateway
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: b481f480d44696476497e0eaeeee7150ed8d365b
-ms.openlocfilehash: 6c0f96adff93080f88a6a23edbdf5a622279049f
-
+ms.openlocfilehash: 61273e472dd0d0727df40984ad277aaf4c244611
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vpn-gateway-documentation"></a>Documentação de Gateway de VPN
 
@@ -142,8 +143,9 @@ Saiba como configurar o Gateway de VPN, um gateway de rede virtual privada. A Do
                 <div class="card">
                     <div class="cardText">
                         <h3>Linha de comando</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt163510(v=azure.300)">PowerShell (Resource Manager)</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/mt270335(v=azure.300)">PowerShell (clássico)</a></p>
+                        <p><a href="/powershell/module/azurerm.network/#vpn">PowerShell (Resource Manager)</a></p>
+                        <p><a href="/powershell/module/azure/#networking">PowerShell (clássico)</a></p> 
+                        <p><a href="/cli/azure/network/vnet-gateway">CLI do Azure</a></p> 
                     </div>
                 </div>
             </div>
@@ -155,7 +157,7 @@ Saiba como configurar o Gateway de VPN, um gateway de rede virtual privada. A Do
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt163859">REST (gerenciador de recursos)</a></p>
+                        <p><a href="/rest/api/network/virtualnetworkgateways">REST (gerenciador de recursos)</a></p>
                         <p><a href="https://msdn.microsoft.com/library/jj154113">REST (clássico)</a></p>
                     </div>
                 </div>
@@ -163,11 +165,5 @@ Saiba como configurar o Gateway de VPN, um gateway de rede virtual privada. A Do
         </div>
     </li>
 </ul>
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

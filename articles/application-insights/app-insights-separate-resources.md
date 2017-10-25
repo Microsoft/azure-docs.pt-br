@@ -1,9 +1,9 @@
 ---
-title: "Monitorar o desenvolvimento, teste e produção no Azure Application Insights | Microsoft Docs"
-description: "Monitorar o desempenho e o uso de seu aplicativo em diferentes estágios de desenvolvimento"
+title: "Separar a telemetria do desenvolvimento, teste e lançamento no Azure Application Insights | Microsoft Docs"
+description: "Direcione a telemetria para diferentes recursos para stamps de desenvolvimento, teste e produção."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
 ms.service: application-insights
@@ -11,58 +11,36 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 43fb1e764c929be14d42c3d214b051aeb5367d77
-ms.lasthandoff: 03/15/2017
-
-
+ms.date: 05/15/2017
+ms.author: bwren
+ms.openlocfilehash: f51fa4639aaa60686cc349683713c6e5f9732bb9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="separating-application-insights-resources"></a>Separar recursos do Application Insights
-A telemetria de diferentes componentes e versões do seu aplicativo deve ser enviada para recursos diferentes do Application Insights ou combinada? Este artigo aborda as práticas recomendadas e técnicas necessárias.
+# <a name="separating-telemetry-from-development-test-and-production"></a>Separação da telemetria de desenvolvimento, teste e produção
 
-Primeiro, vamos entender a pergunta. Os dados recebidos do aplicativo são armazenados e processados pelo Application Insights em um *recurso*do Microsoft Azure. Cada recurso é identificado por uma *chave de instrumentação* (iKey). Em seu aplicativo, a chave é fornecida ao SDK do Application Insights para que ele possa enviar os dados coletados ao recurso certo. A chave pode ser fornecida no código ou no ApplicationInsights.config. Ao alterar a chave no SDK, você pode direcionar os dados para diferentes recursos. 
-
-Em um caso simples, quando você registra um aplicativo com o Application Insights, também cria um novo recurso no Application Insights. No Visual Studio, a caixa de diálogo *Configurar Application Insights* ou *Adicionar Application Insights* faz isso para você.
-
-Se for um site de alto volume, ele poderá ser implantado em mais de uma instância de servidor.
-
-Em cenários mais complexos, você tem um sistema composto por vários componentes, como por exemplo, um site da Web e um processador de back-end. 
-
-## <a name="when-to-use-separate-ikeys"></a>Quando usar iKeys separadas
-Estas são algumas diretrizes gerais:
-
-* Onde você tem uma unidade de aplicativo implantável independentemente que é executada em um conjunto de instâncias de servidor que podem escaladas ou reduzidas verticalmente de forma independente de outros componentes, geralmente ela seria mapeada para um único recurso, ou seja, terá uma única chave de instrumentação (iKey).
-* Por outro lado, as razões para usar iKeys separadas incluem:
-  * Facilidade de ler métricas separados de componentes separados.
-  * Manter telemetria de baixo volume separado daquela de alto volume, para que a limitação, cotas e amostragem em um fluxo não afete os outros.
-  * Configurações de alertas, exportação e itens de trabalho separados.
-  * Distribuir [limites](app-insights-pricing.md#limits-summary) como cota de telemetria, limitação e contagem de teste da Web.
-  * Código em desenvolvimento e teste deve enviar para uma iKey separada do carimbo de produção.  
-
-Muitas experiências do portal do Application Insights são criadas com essas diretrizes em mente. Por exemplo, os servidores exibem segmentos na instância do servidor, supondo que a telemetria sobre um componente lógico possa vir de várias instâncias do servidor.
-
-## <a name="single-ikey"></a>iKey único
-Onde você envia telemetria de vários componentes para um único iKey:
-
-* Adicione uma propriedade para toda telemetria que permite segmentar e filtrar a identidade do componente. A ID da função é automaticamente adicionada à telemetria das instâncias de função de servidor, mas em outros casos você pode usar um [inicializador de telemetria](app-insights-api-filtering-sampling.md#add-properties) para adicionar a propriedade.
-* Atualize os SDKs do Application Insights nos diferentes componentes ao mesmo tempo. A telemetria para uma iKey deve originar-se com a mesma versão do SDK.
-
-## <a name="separate-ikeys"></a>iKeys separado
-Onde você tem várias iKeys para diferentes componentes do aplicativo:
-
-* Crie um [painel](app-insights-dashboards.md) para uma exibição da telemetria-chave do seu aplicativo lógico, combinada de diferentes componentes de aplicativo. Painéis podem ser compartilhados, por isso um único modo de exibição do sistema lógico pode ser usado por equipes diferentes.
-* Organizar [grupos de recursos](app-insights-resources-roles-access-control.md) no nível de equipe. Permissões de acesso são atribuídas por grupo de recursos, incluindo permissões para configurar alertas. 
-* Use os [Modelos do Azure Resource Manager e do Powershell](app-insights-powershell.md) para ajudar a gerenciar artefatos como regras de alerta e testes da Web.
-
-## <a name="separate-ikeys-for-devtest-and-production"></a>iKeys separados para Desenvolvimento/Teste e Produção
-Para facilitar a alteração automática da chave quando o aplicativo é lançado, defina a iKey no código em vez de em ApplicationInsights.config.
+Ao desenvolver a próxima versão de um aplicativo Web, não é bom misturar as telemetrias do da nova versão e da versão já lançada do [Application Insights](app-insights-overview.md). Para evitar confusão, envie a telemetria de diferentes estágios de desenvolvimento a fim de separar os recursos do Application Insights, com chaves de instrumentação separadas (ikeys). Para facilitar a alteração da chave de instrumentação, quando uma versão muda de um estágio para outro, pode ser útil definir a ikey no código em vez de no arquivo de configuração. 
 
 (Se o sistema for um Serviço de Nuvem do Azure, haverá [outro método de configuração de ikeys separados](app-insights-cloudservices.md).)
 
-### <a name="dynamic-ikey"></a> Chave de instrumentação dinâmica
+## <a name="about-resources-and-instrumentation-keys"></a>Sobre recursos e chaves de instrumentação
+
+Ao configurar o monitoramento do Application Insights para seu aplicativo Web, você cria um *recurso* do Application Insights no Microsoft Azure. Abra esse recurso no portal do Azure para ver e analisar a telemetria coletada de seu aplicativo. O recurso é identificado por uma *chave de instrumentação* (ikey). Ao instalar o pacote do Application Insights para monitorar seu aplicativo, você o configura com a chave de instrumentação, assim ele sabe para onde enviar a telemetria.
+
+Normalmente, você escolhe usar recursos separados ou um único recurso compartilhado em diversos cenários:
+
+* Aplicativos independentes e diferentes – use um recurso separado e a ikey para cada aplicativo.
+* Vários componentes ou funções de um aplicativo de negócios – use um [único recurso compartilhado](app-insights-monitor-multi-role-apps.md) para todos os aplicativos componentes. A telemetria pode ser filtrada ou segmentada pela propriedade cloud_RoleName.
+* Desenvolvimento, Teste e Lançamento – usam um recurso e ikey separados para versões do sistema em 'stamp' ou estágio de produção.
+* Teste A | B – use um único recurso. Crie um Inicializador de Telemetria para adicionar uma propriedade à telemetria que identifica as variantes.
+
+
+## <a name="dynamic-ikey"></a> Chave de instrumentação dinâmica
+
+Para facilitar a alteração da ikey à medida que o código percorre os estágios de produção, a defina no código em vez de no arquivo de configuração.
+
 Defina a chave em um método de inicialização como global.aspx.cs em um serviço ASP.NET:
 
 *C#*
@@ -93,8 +71,8 @@ A iKey também é usada nas páginas da Web do aplicativo, no [script que você 
     }) // ...
 
 
-## <a name="creating-an-additional-application-insights-resource"></a>Criar um recurso adicional do Application Insights
-Se você decidir separar a telemetria de diferentes componentes do aplicativo ou de diferentes carimbos (desenvolvimento/teste/produção) do mesmo componente, será necessário criar um novo recurso do Application Insights.
+## <a name="create-additional-application-insights-resources"></a>Criar recursos adicionais do Application Insights
+Para separar a telemetria de diferentes componentes do aplicativo ou de diferentes stamps (desenvolvimento/teste/produção) do mesmo componente, será necessário criar um novo recurso do Application Insights.
 
 No [portal.azure.com](https://portal.azure.com), adicione um recurso do Application Insights:
 
@@ -110,11 +88,75 @@ A criação do recurso leva alguns segundos. Quando estiver pronto, você verá 
 
 (Você pode escrever um [script do PowerShell](app-insights-powershell-script-create-resource.md) para criar um recurso automaticamente.)
 
-## <a name="getting-the-instrumentation-key"></a>Obter a chave de instrumentação
+### <a name="getting-the-instrumentation-key"></a>Obter a chave de instrumentação
 A chave de instrumentação identifica o recurso que você criou. 
 
 ![Clique em Essentials, clique na Chave de Instrumentação, CTRL+C](./media/app-insights-separate-resources/02-props.png)
 
 Você precisará das chaves de instrumentação de todos os recursos aos quais seu aplicativo enviará dados.
 
+## <a name="filter-on-build-number"></a>Filtrar por número de compilação
+Quando publicar uma nova versão do seu aplicativo, você desejará ser capaz de separar a telemetria das compilações diferentes.
 
+Você pode definir a propriedade de versão do aplicativo para que possa filtrar resultados da [pesquisa](app-insights-diagnostic-search.md) e do [Metrics Explorer](app-insights-metrics-explorer.md).
+
+![Filtragem em uma propriedade](./media/app-insights-separate-resources/050-filter.png)
+
+Há vários métodos diferentes de definir a propriedade de Versão do aplicativo.
+
+* Definir diretamente:
+
+    `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
+* Defina a quebra automática de linha em um [inicializador de telemetria](app-insights-api-custom-events-metrics.md#defaults) para garantir que todas as instâncias de TelemetryClient sejam configuradas de forma consistente.
+* [ASP.NET] Definir a versão em `BuildInfo.config`. O módulo da Web selecionará a versão do nó BuildLabel. Inclua esse arquivo no seu projeto e não se esqueça de definir a propriedade Copy Always no Gerenciador de Soluções.
+
+    ```XML
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <DeploymentEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
+      <ProjectName>AppVersionExpt</ProjectName>
+      <Build type="MSBuild">
+        <MSBuild>
+          <BuildLabel kind="label">1.0.0.2</BuildLabel>
+        </MSBuild>
+      </Build>
+    </DeploymentEvent>
+
+    ```
+* [ASP.NET] Gerar automaticamente BuildInfo.config no MSBuild. Para fazer isso, adicione algumas linhas ao seu arquivo `.csproj`:
+
+    ```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup>
+    ```
+
+    Isso gera um arquivo chamado *nomedoSeuProjeto*.BuildInfo.config. O processo de Publicação renomeia o arquivo como BuildInfo.config.
+
+    O rótulo da compilação contém um espaço reservado (AutoGen_...) quando você cria com o Visual Studio. Mas quando compilado com o MSBuild, ele é preenchido com o número de versão correta.
+
+    Para permitir que o MSBuild gere números de versão, defina a versão como `1.0.*` em AssemblyReference.cs
+
+## <a name="version-and-release-tracking"></a>Versão e controle de versão
+Para controlar a versão do aplicativo, certifique-se de `buildinfo.config` é gerado pelo processo de Microsoft Build Engine. No arquivo. csproj, adicione:  
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup>
+```
+
+Quando ele tem as informações de compilação, o módulo da web Application Insights adiciona automaticamente **Versão do aplicativo** como uma propriedade para cada item de telemetria. Isso permite que você filtre por versão ao executar [pesquisas de diagnóstico](app-insights-diagnostic-search.md) ou ao [explorar métricas](app-insights-metrics-explorer.md).
+
+No entanto, observe que o número de versão de compilação é gerado apenas pelo Microsoft Build Engine, não pela compilação de desenvolvedor no Visual Studio.
+
+### <a name="release-annotations"></a>Anotações da versão
+Se usar o Visual Studio Team Services, você poderá [obter um marcador de anotação](app-insights-annotations.md) adicionado a seus gráficos sempre que lançar uma nova versão. A imagem a seguir mostra como esse marcador é exibido.
+
+![Captura de tela de anotação de versão de exemplo em um gráfico](./media/app-insights-asp-net/release-annotation.png)
+## <a name="next-steps"></a>Próximas etapas
+
+* [Recursos compartilhados para várias funções](app-insights-monitor-multi-role-apps.md)
+* [Criar um Inicializador de Telemetria para distinguir variantes A | B](app-insights-api-filtering-sampling.md#add-properties)

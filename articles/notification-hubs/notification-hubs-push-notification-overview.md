@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 1/17/2017
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 58458cdc99cc8f78e63c9640a7c71a8ce5dc70f1
 ms.openlocfilehash: a1be0b13cd1feb582a23965df142e44d90ac6851
-ms.lasthandoff: 02/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-notification-hubs"></a>Hubs de Notificação do Azure
 ## <a name="overview"></a>Visão geral
@@ -155,4 +154,3 @@ Você pode encontrar mais informações sobre Hubs de Notificação nestes tópi
 [templates]: notification-hubs-templates-cross-platform-push-messages.md
 [portal do Azure]: https://portal.azure.com
 [tags]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
-

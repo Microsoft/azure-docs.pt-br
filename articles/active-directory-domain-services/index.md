@@ -2,7 +2,7 @@
 title: "Documentação do Azure Active Directory Domain Services - Tutoriais | Microsoft Docs"
 description: "Saiba como usar os Active Directory Domain Services para adicionar máquinas virtuais do Azure a um domínio sem usar controladores de domínio e gerenciá-los com as políticas de grupo."
 services: active-directory-ds
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: ca9fd58260f97836c08e71a50d8411d1862fd650
-ms.openlocfilehash: 9654ec8791de56c33e4973e8ba20ef6e52780955
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: a3eaf61fcfdc9dbb70561e9a81dc2b31d68d7c9d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="active-directory-domain-services-documentation"></a>Documentação do Active Directory Domain Services
 
@@ -168,5 +168,4 @@ Saiba como usar os Active Directory Domain Services para adicionar máquinas vir
         </a>
     </li>
 </ul>
-
 

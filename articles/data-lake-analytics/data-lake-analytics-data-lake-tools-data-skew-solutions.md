@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/16/2016
 ms.author: yanacai
-translationtype: Human Translation
-ms.sourcegitcommit: 4ed240c0e636bb0b482c103bbe8462d86769ecc3
-ms.openlocfilehash: 13fa1bc8278460c1195ec553c32ff79d11240be3
-
-
+ms.openlocfilehash: 9b284ef33be4b935569fc368d81ddf040b2c2b7d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Resolver problemas de distorção de dados usando as Ferramentas do Azure Data Lake para Visual Studio
 
 ## <a name="what-is-data-skew"></a>O que é distorção de dados?
@@ -34,27 +33,27 @@ Em nosso cenário, os dados são distribuídos de modo desigual entre todos os f
 
 As Ferramentas do Azure Data Lake para Visual Studio podem ajudar a detectar se o trabalho tem um problema de distorção de dados. Se algum problema existir, você poderá resolvê-lo experimentando as soluções nesta seção.
 
-### <a name="solution-1-improve-table-partitioning"></a>Solução 1: melhorar o particionamento da tabela
+## <a name="solution-1-improve-table-partitioning"></a>Solução 1: melhorar o particionamento da tabela
 
-#### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>Opção 1: Filtrar o valor chave distorcido com antecedência
+### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>Opção 1: Filtrar o valor chave distorcido com antecedência
 
 Se isso não afetar sua lógica de negócios, você poderá filtrar os valores mais frequentes com antecedência. Por exemplo, se houver muito 000-000-000 na coluna GUID, não convém agregar esse valor. Antes de você agregar, você pode escrever “WHERE GUID != “000-000-000”” para filtrar o valor de alta frequência.
 
-#### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Opção 2: separar uma chave de partição ou distribuição diferente
+### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Opção 2: separar uma chave de partição ou distribuição diferente
 
 No exemplo anterior, se você desejar apenas verificar a carga de trabalho de auditoria de imposto em todo o país, você poderá melhorar a distribuição de dados selecionando o número de ID como sua chave. Às vezes, separar uma chave de partição/distribuição diferente pode distribuir os dados mais uniformemente, mas você precisa certificar-se de que essa escolha não afeta sua lógica de negócios. Por exemplo, para calcular a soma de imposto para cada estado, talvez você queira designar _Estado_ como a chave de partição. Se você continuar a ter esse problema, tente usar a Opção 3.
 
-#### <a name="option-3-add-more-partition-or-distribution-keys"></a>Opção 3: adicionar mais chaves de partição ou distribuição
+### <a name="option-3-add-more-partition-or-distribution-keys"></a>Opção 3: adicionar mais chaves de partição ou distribuição
 
 Em vez de usar apenas _Estado_ como uma chave de partição, você pode usar mais de uma chave para o particionamento. Por exemplo, considere adicionar _CEP_ como uma chave de partição adicional para reduzir os tamanhos das partições de dados e distribuir os dados mais uniformemente.
 
-#### <a name="option-4-use-round-robin-distribution"></a>Opção 4: usar a distribuição round robin
+### <a name="option-4-use-round-robin-distribution"></a>Opção 4: usar a distribuição round robin
 
 Se você não encontrar uma chave adequada para a partição e distribuição, poderá tentar usar a distribuição round robin. A distribuição round robin trata cada linha igualmente e as coloca aleatoriamente nos buckets correspondentes. Os dados são distribuídos uniformemente mas perdem as informações de localidade, um inconveniente que também pode reduzir o desempenho do trabalho para algumas operações. Além disso, se você estiver agregando para a chave distorcida mesmo assim, o problema de distorção de dados ainda permanecerá. Para saber mais sobre a distribuição round robin, consulte a seção Distribuições de Tabela U-SQL em [CREATE TABLE (U-SQL): criando uma tabela com esquema](https://msdn.microsoft.com/en-us/library/mt706196.aspx#dis_sch).
 
-### <a name="solution-2-improve-the-query-plan"></a>Solução 2: melhorar o plano de consulta
+## <a name="solution-2-improve-the-query-plan"></a>Solução 2: melhorar o plano de consulta
 
-#### <a name="option-1-use-the-create-statistics-statement"></a>Opção 1: usar a instrução CREATE STATISTICS
+### <a name="option-1-use-the-create-statistics-statement"></a>Opção 1: usar a instrução CREATE STATISTICS
 
 O U-SQL fornece a instrução CREATE STATISTICS em tabelas. Essa instrução fornece mais informações sobre as características dos dados, assim como distribuição de valor, ao otimizador de consulta; essas informações são então armazenadas em uma tabela. Para a maioria das consultas, o otimizador de consulta já gera as estatísticas necessárias para um plano de consulta de alta qualidade. Ocasionalmente, talvez seja necessário melhorar o desempenho de consulta, criando estatísticas adicionais com CREATE STATISTICS ou modificando o design da consulta. Para obter mais informações, consulte a página [CREATE STATISTICS (U-SQL)](https://msdn.microsoft.com/en-us/library/azure/mt771898.aspx).
 
@@ -65,7 +64,7 @@ Exemplo de código:
 >[!NOTE]
 >Informações de estatísticas não são atualizadas automaticamente. Se você atualizar os dados em uma tabela sem recriar as estatísticas, o desempenho da consulta poderá cair.
 
-#### <a name="option-2-use-skewfactor"></a>Opção 2: Usar SKEWFACTOR
+### <a name="option-2-use-skewfactor"></a>Opção 2: Usar SKEWFACTOR
 
 Se você deseja somar o imposto de cada estado, você deve usar GROUP BY estado, uma abordagem que não evita o problema de distorção de dados. No entanto, você pode fornecer uma dica de dados em sua consulta para identificar a distorção de dados nas chaves, de forma que o otimizador consiga preparar um plano de execução para você.
 
@@ -103,6 +102,7 @@ Exemplo de código:
                 ON @Sessions.Query == @Campaigns.Query
         ;   
 
+### <a name="option-3-use-rowcount"></a>Opção 3: usar ROWCOUNT  
 Além de SKEWFACTOR, para casos específicos de junção de chaves com distorção, se você souber que o outro conjunto de linhas unido é pequeno, você poderá informar o otimizador adicionando uma dica ROWCOUNT na instrução U-SQL antes de JOIN. Dessa forma, o otimizador pode escolher uma estratégia de junção de difusão para ajudar a melhorar o desempenho. Lembre-se de que ROWCOUNT não resolve o problema de distorção de dados, mas ele pode oferecer alguma ajuda adicional.
 
     OPTION(ROWCOUNT = n)
@@ -127,11 +127,11 @@ Exemplo de código:
                 INNER JOIN @Small ON Sessions.Client == @Small.Client
                 ;
 
-### <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>Solução 3: Melhorar o combinador e o redutor definidos pelo usuário
+## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>Solução 3: Melhorar o combinador e o redutor definidos pelo usuário
 
 Às vezes você pode gravar um operador definido pelo usuário para lidar com uma lógica de processo complicada e um redutor e um combinador bem escritos podem mitigar um problema de distorção de dados em alguns casos.
 
-#### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Opção 1: usar um redutor recursivo, se possível
+### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Opção 1: usar um redutor recursivo, se possível
 
 Por padrão, um redutor definido pelo usuário será executado no modo não recursivo, o que significa que o trabalho de redução para uma chave será distribuído em um único vértice. Mas se os dados estiverem distorcidos, os grandes conjuntos de dados poderão ser processados em um único vértice e serem executados por um longo tempo.
 
@@ -155,7 +155,7 @@ Exemplo de código:
         }
     }
 
-#### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>Opção 2: usar o modo combinador no nível de linha, se possível
+### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>Opção 2: usar o modo combinador no nível de linha, se possível
 
 Semelhante à dica ROWCOUNT para casos específicos de junção de chave distorcida, o modo combinador tenta distribuir grandes conjuntos de valores de chave distorcida em vários vértices, de forma que o trabalho possa ser executado simultaneamente. O modo combinador não pode resolver problemas de distorção de dados, mas pode auxiliar em casos de grandes conjuntos de valores de chaves distorcidas.
 
@@ -189,9 +189,3 @@ Exemplo de código:
         //Your combiner code goes here.
         }
     }
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-

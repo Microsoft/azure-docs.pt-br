@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d1d1f4d581721994fe7417ae970ad70f9a7b3368
-
-
+ms.openlocfilehash: 6df1b27ce76de7a781ecc40af8430114d80b20d6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-jobs-update-2"></a>Use o serviço StorSimple Manager para exibir e gerenciar trabalhos do StorSimple (Atualização 2)
 [!INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
@@ -80,10 +80,4 @@ Este trabalho agora está cancelado.
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [gerenciar as políticas de backup do StorSimple](storsimple-manage-backup-policies.md).
 * Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

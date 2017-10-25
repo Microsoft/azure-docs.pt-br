@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 08/02/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: ee4a47cf53898803e0080d3f9d00cf7617fe4ce8
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: da79c2451463794f7a205182830b6be53134507f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Portas e Protocolos Requeridos para Identidade Híbrida
 O documento a seguir é uma referência técnica sobre as portas e os protocolos para implementar uma solução de identidade híbrida. Use a ilustração a seguir e confira a tabela correspondente.
@@ -35,6 +34,7 @@ Esta tabela descreve as portas e protocolos que são necessários para a comunic
 | Kerberos |88 (TCP/UDP) |Autenticação Kerberos na floresta do AD. |
 | MS-RPC |135 (TCP/UDP) |Usado durante a configuração inicial do assistente do Azure AD Connect quando ele se vincula à floresta do AD e também durante a sincronização de senha. |
 | LDAP |389 (TCP/UDP) |Usado para importar dados do AD. Dados são criptografados com Sinal e Selo do Kerberos. |
+| RPC | 445 (TCP/UDP) |Usado pelo SSO Contínuo para criar uma conta de computador na floresta do AD. |
 | LDAP/SSL |636 (TCP/UDP) |Usado para importar dados do AD. A transferência de dados é assinada e criptografada. Usado somente se você estiver usando SSL. |
 | RPC |49152- 65535 (Porta RPC alta aleatória)(TCP/UDP) |Usado durante a configuração inicial do assistente do Azure AD Connect quando ele se vincula às florestas do AD e durante a sincronização de senha. Confira os artigos [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) e [KB224196](https://support.microsoft.com/kb/224196) para saber mais. |
 
@@ -78,20 +78,18 @@ Esta tabela descreve as portas e protocolos necessários para a comunicação en
 ### <a name="table-6a---pass-through-authentication-with-sso"></a>Tabela 6a - Autenticação de passagem com SSO
 |Protocolo|Número da porta|Descrição
 | --- | --- | ---
-|HTTP|80|Habilite o tráfego HTTP de saída para a validação de segurança como o SSL.
-|HTTPS|443|    Habilitar a autenticação de usuário no Azure AD
-|HTTPS|10100–10120|    Habilitar respostas do conector para o Azure AD 
-|Barramento de Serviço do Azure|9352, 5671|    Habilite a comunicação entre o conector de serviço do Azure para solicitações de entrada.
-|HTTPS|9350|    Opcional, para permitir o melhor desempenho para as solicitações de entrada
-|HTTPS|8080/443|    Habilite a sequência de inicialização do Conector e habilite a atualização automática do Conector
-|HTTPS|9090|    Habilite o registro do Conector (necessário somente para o processo de registro do Conector)
-|HTTPS|9091|    Habilitar a renovação automática de certificados de confiança do Conector
+|HTTP|80|Habilite o tráfego HTTP de saída para a validação de segurança como o SSL. Também é necessário para o recurso de atualização automática funcionar corretamente.
+|HTTPS|443| Habilite o tráfego HTTPS de saída para operações como habilitar e desabilitar o recurso, registrar conectores, baixar atualizações do conector e manipular todas as solicitações de entrada do usuário.
+
+Além disso, o Azure AD Connect precisa ser capaz de estabelecer conexões IP diretas com os [intervalos de IP do data center do Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
 ### <a name="table-6b---password-hash-sync-with-sso"></a>Tabela 6b - Sincronização de hash de senha com SSO
 
 |Protocolo|Número da porta|Descrição
 | --- | --- | ---
-|HTTPS|9090|    Habilite o registro por SSO (necessário somente para o processo de registro com SSO).
+|HTTPS|443| Habilite o registro por SSO (necessário somente para o processo de registro com SSO).
+
+Além disso, o Azure AD Connect precisa ser capaz de estabelecer conexões IP diretas com os [intervalos de IP do data center do Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653). Novamente, isso só é necessário para o processo de registro do SSO.
 
 ## <a name="table-7a--7b---azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tabela 7a e 7b – Agente do Azure AD Connect Health para (AD FS/Sync) e Azure AD
 As tabelas a seguir descrevem os pontos de extremidade, portas e protocolos que são necessários para a comunicação entre agentes do Azure AD Connect Health e Azure AD
@@ -106,5 +104,4 @@ Esta tabela descreve as portas e protocolos de saída a seguir que são necessá
 
 ### <a name="7b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>7b – Pontos de extremidade de agente do Azure AD Connect Health para (AD FS/Sync) e Azure AD
 Para obter uma lista de pontos de extremidade, veja [a seção Requisitos para o agente do Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-agent-install.md#requirements).
-
 

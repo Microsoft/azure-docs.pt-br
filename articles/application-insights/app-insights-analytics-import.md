@@ -2,22 +2,22 @@
 title: Importar seus dados para o Analytics no Azure Application Insights | Microsoft Docs
 description: "Importe dados estáticos para unir a telemetria de aplicativo, ou importe um fluxo de dados separado para consultar com o Analytics."
 services: application-insights
+keywords: "abrir o esquema, importação de dados"
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 4f10e5a8200af870e0adb8977b9c68b9998a6de7
-ms.lasthandoff: 03/21/2017
-
-
+ms.date: 10/04/2017
+ms.author: bwren
+ms.openlocfilehash: 5786ac45b3459e813b1716a3c408db47b393b6ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="import-data-into-analytics"></a>Importar dados para o Analytics
 
@@ -29,7 +29,7 @@ Você pode importar arquivos JSON ou DSV (valores separados por delimitador - v�
 
 Há três situações em que a importação para o Analytics é útil:
 
-* **Associar à telemetria de aplicativo.** Por exemplo, você pode importar uma tabela que mapeia as URLs do seu site para títulos de página mais legíveis. No Analytics, é possível criar um relatório de gráfico de painel que mostra as 10 páginas mais populares no seu site. Agora ele pode mostrar os títulos das páginas ao invés das URLs.
+* **Associar à telemetria de aplicativo.** Por exemplo, você pode importar uma tabela que mapeia as URLs do seu site para títulos de página mais legíveis. No Analytics, é possível criar um relatório de gráfico de painel que mostra as dez páginas mais populares no seu site. Agora ele pode mostrar os títulos das páginas ao invés das URLs.
 * **Correlacione a telemetria de aplicativo** com outras fontes, como tráfego de rede, dados de servidor ou arquivos de log da CDN.
 * **Aplique o Analytics a um fluxo de dados separado.** O Analytics do Application Insights é uma ferramenta poderosa, que funciona bem com fluxos esparsos com carimbo de data e hora, muito melhor do que com o SQL em muitos casos. Se você tiver tal fluxo de outra origem, pode analisá-lo com o Analytics.
 
@@ -58,19 +58,13 @@ Você precisa de:
 
  * Recomendamos que você crie uma conta de armazenamento dedicada para seus blobs. Se seus blobs estiverem compartilhados com outros processos, pode demorar mais para que nossos processos leiam seus blobs.
 
-2. Enquanto esse recurso estiver no modo de prévia, você deve solicitar acesso.
-
- * Abra o Analytics do recurso do Application Insights no [Portal do Azure](https://portal.azure.com). 
- * Na parte inferior do painel de esquemas, clique no link ‘Fale conosco’ em **Outras Fontes de Dados.** 
- * Se você vir “Adicionar fonte de dados”, então já tem acesso.
-
 
 ## <a name="define-your-schema"></a>Definir seu esquema
 
 Antes de importar dados, você deve definir uma *fonte de dados*, que especifica o esquema de seus dados.
 É possível ter até 50 fontes de dados em um único recurso do Application Insights
 
-1. Inicie o assistente de fonte de dados.
+1. Inicie o assistente de fonte de dados. Use o botão "Adicionar nova fonte de dados". Como alternativa - clique no botão de configurações no canto superior direito e escolha "Fontes de Dados" no menu suspenso.
 
     ![Adicionar uma nova fonte de dados](./media/app-insights-analytics-import/add-new-data-source.png)
 
@@ -139,7 +133,7 @@ Para importar dados, carregue-os no armazenamento do Azure, crie uma chave de ac
 
 Você pode realizar o seguinte processo manualmente ou configurar um sistema automatizado para fazê-lo em intervalos regulares. Você precisa seguir estas etapas para cada bloco de dados que quiser importar.
 
-1. Carregue os dados no [armazenamento de blobs do Azure](../storage/storage-dotnet-how-to-use-blobs.md). 
+1. Carregue os dados no [armazenamento de blobs do Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
 
  * Blobs podem ter um tamanho de até 1 GB descompactados. Os blobs grandes, com centenas de MB, são ideais da perspectiva do desempenho.
  * Você pode compactá-los com Gzip para melhorar o tempo de carregamento e a latência, para que os dados fiquem disponíveis para consulta. Use a extensão de nome de arquivo `.gz`.
@@ -147,7 +141,7 @@ Você pode realizar o seguinte processo manualmente ou configurar um sistema aut
  * Ao enviar dados em alta frequência, em intervalos de segundos, é recomendável usar mais de uma conta de armazenamento, por motivos de desempenho.
 
  
-2. [Crie uma Assinatura de Acesso Compartilhado para o blob](../storage/storage-dotnet-shared-access-signature-part-2.md). A chave deve ter um período de validade de um dia e fornecer acesso de leitura.
+2. [Crie uma Assinatura de Acesso Compartilhado para o blob](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). A chave deve ter um período de validade de um dia e fornecer acesso de leitura.
 3. Faça uma chamada REST para notificar o Application Insights que os dados estão em espera.
 
  * Ponto de extremidade: `https://dc.services.visualstudio.com/v2/track`
@@ -187,11 +181,11 @@ Os dados ficam disponíveis no Analytics depois de alguns minutos.
 * **400 Solicitação incorreta**: indica que o conteúdo de solicitação é inválido. Verificação:
  * chave de instrumentação correta.
  * Valor de tempo válido. Deve ser a hora atual em UTC.
- * Dados em conformidade com o esquema.
+ * O JSON do evento está em conformidade com o esquema.
 * **403 Proibido**: o blob que você enviou não está acessível. Certifique-se de que a chave de acesso compartilhado é válida e não expirou.
 * **404 Não Encontrado**:
  * o blob não existe.
- * O nome da fonte de dados está errado.
+ * O sourceId está errado.
 
 Informações mais detalhadas estão disponíveis na mensagem de erro de resposta.
 
@@ -203,8 +197,6 @@ Esse código usa o pacote [Newtonsoft.Json](https://www.nuget.org/packages/Newto
 ### <a name="classes"></a>Classes
 
 ```C#
-
-
 namespace IngestionClient 
 { 
     using System; 
@@ -357,7 +349,6 @@ namespace IngestionClient
         #endregion Private 
     } 
 } 
-
 ```
 
 ### <a name="ingest-data"></a>Ingestão de dados
@@ -365,18 +356,14 @@ namespace IngestionClient
 Use este código para cada blob. 
 
 ```C#
-
-
    AnalyticsDataSourceClient client = new AnalyticsDataSourceClient(); 
 
-   var ingestionRequest = new AnalyticsDataSourceIngestionRequest("iKey", "tableId/sourceId", "blobUrlWithSas"); 
+   var ingestionRequest = new AnalyticsDataSourceIngestionRequest("iKey", "sourceId", "blobUrlWithSas"); 
 
    bool success = await client.RequestBlobIngestion(ingestionRequest);
-
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Tour sobre a linguagem de consulta do Analytics](app-insights-analytics-tour.md)
-* [Usar *Logstash* para enviar dados ao Application Insights](https://github.com/Microsoft/logstash-output-application-insights)
-
+* [Tour sobre a linguagem de consulta do Log Analytics](app-insights-analytics-tour.md)
+* Se estiver usando o Logstash, use o [Plug-in do Logstash para enviar dados ao Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2016
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 62faba3827e9fc33e9788cd2d487adf04d760791
-ms.lasthandoff: 03/15/2017
-
-
+ms.openlocfilehash: d3fca8675c1f15b8fd0f952cfbf520f5c68478b3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-alerts-in-azure-monitor-for-azure-services---powershell"></a>Criar alertas no Azure Monitor para serviços do Azure – PowerShell 
+# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Criar alertas de métrica no Azure Monitor para serviços do Azure – PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -30,14 +29,14 @@ ms.lasthandoff: 03/15/2017
 >
 
 ## <a name="overview"></a>Visão geral
-Este artigo mostra como configurar alertas do Azure usando PowerShell.  
+Este artigo mostra como configurar alertas de métrica do Azure usando PowerShell.  
 
 Você pode receber um alerta com base em métricas de monitoramento ou em eventos nos serviços do Azure.
 
 * **Valores da métrica** - o alerta dispara quando o valor de uma métrica especificada ultrapassa um limite que você atribui em qualquer direção. Ou seja, ele dispara quando a condição é atendida pela primeira vez e posteriormente, quando essa condição não está sendo mais atendida.    
-* **Eventos do log de atividades** - um alerta pode disparar em *cada* evento ou somente quando ocorre determinado número de eventos.
+* **Eventos do log de atividades** – um alerta pode disparar em *cada* evento ou somente quando determinados eventos ocorrem. Para saber mais sobre alertas de log de atividades, [clique aqui](monitoring-activity-log-alerts.md)
 
-Você pode configurar um alerta para fazer o seguinte quando ele dispara:
+Você pode configurar um alerta de métrica para fazer o seguinte quando ele dispara:
 
 * enviar um email para o administrador de serviços e os coadministradores
 * enviar email para outros emails que você especificar.
@@ -74,8 +73,8 @@ Para saber mais, digite ```Get-Help``` e depois o comando do PowerShell sobre o 
    ```
 4. Para criar uma regra, primeiro precisa ter várias informações importantes.
 
-   * A **ID de recurso** para o recurso que deve ter um alerta
-   * As **definições de métricas** disponíveis para esse recurso
+  * A **ID de recurso** para o recurso que deve ter um alerta
+  * As **definições de métricas** disponíveis para esse recurso
 
      Uma maneira de obter a ID de recurso é usar o portal do Azure. Supondo que o recurso já foi criado, selecione-o no portal. Na próxima folha, selecione *Propriedades* na seção *Configurações*. A **ID DE RECURSO** é um campo na folha seguinte. Outra maneira é usar o [Azure Resource Explorer](https://resources.azure.com/).
 
@@ -97,7 +96,7 @@ Para saber mais, digite ```Get-Help``` e depois o comando do PowerShell sobre o 
      Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 
      ```
-     Uma lista completa das opções disponíveis para Get-AzureRmMetricDefinition está disponível executando Get-MetricDefinitions.
+     Uma lista completa das opções disponíveis para Get-AzureRmMetricDefinition está disponível executando `Get-Help Get-AzureRmMetricDefinition -Detailed`.
 5. O exemplo a seguir configura um alerta em um recurso de site da Web. O alerta dispara sempre que ele recebe tráfego por cinco minutos de forma consistente e novamente quando ele não recebe tráfego por cinco minutos.
 
     ```PowerShell
@@ -113,27 +112,14 @@ Para saber mais, digite ```Get-Help``` e depois o comando do PowerShell sobre o 
     Add-AzureRmMetricAlertRule -Name myMetricRuleWithWebhookAndEmail -Location "East US" -ResourceGroup myresourcegroup -TargetResourceId /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename -MetricName "BytesReceived" -Operator GreaterThan -Threshold 2 -WindowSize 00:05:00 -TimeAggregationOperator Total -Actions $actionEmail, $actionWebhook -Description "alert on any website activity"
     ```
 
-
-1. Para criar um alerta disparado em uma condição específica no log de atividades, use comandos da seguinte forma
-
-    ```PowerShell
-    $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
-    $actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://www.contoso.com?token=mytoken
-
-    Add-AzureRmLogAlertRule -Name myLogAlertRule -Location "East US" -ResourceGroup myresourcegroup -OperationName microsoft.web/sites/start/action -Status Succeeded -TargetResourceGroup resourcegroupbeingmonitored -Actions $actionEmail, $actionWebhook
-    ```
-
-    O -OperationName corresponde a um tipo de evento no log de atividades. Os exemplos incluem *Microsoft.Compute/virtualMachines/delete* e *microsoft.insights/diagnosticSettings/write*.
-
-    Você pode usar o comando [Get-AzureRmProviderOperation](https://msdn.microsoft.com/library/mt603720.aspx) do PowerShell para obter uma lista de possíveis operationNames. Como alternativa, você pode usar o portal do Azure para consultar o log de atividades e localizar operações anteriores específicas para as quais deseja criar um alerta. As operações mostradas na exibição de log de gráfico dos nomes amigáveis. Procure a entrada no JSON e extraia o valor de OperationName.   
-2. Verifique se os alertas foram criados corretamente examinando regras individuais.
+7. Verificar se os alertas foram criados corretamente examinando regras individuais.
 
     ```PowerShell
     Get-AzureRmAlertRule -Name myMetricRuleWithWebhookAndEmail -ResourceGroup myresourcegroup -DetailedOutput
 
     Get-AzureRmAlertRule -Name myLogAlertRule -ResourceGroup myresourcegroup -DetailedOutput
     ```
-3. Excluir seus alertas. Esses comandos excluem as regras criadas anteriormente neste artigo.
+8. Excluir seus alertas. Esses comandos excluem as regras criadas anteriormente neste artigo.
 
     ```PowerShell
     Remove-AzureRmAlertRule -ResourceGroup myresourcegroup -Name myrule
@@ -144,7 +130,7 @@ Para saber mais, digite ```Get-Help``` e depois o comando do PowerShell sobre o 
 ## <a name="next-steps"></a>Próximas etapas
 * [Obter uma visão geral do monitoramento do Azure](monitoring-overview.md) , incluindo os tipos de informações que você pode coletar e monitorar.
 * Saiba mais sobre como [configurar webhooks em alertas](insights-webhooks-alerts.md).
+* Saiba mais sobre [Configurar alertas em eventos de Log de Atividades](monitoring-activity-log-alerts.md).
 * Saiba mais sobre [Runbooks da Automação do Azure](../automation/automation-starting-a-runbook.md).
 * Tenha uma [visão geral da coleta de logs de diagnóstico](monitoring-overview-of-diagnostic-logs.md) para coletar métricas detalhadas de alta frequência em seu serviço.
 * Tenha uma [visão geral da coleção de métricas](insights-how-to-customize-monitoring.md) para verificar se o serviço está disponível e responsivo.
-

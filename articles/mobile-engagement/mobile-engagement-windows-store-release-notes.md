@@ -1,6 +1,6 @@
 ---
 title: "Notas de versão do SDK de Aplicativos do Windows Universal no Azure Mobile Engagement | Microsoft Docs"
-description: "Mobile Engagement do Azure - Notas de versão do SDK do Windows Universal"
+description: "Azure Mobile Engagement - Notas de versão do SDK do Windows Universal"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
 ms.openlocfilehash: dc5529a9e8f4eba867732f719ca8fff718c00d5a
-ms.lasthandoff: 02/09/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-universal-apps-sdk-release-notes"></a>Notas de versão do SDK de aplicativos do Windows Universal
 ## <a name="341-11032016"></a>3.4.1 (11/03/2016)
@@ -61,8 +60,7 @@ ms.lasthandoff: 02/09/2017
 * Correção de notificação de sistema que, às vezes, é repetida no aplicativo após ser clicada.
 
 ## <a name="200-02172015"></a>2.0.0 (17/02/2015)
-* Versão Inicial do Mobile Engagement do Azure
+* Versão Inicial do Azure Mobile Engagement
 * A configuração appId/sdkKey é substituída por uma configuração de cadeia de conexão.
 * Aprimoramentos de segurança.
-
 

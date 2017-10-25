@@ -3,7 +3,7 @@ title: "Criar um balanceador de carga interno para serviços de nuvem do Azure| 
 description: "Saiba como criar um balanceador de carga interno no modelo de implantação clássico usando o PowerShell"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: 57966056-0f46-4f95-a295-483ca1ad135d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: e32ffa81f7465682579eec92087b98aebbe3c4a8
-
+ms.openlocfilehash: 6616c26ede13919b94a098dc38bdd6e2f0fc0b5b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>Introdução à criação de um balanceador de carga interno (clássico) para os serviços de nuvem
 
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Abra o arquivo de configuração de serviço (.cscfg) para sua implantação de 
 </NetworkConfiguration>
 ```
 
-Vamos adicionar os valores para o arquivo de configuração de rede para mostrar como ele se parecerá. No exemplo, suponha que você criou uma sub-rede chamada "test_vnet" com uma sub-rede 10.0.0.0/24 chamada test_subnet e um endereço IP estático 10.0.0.4. O balanceador de carga será nomeado testLB.
+Vamos adicionar os valores para o arquivo de configuração de rede para mostrar como ele se parecerá. No exemplo, suponha que você criou uma VNET chamada "test_vnet" com uma sub-rede 10.0.0.0/24 chamada test_subnet e um endereço IP estático 10.0.0.4. O balanceador de carga será nomeado testLB.
 
 ```xml
 <NetworkConfiguration>
@@ -96,10 +96,4 @@ O tráfego de rede terá a carga equilibrada usando o balanceador de carga testL
 [Configurar um modo de distribuição do balanceador de carga usando a afinidade de IP de origem](load-balancer-distribution-mode.md)
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

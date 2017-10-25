@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: d353cd2fe47c54a0282cc5bb1b22b4a56e0cd82c
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-engagement-api-on-android"></a>Como usar a API do Engagement no Android
 Este documento é um complemento para o documento [Opções avançadas de relatório do Android SDK para o Mobile Engagement](mobile-engagement-android-advanced-reporting.md). Ele fornece detalhes aprofundados sobre como usar a API do Engagement para relatar as estatísticas do aplicativo.
@@ -281,9 +281,3 @@ As informações do aplicativo são limitadas a **1024** caracteres por chamada 
 No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
 
             {"expiration":"2016-12-07","status":"premium"}
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

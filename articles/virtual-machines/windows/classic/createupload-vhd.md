@@ -13,26 +13,25 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2016
+ms.date: 05/23/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 8cae78052a4433f0a26d774a7085c110e32911c9
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: bc75c8cdd98b0ea0fbff6483c0e3c9d4468d3941
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-upload-a-windows-server-vhd-to-azure"></a>Criar e carregar um VHD do Windows Server no Azure
-Esse artigo mostra como carregar sua própria imagem de VM generalizada como um VHD (disco rígido virtual) para que o use para criar outras máquinas virtuais. Para mais detalhes sobre discos e os VHDs no Microsoft Azure, confira a seção [Sobre discos e VHDs para Máquinas Virtuais](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Esse artigo mostra como carregar sua própria imagem de VM generalizada como um VHD (disco rígido virtual) para que o use para criar outras máquinas virtuais. Para mais detalhes sobre discos e os VHDs no Microsoft Azure, confira a seção [Sobre discos e VHDs para Máquinas Virtuais](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Você também pode [carregar](../../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) uma máquina virtual usando o modelo do Resource Manager.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Você também pode [carregar](../upload-generalized-managed.md) uma máquina virtual usando o modelo do Resource Manager.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo supõe que você tem:
 
 * **Uma assinatura do Azure** - se não tiver uma, você poderá [abrir uma conta do Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
-* **[Microsoft Azure PowerShell](/powershell/azureps-cmdlets-docs)** – você tem o módulo do Microsoft Azure PowerShell instalado e configurado para usar sua assinatura.
+* **[Microsoft Azure PowerShell](/powershell/azure/overview)** – você tem o módulo do Microsoft Azure PowerShell instalado e configurado para usar sua assinatura.
 * **Um arquivo .VHD** - sistema operacional Windows para o qual há suporte, armazenado em um arquivo .vhd e anexado a uma máquina virtual. Verifique se há suporte para as funções de servidor em execução no VHD no Sysprep. Para obter mais informações, consulte [Suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
     > [!IMPORTANT]
@@ -88,7 +87,7 @@ Você precisa de uma conta de armazenamento no Azure para que você tenha um loc
     ```
 
 ## <a name="step-3-upload-the-vhd-file"></a>Etapa 3: Carregar o arquivo .vhd
-Você usará o cmdlet [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) para carregar o VHD.
+Você usará o cmdlet [Add-AzureVhd](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevhd) para carregar o VHD.
 
 Na janela do Azure PowerShell usada na etapa anterior, digite o comando a seguir e substitua as variáveis entre &lsaquo; colchetes &rsaquo; por suas próprias informações.
 
@@ -97,7 +96,7 @@ Add-AzureVhd -Destination "https://<StorageAccountName>.blob.core.windows.net/<C
 ```
 
 ## <a name="step-4-add-the-image-to-your-list-of-custom-images"></a>Etapa 4: adicionar a imagem à sua lista de imagens personalizadas
-Use o cmdlet [Add-AzureVMImage](https://msdn.microsoft.com/library/mt589167.aspx) para adicionar a imagem à lista de suas imagens personalizadas.
+Use o cmdlet [Add-AzureVMImage](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevmimage) para adicionar a imagem à lista de suas imagens personalizadas.
 
 ```powershell
 Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -OS "Windows"
@@ -105,4 +104,3 @@ Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountN
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora você pode [criar uma VM personalizada](createportal.md) usando a imagem carregada.
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: a5b845a93f318b991e14705f0fadea3acd802ced
-ms.lasthandoff: 03/21/2017
-
-
+ms.openlocfilehash: 766d327a87ed13e04166d71c3d9ae0a1e7a66d19
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-docker-hosts-in-azure-with-docker-machine"></a>Criar hosts do Docker no Azure com docker-machine
 A execução de contêineres do [Docker](https://www.docker.com/) exige uma VM host executando o daemon do docker.
@@ -33,11 +32,11 @@ Este tópico descreve como usar o comando [docker-machine](https://docs.docker.c
 ## <a name="create-vms-with-docker-machine"></a>Criar VMs com o computador Docker
 Crie VMs host do docker no Azure com o comando `docker-machine create` usando o driver `azure`. 
 
-O driver do Azure precisará da ID de sua assinatura. Você pode usar a [CLI do Azure](cli-install-nodejs.md) ou o [Portal do Azure](https://portal.azure.com) para recuperar sua Assinatura do Azure. 
+O driver do Azure requer sua ID da assinatura. Você pode usar a [CLI do Azure](cli-install-nodejs.md) ou o [Portal do Azure](https://portal.azure.com) para recuperar sua Assinatura do Azure. 
 
 **Usando o Portal do Azure**
 
-* Selecione Assinaturas na página de navegação à esquerda e copie a ID da assinatura.
+* Selecione **Assinaturas** da página de navegação à esquerda e copie a ID da assinatura.
 
 **Usando a CLI do Azure**
 
@@ -48,7 +47,7 @@ Você também consultar [Documentação do Driver do Docker Azure](https://docs.
 
 O exemplo a seguir conta com os [valores padrão](https://github.com/docker/machine/blob/master/drivers/azure/azure.go#L22), mas como opção, define estes valores: 
 
-* azure-dns para o nome associado ao IP público e certificados gerados.  A VM pode ser interrompida com segurança, liberar o IP dinâmico e fornecer a capacidade de reconexão depois que a VM inicia novamente com um novo IP.  O prefixo de nome precisa ser exclusivo para essa região UNIQUE_DNSNAME_PREFIX.westus.cloudapp.azure.com.
+* azure-dns para o nome associado ao IP público e certificados gerados. Este é o nome DNS de sua máquina virtual. Em seguida, a VM poderá, com segurança, parar, liberar o IP dinâmico e fornecer a capacidade de reconectar depois de iniciar novamente com um novo IP. O prefixo do nome deve ser exclusivo para essa região UNIQUE_DNSNAME_PREFIX.westus.cloudapp.azure.com.
 * abrir a porta 80 na VM para acesso de saída à Internet
 * tamanho da VM para utilizar o armazenamento Premium mais rápido
 * armazenamento Premium usado para o disco de vm
@@ -107,7 +106,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago       Up 5 minutes        0.0.0.0:80->80/tcp, 443/tcp   goofy_mahavira
 ```
 
-E verifique o contêiner em execução, digitando `docker-machine ip <VM name>` para localizar o endereço IP a ser inserido no navegador:
+E, para ver o contêiner em execução, digite `docker-machine ip <VM name>` para localizar o endereço IP a ser inserido no navegador:
 
 ```
 PS C:\> docker-machine ip MyDockerHost
@@ -117,9 +116,8 @@ PS C:\> docker-machine ip MyDockerHost
 ![Contêiner ngnix em execução](./media/vs-azure-tools-docker-machine-azure-config/nginxsuccess.png)
 
 ## <a name="summary"></a>Resumo
-Com o docker-machine você pode provisionar facilmente hosts do docker no Azure para suas validações individuais de host do docker.
+Com o docker-machine você pode provisionar hosts do docker facilmente no Azure para suas validações individuais de host do docker.
 Para produção de hospedagem de contêineres, consulte o [Serviço de Contêiner do Azure](http://aka.ms/AzureContainerService)
 
 Para desenvolver aplicativos de núcleo do .NET com o Visual Studio, consulte [Ferramentas do Docker para Visual Studio](http://aka.ms/DockerToolsForVS)
-
 

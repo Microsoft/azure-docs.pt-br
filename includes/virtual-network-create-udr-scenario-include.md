@@ -12,8 +12,3 @@ Neste cenário, você criará um UDR para a *Sub-rede de front-end* e outro UDR 
 
 A combinação dessas rotas garantirá que todo o tráfego destinado de uma sub-rede a outra será roteado para a máquina virtual **FW1** , que está sendo usada como um dispositivo virtual. Você também precisa ativar o encaminhamento IP para essa VM para garantir que ela possa receber o tráfego destinado a outras VMs.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

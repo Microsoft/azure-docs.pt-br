@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2016
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: e9b9febe0c7533e0d2de24b97c98707d08f5e461
-ms.lasthandoff: 02/17/2017
-
-
+ms.openlocfilehash: 0bea62a43cf6cac9132fe64f2d6c54e52def4c55
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-services-and-technologies"></a>Tecnologias e serviços de segurança do Azure
 Em nossas discussões com clientes do Azure atuais e futuros, frequentemente nos fazem a seguinte pergunta “você tem uma lista de todas as tecnologias e serviços relacionados à segurança que o Azure tem a oferecer?”
@@ -33,15 +32,15 @@ A seguir está o nosso esforço inicial no fornecimento de uma lista. Ao longo d
 * [Cofre da Chave do Azure](https://azure.microsoft.com/documentation/services/key-vault/)
 * [Criptografia de Disco do Azure](azure-security-disk-encryption.md)
 * [Log Analytics](../log-analytics/log-analytics-overview.md)
-* [Laboratórios de Desenvolvimento/Teste do Azure](https://azure.microsoft.com/documentation/services/devtest-lab/)
+* [Azure Dev/Test Labs](https://azure.microsoft.com/documentation/services/devtest-lab/)
 
 ## <a name="azure-storage-security"></a>Segurança do Armazenamento do Azure
-* [Criptografia do serviço de armazenamento do Azure](../storage/storage-service-encryption.md)
+* [Criptografia do serviço de armazenamento do Azure](../storage/common/storage-service-encryption.md)
 * [Armazenamento híbrido criptografado StorSimple](https://azure.microsoft.com/documentation/services/storsimple/)
-* [Criptografia do lado do cliente do Azure](../storage/storage-client-side-encryption.md)
-* [Assinaturas de Acesso Compartilhado do Armazenamento do Azure](../storage/storage-dotnet-shared-access-signature-part-1.md)
-* [Chaves de conta de armazenamento do Azure](../storage/storage-create-storage-account.md)
-* [Compartilhamentos de arquivos do Azure com criptografia SMB 3.0](../storage/storage-dotnet-how-to-use-files.md)
+* [Criptografia do lado do cliente do Azure](../storage/common/storage-client-side-encryption.md)
+* [Assinaturas de Acesso Compartilhado do Armazenamento do Azure](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+* [Chaves de conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md)
+* [Compartilhamentos de arquivos do Azure com criptografia SMB 3.0](../storage/files/storage-dotnet-how-to-use-files.md)
 * [Análise do Armazenamento do Azure](https://msdn.microsoft.com/library/hh343270.aspx)
 
 ## <a name="azure-database-security"></a>Segurança de banco de dados do Azure
@@ -68,9 +67,8 @@ A seguir está o nosso esforço inicial no fornecimento de uma lista. Ao longo d
 ## <a name="azure-networking"></a>Rede do Azure
 * [Grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md)
 * [Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md)
-* [Application Gateway do Azure](../application-gateway/application-gateway-introduction.md)
+* [Gateway de Aplicativo do Azure](../application-gateway/application-gateway-introduction.md)
 * [Balanceador de carga do Azure](../load-balancer/load-balancer-overview.md)
-* [Rota Expressa do Azure](../expressroute/expressroute-introduction.md)
+* [Azure ExpressRoute](../expressroute/expressroute-introduction.md)
 * [Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md)
 * [Proxy de aplicativo do Azure](../active-directory/active-directory-application-proxy-enable.md)
-

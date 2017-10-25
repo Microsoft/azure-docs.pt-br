@@ -1,5 +1,4 @@
 ---
-
 title: "Obtendo suporte para colaboração B2B do Azure Active Directory | Microsoft Docs"
 description: "O que é a experiência de suporte para colaboração B2B do Azure Active Directory?"
 services: active-directory
@@ -14,16 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 05/26/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 72e7e57185d882a5f3243e2705aed54ee8347798
-ms.openlocfilehash: 1ac5ce4b0c3177069bdd0ba4afdb02ef9950fdef
-
-
+ms.openlocfilehash: ce4731966baefa76b72e5a1a065c06379fac065d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="getting-support-for-b2b-collaboration"></a>Obtenção de suporte para colaboração B2B
 
 Você leu a documentação, fez as coisas certas, mas ainda assim algo não funciona? Abra um tíquete de suporte (exige um plano de suporte):
@@ -44,10 +41,4 @@ Você leu a documentação, fez as coisas certas, mas ainda assim algo não func
 
   ![descrição do problema do tíquete de suporte](media/active-directory-b2b-support/problem-description.png)
 
-  Adicione suas informações de contato e um representante de suporte entrará em contato com você para futura solução de problema.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+3. Adicione suas informações de contato para um representante de suporte entrar em contato com você e auxiliar com a solução do problema.

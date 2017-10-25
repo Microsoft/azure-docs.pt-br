@@ -3,8 +3,8 @@ title: "Como migrar e publicar um aplicativo Web em um serviço de nuvem do Azur
 description: "Saiba como migrar e publicar seu aplicativo Web em um serviço de nuvem do Azure por meio do Visual Studio."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 9394adfd-a645-4664-9354-dd5df08e8c91
 ms.service: multiple
@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: a30859610aed55c1ffa22e821de3702d265a7fa7
-
-
+ms.author: kraigb
+ms.openlocfilehash: d5de4f5a7357cf5adde7773867356d47ad447bab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>Como migrar e publicar um aplicativo Web em um serviço de nuvem do Azure por meio do Visual Studio
 Para tirar proveito dos serviços de hospedagem e a escalabilidade do Azure, você pode migrar e publicar seu aplicativo Web em um serviço de nuvem do Azure. Você pode executar um aplicativo Web no Azure fazendo alterações mínimas nele.
 
 > [!NOTE]
-> Este tópico é sobre a implantação de serviços de nuvem, não em sites. Para obter informações sobre a implantação de sites da Web, consulte [Implantar um aplicativo Web no Serviço de Aplicativo do Azure](app-service-web/web-sites-deploy.md).
+> Este tópico é sobre a implantação de serviços de nuvem, não em sites. Para obter informações sobre a implantação de sites da Web, consulte [Implantar um aplicativo Web no Serviço de Aplicativo do Azure](app-service/app-service-deploy-local-git.md).
 >
 >
 
@@ -201,9 +201,3 @@ Para publicar um aplicativo Web no Azure, o aplicativo deve usar um dos modelos 
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre a publicação, consulte [preparar, publicar ou implantar um aplicativo do Azure do Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Confira também [Configuração de credenciais de autenticação nomeadas](vs-azure-tools-setting-up-named-authentication-credentials.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

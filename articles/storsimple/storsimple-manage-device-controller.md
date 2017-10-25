@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 815ada25a548ddf419ac073f57a5153f60a40a58
-
-
+ms.openlocfilehash: 67dbb0c4066002256efbab6061157c641527e441
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gerenciar controladores de dispositivo StorSimple
 ## <a name="overview"></a>Visão geral
@@ -167,47 +167,41 @@ Execute as etapas a seguir para redefinir o dispositivo Microsoft Azure StorSimp
 ## <a name="questions-and-answers-about-managing-device-controllers"></a>Perguntas e respostas sobre como gerenciar controladores de dispositivo
 Nesta seção, resumimos algumas das perguntas frequentes sobre o gerenciamento de controladores de dispositivo StorSimple.
 
-**P.**  O que acontece se ambos os controladores em meu dispositivo estão íntegros e ativados e eu reiniciar ou desligar o controlador ativo?
+**P.** O que acontece se ambos os controladores em meu dispositivo estão íntegros e ativados e eu reiniciar ou desligar o controlador ativo?
 
-**A.**  Se ambos os controladores em seu dispositivo estão íntegros e ativados, será solicitada a sua confirmação. Você pode optar por:
+**A.** Se ambos os controladores em seu dispositivo estão íntegros e ativados, será solicitada a sua confirmação. Você pode optar por:
 
 * **Reiniciar o controlador ativo** – você será notificado de que reiniciar um controlador ativo fará com que o dispositivo faça failover para o controlador passivo. O controlador será reiniciado.
 * **Desligar um controlador ativo** – você será notificado de que desligar um controlador ativo resultará em tempo de inatividade. Você também precisará pressionar o botão de energia no dispositivo para ativar o controlador.
 
-**P.**  O que acontece se o controlador passivo em meu dispositivo estiver indisponível ou desligado e eu reiniciar ou desligar o controlador ativo?
+**P.** O que acontece se o controlador passivo em meu dispositivo estiver indisponível ou desligado e eu reiniciar ou desligar o controlador ativo?
 
-**A.**  Se o controlador passivo em seu dispositivo estiver indisponível ou desligado e você optar por:
+**A.** Se o controlador passivo em seu dispositivo estiver indisponível ou desligado e você optar por:
 
 * **Reiniciar o controlador ativo** – você será notificado de que continuar a operação resultará em uma interrupção temporária do serviço e será solicitada a sua confirmação.
 * **Desligar um controlador ativo** – você será notificado de que continuar a operação resultará em tempo de inatividade e que você precisa pressionar o botão de energia em um ou ambos os controladores para ligar o dispositivo. Será solicitada a sua confirmação.
 
-**P.**  Quando o desligamento ou reinicialização do controlador falha durante a execução?
+**P.** Quando o desligamento ou reinicialização do controlador falha durante a execução?
 
-**A.**  Reiniciar ou desligar um controlador pode falhar se:
+**A.** Reiniciar ou desligar um controlador pode falhar se:
 
 * Uma atualização do dispositivo está em andamento.
 * Uma reinicialização de controlador já está em andamento.
 * Um desligamento do controlador já está em andamento.
 
-**P.**  Como saber se um controlador foi reiniciado ou desligado?
+**P.** Como saber se um controlador foi reiniciado ou desligado?
 
-**A.**  Você pode verificar o status do controlador na página de Manutenção. O status do controlador indicará se um controlador foi reiniciado ou desligado. Além disso, a página Alertas terá um alerta informativo, avisando se o controlador foi reiniciado ou desligado. As operações de reinicialização e desligamento do controlador também são registradas nos logs de operação. Para obter mais informações sobre logs de operação, vá para [Exibir os logs de operação](storsimple-service-dashboard.md#view-the-operations-logs).
+**A.** Você pode verificar o status do controlador na página de Manutenção. O status do controlador indicará se um controlador foi reiniciado ou desligado. Além disso, a página Alertas terá um alerta informativo, avisando se o controlador foi reiniciado ou desligado. As operações de reinicialização e desligamento do controlador também são registradas nos logs de operação. Para obter mais informações sobre logs de operação, vá para [Exibir os logs de operação](storsimple-service-dashboard.md#view-the-operations-logs).
 
-**P.**  Há algum impacto sobre as E/Ss como resultado de failover do controlador?
+**P.** Há algum impacto sobre as E/Ss como resultado de failover do controlador?
 
-**A.**  As conexões TCP entre iniciadores e controlador ativo serão redefinidas como resultado do failover do controlador, mas serão restabelecidas quando o controlador passivo assumir a operação. Pode haver uma pausa temporária (menos de 30 segundos) na atividade de E/S entre os iniciadores e o dispositivo no decorrer desta operação.
+**A.** As conexões TCP entre iniciadores e controlador ativo serão redefinidas como resultado do failover do controlador, mas serão restabelecidas quando o controlador passivo assumir a operação. Pode haver uma pausa temporária (menos de 30 segundos) na atividade de E/S entre os iniciadores e o dispositivo no decorrer desta operação.
 
-**P.**  Como posso retornar meu controlador de serviço depois de ele ter sido desligado e retirado de serviço?
+**P.** Como posso retornar meu controlador de serviço depois de ele ter sido desligado e retirado de serviço?
 
 **A.** Para retornar um controlador ao serviço, insira-o no chassi conforme descrito em [Substituir um módulo do controlador em seu dispositivo StorSimple](storsimple-controller-replacement.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Se você tiver algum problema com os controladores de dispositivo StorSimple que não possam ser resolvidos usando os procedimentos listados neste tutorial, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 * Para saber mais sobre como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

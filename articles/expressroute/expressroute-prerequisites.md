@@ -1,6 +1,6 @@
 ---
 title: "Pré-requisitos para a adoção do Azure ExpressRoute| Microsoft Docs"
-description: "Esta página fornece uma lista dos requisitos a serem atendidos antes que você pode solicitar um circuito de Rota Expressa do Azure."
+description: "Esta página fornece uma lista dos requisitos a serem atendidos antes que você pode solicitar um circuito de Azure ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -12,28 +12,27 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 06/30/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: a56749a5ac1098db3970140a76b71c77c1f74c07
-ms.lasthandoff: 03/28/2017
-
-
+ms.openlocfilehash: 8629235511e0dda149ceef6a9c834c3042f64f90
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="expressroute-prerequisites--checklist"></a>Pré-requisitos e lista de verificação da Rota Expressa
+# <a name="expressroute-prerequisites--checklist"></a>Pré-requisitos e lista de verificação do ExpressRoute
 Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, você precisa verificar se os requisitos listados nas seções a seguir foram atendidos.
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## <a name="azure-account"></a>Conta do Azure
-* Uma conta válida e ativa do Microsoft Azure. Esta conta é necessária para configurar o circuito do ExpressRoute. Os circuitos da Rota Expressa são recursos das assinaturas do Azure. Uma assinatura do Azure será um requisito mesmo se a conectividade estiver limitada a serviços de nuvem da Microsoft que não sejam do Azure, como os serviços do Office 365 e o CRM online.
+* Uma conta válida e ativa do Microsoft Azure. Esta conta é necessária para configurar o circuito do ExpressRoute. Os circuitos do ExpressRoute são recursos das assinaturas do Azure. Uma assinatura do Azure será um requisito mesmo se a conectividade estiver limitada a serviços de nuvem da Microsoft que não sejam do Azure, como os serviços do Office 365 e o Dynamics 365.
 * Uma assinatura ativa do Office 365 (se estiver usando os serviços do Office 365). Para mais informações, consulte a seção [Requisitos específicos do Office 365](#office-365-specific-requirements) deste artigo.
 
 ## <a name="connectivity-provider"></a>Provedor de conectividade
 
-* Você pode trabalhar com um [parceiro de conectividade de Rota Expressa](expressroute-locations.md#partners) para se conecta à nuvem da Microsoft. Você pode configurar uma conexão entre sua rede local e a Microsoft de [três maneiras](expressroute-introduction.md). 
-* Se seu provedor não for um parceiro de conectividade da Rota Expressa, você ainda poderá se conectar à nuvem da Microsoft por meio de um [provedor de troca de nuvem](expressroute-locations.md#c1partners).
+* Você pode trabalhar com um [parceiro de conectividade de ExpressRoute](expressroute-locations.md#partners) para se conecta à nuvem da Microsoft. Você pode configurar uma conexão entre sua rede local e a Microsoft de [três maneiras](expressroute-introduction.md).
+* Se seu provedor não for um parceiro de conectividade do ExpressRoute, você ainda poderá se conectar à nuvem da Microsoft por meio de um [provedor de troca de nuvem](expressroute-locations.md#connectivity-through-exchange-providers).
 
 ## <a name="network-requirements"></a>Requisitos de rede
 * **Conectividade redundante**: não há nenhum requisito de redundância de conectividade física entre você e seu provedor. A Microsoft não exige que sessões BGP redundantes sejam configuradas entre os roteadores da Microsoft e os roteadores emparelhados, mesmo quando você tiver apenas [uma conexão física com uma troca de nuvem](expressroute-faqs.md#onep2plink).
@@ -53,17 +52,17 @@ Se você planeja habilitar o Office 365 no ExpressRoute, consulte os documentos 
 * [Integração do Office 365 com ambientes locais](https://support.office.com/en-us/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
 * [Vídeos de treinamento avançados do ExpressRoute no Office 365](https://channel9.msdn.com/series/aer/)
 
-## <a name="crm-online"></a>CRM Online
-Se você planeja habilitar o CRM Online no ExpressRoute, consulte os documentos a seguir para saber mais sobre os requisitos do CRM Online
+## <a name="dynamics-365"></a>Dynamics 365
+Se você planeja habilitar o Dynamics 365 no ExpressRoute, consulte os documentos a seguir para saber mais sobre os requisitos do Dynamics 365
 
-* [URLs do CRM Online](https://support.microsoft.com/kb/2655102) e [Intervalos de endereços IP](https://support.microsoft.com/kb/2728473)
+* [Whitepaper Dynamics 365 e ExpressRoute](http://download.microsoft.com/download/B/2/8/B2896B38-9832-417B-9836-9EF240C0A212/Microsoft%20Dynamics%20365%20and%20ExpressRoute.pdf)
+* [Intervalos de endereços IP](https://support.microsoft.com/kb/2655102) e [URLs do Dynamics 365](https://support.microsoft.com/kb/2728473)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
-* Localize um provedor de conectividade da Rota Expressa. Consulte [Parceiros e locais de emparelhamento da Rota Expressa](expressroute-locations.md).
+* Para obter mais informações sobre o ExpressRoute, consulte [Perguntas Frequentes sobre ExpressRoute](expressroute-faqs.md).
+* Localize um provedor de conectividade do ExpressRoute. Consulte [Parceiros e locais de emparelhamento do ExpressRoute](expressroute-locations.md).
 * Consulte os requisitos de [Roteamento](expressroute-routing.md), [NAT](expressroute-nat.md) e [QoS](expressroute-qos.md).
-* Configurar sua conexão da Rota Expressa.
-  * [Criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md)
+* Configurar sua conexão do ExpressRoute.
+  * [Criar um circuito do ExpressRoute](expressroute-howto-circuit-classic.md)
   * [Configurar o roteamento](expressroute-howto-routing-classic.md)
-  * [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-classic.md)
-
+  * [Vincular uma rede virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-classic.md)

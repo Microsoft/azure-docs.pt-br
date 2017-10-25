@@ -14,13 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
-ms.openlocfilehash: 6703247aa8b4a6d53ff22ea2d4f22eb4a746e370
-
-
+ms.openlocfilehash: ec2555df27f4b709d06b660bf161f741e5b86ea6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cdn-rules-engine-features"></a>Recursos do mecanismo de regras da CDN do Azure
 Este tópico lista descrições detalhadas dos recursos disponíveis para o [Mecanismo de regras](cdn-rules-engine.md)da CDN (Rede de Distribuição de Conteúdo) do Azure.
 
@@ -131,8 +130,7 @@ Informações de chave:
 
 - A opção Value define o nome do parâmetro de cadeia de caracteres de consulta por meio do qual um token pode ser especificado.
 - A opção Value não pode ser definida como "ec_token".
-- Verifique se o nome definido na opção Value só 
-- contém caracteres de URL válidos.
+- Certifique-se de que o nome definido na opção Valor contém apenas caracteres de URL válidos.
 
 Valor|Result
 ----|----
@@ -147,7 +145,7 @@ Esses recursos são projetados para personalizar quando e como o conteúdo é ar
 
 Nome | Finalidade
 -----|--------
-Parâmetros de Largura de Banda | Determina se os parâmetros de limitação de largura de banda (isto é, ec_rate e ec_prebuf) estarão ativos.
+Parâmetros de Largura de Banda | Determina se os parâmetros de limitação de largura de banda (por exemplo, ec_rate e ec_prebuf) estarão ativos.
 Limitação de Largura de Banda | Limita a largura de banda para a resposta fornecida por nossos servidores de borda.
 Ignorar o Cache | Determina se a solicitação pode aproveitar nossa tecnologia de cache.
 Tratamento de Cabeçalho Cache-Control | Controla a geração de cabeçalhos de Controle de Cache pelo servidor de borda quando o recurso Idade Máxima Externa está ativo.
@@ -173,14 +171,14 @@ Obsoleto Ao Revalidar | Melhora o desempenho permitindo que os nossos servidores
 Comentário | O recurso Comentário permite a adição de detalhes a uma regra.
 
 ###<a name="bandwidth-parameters"></a>Parâmetros de Largura de Banda
-**Finalidade:** determina se os parâmetros de limitação de largura de banda (isto é, ec_rate e ec_prebuf) estarão ativos.
+**Finalidade:** determina se os parâmetros de limitação de largura de banda (por exemplo, ec_rate e ec_prebuf) estarão ativos.
 
 Parâmetros de limitação de largura de banda determinam se a taxa de transferência de dados para uma solicitação do cliente será limitada a uma taxa personalizada.
 
 Valor|Result
 --|--
 Habilitado|Permite que os nossos servidores de borda cumpram as solicitações de limitação de largura de banda.
-Desabilitado|Faz com que nossos servidores de borda ignorem os parâmetros de limitação de largura de banda. O conteúdo solicitado será fornecido normalmente (ou seja, sem limitação de largura de banda).
+Desabilitado|Faz com que nossos servidores de borda ignorem os parâmetros de limitação de largura de banda. O conteúdo solicitado será servido normalmente (ou seja, sem limitação de largura de banda).
 
 **Comportamento padrão:** habilitado.
 
@@ -247,7 +245,7 @@ Para duplicar o comportamento de cache da cadeia de caracteres de consulta conhe
 
 #### <a name="sample-scenarios"></a>Cenários de Exemplo
 
-O exemplo de uso para esse recurso é fornecido abaixo. Uma solicitação de exemplo e a cache-key padrão são fornecidos abaixo.
+O seguinte exemplo de uso para esse recurso fornece um exemplo de solicitação e a chave de cache padrão:
 
 - **Solicitação de exemplo:** http://wpc.0001.&lt;Domain&gt;/800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
 - **Default cache-key:** /800001/Origin/folder/asset.htm
@@ -330,7 +328,7 @@ Desabilitado|Impede que um servidor de borda realize uma busca em segundo plano 
 ###<a name="compress-file-types"></a>Compactar Tipos de Arquivo
 **Finalidade:** define os formatos de arquivo que serão compactados no servidor.
 
-Um formato de arquivo pode ser especificado usando o tipo de mídia da Internet (ou seja, Content-Type). O tipo de mídia da Internet são metadados independentes de plataforma que permitem que nossos servidores identifiquem o formato de arquivo de determinado ativo. Uma lista dos tipos comuns de mídia da Internet é fornecida abaixo.
+Um formato de arquivo pode ser especificado usando o tipo de mídia da Internet (por exemplo, Content-Type). O tipo de mídia da Internet são metadados independentes de plataforma que permitem que nossos servidores identifiquem o formato de arquivo de determinado ativo. Uma lista dos tipos comuns de mídia da Internet é fornecida abaixo.
 
 Tipo de Mídia da Internet|Descrição
 --|--
@@ -343,9 +341,9 @@ Informações de chave:
 
 - Especifique vários tipos de mídia da Internet delimitando cada um deles com um único espaço. 
 - Esse recurso compactará apenas ativos cujo tamanho seja menor que 1 MB. Ativos maiores não serão compactados por nossos servidores.
-- Determinados tipos de conteúdo, como imagens, vídeos e ativos de mídia de áudio (por exemplo, JPG, MP3, MP4 etc.) já são compactados. A compactação adicional nesses tipos de ativos não reduzirá significativamente o tamanho do arquivo. Portanto, é recomendável que você não habilite a compactação nesses tipos de ativos.
+- Determinados tipos de conteúdo, como ativos de mídia de imagem, de vídeo e de áudio (por exemplo, JPG, MP3, MP4, etc.) já estão compactados. A compactação adicional nesses tipos de ativos não reduzirá significativamente o tamanho do arquivo. Portanto, é recomendável que você não habilite a compactação nesses tipos de ativos.
 - Não há suporte para caracteres curinga, como asteriscos.
-- Antes de adicionar esse recurso a uma regra, defina a opção de Compactação Desabilitado na página de Compactação para a plataforma à qual essa regra será aplicada.
+- Antes de adicionar esse recurso a uma regra, certifique-se de ter configurado a opção Compactação desabilitada na página Compactação para a plataforma à qual essa regra será aplicada.
 
 ###<a name="default-internal-max-age"></a>Idade Máxima Interna Padrão
 **Finalidade:** determina o intervalo de idade máxima padrão para a revalidação de cache do servidor de borda para o servidor de origem. Em outras palavras, o tempo que decorrerá até que um servidor de borda verifique se um ativo em cache corresponde ao ativo armazenado no servidor de origem.
@@ -358,7 +356,7 @@ Informações de chave:
 - Os resultados dessa ação não têm um efeito observável nos cabeçalhos de resposta e no conteúdo retornado de servidores de borda para seu conteúdo, mas podem ter efeito na quantidade de tráfego de revalidação enviada por servidores de borda ao servidor de origem.
 - Configure este recurso da seguinte forma:
     - Selecionando o código de status ao qual um padrão de max-age interno pode ser aplicado.
-    - Especificando um valor inteiro e, em seguida, selecionando a unidade de tempo desejada (ou seja, segundos, minutos, horas etc.). Esse valor define o intervalo de max-age interno padrão.
+    - Especificando um valor inteiro e, em seguida, selecionando a unidade de tempo desejada (por exemplo, segundos, minutos, horas etc.). Esse valor define o intervalo de max-age interno padrão.
 
 - Definir a unidade de tempo como "Desativado" atribuirá um intervalo de max-age interno padrão de sete dias para solicitações que não tenham uma indicação de max-age atribuída em seu cabeçalho Cache-Control ou Expires.
 - Devido à maneira como as configurações de cache são acompanhadas, esse recurso não pode ser associado às seguintes condições de correspondência: 
@@ -394,7 +392,7 @@ Habilitar esse recurso gerará cabeçalhos Cache-Control: max-age e Expire de no
 Informações de chave:
 
 - Essa ação não afeta o servidor de borda para revalidações de cache de servidor de origem. Esses tipos de revalidações são determinados pelos cabeçalhos Cache-Control/Expires recebidos do servidor de origem e podem ser personalizados com os recursos Max-Age e Force Internal Max-Age padrão.
-- Configure esse recurso especificando um valor inteiro e selecionando a unidade de tempo desejada (ou seja, segundos, minutos, horas etc.).
+- Configure esse recurso especificando um valor inteiro e selecionando a unidade de tempo desejada (por exemplo, segundos, minutos, horas, etc.).
 - Definir esse recurso como um valor negativo faz com que nossos servidores de borda enviem um Cache-Control:no-cache e um tempo Expires que é definido no passado com cada resposta ao navegador. Embora um cliente HTTP não armazene em cache a resposta, essa configuração não afetará a capacidade de nossos servidores de borda de armazenar em cache a resposta do servidor de origem.
 - Definir a unidade de tempo como "Desativado" desabilitará esse recurso. Os cabeçalhos Cache-Control/Expires em cache com a resposta do servidor de origem serão passados para o navegador.
 
@@ -410,7 +408,7 @@ Informações de chave:
 - Esse recurso não tem efeito observável na resposta fornecida por um servidor de borda para o solicitante. No entanto, isso pode afetar a quantidade de tráfego de revalidação enviado de nossos servidores de borda para o servidor de origem.
 - Configure este recurso da seguinte forma:
     - Selecionando o código de status ao qual um max-age interno será aplicado.
-    - Especificando um valor inteiro e selecionando a unidade de tempo desejada (ou seja, segundos, minutos, horas etc.). Esse valor define o intervalo de max-age da solicitação.
+    - Especificando um valor inteiro e selecionando a unidade de tempo desejada (por exemplo, segundos, minutos, horas, etc.). Esse valor define o intervalo de max-age da solicitação.
 
 - Definir a unidade de tempo como "Desativado" desabilita a esse recurso. Um intervalo max-age interno não será atribuído aos ativos solicitados. Se o cabeçalho original não contiver instruções de cache, o ativo será armazenado de acordo com a configuração ativa no recurso Max-Age Interno Padrão.
 - Devido à maneira como as configurações de cache são acompanhadas, esse recurso não pode ser associado às seguintes condições de correspondência: 
@@ -430,7 +428,7 @@ Informações de chave:
 Informações de chave:
 
 - Defina um conjunto de extensões de nome de arquivo H.264 permitidas delimitadas por espaço na opção de Extensões de Arquivo. A opção de Extensões de Arquivo substituirá o comportamento padrão. Mantenha o suporte a MP4 e F4V incluindo as extensões de nome de arquivo ao definir esta opção. 
-- Inclua um ponto ao especificar cada extensão de nome de arquivo (por exemplo, .mp4 .f4v).
+- Certifique-se de incluir um ponto ao especificar cada extensão de nome de arquivo (por exemplo, .mp4 .f4v).
 
 **Comportamento padrão:** o Download Progressivo de HTTP dá suporte à mídia MP4 e F4V por padrão.
 
@@ -501,7 +499,7 @@ Informações de chave:
 
 - Configure este recurso da seguinte forma:
     - Selecionando o código de status ao qual um max-stale será aplicado.
-    - Especificando um valor inteiro e, em seguida, selecionando a unidade de tempo desejada (ou seja, segundos, minutos, horas etc.). Esse valor define o max-stale interno que será aplicado.
+    - Especificando um valor inteiro e, em seguida, selecionando a unidade de tempo desejada (por exemplo, segundos, minutos, horas etc.). Esse valor define o max-stale interno que será aplicado.
 
 - Definir a unidade de tempo como "Desativado" desabilitará esse recurso. Um ativo em cache não será servido além de seu tempo de expiração normal.
 - Devido à maneira como as configurações de cache são acompanhadas, esse recurso não pode ser associado às seguintes condições de correspondência: 
@@ -513,7 +511,7 @@ Informações de chave:
     - Literal da Consulta da URL
     - Curinga da consulta da URL
 
-**Comportamento Padrão:** 2 minutos
+**Comportamento padrão:** dois minutos
 
 ###<a name="partial-cache-sharing"></a>Compartilhamento de Cache Parcial
 **Finalidade:** determina se uma solicitação pode gerar conteúdo parcialmente em cache.
@@ -545,7 +543,7 @@ Os valores válidos são:
 
 Valor|Result
 --|--
-Habilitado|Faz com que nosso servidor de borda busque novamente o ativo do servidor de origem.
+habilitado|Faz o servidor de borda buscar novamente o ativo do servidor de origem.
 Desabilitado|Restaura o comportamento padrão. O comportamento padrão é fornecer ativos de cache válidos mediante solicitação.
 Este recurso não é necessário para o armazenamento em cache e o fornecimento de conteúdo corretos, mas pode ser útil como solução alternativa. Por exemplo, geradores de conteúdo dinâmicos em servidores de origem inadvertidamente podem fazer com que respostas de 0 byte sejam enviadas aos servidores de borda. Esses tipos de respostas normalmente são armazenados em cache por nossos servidores de borda. Se você souber que uma resposta de 0 byte nunca é uma resposta válida 
 
@@ -562,11 +560,11 @@ Defina um conjunto delimitado por espaços dos códigos de status desejados.
 
 Informações de chave:
 
-- Habilite também o recurso de Ignorar No-Cache de Origem. Se esse recurso não estiver habilitado, respostas não&200; OK não poderão ser armazenadas em cache.
+- Habilite o recurso Ignorar no-cache de origem. Se esse recurso não estiver habilitado, as respostas diferentes de 200 OK não poderão ser armazenadas em cache.
 - O conjunto de códigos de status válidos para esse recurso é: 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 e 505.
 - Esse recurso não pode ser usado para desabilitar o cache para respostas que geram um código de status 200 OK.
 
-**Comportamento padrão:** o armazenamento em cache só está habilitado para respostas que geram um código de status 200 OK.
+**Comportamento padrão:** o cache está habilitado apenas para respostas que geram um código de status 200 OK.
 ###<a name="stale-content-delivery-on-error"></a>Distribuição de Conteúdo Obsoleta em Erro
 **Finalidade:** 
 
@@ -585,7 +583,7 @@ Desabilitado|O erro do servidor de origem será encaminhado ao solicitante.
 Informações de chave:
 
 - O comportamento desse recurso varia de acordo com a unidade de tempo selecionada.
-    - **Unidade de tempo:** especifique um período de tempo e selecione uma unidade de tempo (por exemplo, segundos, minutos, horas etc.) para permitir a entrega de conteúdo obsoleto. Esse tipo de configuração permite que a CDN estenda o período de tempo em que pode entregar conteúdo antes de solicitar a validação, de acordo com a seguinte fórmula:**TTL** + **Tempo Obsoleto ao Revalidar** 
+    - **Unidade de tempo:** especifique um período de tempo e selecione uma unidade de tempo (por exemplo, segundos, minutos, horas, etc.) para permitir a entrega de conteúdo obsoleto. Esse tipo de configuração permite que a CDN estenda o período de tempo em que pode entregar conteúdo antes de solicitar a validação, de acordo com a seguinte fórmula:**TTL** + **Tempo Obsoleto ao Revalidar** 
     - **Desativado:** selecione "Desativado" para exigir revalidação para que uma solicitação de conteúdo obsoleto possa ser atendida.
         - Não especifique um período de tempo, pois ele é inaplicável e será ignorado.
 
@@ -664,12 +662,12 @@ Excluir|Exclui o cabeçalho de solicitação especificado.|**Valor de cabeçalho
 
 Informações de chave:
 
-- Verifique se o valor especificado na opção de nome é uma correspondência exata para o cabeçalho de solicitação desejado.
+- Certifique-se de que o valor especificado na opção Nome é uma correspondência exata para o cabeçalho de solicitação desejado.
 - As maiúsculas e minúsculas não são levadas em conta para fins de identificação de um cabeçalho. Por exemplo, qualquer uma das seguintes variações do nome do cabeçalho Cache-Control pode ser usada para identificá-lo:
     - cache-control
     - CACHE-CONTROL
     - cachE-Control
-- Use apenas caracteres alfanuméricos, traços ou sublinhados ao especificar um nome de cabeçalho.
+- Ao especificar um nome de cabeçalho, use apenas caracteres alfanuméricos, traços ou sublinhados.
 - Excluir um cabeçalho impedirá que ele seja encaminhado para um servidor de origem por nossos servidores de borda.
 - Os seguintes cabeçalhos são reservados e não podem ser modificados por este recurso:
     - encaminhado
@@ -697,7 +695,7 @@ Excluir|Exclui o cabeçalho de solicitação especificado.|**Valor de cabeçalho
 
 Informações de chave:
 
-- Verifique se o valor especificado na opção de nome é uma correspondência exata para o cabeçalho de resposta desejado. 
+- Certifique-se de que o valor especificado na opção Nome é uma correspondência exata para o cabeçalho de resposta desejado. 
 - As maiúsculas e minúsculas não são levadas em conta para fins de identificação de um cabeçalho. Por exemplo, qualquer uma das seguintes variações do nome do cabeçalho Cache-Control pode ser usada para identificá-lo:
     - cache-control
     - CACHE-CONTROL
@@ -727,7 +725,7 @@ A opção de nome de Cabeçalho define o nome do cabeçalho de solicitação per
 
 Esse recurso permite que um servidor de origem de cliente obtenha endereços IP de cliente por meio de um cabeçalho de solicitação personalizado. Se a solicitação for atendida do cache, o servidor de origem não será informado do endereço IP do cliente. Portanto, é recomendável que esse recurso seja usado com ADN ou ativos que não serão ser armazenado em cache.
 
-Verifique se o nome do cabeçalho especificado não corresponde a qualquer um dos seguintes itens:
+Certifique-se de que o nome do cabeçalho especificado não corresponde a nenhum um dos seguintes nomes:
 
 - Nomes de cabeçalho de solicitação padrão. Uma lista de nomes de cabeçalho padrão pode ser encontrada em [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Nomes de cabeçalho reservados:
@@ -765,7 +763,7 @@ Cabeçalho de Resposta|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}
 Informações de chave:
 
 - Um campo de log personalizado pode conter qualquer combinação de campos de cabeçalho e texto sem formatação.
-- Os caracteres válidos para esse campo incluem: alfanuméricos (por exemplo, 0-9, a-z e A-Z), traços, dois-pontos, ponto e vírgula, apóstrofos, vírgulas, pontos, sublinhados, sinais de igual, parênteses, colchetes e espaços. O símbolo de porcentagem e as chaves são permitidos apenas quando usados para especificar um campo de cabeçalho.
+- Os caracteres válidos para esse campo incluem: alfanuméricos (0-9, a-z e A-Z), traços, dois-pontos, ponto e vírgula, apóstrofos, vírgulas, pontos, sublinhados, sinais de igual, parênteses, colchetes e espaços. O símbolo de porcentagem e as chaves são permitidos apenas quando usados para especificar um campo de cabeçalho.
 - A ortografia de cada campo de cabeçalho especificado deve corresponder ao nome de cabeçalho de solicitação/resposta desejado.
 - Para especificar vários cabeçalhos, é recomendável que você use um separador para indicar cada cabeçalho. Por exemplo, você poderia usar uma abreviação para cada cabeçalho. A sintaxe de exemplo é fornecida abaixo.
     - AE: %{Accept-Encoding}i A: %{Authorization}i CT: %{Content-Type}o 
@@ -927,8 +925,8 @@ A configuração deste recurso requer a definição das seguintes opções:
 Opção|Descrição
 -|-
 Código|Selecione o código de resposta que será retornado ao solicitante.
-Origem e Padrão| Essas configurações definem um padrão de URI de solicitação que identifica o tipo de solicitações que podem ser redirecionadas. Serão redirecionadas somente as solicitações cuja URL atender aos seguintes critérios: <br/> <br/> **Origem** (ou ponto de acesso a conteúdo): selecione um caminho relativo que identifique um servidor de origem. Esta é a seção "/XXXX/" e o nome do ponto de extremidade. <br/> **Origem (padrão):** deve ser definido um padrão que identifica solicitações pelo caminho relativo. Este padrão de expressão regular deve definir um caminho que é iniciado diretamente após o ponto de acesso a conteúdo selecionado anteriormente (veja acima). <br/> - Verifique se os critérios de URI de solicitação (ou seja, Origem e Padrão) definidos acima não entram em conflito com as condições de correspondência definidas para esse recurso. <br/> - Especifique um padrão. O uso de um valor em branco como o padrão só fará a correspondência entre solicitações e a pasta raiz do servidor de origem selecionado (por exemplo, http://cdn.mydomain.com/).
-Destino| Defina a URL para a qual as solicitações acima serão redirecionadas. <br/> Construa dinamicamente esta URL usando: <br/> - Um padrão de expressão regular <br/>- Variáveis HTTP <br/> Substitua os valores capturados no padrão de origem no padrão de destino usando $_n_, em que _n_ identifica um valor para a ordem na qual ele foi capturado. Por exemplo, $1 representa o primeiro valor capturado no padrão de origem, enquanto $2 representa o segundo valor. <br/> 
+Origem e Padrão| Essas configurações definem um padrão de URI de solicitação que identifica o tipo de solicitações que podem ser redirecionadas. Serão redirecionadas somente as solicitações cuja URL atender aos seguintes critérios: <br/> <br/> **Origem (ou ponto de acesso de conteúdo):** selecione um caminho relativo que identifica um servidor de origem. Esta é a seção "/XXXX/" e o nome do ponto de extremidade. <br/> **Origem (padrão):** deve ser definido um padrão que identifica solicitações pelo caminho relativo. Este padrão de expressão regular deve definir um caminho que é iniciado diretamente após o ponto de acesso a conteúdo selecionado anteriormente (veja acima). <br/> – Certifique-se de que os critérios de URI da solicitação (ou seja, Origem e padrão) definidos anteriormente não entram em conflito com as condições de correspondência definidas para esse recurso. <br/> – Especificar um padrão; se você usar um valor em branco como o padrão, todas as cadeias de caracteres serão correspondidas.
+Destino| Defina a URL para a qual as solicitações acima serão redirecionadas. <br/> Construa dinamicamente esta URL usando: <br/> - Um padrão de expressão regular <br/>- Variáveis HTTP <br/> Substitua os valores capturados no padrão de origem no padrão de destino usando $_n_, em que _n_ identifica um valor pela ordem na qual ele foi capturado. Por exemplo, $1 representa o primeiro valor capturado no padrão de origem, enquanto $2 representa o segundo valor. <br/> 
 É altamente recomendável usar uma URL absoluta. O uso de uma URL relativa pode redirecionar URLs da CDN para um caminho inválido.
 
 **Cenário de exemplo**
@@ -964,8 +962,8 @@ Informações de chave:
 
 Opção|Descrição
 -|-
- Origem e Padrão | Essas configurações definem um padrão de URI de solicitação que identifica o tipo de solicitações que podem ser reconfiguradas. Serão regravadas somente as solicitações cuja URL atender aos seguintes critérios: <br/>     - **Origem (ou ponto de acesso de conteúdo):** selecione um caminho relativo que identifique um servidor de origem. Esta é a seção "/XXXX/" e o nome do ponto de extremidade. <br/> - **Origem (padrão):** deve ser definido um padrão que identifica solicitações pelo caminho relativo. Este padrão de expressão regular deve definir um caminho que é iniciado diretamente após o ponto de acesso a conteúdo selecionado anteriormente (veja acima). <br/> Verifique se os critérios de URI de solicitação (ou seja, Origem e Padrão) definidos acima não estão em conflito com qualquer uma das condições de correspondência definidas para esse recurso. Especifique um padrão. O uso de um valor em branco como o padrão só fará a correspondência entre solicitações e a pasta raiz do servidor de origem selecionado (por exemplo, http://cdn.mydomain.com/). 
- Destino  |Defina a URL relativa na qual as solicitações acima serão regravadas: <br/>    1. Selecionando um ponto de acesso ao conteúdo que identifica um servidor de origem. <br/>    2. Definindo um caminho relativo usando: <br/>        - Um padrão de expressão regular <br/>        - Variáveis HTTP <br/> <br/> Substitua os valores capturados no padrão de origem no padrão de destino usando $_n_, em que _n_ identifica um valor para a ordem na qual ele foi capturado. Por exemplo, $1 representa o primeiro valor capturado no padrão de origem, enquanto $2 representa o segundo valor. 
+ Origem e Padrão | Essas configurações definem um padrão de URI de solicitação que identifica o tipo de solicitações que podem ser reconfiguradas. Serão regravadas somente as solicitações cuja URL atender aos seguintes critérios: <br/>     - **Origem (ou ponto de acesso de conteúdo):** selecione um caminho relativo que identifique um servidor de origem. Esta é a seção "/XXXX/" e o nome do ponto de extremidade. <br/> - **Origem (padrão):** deve ser definido um padrão que identifica solicitações pelo caminho relativo. Este padrão de expressão regular deve definir um caminho que é iniciado diretamente após o ponto de acesso a conteúdo selecionado anteriormente (veja acima). <br/> Certifique-se de que os critérios de URI da solicitação (ou seja, Origem e padrão) definidos anteriormente não entram em conflito com as condições de correspondência definidas para esse recurso. Especificar um padrão; se você usar um valor em branco como o padrão, todas as cadeias de caracteres serão correspondidas. 
+ Destino  |Defina a URL relativa na qual as solicitações acima serão regravadas: <br/>    1. Selecionando um ponto de acesso ao conteúdo que identifica um servidor de origem. <br/>    2. Definindo um caminho relativo usando: <br/>        - Um padrão de expressão regular <br/>        - Variáveis HTTP <br/> <br/> Substitua os valores capturados no padrão de origem no padrão de destino usando $_n_, em que _n_ identifica um valor pela ordem na qual ele foi capturado. Por exemplo, $1 representa o primeiro valor capturado no padrão de origem, enquanto $2 representa o segundo valor. 
  Esse recurso permite que nossos servidores de borda regravem a URL sem executar um redirecionamento tradicional. Isso significa que o solicitante receberá o mesmo código de resposta que obteria se a URL regravada tivesse sido solicitada.
 
 **Cenário de exemplo 1**
@@ -1018,9 +1016,3 @@ Esse recurso inclui critérios de correspondência que devem ser atendidos para 
 * [Condições de Correspondência do Mecanismo de Regras](cdn-rules-engine-reference-match-conditions.md)
 * [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-rules-engine.md)
 * [Visão geral da CDN do Azure](cdn-overview.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

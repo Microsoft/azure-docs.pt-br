@@ -12,19 +12,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2017
+ms.date: 08/30/2017
 ms.author: juanpere
-translationtype: Human Translation
-ms.sourcegitcommit: 4ba60cee8848079935111ed3de480081a4aa58f6
-ms.openlocfilehash: a586d437ed7636874d324c9d3fc5274fe9001627
-ms.lasthandoff: 02/06/2017
-
-
+ms.openlocfilehash: 157f112869f0042e330e6b281367632ca015e890
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnode"></a>Use o gerenciamento de dispositivos para iniciar uma atualização de firmware do dispositivo (.NET/Node)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
-## <a name="introduction"></a>Introdução
 No tutorial [Introdução ao gerenciamento de dispositivo][lnk-dm-getstarted], você viu como usar os primitivos [dispositivo gêmeo][lnk-devtwin] e [métodos diretos][lnk-c2dmethod] para reiniciar remotamente um dispositivo. Este tutorial usa os mesmos primitivos do Hub IoT e mostra como fazer uma atualização de firmware simulada de ponta a ponta.  Esse padrão é usado na implementação da atualização de firmware para o [exemplo de implementação de dispositivo Raspberry Pi][lnk-rpi-implementation].
 
 Este tutorial mostra como:
@@ -40,8 +38,8 @@ Ao final deste tutorial, você terá um aplicativo de dispositivo de console Nod
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Microsoft Visual Studio 2015.
-* Node.js versão 0.12.x ou posterior. <br/>  [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Node.js para este tutorial no Windows ou no Linux.
+* Visual Studio 2015 ou Visual Studio 2017.
+* Node.js versão 4.0.x ou posterior, <br/>  [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Node.js para este tutorial no Windows ou no Linux.
 * Uma conta ativa do Azure. (Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 
 Consulte o artigo [Introdução ao gerenciamento de dispositivo](iot-hub-csharp-node-device-management-get-started.md) para criar seu hub IoT e obter a cadeia de conexão dele.
@@ -57,16 +55,16 @@ Nesta seção, você criará um aplicativo do console .NET (usando C#) que inici
 
     ![Novo projeto da Área de Trabalho Clássica do Windows no Visual C#][img-createapp]
 
-2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **TriggerFWUpdate**, em seguida, clique em **Gerenciar Pacotes NuGet**.
-3. Na janela **Gerenciador de Pacotes Nuget**, selecione **Procurar**, procure **microsoft.azure.devices**, selecione **Instalar** para instalar o pacote **Microsoft.Azure.Devices** e aceite os termos de uso. O procedimento baixa, instala e adiciona uma referência ao [pacote Nuget do SDK do Dispositivo IoT do Azure][lnk-nuget-service-sdk] e suas dependências.
+1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **TriggerFWUpdate** e, em seguida, clique em **Gerenciar Pacotes NuGet...**.
+1. Na janela **Gerenciador de Pacotes Nuget**, selecione **Procurar**, procure **microsoft.azure.devices**, selecione **Instalar** para instalar o pacote **Microsoft.Azure.Devices** e aceite os termos de uso. O procedimento baixa, instala e adiciona uma referência ao [pacote Nuget do SDK do Dispositivo IoT do Azure][lnk-nuget-service-sdk] e suas dependências.
 
     ![Janela do Gerenciador de Pacotes NuGet][img-servicenuget]
-4. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
+1. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
    
         using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Shared;
         
-5. Adicione os seguintes campos à classe **Program** . Substitua os valores múltiplos do espaço reservado pela cadeia de conexão do Hub IoT criado na seção anterior e a ID do dispositivo.
+1. Adicione os seguintes campos à classe **Program** . Substitua os valores múltiplos do espaço reservado pela cadeia de conexão do Hub IoT criado na seção anterior e a ID do dispositivo.
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
@@ -74,7 +72,7 @@ Nesta seção, você criará um aplicativo do console .NET (usando C#) que inici
         static JobClient jobClient;
         static string targetDevice = "{deviceIdForTargetDevice}";
         
-6. Adicione o seguinte método à classe **Programa** :
+1. Adicione o seguinte método à classe **Programa** :
    
         public static async Task QueryTwinFWUpdateReported()
         {
@@ -82,7 +80,7 @@ Nesta seção, você criará um aplicativo do console .NET (usando C#) que inici
             Console.WriteLine(twin.Properties.Reported.ToJson());
         }
         
-7. Adicione o seguinte método à classe **Programa** :
+1. Adicione o seguinte método à classe **Programa** :
 
         public static async Task StartFirmwareUpdate()
         {
@@ -99,7 +97,7 @@ Nesta seção, você criará um aplicativo do console .NET (usando C#) que inici
             Console.WriteLine("Invoked firmware update on device.");
         }
 
-7. Por fim, adicione as seguintes linhas ao método **Main** :
+1. Por fim, adicione as seguintes linhas ao método **Main** :
    
         registryManager = RegistryManager.CreateFromConnectionString(connString);
         StartFirmwareUpdate().Wait();
@@ -107,7 +105,9 @@ Nesta seção, você criará um aplicativo do console .NET (usando C#) que inici
         Console.WriteLine("Press ENTER to exit.");
         Console.ReadLine();
         
-8. Compilar a solução.
+1. No Gerenciador de Soluções, abra **Definir projetos de StartUp...** e certifique-se de que a **Ação** para o projeto **TriggerFWUpdate** é **Iniciar**.
+
+1. Compilar a solução.
 
 [!INCLUDE [iot-hub-device-firmware-update](../../includes/iot-hub-device-firmware-update.md)]
 
@@ -119,9 +119,11 @@ Agora você está pronto para executar os aplicativos.
     ```
     node dmpatterns_fwupdate_device.js
     ```
-2. No Visual Studio, clique com o botão direito do mouse no projectRun para o aplicativo do console C# **TriggerFWUpdate**, selecione **Depurar** e **Iniciar nova instância**.
+2. No Visual Studio, clique com o botão direito do mouse no projeto **TriggerFWUpdate**, selecione **Depurar** e **Iniciar nova instância**.
 
 3. Você verá a resposta do dispositivo para o método direto no console.
+
+    ![Firmware atualizado com êxito][img-fwupdate]
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você usou um método direto para disparar uma atualização remota de firmware em um dispositivo e utilizou as propriedades relatadas para acompanhar o andamento da atualização do firmware.
@@ -131,6 +133,7 @@ Para saber como estender sua solução de IoT e agendar chamadas de método em v
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-node-firmware-update/servicesdknuget.png
 [img-createapp]: media/iot-hub-csharp-node-firmware-update/createnetapp.png
+[img-fwupdate]: media/iot-hub-csharp-node-firmware-update/fwupdated.png
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md

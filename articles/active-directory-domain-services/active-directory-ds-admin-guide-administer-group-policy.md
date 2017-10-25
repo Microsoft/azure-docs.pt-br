@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 09/26/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 76987a6e91ae688b3856567073a7d27472e5ba09
-ms.openlocfilehash: 9245eb870f592ee0a1f1d6956ce3d573f4902485
-ms.lasthandoff: 01/28/2017
-
-
+ms.openlocfilehash: aad9e07e040bebe9572af1dd4a2f74b8b384f651
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Administrar a política de grupo em um domínio gerenciado do Azure AD Domain Services
 O Azure Active Directory Domain Services inclui GPOs (Objetos de Política de Grupo) internos para os contêineres "Usuários do AADDC" e "Computadores do AADDC". Você pode personalizar esses GPOs internos para configurar a Política de Grupo no domínio gerenciado. Além disso, os membros do grupo "Administradores do AAD DC" podem criar suas próprias UOs personalizadas no domínio gerenciado. Eles também podem criar GPOs personalizados e vinculá-los a essas UOs personalizadas. Os usuários que pertencem ao grupo "Administradores do AAD DC" recebem privilégios de administração da Política de Grupo no domínio gerenciado.
@@ -45,11 +44,11 @@ A primeira etapa é provisionar uma máquina virtual do Windows Server que tenha
 ## <a name="task-2---install-group-policy-tools-on-the-virtual-machine"></a>Tarefa 2 — Instalar as ferramentas de Política de Grupo na máquina virtual
 Execute as etapas a seguir para instalar as Ferramentas de administração de Política de Grupo na máquina virtual adicionada ao domínio.
 
-1. Navegue até o nó **Máquinas Virtuais** no portal clássico do Azure. Selecione a máquina virtual que você criou na Tarefa 1 e clique em **Conectar** na barra de comandos na parte inferior da janela.
+1. Navegue até o Portal do Azure. Clique em **Todos os recursos** no painel esquerdo. Localize e clique na máquina virtual criada na Tarefa 1.
+2. Clique no botão **Conectar** na guia Visão Geral. Um arquivo do Protocolo RDP (.rdp) é criado e baixado.
 
     ![Conectar-se à máquina virtual do Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-2. O portal clássico solicita que você abra ou salve um arquivo com uma extensão '.rdp', que é usada para se conectar à máquina virtual. Clique no arquivo quando o download for concluído.
-3. No prompt de logon, use as credenciais de um usuário pertencente ao grupo “Administradores do AAD DC”. Por exemplo, usamos 'bob@domainservicespreview.onmicrosoft.com' no nosso caso.
+3. Para se conectar à sua VM, abra o arquivo RDP baixado. Se solicitado, clique em **Conectar**. No prompt de logon, use as credenciais de um usuário pertencente ao grupo “Administradores do AAD DC”. Por exemplo, usamos “bob@domainservicespreview.onmicrosoft.com” no nosso caso. Você pode receber um aviso do certificado durante o processo de logon. Clique em Sim ou em Continuar para prosseguir com a conexão.
 4. Na tela inicial, abra **Gerenciador do Servidor**. Clique em **Adicionar Funções e Recursos** no painel central da janela do Gerenciador do Servidor.
 
     ![Iniciar o Gerenciador do Servidor na máquina virtual](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
@@ -112,7 +111,7 @@ Você pode criar ou importar seus próprios objetos de política de grupo person
 2. Especifique um nome para o novo GPO e clique em **OK**.
 
     ![Especifique um nome para o GPO](./media/active-directory-domain-services-admin-guide/gp-specify-gpo-name.png)
-3. Um novo GPO é criado e vinculado à sua UO personalizada. Clique com botão direito do mouse no GPO e clique em **Editar... ** no menu.
+3. Um novo GPO é criado e vinculado à sua UO personalizada. Clique com botão direito do mouse no GPO e clique em **Editar...**  no menu.
 
     ![GPO recém-criado](./media/active-directory-domain-services-admin-guide/gp-gpo-created.png)
 4. Você pode personalizar o GPO recém-criado usando o **Editor de gerenciamento de política de grupo**.
@@ -127,4 +126,3 @@ Mais informações sobre como usar o [Console de Gerenciamento de Política de G
 * [Ingressar uma máquina virtual do Windows Server em um domínio gerenciado dos Serviços de Domínio do Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Administrar um domínio gerenciado dos Serviços de Domínio do Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 * [Console de Gerenciamento de Política de Grupo](https://technet.microsoft.com/library/cc753298.aspx)
-

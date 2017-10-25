@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 10/05/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 783e797ad318fe926ba9e72e2eea027beb4a5994
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: 875f00064f94b37ab5efdde54ca3e6cbda779654
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-relay-port-settings"></a>Configurações de porta de Retransmissão do Azure
 
 A tabela a seguir descreve a configuração necessária dos valores de porta para uma Retransmissão do Azure.
@@ -51,6 +49,6 @@ As Conexões Híbridas usam WebSockets como o mecanismo de transporte subjacente
 |[Classe WS2007HttpRelayBinding](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (serviço)|Você pode usar o|9351/HTTP|
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre Retransmissão do Azure, visite estes links:
+Para saber mais sobre a Retransmissão do Azure, visite estes links:
 * [O que é Retransmissão do Azure?](relay-what-is-it.md)
 * [Perguntas frequentes sobre retransmissão](relay-faq.md)

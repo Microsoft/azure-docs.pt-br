@@ -3,7 +3,7 @@ title: API REST de pesquisa de log do Log Analytics | Microsoft Docs
 description: "Este guia fornece um tutorial básico que descreve como você pode usar a API REST da Pesquisa do Log Analytics no OMS (Operations Management Suite) e fornece exemplos que mostram como usar os comandos."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: bwren
 manager: carmonm
 editor: 
 ms.assetid: b4e9ebe8-80f0-418e-a855-de7954668df7
@@ -12,16 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
-ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: b12f823d723b013755fc868b883faefa2072eb75
-ms.openlocfilehash: 9b21fed003f96dbf7ebd72d6f46fff91acbf039e
-
-
+ms.date: 09/06/2017
+ms.author: bwren
+ms.openlocfilehash: 5b51c6fcc69c8dff6579a1a1221e88822eccc1a3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-analytics-log-search-rest-api"></a>API REST de pesquisa de log do Log Analytics
 Este guia fornece um tutorial básico, incluindo exemplos de como você pode usar a API REST do Log Analytics Search. O Log Analytics faz parte do OMS (Operations Management Suite).
+
+> [!NOTE]
+> Se o espaço de trabalho foi atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), você deverá consultar a [documentação da nova versão da API de pesquisa de logs](https://dev.loganalytics.io/).
 
 > [!NOTE]
 > O Log Analytics chamava-se Operational Insights e é por isso que esse é o nome usado nos no provedor de recursos.
@@ -236,8 +239,11 @@ A tabela a seguir descreve as propriedades que estão disponíveis.
 
 ```
     $savedSearchParametersJson = "{'properties': { 'Category': 'myCategory', 'DisplayName':'myDisplayName', 'Query':'* | measure Count() by Source', 'Version':'1'  }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2015-03-20 $savedSearchParametersJson
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisismyid?api-version=2015-03-20 $savedSearchParametersJson
 ```
+
+> [!NOTE]
+> O nome para todas as pesquisas, agendas e ações salvas criadas com a API do Log Analytics deve estar em letras minúsculas.
 
 ### <a name="delete-saved-searches"></a>Excluir pesquisas salvas
 **Solicitação:**
@@ -412,9 +418,3 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para criar consultas usando campos personalizados para os critérios.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-

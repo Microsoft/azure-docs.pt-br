@@ -1,6 +1,6 @@
 ---
 title: "Integração do SDK do Windows Phone Silverlight para o Engagement"
-description: Como integrar o Mobile Engagement do Azure com aplicativos do Windows Phone Silverlight
+description: Como integrar o Azure Mobile Engagement com aplicativos do Windows Phone Silverlight
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 67f69a5a92c922bc7357c1e4bcc88f55e16d1255
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 29b18aecff783cebf617995e2a19f16f0b68b51b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-phone-silverlight-engagement-sdk-integration"></a>Integração do SDK do Windows Phone Silverlight para o Engagement
 > [!div class="op_single_selector"]
@@ -30,7 +29,7 @@ ms.lasthandoff: 11/17/2016
 > 
 > 
 
-Este procedimento descreve a maneira mais simples para ativar as funções de monitoramento e de análise do Mobile Engagement do Azure em seu aplicativo do Windows Phone Silverlight.
+Este procedimento descreve a maneira mais simples para ativar as funções de monitoramento e de análise do Azure Mobile Engagement em seu aplicativo do Windows Phone Silverlight.
 
 As etapas a seguir são suficientes para ativar o relatório de logs necessários para calcular todas as estatísticas sobre usuários, sessões, atividades, falhas e técnicas. O relatório de logs necessário para calcular outras estatísticas, como eventos, erros e trabalhos deve ser feito manualmente usando a API do Engagement (consulte [Como usar a marcação avançada de API do Mobile Engagement no aplicativo Windows Phone](mobile-engagement-windows-phone-use-engagement-api.md) abaixo) já que essas estatísticas são dependentes do aplicativo.
 
@@ -247,5 +246,4 @@ O modo de intermitência aumenta ligeiramente a vida útil da bateria, mas tem u
 > O limite de intermitência não pode ser configurado para um período menor que um segundo. Se você tentar fazer isso, o SDK mostrará um rastreamento com o erro e será redefinido automaticamente como o valor padrão, que é de, zero segundo. Isso irá disparar o SDK para relatar os logs em tempo real.
 > 
 > 
-
 

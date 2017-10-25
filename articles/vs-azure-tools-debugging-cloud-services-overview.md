@@ -3,8 +3,8 @@ title: "Opções de depuração dos serviços de nuvem do Azure | Microsoft Docs
 description: "Depurando serviços de nuvem do Azure"
 services: visual-studio-online
 documentationcenter: n/a
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 80755da7-8350-4f5c-97ce-2962beabb36d
 ms.service: visual-studio-online
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/18/2017
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: e79aa1db6c89ad1e382c7a70017f868fe186aa74
-ms.lasthandoff: 03/22/2017
-
-
+ms.author: kraigb
+ms.openlocfilehash: cdcd4ca1fbc7e0a2f24122b32148cbda3d6951a0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="learn-the-various-ways-to-debug-an-azure-cloud-service"></a>Conheça as várias maneiras de depurar um serviço de nuvem do Azure
 Este artigo fornece links para as várias maneiras de depurar um serviço de nuvem do Azure. 

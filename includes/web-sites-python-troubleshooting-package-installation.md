@@ -5,16 +5,16 @@ Nesta seção, examinaremos modos de lidar com esse problema.
 ### <a name="request-wheels"></a>Solicitar discos
 Se a instalação do pacote requer um compilador, você deve tentar entrar em contato com o proprietário do pacote para solicitar que discos sejam disponibilizados para o pacote.
 
-Com o lançamento recente do [Compilador do Microsoft Visual C++ para Python 2.7][Compilador do Microsoft Visual C++ para Python 2.7], agora é mais fácil criar pacotes que têm código nativo para o Python 2.7.
+Com o lançamento recente do [compilador do Microsoft Visual C++ para Python 2.7][Microsoft Visual C++ Compiler for Python 2.7], agora é mais fácil criar pacotes que têm código nativo para o Python 2.7.
 
 ### <a name="build-wheels-requires-windows"></a>Compilar discos(requires Windows)
 Observação: ao usar essa opção, compile o pacote usando um ambiente Python que corresponda à plataforma/arquitetura/versão usada no aplicativo Web no Serviço de Aplicativo do Azure (Windows/32 bits/2.7 ou 3.4).
 
 Se o pacote não for instalado porque exige um compilador, você pode instalar o compilador em sua máquina local e criar um disco para o pacote, que em seguida, você incluirá no repositório.
 
-Usuários do Mac/Linux: se você não tiver acesso a uma máquina do Windows, consulte [Criar uma máquina Virtual executando Windows][Criar uma máquina Virtual executando Windows] para saber como criar uma máquina virtual no Azure.  Você pode usá-lo para criar os discos, adicioná-los ao repositório e descartar a VM se desejar. 
+Usuários do Mac/Linux: Se você não tiver acesso a uma máquina do Windows, consulte [Criar uma máquina Virtual executando Windows][Create a Virtual Machine Running Windows] para saber como criar uma máquina virtual no Azure.  Você pode usá-lo para criar os discos, adicioná-los ao repositório e descartar a VM se desejar. 
 
-Para o Python 2.7, você pode instalar o [Compilador do Microsoft Visual C++ para Python 2.7][Compilador do Microsoft Visual C++ para Python 2.7].
+Para o Python 2.7, você pode instalar o [Compilador do Microsoft Visual C++ para Python 2.7][Microsoft Visual C++ Compiler for Python 2.7].
 
 Para o Python 3.4, você pode instalar o [Microsoft Visual C++ 2010 Express][Microsoft Visual C++ 2010 Express].
 
@@ -59,11 +59,6 @@ Se você incluir o ambiente virtual no repositório poderá, pela criação de u
 
 É recomendável que você exclua o ambiente virtual existente no aplicativo Web, para impedir que sobrem arquivos de quando o ambiente virtual for gerenciado automaticamente.
 
-[Criar uma máquina Virtual executando Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
-[Compilador do Microsoft Visual C++ para Python 2.7]: http://aka.ms/vcpython27
+[Create a Virtual Machine Running Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
+[Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
-
-
-<!--HONumber=Nov16_HO2-->
-
-

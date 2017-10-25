@@ -2,7 +2,7 @@
 title: "Documentação do Azure HDInsight - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba mais sobre o Hadoop no HDInsight. A documentação mostra como usar o Hadoop, o Spark, o HBase, o Servidor R e muito mais para processar, analisar e obter informações de big data."
 services: hdinsight
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 2d07e801ea3375e06c9f66db49219b6c79f97e61
-ms.openlocfilehash: bf303554aa47116cdfce074d87235901b5390769
-
+ms.openlocfilehash: 7d639ca03261f3a9cad537dd92103c5aa6cd0af9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="azure-hdinsight-documentation"></a>Documentação do HDInsight do Azure
 
 Saiba como usar o Hadoop na nuvem no HDInsight para analisar dados de streaming ou históricos. A documentação e os tutoriais mostram como criar clusters, processar e analisar big data e desenvolver soluções com o Hadoop, o Spark, o HBase, o Servidor R, o Storm e outras tecnologias no ecossistema do Hadoop.
@@ -131,6 +131,24 @@ Saiba como usar o Hadoop na nuvem no HDInsight para analisar dados de streaming 
         </div>
         </a>
     </li>
+<li>
+        <a href="https://github.com/hdinsight/hdinsight-dev-guide/blob/master/HDInsight%20Developer%20Guide.pdf">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/tutorial.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Guia do Desenvolvedor do HDInsight</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
     <li>
 </ul>
 
@@ -156,7 +174,7 @@ Saiba como usar o Hadoop na nuvem no HDInsight para analisar dados de streaming 
                 <div class="card">
                     <div class="cardText">
                         <h3>Linguagens</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt271028.aspx">.NET (Hadoop)</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight">.NET (Hadoop)</a></p>
                         <p><a href="https://www.nuget.org/packages/Microsoft.HBase.Client/">.NET (HBase)</a></p>
                         <p><a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library">.NET (Avro)</a></p>
                     </div>
@@ -178,11 +196,5 @@ Saiba como usar o Hadoop na nuvem no HDInsight para analisar dados de streaming 
         </div>
     </li>
 </ul>
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: aebe0b74c952045375e264bed88d33d936e34b92
-ms.lasthandoff: 03/14/2017
-
-
+ms.openlocfilehash: 328e2039bbaa8988dc35b46712fd0de6f8bcbee8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Referência técnica do conector Lotus Domino
 Este artigo descreve o conector Lotus Domino. O artigo se aplica aos seguintes produtos:
@@ -380,7 +379,7 @@ A tabela a seguir lista essas propriedades e fornece uma descrição delas.
 | \_MMS_Certifier |A propriedade que contém o nome da hierarquia organizacional do certificador. Por exemplo: OU=OrganizationUnit,O=Org,C=Country. |
 | \_MMS_IDPath |Se a propriedade estiver vazia, nenhum arquivo de identificação do usuário será criado localmente no Servidor de Sincronização. Se a propriedade contiver um nome de arquivo, um arquivo de ID de usuário será criado na pasta de metadados. A propriedade também pode conter um caminho completo. |
 | \__MMS_IDRegType |As pessoas podem ser classificadas como contatos, Usuários dos EUA e Usuários internacionais. A tabela a seguir lista os valores possíveis:  <li>0 - Contato</li><li>1 - Usuário dos EUA</li><li>2 - Usuário internacional</li> |
-| \_MMS_IDStoreType |Propriedade necessária para os usuários dos EUA e internacionais. A propriedade contém um valor inteiro que especifica se a identificação do usuário é armazenada como um anexo no catálogo de endereços do Notes ou no arquivo de email da pessoa. Se o arquivo ID do Usuário for um anexo no catálogo de endereços, como opção, ele poderá ser criado como um arquivo com \_MMS_IDPath. <li>Vazio — arquivo de ID do repositório no Cofre de ID, nenhum arquivo de identificação (usado para Contatos).</li><li> &1; - Anexo no catálogo de endereços do Notes. A propriedade \_MMS_Password deve ser definida para os arquivos de identificação de usuário anexados</li><li>2 - ID do repositório no arquivo de email da pessoa. O \_MMS_UseAdminP deve ser definido como falso para permitir que o arquivo de email seja criado durante o registro de Pessoa. A propriedade \_MMS_Password deve ser definida para os arquivos de identificação de usuário.</li> |
+| \_MMS_IDStoreType |Propriedade necessária para os usuários dos EUA e internacionais. A propriedade contém um valor inteiro que especifica se a identificação do usuário é armazenada como um anexo no catálogo de endereços do Notes ou no arquivo de email da pessoa. Se o arquivo ID do Usuário for um anexo no catálogo de endereços, como opção, ele poderá ser criado como um arquivo com \_MMS_IDPath. <li>Vazio — arquivo de ID do repositório no Cofre de ID, nenhum arquivo de identificação (usado para Contatos).</li><li> 1 - Anexo no catálogo de endereços do Notes. A propriedade \_MMS_Password deve ser definida para os arquivos de identificação de usuário anexados</li><li>2 - ID do repositório no arquivo de email da pessoa. O \_MMS_UseAdminP deve ser definido como falso para permitir que o arquivo de email seja criado durante o registro de Pessoa. A propriedade \_MMS_Password deve ser definida para os arquivos de identificação de usuário.</li> |
 | \_MMS_MailQuotaSizeLimit |O número de megabytes que são permitidos para o banco de dados do arquivo de email. |
 | \_MMS_MailQuotaWarningThreshold |O número de megabytes que são permitidos para o banco de dados do arquivo de email antes de um aviso ser emitido. |
 | \_MMS_MailTemplateName |O arquivo de modelo de email que é usado para criar o arquivo de email do usuário. Se um modelo for especificado, o arquivo de email será criado usando o modelo especificado. Se nenhum modelo for especificado, o arquivo de modelo padrão será usado para criar o arquivo. |
@@ -495,4 +494,3 @@ Há várias maneiras no Domino de estender o esquema, de modo que ele parece um 
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 * Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
-

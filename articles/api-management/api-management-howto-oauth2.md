@@ -3,7 +3,7 @@ title: Autorizar contas de desenvolvedor usando o OAuth 2.0 no Gerenciamento de 
 description: "Aprenda a autorizar os usuários usando o OAuth 2.0 no Gerenciamento de API."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 78c48247-64f0-4708-b2d0-98b61a821283
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: e43027cdea291f34aa60ad123e0de86b385efb30
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: a19c453bb3271374b587f3d0b35adad55863b490
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Como autorizar contas de desenvolvedor usando o OAuth 2.0 no Gerenciamento de API do Azure
@@ -65,17 +67,17 @@ Especifique os **tipos de concessão do código de autorização** ao verificar 
 
 Digite a **URL do ponto de extremidade de autorização**. Para o Active Directory do Azure, essa URL será semelhante à URL seguinte, em que `<client_id>` é substituído pela ID do cliente que identifica seu aplicativo para o servidor OAuth 2.0.
 
-`https://login.windows.net/<client_id>/oauth2/authorize`
+`https://login.microsoftonline.com/<client_id>/oauth2/authorize`
 
 O **método de solicitação de autorização** especifica como a solicitação de autorização é enviada para o servidor OAuth 2.0. O **GET** é selecionado por padrão.
 
-A seção seguinte está onde a **URL de ponto de extremidade do token**, os **métodos de autenticação do cliente**,** o método de envio de token de acesso** e o **escopo padrão** são especificados.
+A seção seguinte está onde a **URL de ponto de extremidade do token**, os **métodos de autenticação do cliente**, **o método de envio de token de acesso** e o **escopo padrão** são especificados.
 
 ![Novo servidor][api-management-oauth2-server-3]
 
 Para o servidor OAuth 2.0 do Azure Active Directory, a **URL do ponto de extremidade do token** terá o seguinte formato, em que `<APPID>` tem o formato de `yourapp.onmicrosoft.com`.
 
-`https://login.windows.net/<APPID>/oauth2/token`
+`https://login.microsoftonline.com/<APPID>/oauth2/token`
 
 A configuração padrão para os **métodos de autenticação do cliente** é **Básica** e o **método de envio do token de acesso** é **Cabeçalho de autorização**. Esses valores são configurados nesta seção da forma, junto com o **Escopo padrão**.
 
@@ -103,7 +105,7 @@ Depois de configurar seu servidor de autorização OAuth 2.0 e configurar sua AP
 
 ![Portal do desenvolvedor][api-management-developer-portal-menu]
 
-Clique em** APIs** no menu superior e selecione **API de Eco**.
+Clique em **APIs** no menu superior e selecione **API de Eco**.
 
 ![API de Eco][api-management-apis-echo-api]
 
@@ -172,10 +174,5 @@ Para obter mais informações sobre como usar OAuth 2.0 e Gerenciamento de API, 
 [Configure an API to use OAuth 2.0 user authorization]: #step2
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

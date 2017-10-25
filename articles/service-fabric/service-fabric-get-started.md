@@ -1,6 +1,6 @@
 ---
-title: "Configurar um ambiente de desenvolvimento para microsserviços do Azure | Microsoft Docs"
-description: "Instale o tempo de execução, o SDK e as ferramentas e crie um cluster de desenvolvimento local. Depois de concluir a instalação, você estará pronto para criar aplicativos."
+title: "Configurar um ambiente de desenvolvimento do Windows para microsserviços do Azure | Microsoft Docs"
+description: "Instale o tempo de execução, o SDK e as ferramentas e crie um cluster de desenvolvimento local. Depois de concluir a instalação, você estará pronto para criar aplicativos no Windows."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,16 +12,15 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/22/2017
+ms.date: 09/25/2017
 ms.author: ryanwi, mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 91049ee124999269a326106cbd6fc211cc027d26
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: 0691f26168feacf290b732afd7dfd680a2537179
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="prepare-your-development-environment"></a>Preparar seu ambiente de desenvolvimento
+# <a name="prepare-your-development-environment-on-windows"></a>Preparar seu ambiente de desenvolvimento no Windows
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
@@ -29,7 +28,7 @@ ms.lasthandoff: 03/22/2017
 > 
 > 
 
- Para compilar e executar os [aplicativos do Azure Service Fabric][1] em seu computador de desenvolvimento, instale o tempo de execução, o SDK e as ferramentas. Você também precisa habilitar a execução dos scripts do Windows PowerShell incluídos no SDK.
+ Para compilar e executar os [aplicativos do Azure Service Fabric][1] em seu computador de desenvolvimento do Windows, instale o tempo de execução, o SDK e as ferramentas. Você também precisa habilitar a execução dos scripts do Windows PowerShell incluídos no SDK.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 ### <a name="supported-operating-system-versions"></a>Versões de sistema operacional com suporte
@@ -62,17 +61,12 @@ Para Visual Studio 2015, as ferramentas do Service Fabric são instaladas junto 
 Se só precisar do SDK, você poderá instalar este pacote:
 * [Instalar o SDK do Microsoft Azure Service Fabric][core-sdk]
 
-> [!WARNING]
-> Os clientes relataram erros durante a instalação ao usar esses links de inicialização, ou quando esses links foram usados no navegador Chrome. Esses erros são problemas conhecidos no Web Platform Installer e estão sendo corrigidos.  Tente as seguintes soluções alternativas:
->- Inicie os links acima em navegadores Internet Explorer ou Edge, ou
->- Inicie o Web Platform Installer no menu Iniciar, procure "Service Fabric" e instale o SDK
-> 
-> Pedimos desculpas pelo transtorno. 
-
 As versões atuais são:
-* SDK do Service Fabric 2.5.216
-* Execução do Service Fabric 5.5.216
-* Ferramentas do Visual Studio 2015 1.5.50311.1
+* SDK do Service Fabric 2.8.211
+* Tempo de execução do Service Fabric 6.0.211
+* Ferramentas do Service Fabric para Visual Studio 2015 1.7.50721
+* O Visual Studio 2017 Atualização 3 inclui as Ferramentas do Service Fabric para Visual Studio 1.7.20170817
+* O Visual Studio 2017 Atualização 4 Versão Prévia 1 (15.4.0 Versão Prévia 1.0) inclui as Ferramentas do Service Fabric para Visual Studio 1.7.20170721
 
 Para obter uma lista das versões com suporte, consulte [suporte ao Service Fabric](service-fabric-support.md)
 
@@ -100,4 +94,3 @@ Agora que você terminou de configurar seu ambiente de desenvolvimento, comece a
 [full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI link"
 [core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI link"
 [powershell5-download]:https://www.microsoft.com/en-us/download/details.aspx?id=50395
-

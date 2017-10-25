@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: b870974efdde2ebdf339013ca86b772b665151a4
-ms.openlocfilehash: 8cfdad48524c24b3ad69c01ae0330e90ce197b3a
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 3062c7c060c3730c5edef3ada16f3a5077cf5558
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Usar o Gerenciador de Dispositivos do StorSimple para gerenciar alertas do StorSimple Virtual Array
 
@@ -151,7 +151,7 @@ As tabelas a seguir listam alguns dos alertas do StorSimple que você pode encon
 
 | Texto de alerta | Evento | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
-| Você está sofrendo atrasos inesperados na transferência de dados. |Transferência de dados lenta. |Erros de limitação acontecem quando você excede os alvos de escalabilidade de um serviço de armazenamento. O serviço de armazenamento faz isso para garantir que nenhum cliente ou locatário possa usar o serviço a custos de outros. Para saber mais sobre a solução de problemas de sua conta de armazenamento do Azure, vá para [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Microsoft Azure](../storage/storage-monitoring-diagnosing-troubleshooting.md). |
+| Você está sofrendo atrasos inesperados na transferência de dados. |Transferência de dados lenta. |Erros de limitação acontecem quando você excede os alvos de escalabilidade de um serviço de armazenamento. O serviço de armazenamento faz isso para garantir que nenhum cliente ou locatário possa usar o serviço a custos de outros. Para saber mais sobre a solução de problemas de sua conta de armazenamento do Azure, vá para [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Microsoft Azure](../storage/common/storage-monitoring-diagnosing-troubleshooting.md). |
 | Há pouco espaço local de reserva em disco no <*nome do dispositivo*>. |Tempo de resposta lento. |10% do tamanho total provisionado para <*nome do dispositivo*> é reservado no dispositivo local e agora está acabando o espaço reservado. A carga de trabalho de <*nome do dispositivo*> está gerando uma maior taxa de variação ou você pode ter migrado recentemente uma grande quantidade de dados. Isso pode resultar em desempenho reduzido. Considere uma das ações a seguir para resolver esse problema:<ul><li>Aumentar a largura de banda de nuvem para este dispositivo.</li><li>Reduzir ou mover cargas de trabalho para outro volume ou compartilhamento.</li></ul> |
 
 ### <a name="security-alerts"></a>Alertas de segurança
@@ -170,5 +170,4 @@ As tabelas a seguir listam alguns dos alertas do StorSimple que você pode encon
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba mais sobre o StorSimple Virtual Array](storsimple-ova-overview.md).
-
 

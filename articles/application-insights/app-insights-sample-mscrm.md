@@ -4,20 +4,20 @@ description: "Obtenha a telemetria do Microsoft Dynamics CRM Online usando o App
 services: application-insights
 documentationcenter: 
 author: mazharmicrosoft
-manager: douge
+manager: carmonm
 ms.assetid: 04c66338-687e-49e5-9975-be935f98f156
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2015
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: 8a000ecda94edbeab8c0438c63d6b66dc7f0902b
-
-
+ms.date: 04/16/2017
+ms.author: bwren
+ms.openlocfilehash: a9593d5f198e05db80451a599428a296ed02e781
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Passo a passo: Ativar a telemetria para o Microsoft Dynamics CRM Online usando o Application Insights
 Este artigo mostra como obter dados de telemetria no [Microsoft Dynamics CRM Online](https://www.dynamics.com/) usando o [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Percorreremos o processo completo de adição de um script do Application Insights ao seu aplicativo, captura de dados e visualização de dados.
@@ -37,9 +37,9 @@ Para monitorar seu aplicativo, você adiciona um SDK do Application Insights a e
     ![Clique em +, Serviços de Desenvolvedor, Application Insights.](./media/app-insights-sample-mscrm/01.png)
    
     Escolha ASP.NET como o tipo de aplicativo.
-3. Abra a guia Início Rápido e abra o script de código.
+3. Abra a página de Introdução e abra "Monitorar e diagnosticar aplicativos do lado do cliente".
    
-    ![](./media/app-insights-sample-mscrm/03.png)
+    ![Trecho de código para inserção na sua página da Web](./media/app-insights-sample-mscrm/03.png)
 
 **Mantenha a página de código aberta** enquanto realiza a próxima etapa na outra janela do navegador. Você precisará do código em breve. 
 
@@ -47,40 +47,40 @@ Para monitorar seu aplicativo, você adiciona um SDK do Application Insights a e
 1. Abra sua instância do CRM Online e faça logon com privilégios de administrador.
 2. Abra o Microsoft Dynamics CRM Configurações, Personalizações, Personalizar o Sistema
    
-    ![](./media/app-insights-sample-mscrm/04.png)
+    ![Configurações do Microsoft Dynamics CRM](./media/app-insights-sample-mscrm/04.png)
    
-    ![](./media/app-insights-sample-mscrm/05.png)
+    ![Configurações > Personalizações](./media/app-insights-sample-mscrm/05.png)
 
-    ![](./media/app-insights-sample-mscrm/06.png)
+    ![Personalizar a opção do sistema](./media/app-insights-sample-mscrm/06.png)
 
 1. Crie um recurso de JavaScript.
    
-    ![](./media/app-insights-sample-mscrm/07.png)
+    ![Caixa de diálogo Novo Recurso da Web](./media/app-insights-sample-mscrm/07.png)
    
     Atribua um nome, selecione **Script (JScript)** e abra o editor de texto.
    
-    ![](./media/app-insights-sample-mscrm/08.png)
+    ![Abrir o editor de texto](./media/app-insights-sample-mscrm/08.png)
 2. Copie o código do Application Insights. Ao copiar, certifique-se de ignorar marcas de script. Consulte a captura de tela abaixo:
    
-    ![](./media/app-insights-sample-mscrm/09.png)
+    ![Configurar sua chave de instrumentação](./media/app-insights-sample-mscrm/09.png)
    
     O código inclui a chave de instrumentação que identifica seu recurso do Application insights.
 3. Salve e publique.
    
-    ![](./media/app-insights-sample-mscrm/10.png)
+    ![Salvar e publicar](./media/app-insights-sample-mscrm/10.png)
 
 ### <a name="instrument-forms"></a>Formulários de instrumento
 1. No Microsoft CRM Online, abra o formulário Conta
    
-    ![](./media/app-insights-sample-mscrm/11.png)
+    ![Formulário da Conta](./media/app-insights-sample-mscrm/11.png)
 2. Abra as propriedades do formulário
    
-    ![](./media/app-insights-sample-mscrm/12.png)
+    ![Propriedades do formulário](./media/app-insights-sample-mscrm/12.png)
 3. Adicione o recurso da Web de JavaScript que você criou
    
-    ![](./media/app-insights-sample-mscrm/13.png)
+    ![Adicionar menu](./media/app-insights-sample-mscrm/13.png)
    
-    ![](./media/app-insights-sample-mscrm/14.png)
+    ![Adicionar recurso da Web](./media/app-insights-sample-mscrm/14.png)
 4. Salve e publique as personalizações do formulário.
 
 ## <a name="metrics-captured"></a>Métricas capturadas
@@ -89,45 +89,45 @@ Agora você configurou a captura de telemetria do formulário. Sempre que ele fo
 Aqui estão exemplos dos dados que você verá.
 
 #### <a name="application-health"></a>Integridade do aplicativo
-![](./media/app-insights-sample-mscrm/15.png)
+![Tempo de carregamento de página de exemplo](./media/app-insights-sample-mscrm/15.png)
 
-![](./media/app-insights-sample-mscrm/16.png)
+![Gráfico de exibições de página de exemplo](./media/app-insights-sample-mscrm/16.png)
 
 Exceções de navegador:
 
-![](./media/app-insights-sample-mscrm/17.png)
+![Gráfico de exceções de navegador](./media/app-insights-sample-mscrm/17.png)
 
 Clique no gráfico para obter mais detalhes:
 
-![](./media/app-insights-sample-mscrm/18.png)
+![Lista de exceções](./media/app-insights-sample-mscrm/18.png)
 
 #### <a name="usage"></a>Uso
-![](./media/app-insights-sample-mscrm/19.png)
+![Usuários, seções e exibição de página](./media/app-insights-sample-mscrm/19.png)
 
-![](./media/app-insights-sample-mscrm/20.png)
+![Gráficos de sessão](./media/app-insights-sample-mscrm/20.png)
 
-![](./media/app-insights-sample-mscrm/21.png)
+![Versões do navegador](./media/app-insights-sample-mscrm/21.png)
 
 #### <a name="browsers"></a>Navegadores
-![](./media/app-insights-sample-mscrm/22.png)
+![Divisão de tempo de carregamento de página](./media/app-insights-sample-mscrm/22.png)
 
-![](./media/app-insights-sample-mscrm/23.png)
+![Contagem de sessões por versão do navegador](./media/app-insights-sample-mscrm/23.png)
 
 #### <a name="geolocation"></a>Geolocalização
-![](./media/app-insights-sample-mscrm/24.png)
+![Contagem de sessões por país](./media/app-insights-sample-mscrm/24.png)
 
-![](./media/app-insights-sample-mscrm/25.png)
+![Sessões e usuários por país](./media/app-insights-sample-mscrm/25.png)
 
 #### <a name="inside-page-view-request"></a>Solicitação de exibição de página interna
-![](./media/app-insights-sample-mscrm/26.png)
+![Resumo de exibição de página](./media/app-insights-sample-mscrm/26.png)
 
-![](./media/app-insights-sample-mscrm/27.png)
+![Pesquisar em eventos de exibição de página](./media/app-insights-sample-mscrm/27.png)
 
-![](./media/app-insights-sample-mscrm/28.png)
+![Exibições de páginas semelhantes](./media/app-insights-sample-mscrm/28.png)
 
-![](./media/app-insights-sample-mscrm/29.png)
+![Propriedades de exibição de página](./media/app-insights-sample-mscrm/29.png)
 
-![](./media/app-insights-sample-mscrm/30.png)
+![Páginas por sessão](./media/app-insights-sample-mscrm/30.png)
 
 ## <a name="sample-code"></a>Exemplo de código
 [Procurar no código de amostra](https://dynamicsandappinsights.codeplex.com/).
@@ -142,10 +142,3 @@ Você pode fazer análises ainda mais profundas se [exportar os dados para o Mic
 * [O que é o Application Insights?](app-insights-overview.md)
 * [Application Insights para páginas da Web](app-insights-javascript.md)
 * [Mais exemplos e explicações passo a passo](app-insights-code-samples.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

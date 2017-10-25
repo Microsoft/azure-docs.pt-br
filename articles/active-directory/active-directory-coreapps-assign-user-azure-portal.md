@@ -1,5 +1,5 @@
 ---
-title: "Atribuir um usuário ou grupo a um aplicativo empresarial na visualização do Azure Active Directory | Microsoft Docs"
+title: "Atribuir um usuário ou grupo a um aplicativo empresarial no Azure Active Directory | Microsoft Docs"
 description: "Como selecionar um aplicativo empresarial par atribuir um usuário ou um grupo a ele no Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 08/28/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 18330aa5e0fe8e3bbad6c266f823a4969b9b8b6c
-
-
+ms.reviewer: asteen
+ms.openlocfilehash: 8e61044f261033a473241e2de152026bf49c4c70
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory-preview"></a>Atribuir um usuário ou um grupo a um aplicativo empresarial na visualização do Azure Active Directory
-É fácil atribuir um usuário ou um grupo aos aplicativos empresariais na visualização do Azure Active Directory (Azure AD). [O que está na visualização?](active-directory-preview-explainer.md)  Você deve ter as permissões apropriadas para gerenciar o aplicativo empresarial. Na visualização atual, você deve ser um administrador global do diretório.
+# <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory
+É fácil atribuir um usuário ou um grupo aos aplicativos empresariais no Azure AD (Azure Active Directory). Você deve ter as permissões apropriadas para gerenciar o aplicativo empresarial, além de ser um administrador global do diretório.
 
 ## <a name="how-do-i-assign-user-access-to-an-enterprise-app"></a>Como atribuir acesso de usuário a um aplicativo empresarial?
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
@@ -47,9 +48,3 @@ ms.openlocfilehash: 18330aa5e0fe8e3bbad6c266f823a4969b9b8b6c
 * [Remover uma atribuição de usuário ou de grupo de um aplicativo empresarial](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Desabilitar as entradas de usuário em um aplicativo empresarial](active-directory-coreapps-disable-app-azure-portal.md)
 * [Alterar o nome ou logotipo de um aplicativo empresarial](active-directory-coreapps-change-app-logo-user-azure-portal.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

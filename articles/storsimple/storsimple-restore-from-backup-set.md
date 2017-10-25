@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c507135c4db758e58d8236de4bc76435b8caf32d
-
-
+ms.openlocfilehash: 12484338f5b4d489604d70a657ef0992b6267297
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restaurar um volume do StorSimple de um conjunto de backup
 [!INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
@@ -64,7 +64,7 @@ Antes de iniciar uma restauração em um volume, verifique se o volume está off
    1. Selecione o dispositivo adequado.
    2. Na lista suspensa, escolha o volume ou a política de backup para o backup que você deseja selecionar.
    3. Especifique o intervalo de tempo.
-   4. Clique no ícone de verificação  ![ícone de verificação](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png)  para executar esta consulta.
+   4. Clique no ícone de verificação  ![ícone de verificação](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png) para executar esta consulta.
       
       Os backups associados ao volume ou à política de backup selecionada devem aparecer na lista de conjuntos de backup.
 3. Expanda o conjunto de backup para exibir os volumes associados. Esses volumes devem ficar offline no host e no dispositivo antes que você possa restaurá-los. Siga as etapas em [Colocar um volume offline](storsimple-manage-volumes.md#take-a-volume-offline).
@@ -87,10 +87,4 @@ Para assistir a um vídeo que demonstra como você pode usar os recursos de clon
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [Gerenciar volumes do StorSimple](storsimple-manage-volumes.md).
 * Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

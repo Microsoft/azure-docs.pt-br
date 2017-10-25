@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 01acc0a5a6db7695d04d3adbf843826da5288025
-ms.openlocfilehash: 30b0aaa27be46ed581f56176fa3385273ff101c0
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 12079f8dbc409afe5acc274fa08bda878c90b76e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Failover de dispositivo e recuperação de desastre para o StorSimple Virtual Array via portal do Azure
 
@@ -54,7 +54,7 @@ Para um failover de dispositivo, certifique-se de que os pré-requisitos a segui
   > Não tente configurar o dispositivo virtual registrado por meio do serviço. Nenhuma configuração de dispositivo deve ser realizada por meio do serviço.
   > 
   > 
-* O dispositivo de destino não pode ter o mesmo nome do que o dispositivo de origem. Sempre será possível renomear o dispositivo de destino após a conclusão do failover.
+* O dispositivo de destino não pode ter o mesmo nome do que o dispositivo de origem.
 * O dispositivo de origem e o de destino precisam ser do mesmo tipo. Você só pode realizar failover de uma matriz virtual configurada como um servidor de arquivos para outro servidor de arquivos. O mesmo é verdadeiro para um servidor iSCSI.
 * Para a recuperação de desastre de um servidor de arquivos, é recomendável que você ingresse o dispositivo de destino no mesmo domínio do de origem. Essa configuração garante que as permissões de compartilhamento sejam resolvidas automaticamente. Apenas o failover para um dispositivo de destino no mesmo domínio.
 * Os dispositivos de destino disponíveis para recuperação de desastre são dispositivos que têm a capacidade igual ou maior que a do dispositivo de origem. Os dispositivos conectados ao serviço, mas que não atendem aos critérios de espaço suficiente, não estão disponíveis como dispositivos de destino.
@@ -78,7 +78,7 @@ Antes do início da recuperação de desastre, o dispositivo realiza verificaç�
   
   * nomes válidos de ACR.
   * IQN válido (que não exceda 220 caracteres).
-  * senhas CHAP válidas (com&12; a&16; caracteres).
+  * senhas CHAP válidas (com 12 a 16 caracteres).
 
 Se alguma das pré-verificações anteriores falhar, você não poderá continuar com a recuperação de desastre. Resolva esses problemas e tente realizar a recuperação de desastre novamente.
 
@@ -155,7 +155,7 @@ Execute as seguintes etapas para restaurar o dispositivo para um dispositivo vir
     1. Selecione e clique no dispositivo StorSimple que foi usado como o dispositivo de destino para o processo de failover.
     2. Vá para **Configurações > Gerenciamento > Compartilhamentos** (ou em **Volumes** se for um servidor iSCSI). Na folha **Compartilhamentos**, você pode exibir todos os compartilhamentos (volumes) do dispositivo antigo.
         ![](./media/storsimple-virtual-array-failover-dr/failover9.png)
-14. Agora você pode renomear o dispositivo (igual ao antigo dispositivo de origem) para que os servidores de aplicativos possam se conectar diretamente ao dispositivo. Se você não quiser renomear o dispositivo, você precisará [criar um alias DNS](https://support.microsoft.com/kb/168322) para que todos os aplicativos que estejam tentando se conectar possam ser direcionados para o novo dispositivo.
+14. Será necessário [criar um alias DNS](https://support.microsoft.com/kb/168322) para que todos os aplicativos que estão tentando se conectar possam ser redirecionados para o novo dispositivo.
 
 ## <a name="errors-during-dr"></a>Erros durante a recuperação de desastre
 
@@ -180,5 +180,4 @@ Se houver dispositivos StorSimple que foram registrados antes da ocorrência de 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre como [administrar sua StorSimple Virtual Array usando a interface do usuário da Web local](storsimple-ova-web-ui-admin.md).
-
 

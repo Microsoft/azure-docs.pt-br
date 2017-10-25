@@ -3,7 +3,7 @@ title: "Solução de problemas de ausência de dados - Application Insights para
 description: "Não consegue ver os dados no Application Insights do Azure? Tente aqui."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: db8d7b0e117276dd63ee83a1c2337e69253184b8
-ms.lasthandoff: 03/15/2017
-
-
+ms.author: bwren
+ms.openlocfilehash: 8772a9a21a0c99994ac9bcf10ea7b13c35bac6c2
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Solução de problemas de ausência de dados - Application Insights para .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Parte da minha telemetria está ausente
@@ -159,11 +158,9 @@ Confira [telemetria de dependência](app-insights-asp-net-dependencies.md) e [te
 ## <a name="no-performance-data"></a>Nenhum dado de desempenho
 Haverá dados de desempenho (CPU, taxa de E/S, etc.) disponíveis para [serviços Web Java](app-insights-java-collectd.md), [aplicativos da área de trabalho do Windows](app-insights-windows-desktop.md), [aplicativos Web e serviços do IIS se você instalar o Status Monitor](app-insights-monitor-performance-live-website-now.md) e os [Serviços de Nuvem do Azure](app-insights-azure.md). Encontre-os em Configurações, Servidores.
 
-Esses dados não estão disponíveis para sites do Azure.
-
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>Nenhum dado (servidor) desde que publiquei o aplicativo no servidor
 * Verifique que você copiou todos da Microsoft. DLLs do ApplicationInsights no servidor, junto com Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
-* Em seu firewall, você talvez precise [abrir algumas portas TCP](app-insights-ip-addresses.md#data-access-api).
+* Em seu firewall, você talvez precise [abrir algumas portas TCP](app-insights-ip-addresses.md).
 * Se você tiver que usar um proxy para envio fora de sua rede corporativa, defina [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) em Web.config
 * Windows Server 2008: verifique se você instalou as seguintes atualizações: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
@@ -180,9 +177,8 @@ Você pode desativá-lo, mas isso não é recomendado. A amostragem é projetada
 A dimensões de cidade, de região e de país são derivadas de endereços IP e nem sempre são precisas.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Exceção "método não encontrado" em execução nos Serviços de Nuvem do Azure
-Você compilou para .NET 4.6? O&4;.6 não tem suporte automático nas funções dos Serviços de Nuvem do Azure. [Instale o 4.6 em cada função](../cloud-services/cloud-services-dotnet-install-dotnet.md) antes de executar seu aplicativo.
+Você compilou para .NET 4.6? O 4.6 não tem suporte automático nas funções dos Serviços de Nuvem do Azure. [Instale o 4.6 em cada função](../cloud-services/cloud-services-dotnet-install-dotnet.md) antes de executar seu aplicativo.
 
 ## <a name="still-not-working"></a>Ainda não está funcionando...
 * [Fórum do Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
-
 

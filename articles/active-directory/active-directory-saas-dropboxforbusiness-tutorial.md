@@ -1,173 +1,262 @@
 ---
 title: "Tutorial: integração do Azure Active Directory do ao Dropbox for Business | Microsoft Docs"
-description: "Saiba como usar o Dropbox for Business com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Dropbox for Business."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: 63502412-758b-4b46-a580-0e8e130791a1
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 06/17/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: ac53d0a2c1c0a257e86fe74e10c8781aa6305975
-ms.openlocfilehash: 80a7280787086a91ceeea308c79f894bdfabb725
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: a56a5af171eaca259db29f25fee4331a77313420
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>Tutorial: integração do Active Directory do Azure ao Dropbox for Business
-O objetivo deste tutorial é mostrar a integração do Azure ao Dropbox for Business.  
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
-* Uma assinatura válida do Azure
-* Um locatário de teste no Dropbox for Business
+Neste tutorial, você aprende a integrar o Dropbox for Business ao Azure AD (Azure Active Directory).
 
-Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Dropbox for Business poderão fazer logon único no aplicativo em seu site de empresa do Dropbox for Business (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+A integração do Dropbox for Business ao Azure AD oferece os seguintes benefícios:
 
-O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
+- No Azure AD, é possível controlar quem tem acesso ao Dropbox for Business
+- É possível permitir que os usuários se conectem automaticamente ao Dropbox for Business (Logon Único) com suas contas do Azure AD
+- Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-1. Habilitando a integração de aplicativos para Dropbox for Business
-2. Configurando o logon único
-3. Configurando o provisionamento de usuários
-4. Atribuindo usuários
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![Cenário](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769508.png "Cenário")
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="enabling-the-application-integration-for-dropbox-for-business"></a>Habilitando a integração de aplicativos para Dropbox for Business
-O objetivo desta seção é descrever como habilitar a integração de aplicativos para o Dropbox for Business.
+Para configurar a integração do Azure AD ao Dropbox for Business, você precisa dos seguintes itens:
 
-### <a name="to-enable-the-application-integration-for-dropbox-for-business-perform-the-following-steps"></a>Para habilitar a integração de aplicativos com o Dropbox for Business, execute as seguintes etapas:
-1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
-   
-    ![Active Directory](./media/active-directory-saas-dropboxforbusiness-tutorial/IC700993.png "Active Directory")
-2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
-3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
-   
-    ![Aplicativos](./media/active-directory-saas-dropboxforbusiness-tutorial/IC700994.png "Aplicativos")
-4. Clique em **Adicionar** na parte inferior da página.
-   
-    ![Adicionar aplicativo](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749321.png "Adicionar aplicativo")
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
-   
-    ![Adicionar um aplicativo da galeria](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
-6. Na **caixa de pesquisa**, digite **Dropbox for Business**.
-   
-    ![Galeria de aplicativos](./media/active-directory-saas-dropboxforbusiness-tutorial/IC701010.png "Galeria de aplicativos")
-7. No painel de resultados, selecione **Dropbox for Business** e clique em **Concluir** para adicionar o aplicativo.
-   
-    ![Dropbox for Business](./media/active-directory-saas-dropboxforbusiness-tutorial/IC701011.png "Dropbox for Business")
+- Uma assinatura do AD do Azure
+- Uma assinatura habilitada para logon único do Dropbox for Business
 
-## <a name="configuring-single-sign-on"></a>Configurando o logon único
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Dropbox for Business com sua conta do AD do Azure usando federação baseada em protocolo SAML.
+> [!NOTE]
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
-Como parte deste procedimento, será necessário carregar um certificado codificado em base-64 no locatário do Dropbox for Business. Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Para configurar o logon único, execute as seguintes etapas:
-1. No portal clássico do Azure, na página de integração do aplicativo **Dropbox for Business**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+- Não use o ambiente de produção, a menos que seja necessário.
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Descrição do cenário
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+
+1. Adicionando o Dropbox for Business por meio da galeria
+2. Configurar e testar o logon único do AD do Azure
+
+## <a name="adding-dropbox-for-business-from-the-gallery"></a>Adicionando o Dropbox for Business por meio da galeria
+Para configurar a integração do Dropbox for Business ao Azure AD, é necessário adicionar o Dropbox for Business à lista de aplicativos SaaS gerenciados por meio da galeria.
+
+**Para adicionar o Dropbox for Business por meio da galeria, realize as seguintes etapas:**
+
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+
+    ![Active Directory][1]
+
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+
+    ![Aplicativos][2]
+    
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo.
+
+    ![Aplicativos][3]
+
+4. Na caixa de pesquisa, digite **Dropbox for Business**.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_search.png)
+
+5. No painel de resultados, selecione **Dropbox for Business** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+Nesta seção, você configura e testa o logon único do Azure AD com o Dropbox for Business, com base em um usuário de teste chamado “Brenda Fernandes”.
+
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Dropbox for Business é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Dropbox for Business.
+
+Essa relação de vínculo é estabelecida com a atribuição do valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** no Dropbox for Business.
+
+Para configurar e testar o logon único do Azure AD com o Dropbox for Business, você precisa concluir os seguintes blocos de construção:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criando um usuário de teste do Dropbox for Business](#creating-a-dropbox-for-business-test-user)** – para ter um equivalente de Brenda Fernandes no Dropbox for Business que esteja vinculado à representação de usuário do Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+
+Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo Dropbox for Business.
+
+**Para configurar o logon único do Azure AD com o Dropbox for Business, realize as seguintes etapas:**
+
+1. No portal do Azure, na página de integração do aplicativo **Dropbox for Business**, clique em **Logon único**.
+
+    ![Configurar Logon Único][4]
+
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+ 
+    ![Configurar Logon Único](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_samlbase.png)
+
+3. Na seção **Domínio e URLs do Dropbox for Business**, realize as seguintes etapas:
+
+    a. Faça logon no locatário do Dropbox for Business. 
    
-    ![Configurar logon único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749323.png "Configurar logon único")
-2. Na página **Como você deseja que os usuários façam logon no Dropbox for Business**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
-   
-    ![Configurar logon único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749327.png "Configurar logon único")
-3. Na página **Configurar URL do Aplicativo** , execute as seguintes etapas:
-   
-    a. Faça logon em seu locatário do Dropbox for Business. 
-   
-    ![Configurar logon único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769509.png "Configurar logon único")
+    ![Configurar logon único](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769509.png "Configurar logon único")
    
     b. No painel de navegação à esquerda, clique em **Console do Administrador**. 
    
-    ![Configurar logon único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769510.png "Configurar logon único")
+    ![Configurar logon único](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769510.png "Configurar logon único")
    
     c. No **Console do Administrador**, clique em **Autenticação** no painel de navegação à esquerda. 
    
-    ![Configurar logon único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769511.png "Configurar logon único")
+    ![Configurar logon único](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769511.png "Configurar logon único")
    
     d. Na seção **Logon único**, selecione **Habilitar logon único** e clique em **Mais** para expandir essa seção.  
    
-    ![Configurar logon único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769512.png "Configurar logon único")
+    ![Configurar logon único](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769512.png "Configurar logon único")
    
     e. Copie a URL ao lado de **Os usuários podem entrar inserindo o endereço de email ou podem ir diretamente para**. 
-   
-    ![Configurar logon único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769513.png "Configurar logon único")
-   
-    f. No portal clássico do Azure, na caixa de texto da URL de **entrada do DropBox for Business** , cole a URL. 
-   
-    ![Configurar logon único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769514.png "Configurar logon único")  
-4. Na página **Configurar logon único no Dropbox for Business**, clique em **Baixar certificado** e salve o arquivo de certificado no computador.  
-   
-    ![Configurar logon único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769515.png "Configurar logon único")
-5. Em seu locatário do Dropbox for Business, na seção **Logon único** da página **Autenticação**, execute as seguintes etapas: 
+    
+    ![Configurar o logon único](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769513.png)
+    
+    f. No portal do Azure, na caixa de texto **URL de Logon**, cole a URL.
+
+    ![Configurar Logon Único](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_url.png)
+
+     Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://www.dropbox.com/sso/<id>`
+
+    > [!NOTE] 
+    > Esse valor não é o valor real. Atualize o valor com a URL de Logon real obtida na seção Logon único. Contate a [equipe de suporte ao Cliente do Dropbox for Business](https://www.dropbox.com/business/contact) para obter esse valor. 
+ 
+4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+
+    ![Configurar Logon Único](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_certificate.png) 
+
+5. Clique no botão **Salvar** .
+
+    ![Configurar Logon Único](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_general_400.png)
+
+6. Na seção **Configuração do Dropbox for Business** do portal do Azure, clique em **Configurar o Dropbox for Business** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
+
+    ![Configurar Logon Único](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_configure.png) 
+
+7. Para configurar o logon único no lado do **Dropbox for Business**, acesse o locatário do Dropbox for Business e, na seção **Logon único** da página **Autenticação**, realize as seguintes etapas: 
    
     ![Configurar logon único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769516.png "Configurar logon único")
    
     a. Clique em **Obrigatório**.
    
-    b. No portal clássico do Azure, na página de diálogo **Configurar logon único no Dropbox for Business**, copie o valor da **URL da página de entrada** e cole-o na caixa de texto **URL de Entrada**.
+    b. No portal do Azure, na janela **Configurar logon**, copie o valor da **URL do Serviço de Logon Único SAML** e, em seguida, cole-o na caixa de texto **URL de Entrada**.
 
-    c. Crie um arquivo **codificado em base&64;** usando o certificado baixado. 
+    c. Clique em **Escolher certificado** e, depois, procure o **arquivo de certificado codificado em Base64**.
 
-    > [!TIP] 
-    > Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+    d. Clique em **Salvar alterações** para concluir a configuração no seu locatário do DropBox for Business.
 
-    d. Clique em **Escolher certificado** e navegue até seu **arquivo de certificado codificado em Base&64;**.
+> [!TIP]
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
-    e. Clique em **Salvar alterações** para concluir a configuração no seu locatário do DropBox for Business.
+### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**. 
-   
-    ![Configurar logon único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749329.png "Configurar logon único")
+![Criar um usuário do AD do Azure][100]
 
-## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
-O objetivo desta seção é descrever como habilitar o provisionamento de contas de usuário do Active Directory no Dropbox for Business.
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Para configurar o provisionamento de usuários, execute as seguintes etapas:
-1. No portal clássico do Azure, na página de integração de aplicativos do **Dropbox for Business**, clique em **Configurar provisionamento de usuário** para abrir a caixa de diálogo **Configurar Provisionamento de Usuário**.
-2. Na página Habilitar provisionamento de usuários para o DropBox for Business, clique em Habilitar provisionamento de usuários para abrir o diálogo Entrar no Dropbox para vincular com o Azure AD.  
-   
-    ![Provisionamento do usuário](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769517.png "Provisionamento do usuário")
-3. Na caixa de diálogo **Entrar no Dropbox para vincular com o Azure AD** , entre no locatário do Dropbox for Business. 
-   
-    ![Provisionamento do usuário](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769518.png "Provisionamento do usuário")
-4. Clique em **Permitir** para conceder ao Azure AD o acesso ao Dropbox. 
-   
-    ![Provisionamento do usuário](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769519.png "Provisionamento do usuário")
-5. Para concluir a configuração, clique no botão **Concluir** .  
-   
-    ![Provisionamento do usuário](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769520.png "Provisionamento do usuário")
+1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
-## <a name="assigning-users"></a>Atribuindo usuários
-Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-dropboxforbusiness-tutorial/create_aaduser_01.png) 
 
-### <a name="to-assign-users-to-dropbox-for-business-perform-the-following-steps"></a>Para atribuir usuários ao Dropbox for Business, execute as etapas a seguir:
-1. No Portal clássico do Azure, crie uma conta de teste.
-2. Na página de integração de aplicativos do **Dropbox for Business **, clique em **Atribuir usuários**.
-   
-    ![Atribuir usuários](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769521.png "Atribuir usuários")
-3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
-   
-    ![Sim](./media/active-directory-saas-dropboxforbusiness-tutorial/IC767830.png "Sim")
+2.  Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+    
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-dropboxforbusiness-tutorial/create_aaduser_02.png) 
 
-Agora você deve aguardar 10 minutos e verificar se a conta foi sincronizada com o Dropbox for Business.
+3. Na parte superior da caixa de diálogo, clique em **Adicionar** para abrir a caixa de diálogo **Usuário**.
+ 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-dropboxforbusiness-tutorial/create_aaduser_03.png) 
 
-Como uma primeira etapa de verificação, é possível verificar o status de provisionamento clicando em **Painel** na página de integração de aplicativos do **Dropbox for Business** no portal clássico do Azure.
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+ 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-dropboxforbusiness-tutorial/create_aaduser_04.png) 
 
-![Atribuir usuários](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769522.png "Atribuir usuários")
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
-Um ciclo de provisionamento de usuário concluído com êxito é indicado por um status relacionado.
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
-![Atribuir usuários](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769523.png "Atribuir usuários")
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso.
-Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+    d. Clique em **Criar**.
+ 
+### <a name="creating-a-dropbox-for-business-test-user"></a>Criando um usuário de teste do Dropbox for Business
+
+Nesta seção, um usuário chamado Brenda Fernandes é criado no Dropbox for Business. O Dropbox for Business dá suporte ao provisionamento Just-In-Time, que está habilitado por padrão.
+
+Não há itens de ação para você nesta seção. Se um usuário ainda não existir no Dropbox for Business, um novo será criado quando você tentar acessar o Dropbox for Business.
+
+>[!Note]
+>Se você precisar criar um usuário manualmente, contate a [equipe de suporte ao Cliente do Dropbox for Business](https://www.dropbox.com/business/contact) 
+
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+
+Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Dropbox for Business.
+
+![Atribuir usuário][200] 
+
+**Para atribuir Brenda Fernandes ao Dropbox for Business, realize as seguintes etapas:**
+
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+
+    ![Atribuir usuário][201] 
+
+2. Na lista de aplicativos, selecione **Dropbox for Business**.
+
+    ![Configurar Logon Único](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_app.png) 
+
+3. No menu à esquerda, clique em **usuários e grupos**.
+
+    ![Atribuir usuário][202] 
+
+4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+
+    ![Atribuir usuário][203]
+
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+
+6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+
+7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+    
+### <a name="testing-single-sign-on"></a>Teste do logon único
+
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+
+Quando você clicar no bloco do Dropbox for Business no Painel de Acesso, deverá ver a página de logon do aplicativo Dropbox for Business.
 
 ## <a name="additional-resources"></a>Recursos adicionais
+
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Configurar Provisionamento de Usuário](active-directory-saas-dropboxforbusiness-provisioning-tutorial.md)
 
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_general_203.png
 

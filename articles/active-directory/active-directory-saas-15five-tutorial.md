@@ -1,136 +1,245 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory ao 15Five | Microsoft Docs"
-description: "Saiba como usar o 15Five com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o 15Five."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: 2fb301c2-7d7a-4046-8ee1-7dc9e7684806
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 05/22/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 7a0a300f505d9012471679ac27373944f07fdba3
-ms.openlocfilehash: ce98338e6b21eb35a17f0183f409dd54d1123bb9
-
-
+ms.openlocfilehash: ea36774747a0fcfa4ace1aefb2d46dba815d92c4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-15five"></a>Tutorial: Integração do Active Directory do Azure ao 15Five
-O objetivo deste tutorial é mostrar a integração do Azure ao 15Five. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
-* Uma assinatura válida do Azure
-* Uma assinatura habilitada para logon único do 15Five
+Neste tutorial, você aprenderá a integrar o 15Five ao Azure AD (Azure Active Directory).
 
-Depois de concluir este tutorial, os usuários do AD do Azure atribuídos ao 15Five poderão fazer logon único no aplicativo em seu site de empresa do 15Five (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+A integração do 15Five ao Azure AD oferece os seguintes benefícios:
 
-O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
+- Você pode controlar no Azure AD quem terá acesso ao 15Five
+- Você pode permitir que usuários façam logon automaticamente no 15Five (logon único) com as respectivas contas do Azure AD
+- Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-1. Habilitando a integração de aplicativos para o 15Five
-2. Configurando o logon único
-3. Configurando o provisionamento de usuários
-4. Atribuindo usuários
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![Cenário](./media/active-directory-saas-15five-tutorial/IC784667.png "Cenário")
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="enabling-the-application-integration-for-15five"></a>Habilitando a integração de aplicativos para o 15Five
-O objetivo desta seção é descrever como habilitar a integração de aplicativos para o 15Five.
+Para configurar a integração do Azure AD com 15Five, você precisará dos seguintes itens:
 
-### <a name="to-enable-the-application-integration-for-15five-perform-the-following-steps"></a>Para habilitar a integração de aplicativos para o 15Five, execute as seguintes etapas:
-1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-15five-tutorial/IC700993.png "Active Directory")
-2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
-3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
-   
-   ![Aplicativos](./media/active-directory-saas-15five-tutorial/IC700994.png "Aplicativos")
-4. Clique em **Adicionar** na parte inferior da página.
-   
-   ![Adicionar aplicativo](./media/active-directory-saas-15five-tutorial/IC749321.png "Adicionar aplicativo")
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
-   
-   ![Adicionar um aplicativo da galeria](./media/active-directory-saas-15five-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
-6. Na **caixa de pesquisa**, digite **15Five**.
-   
-   ![Galeria de Aplicativos](./media/active-directory-saas-15five-tutorial/IC784668.png "Galeria de Aplicativos")
-7. No painel de resultados, selecione **15Five** e clique em **Concluir** para adicionar o aplicativo.
-   
-   ![15Five](./media/active-directory-saas-15five-tutorial/IC784669.png "15Five")
-   
-## <a name="configuring-single-sign-on"></a>Configurando o logon único
+- Uma assinatura do AD do Azure
+- Uma assinatura habilitada para logon único do 15Five
 
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no 15Five com a respectiva conta do AD do Azure usando federação baseada em protocolo SAML.
+> [!NOTE]
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Para configurar o logon único, execute as seguintes etapas:
-1. No portal clássico do Azure, na página de integração do aplicativo **15Five**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
-   
-   ![Configurar logon único](./media/active-directory-saas-15five-tutorial/IC784670.png "Configurar logon único")
-2. Na página **Como você deseja que os usuários façam logon no 15Five**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
-   
-   ![Configurar logon único](./media/active-directory-saas-15five-tutorial/IC784671.png "Configurar logon único")
-3. Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do 15Five**, digite a URL usando o padrão "*https://company.15Five.com*" e clique em **Avançar**.
-   
-   ![Configurar URL do Aplicativo](./media/active-directory-saas-15five-tutorial/IC784672.png "Configurar URL do Aplicativo")
-4. Na página **Configurar logon único no 15Five**, clique em **Baixar metadados** e encaminhe o arquivo de metadados para a equipe de suporte do 15Five.
-   
-   ![Configurar logon único](./media/active-directory-saas-15five-tutorial/IC784673.png "Configurar logon único")
-   
-   > [!NOTE]
-   > O logon único precisa ser habilitado pela equipe de suporte do 15Five.
-   > 
-   > 
-5. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
-   
-   ![Configurar logon único](./media/active-directory-saas-15five-tutorial/IC784674.png "Configurar logon único")
-   
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
-## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
+- Não use o ambiente de produção, a menos que seja necessário.
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
-Para permitir que os usuários do AD do Azure façam logon no 15Five, eles devem ser provisionados no 15Five.  
-No caso do 15Five, o provisionamento é uma tarefa manual.
+## <a name="scenario-description"></a>Descrição do cenário
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+
+1. Adicionar 15Five da galeria
+2. Configurar e testar o logon único do AD do Azure
+
+## <a name="adding-15five-from-the-gallery"></a>Adicionar 15Five da galeria
+Para configurar a integração do 15Five ao Azure AD, você precisará adicionar o 15Five da galeria à sua lista de aplicativos SaaS gerenciados.
+
+**Para adicionar o 15Five por meio da galeria, execute as seguintes etapas:**
+
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+
+    ![Active Directory][1]
+
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+
+    ![Aplicativos][2]
+    
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+
+    ![Aplicativos][3]
+
+4. Na caixa de pesquisa, digite **15Five**.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-15five-tutorial/tutorial_15five_search.png)
+
+5. No painel de resultados, selecione **15Five** e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-15five-tutorial/tutorial_15five_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+Nesta seção, você configurará e testará o logon único do Azure AD com o 15Five, com base em um usuário de teste chamado “Brenda Fernandes”.
+
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do 15Five é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do 15Five.
+
+No 15Five, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+
+Para configurar e testar o logon único do Azure AD com o 15Five, você precisa concluir os seguintes blocos de construção:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criar um usuário de teste do 15Five](#creating-a-15five-test-user)** – para ter um equivalente de Brenda Fernandes no 15Five que esteja vinculado à representação do usuário no Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+
+Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e configura o logon único em seu aplicativo 15Five.
+
+**Para configurar o logon único do Azure AD com o 15Five, execute as seguintes etapas:**
+
+1. No Portal do Azure, na página de integração de aplicativos do **15Five**, clique em **Logon único**.
+
+    ![Configurar Logon Único][4]
+
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+ 
+    ![Configurar Logon Único](./media/active-directory-saas-15five-tutorial/tutorial_15five_samlbase.png)
+
+3. Na seção **URLs e Domínio do 15Five**, execute as seguintes etapas:
+
+    ![Configurar Logon Único](./media/active-directory-saas-15five-tutorial/tutorial_15five_url.png)
+
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.15five.com`
+
+    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.15five.com/saml2/metadata/`
+
+    > [!NOTE] 
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do 15Five](https://www.15five.com/contact/) para obter esses valores. 
+ 
+4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+
+    ![Configurar o logon único](./media/active-directory-saas-15five-tutorial/tutorial_15five_certificate.png) 
+
+5. Clique no botão **Salvar** .
+
+    ![Configurar Logon Único](./media/active-directory-saas-15five-tutorial/tutorial_general_400.png)
+
+6. Para configurar o logon único no lado do **15Five**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte 15Five](https://www.15five.com/contact/).
+
+> [!TIP]
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+
+### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+
+![Criar um usuário do AD do Azure][100]
+
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+
+1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-15five-tutorial/create_aaduser_01.png) 
+
+2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+    
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-15five-tutorial/create_aaduser_02.png) 
+
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+ 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-15five-tutorial/create_aaduser_03.png) 
+
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+ 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-15five-tutorial/create_aaduser_04.png) 
+
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+
+    d. Clique em **Criar**.
+ 
+### <a name="creating-a-15five-test-user"></a>Criação de um usuário de teste do 15Five
+
+Para permitir que os usuários do Azure AD façam logon no 15Five, eles devem ser provisionados no 15Five. No caso do 15Five, o provisionamento é uma tarefa manual.
 
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Para configurar o provisionamento de usuários, execute as seguintes etapas:
 1. Faça logon em seu site de empresa do **15Five** como administrador.
+
 2. Vá para **Gerenciar Empresa**.
    
-   ![Gerenciar Empresa](./media/active-directory-saas-15five-tutorial/IC784675.png "Gerenciar Empresa")
+    ![Gerenciar Empresa](./media/active-directory-saas-15five-tutorial/IC784675.png "Gerenciar Empresa")
+
 3. Vá para **Pessoas \> Adicionar Pessoas**.
    
-   ![Pessoas](./media/active-directory-saas-15five-tutorial/IC784676.png "Pessoas")
+    ![Pessoas](./media/active-directory-saas-15five-tutorial/IC784676.png "Pessoas")
+
 4. Na seção Adicionar Nova Pessoa, execute as etapas a seguir:
    
-   ![Adicionar Nova Pessoa](./media/active-directory-saas-15five-tutorial/IC784677.png "Adicionar Nova Pessoa")
+    ![Adicionar Nova Pessoa](./media/active-directory-saas-15five-tutorial/IC784677.png "Adicionar Nova Pessoa")
    
-   1. Digite o **Nome**, **Sobrenome**, **Título** e **Endereço de email** de uma conta válida do Azure Active Directory que você deseja provisionar nas caixas de texto relacionadas.
-   2. Clique em **Concluído**.
+    a. Digite o **Nome**, **Sobrenome**, **Título** e **Endereço de email** de uma conta válida do Azure Active Directory que você deseja provisionar nas caixas de texto relacionadas.
+
+    b. Clique em **Concluído**.
    
-   > [!NOTE]
-   > O titular da conta do Azure AD receberá um email com um link de confirmação de conta para que ela se torne ativa.
-   > 
-   > 
-
-
-
-## <a name="assigning-users"></a>Atribuindo usuários
-Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
-
-### <a name="to-assign-users-to-15five-perform-the-following-steps"></a>Para atribuir usuários ao 15Five, execute as seguintes etapas:
-1. No Portal clássico do Azure, crie uma conta de teste.
-2. Na página de integração do aplicativo **15Five**, clique em **Atribuir usuários**.
+    > [!NOTE]
+    > O titular da conta do Azure AD recebe um email com um link de confirmação de conta para que ela se torne ativa.
    
-   ![Atribuir usuários](./media/active-directory-saas-15five-tutorial/IC784678.png "Atribuir usuários")
-3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
-   
-   ![Sim](./media/active-directory-saas-15five-tutorial/IC767830.png "Sim")
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao 15Five.
 
+![Atribuir usuário][200] 
 
+**Para atribuir Brenda Fernandes ao 15Five, execute as seguintes etapas:**
 
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
-<!--HONumber=Dec16_HO5-->
+    ![Atribuir usuário][201] 
 
+2. Na lista de aplicativos, selecione **15Five**.
+
+    ![Configurar Logon Único](./media/active-directory-saas-15five-tutorial/tutorial_15five_app.png) 
+
+3. No menu à esquerda, clique em **usuários e grupos**.
+
+    ![Atribuir usuário][202] 
+
+4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+
+    ![Atribuir usuário][203]
+
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+
+6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+
+7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+    
+### <a name="testing-single-sign-on"></a>Teste do logon único
+
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+
+Ao clicar no bloco 15Five no Painel de Acesso, você deve acessar a página de logon do aplicativo 15Five.
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Recursos adicionais
+
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-15five-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-15five-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-15five-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-15five-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-15five-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-15five-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-15five-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-15five-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-15five-tutorial/tutorial_general_203.png
 

@@ -12,20 +12,18 @@ ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: getting-started
-ms.date: 2/14/2017
+ms.topic: get-started-article
+ms.date: 08/24/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 9a0e7a9aadf6ca12915635408653a37241dbb321
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: 07883a33382cc660b043c99872312a9e77228253
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-an-autoscaling-app-using-a-template"></a>Implantar um aplicativo de dimensionamento automático usando um modelo
 
-Os [modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) são uma excelente maneira de implantar grupos de recursos relacionados. Esse tutorial se baseia em [Implantar um conjunto de dimensionamento simples](virtual-machine-scale-sets-mvss-start.md) e descreve como implantar um aplicativo de dimensionamento automático simples em um conjunto de dimensionamento usando um modelo do Azure Resource Manager.
+Os [modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) são uma excelente maneira de implantar grupos de recursos relacionados. Esse tutorial se baseia em [Implantar um conjunto de dimensionamento simples](virtual-machine-scale-sets-mvss-start.md) e descreve como implantar um aplicativo de dimensionamento automático simples em um conjunto de dimensionamento usando um modelo do Azure Resource Manager.  Também é possível configurar o dimensionamento automático usando o PowerShell, a CLI ou o portal. Para obter mais informações, consulte [Visão geral do dimensionamento automático](virtual-machine-scale-sets-autoscale-overview.md).
 
 ## <a name="two-quickstart-templates"></a>Dois modelos de início rápido
 Quando você implanta um conjunto de dimensionamento, você pode instalar um novo software em uma imagem de plataforma usando uma [Extensão de VM](../virtual-machines/virtual-machines-windows-extensions-features.md). Uma extensão de VM do Azure é um pequeno aplicativo que fornece tarefas de configuração e automação pós-implantação nas máquinas virtuais do Azure, tais como implantar um aplicativo. Dois modelos diferentes de exemplo são fornecidos em [Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates), que mostram como implantar um aplicativo de dimensionamento automático em um conjunto de dimensionamento usando extensões de VM.
@@ -99,7 +97,7 @@ No modelo *azuredeploy.json*, a propriedade `extensionProfile` do recurso `Micro
 A maneira mais simples de implantar o modelo [Servidor HTTP do Python em Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) ou [Aplicativo ASP.NET MVC no Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) é usar o botão **Implantar no Azure** encontrado na nos arquivos Leiame no GitHub.  Você também pode usar o PowerShell ou a CLI do Azure para implantar os modelos de exemplo.
 
 ### <a name="powershell"></a>PowerShell
-Copie os arquivos do [Servidor HTTP do Python em Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) ou [Aplicativo ASP.NET MVC no Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) do repositório do GitHub para uma pasta no computador local.  Abra o arquivo *azuredeploy.parameters.json* e atualize os valores padrão dos parâmetros `vmssName`, `adminUsername` e `adminPassword`. Salve o script do PowerShell a seguir em *deploy. ps1* na pasta de exemplo como o modelo *azuredeploy.json*. Para implantar o modelo de exemplo, execute o script *deploy.ps1* de uma janela de comando do PowerShell.
+Copie os arquivos do [Servidor HTTP do Python em Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) ou [Aplicativo ASP.NET MVC no Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) do repositório do GitHub para uma pasta no computador local.  Abra o arquivo *azuredeploy.parameters.json* e atualize os valores padrão dos parâmetros `vmssName`, `adminUsername` e `adminPassword`. Salve o script do PowerShell a seguir em *deploy. ps1* na mesma pasta do modelo *azuredeploy.json*. Para implantar o modelo de exemplo, execute o script *deploy.ps1* de uma janela de comando do PowerShell.
 
 ```powershell
 param(
@@ -119,10 +117,10 @@ param(
  $deploymentName,
 
  [string]
- $templateFilePath = "azuredeploy.json",
+ $templateFilePath = "template.json",
 
  [string]
- $parametersFilePath = "azuredeploy.parameters.json"
+ $parametersFilePath = "parameters.json"
 )
 
 <#
@@ -153,7 +151,7 @@ Write-Host "Selecting subscription '$subscriptionId'";
 Select-AzureRmSubscription -SubscriptionID $subscriptionId;
 
 # Register RPs
-$resourceProviders = @("microsoft.resources");
+$resourceProviders = @("microsoft.compute","microsoft.insights","microsoft.network");
 if($resourceProviders.length) {
     Write-Host "Registering resource providers"
     foreach($resourceProvider in $resourceProviders) {
@@ -183,6 +181,127 @@ if(Test-Path $parametersFilePath) {
 } else {
     New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath;
 }
+```
+
+### <a name="azure-cli"></a>CLI do Azure
+```azurecli
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+# -e: immediately exit if any command has a non-zero exit status
+# -o: prevents errors in a pipeline from being masked
+# IFS new value is less likely to cause confusing bugs when looping arrays or arguments (e.g. $@)
+
+usage() { echo "Usage: $0 -i <subscriptionId> -g <resourceGroupName> -n <deploymentName> -l <resourceGroupLocation>" 1>&2; exit 1; }
+
+declare subscriptionId=""
+declare resourceGroupName=""
+declare deploymentName=""
+declare resourceGroupLocation=""
+
+# Initialize parameters specified from command line
+while getopts ":i:g:n:l:" arg; do
+    case "${arg}" in
+        i)
+            subscriptionId=${OPTARG}
+            ;;
+        g)
+            resourceGroupName=${OPTARG}
+            ;;
+        n)
+            deploymentName=${OPTARG}
+            ;;
+        l)
+            resourceGroupLocation=${OPTARG}
+            ;;
+        esac
+done
+shift $((OPTIND-1))
+
+#Prompt for parameters is some required parameters are missing
+if [[ -z "$subscriptionId" ]]; then
+    echo "Subscription Id:"
+    read subscriptionId
+    [[ "${subscriptionId:?}" ]]
+fi
+
+if [[ -z "$resourceGroupName" ]]; then
+    echo "ResourceGroupName:"
+    read resourceGroupName
+    [[ "${resourceGroupName:?}" ]]
+fi
+
+if [[ -z "$deploymentName" ]]; then
+    echo "DeploymentName:"
+    read deploymentName
+fi
+
+if [[ -z "$resourceGroupLocation" ]]; then
+    echo "Enter a location below to create a new resource group else skip this"
+    echo "ResourceGroupLocation:"
+    read resourceGroupLocation
+fi
+
+#templateFile Path - template file to be used
+templateFilePath="template.json"
+
+if [ ! -f "$templateFilePath" ]; then
+    echo "$templateFilePath not found"
+    exit 1
+fi
+
+#parameter file path
+parametersFilePath="parameters.json"
+
+if [ ! -f "$parametersFilePath" ]; then
+    echo "$parametersFilePath not found"
+    exit 1
+fi
+
+if [ -z "$subscriptionId" ] || [ -z "$resourceGroupName" ] || [ -z "$deploymentName" ]; then
+    echo "Either one of subscriptionId, resourceGroupName, deploymentName is empty"
+    usage
+fi
+
+#login to azure using your credentials
+az account show 1> /dev/null
+
+if [ $? != 0 ];
+then
+    az login
+fi
+
+#set the default subscription id
+az account set --name $subscriptionId
+
+set +e
+
+#Check for existing RG
+az group show $resourceGroupName 1> /dev/null
+
+if [ $? != 0 ]; then
+    echo "Resource group with name" $resourceGroupName "could not be found. Creating new resource group.."
+    set -e
+    (
+        set -x
+        az group create --name $resourceGroupName --location $resourceGroupLocation 1> /dev/null
+    )
+    else
+    echo "Using existing resource group..."
+fi
+
+#Start deployment
+echo "Starting deployment..."
+(
+    set -x
+    az group deployment create --name $deploymentName --resource-group $resourceGroupName --template-file $templateFilePath --parameters $parametersFilePath
+)
+
+if [ $?  == 0 ];
+ then
+    echo "Template has been successfully deployed"
+fi
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

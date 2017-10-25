@@ -12,52 +12,58 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 09/29/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: 52f9a3146852ef83c31bd93e1c538e12f0d953eb
-ms.openlocfilehash: e44ecf5860becffb39d199e36d36d96f50bf7cf3
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 3f46d743b85b1133f64309f01074cbc3b430183f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-a-secure-cluster"></a>Conectar a um cluster seguro
+
 Quando um cliente se conecta a um nó de cluster do Service Fabric, ele pode ser autenticado e uma comunicação segura pode ser estabelecida com a segurança de certificado ou o AAD (Azure Active Directory). Essa autenticação garante que somente usuários autorizados possam acessar o cluster e os aplicativos implantados e executar tarefas de gerenciamento.  A segurança de certificado ou do AAD deve ter sido previamente habilitada no cluster quando o cluster foi criado.  Para obter mais informações sobre cenários de segurança de cluster, consulte [Segurança de cluster](service-fabric-cluster-security.md). Se você estiver se conectando a um cluster protegido com certificados, [configure o certificado do cliente](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) no computador que se conecta ao cluster. 
 
 <a id="connectsecureclustercli"></a> 
 
-## <a name="connect-to-a-secure-cluster-using-azure-cli"></a>Conectar-se a um cluster seguro usando a CLI do Azure
-Os seguintes comandos da CLI do Azure descrevem como se conectar a um cluster seguro. 
+## <a name="connect-to-a-secure-cluster-using-azure-service-fabric-cli-sfctl"></a>Conectar-se a um cluster seguro usando a CLI do Azure Service Fabric (sfctl)
 
-### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Conectar-se a um cluster seguro usando um certificado de cliente
-Os detalhes do certificado devem corresponder a um certificado em nós do cluster. 
+Há algumas maneiras diferentes de se conectar a um cluster seguro usando a CLI do Service Fabric (sfctl). Ao usar um certificado do cliente para autenticação, os detalhes do certificado devem corresponder a um certificado implantado para os nós de cluster. Se o certificado tiver Autoridades de Certificação (CAs), você precisa especificar as Autoridades de Certificação confiáveis.
 
-Se o certificado tiver ACs (autoridades de certificação), você precisará adicionar o parâmetro `--ca-cert-path` , como no seguinte exemplo: 
+Você pode se conectar a um cluster usando o comando `sfctl cluster select`.
 
-```
- azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 
-```
-Se você tiver várias ACs, use vírgulas como o delimitador. 
+Certificados de cliente podem ser especificados em dois modos diferentes, como um par de certificados e chaves ou como um arquivo pem individual. Para arquivos `pem` protegidos por senha, você será solicitado automaticamente para inserir a senha.
 
-Se o Nome Comum no certificado não coincidir com o ponto de extremidade de conexão, você poderá usar o parâmetro `--strict-ssl-false` para ignorar a verificação. 
+Para especificar o certificado do cliente como um arquivo pem, especifique o caminho do arquivo no argumento `--pem`. Por exemplo:
 
-```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 --strict-ssl-false 
+```azurecli
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
-Se você quiser ignorar a verificação de AC, poderá adicionar o parâmetro ``--reject-unauthorized-false`` , conforme no seguinte comando:
+Arquivos pem protegidos por senha solicitarão a senha antes da execução de qualquer comando.
 
-```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
-```
+Para especificar um certificado, o par de chaves usa os argumentos `--cert` e `--key` para especificar os caminhos de arquivo para cada arquivo respectivo.
 
-Para se conectar a um cluster protegido com um certificado autoassinado, use o comando a seguir removendo a verificação de AC e a verificação de Nome Comum:
-
-```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
+```azurecli
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-Depois de se conectar, você poderá [executar outros comandos da CLI](service-fabric-azure-cli.md) para interagir com o cluster. 
+Às vezes, os certificados usados para proteger clusters de teste ou de desenvolvimento falham na validação do certificado. Para ignorar a verificação do certificado, especifique a opção `--no-verify`. Por exemplo:
+
+> [!WARNING]
+> Não use a opção `no-verify` ao se conectar aos clusters de produção do Service Fabric.
+
+```azurecli
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
+```
+
+Além disso, você pode especificar caminhos para diretórios de certificados de CA confiáveis ou certificados individuais. Para especificar esses caminhos, use o argumento `--ca`. Por exemplo:
+
+```azurecli
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
+```
+
+Depois de se conectar, você poderá [executar outros comandos sfctl](service-fabric-cli.md) para interagir com o cluster.
 
 <a id="connectsecurecluster"></a>
 
@@ -306,6 +312,8 @@ Para alcançar o [Service Fabric Explorer](service-fabric-visualizing-your-clust
 
 A URL completa também está disponível no painel essencial do cluster do portal do Azure.
 
+Para se conectar a um cluster seguro no Windows ou OS X usando um navegador, você pode importar o certificado do cliente e o navegador solicitará a você o certificado a ser usado para conexão com o cluster.  Em máquinas Linux, o certificado precisa ser importado usando as configurações do navegador avançadas (cada navegador tem mecanismos diferentes) e apontar para o local do certificado no disco.
+
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Conectar-se a um cluster seguro usando o Azure Active Directory
 
 Para se conectar a um cluster protegido com o AAD, aponte seu navegador para:
@@ -343,9 +351,9 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * [Processo de atualização de Cluster de Malha do Serviço e as suas expectativas](service-fabric-cluster-upgrade.md)
-* [Gerenciando seu aplicativo da Malha do Serviço no Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+* [Gerenciando aplicativos da Malha do Serviço no Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Introdução ao modelo de Integridade da Malha de Serviço](service-fabric-health-introduction.md)
 * [Segurança do aplicativo e RunAs](service-fabric-application-runas-security.md)
-
-
+* [Introdução à CLI do Service Fabric](service-fabric-cli.md)

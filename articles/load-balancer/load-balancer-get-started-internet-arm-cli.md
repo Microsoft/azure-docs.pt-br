@@ -3,7 +3,7 @@ title: Criar um balanceador de carga voltado para a Internet - CLI do Azure | Mi
 description: Saiba como criar um balanceador de carga voltado para a Internet no Gerenciador de Recursos usando a CLI do Azure
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 3b1780033cbc8aa3e108a213a4d2bfd0332fd7d7
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: ba36b7f6d2ae3cc4d63829ffb757ff7b311e467b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Criar um balanceador de carga interno usando a CLI do Azure
 
@@ -28,6 +28,9 @@ ms.lasthandoff: 03/21/2017
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
 > * [CLI do Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Modelo](../load-balancer/load-balancer-get-started-internet-arm-template.md)
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -85,7 +88,7 @@ Para obter mais informações, confira [Suporte do Azure Resource Manager para b
     ```
 
    > [!IMPORTANT]
-   > O balanceador de carga usará o rótulo de domínio do IP público como FQDN. Isso é uma mudança da implantação clássica, que usa o serviço de nuvem como o FQDN (nome de domínio totalmente qualificado) do balanceador de carga.
+   > O balanceador de carga usa o rótulo de domínio do IP público como FQDN. Isso é uma mudança da implantação clássica, que usa o serviço de nuvem como o FQDN (nome de domínio totalmente qualificado) do balanceador de carga.
    > Neste exemplo, o FQDN é *loadbalancernrp.eastus.cloudapp.azure.com*.
 
 ## <a name="create-a-load-balancer"></a>Criar um balanceador de carga
@@ -309,4 +312,3 @@ azure network lb delete --resource-group nrprg --name nrplb
 [Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
-

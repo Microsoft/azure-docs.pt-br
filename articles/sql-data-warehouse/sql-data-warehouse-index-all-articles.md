@@ -12,13 +12,14 @@ ms.workload: sql-data-warehouse
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.custom: reference
+ms.date: 03/30/2017
 ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ab5b0c283d1bd3fd1b734082d5ccffa4125f6de4
-
-
+ms.openlocfilehash: 9fe41f12960dc099700e01573b4f03ebf63f8749
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Todos os tópicos sobre o serviço do SQL Data Warehouse do Azure
 Este tópico lista todos os tópicos que se aplicam diretamente ao serviço do **SQL Data Warehouse** do Azure. Você pode pesquisar palavras-chave nesta página da Web usando **Ctrl + F**para encontrar os tópicos de seu interesse atual.
@@ -34,7 +35,7 @@ Esta seção lista os artigos que foram atualizados recentemente nos quais a atu
 | &nbsp; | Artigo | Texto atualizado, trecho | Data da atualização |
 | ---:|:--- |:--- |:--- |
 | 2 |[Carregar dados do armazenamento de blobs do Azure no SQL Data Warehouse (PolyBase)](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) |/- Para rastrear bytes e arquivos SELECIONE r.command,  s.request_id,  r.status,  count(distinct input_name) como nbr_files,  sum(s.bytes_processed)/1024/1024 como gb_processed DE  sys.dm_pdw_exec_requests r  inner join sys.dm_pdw_dms_external_work s  on r.request_id = s.request_id ONDE  r. label  = 'CTAS : Load  cso . DimProduct  '  OU r. label  = 'CTAS : Load  cso . AGRUPAR POR r.command dos FactOnlineSales, s.request_id, r.status CLASSIFICAR POR nbr_files desc, desc gb_processed; |2016-09-07 |
-| 3 |[Restauração do SQL Data Warehouse](sql-data-warehouse-restore-database-overview.md) |** Posso restaurar um data warehouse pausado?** Para restaurar um data warehouse que está pausado, primeiro você precisa colocá-lo online novamente. Quando o data warehouse estiver online novamente, você tem sete dias de pontos de restauração para escolher. ** Restauração de uma região com redundância geográfica** Caso você esteja usando o armazenamento com redundância geográfica, você pode restaurar o data warehouse para o seu data center pareado em uma região geográfica diferente. O data warehouse é restaurado a partir do último backup diário. ** Restauração de linha do tempo** Você pode restaurar um banco de dados para qualquer ponto de restauração dentro dos últimos sete dias. Os instantâneos iniciam a cada 4-8 horas e permanecem disponíveis por sete dias. Quando um instantâneo possui mais de sete dias, ele expira e seu ponto de restauração fica indisponível. ** Restauração de custos** O custo de armazenamento para o data warehouse restaurado é cobrado na taxa de Armazenamento Premium do Azure. Caso você pause um data warehouse restaurado, você será cobrado pelo armazenamento com a taxa de Armazenamento Premium do Azure. A vantagem da pausa é que você não será cobrado |2016-09-29 |
+| 3 |[Restauração do SQL Data Warehouse](sql-data-warehouse-restore-database-overview.md) |** Posso restaurar um data warehouse em pausa?** Para restaurar um data warehouse que está em pausa, primeiro você precisa colocá-lo online novamente. Quando o data warehouse estiver online novamente, você tem sete dias de pontos de restauração para escolher. ** Restaurar para uma região com redundância geográfica** Se você estiver usando o armazenamento com redundância geográfica, você poderá restaurar o data warehouse para o seu data center pareado em uma região geográfica diferente. O data warehouse é restaurado a partir do último backup diário. ** Restauração de linha do tempo** Você pode restaurar um banco de dados para qualquer ponto de restauração dentro dos últimos sete dias. Os instantâneos iniciam a cada 4-8 horas e permanecem disponíveis por sete dias. Quando um instantâneo possui mais de sete dias, ele expira e seu ponto de restauração fica indisponível. ** Custos de restauração** O custo de armazenamento para o data warehouse restaurado é cobrado segundo a taxa de Armazenamento Premium do Azure. Caso você pause um data warehouse restaurado, você será cobrado pelo armazenamento com a taxa de Armazenamento Premium do Azure. A vantagem da pausa é que você não será cobrado |2016-09-29 |
 
 ## <a name="get-started"></a>Introdução
 | &nbsp; | Title | Descrição |
@@ -43,7 +44,7 @@ Esta seção lista os artigos que foram atualizados recentemente nos quais a atu
 | 5 |[Práticas recomendadas para o Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md) |Recomendações e práticas recomendadas que você deve saber quando for desenvolver soluções para o SQL Data Warehouse do Azure. Isto irá ajudá-lo a alcançar o sucesso. |
 | 6 |[Drivers do Azure SQL Data Warehouse](sql-data-warehouse-connection-strings.md) |Cadeias de conexão e drivers para SQL Data Warehouse |
 | 7 |[Conectar-se ao SQL Data Warehouse do Azure](sql-data-warehouse-connect-overview.md) |Como localizar o servidor de nome e a cadeia de conexão para o Azure SQL Data Warehouse |
-| 8 |[Analisar dados com o Aprendizado de Máquina do Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md) |Use o Aprendizado de Máquina do Azure para compilar um modelo de aprendizado de máquina preditivo com base nos dados armazenados no SQL Data Warehouse do Azure. |
+| 8 |[Analisar dados com o Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md) |Use o Azure Machine Learning para compilar um modelo de aprendizado de máquina preditivo com base nos dados armazenados no SQL Data Warehouse do Azure. |
 | 9 |[Consultar o SQL Data Warehouse do Azure (sqlcmd)](sql-data-warehouse-get-started-connect-sqlcmd.md) |Como consultar o SQL Data Warehouse do Azure com o Utilitário de linha de comando sqlcmd. |
 | 10 |[Criar um banco de dados do SQL Data Warehouse usando TSQL (Transact-SQL)](sql-data-warehouse-get-started-create-database-tsql.md) |Saiba como criar um SQL Data Warehouse do Azure com o TSQL |
 | 11 |[Como criar um tíquete de suporte para o SQL Data Warehouse](sql-data-warehouse-get-started-create-support-ticket.md) |Como criar um tíquete de suporte no Azure SQL Data Warehouse. |
@@ -102,7 +103,7 @@ Esta seção lista os artigos que foram atualizados recentemente nos quais a atu
 | &nbsp; | Title | Descrição |
 | ---:|:--- |:--- |
 | 50 |[Use o Azure Data Factory com o SQL Data Warehouse](sql-data-warehouse-integrate-azure-data-factory.md) |Dicas de utilização do  Azure Data Factory (ADF) com o Azure SQL Data Warehouse para o desenvolvimento de soluções. |
-| 51 |[Use o Aprendizado de Máquina do Azure com o SQL Data Warehouse](sql-data-warehouse-integrate-azure-machine-learning.md) |Tutorial para usar o Aprendizado de Máquina do Azure com o Data Warehouse do SQL Azure para desenvolver soluções. |
+| 51 |[Use o Azure Machine Learning com o SQL Data Warehouse](sql-data-warehouse-integrate-azure-machine-learning.md) |Tutorial para usar o Azure Machine Learning com o Data Warehouse do SQL Azure para desenvolver soluções. |
 | 52 |[Usar o Stream Analytics do Azure com o SQL Data Warehouse](sql-data-warehouse-integrate-azure-stream-analytics.md) |Dicas para usar o Stream Analytics do Azure com o Azure SQL Data Warehouse para desenvolver as soluções. |
 | 53 |[Usar o Power BI com o SQL Data Warehouse](sql-data-warehouse-integrate-power-bi.md) |Dicas para usar o Power BI com o SQL Data Warehouse do Azure para desenvolvimento de soluções. |
 | 54 |[Aproveitar outros serviços com o SQL Data Warehouse](sql-data-warehouse-overview-integrate.md) |Ferramentas e parceiros com soluções que podem ser integradas ao SQL Data Warehouse |
@@ -158,15 +159,9 @@ Esta seção lista os artigos que foram atualizados recentemente nos quais a atu
 ## <a name="miscellaneous"></a>Diversos
 | &nbsp; | Title | Descrição |
 | ---:|:--- |:--- |
-| 83 |[Instalar o Visual Studio 2015 e o SSDT para o SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md) |Instalar o Visual Studio e o SSDT (Ferramentas de Desenvolvimento do SQL Server) para o SQL Data Warehouse do Azure |
+| 83 |[Instalar o Visual Studio e o SSDT para o SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md) |Instalar o Visual Studio e o SSDT (Ferramentas de Desenvolvimento do SQL Server) para o SQL Data Warehouse do Azure |
 | 84 |[Detalhes de migração para o Armazenamento Premium](sql-data-warehouse-migrate-to-premium-storage.md) |Instruções para migrar um SQL Data Warehouse existente para o armazenamento premium |
 | 85 |[Introdução à detecção de ameaças](sql-data-warehouse-security-threat-detection.md) |Introdução à detecção de ameaças |
 | 86 |[Limites de capacidade do SQL Data Warehouse](sql-data-warehouse-service-capacity-limits.md) |Valores máximos para conexões, bancos de dados, tabelas e consultas para o SQL Data Warehouse. |
 | 87 |[Solução de problemas do Azure SQL Data Warehouse](sql-data-warehouse-troubleshoot.md) |Solução de problemas do Azure SQL Data Warehouse. |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

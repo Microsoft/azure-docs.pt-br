@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: e9465afb560a73d74f853c19094b3ee75b8c470c
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-docker-host-with-virtualbox"></a>Configurar um host do Docker com o VirtualBox
 ## <a name="overview"></a>Visão geral
@@ -65,9 +65,3 @@ Para configurar um cliente Docker, apenas abra o Windows PowerShell e execute as
 
 [0]: ./media/vs-azure-tools-docker-setup/docker-machine-ls.png
 [1]: ./media/vs-azure-tools-docker-setup/docker-ps.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

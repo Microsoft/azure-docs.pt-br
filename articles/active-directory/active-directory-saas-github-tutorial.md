@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 07/20/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 8b0417d131bc25225e777285b9e4bfbaa97aad8f
-ms.lasthandoff: 03/29/2017
-
-
+ms.reviewer: jeedes
+ms.openlocfilehash: 9dc12bc2e313bcb2000724d035156c5054d14e1c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Tutorial: Integração do Azure Active Directory ao GitHub
 
@@ -126,20 +126,20 @@ Nesta seção, você habilita o logon único do Azure AD no portal de Gerenciame
 4. Na seção **Atributos do Usuário**, selecione **Identificador de Usuário** como user.mail.
 
     ![Configurar Logon Único](./media/active-directory-saas-github-tutorial/tutorial_github_attribute_new01.png)
-     
+    
 5. Sobre o **certificado de autenticação SAML** seção, clique em **criar novo certificado**.
 
-     ![Configurar Logon Único](./media/active-directory-saas-github-tutorial/tutorial_github_03.png)
+    ![Configurar o logon único](./media/active-directory-saas-github-tutorial/tutorial_github_03.png)
 
-6. Sobre o **criar um novo certificado** caixa de diálogo, clique no ícone de calendário e selecione um **data de expiração**. Em seguida, clique no botão **Salvar**.
+6. Na caixa de diálogo **Criar um Novo Certificado**, clique no ícone de calendário e selecione uma **data de expiração**. Em seguida, clique no botão **Salvar**.
 
-    ![Configurar o logon único](./media/active-directory-saas-github-tutorial/tutorial_general_300.png)
+    ![Configurar Logon Único](./media/active-directory-saas-github-tutorial/tutorial_general_300.png)
 
-7. Sobre o **certificado de autenticação SAML** seção, selecione **ativar o novo certificado** e clique em **salvar** botão.
+7. Na seção **Certificado de Autenticação SAML**, selecione **Ativar o novo certificado** e clique no botão **Salvar**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-github-tutorial/tutorial_github_04.png)
+    ![Configurar o logon único](./media/active-directory-saas-github-tutorial/tutorial_github_04.png)
 
-8. No pop-up **certificado de substituição** janela, clique em **OK**.
+8. Na janela pop-up **Certificado de substituição**, clique em **OK**.
 
     ![Configurar o logon único](./media/active-directory-saas-github-tutorial/tutorial_general_400.png)
 
@@ -167,9 +167,9 @@ Nesta seção, você habilita o logon único do Azure AD no portal de Gerenciame
 
     a. **URL de Logon**: insira **URL de Serviço de logon único de SAML** na seção **Configurar o GitHub** no Azure AD
 
-      b. **Emissor**: insira **ID da Entidade SAML** na seção **Configurar GitHub** do Azure AD
+    b. **Emissor**: insira **ID da Entidade SAML** na seção **Configurar GitHub** do Azure AD
 
-       c. **Certificado Público**: abra o certificado baixado no Azure AD em um bloco de notas e copie o conteúdo, incluindo "BEGIN CERTIFICATE" e "END CERTIFICATE"
+    c. **Certificado Público**: abra o certificado baixado no Azure AD em um bloco de notas e copie o conteúdo, incluindo "BEGIN CERTIFICATE" e "END CERTIFICATE"
 
     ![Configurações](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_051.png)
 
@@ -180,7 +180,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal de Gerenciame
 16. Clique em **Salvar**
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal de Gerenciamento do Azure chamado Brenda Fernandes.
+O objetivo desta seção é criar um usuário de teste no Portal de Gerenciamento do Azure chamado Britta Simon.
 
 ![Criar um usuário do AD do Azure][100]
 
@@ -301,4 +301,3 @@ Ao clicar no bloco do GitHub no Painel de Acesso, você deverá ser conectado au
 [201]: ./media/active-directory-saas-github-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-github-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-github-tutorial/tutorial_general_203.png
-

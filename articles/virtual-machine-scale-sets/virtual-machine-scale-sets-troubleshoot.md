@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: 4818c0c036c7e462af5b8d99f1085f8d9025156c
-ms.openlocfilehash: 7b4db2f215b8f7369694a45533d0c862b8f8d08e
-
-
+ms.openlocfilehash: bd45a0fb99a77851aa7b91d23bd4b830b6f5cc7b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Solução de problemas do dimensionamento automático com conjuntos de escala de máquina virtual
 **Problema**: você criou uma infraestrutura de dimensionamento automático no Azure Resource Manager usando Conjuntos de Dimensionamento de VMs, por exemplo implantando um modelo como este: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – suas regras de escala estão definidas e ele funciona muito bem, exceto que, independentemente da carga colocada nas VMs, ele não usa dimensionamento automático.
@@ -28,7 +28,7 @@ ms.openlocfilehash: 7b4db2f215b8f7369694a45533d0c862b8f8d08e
 Alguns aspectos a serem considerados incluem:
 
 * Quantos núcleos cada VM tem e você está carregando cada núcleo?
-  O modelo de Início Rápido do Azure de exemplo acima tem um script do_work.php, que carrega um único núcleo. Se você estiver usando uma VM de tamanho maior do que o de uma VM de núcleo único, como Standard_A1 ou D1, é necessário executar essa carga várias vezes. Verifique quantos núcleos suas VMs têm conferindo [Tamanhos para máquinas virtuais do Windows no Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+  O modelo de Início Rápido do Azure de exemplo acima tem um script do_work.php, que carrega um único núcleo. Se você estiver usando uma VM de tamanho maior do que o de uma VM de núcleo único, como Standard_A1 ou D1, é necessário executar essa carga várias vezes. Verifique quantos núcleos suas VMs têm conferindo [Tamanhos para máquinas virtuais do Windows no Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * Quantas VMs há no conjunto de VM escala, e você está balhando em cada uma delas?
   
     Um evento de escala horizontal só ocorrerá quando a CPU média em **todas** as VMs em um conjunto de escala exceder o valor de limite além do tempo interno definido nas regras de dimensionamento automático.
@@ -82,9 +82,3 @@ Alguns aspectos a serem considerados incluem:
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png
 [explorer]: ./media/virtual-machine-scale-sets-troubleshoot/image1.png
 [tables]: ./media/virtual-machine-scale-sets-troubleshoot/image4.png
-
-
-
-<!--HONumber=Jan17_HO5-->
-
-

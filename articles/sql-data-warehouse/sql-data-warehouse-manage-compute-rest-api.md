@@ -1,10 +1,10 @@
 ---
 title: Pausar, retomar, dimensionar com o REST no Azure SQL Data Warehouse | Microsoft Docs
-description: "Tarefas do PowerShell para gerenciar o poder de computação. Dimensionar recursos de computação ajustando as DWUs. Ou, para economizar custos, pause e retome os recursos de computação."
+description: "Gerencie o poder de computação no SQL Data Warehouse por meio da REST, do T-SQL e do PowerShell."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
-manager: barbkess
+author: hirokib
+manager: johnmac
 editor: 
 ms.assetid: 21de7337-9356-49bb-a6eb-06c1beeba2c4
 ms.service: sql-data-warehouse
@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 548e61004bd95d9e785fea438eb8b81aa63f1739
-ms.lasthandoff: 03/28/2017
-
-
+ms.date: 07/25/2017
+ms.author: elbutter
+ms.openlocfilehash: 24e43205c0c562fca9b1c2c0e5eed4da54e17ed7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-rest"></a>Gerenciar poder de computação no SQL Data Warehouse do Azure (REST)
 > [!div class="op_single_selector"]
@@ -41,7 +40,7 @@ ms.lasthandoff: 03/28/2017
 Para alterar as DWUs, use a API REST [Criar ou Atualizar Banco de Dados][Create or Update Database]. O exemplo a seguir define o objetivo de nível de serviço como DW1000 para o banco de dados MySQLDW, que está hospedado no servidor MyServer. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1.
 
 ```
-PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/MyServer/databases/MySQLDW?api-version=2014-04-01-preview HTTP/1.1
+PATCH https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
 Content-Type: application/json; charset=UTF-8
 
 {
@@ -59,7 +58,7 @@ Content-Type: application/json; charset=UTF-8
 Para pausar um banco de dados, use a API REST [Pausar o banco de dados][Pause Database]. O exemplo a seguir pausa um banco de dados chamado Database02 hospedado em um servidor chamado Server01. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1.
 
 ```
-POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/Server01/databases/Database02/pause?api-version=2014-04-01-preview HTTP/1.1
+POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/pause?api-version=2014-04-01-preview HTTP/1.1
 ```
 
 <a name="resume-compute-bk"></a>
@@ -70,13 +69,13 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 Para iniciar um banco de dados, use a API REST [Retomar o banco de dados][Resume Database]. O exemplo a seguir inicia um banco de dados chamado Database02 hospedado em um servidor chamado Server01. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1. 
 
 ```
-POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/Server01/databases/Database02/resume?api-version=2014-04-01-preview HTTP/1.1
+POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/resume?api-version=2014-04-01-preview HTTP/1.1
 ```
 
 ## <a name="check-database-state"></a>Verificar estado do banco de dados
 
-```json
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}?api-version=2014-04-01 HTTP/1.1
+```
+GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01 HTTP/1.1
 ```
 
 <a name="next-steps-bk"></a>
@@ -98,4 +97,3 @@ Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][M
 <!--Other Web references-->
 
 [Azure portal]: http://portal.azure.com/
-

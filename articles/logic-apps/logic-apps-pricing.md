@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: klam
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 10a2c7771d9d2ec57f3e57e1d6bb4f82c55aa7f1
-ms.lasthandoff: 03/17/2017
-
+ms.author: LADocs; klam
+ms.openlocfilehash: 63784c5e3af360b2f3f8cb330a9df8b27a85d859
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="logic-apps-pricing-model"></a>Modelo de preços de Aplicativos Lógicos
 Os Aplicativos Lógicos do Azure permitem que você dimensione e execute fluxos de trabalho de integração na nuvem.  A seguir, detalhes sobre a cobrança e os planos de preços para os Aplicativos Lógicos.
@@ -63,5 +63,4 @@ Para obter detalhes sobre preços, confira [Preços de Aplicativos Lógicos](htt
 [pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
 [whatis]: logic-apps-what-are-logic-apps.md
 [create]: logic-apps-create-a-logic-app.md
-
 

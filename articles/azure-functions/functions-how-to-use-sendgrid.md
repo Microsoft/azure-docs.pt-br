@@ -4,7 +4,7 @@ description: Mostra como usar o SendGrid no Azure Functions
 services: functions
 documentationcenter: na
 author: rachelappel
-manager: erikre
+manager: cfowler
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -12,12 +12,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/31/2017
 ms.author: rachelap
-translationtype: Human Translation
-ms.sourcegitcommit: b95fcfa1ed4ea4cf1051f4920b9c05bb40a19cab
-ms.openlocfilehash: 05c9f4e4a4351219da68af8b702c25f21d7d4d02
-ms.lasthandoff: 02/22/2017
-
-
+ms.openlocfilehash: 563bdac30176de131f6d8fd194713f482ceb75d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-sendgrid-in-azure-functions"></a>Como usar o SendGrid no Azure Functions
 

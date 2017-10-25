@@ -1,5 +1,5 @@
 ---
-title: "Integração do Android SDK para Azure Mobile Engagement"
+title: "Integração do SDK do Android para Azure Mobile Engagement"
 description: Descreve como integrar o SDK do Azure Mobile Engagement em aplicativos Android
 services: mobile-engagement
 documentationcenter: mobile
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/12/2016
+ms.date: 07/17/2017
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2b89a13230439698854656f0bb5367f1ed35ce1c
-
-
+ms.openlocfilehash: 35935e911f1f17989beb71978396c6d1b7d601d6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="android-sdk-integration-for-azure-mobile-engagement"></a>Integração do Android SDK para Azure Mobile Engagement
 > [!div class="op_single_selector"]
@@ -52,18 +52,19 @@ Você pode adicionar esses recursos:
 [Como usar a API de marcação avançada do Mobile Engagement em seu aplicativo Android](mobile-engagement-android-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Notas de versão
-### <a name="423-08102016"></a>4.2.3 (08/10/2016)
-* Nenhum outro bloqueio de WIFI.
-* Corrige um deadlock ao chamar getDeviceId antes de init (bug introduzido na versão 4.2.0).
+
+### <a name="431-07172017"></a>4.3.1 (07/17/2017)
+* Corrigir uma falha que raramente poderia acontecer ao chamar `EngagementAgentUtils.isInDedicatedEngagementProcess`, que também é usado pela classe `EngagementApplication`.
+
+### <a name="430-06272017"></a>4.3.0 (06/27/2017)
+* Suporte para Android 8 (versões anteriores do SDK não funcionarão em Android 8).
+* Não há mais dependência da biblioteca de suporte.
+* Remover classe `EngagementFragmentActivity`.
+* Devido a [Limites de Execução em Segundo de Fundo](https://developer.android.com/preview/features/background.html) no Android 8, logs no segundo plano podem ser atrasados até que o usuário interaja com o dispositivo. Isso terá um impacto sobre Campanha de Push **Entregue** e estatísticas de **Notificação do sistema exibida** sendo atrasadas no caso de dispositivo estar em suspensão (a notificação ainda será exibida, tocará e vibrará em tempo real sem problemas).
+* Devido a [Limites de Local do Segundo Plano](https://developer.android.com/preview/features/background-location-limits.html), o local em tempo real em segundo plano não será atualizado com frequência no Android 8.
 
 Para todas as versões, consulte as [notas de versão completas](mobile-engagement-android-release-notes.md).
 
 ## <a name="upgrade-procedures"></a>Procedimentos de atualização
 Se você já tiver integrado uma versão mais antiga do nosso SDK em seu aplicativo, consulte os [Procedimentos de atualização](mobile-engagement-android-upgrade-procedure.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

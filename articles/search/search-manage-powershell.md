@@ -15,17 +15,16 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
-translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: 618d067bf3b4ab279c7d4fcc72454fe4e69d0364
-
-
+ms.openlocfilehash: aa51c846efef12461ec382274199bc049c42aaa3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Gerencie o serviço de Pesquisa do Azure com o PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [API REST](search-get-started-management-api.md)
 > 
 > 
 
@@ -33,7 +32,7 @@ Este tópico descreve os comandos do PowerShell para executar muitas das tarefas
 Esses comandos são paralelos às opções de gerenciamento disponíveis na [API REST de Gerenciamento da Pesquisa do Azure](http://msdn.microsoft.com/library/dn832684.aspx).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* É necessário ter o Azure PowerShell 1.0 ou superior. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).
+* É necessário ter o Azure PowerShell 1.0 ou superior. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
 * É necessário estar conectado à sua assinatura do Azure no PowerShell, conforme descrito abaixo.
 
 Primeiro, faça logon no Azure com este comando:
@@ -63,7 +62,7 @@ Para especificar a assinatura, execute o comando a seguir. No exemplo a seguir, 
     # New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
     # Register the ARM provider idempotently. This must be done once per subscription
-    Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Search" -Force
+    Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Search"
 
     # Create a new search service
     # This command will return once the service is fully created
@@ -138,10 +137,4 @@ Agora que o serviço foi criado, você pode executar as próximas etapas: compil
 * [Configurar um indexador para carregar dados de outros serviços](search-indexer-overview.md)
 * [Como usar a pesquisa do Azure no .NET](search-howto-dotnet-sdk.md)
 * [Analisar o tráfego da Pesquisa do Azure](search-traffic-analytics.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

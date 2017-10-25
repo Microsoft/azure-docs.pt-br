@@ -5,8 +5,3 @@ A tabela a seguir lista os possíveis combinações de upload e captura do Windo
 | Windows gen. |N<sup>1</sup> |S |N<sup>3</sup> |S |
 | Windows espec. |S |N<sup>2</sup> |S |N<sup>4</sup> |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

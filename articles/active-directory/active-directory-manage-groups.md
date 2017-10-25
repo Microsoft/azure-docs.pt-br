@@ -12,25 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 08/28/2017
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: ac3f563828c5fa379f328392a3f5cf7c7932f534
-ms.openlocfilehash: 4cde8be3daed2f40b24218726ad8d76455d224ac
-ms.lasthandoff: 03/01/2017
-
-
+ms.custom: H1Hack27Feb2017;it-pro
+ms.reviewer: piotrci
+ms.openlocfilehash: 3a4764ddf2dea68bf25bd46b9691429ad3341678
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Gerenciar o acesso a recursos com grupos do Azure Active Directory
-O AD do Azure (Active Directory do Azure) é uma solução abrangente de gerenciamento de acesso e identidades que oferece um conjunto robusto de recursos para gerenciar o acesso aos recursos e aplicativos na nuvem e locais, incluindo serviços online da Microsoft como o Office 365 e uma infinidade de aplicativos SaaS que não são da Microsoft. Este artigo fornece uma visão geral, mas se você deseja começar a usar os grupos do Azure AD agora, siga as instruções em [Gerenciamento de grupos de segurança no Azure AD](active-directory-accessmanagement-manage-groups.md). Para ver como você pode usar o PowerShell para gerenciar grupos no Azure Active Directory, você pode ler mais em [Cmdlets de visualização do Azure Active Directory para gerenciamento de grupo](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+O AD do Azure (Active Directory do Azure) é uma solução abrangente de gerenciamento de acesso e identidades que oferece um conjunto robusto de recursos para gerenciar o acesso aos recursos e aplicativos na nuvem e locais, incluindo serviços online da Microsoft como o Office 365 e uma infinidade de aplicativos SaaS que não são da Microsoft. Este artigo fornece uma visão geral, mas se você deseja começar a usar os grupos do Azure AD agora, siga as instruções em [Gerenciamento de grupos de segurança no Azure AD](active-directory-accessmanagement-manage-groups.md). Para ver como você pode usar o PowerShell para gerenciar grupos no Azure Active Directory, você pode ler mais em [Cmdlets do Azure Active Directory para gerenciamento de grupo](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
 
 > [!NOTE]
 > Para usar o Active Directory do Azure, você precisa de uma conta do Azure. Se você ainda não tem uma conta, você pode [inscrever-se para uma conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 >
 >
 
-No Azure AD, um dos principais recursos é a capacidade de gerenciar o acesso aos recursos. Esses recursos podem ser parte do diretório, como no caso de permissões para gerenciar objetos por meio de funções no diretório, ou recursos que são externos ao diretório, como aplicativos SaaS, serviços do Azure e sites do SharePoint ou recursos locais. Há quatro maneiras de um usuário receber direitos de acesso a um recurso:
+No Azure AD, um dos principais recursos é a capacidade de gerenciar o acesso aos recursos. Esses recursos podem ser parte do diretório, como no caso de permissões para gerenciar objetos por meio de funções no diretório ou podem ser externos ao diretório, como aplicativos SaaS, serviços do Azure e sites do SharePoint ou recursos locais. Há quatro maneiras de um usuário receber direitos de acesso a um recurso:
 
 1. Atribuição direta
 
@@ -80,4 +80,3 @@ Agora que você compreendeu as noções básicas do gerenciamento de acesso, aqu
 * [Configuração de grupos dedicados no Azure AD](active-directory-accessmanagement-dedicated-groups.md)
 * [Referência de API do Graph para grupos](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 * [Cmdlets do Azure Active Directory para definir configurações de grupo](active-directory-accessmanagement-groups-settings-cmdlets.md)
-

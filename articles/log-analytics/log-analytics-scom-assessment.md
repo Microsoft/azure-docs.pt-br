@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 97ae17912eaa7508e3ae1315800408664a340837
-ms.lasthandoff: 03/11/2017
-
-
+ms.openlocfilehash: 4992d98397da409f7c1cfbdeb40fdb0cdd0d2f19
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution"></a>Otimizar seu ambiente com a solução System Center Operations Manager Assessment (Prévia)
+
+![Símbolo do Avaliação do System Center Operations Manager](./media/log-analytics-scom-assessment/scom-assessment-symbol.png)
 
 Você pode usar a solução System Center Operations Manager Assessment para avaliar o risco e a integridade de seus ambientes do servidor System Center Operations Manager em intervalos regulares. Este artigo ajuda você a instalar, configurar e usar a solução para que possa tomar ações corretivas para os problemas em potencial.
 
@@ -57,7 +57,7 @@ Use as informações a seguir para instalar e configurar a solução.
 1. [Definir como conta Executar como para o System Center Operations Manager Assessment](#operations-manager-run-as-accounts-for-oms)  
 2. [Configurar a regra do System Center Operations Manager Assessment](#configure-the-assessment-rule)
 
-# <a name="system-center-operations-manager-assessment-data-collection-details"></a>Detalhes da coleta de dados de avaliação do System Center Operations Manager
+## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Detalhes da coleta de dados de avaliação do System Center Operations Manager
 
 A avaliação do System Center Operations Manager coleta dados do WMI, dados de Registro, dados do Log de Eventos, dados do Operations Manager por meio do Windows PowerShell, Consultas SQL e coletor de Informações do Arquivo usando o servidor que você habilitou.
 
@@ -65,7 +65,7 @@ A tabela a seguir mostra os métodos da coleta de dados do System Center Operati
 
 | plataforma | Agente direto | Agente SCOM | Armazenamento do Azure | SCOM necessário? | Os dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |  ![Não](./media/log-analytics-scom-assessment/oms-bullet-red.png) | ![Não](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | ![Não](./media/log-analytics-scom-assessment/oms-bullet-red.png)  |  ![Sim](./media/log-analytics-scom-assessment/oms-bullet-green.png) | ![Não](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | sete dias |
+| Windows | | | | &#8226; | | sete dias |
 
 ## <a name="operations-manager-run-as-accounts-for-oms"></a>Contas Executar como do Operations Manager para OMS
 
@@ -155,8 +155,8 @@ Por padrão, a Regra de Avaliação da Execução do Microsoft System Center Adv
 1. No espaço de trabalho **Criação** do console do Operations Manager, pesquise a regra *Regra de Avaliação da Execução do Microsoft System Center Advisor SCOM Assessment* no painel **Regras**.
 2. Nos resultados da pesquisa, selecione aquela que inclui o texto *Tipo: Servidor de Gerenciamento*.
 3. Clique com o botão direito na regra, em seguida, clique em **Substituições** > **Para um objeto específico da classe: Servidor de Gerenciamento**.
-4.    Na lista de servidores de gerenciamento disponíveis, selecione o servidor de gerenciamento no qual a regra deve ser executada.
-5.    Verifique se você alterou o valor de substituição para **True** para o valor do parâmetro **Habilitado**.  
+4.  Na lista de servidores de gerenciamento disponíveis, selecione o servidor de gerenciamento no qual a regra deve ser executada.
+5.  Verifique se você alterou o valor de substituição para **True** para o valor do parâmetro **Habilitado**.  
     ![parâmetro de substituição](./media/log-analytics-scom-assessment/rule.png)
 
 Ainda nessa janela, configure a frequência da execução usando o procedimento a seguir.
@@ -220,6 +220,8 @@ Veja as avaliações de conformidade resumidas para sua infraestrutura e faça u
 ## <a name="ignore-recommendations"></a>Ignorar as recomendações
 
 Se houver recomendações que você deseja ignorar, poderá criar um arquivo de texto que será usado pelo OMS para impedir que as recomendações sejam exibidas nos resultados da avaliação.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Para identificar as recomendações que você deseja ignorar
 
@@ -288,4 +290,3 @@ Se houver recomendações que você deseja ignorar, poderá criar um arquivo de 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Pesquise os logs](log-analytics-log-searches.md) para exibir dados detalhados e recomendações do System Center Operations Manager Assessment.
-

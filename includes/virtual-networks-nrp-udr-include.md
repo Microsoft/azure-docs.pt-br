@@ -55,8 +55,3 @@ Exemplo de tabela de rotas no formato JSON:
 * Leia a [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt502549.aspx) para obter tabelas de rotas.
 * Leitura de [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt502539.aspx) para obter UDRs (rotas definidas pelo usuário).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

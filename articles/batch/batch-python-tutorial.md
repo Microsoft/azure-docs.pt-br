@@ -15,22 +15,22 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d1c327e90ca3343703784c22aba93280d4599723
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Introdução ao SDK do Lote para Python
 
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
+> * [Node.js](batch-nodejs-get-started.md)
 >
 >
 
-Conheça os fundamentos do [Lote do Azure][azure_batch] e o cliente [Python do Lote][py_azure_sdk] quando discutirmos um pequeno aplicativo do Lote escrito em Python. Veremos como dois scripts de exemplo usam o serviço Lote para processar uma carga de trabalho paralela em máquinas virtuais Linux na nuvem e como eles interagem com o [Armazenamento do Azure](../storage/storage-introduction.md) para o preparo e a recuperação de arquivos. Você verá um fluxo de trabalho comum do aplicativo Lote e obterá uma compreensão básica dos principais componentes do Lote, como trabalhos, tarefas, pools e nós de computação.
+Conheça os fundamentos do [Lote do Azure][azure_batch] e o cliente [Python do Lote][py_azure_sdk] quando discutirmos um pequeno aplicativo do Lote escrito em Python. Veremos como dois scripts de exemplo usam o serviço Lote para processar uma carga de trabalho paralela em máquinas virtuais Linux na nuvem e como eles interagem com o [Armazenamento do Azure](../storage/common/storage-introduction.md) para o preparo e a recuperação de arquivos. Você verá um fluxo de trabalho comum do aplicativo Lote e obterá uma compreensão básica dos principais componentes do Lote, como trabalhos, tarefas, pools e nós de computação.
 
 ![Fluxo de trabalho da solução do Lote (básico)][11]<br/>
 
@@ -40,7 +40,7 @@ Este artigo pressupõe que você tenha um conhecimento prático do Python e que 
 ### <a name="accounts"></a>Contas
 * **Conta do Azure**: se você ainda não tiver uma assinatura do Azure, [crie uma conta gratuita do Azure][azure_free_account].
 * **Conta do Lote**: quando você tiver uma assinatura do Azure, [crie uma conta do Lote do Azure](batch-account-create-portal.md).
-* **Conta de armazenamento**: veja [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md).
+* **Conta de armazenamento**: veja [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/common/storage-create-storage-account.md).
 
 ### <a name="code-sample"></a>Exemplo de código
 O [exemplo de código][github_article_samples] do tutorial do Python é um dos vários exemplos de código do Lote encontrados no repositório [azure-batch-samples][github_samples] no GitHub. Você pode baixar todos os exemplos clicando no botão **Clonar ou baixar > Baixar ZIP** na home page do repositório ou clicando no link de download direto de [azure-batch-samples-master.zip][github_samples_zip]. Depois de extrair o conteúdo do arquivo ZIP, encontre os dois scripts deste tutorial no diretório `article_samples` :
@@ -59,7 +59,7 @@ Você deve instalar as dependências para a biblioteca de [criptografia][crypto]
     `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`
 * CentOS
 
-    `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`
+    `yum update && yum install -y gcc openssl-devel libffi-devel python-devel`
 * SLES/OpenSUSE
 
     `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
@@ -107,7 +107,7 @@ O diagrama a seguir ilustra as operações principais executadas pelos scripts d
 [**Etapa 3.**](#step-3-create-batch-pool) Criar um **pool** do Lote.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**3a.** O pool **StartTask** baixa o script de tarefa (python_tutorial_task.py) para os nós quando eles ingressam no pool.<br/>
 [**Etapa 4.**](#step-4-create-batch-job) Crie um **trabalho** do Lote.<br/>
-[**Etapa 5.**](#step-5-add-tasks-to-job) Adicione **Tarefas** ao trabalho.<br/>
+[**Etapa 5.**](#step-5-add-tasks-to-job) Adicione **tarefas** ao trabalho.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**5a.** As tarefas serão agendadas para a execução em nós.<br/>
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Cada tarefa baixa seus dados de entrada do Armazenamento do Azure e então inicia a execução.<br/>
 [**Etapa 6.**](#step-6-monitor-tasks) Monitore as tarefas.<br/>
@@ -125,13 +125,13 @@ Antes de executar o exemplo, adicione suas credenciais de conta do Lote e do Arm
 # for the Batch and Storage client objects.
 
 # Batch account credentials
-batch_account_name = "";
-batch_account_key  = "";
-batch_account_url  = "";
+BATCH_ACCOUNT_NAME = ""
+BATCH_ACCOUNT_KEY = ""
+BATCH_ACCOUNT_URL = ""
 
 # Storage account credentials
-storage_account_name = "";
-storage_account_key  = "";
+STORAGE_ACCOUNT_NAME = ""
+STORAGE_ACCOUNT_KEY = ""
 ```
 
 Você pode encontrar suas credenciais de conta do Lote e de Armazenamento na folha da conta de cada serviço no [Portal do Azure][azure_portal]:
@@ -151,7 +151,7 @@ if __name__ == '__main__':
 ![Criar contêineres no Armazenamento do Azure][1]
 <br/>
 
-O Lote inclui suporte interno para a interação com o Armazenamento do Azure. Os contêineres em sua conta do Armazenamento fornecerão os arquivos necessários às tarefas que serão executadas em sua conta do Lote. Os contêineres também fornecem um local para armazenar os dados de saída produzidos pelas tarefas. A primeira coisa que o aplicativo script *python_tutorial_client.py* faz é criar três contêineres no [Armazenamento de Blobs do Azure](../storage/storage-introduction.md#blob-storage):
+O Lote inclui suporte interno para a interação com o Armazenamento do Azure. Os contêineres em sua conta do Armazenamento fornecerão os arquivos necessários às tarefas que serão executadas em sua conta do Lote. Os contêineres também fornecem um local para armazenar os dados de saída produzidos pelas tarefas. A primeira coisa que o aplicativo script *python_tutorial_client.py* faz é criar três contêineres no [Armazenamento de Blobs do Azure](../storage/common/storage-introduction.md#blob-storage):
 
 * **application**: esse contêiner armazena o script Python executado pelas tarefas, *python_tutorial_task.py*.
 * **input**: as tarefas baixarão os arquivos de dados a serem processados do contêiner *input* .
@@ -160,26 +160,28 @@ O Lote inclui suporte interno para a interação com o Armazenamento do Azure. O
 Para interagir com uma conta de Armazenamento e criar contêineres, usamos o pacote [azure-storage][pypi_storage] para criar um objeto [BlockBlobService][py_blockblobservice], o "cliente de blob". Em seguida, criamos três contêineres na conta do Armazenamento usando o cliente de blob.
 
 ```python
- # Create the blob client, for use in obtaining references to
- # blob storage containers and uploading files to containers.
- blob_client = azureblob.BlockBlobService(
-     account_name=_STORAGE_ACCOUNT_NAME,
-     account_key=_STORAGE_ACCOUNT_KEY)
+import azure.storage.blob as azureblob
 
- # Use the blob client to create the containers in Azure Storage if they
- # don't yet exist.
- app_container_name = 'application'
- input_container_name = 'input'
- output_container_name = 'output'
- blob_client.create_container(app_container_name, fail_on_exist=False)
- blob_client.create_container(input_container_name, fail_on_exist=False)
- blob_client.create_container(output_container_name, fail_on_exist=False)
+# Create the blob client, for use in obtaining references to
+# blob storage containers and uploading files to containers.
+blob_client = azureblob.BlockBlobService(
+    account_name=STORAGE_ACCOUNT_NAME,
+    account_key=STORAGE_ACCOUNT_KEY)
+
+# Use the blob client to create the containers in Azure Storage if they
+# don't yet exist.
+APP_CONTAINER_NAME = 'application'
+INPUT_CONTAINER_NAME = 'input'
+OUTPUT_CONTAINER_NAME = 'output'
+blob_client.create_container(APP_CONTAINER_NAME, fail_on_exist=False)
+blob_client.create_container(INPUT_CONTAINER_NAME, fail_on_exist=False)
+blob_client.create_container(OUTPUT_CONTAINER_NAME, fail_on_exist=False)
 ```
 
 Depois que os contêineres tiverem sido criados, o aplicativo poderá carregar os arquivos que serão usados pelas tarefas.
 
 > [!TIP]
-> [Como usar o Armazenamento de Blobs do Azure do Python](../storage/storage-python-how-to-use-blob-storage.md) fornece uma boa visão geral de como trabalhar com blobs e contêineres do Armazenamento do Azure. Ele deverá estar próximo à parte superior da lista de leitura quando você começar a trabalhar com o Lote.
+> [Como usar o Armazenamento de Blobs do Azure do Python](../storage/blobs/storage-python-how-to-use-blob-storage.md) fornece uma boa visão geral de como trabalhar com blobs e contêineres do Armazenamento do Azure. Ele deverá estar próximo à parte superior da lista de leitura quando você começar a trabalhar com o Lote.
 >
 >
 
@@ -190,33 +192,33 @@ Depois que os contêineres tiverem sido criados, o aplicativo poderá carregar o
 Na operação de upload de arquivos, *python_tutorial_client.py* primeiro define as coleções de caminhos de arquivo **application** e **input** como eles existem no computador local. Em seguida, ele carrega esses arquivos nos contêineres que você criou na etapa anterior.
 
 ```python
- # Paths to the task script. This script will be executed by the tasks that
- # run on the compute nodes.
- application_file_paths = [os.path.realpath('python_tutorial_task.py')]
+# Paths to the task script. This script will be executed by the tasks that
+# run on the compute nodes.
+application_file_paths = [os.path.realpath('python_tutorial_task.py')]
 
- # The collection of data files that are to be processed by the tasks.
- input_file_paths = [os.path.realpath('./data/taskdata1.txt'),
-                     os.path.realpath('./data/taskdata2.txt'),
-                     os.path.realpath('./data/taskdata3.txt')]
+# The collection of data files that are to be processed by the tasks.
+input_file_paths = [os.path.realpath('./data/taskdata1.txt'),
+                    os.path.realpath('./data/taskdata2.txt'),
+                    os.path.realpath('./data/taskdata3.txt')]
 
- # Upload the application script to Azure Storage. This is the script that
- # will process the data files, and is executed by each of the tasks on the
- # compute nodes.
- application_files = [
-     upload_file_to_container(blob_client, app_container_name, file_path)
-     for file_path in application_file_paths]
+# Upload the application script to Azure Storage. This is the script that
+# will process the data files, and is executed by each of the tasks on the
+# compute nodes.
+application_files = [
+    upload_file_to_container(blob_client, APP_CONTAINER_NAME, file_path)
+    for file_path in application_file_paths]
 
- # Upload the data files. This is the data that will be processed by each of
- # the tasks executed on the compute nodes in the pool.
- input_files = [
-     upload_file_to_container(blob_client, input_container_name, file_path)
-     for file_path in input_file_paths]
+# Upload the data files. This is the data that will be processed by each of
+# the tasks executed on the compute nodes in the pool.
+input_files = [
+    upload_file_to_container(blob_client, INPUT_CONTAINER_NAME, file_path)
+    for file_path in input_file_paths]
 ```
 
 Usando a abrangência da lista, a função `upload_file_to_container` é chamada para cada arquivo nas coleções e duas coleções [ResourceFile][py_resource_file] são populadas. A função `upload_file_to_container` é exibida abaixo:
 
 ```python
-def upload_file_to_container(block_blob_client, container_name, file_path):
+def upload_file_to_container(block_blob_client, container_name, path):
     """
     Uploads a local file to an Azure Blob storage container.
 
@@ -228,9 +230,14 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
     :return: A ResourceFile initialized with a SAS URL appropriate for Batch
     tasks.
     """
-    blob_name = os.path.basename(file_path)
 
-    print('Uploading file {} to container [{}]...'.format(file_path,
+    import datetime
+    import azure.storage.blob as azureblob
+    import azure.batch.models as batchmodels
+
+    blob_name = os.path.basename(path)
+
+    print('Uploading file {} to container [{}]...'.format(path,
                                                           container_name))
 
     block_blob_client.create_blob_from_path(container_name,
@@ -268,7 +275,7 @@ As assinaturas de acesso compartilhado são cadeias de caracteres que oferecem a
 * **Assinatura de acesso compartilhado do contêiner**: como cada tarefa conclui seu trabalho em nós de computação, ele carrega o arquivo de saída no contêiner *output* no Armazenamento do Azure. Para fazer isso, *python_tutorial_task.py* usa uma assinatura de acesso compartilhado do contêiner que fornece acesso de gravação ao contêiner. A função `get_container_sas_token` em *python_tutorial_client.py* obtém a assinatura de acesso compartilhado do contêiner, que é passada como um argumento de linha de comando para as tarefas. A Etapa 5, [Adicionar tarefas a um trabalho](#step-5-add-tasks-to-job), discute o uso de SAS do contêiner.
 
 > [!TIP]
-> Confira a série de duas partes sobre as assinaturas de acesso compartilhado, [Parte 1: noções básicas sobre o modelo SAS](../storage/storage-dotnet-shared-access-signature-part-1.md) e [Parte 2: criar e usar uma SAS com o serviço Blob](../storage/storage-dotnet-shared-access-signature-part-2.md) para saber mais sobre como fornecer acesso seguro aos dados em sua conta do Armazenamento.
+> Confira a série de duas partes sobre as assinaturas de acesso compartilhado, [Parte 1: noções básicas sobre o modelo SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md) e [Parte 2: criar e usar uma SAS com o serviço Blob](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md) para saber mais sobre como fornecer acesso seguro aos dados em sua conta do Armazenamento.
 >
 >
 
@@ -281,14 +288,14 @@ Um **pool** do Lote é uma coleção de nós de computação (máquinas virtuais
 Depois de carregar o script de tarefa e os arquivos de dados na conta do Armazenamento, o *python_tutorial_client.py* inicia sua interação com o serviço Lote usando o módulo Python do Lote. Para fazer isso, um [BatchServiceClient][py_batchserviceclient] é criado:
 
 ```python
- # Create a Batch service client. We'll now be interacting with the Batch
- # service in addition to Storage.
- credentials = batchauth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
-                                              _BATCH_ACCOUNT_KEY)
+# Create a Batch service client. We'll now be interacting with the Batch
+# service in addition to Storage.
+credentials = batchauth.SharedKeyCredentials(BATCH_ACCOUNT_NAME,
+                                             BATCH_ACCOUNT_KEY)
 
- batch_client = batch.BatchServiceClient(
-     credentials,
-     base_url=_BATCH_ACCOUNT_URL)
+batch_client = batch.BatchServiceClient(
+    credentials,
+    base_url=BATCH_ACCOUNT_URL)
 ```
 
 Em seguida, um pool de nós de computação é criado na conta do Lote com uma chamada para `create_pool`.
@@ -708,4 +715,3 @@ Agora que você está familiarizado com o fluxo de trabalho básico de uma solu�
 [9]: ./media/batch-python-tutorial/credentials_batch_sm.png "Credenciais do Lote no Portal"
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Credenciais do Armazenamento no Portal"
 [11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Fluxo de trabalho da solução do Lote (diagrama mínimo)"
-

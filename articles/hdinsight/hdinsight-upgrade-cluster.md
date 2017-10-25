@@ -1,6 +1,6 @@
 ---
-title: "Migrar do HDInsight baseado em Windows para o HDInsight baseado em Linux – Azure | Microsoft Docs"
-description: Saiba como migrar de um cluster HDInsight baseado no Windows para um cluster HDInsight baseado no Linux.
+title: "Atualizar o cluster HDInsight para uma versão mais nova – Azure | Microsoft Docs"
+description: "Saiba como atualizar o cluster HDInsight para uma versão mais nova."
 services: hdinsight
 documentationcenter: 
 author: bhanupr
@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/11/2017
+ms.date: 04/04/2017
 ms.author: bhanupr
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: e249d2859f135bf1a49b152ce206dc66ddebb75f
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: fa2e37bd922690322ccc3d8f68128180d013b701
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Atualizar o cluster HDInsight para uma versão mais recente
 Para aproveitar os novos recursos do HDInsight, é recomendável que os clusters HDInsight sejam atualizados para a versão mais recente. Siga as diretrizes apresentadas abaixo para atualizar as versões do cluster HDInsight.
 
 > [!NOTE]
-> Clusters HDInsight da versão 3.2 e 3.3 estão se aproximando da data de substituição. Para obter mais informações sobre a versão com suporte do HDInsight, consulte [Versões de componente do HDInsight](hdinsight-component-versioning.md#supported-hdinsight-versions).
+> Os clusters HDInsight da versão 3.2 e 3.3 estão se aproximando da data de desativação. Para obter mais informações sobre a versão com suporte do HDInsight, consulte [Versões de componente do HDInsight](hdinsight-component-versioning.md#supported-hdinsight-versions).
 >
 >
 
@@ -43,15 +42,14 @@ O fluxo de trabalho para atualizar o cluster HDInsight serão apresentadas a seg
 
 Depois de verificar se tudo está funcionando conforme o esperado, agende o tempo de inatividade para a migração. Durante esse tempo de inatividade, execute as tarefas a seguir:
 
-1.    Faça backup de dados transitórios armazenados localmente em nós do cluster. Por exemplo, se você tiver dados armazenados diretamente em um nó principal.
-2.    Exclua o cluster existente.
-3.    Crie um cluster na mesma sub-rede VNET com a versão do HDI mais recente (ou com suporte) que usa o mesmo armazenamento de dados padrão utilizado pelo cluster anterior. Isso permite que o novo cluster continue trabalhando nos dados de produção existentes.
-4.    Importe o backup de todos os dados transitórios.
-5.    Inicie os trabalhos/continue processando usando o novo cluster.
+1.  Faça backup de dados transitórios armazenados localmente em nós do cluster. Por exemplo, se você tiver dados armazenados diretamente em um nó principal.
+2.  Exclua o cluster existente.
+3.  Crie um cluster na mesma sub-rede VNET com a versão do HDI mais recente (ou com suporte) que usa o mesmo armazenamento de dados padrão utilizado pelo cluster anterior. Isso permite que o novo cluster continue trabalhando nos dados de produção existentes.
+4.  Importe o backup de todos os dados transitórios.
+5.  Inicie os trabalhos/continue processando usando o novo cluster.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Saiba como criar clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md)
 * [Conectar-se ao HDInsight usando o SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Gerenciar um cluster baseado em Linux usando o Ambari](hdinsight-hadoop-manage-ambari.md)
-
 

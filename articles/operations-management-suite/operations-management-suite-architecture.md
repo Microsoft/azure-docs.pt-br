@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 04/11/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: df1a5b2c200b7fa69961247ac036ee35fd14f54d
-
-
+ms.openlocfilehash: 76f69946724b5297b1f9a1f715819c69c4a4a51d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="oms-architecture"></a>Arquitetura do OMS
 O [OMS (Operations Management Suite)](https://azure.microsoft.com/documentation/services/operations-management-suite/) é uma coleção de serviços baseados em nuvem para gerenciar seus ambientes locais e na nuvem.  Este artigo descreve os diferentes componentes locais e na nuvem do OMS e sua arquitetura de computação em nuvem de alto nível.  Consulte a documentação de cada serviço para obter mais detalhes.
@@ -70,11 +70,11 @@ O Azure Site Recovery apresenta três cenários fundamentais de replicação.
 
 **Replicação de máquinas virtuais VMWare**
 
-* É possível replicar máquinas virtuais VMware em um data center secundário que executa o VMware ou no armazenamento do Azure.  A replicação no Azure pode ocorrer por uma VPN site a site, pela Rota Expressa do Azure ou por uma conexão segura com a Internet. A replicação em um data center secundário ocorre pelo canal de dados do InMage Scout.
+* É possível replicar máquinas virtuais VMware em um data center secundário que executa o VMware ou no armazenamento do Azure.  A replicação no Azure pode ocorrer por uma VPN site a site, pelo Azure ExpressRoute ou por uma conexão segura com a Internet. A replicação em um data center secundário ocorre pelo canal de dados do InMage Scout.
 
 **Replicação de servidores físicos do Windows e Linux** 
 
-* É possível replicar servidores físicos em um data center secundário ou no armazenamento do Azure. A replicação no Azure pode ocorrer por uma VPN site a site, pela Rota Expressa do Azure ou por uma conexão segura com a Internet. A replicação em um data center secundário ocorre pelo canal de dados do InMage Scout.  O Azure Site Recovery traz uma solução do OMS que exibe algumas estatísticas, mas é necessário usar o portal do Azure para qualquer operação.
+* É possível replicar servidores físicos em um data center secundário ou no armazenamento do Azure. A replicação no Azure pode ocorrer por uma VPN site a site, pelo Azure ExpressRoute ou por uma conexão segura com a Internet. A replicação em um data center secundário ocorre pelo canal de dados do InMage Scout.  O Azure Site Recovery traz uma solução do OMS que exibe algumas estatísticas, mas é necessário usar o portal do Azure para qualquer operação.
 
 ![Arquitetura de alto nível do Azure Site Recovery](media/operations-management-suite-architecture/site-recovery.png)
 
@@ -83,10 +83,4 @@ O Azure Site Recovery apresenta três cenários fundamentais de replicação.
 * Saiba mais sobre a [Automação do Azure](https://azure.microsoft.com/documentation/services/automation).
 * Saiba mais sobre o [Backup do Azure](http://azure.microsoft.com/documentation/services/backup).
 * Saiba mais sobre o [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

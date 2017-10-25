@@ -3,7 +3,7 @@ title: "Introdução à linha de comando Java do Azure AD | Microsoft Docs"
 description: "Como criar um aplicativo de linha de comando Java que conecta os usuários para acessar uma API."
 services: active-directory
 documentationcenter: java
-author: xerners
+author: navyasric
 manager: mbaldwin
 editor: 
 ms.assetid: 51e1a8f9-6ff0-4643-a350-0ba794e26fd1
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: brandwe
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 4e6d859ee621a730e0d2c1062d3a31e7c053e798
-ms.lasthandoff: 03/18/2017
-
-
+ms.author: nacanuma
+ms.custom: aaddev
+ms.openlocfilehash: 91e4a7b2ac454465d5cce4948a4d5f0b542d2b55
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>Usando um aplicativo de linha de comando Java para acessar uma API com o AD do Azure
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -268,5 +268,4 @@ Parabéns! Agora você tem um aplicativo Java com a capacidade de autenticar usu
 Para referência, o exemplo concluído (sem os valores de configuração) [é fornecido como um .zip aqui](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip), ou você pode cloná-lo do GitHub:
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
-
 

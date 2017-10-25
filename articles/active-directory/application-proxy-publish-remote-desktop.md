@@ -1,5 +1,5 @@
 ---
-title: "Publicar a Área de Trabalho Remota com o Proxy de Aplicativo do Azure Active Directory | Microsoft Docs"
+title: "Publicar a Área de Trabalho Remota com o Proxy de Aplicativo do Azure AD | Microsoft Docs"
 description: "Cobre as noções básicas sobre os conectores do Proxy de Aplicativo do Azure AD."
 services: active-directory
 documentationcenter: 
@@ -11,76 +11,123 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 09/06/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9f2f5c9ad5c47eb5e1a8a8ec3fee2952caef63
-ms.openlocfilehash: 5c01f89c335a6c85b5b50a4c8491ae1b02740578
-ms.lasthandoff: 02/27/2017
-
-
+ms.custom: it-pro
+ms.reviewer: harshja
+ms.openlocfilehash: fa8f63c8da5019ed42ea8ec067d3d3d174976dd8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar a Área de Trabalho Remota com o Proxy de Aplicativo do Azure AD
 
-Este artigo discute como disponibilizar as implantações de Área de Trabalho Remota do Windows para usuários remotos. As implantações de Área de Trabalho Remota podem residir localmente ou em redes privadas, como implantações de IaaS.
+O Serviço de Área de Trabalho Remota e o Proxy de Aplicativo do Azure AD trabalham juntos para aumentar a produtividade dos trabalhos que estão fora da rede corporativa. 
 
-> [!NOTE]
-> O Proxy de Aplicativo é um recurso que estará disponível somente se você tiver atualizado para a edição Premium ou Basic do Azure Active Directory (Azure AD). Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
+O público-alvo deste artigo é:
+- Os clientes atuais do Proxy de Aplicativo que desejam oferecer mais aplicativos para seus usuários finais publicando aplicativos locais através dos Serviços de Área de Trabalho Remota.
+- Clientes atuais dos Serviços de Área de Trabalho Remota cujo desejo é reduzir a superfície de ataque da respectiva implantação usando o Proxy de Aplicativo do Azure AD. Este cenário fornece um conjunto limitado de verificação em duas etapas e controles de acesso condicional para o RDS.
 
-O tráfego de RDP (Protocolo de Área de Trabalho Remota) pode ser publicado por meio do Proxy de Aplicativo do Azure AD como um aplicativo de proxy de passagem. Essa solução resolve o problema de conectividade e fornece proteção de segurança básica, como buffer de rede, front-end seguro de Internet e proteção contra DDoS (ataque de negação de serviço distribuído).
+## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>Como o Proxy de aplicativo se ajusta na implantação do RDS padrão
 
-## <a name="remote-desktop-deployment"></a>Implantação de Área de Trabalho Remota
+Uma implantação do RDS padrão inclui vários serviços de função da Área de Trabalho Remota em execução no Windows Server. Observando a [arquitetura dos Serviços de Área de Trabalho Remota](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture), há várias opções de implantação. Ao contrário de outras opções de implantação de RDS, a [implantação de RDS com o Proxy de Aplicativo do Azure AD](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) (mostrada no diagrama a seguir) tem uma conexão permanente de saída do servidor executando o serviço do conector. Outras implantações deixam conexões de entrada abertas por meio de um balanceador de carga.
 
-Dentro da implantação de Área de Trabalho Remota, Gateway de Área de Trabalho Remota é publicado para que ele pode converter a chamada de procedimento remoto (RPC) sobre o tráfego HTTPS para RDP sobre o tráfego de protocolo de datagrama de usuário (UDP).
+![O proxy de aplicativo fica entre a VM do RDS e a Internet pública](./media/application-proxy-publish-remote-desktop/rds-with-app-proxy.png)
 
-Você pode configurar os clientes para usar clientes de Área de Trabalho Remota, como MSTSC.exe, para acessar o Proxy de Aplicativo do Azure AD. Dessa forma, você pode criar uma nova conexão HTTPS para o Gateway de Área de Trabalho Remota usando seus conectores. Como resultado, o gateway não é diretamente exposto à Internet, e todas as solicitações HTTPS serão encerradas primeiro na nuvem.
+Em uma implantação do RDS, a função Web da Área de Trabalho Remota e a função de Gateway de Área de Trabalho Remota são executados em computadores voltados para a Internet. Esses pontos de extremidade são expostos pelos seguintes motivos:
+- A Web de Área de Trabalho Remota fornece ao usuário um ponto de extremidade público para entrar e exibir os diversos aplicativos locais e áreas de trabalho que eles podem acessar. Ao selecionar um recurso, uma conexão de RDP é criada usando o aplicativo nativo no sistema operacional.
+- O Gateway de Área de Trabalho Remota entra em cena quando um usuário inicia a conexão de RDP. O Gateway de Área de Trabalho Remota manipula o tráfego de RDP criptografado chegando pela Internet e o converte para o servidor local ao qual o usuário está se conectando. Nesse cenário, o tráfego que o Gateway de Área de Trabalho Remota está recebendo é proveniente do Proxy de Aplicativo do Azure AD.
 
-A topologia é mostrada neste diagrama:
+>[!TIP]
+>Se você não implantou o RDS anteriormente ou deseja obter mais informações antes de começar, saiba como [implantar perfeitamente o RDS com o Azure Resource Manager e o Azure Marketplace](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure).
 
- ![Diagrama de Locais de Serviços do Azure AD](./media/application-proxy-publish-remote-desktop/remote-desktop-topology.png)
+## <a name="requirements"></a>Requisitos
 
-## <a name="configure-the-remote-desktop-gateway-url"></a>Configurar a URL do Gateway de Área de Trabalho Remota
+- Tanto o ponto de extremidade da Web da Área de Trabalho Remota quanto o ponto de extremidade do Gateway de Área de Trabalho Remota devem estar localizados no mesmo computador e com uma raiz comum. A Web da Área de Trabalho Remota e o Gateway de Área de Trabalho Remota serão publicados como um único aplicativo com o Proxy de Aplicativo para que você possa ter uma experiência de logon único entre os dois aplicativos.
 
-Quando os usuários configuram a URL de Gateway de Área de Trabalho Remota e disparam o tráfego de RDP normalmente, podem acessar arquivos e outros métodos.
+- Você já deverá ter [implantado o RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) e [habilitado o Proxy de Aplicativo](active-directory-application-proxy-enable.md).
 
-Você pode publicar usando o nome de domínio fornecido pelo Proxy de Aplicativo (msappproxy.net) ou usando um nome de domínio personalizado configurado no Azure AD (por exemplo, rdg.contoso.com).
+- Esse cenário pressupõe que seus usuários finais passem pelo Internet Explorer em áreas de trabalho do Windows 7 ou do Windows 10 que se conectem por meio da página da Web de RD. Se você precisar de suporte a outros sistemas operacionais, consulte [Suporte a outras configurações de cliente](#support-for-other-client-configurations).
 
-Se os dispositivos de cliente e o arquivo RDP já estiverem configurados com uma URL de Gateway de Área de Trabalho Remota, você poderá usar o mesmo nome de domínio e, portanto, evitar a alteração. Nesse caso, o certificado que cobre esse domínio deve ser fornecido ao Proxy de Aplicativo, e sua CRL (lista de revogação de certificado) deve estar acessível pela Internet.
+  >[!NOTE]
+  >No momento, não há suporte para atualização do Criador do Windows 10.
 
-Se nenhuma URL de Gateway de Área de Trabalho Remota estiver configurada, os usuários ou administradores poderão especificá-la nos clientes de Área de Trabalho Remota (MSTSC) usando a caixa de diálogo Conexão de Área de Trabalho Remota, conforme mostrado aqui.
+- No Internet Explorer, habilite o complemento ActiveX do RDS.
 
- ![Caixa de diálogo Conexão de Área de Trabalho Remota](./media/application-proxy-publish-remote-desktop/remote-desktop-connection-advanced.png)
+## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>Implantar o cenário conjunto de RDS e Proxy de Aplicativo
 
-A caixa de diálogo **Configurações da Conexão** é exibida quando você clica em **Configurações** na guia **Avançado**.
+Depois de configurar o RDS e o Proxy de Aplicativo do Azure AD em seu ambiente, siga as etapas para combinar as duas soluções. Essas etapas explicam passo a passo como publicar os dois pontos de extremidade de RDS voltados para a Web (Web da Área de Trabalho Remota e Gateway de Área de Trabalho Remota) como aplicativos, direcionando depois o tráfego em seu RDS para passar pelo Proxy de Aplicativo.
 
- ![Janela de configurações de Conexão na caixa de diálogo Conexão de Área de Trabalho Remota](./media/application-proxy-publish-remote-desktop/remote-desktop-connection-settings.png)
+### <a name="publish-the-rd-host-endpoint"></a>Publicar o ponto de extremidade do host de Área de Trabalho Remota
 
-## <a name="remote-desktop-web-access"></a>Acesso via Web da Área de Trabalho Remota
+1. [Publicar um novo aplicativo de Proxy de Aplicativo](application-proxy-publish-azure-portal.md) com os seguintes valores:
+   - URL interna: https://\<rdhost\>.com/, em que \<rdhost\> é a raiz comum que a Web da Área de Trabalho Remota e o Gateway de Área de Trabalho Remota compartilham.
+   - URL externa: esse campo é preenchido automaticamente com base no nome do aplicativo, mas você pode modificá-lo. Os usuários serão levados a essa URL quando acessarem o RDS.
+   - Método de pré-autenticação: Azure Active Directory
+   - Converter cabeçalhos de URL: não
+2. Atribua usuários ao aplicativo de Área de Trabalho Remota publicado. Certifique-se também de que todos eles tenham acesso ao RDS.
+3. Deixe o método de logon único para o aplicativo como **Logon único do Azure AD desabilitado**. É solicitado aos usuários que autentiquem uma vez no Azure AD e uma vez para a Web da Área de Trabalho Remota, eles têm logon único para o Gateway de Área de Trabalho Remota.
+4. Vá para **Azure Active Directory** > **Registros de Aplicativo** > *Seu aplicativo* > **Configurações**.
+5. Selecione **Propriedades** e atualize o campo **URL da Home Page** para apontar para o ponto de extremidade da Web da Área de Trabalho Remota (como https://\<rdhost\>.com/RDWeb).
 
-Se sua organização usar o portal de RDWA (Acesso via Web da Área de Trabalho Remota), você também poderá publicar usando o Proxy de Aplicativo do Azure AD. Você pode publicar nesse portal com pré-autenticação e logon único (SSO).
+### <a name="direct-rds-traffic-to-application-proxy"></a>Direcionar o tráfego do RDS para o Proxy de Aplicativo
 
-A topologia do cenário RDWA é mostrada no diagrama a seguir:
+Conecte-se à implantação do RDS como administrador e altere o nome do servidor de Gateway de Área de Trabalho Remota para a implantação. Essa configuração garante que as conexões passem pelo serviço de Proxy de Aplicativo do Azure AD.
 
- ![Diagrama do cenário RDWA](./media/application-proxy-publish-remote-desktop/remote-desktop-web-access-portal1.png)
+1. Conecte-se ao servidor RDS executando a função de Agente de Conexão de Área de Trabalho Remota.
+2. Inicie o **Gerenciador do Servidor**.
+3. Selecione **Serviços de Área de Trabalho Remota** no painel à esquerda.
+4. Selecione **Visão geral**.
+5. Na seção Visão geral da implantação, selecione o menu suspenso e escolha **Editar propriedades de implantação**.
+6. Na guia Gateway de Área de Trabalho Remota, altere o campo **Nome do servidor** para a URL externa que você definiu para o ponto de extremidade do host de Área de Trabalho Remota no Proxy de Aplicativo.
+7. Altere o campo **Método de logon** para **Autenticação de Senha**.
 
-No caso anterior, os usuários são autenticados no Azure AD antes de acessar RDWA. Se eles já tiverem sido autenticados no Azure AD (por exemplo, se estiverem usando o Office 365), não será necessário autenticar novamente no RDWA.
+  ![Tela Propriedades de Implantação no RDS](./media/application-proxy-publish-remote-desktop/rds-deployment-properties.png)
 
-Quando os usuários iniciarem a sessão de RDP, precisarão autenticar novamente no canal da RDP. Isso acontece porque o SSO do RDWA para o Gateway de Área de Trabalho Remota tem base no armazenamento de credenciais de usuário no cliente usando o ActiveX. Esse processo é disparado a partir da autenticação baseada em formulário do RDWA. Quando a autenticação do RDWA estiver usando Kerbros, nenhuma autenticação baseada em formulário será apresentada e, portanto, o RDWA para SSO de RDP não funcionará.
+8. Execute este comando para cada coleção. Substitua *\<yourcollectionname\>* e *\<proxyfrontendurl\>* por suas próprias informações. Este comando habilita o logon único entre a Web da Área de Trabalho Remota e Gateway de Área de Trabalho Remota e otimiza o desempenho:
 
-Se o RDWA precisar de SSO para o tráfego de RDP, ou a autenticação baseada em formulário de RDWA tiver sido muito personalizada, você poderá publicar o RDWA sem pré-autenticação.
+   ```
+   Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"
+   ```
 
-A topologia desse cenário é mostrada no diagrama a seguir:
+   **Por exemplo:**
+   ```
+   Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://gateway.contoso.msappproxy.net/`nrequire pre-authentication:i:1"
+   ```
 
- ![Diagrama do cenário RDWA](./media/application-proxy-publish-remote-desktop/remote-desktop-web-access-portal2.png)
+9. Para verificar se a modificação das propriedades personalizadas do RDP, bem como para exibir o conteúdo do arquivo do RDP que será baixado do RDWeb para essa coleção, execute o seguinte comando:
+    ```
+    (get-wmiobject -Namespace root\cimv2\terminalservices -Class Win32_RDCentralPublishedRemoteDesktop).RDPFileContents
+    ```
 
-No caso anterior, os usuários devem autenticar RDWA usando a autenticação baseada em formulário, mas eles não precisam autenticar o RDP.
+Agora que você configurou a Área de Trabalho Remota, o Proxy de Aplicativo do Azure AD assumiu como o componente voltado para a Internet do RDS. Você pode remover os outros pontos de extremidade voltados para a Internet pública em seus computadores da Web da Área de Trabalho Remota e do Gateway de Área de Trabalho Remota.
 
->[!NOTE]
->Em ambos os casos anteriores, nenhum pré-autenticação é necessária no tráfego RDP. Portanto, os usuários podem acessá-lo sem passar primeiro pelo RDWA.
+## <a name="test-the-scenario"></a>Testar o cenário
+
+Teste o cenário com o Internet Explorer no computador com Windows 7 ou 10.
+
+1. Vá para a URL externa que você configurou ou localize seu aplicativo no [painel MyApps](https://myapps.microsoft.com).
+2. É solicitado que você se autentique no Azure Active Directory. Use uma conta que você atribuiu ao aplicativo.
+3. Será solicitado que você autentique a Web da Área de Trabalho Remota.
+4. Quando a autenticação de RDS for bem-sucedida, você poderá selecionar o computador desktop ou aplicativo que deseja e começar a trabalhar.
+
+## <a name="support-for-other-client-configurations"></a>Suporte para outras configurações de cliente
+
+A configuração descrita neste artigo é para usuários no Windows 7 ou 10, com o Internet Explorer mais o complemento ActiveX do RDS. Se for necessário, no entanto, você poderá dar suporte a outros sistemas operacionais ou navegadores. A diferença está no método de autenticação que você usa.
+
+| Método de autenticação | Configuração de cliente com suporte |
+| --------------------- | ------------------------------ |
+| Pré-autenticação    | Windows 7/10 usando o Internet Explorer + complemento ActiveX do RDS |
+| Passagem | Qualquer outro sistema operacional que dê suporte ao aplicativo de Área de Trabalho Remota da Microsoft |
+
+O fluxo de pré-autenticação oferece mais benefícios de segurança que o fluxo de passagem. Com a pré-autenticação, você pode usar os recursos de autenticação do Azure AD, como o logon único, o acesso condicional e a verificação em duas etapas, para os seus recursos locais. Você também pode garantir que somente tráfego autenticado alcance sua rede.
+
+Para usar a autenticação de passagem, há apenas duas modificações às etapas listadas neste artigo:
+1. Na etapa 1, [Publicar o ponto de extremidade do host de RD](#publish-the-rd-host-endpoint), defina o método de pré-autenticação como **Passagem**.
+2. Em [Tráfego de RDS direto para o Proxy de Aplicativo](#direct-rds-traffic-to-application-proxy), ignore totalmente a etapa 8.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 [Habilitar acesso remoto ao SharePoint com o Proxy de Aplicativo do Azure AD](application-proxy-enable-remote-access-sharepoint.md)  
-[Habilitar o Proxy de Aplicativo no portal do Azure](https://github.com/Microsoft/azure-docs-pr/blob/master/articles/active-directory/active-directory-application-proxy-enable.md)
-
+[Considerações de segurança para acessar aplicativos remotamente usando o Proxy de Aplicativo do Azure AD](application-proxy-security-considerations.md)

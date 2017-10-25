@@ -1,16 +1,9 @@
-
-Este início rápido demonstra uma execução simples de uma função básica disparada por HTTP. Para saber mais sobre como usar o Azure Functions em seus aplicativos, consulte os tópicos a seguir:
-
-* [Práticas recomendadas para o Azure Functions](../articles/azure-functions/functions-best-practices.md)
-* [Referência do desenvolvedor do Azure Functions](../articles/azure-functions/functions-reference.md)  
-  Referência do programador para codificação de funções e definição de gatilhos e de associações.
-* [Testando o Azure Functions](../articles/azure-functions/functions-test-a-function.md)  
-  Descreve várias ferramentas e técnicas para testar suas funções.
-* [Como escalar o Azure Functions](../articles/azure-functions/functions-scale.md)  
-  Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de hospedagem de consumo e como escolher o plano certo. 
-* [O que é o Serviço de Aplicativo do Azure?](../articles/app-service/app-service-value-prop-what-is.md)  
-  O Azure Functions utiliza a plataforma Serviço de Aplicativo do Azure para a funcionalidade básica, como implantações, variáveis de ambiente e diagnóstico. 
-
-<!--HONumber=Feb17_HO1-->
+Saiba como criar funções com outros tipos de gatilhos ou como integrar funções com outros serviços do Azure.
 
 
++ [Criar uma função executada segundo um agendamento](../articles/azure-functions/functions-create-scheduled-function.md) 
++ [Criar uma função disparada por mensagens da fila de armazenamento](../articles/azure-functions/functions-create-storage-queue-triggered-function.md) 
++ [Criar uma função disparada por um webhook genérico](../articles/azure-functions/functions-create-generic-webhook-triggered-function.md)
++ [Criar uma função disparada pelo webhook do GitHub](../articles/azure-functions/functions-create-github-webhook-triggered-function.md) 
++ [Adicionar mensagens a uma fila do Armazenamento do Azure usando o Functions](../articles/azure-functions/functions-integrate-storage-queue-output-binding.md) 
++ [Armazenar dados não estruturados no Azure Cosmos DB usando o Functions](../articles/azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)

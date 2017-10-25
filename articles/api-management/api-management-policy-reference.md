@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: 988e0cfd8329a89ba21ab2ea292785b144e08dab
-
-
+ms.openlocfilehash: adc0c4415e10ddd0b4994cecef17f026546e91a1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-api-management-policy-reference"></a>Referência de políticas do Gerenciamento de API do Azure
 Esta seção fornece um índice para as políticas na [referência de política de Gerenciamento de API][API Management policy reference]. Para obter informações sobre como adicionar e configurar políticas, consulte [Políticas no Gerenciamento de API do Azure][Policies in API Management].
@@ -122,11 +122,5 @@ Para obter mais informações sobre expressões de política, consulte o vídeo 
 [API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 
 [Policy expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
-
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

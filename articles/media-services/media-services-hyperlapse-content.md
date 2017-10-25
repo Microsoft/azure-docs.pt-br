@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: adsolank
-translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
 ms.openlocfilehash: 02f634c2af04b6b372642ab0e6a17a5d29f16450
-ms.lasthandoff: 03/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Arquivos de mídia Hyperlapse com o Azure Media Hyperlapse
 O Azure Media Hyperlapse é uma MP (mídia de processador) que cria vídeos suaves de lapso de tempo de conteúdo de primeira pessoa ou de uma câmera de ação.  O equivalente baseado em nuvem do [Hyperlapse Pro da Microsoft Research para a área de trabalho e do Hyperlapse Mobile baseado em celular](http://aka.ms/hyperlapse), o Microsoft Hyperlapse para os Serviços de Mídia do Azure utiliza a escala em massa da plataforma de Processamento de Mídia dos Serviços de Mídia do Azure para dimensionar horizontalmente e executar em paralelo o processamento em massa do Hyperlapse.
@@ -36,7 +35,7 @@ Para as atualizações mais recentes do Azure Media Hyperlapse, consulte [blogs 
 ## <a name="hyperlapse-an-asset"></a>Hyperlapse de um ativo
 Primeiro, você precisará carregar o arquivo de entrada desejado nos Serviços de Mídia do Azure.  Para saber mais sobre os conceitos envolvidos no carregamento e gerenciamento de conteúdo, leia o [artigo sobre gerenciamento de conteúdo](media-services-portal-vod-get-started.md).
 
-### <a name="a-idconfigurationaconfiguration-preset-for-hyperlapse"></a><a id="configuration"></a>Predefinição de configuração para Hyperlapse
+### <a id="configuration"></a>Predefinição de configuração para Hyperlapse
 Quando o conteúdo estiver em sua conta de Serviços de Mídia, você precisará construir a predefinição de configuração.  A tabela a seguir explica os campos especificados pelo usuário:
 
 | Campo | Descrição |
@@ -75,7 +74,7 @@ A seguir há um exemplo de um arquivo de configuração compatível em XML e JSO
         }
     }
 
-### <a name="a-idsamplecodea-microsoft-hyperlapse-with-the-ams-net-sdk"></a><a id="sample_code"></a> Microsoft Hyperlapse com o SDK do .NET AMS
+### <a id="sample_code"></a> Microsoft Hyperlapse com o SDK do .NET AMS
 O método a seguir carrega um arquivo de mídia como um ativo e cria um trabalho com o Processador de Mídia do Azure Media Hyperlapse.
 
 > [!NOTE]
@@ -199,7 +198,7 @@ O método a seguir carrega um arquivo de mídia como um ativo e cria um trabalho
         return processor;
     }
 
-### <a name="a-idfiletypesasupported-file-types"></a><a id="file_types"></a>Tipos de arquivo com suporte
+### <a id="file_types"></a>Tipos de arquivo com suporte
 * MP4
 * MOV
 * WMV
@@ -214,5 +213,4 @@ O método a seguir carrega um arquivo de mídia como um ativo e cria um trabalho
 [Visão geral do Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
 

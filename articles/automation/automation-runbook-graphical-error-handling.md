@@ -3,7 +3,7 @@ title: "Tratamento de erros em runbooks gráficos na Automação do Azure | Micr
 description: "Este artigo descreve como implementar a lógica de tratamento de erros em runbooks gráficos na Automação do Azure."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/26/2016
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: 08cba012cca61eeb03187d2b4165e2a79b15bc3d
-ms.openlocfilehash: 12313f7f245d32c33882f1036f7d4b48bfb3ddc5
-
+ms.openlocfilehash: 521b7bd1599ebe4158258e0eb706efae2e5c5b3a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Tratamento de erros em runbooks gráficos na Automação do Azure
 
 Um objeto de design runbook chave a considerar é identificar problemas diferentes que pode ter um runbook. Esses problemas podem incluir sucesso, estados de erro esperado e as condições de erro inesperado.
@@ -49,7 +49,7 @@ Por exemplo, considere um runbook que tenta iniciar uma VM e instalar um aplicat
 1. Ele envia uma notificação sobre esse problema.
 2. Ele inicia outro runbook que provisiona automaticamente uma nova VM em vez disso.
 
-Uma solução é ter um link de erro apontando para uma atividade que alças etapa um. Por exemplo, você pode conectar o **Write-Warning** cmdlet para uma atividade para a etapa&2;, como o **AzureRmAutomationRunbook início** cmdlet.
+Uma solução é ter um link de erro apontando para uma atividade que alças etapa um. Por exemplo, você pode conectar o **Write-Warning** cmdlet para uma atividade para a etapa 2, como o **AzureRmAutomationRunbook início** cmdlet.
 
 Você também pode generalizar esse comportamento para uso em vários runbooks ao colocar essas duas atividades em um runbook de tratamento de erros separado e seguir as orientações sugeridas anteriormente. Antes de chamar esse runbook de tratamento de erros, você pode criar uma mensagem personalizada com base nos dados no runbook original e, em seguida, passá-la como um parâmetro para o runbook de tratamento de erros.
 
@@ -73,9 +73,3 @@ Links de erro de fluxo dessas atividades em uma única **gerenciamento erro** at
 * Para saber mais sobre links e tipos de link em runbooks gráficos, confira [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md#links-and-workflow).
 
 * Para saber mais sobre a execução de runbooks, como monitorar trabalhos de runbook e outros detalhes técnicos, confira [Acompanhar um trabalho de runbook](automation-runbook-execution.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-

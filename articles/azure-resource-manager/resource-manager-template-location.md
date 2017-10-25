@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 0e1ee94504ebff235c1da9128e0ac68c2b28bc59
-ms.openlocfilehash: b949318eb689eec9f0d08e91f2a9d0169d9d816f
-ms.lasthandoff: 02/21/2017
-
-
+ms.openlocfilehash: 73e50a593c41e841dcaf184abb895406ff5001e9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-resource-location-in-azure-resource-manager-templates"></a>Configure os locais dos recursos de modelos do Azure Resource Manager
 Ao implantar um modelo, é necessário fornecer um local para cada recurso. Este tópico mostra como determinar os locais disponíveis para a sua assinatura de cada tipo de recurso.
@@ -101,5 +100,4 @@ Se for necessário codificar o local em seu modelo, informe o nome de uma das re
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para ver recomendações sobre como criar modelos, consulte [Práticas recomendadas para criação de modelos do Azure Resource Manager](resource-manager-template-best-practices.md).
-
 

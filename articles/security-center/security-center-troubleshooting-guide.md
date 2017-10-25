@@ -4,7 +4,7 @@ description: "Este documento ajuda a solucionar problemas na Central de Seguran�
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
 ms.service: security-center
@@ -12,20 +12,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 08/11/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: b9f4a8b185f9fb06f8991b6da35a5d8c94689367
-ms.openlocfilehash: dbbec729c14d0d9dc5781e7a88a1db3f66f7df97
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 0e0a0ce5c0795cec0e47cd5f729099f4762381a2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de solução de problemas da Central de Segurança do Azure
 Este guia é para os profissionais de TI (tecnologia da informação), analistas de segurança de informações e administradores de nuvem cujas organizações estão usando a Central de Segurança do Azure e precisam solucionar os problemas relacionados a Central de Segurança.
 
+>[!NOTE] 
+>Desde o início de junho de 2017, a Central de Segurança usa o Microsoft Monitoring Agent para coletar e armazenar dados. Veja [Migração da Plataforma Central de Segurança do Azure](security-center-platform-migration.md) para saber mais. As informações deste artigo representam a funcionalidade da Central de Segurança após a transição para o Microsoft Monitoring Agent.
+>
+
 ## <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
-Este guia explica como solucionar os problemas relacionados à Central de Segurança. A maioria das soluções de problemas feitas na Central de Segurança ocorrerá examinando primeiro os registros do [Log de Auditoria](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) em busca do componente com falha. Com os logs de auditoria, você pode determinar:
+Este guia explica como solucionar os problemas relacionados à Central de Segurança. A maioria das soluções de problemas na Central de Segurança ocorre por meio do exame inicial dos registros do [Log de Auditoria](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) em busca do componente com falha. Com os logs de auditoria, você pode determinar:
 
 * Quais operações ocorreram
 * Quem iniciou a operação
@@ -35,47 +38,48 @@ Este guia explica como solucionar os problemas relacionados à Central de Segura
 
 O log de auditoria contém todas as operações de gravação (PUT, POST, DELETE) realizadas em seus recursos, mas não inclui operações de leitura (GET).
 
-## <a name="troubleshooting-monitoring-agent-installation-in-windows"></a>Solucionando problemas de instalação do agente de monitoramento no Windows
-A Central de Segurança do agente de monitoramento é usada para executar a coleta de dados. Após a coleta de dados estar habilitada e o agente estar instalado corretamente no computador de destino, os seguintes processos deverão estar em execução:
+## <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
+A Central de Segurança usa o Microsoft Monitoring Agent (ele é o mesmo agente usado pelos serviços Operations Management Suite e Log Analytics) para coletar dados de segurança de suas máquinas virtuais do Azure. Após a coleta de dados estar habilitada e o agente estar instalado corretamente no computador de destino, os processos abaixo deverão estar em execução:
 
-* ASMAgentLauncher.exe - Agente de Monitoramento do Azure 
-* ASMMonitoringAgent.exe - extensão de Monitoramento de Segurança do Azure
-* ASMSoftwareScanner.exe – Gerenciador de Verificação do Azure
+* HealthService.exe
 
-A extensão de Monitoramento de Segurança do Azure verifica a existência de várias configurações de segurança relevantes e coleta os logs de segurança da máquina virtual. O gerenciador de verificação será usado como um scanner de patch.
+Se você abrir o console de gerenciamento de serviços (services.msc), também verá o serviço Microsoft Monitoring Agent em execução como mostrado abaixo:
 
-Se a instalação for executada com êxito, você verá uma entrada semelhante à seguinte nos Logs de Auditoria para a VM de destino:
+![Serviços](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
 
-![Logs de Auditoria](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig1.png)
+Para ver qual versão do agente que você tem, abra **Gerenciador de Tarefas**, na guia **Processos**, localize o **serviço Microsoft Monitoring Agent**, clique com o botão direito do mouse nele e clique em **Propriedades**. Na guia **Detalhes**, procure a versão do arquivo como mostrado abaixo:
 
-Você também pode obter mais informações sobre o processo de instalação lendo os logs de agente localizados em *%systemdrive%\windowsazure\logs* (exemplo: C:\WindowsAzure\Logs).
+![Arquivo](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
+   
 
-> [!NOTE]
-> Se o agente da Central de Segurança do Azure estiver se comportando mal, você precisará reiniciar a VM de destino porque não há nenhum comando para parar e iniciar o agente.
+## <a name="microsoft-monitoring-agent-installation-scenarios"></a>Cenários de instalação do Microsoft Monitoring Agent
+Há dois cenários de instalação que podem produzir resultados diferentes ao instalar o Microsoft Monitoring Agent em seu computador. Os cenários compatíveis são:
 
+* **Agente instalado automaticamente pela Central de Segurança**: neste cenário você poderá exibir os alertas em Locais, na Central de Segurança e na Pesquisa de Logs. Você receberá notificações por email para o endereço de email configurado na política de segurança para a assinatura à qual o recurso pertence.
+.
+* **Agente instalado manualmente em uma máquina virtual localizada no Azure**: nesse cenário, se você estiver usando agentes baixados e instalados manualmente antes de fevereiro de 2017, será capaz de exibir os alertas no portal da Central de Segurança somente se filtrar na assinatura à qual o espaço de trabalho pertence. No caso de você filtrar a assinatura à qual o recurso pertence, não será possível ver todos os alertas. Você receberá notificações por email para o endereço de email configurado na política de segurança para a assinatura à qual o espaço de trabalho pertence.
 
-Se você ainda tiver problemas com a coleta de dados, desinstale o agente seguindo as etapas abaixo:
+>[!NOTE]
+> Para evitar o comportamento explicado no segundo, baixe a versão mais recente do agente.
+> 
 
-1. Do **Portal do Azure**, selecione a máquina virtual que é experiência problemas de coleta de dados e clique em **extensões**.
-2. Clique com o botão direito em **Microsoft.Azure.Security.Monitoring** e clique em selecionar **desinstalar**.
+## <a name="troubleshooting-monitoring-agent-network-requirements"></a>Solução de problemas de monitoramento de requisitos de rede do agente
+Para que os agentes se conectem e se registrem na Central de Segurança, eles deverão ter acesso aos recursos de rede, incluindo os números de porta e as URLs de domínio.
 
-![Removendo o agente](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig4.png)
+- Para servidores proxy, você precisa garantir que os recursos do servidor proxy apropriados estejam configurados nas configurações do agente. Leia este artigo para saber mais sobre [como alterar as configurações de proxy](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
+- Para os firewalls que restringem o acesso à Internet, será necessário configurar o firewall para permitir o acesso ao OMS. Nenhuma ação é necessária nas configurações do agente.
 
-A extensão de monitoramento de segurança do Azure deve reinstalar automaticamente em si em alguns minutos.
+A tabela a seguir mostra os recursos necessários para comunicação.
 
-## <a name="troubleshooting-monitoring-agent-installation-in-linux"></a>Solucionando problemas da instalação do agente de monitoramento no Linux
-Ao solucionar problemas de instalação do agente de VM em um sistema Linux, você deverá fazer com que a extensão seja baixada em /var/lib/waagent/. Você pode executar o comando abaixo para verificar se ele foi instalado:
+| Recurso de agente | Portas | Ignorar a inspeção de HTTPS |
+|---|---|---|
+| *.ods.opinsights.azure.com | 443 | Sim |
+| *.oms.opinsights.azure.com | 443 | Sim |
+| *.blob.core.windows.net | 443 | Sim |
+| *.azure-automation.net | 443 | Sim |
 
-`cat /var/log/waagent.log` 
+Se você encontrar problemas de integração com o agente, leia o artigo [Como solucionar problemas de integração do Operations Management Suite](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
-Outros arquivos de log que você pode examinar para fins de solução de problemas são: 
-
-* /var/log/mdsd.err
-* /var/log/azure/
-
-Em um sistema em funcionamento, você deve ver uma conexão com o processo de mdsd TCP 29130. Esse é o syslog se comunicando com o processo de mdsd. Você pode validar esse comportamento executando o comando abaixo:
-
-`netstat -plantu | grep 29130`
 
 ## <a name="troubleshooting-endpoint-protection-not-working-properly"></a>Solução de problemas do Endpoint Protection que não está funcionando corretamente
 
@@ -96,9 +100,10 @@ Por padrão, a Interface do Usuário do Antimalware da Microsoft está desabilit
 Se você enfrentar problemas ao carregar o painel central de segurança, certifique-se de que o usuário que registra a inscrição para a Central de segurança (ou seja, o primeiro usuário de um que abrir a Central de segurança com a assinatura) e o usuário que deseja ativar a coleta de dados deve ser *proprietário* ou *Colaborador* na assinatura. A partir desse momento também usuários com *leitor* na assinatura, pode ver a painel de controle/alertas/recomendação/política.
 
 ## <a name="contacting-microsoft-support"></a>Entrando em contato com o Suporte da Microsoft
-Alguns problemas podem ser identificados usando as diretrizes fornecidas neste artigo. Outros, você também pode encontrar documentados no [Fórum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter) público da Central de Segurança. No entanto, se você precisa de mais solução de problemas, pode abrir uma nova solicitação de suporte usando o **Portal do Azure**, conforme mostrado abaixo: 
+Alguns problemas podem ser identificados usando as diretrizes fornecidas neste artigo. Outros, você também pode encontrar documentados no [Fórum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter) público da Central de Segurança. No entanto, se você precisar de mais solução de problemas, poderá abrir uma nova solicitação de suporte usando o **portal do Azure**, conforme mostrado abaixo: 
 
 ![Suporte da Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
+
 
 ## <a name="see-also"></a>Consulte também
 Neste documento, você aprendeu como configurar políticas de segurança na Central de segurança do Azure. Para saber mais sobre a Central de Segurança do Azure, veja o seguinte:
@@ -109,5 +114,4 @@ Neste documento, você aprendeu como configurar políticas de segurança na Cent
 * [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
 * [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
-
 

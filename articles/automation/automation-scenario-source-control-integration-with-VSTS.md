@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
-translationtype: Human Translation
-ms.sourcegitcommit: f68563587d375dde22fd1ca45591fd49042533d0
 ms.openlocfilehash: 01f9c01c9e04e02dbb548b68cf99684ba6ddd57e
-ms.lasthandoff: 02/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-visual-studio-team-services"></a>Cenário da Automação do Azure – Integração de controle do código-fonte da Automação com o Visual Studio Team Services
 
@@ -100,4 +100,3 @@ Agora você deve ser capaz de fazer todos os check-ins de runbooks e configuraç
 Se você executar esse runbook manualmente sem ser disparado pelo VSTS, você poderá deixar o parâmetro webhookdata vazio e ele fará uma sincronização completa da pasta do VSTS especificada.
 
 Se você deseja desinstalar o cenário, remova o gancho de serviço do VSTS, exclua o runbook e a variável VSToken.
-

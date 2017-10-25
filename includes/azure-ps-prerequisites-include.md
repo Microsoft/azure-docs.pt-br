@@ -4,8 +4,3 @@ Para executar estas etapas do artigo, será necessário [instalar e configurar o
 
 > [!NOTE]
 > Se você não tiver uma conta do Azure, será preciso criar uma. Inscreva-se em uma [avaliação gratuita aqui](../articles/active-directory/sign-up-organization.md).
-
-
-<!--HONumber=Dec16_HO1-->
-
-

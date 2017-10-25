@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/18/2017
+ms.date: 07/05/2017
 ms.author: jroth
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 5771c7d1716f126570759cd4a3c53ebd3d30adf4
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: f7664291c2f45c422d52f682d08dbb67ab32b099
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Backup automatizado para SQL Server em Máquinas Virtuais do Azure (Clássico)
 > [!div class="op_single_selector"]
@@ -41,6 +40,7 @@ Para usar o Backup Automatizado, considere os seguintes pré-requisitos:
 
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 **Versão/edição do SQL Server**:
 
@@ -58,7 +58,7 @@ Para usar o Backup Automatizado, considere os seguintes pré-requisitos:
 
 **Azure PowerShell**:
 
-* [Instale os comandos mais recentes do Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* [Instale os comandos mais recentes do Azure PowerShell](/powershell/azure/overview).
 
 **Extensão IaaS do SQL Server**:
 
@@ -114,5 +114,4 @@ Você pode encontrar outras orientações de backup e de restauração para o SQ
 Para obter informações sobre outras tarefas de automação disponíveis, consulte [Extensão do agente IaaS do SQL Server](../classic/sql-server-agent-extension.md).
 
 Para obter mais informações sobre como executar o SQL Server em VMs do Azure, consulte [Visão geral do SQL Server em Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
 

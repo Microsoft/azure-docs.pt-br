@@ -12,14 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 06/27/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fd8ba95ee1fb2703926fb35cdb49e6a503637a7d
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 26ba47b19f3a503693d60d344ad39b9eba74fe99
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-integrate-engagement-reach-on-android"></a>Como integrar o Engagement Reach ao Android
 > [!IMPORTANT]
@@ -28,11 +27,6 @@ ms.lasthandoff: 11/17/2016
 > 
 
 ## <a name="standard-integration"></a>Integração padrão
-O SDK do Reach requer a **biblioteca de Suporte do Android (v4)**.
-
-A maneira mais rápida para adicionar a biblioteca ao seu projeto no **Eclipse** é `Right click on your project -> Android Tools -> Add Support Library...`.
-
-Se você não usa o Eclipse, pode ler as instruções [aqui].
 
 Copie os arquivos de recursos do Reach por meio do SDK para seu projeto:
 
@@ -107,10 +101,6 @@ Edite seu arquivo `AndroidManifest.xml`:
           <uses-permission android:name="android.permission.VIBRATE" />
   
   Sem essa permissão, o Android impede que as notificações de sistema seja mostradas se você marcou a opção para tocar ou vibrar Gerenciador de Campanha do Reach.
-* Se você compilar seu aplicativo usando **ProGuard** e tiver erros relacionados à biblioteca de Suporte do Android ou o jar do Engagement, adicione as seguintes linhas ao arquivo `proguard.cfg`:
-  
-          -dontwarn android.**
-          -keep class android.support.v4.** { *; }
 
 ## <a name="native-push"></a>Push nativo
 Agora que você configurou o módulo Reach, você precisa fazer a configuração nativa por push para poder receber as campanhas no dispositivo.
@@ -243,7 +233,7 @@ Se você não desejar que a sobreposição seja adicionada à sua atividade e se
               <meta-data android:name="engagement:notification:overlay" android:value="false"/>
             </activity>
 
-#### <a name="a-namecategoriesa-categories"></a><a name="categories"></a> Categorias
+#### <a name="categories"></a> Categorias
 Quando você modifica os layouts fornecidos, pode modificar também a aparência de todas as notificações. As categorias permitem que você defina várias aparências direcionadas (possíveis comportamentos) para as notificações. Uma categoria pode ser especificada quando você cria uma campanha de Reach. Tenha em mente que categorias também permitem personalizar anúncios e pesquisas, como está descrito mais adiante neste documento.
 
 Para registrar um manipulador de categorias para suas notificações, você precisa adicionar uma chamada quando o aplicativo é inicializado.
@@ -636,7 +626,6 @@ Aqui está a parte interessante da implementação:
 
 Como você pode ver, se tiver chamado `actionContent(this)` e então terminado a atividade, `exitContent(this)` pode ser chamado com segurança sem ter qualquer efeito.
 
-[aqui]:http://developer.android.com/tools/extras/support-library.html#Downloading
+[here]:http://developer.android.com/tools/extras/support-library.html#Downloading
 [Google Cloud Messaging]:http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]:https://developer.amazon.com/sdk/adm.html
-

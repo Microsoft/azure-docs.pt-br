@@ -9,19 +9,18 @@ manager: cshepard
 editor: 
 ms.assetid: efb35451-3fed-4264-bf86-72b350f67d50
 ms.service: sql-database
-ms.custom: troubleshoot
+ms.custom: develop apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/20/2017
+ms.topic: troubleshooting
+ms.date: 06/13/2017
 ms.author: daleche
-translationtype: Human Translation
-ms.sourcegitcommit: a6489fd5ff5e60bc3a1c06485d330556250c21cd
-ms.openlocfilehash: eddbdda847d7d0cc12f3e1c6128ce76d15f6f39f
-ms.lasthandoff: 03/02/2017
-
-
+ms.openlocfilehash: 5260d6afd24ae0a9c60ee609b54f04bf901f219d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Solucionar problemas, diagnosticar e evitar erros de conexão SQL e erros transitórios para o Banco de Dados SQL
 Este artigo descreve como impedir, solucionar, diagnosticar e reduzir erros de conexão e erros transitórios que seu aplicativo cliente encontra quando interage com o Banco de Dados SQL do Azure. Saiba como configurar a lógica de repetição, construir a cadeia de conexão e ajustar outras configurações de conexão.
@@ -55,7 +54,7 @@ Quando seu programa se comunicar com o Banco de Dados SQL do Azure por meio de u
 * Uma instrução SQL SELECT que falhe com um erro transitório não deverá ser repetida diretamente.
   
   * Em vez disso, estabeleça uma nova conexão e repita a SELECT.
-* Quando uma instrução UPDATE SQL falhar com um erro transitório, uma nova conexão deverá ser estabelecida antes da nova tentativa de UPDATE.
+* Quando uma instrução SQL UPDATE falhar com um erro transitório, uma nova conexão deverá ser estabelecida antes da nova tentativa de UPDATE.
   
   * A lógica de repetição deve garantir que a transação de banco de dados foi concluída ou que a transição inteira foi revertida.
 
@@ -156,7 +155,7 @@ Suponha que seu aplicativo tenha lógica de repetição personalizada robusta. E
 <a id="c-connection-string" name="c-connection-string"></a>
 
 ### <a name="connection-connection-string"></a>Conexão: cadeia de conexão
-A cadeia de conexão necessária para conectar ao Banco de Dados SQL do Azure é um pouco diferente da cadeia de conexão para o Microsoft SQL Server. Você pode copiar a cadeia de conexão para o seu banco de dados desde o [Portal do Azure](https://portal.azure.com/).
+A cadeia de conexão necessária para conectar ao Banco de Dados SQL do Azure é um pouco diferente da cadeia de conexão para o Microsoft SQL Server. Você pode copiar a cadeia de conexão para o seu banco de dados no [Portal do Azure](https://portal.azure.com/).
 
 [!INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
@@ -167,7 +166,7 @@ Você deve configurar o servidor do Banco de Dados SQL para aceitar a comunicaç
 
 Se você se esquecer de configurar o endereço IP, o programa falhará com uma mensagem de erro útil que indica o endereço IP necessário.
 
-[!INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
+[!INCLUDE [sql-database-include-ip-address-22-portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 Para saber mais, consulte [Como definir as configurações de firewall no Banco de Dados SQL](sql-database-configure-firewall-settings.md)
 
@@ -186,7 +185,7 @@ Por exemplo, quando o programa cliente estiver hospedado em um computador com Wi
 6. &gt; Ações
 7. &gt; Nova Regra
 
-Se seu programa cliente estiver hospedado em uma máquina virtual do Azure (VM), você deverá ler:<br/>[Portas além da 1433 para o ADO.NET 4.5 e o Banco de Dados SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+Se seu programa cliente estiver hospedado em uma máquina virtual do Azure (VM), você deverá ler:<br/>[Portas acima da 1433 para o ADO.NET 4.5 e o Banco de Dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 Para saber mais sobre a configuração de portas e de endereços IP, consulte: [Firewall do Banco de Dados SQL do Azure](sql-database-firewall-configure.md)
 
@@ -447,5 +446,4 @@ public bool IsTransient(Exception ex)
 * Para solucionar outros problemas comuns de conexão de Banco de Dados SQL, visite [Solucionar problemas de conexão no Banco de Dados SQL do Azure](sql-database-troubleshoot-common-connection-issues.md).
 * [Pool de conexões do SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 * [*Retrying* é uma biblioteca de novas tentativas para fins gerais licenciada do Apache 2.0, escrita em **Python**, para simplificar a tarefa de adicionar comportamento de nova tentativa a quase tudo.](https://pypi.python.org/pypi/retrying)
-
 

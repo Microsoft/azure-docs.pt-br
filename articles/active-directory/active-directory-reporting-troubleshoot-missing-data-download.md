@@ -1,6 +1,6 @@
 ---
-title: "Solução de problemas: Dados ausentes no logs de atividades do Azure Active Directory baixados - visualização | Microsoft Docs"
-description: "Fornece uma resolução para dados ausentes na visualização de logs de atividade do Azure Active Directory baixados."
+title: "Solução de problemas: dados ausentes no logs de atividades do Azure Active Directory baixados | Microsoft Docs"
+description: "Fornece uma resolução para dados ausentes nos logs de atividade do Azure Active Directory baixados."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/09/2017
+ms.date: 07/15/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: e0d65edcb7c14114565402038b0958c3a2ffb477
-ms.lasthandoff: 03/10/2017
-
-
+ms.reviewer: dhanyahk
+ms.openlocfilehash: 3d56f89035da4d1a0074256b165663f81fc2b01e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="i-cant-find-any-data-in-the-azure-active-directory-activity-logs-i-have-downloaded"></a>Não consigo encontrar dados nos logs de atividade do Azure Active Directory que baixei
 
 
@@ -42,5 +41,4 @@ Você pode aproveitar as [APIs de relatórios do Azure AD](active-directory-repo
 
 ## <a name="next-steps"></a>Próximas etapas
 Veja as [Perguntas frequentes sobre os relatórios do Azure Active Directory](active-directory-reporting-faq.md).
-
 

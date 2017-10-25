@@ -4,7 +4,7 @@ description: Monitoramento estendido do desempenho de aplicativo do seu site Jav
 services: application-insights
 documentationcenter: java
 author: harelbr
-manager: douge
+manager: carmonm
 ms.assetid: 40c68f45-197a-4624-bf89-541eb7323002
 ms.service: application-insights
 ms.workload: tbd
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: e085f90d3f34d32d2e065ede6674842000e29fb8
-ms.lasthandoff: 01/25/2017
-
-
+ms.author: bwren
+ms.openlocfilehash: 4ea917b068e0242bfb88d7357eca032607a43a3f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: métricas de desempenho do Linux no Application Insights
 
@@ -125,6 +124,14 @@ Diretivas separadas por uma nova linha.
 * Abra um terminal e inicie collectd no modo detalhado para ver todos os problemas que ele está reportando:
   * `sudo collectd -f`
 
+## <a name="known-issue"></a>Problema conhecido
+
+O plug-in de Gravação do Application Insights é incompatível com determinados plugins de Leitura. Alguns plugins às vezes enviam "NaN" onde o plug-in do Application Insights espera um número de ponto flutuante.
+
+Sintoma: o log coletado mostra erros que incluem "AI: ... SyntaxError: token N" inexperado.
+
+Solução alternativa: exclua dados coletados pelo problema de plugins de Gravação. 
+
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
@@ -135,7 +142,5 @@ Diretivas separadas por uma nova linha.
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
-
 
 

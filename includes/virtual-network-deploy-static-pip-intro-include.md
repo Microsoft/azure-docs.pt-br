@@ -2,8 +2,3 @@ Você pode criar VMs (máquinas virtuais) no Azure e expô-las à Internet públ
 
 Antes que você possa implementar IPs Públicos estáticos em VMs, é necessário entender quando você pode usar IPs Públicos e como eles são usados. Leia a [Visão geral do endereçamento IP](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) para saber mais sobre o endereçamento IP no Azure.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

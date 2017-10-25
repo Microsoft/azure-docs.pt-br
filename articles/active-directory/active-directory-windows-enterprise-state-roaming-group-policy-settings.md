@@ -1,4 +1,3 @@
-
 ---
 title: "Configurações de Política de Grupo e do MDM | Microsoft Docs"
 description: "Fornece informações sobre as configurações de política de grupo e do MDM (gerenciamento de dispositivos móveis) que devem ser usadas em dispositivos corporativos. Essas políticas são aplicadas ao dispositivo inteiro do usuário."
@@ -16,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 6bdec7bf35bb4a233200def36c0e697baaf15fec
-ms.openlocfilehash: 5ca48cf3cc4b2f4d86463e36c73de47e386cff25
-ms.lasthandoff: 01/05/2017
-
-
+ms.openlocfilehash: 71dd5281a618fe7367eab3e97daac069f77ab491
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="group-policy-and-mdm-settings"></a>Configurações de Política de Grupo e do MDM
 Use essas configurações da política de grupo e do MDM (gerenciamento de dispositivos móveis) somente em dispositivos corporativos, já que as políticas são aplicadas ao dispositivo inteiro do usuário. A aplicação de uma política MDM para desabilitar a sincronização de configurações para um dispositivo pessoal de propriedade do usuário afetará negativamente o uso do dispositivo. Além disso, outras contas de usuário no dispositivo também serão afetadas pela política.
@@ -60,5 +58,4 @@ As configurações de Política de Grupo se aplicam a dispositivos Windows 10 in
 * [Perguntas frequentes sobre configurações e roaming de dados](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Referência de configurações de roaming do Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 * [Solução de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-
 

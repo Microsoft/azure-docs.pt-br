@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2016
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a68cdf246559fa5261aa4744a3f3839c4d8052d8
-
-
+ms.openlocfilehash: 3bad7538121e1049af953e3937fc679b1d9184d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>Usar o Azure DevTest Labs para treinamento
-O Azure DevTest Labs pode ser usado para implementar muitos cenários essenciais além de desenvolvimento e teste. Um desses cenários é configurar um laboratório para treinamento. O Azure DevTest Labs permite que você crie um laboratório onde pode fornecer modelos personalizados que cada estagiário pode usar para criar ambientes idênticos e isolados para treinamento. Você pode fazer com que os ambientes de treinamento estejam disponíveis para cada estagiário apenas quando precisam e tenham recursos suficientes, como máquinas virtuais, para o treinamento. Por fim, você pode compartilhar facilmente o laboratório com estagiários, que podem acessá-lo com apenas um clique.   
+O Azure DevTest Labs pode ser usado para implementar muitos cenários essenciais além de desenvolvimento e teste. Um desses cenários é configurar um laboratório para treinamento. O Azure DevTest Labs permite que você crie um laboratório onde pode fornecer modelos personalizados que cada estagiário pode usar para criar ambientes idênticos e isolados para treinamento. Você pode aplicar políticas para garantir que os ambientes de treinamento estejam disponíveis para cada estagiário apenas quando necessário e contém recursos suficientes, como máquinas virtuais, para o treinamento. Por fim, você pode compartilhar facilmente o laboratório com estagiários, que podem acessá-lo com apenas um clique.
 
 ![Usar o DevTest Labs para treinamento](./media/devtest-lab-training-lab/devtest-lab-training.png)
 
@@ -78,7 +78,7 @@ Neste artigo, você aprenderá sobre os diversos recursos do Azure DevTest Labs 
    | Tarefa | O que você aprenderá |
    | --- | --- |
    | [Definir políticas de laboratório](devtest-lab-set-lab-policy.md) |Controle os custos definindo políticas no laboratório. |
-   | [Excluir todas as VMs do laboratório usando um script do PowerShell](devtest-lab-faq.md#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Exclua todos os laboratórios em uma única operação quando o treinamento for concluído. |
+   | [Excluir todas as VMs do laboratório usando um script do PowerShell](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Exclua todos os laboratórios em uma única operação quando o treinamento for concluído. |
 5. **Compartilhar o laboratório com todos os estagiários**
    
     Os laboratórios podem ser acessados diretamente usando um link que você compartilha com seus estagiários. Os estagiários não precisam ter uma conta do Azure, desde que eles tenham um [conta da Microsoft](devtest-lab-faq.md#what-is-a-microsoft-account). Os estagiários não conseguem ver VMs criadas por outros estagiários.  
@@ -98,13 +98,7 @@ Neste artigo, você aprenderá sobre os diversos recursos do Azure DevTest Labs 
    
    | Tarefa | O que você aprenderá |
    | --- | --- |
-   | [Criar um laboratório usando um modelo do Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-an-azure-resource-manager-template) |Crie laboratórios no Azure DevTest Labs usando modelos do Resource Manager. |
+   | [Criar um laboratório usando um modelo do Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Crie laboratórios no Azure DevTest Labs usando modelos do Resource Manager. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

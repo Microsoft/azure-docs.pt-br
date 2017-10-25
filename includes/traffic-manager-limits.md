@@ -5,8 +5,3 @@
 
 <sup>1</sup>Contate o suporte caso precise aumentar esses limites.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

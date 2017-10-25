@@ -11,14 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 04/19/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 26e2becf7810950fd5734fd70c1fed225149ec4d
-ms.lasthandoff: 03/24/2017
-
-
+ms.openlocfilehash: e8053b74e0e4d721523f49bcbb9e33b08bb7a1dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>Devo escolher os serviços de nuvem ou algo mais?
 Os Serviços de Nuvem do Azure são a escolha certa para você? A Azure fornece diferentes modelos de hospedagem para executar aplicativos. Cada um deles fornece um conjunto de serviços diferente, portanto, qual deles você escolhe depende exatamente do que você está tentando fazer.
@@ -28,7 +27,7 @@ Os Serviços de Nuvem do Azure são a escolha certa para você? A Azure fornece 
 <a name="tellmecs"></a>
 
 ## <a name="tell-me-about-cloud-services"></a>Fale-me sobre os serviços de nuvem
-Os Serviços de Nuvem são um exemplo de [PaaS (Plataforma como Serviço)](https://azure.microsoft.com/overview/what-is-paas/). Como o [Serviço de Aplicativo](../app-service-web/app-service-web-overview.md), essa tecnologia foi desenvolvida para dar suporte aos aplicativos escalonáveis, confiáveis e baratos de operar. Assim como o Serviço de Aplicativo é hospedado em VMs, os Serviços de Nuvem também são. No entanto, você tem mais controle sobre as VMs. Você pode instalar seu próprio software nas VMs do Serviço de Nuvem e controlá-los remotamente.
+Os Serviços de Nuvem são um exemplo de [PaaS (Plataforma como Serviço)](https://azure.microsoft.com/overview/what-is-paas/). Como o [Serviço de Aplicativo](../app-service/app-service-web-overview.md), essa tecnologia foi desenvolvida para dar suporte aos aplicativos escalonáveis, confiáveis e baratos de operar. Assim como o Serviço de Aplicativo é hospedado em VMs, os Serviços de Nuvem também são. No entanto, você tem mais controle sobre as VMs. Você pode instalar seu próprio software nas VMs do Serviço de Nuvem e controlá-los remotamente.
 
 ![cs_diagram](./media/cloud-services-choose-me/diagram.png)
 
@@ -42,7 +41,7 @@ Implanta e hospeda o aplicativo automaticamente por IIS.
 * **Função de trabalho**  
 Não usa IIS e executa o aplicativo de modo autônomo.
 
-Por exemplo, um aplicativo simples pode usar apenas uma única função web, atendendo a um site. Um aplicativo mais complexo pode usar uma função web para lidar com solicitações de entrada de usuários, em seguida, passar essas solicitações a uma função de trabalho para processamento. (Essa comunicação pode usar o [Barramento de Serviço](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) ou as [Filas do Azure](../storage/storage-introduction.md)).
+Por exemplo, um aplicativo simples pode usar apenas uma única função web, atendendo a um site. Um aplicativo mais complexo pode usar uma função web para lidar com solicitações de entrada de usuários, em seguida, passar essas solicitações a uma função de trabalho para processamento. (Essa comunicação pode usar o [Barramento de Serviço](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) ou as [Filas do Azure](../storage/common/storage-introduction.md)).
 
 Como a figura anterior sugere, todas as VMs em um único aplicativo executado no mesmo serviço de nuvem. Os usuários acessam o aplicativo por meio de um único endereço IP público, com a carga de solicitações balanceada automaticamente entre as VMs do aplicativo. A plataforma [dimensiona e implanta](cloud-services-how-to-scale.md) as VMs em um aplicativo de Serviços de Nuvem de uma maneira que evita um único ponto de falha de hardware.
 
@@ -63,5 +62,4 @@ A natureza da PaaS dos Serviços de Nuvem tem outras implicações também. Uma 
 [Criar um aplicativo de serviço de nuvem em Node.js](cloud-services-nodejs-develop-deploy-app.md)  
 [Criar um aplicativo de serviço de nuvem em PHP](../cloud-services-php-create-web-role.md)  
 [Criar um aplicativo de serviço de nuvem no Python](cloud-services-python-ptvs.md)
-
 

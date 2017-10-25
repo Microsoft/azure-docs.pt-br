@@ -1,9 +1,9 @@
 ---
 layout: LandingPage
-description: Learn how to synchronize directories and enable single sign-on. Documentation shows you how to integrate a full suite of identity management capabilities.
+description: "Saiba mais sobre como sincronizar diretórios e habilitar o logon único. A documentação mostra como integrar um conjunto completo de recursos de gerenciamento de identidades."
 title: "Documentação do Azure Active Directory - Tutoriais, Referência de API | Microsoft Docs"
 services: active-directory
-author: carolz
+author: czeumault
 manager: carolz
 ms.assetid: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 2dc340dcb864325554700f58057d157dd46f7f7a
-ms.openlocfilehash: ba13ea0d6c17e50e7b1887373d67ca691bdfad01
-
+ms.openlocfilehash: a0a9b69824829d0b7a07583210eaddb1f39bcf88
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-documentation"></a>Documentação do Azure Active Directory
 
 Saiba como sincronizar os diretórios e habilitar o logon único com o Azure AD (Azure Active Directory). Os tutoriais, as referências de API e outras documentações mostram como integrar os recursos de gerenciamento de identidades, incluindo a autenticação multifator, o registro de dispositivos, o controle de acesso baseado em função e o monitoramento de segurança e os alertas.
@@ -107,7 +107,7 @@ Saiba como sincronizar os diretórios e habilitar o logon único com o Azure AD 
                 <div class="card">
                     <div class="cardText">
                         <h3>Linha de comando</h3>
-                        <p><a href="/powershell/">PowerShell</a></p>
+                        <p><a href="/powershell/azure/overview?azureadps=2.0">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -139,9 +139,3 @@ Saiba como sincronizar os diretórios e habilitar o logon único com o Azure AD 
         </div>
     </li>
 </ul>
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 10/02/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: fe52867519aa65cabb62a876d5bfe57310b90fd6
-
-
+ms.openlocfilehash: c7aca7b67f4773cf7d19f84253487ed060e0db73
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="connect-active-directory-with-azure-active-directory"></a>Conectar o Active Directory com o Azure Active Directory.
+# <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integrar seus diretórios locais no Azure Active Directory
 O Azure AD Connect integrará seus diretórios locais com o Azure Active Directory. Isso permite que você forneça uma identidade comum para os usuários dos aplicativos do Office 365, Azure e SaaS integrados ao AD do Azure. Este tópico guiará você nas etapas de planejamento, implantação e operação. É uma coleção de links para os tópicos relacionados a essa área.
 
 > [!IMPORTANT]
@@ -49,7 +49,7 @@ O Azure Active Directory Connect possui três componentes principais: serviços 
 * Monitoramento de Integridade - o Azure AD Connect Health pode fornecer monitoramento robusto e fornecer um local central no portal do Azure para exibir essa atividade. Para obter informações adicionais, consulte [Azure Active Directory Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 ## <a name="install-azure-ad-connect"></a>Instalar o Azure AD Connect
-Você pode encontrar o download para o Azure AD Connect no [Centro de Download da Microsoft.](http://go.microsoft.com/fwlink/?LinkId=615771).
+Você pode encontrar o download para o Azure AD Connect no [Centro de Download da Microsoft](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 | Solução | Cenário |
 | --- | --- |
@@ -126,6 +126,15 @@ O modelo de configuração em sincronização é chamado de [provisionamento dec
 |Alterar a configuração padrão | [Práticas recomendadas para alterar a configuração padrão](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)|
 
 ## <a name="configure-federation-features"></a>Configurar recursos de federação
+
+O Azure AD Connect fornece vários recursos que simplificam a federação com o Azure AD usando o AD FS e o gerenciamento da sua relação de confiança de federação. O Azure AD Connect oferece suporte ao AD FS no Windows Server 2012 R2 ou posterior.
+
+[Atualize o certificado SSL do farm do AD FS](active-directory-aadconnectfed-ssl-update.md) mesmo se você não estiver usando o Azure AD Connect para gerenciar sua relação de confiança de federação.
+
+[Adicione um servidor do AD FS](active-directory-aadconnect-federation-management.md#addadfsserver) ao seu farm para expandir o farm conforme necessário.
+
+[Repare a relação de confiança](active-directory-aadconnect-federation-management.md#repairthetrust) com o Azure AD em alguns cliques simples.
+
 O ADFS pode ser configurado para dar suporte a [vários domínios](active-directory-aadconnect-multiple-domains.md). Por exemplo, você pode ter vários domínios superiores que precisem ser usados para federação.
 
 se seu servidor ADFS não tiver sido configurado para atualizar automaticamente os certificados do Azure AD ou se você usar uma solução não ADFS, será notificado quando precisar [atualizar os certificados](active-directory-aadconnect-o365-certs.md).
@@ -144,6 +153,7 @@ se seu servidor ADFS não tiver sido configurado para atualizar automaticamente 
 |Histórico de versão | [Histórico de versão](active-directory-aadconnect-version-history.md)|
 |Comparar o DirSync, Azure ADSync e o Azure AD Connect | [Comparação de ferramentas de integração de diretório](../active-directory-hybrid-identity-design-considerations-tools-comparison.md)|
 |Lista de compatibilidade de soluções não ADFS para o AD do Azure | [Lista de compatibilidade de federação do AD do Azure](active-directory-aadconnect-federation-compatibility.md)|
+|Configurando um Idp do SAML 2.0|[Usando um provedor de identidade (Idp) do SAML 2.0 para o logon único](active-directory-aadconnect-federation-saml-idp.md)|
 |Atributos sincronizados | [Atributos sincronizados](active-directory-aadconnectsync-attributes-synchronized.md)|
 |Monitorando com o Azure AD Connect Health | [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)|
 |Perguntas frequentes | [Perguntas frequentes do Azure AD Connect](active-directory-aadconnect-faq.md)|
@@ -155,10 +165,4 @@ Apresentação Ignite 2015 sobre como expandir seus diretórios locais para a nu
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3862/player]
 > 
 > 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: "Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure | Microsoft Docs"
+title: "Padrões de design para aplicativos SaaS multilocatários e o Banco de Dados SQL do Azure | Microsoft Docs"
 description: "Este artigo aborda os requisitos e padrões de arquitetura de dados comuns que aplicativos de banco de dados multilocatários em execução em um ambiente de nuvem precisam considerar e as várias compensações associadas a esses padrões. Ele também explica como o Banco de Dados SQL do Azure com seus pools elásticos e suas ferramentas elásticas ajudam a atender a esses requisitos sem comprometimento."
 keywords: 
 services: sql-database
@@ -9,28 +9,27 @@ manager: jhubbard
 editor: 
 ms.assetid: 1dd20c6b-ddbb-40ef-ad34-609d398d008a
 ms.service: sql-database
-ms.custom: development
+ms.custom: scale out apps
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-design
 ms.date: 02/01/2017
 ms.author: srinia
-translationtype: Human Translation
-ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
-ms.openlocfilehash: c30f1d879f46805cf802679613089a16dc47ad40
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 0f6ba62a01f3211ccaae6b6c48f72e0de54aad78
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="design-patterns-for-multitenant-saas-applications-and-azure-sql-database"></a>Padrões de design para aplicativos SaaS multilocatários e o Banco de Dados SQL do Azure
+# <a name="design-patterns-for-multi-tenant-saas-applications-and-azure-sql-database"></a>Padrões de design para aplicativos SaaS multilocatários e o Banco de Dados SQL do Azure
 Neste artigo, você pode aprender sobre os requisitos e padrões comuns de arquitetura de dados de aplicativos de banco de dados SaaS (software como serviço) multilocatários em execução em um ambiente de nuvem. Ele também explica os fatores que você precisa considerar e as compensações dos diferentes padrões de design. O pool elástico e as ferramentas elásticas no Banco de Dados SQL podem ajudar você a atender os requisitos específicos sem comprometer outros objetivos.
 
 Os desenvolvedores, às vezes, fazem escolhas que funcionam para seus interesses de longo prazo ao criar modelos de locatário para as camadas de dados de aplicativos multilocatários. Pelo menos inicialmente, o desenvolvedor poderá perceber uma facilidade de desenvolvimento e um provedor de serviço de nuvem de menor custo como mais importantes do que o isolamento de locatário ou a escalabilidade de um aplicativo. Essa escolha pode levar a preocupações de satisfação do cliente e uma posterior correção de curso dispendiosa.
 
 Um aplicativo multilocatário é um aplicativo hospedado em um ambiente de nuvem e fornece o mesmo conjunto de serviços para centenas ou milhares de locatários que não compartilham ou veem os dados uns dos outros. Um exemplo é um aplicativo SaaS que fornece serviços para locatários em um ambiente hospedado em nuvem.
 
-## <a name="multitenant-applications"></a>Aplicativos multilocatários
+## <a name="multi-tenant-applications"></a>Aplicativos multilocatários
 Em aplicativos multilocatários, os dados e a carga de trabalho podem ser facilmente particionados. Você pode particionar dados e a carga de trabalho, por exemplo, com limites de locatário, porque a maioria das solicitações ocorrem dentro dos limites de um locatário. Essa propriedade é inerente aos dados e à carga de trabalho e favorece os padrões de aplicativos discutidos neste artigo.
 
 Os desenvolvedores usam este tipo de aplicativos distribuídos em todo o espectro de aplicativos baseados em nuvem, incluindo:
@@ -48,7 +47,7 @@ Nem todos os aplicativos são particionados facilmente com uma única propriedad
 
 Nenhuma estratégia de partição única poderá ser aplicada a todas as tabelas e funcionar na carga de trabalho do aplicativo. Este artigo se concentra em aplicativos multilocatários que possuem dados e cargas de trabalho facilmente particionáveis.
 
-## <a name="multitenant-application-design-trade-offs"></a>Compensações do design de aplicativo multilocatário
+## <a name="multi-tenant-application-design-trade-offs"></a>Compensações do design de aplicativo multilocatário
 O padrão de design que um desenvolvedor de aplicativos multilocatários escolhe normalmente é baseado em uma consideração dos seguintes fatores:
 
 * **Isolamento de locatário**. O desenvolvedor precisa garantir que nenhum locatário tenha acesso indesejado aos dados de outros locatários. O requisito de isolamento se estende a outras propriedades, como o fornecimento de proteção contra vizinhos barulhentos, sendo capaz de restaurar dados de um determinado locatário e implementar personalizações específicas de locatário.
@@ -62,7 +61,7 @@ Um padrão de desenvolvimento popular é agrupar vários locatários em um ou al
 
 O isolamento de locatários geralmente é um requisito fundamental em aplicativos SaaS multilocatário que atendem às empresas e organizações. Os desenvolvedores podem ser tentados para as vantagens percebidas em relação a simplicidade e o custo sobre o isolamento de locatários e a escalabilidade. Essa compensação pode se provar complexa e cara conforme o serviço cresce e os requisitos de isolamento de locatário se tornam mais importantes e precisam ser gerenciados na camada de aplicativo. No entanto, para aplicativos multilocatários que fornecem um serviço direto voltado para o cliente, o isolamento de locatários pode ser uma prioridade menor que a otimização de custo de recursos de nuvem.
 
-## <a name="multitenant-data-models"></a>Modelos de dados de multilocatário
+## <a name="multi-tenant-data-models"></a>Modelos de dados de multilocatário
 Práticas de design comuns para a colocação de dados de locatário seguem esses três modelos distintos, mostrados na Figura 1.
 
 ![Modelos de dados de aplicativo multilocatário](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-multi-tenant-data-models.png)
@@ -78,7 +77,7 @@ Figura 1: Práticas comuns de design para modelos de dados de multilocatário
 > 
 > 
 
-## <a name="popular-multitenant-data-models"></a>Modelos populares de dados multilocatários
+## <a name="popular-multi-tenant-data-models"></a>Modelos populares de dados multilocatários
 É importante avaliar os diferentes tipos de modelos de dados de multilocatários em termos de compensações de design do aplicativo que nós já identificamos. Esses fatores ajudam a caracterizar os três modelos de dados multilocatários mais comuns descritos anteriormente e o uso do banco de dados, como mostrado na Figura 2.
 
 * **Isolamento**. O nível de isolamento entre locatários pode ser medido pela quantidade de isolamento de locatário que um modelo de dados alcança.
@@ -105,7 +104,7 @@ Esses fatores também influenciam o padrão de design escolhido por um cliente:
 
 Considerando as compensações de design mostradas na Figura 2, um modelo ideal multilocatário precisa incorporar boas propriedades de isolamento de locatário com o compartilhamento de recursos ideal entre locatários. Esse modelo se encaixa na categoria descrita no quadrante superior direito da Figura 2.
 
-## <a name="multitenancy-support-in-azure-sql-database"></a>Suporte a multilocação no Banco de Dados SQL do Azure
+## <a name="multi-tenancy-support-in-azure-sql-database"></a>Suporte a multilocação no Banco de Dados SQL do Azure
 O Banco de Dados SQL do Azure oferece suporte a todos os padrões de aplicativos multilocatários descritos na Figura 2. Com os pools elásticos, ele também dá suporte a um padrão de aplicativo que combina benefícios de isolamento e de compartilhamento de recursos excelentes da abordagem de banco de dados por locatário (consulte o quadrante superior direito na Figura 3). As ferramentas de banco de dados elástico e os recursos no Banco de Dados SQL podem ajudar a reduzir o custo de desenvolvimento e operação de um aplicativo que tenha muitos bancos de dados (mostrados na área sombreada na Figura 3). Essas ferramentas podem ajudá-lo a criar e gerenciar aplicativos que usam qualquer um dos padrões de vários bancos de dados.
 
 ![Padrões no Banco de Dados SQL Azure](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-patterns-sqldb.png)
@@ -119,10 +118,10 @@ Os pools elásticos no Banco de Dados SQL combina o isolamento de locatários co
 | --- | --- |
 | Isolamento de locatários e compartilhamento de recursos |[Pools elásticos](sql-database-elastic-pool.md): alocam um pool de recursos de Banco de Dados SQL e compartilham recursos entre vários bancos de dados. Além disso, os bancos de dados individuais podem retirar a quantidade de recursos do pool necessária para acomodar picos de demanda de capacidade devido a alterações nas cargas de trabalho de locatário. O próprio pool elástico pode ser aumentado ou reduzido conforme necessário. Os pools elásticos também fornecem facilidade de gerenciamento, monitoramento e solução de problemas no nível do pool. |
 | Facilidade de DevOps em bancos de dados |[Pools elásticos](sql-database-elastic-pool.md): conforme mencionado anteriormente. |
-| [Consulta elástica:](sql-database-elastic-query-horizontal-partitioning.md)consulta relatórios ou análises entre locatários nos bancos de dados. | |
-| [Trabalhos elásticos:](sql-database-elastic-jobs-overview.md)empacotam e implantam confiavelmente as operações de manutenção de banco de dados ou alterações de esquema do banco de dados para vários bancos de dados. | |
-| [Transações elásticas:](sql-database-elastic-transactions-overview.md)processam alterações em vários bancos de dados de uma maneira atômica e isolada. Transações elásticas são necessárias quando os aplicativos precisam de garantias de "tudo ou nada" sobre várias operações de banco de dados. | |
-| [Biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md): gerencia distribuições de dados e mapeiam locatários para bancos de dados. | |
+| | [Consulta elástica:](sql-database-elastic-query-horizontal-partitioning.md)consulta relatórios ou análises entre locatários nos bancos de dados. |
+| | [Trabalhos elásticos:](sql-database-elastic-jobs-overview.md)empacotam e implantam confiavelmente as operações de manutenção de banco de dados ou alterações de esquema do banco de dados para vários bancos de dados. |
+| | [Transações elásticas:](sql-database-elastic-transactions-overview.md)processam alterações em vários bancos de dados de uma maneira atômica e isolada. Transações elásticas são necessárias quando os aplicativos precisam de garantias de "tudo ou nada" sobre várias operações de banco de dados. |
+| | [Biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md): gerencia distribuições de dados e mapeiam locatários para bancos de dados. |
 
 ## <a name="shared-models"></a>Modelos compartilhados
 Conforme descrito anteriormente, para a maioria dos provedores de SaaS, uma abordagem de modelo compartilhado pode apresentar problemas com questões de isolamento de locatário e complexidades de desenvolvimento e manutenção do aplicativo. No entanto, para aplicativos multilocatários que fornecem um serviço diretamente para clientes, os requisitos de isolamento de locatário podem não ser uma prioridade tão alta como a minimização do custo. Eles poderão empacotar locatários em um ou mais bancos de dados em uma densidade bastante alta para reduzir os custos. Os modelos de banco de dados compartilhados usando um banco de dados individual ou vários bancos de dados fragmentados podem resultar em uma eficiência adicional no compartilhamento de recursos e na redução do custo geral. O Banco de Dados SQL do Azure fornece alguns recursos que ajudam os clientes a criar um isolamento aprimorado de segurança e gerenciamento em escala na camada de dados.
@@ -132,10 +131,10 @@ Conforme descrito anteriormente, para a maioria dos provedores de SaaS, uma abor
 | Recursos de isolamento de segurança |[Segurança em nível de linha](https://msdn.microsoft.com/library/dn765131.aspx) |
 | [Esquema de banco de dados](https://msdn.microsoft.com/library/dd207005.aspx) | |
 | Facilidade de DevOps em bancos de dados |[Consulta elástica](sql-database-elastic-query-horizontal-partitioning.md) |
-| [Trabalhos elásticos](sql-database-elastic-jobs-overview.md) | |
-| [Transações elásticas](sql-database-elastic-transactions-overview.md) | |
-| [Biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md) | |
-| [Divisão e mesclagem do banco de dados elástico](sql-database-elastic-scale-overview-split-and-merge.md) | |
+| | [Trabalhos elásticos](sql-database-elastic-jobs-overview.md) |
+| | [Transações elásticas](sql-database-elastic-transactions-overview.md) |
+| | [Biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md) |
+| | [Divisão e mesclagem do banco de dados elástico](sql-database-elastic-scale-overview-split-and-merge.md) |
 
 ## <a name="summary"></a>Resumo
 Os requisitos de isolamento de locatário são importantes para a maioria dos aplicativos SaaS multilocatários. A melhor opção para fornecer isolamento é voltada fortemente para a abordagem banco de dados por locatário. As outras duas abordagens exigem investimentos em camadas de aplicativo complexas que exigem uma equipe de desenvolvimento especializada para fornecer isolamento, que aumenta significativamente custos e riscos. Se os requisitos de isolamento não forem considerados no início do desenvolvimento de serviços, retrocedê-los poderá ser ainda mais oneroso do que os primeiros dois modelos. As principais desvantagens associadas ao modelo de banco de dados por locatário estão relacionadas aos custos dos recursos de nuvem maiores devido à redução de compartilhamento e à manutenção e gerenciamento de um grande número de bancos de dados. Os desenvolvedores de aplicativos SaaS muitas vezes têm dificuldades ao fazer essas compensações.
@@ -156,6 +155,8 @@ Para criar um pool elástico usando o Portal do Azure, consulte [criar um pool e
 Aprenda como [monitorar e gerenciar um pool elástico](sql-database-elastic-pool-manage-portal.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
+
+* [Implantar e explorar um aplicativo multilocatário que usa o Banco de dados SQL do Azure - Wingtip SaaS](sql-database-saas-tutorial.md)
 * [O que é um pool elástico do Azure?](sql-database-elastic-pool.md)
 * [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md)
 * [Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha](sql-database-elastic-tools-multi-tenant-row-level-security.md)
@@ -164,6 +165,6 @@ Aprenda como [monitorar e gerenciar um pool elástico](sql-database-elastic-pool
 
 
 ## <a name="questions-and-feature-requests"></a>Perguntas e solicitações de recursos
-Para fazer perguntas, encontre-se no [Fórum do Banco de Dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Adicione uma solicitação de recursos no [Fórum de comentários do Banco de Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
+Para fazer perguntas, encontre-se no [Fórum do Banco de Dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Adicione uma solicitação de recursos no [Fórum de comentários do Banco de Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
 

@@ -1,58 +1,79 @@
 ## <a name="create-the-webapi-project"></a>Criar o projeto WebAPI
-Um novo back-end da API Web ASP.NET será criado nas seções a seguir e terá três objetivos principais:
+As seções a seguir abordam a criação de um novo back-end WebAPI ASP.NET. Esse processo tem três objetivos principais:
 
-1. **Autenticar Clientes**: um manipulador de mensagens será adicionado posteriormente para autenticar solicitações de cliente e associar o usuário à solicitação.
-2. **Registros de Notificação do Cliente**: mais tarde, você adicionará um controlador para manipular novos registros para um dispositivo cliente receber notificações. O nome de usuário autenticado será automaticamente adicionado ao registro como uma [marca](https://msdn.microsoft.com/library/azure/dn530749.aspx).
-3. **Enviar notificações aos clientes**: posteriormente, você também adicionará um controlador para fornecer uma maneira para um usuário disparar um envio por push seguro para dispositivos e clientes associados à marca. 
+* **Autenticar clientes**: adicione um manipulador de mensagens posteriormente para autenticar solicitações de cliente e associar o usuário à solicitação.
 
-As etapas a seguir mostram como criar o novo back-end da API Web ASP.NET: 
+* **Registrar para receber notificações usando o back-end WebAPI**: adicione um controlador para lidar com novos registros para que um dispositivos clientes recebam notificações. O nome de usuário autenticado é automaticamente adicionado ao registro como uma [marca](https://msdn.microsoft.com/library/azure/dn530749.aspx).
 
-> [!NOTE]
-> **Importante**: antes de iniciar este tutorial, certifique-se de ter instalado a versão mais recente do Gerenciador de Pacotes NuGet. Para verificar, inicie o Visual Studio. No menu **Ferramentas**, clique em **Extensões e Atualizações**. Pesquise **Gerenciador de Pacotes NuGet para Visual Studio 2013**, certificando-se de ter instalada a versão 2.8.50313.46 ou posterior. Se não tiver, desinstale o Gerenciador de Pacotes NuGet e instale-o novamente.
-> 
-> ![][B4]
-> 
+* **Enviar notificações aos clientes**: adicione também um controlador para permitir aos usuários disparar um envio por push seguro para dispositivos e clientes associados à marca. 
+
+Crie um novo back-end WebAPI ASP.NET fazendo o seguinte: 
+
+> [!IMPORTANT]
+> Se você estiver usando o Visual Studio 2015 ou anterior, antes de iniciar este tutorial, instale a versão mais recente do Gerenciador de Pacotes NuGet para Visual Studio. 
+>
+>Para verificar, inicie o Visual Studio. No menu **Ferramentas**, selecione **Extensões e Atualizações**. Pesquise por **Gerenciador de Pacotes NuGet** na sua versão do Visual Studio e verifique se a versão mais recente está instalada. Se a versão não for a versão mais recente, desinstale-a e reinstale o Gerenciador de Pacotes NuGet.
+ 
+![][B4]
+
 > [!NOTE]
 > Verifique se você instalou o [SDK do Azure](https://azure.microsoft.com/downloads/) do Visual Studio para implantação de site.
 > 
 > 
 
-1. Inicie o Visual Studio ou o Visual Studio Express. Clique em **Gerenciador de Servidores** e entre na sua conta do Azure. Será preciso que você se conecte para que o Visual Studio crie os recursos do site na sua conta.
-2. No Visual Studio, clique em **Arquivo**, clique em **Novo**, **Projeto**, expanda **Modelos**, **Visual C#** e clique em **Web** e em **Aplicativo Web ASP.NET**, digite o nome **AppBackend** e clique em **OK**. 
-   
-    ![][B1]
-3. Na caixa de diálogo **Novo Projeto ASP.NET**, clique em **API Web** e, por último, clique em **OK**.
-   
-    ![][B2]
-4. Na caixa de diálogo **Configurar o Aplicativo Web do Microsoft Azure**, escolha uma assinatura e um **Plano do Serviço de Aplicativo** que você já criou. Você também pode escolher **Criar um novo plano de serviço de aplicativo** e criá-lo na caixa de diálogo. Não é necessário um banco de dados para este tutorial. Depois que você tiver selecionado o seu plano de serviço de aplicativo, clique em **OK** para criar o projeto.
-   
-    ![][B5]
+1. Inicie o Visual Studio ou o Visual Studio Express. 
 
-## <a name="authenticating-clients-to-the-webapi-backend"></a>Autenticando clientes para o back-end de API da Web
-Nesta seção, você criará uma nova classe de manipulador de mensagens denominada **AuthenticationTestHandler** para o novo back-end. Essa classe é derivada de [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) e adicionada como um manipulador de mensagens para poder processar todas as solicitações que chegam ao back-end. 
+2. Selecione **Gerenciador de Servidores** e entre na sua conta do Azure. Para criar os recursos de site na sua conta, você precisará estar conectado.
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **AppBackend**, clique em **Adicionar**. Em seguida, clique em **Classe**. Nomeie a nova classe **AuthenticationTestHandler.cs** e clique em **Adicionar** para gerar a classe. Essa classe será utilizada para autenticar usuários com a *Autenticação Básica* para manter a simplicidade. Observe que seu aplicativo pode utilizar qualquer esquema de autenticação.
-2. Em AuthenticationTestHandler.cs, adicione as seguintes instruções `using`:
+3. No Visual Studio, selecione **Arquivo** > **Novo** > **Projeto**, expanda **Modelos**, expanda **Visual C#**e selecione **Web** e **Aplicativo Web ASP.NET**.
+
+4. Na caixa **Nome** , digite **AppBackend**e selecione **OK**. 
+   
+    ![A janela Novo Projeto][B1]
+
+5. Na janela **Novo Projeto ASP.NET**, marque a caixa de seleção **Web API** e selecione **OK**.
+   
+    ![A janela Novo Projeto ASP.NET][B2]
+
+6. Na janela **Configurar o Aplicativo Web do Microsoft Azure**, selecione uma assinatura e, na lista **Plano do Serviço de Aplicativo**, siga um destes procedimentos:
+
+    * Selecione um plano do serviço de aplicativo que você criou. 
+    * Selecione **Criar um novo plano do serviço de aplicativo** para criar um. 
+    
+  Não é necessário um banco de dados para este tutorial. Depois que você tiver selecionado o seu plano de serviço de aplicativo, selecione **OK** para criar o projeto.
+   
+    ![A janela do aplicativo Web do Microsoft Azure][B5]
+
+## <a name="authenticate-clients-to-the-webapi-back-end"></a>Autenticar clientes para o back-end WebAPI
+Nesta seção, você cria uma nova classe de manipulador de mensagens denominada **AuthenticationTestHandler** para o novo back-end. Essa classe é derivada de [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) e adicionada como um manipulador de mensagens para poder processar todas as solicitações que chegam ao back-end. 
+
+1. No Gerenciador de Soluções, clique com botão direito do mouse no projeto **AppBackend**, selecione **Adicionar**e selecione **Classe**. 
+ 
+2. Nomeie a nova classe **AuthenticationTestHandler.cs** e selecione **Adicionar** para gerar a classe. Essa classe usa *Autenticação Básica* para manter a simplicidade na autenticação dos usuários. Seu aplicativo pode utilizar qualquer esquema de autenticação.
+
+3. Em AuthenticationTestHandler.cs, adicione as seguintes instruções `using`:
    
         using System.Net.Http;
         using System.Threading;
         using System.Security.Principal;
         using System.Net;
-        using System.Web;
-3. Em AuthenticationTestHandler.cs, substitua a definição da classe `AuthenticationTestHandler` pelo código a seguir. 
+        using System.Text;
+        using System.Threading.Tasks;
+
+4. Em AuthenticationTestHandler.cs, substitua a definição da classe `AuthenticationTestHandler` pelo código a seguir: 
    
     Esse manipulador autorizará a solicitação quando as três seguintes condições forem verdadeiras:
    
-   * A solicitação incluía um cabeçalho de *Autorização* . 
+   * A solicitação inclui um cabeçalho de *Autorização*. 
    * A solicitação usa a autenticação *básica* . 
    * A cadeia de caracteres de nome de usuário e a cadeia de caracteres de senha são iguais.
      
-     Caso contrário, a solicitação será rejeitada. Essa não é uma autenticação verdadeira e uma abordagem de autorização. É apenas um exemplo muito simples para este tutorial.
+  Caso contrário, a solicitação será rejeitada. Essa não é uma autenticação verdadeira e uma abordagem de autorização. É apenas um exemplo muito simples para este tutorial.
      
-     Se a mensagem de solicitação for autenticada e autorizada pelo `AuthenticationTestHandler`, em seguida, o usuário de autenticação básica será anexado à solicitação atual no [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). As informações do usuário no HttpContext serão usadas por outro controlador (RegisterController) posteriormente para adicionar uma [marca](https://msdn.microsoft.com/library/azure/dn530749.aspx) à solicitação de registro de notificação.
+  Se a mensagem de solicitação for autenticada e autorizada pelo `AuthenticationTestHandler`, o usuário de autenticação básica será anexado à solicitação atual no [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). As informações do usuário no HttpContext serão usadas por outro controlador (RegisterController) posteriormente para adicionar uma [marca](https://msdn.microsoft.com/library/azure/dn530749.aspx) à solicitação de registro de notificação.
      
-       public class AuthenticationTestHandler : DelegatingHandler   {
-     
+       public class AuthenticationTestHandler : DelegatingHandler
+       {
            protected override Task<HttpResponseMessage> SendAsync(
            HttpRequestMessage request, CancellationToken cancellationToken)
            {
@@ -99,29 +120,35 @@ Nesta seção, você criará uma nova classe de manipulador de mensagens denomin
        }
      
      > [!NOTE]
-     > **Nota de Segurança**: a classe `AuthenticationTestHandler` não oferece autenticação verdadeira. Ela é usada somente para imitar a autenticação básica e não é segura. Você deve implementar um mecanismo de autenticação seguro em seus aplicativos e serviços de produção.                
+     > Nota de segurança: a classe `AuthenticationTestHandler` não oferece autenticação verdadeira. Ela é usada somente para imitar a autenticação básica e não é segura. Você deve implementar um mecanismo de autenticação seguro em seus aplicativos e serviços de produção.                
      > 
      > 
-4. Adicione o seguinte código ao final do método `Register` na classe **App_Start/WebApiConfig.cs** para registrar o manipulador de mensagens:
+5. Para registrar o manipulador de mensagens:, adicione o seguinte código ao final do método `Register` na classe **App_Start/WebApiConfig.cs**:
    
         config.MessageHandlers.Add(new AuthenticationTestHandler());
-5. Salve suas alterações.
 
-## <a name="registering-for-notifications-using-the-webapi-backend"></a>Registrar-se nas Notificações usando o backup-end da API Web
-Nesta seção, adicionaremos um novo controlador ao back-end da API Web para manipular solicitações para registrar um usuário e um dispositivo para notificações usando a biblioteca de cliente dos hubs de notificação. O controlador adicionará uma marca de usuário ao usuário que foi autenticado e anexado a HttpContext pelo `AuthenticationTestHandler`. A marca terá o formato de cadeia de caracteres, `"username:<actual username>"`.
+6. Salve suas alterações.
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **AppBackend** e clique em **Gerenciar Pacotes NuGet**.
-2. No lado esquerdo, clique em **Online** e procure **Microsoft.Azure.NotificationHubs** na caixa **Pesquisar**.
-3. Na lista de resultados, clique em **Hubs de Notificação do Microsoft Azure** e, em seguida, clique em **Instalar**. Conclua a instalação e, por fim, feche a janela do gerenciador de pacotes NuGet.
+## <a name="register-for-notifications-by-using-the-webapi-back-end"></a>Registrar para receber notificações usando o back-end WebAPI
+Nesta seção, você adiciona um novo controlador ao back-end WebAPI para manipular solicitações e registrar um usuário e um dispositivo para notificações usando a biblioteca de cliente dos hubs de notificação. O controlador adiciona uma marca de usuário ao usuário que foi autenticado e anexado a HttpContext pelo `AuthenticationTestHandler`. A marca terá o formato de cadeia de caracteres, `"username:<actual username>"`.
+
+1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **AppBackend** e selecione **Gerenciar Pacotes NuGet**.
+
+2. No painel esquerdo, selecione **Online** e, na caixa **Pesquisa**, digite **Microsoft.Azure.NotificationHubs**.
+
+3. Na lista de resultados, selecione **Hubs de Notificação do Microsoft Azure** e selecione **Instalar**. Conclua a instalação e, por fim, feche a janela Gerenciador de Pacotes NuGet.
    
-    Isso adiciona uma referência ao SDK dos Hubs de Notificação do Azure usando o <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pacote NuGet Microsoft.Azure.Notification Hubs</a>.
-4. Agora criaremos um novo arquivo de classe que representa a conexão com o hub de notificação usado para enviar notificações. No Gerenciador de Soluções, clique com o botão direito do mouse na pasta **Modelos**, clique em **Adicionar** e, em seguida, em **Classe**. Nomeie a nova classe como **Notifications.cs**, clique em **Adicionar** para gerar a classe. 
+    Essa ação adiciona uma referência ao SDK dos Hubs de Notificação do Azure usando o <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pacote NuGet Microsoft.Azure.Notification Hubs</a>.
+
+4. Crie um novo arquivo de classe que representa a conexão com o hub de notificação usado para enviar notificações. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta **Modelos**, selecione **Adicionar** e Classe. Nomeie a nova classe como **Notifications.cs** e selecione **Adicionar** para gerar a classe. 
    
-    ![][B6]
+    ![A janela Adicionar Novo Item][B6]
+
 5. Em Notifications.cs, adicione a seguinte instrução `using` à parte superior do arquivo:
    
         using Microsoft.Azure.NotificationHubs;
-6. Substitua a definição da classe `Notifications` pelo seguinte e certifique-se de substituir os dois espaços reservados pela cadeia de conexão (com acesso completo) para o hub de notificação e o nome do hub (disponível no [Portal Clássico do Azure](http://manage.windowsazure.com)):
+
+6. Substitua a definição da classe `Notifications` pelo seguinte e substitua os dois espaços reservados pela cadeia de conexão (com acesso completo) para o hub de notificação e o nome do hub (disponível no [portal clássico do Azure](http://manage.windowsazure.com)):
    
         public class Notifications
         {
@@ -134,19 +161,25 @@ Nesta seção, adicionaremos um novo controlador ao back-end da API Web para man
                                                                              "<hub name>");
             }
         }
-7. Em seguida, criaremos um novo controlador, chamado **RegisterController**. No Gerenciador de Soluções, clique com o botão direito na pasta **Controladores**, depois em **Adicionar**, por fim clique em **Controlador**. Clique no item **Controlador de API Web 2 -- Vazio**, depois clique em **Adicionar**. Nomeie a nova classe **RegisterController**, em seguida clique em **Adicionar** novamente para gerar o controlador.
+7. Em seguida, crie um novo controlador chamado **RegisterController**. No Gerenciador de Soluções, clique com o botão direito do mouse na pasta **Controladores**, selecione **Adicionar** e **Controlador**. 
+
+8. Selecione **Controlador da API Web 2 - Vazio**e selecione **Adicionar**.
    
-    ![][B7]
+    ![A janela Adicionar Scaffold][B7]
    
-    ![][B8]
-8. Em RegisterController.cs, adicione as seguintes instruções `using` :
+9. Na caixa **Nome do controlador**, digite **RegisterController** para nomear a nova classe e selecione **Adicionar**.
+
+    ![A janela Adicionar Controlador][B8]
+
+10. Em RegisterController.cs, adicione as seguintes instruções `using` :
    
         using Microsoft.Azure.NotificationHubs;
         using Microsoft.Azure.NotificationHubs.Messaging;
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
-9. Adicione o código a seguir à definição de classe `RegisterController` . Observe que, nesse código, adicionamos uma marca de usuário para o usuário anexado ao HttpContext. O usuário foi autenticado e anexado ao HttpContext pelo filtro de mensagens que adicionamos, `AuthenticationTestHandler`. Você também pode adicionar verificações opcionais para conferir se o usuário tem direitos para registro das tags requeridas.
+
+11. Adicione o código a seguir à definição de classe `RegisterController` . Observe que, nesse código, adicionamos uma marca de usuário para o usuário anexado a HttpContext. O usuário foi autenticado e anexado a HttpContext pelo filtro de mensagens que adicionamos, `AuthenticationTestHandler`. Você também pode adicionar verificações opcionais para conferir se o usuário tem direitos para registro das tags requeridas.
    
         private NotificationHubClient hub;
    
@@ -251,22 +284,24 @@ Nesta seção, adicionaremos um novo controlador ao back-end da API Web para man
                     throw new HttpRequestException(HttpStatusCode.Gone.ToString());
             }
         }
-10. Salve suas alterações.
+12. Salve suas alterações.
 
-## <a name="sending-notifications-from-the-webapi-backend"></a>Enviando notificações do back-end da API Web
-Nesta seção, você adiciona um novo controlador que expõe uma maneira para dispositivos clientes enviarem uma notificação com base na marca de nome de usuário usando a Biblioteca de Gerenciamento de Serviços dos Hubs de Notificação do Azure no back-end da API Web no ASP.NET.
+## <a name="send-notifications-from-the-webapi-back-end"></a>Enviar notificações do back-end WebAPI
+Nesta seção, você adiciona um novo controlador que expõe uma maneira de os dispositivos clientes enviarem uma notificação. A notificação se baseia na marca de nome de usuário que usa a Biblioteca de Gerenciamento do Serviço Hubs de Notificação do Azure no back-end WebAPI ASP.NET.
 
-1. Crie outro novo controlador chamado **NotificationsController**. Crie-o da mesma maneira como você criou o **RegisterController** na seção anterior.
+1. Crie outro novo controlador chamado **NotificationsController** da mesma maneira que você criou **RegisterController** na seção anterior.
+
 2. Em NotificationsController.cs, adicione as seguintes instruções `using` :
    
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
-3. Adicione o método a seguir à classe **NotificationsController** .
+
+3. Adicione o seguinte método à classe **NotificationsController**:
    
     Esse código envia um tipo de notificação com base no parâmetro `pns` do PNS (Platform Notification Service). O valor de `to_tag` é usado para definir a marca *username* na mensagem. Essa marca deve corresponder a uma marca de nome de usuário de um registro de hub de notificação ativo. A mensagem de notificação é recuperada do corpo da solicitação POST e formatada para o PNS de destino. 
    
-    Dependendo do PNS (Serviço de Notificação de Plataforma) que seus dispositivos com suporte usam para receber notificações, diferentes notificações têm suporte usando diferentes formatos. Por exemplo, em dispositivos do Windows, você pode usar uma [notificação do sistema com WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) à qual um outro PNS não dá suporte diretamente. Então, o back-end precisaria formatar a notificação em uma notificação com suporte para o PNS de dispositivos para os quais que você planeja dar suporte. Em seguida, use a API de envio apropriada na [classe NotificationHubClient](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)
+    Dependendo do PNS que seus dispositivos com suporte usam para receber notificações, as notificações têm suporte por vários formatos diferentes. Por exemplo, em dispositivos do Windows, você pode usar uma [notificação do sistema com WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) que não tenha suporte direto de outro PNS. Nesse caso, o back-end precisa formatar a notificação em uma notificação com suporte para o PNS de dispositivos aos quais você planeja dar suporte. Em seguida, use a API de envio apropriada na [classe NotificationHubClient](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx).
    
         public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
         {
@@ -309,19 +344,30 @@ Nesta seção, você adiciona um novo controlador que expõe uma maneira para di
    
             return Request.CreateResponse(ret);
         }
-4. Pressione **F5** para executar o aplicativo e garantir a precisão de seu trabalho até aqui. O aplicativo deve inicializar um navegador da Web e exibir a página inicial ASP.NET. 
 
-## <a name="publish-the-new-webapi-backend"></a>Publicar o novo back-end da API Web
-1. Agora, implantaremos esse aplicativo em um Site do Azure para torná-lo acessível de todos os dispositivos. Clique com o botão direito do mouse no projeto **AppBackend** e selecione **Publicar**.
-2. Selecione **Aplicativos Web do Microsoft Azure** como o destino de publicação.
-   
-    ![][B15]
-3. Faça logon com sua conta do Azure e selecione um Aplicativo Web novo ou existente.
-   
-    ![][B16]
-4. Anote a propriedade **URL de destino** na guia **Conexão**. Iremos nos referir a essa URL, posteriormente neste tutorial, como seu *ponto de extremidade de back-end* . Clique em **Publicar**.
-   
-    ![][B18]
+4. Para executar o aplicativo e garantir a precisão de seu trabalho até aqui, selecione a tecla **F5**. O aplicativo abre um navegador da Web e será exibido na home page do ASP.NET. 
+
+## <a name="publish-the-new-webapi-back-end"></a>Publicar o novo back-end WebAPI
+Em seguida, implante o aplicativo em um site do Azure para poder ser acessado por todos os dispositivos. 
+
+1. Clique com o botão direito do mouse no projeto **AppBackend** e selecione **Publicar**.
+
+2. Escolha **Serviço de Aplicativo do Microsoft Azure** como destino de publicação e selecione **Publicar**.  
+    A janela Criar Serviço de Aplicativo é aberta. Aqui, você pode criar todos os recursos do Azure necessários para executar o aplicativo Web ASP.NET no Azure.
+
+    ![O bloco Serviço de Aplicativo do Azure][B15]
+
+3. Na janela **Criar Serviço de Aplicativo**, selecione sua conta do Azure. Selecione **Alterar Tipo** > **Aplicativo Web**. Mantenha o **Nome do Aplicativo Web** padrão e selecione a **Assinatura**, o **Grupo de Recursos** e o **Plano do Serviço de Aplicativo**. 
+
+4. Selecione **Criar**.
+
+5. Anote a propriedade **URL do Site** na seção **Resumo**. Essa URL será seu *ponto de extremidade de back-end* mais adiante no tutorial. 
+
+6. Selecione **Publicar**.
+
+Depois de concluir o assistente, ele publica o aplicativo Web ASP.NET no Azure e abre o aplicativo no navegador padrão.  Seu aplicativo pode ser exibido nos Serviços de Aplicativo do Azure.
+
+A URL usa o nome do aplicativo Web especificado anteriormente, com o formato http://<app_name>.azurewebsites.net.
 
 [B1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
 [B2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png
@@ -332,11 +378,6 @@ Nesta seção, você adiciona um novo controlador que expõe uma maneira para di
 [B7]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push7.png
 [B8]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png
 [B14]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push14.png
-[B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
+[B15]: ./media/notification-hubs-aspnet-backend-notifyusers/publish-to-app-service.png
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
-
-
-<!--HONumber=Nov16_HO3-->
-
-

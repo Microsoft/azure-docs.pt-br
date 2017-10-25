@@ -2,7 +2,7 @@
 title: "Documentação do Azure StorSimple - Tutoriais | Microsoft Docs"
 description: "Saiba como usar o Azure StorSimple, uma solução de armazenamento integrado que gerencia as tarefas de armazenamento entre os dispositivos local e o armazenamento em nuvem do Azure."
 services: storsimple
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 8236c1e4167e3b66edb1b410deb450d01c34d9f2
-ms.openlocfilehash: 9c083c08f73c5e2c8ed873f612c8695a9687a5a6
-
+ms.openlocfilehash: 579fe32f75e051e679e6cbbaea5f99c7fcd6037b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="storsimple-documentation"></a>Documentação do StorSimple
 
@@ -120,39 +121,31 @@ Saiba como usar o Azure StorSimple, uma solução de armazenamento integrado que
 
 <ul class="panelContent cardsW">
     <li>
-        <a href="http://onlinehelp.storsimple.com/">
+        
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>Outras Soluções do StorSimple</h3>
-                        <p>StorSimple 5000-7000 Series</p>
+                        <p><a href="http://onlinehelp.storsimple.com/">StorSimple 5000-7000 Series</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/azure/storsimple/storsimple-update3-release-notes">
+        
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>Notas de versão</h3>
-                        <p>Notas de versão</p>
+                        <p><a href="/azure/storsimple/storsimple-update3-release-notes">Notas de versão</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

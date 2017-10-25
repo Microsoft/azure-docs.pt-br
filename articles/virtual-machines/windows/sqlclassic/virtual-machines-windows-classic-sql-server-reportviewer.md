@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 8f85a4cee6a59316eb5c321007b5b9d562c71302
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: c4f7c829e6fe3890342bd973185e679dd3ea2df5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Usar o ReportViewer em um site da Web hospedado no Azure
 > [!IMPORTANT] 
@@ -46,7 +45,7 @@ Leia a seção "Recomendações gerais e práticas recomendadas" no [Business In
 > Não há suporte para o ReportViewer configurado em modo de processamento local no Microsoft Azure.
 
 ## <a name="adding-assemblies-to-the-deployment-package"></a>Adicionando assemblies ao pacote de implantação
-Quando você hospeda o aplicativo ASP.NET no local, os assemblies do ReportViewer geralmente são instalados diretamente no GAC (cache de assembly global) do servidor IIS durante a instalação do Visual Studio e podem ser acessados diretamente pelo aplicativo. No entanto, ao hospedar o aplicativo ASP.NET na nuvem, o Microsoft Azure não permite que nada seja instalado no GAC, de modo que você deve verificar se os assemblies do ReportViewer estão disponíveis localmente para seu aplicativo. É possível fazer isso adicionando referências a eles no seu projeto e configurando-os para serem copiados localmente.
+Quando você hospeda seu aplicativo ASP.NET localmente, os assemblies do ReportViewer geralmente são instalados diretamente no GAC (cache de assembly global) do servidor IIS durante a instalação do Visual Studio e podem ser acessados diretamente pelo aplicativo. No entanto, ao hospedar o aplicativo ASP.NET na nuvem, o Microsoft Azure não permite que nada seja instalado no GAC, de modo que você deve verificar se os assemblies do ReportViewer estão disponíveis localmente para seu aplicativo. É possível fazer isso adicionando referências a eles no seu projeto e configurando-os para serem copiados localmente.
 
 No modo de processamento remoto, o controle ReportViewer usa os seguintes assemblies:
 
@@ -78,7 +77,7 @@ No modo de processamento remoto, o controle ReportViewer usa os seguintes assemb
 O ReportViewer precisa usar credenciais apropriadas para se autenticar no servidor de relatório, e as credenciais devem ser autorizadas pelo servidor de relatório a acessar os relatórios que você deseja. Para obter informações sobre autenticação, consulte o white paper [Controle do visualizador de relatórios do Reporting Services e servidores de relatórios com base em máquina virtual do Microsoft Azure](https://msdn.microsoft.com/library/azure/dn753698.aspx).
 
 ## <a name="publish-the-aspnet-web-application-to-azure"></a>Publicar o aplicativo Web ASP.NET no Azure
-Para obter instruções sobre como publicar um aplicativo Web ASP .NET no Azure, confira [Como migrar e publicar um aplicativo Web no Azure por meio do Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) e [Introdução aos aplicativos Web e ao ASP.NET](../../../app-service-web/web-sites-dotnet-get-started.md).
+Para obter instruções sobre como publicar um aplicativo Web ASP .NET no Azure, confira [Como migrar e publicar um aplicativo Web no Azure por meio do Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) e [Introdução aos aplicativos Web e ao ASP.NET](../../../app-service/app-service-web-get-started-dotnet.md).
 
 > [!IMPORTANT]
 > Se o comando Adicionar Projeto de Implantação do Azure ou Adicionar Projeto de Serviço de Nuvem do Azure não aparecer no menu de atalho do Gerenciador de Soluções, talvez seja necessário alterar a estrutura de destino do projeto para o .NET Framework 4.
@@ -93,5 +92,4 @@ Para obter instruções sobre como publicar um aplicativo Web ASP .NET no Azure,
 [Business Intelligence do SQL Server em Máquinas Virtuais do Azure](../classic/ps-sql-bi.md)
 
 [Use o PowerShell para criar uma VM do Azure com um servidor de relatório em modo nativo](../classic/ps-sql-report.md)
-
 

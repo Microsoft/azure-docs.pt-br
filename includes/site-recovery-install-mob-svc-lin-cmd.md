@@ -6,25 +6,38 @@
 2. Para instalar o Serviço de Mobilidade, execute o seguinte comando:
 
   ```
-  sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i <IP address> -p <port> -s y -c https -P MobSvc.passphrase
+  sudo ./install -d <Install Location> -r MS -v VmWare -q
+  ```
+3. Depois que a instalação for concluída, o Serviço de Mobilidade precisa se registrar no servidor de configuração. Execute o seguinte comando para registrar o Serviço de Mobilidade com o servidor de configuração.
+
+  ```
+  /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
   ```
 
-#### <a name="mobility-service-installer-command-line-arguments"></a>Argumentos de linha de comando do instalador do Serviço de Mobilidade
+#### <a name="mobility-service-installer-command-line"></a>Linha de comando do instalador do Serviço de Mobilidade
+
+```
+Usage:
+./install -d <Install Location> -r <MS|MT> -v VmWare -q
+```
 
 |Parâmetro|Tipo|Descrição|Valores possíveis|
 |-|-|-|-|
-|-t |Obrigatório|Tipo de agente<br>(a ser substituído em versão futura)|*both*|
-|-a |Obrigatório|Configuração do agente<br>(a ser substituído em versão futura) |*host*|
-|-R |Opcional|Função do agente|Agente<br>MasterTarget|
+|-r |Obrigatório|Especifica se o Serviço de Mobilidade (MS) deve ser instalado ou se o MasterTarget (MT) deve ser instalado|MS </br> MT|
 |-d |Opcional|Local onde o Serviço de Mobilidade será instalado|/usr/local/ASR|
-|-i |Obrigatório|Endereço IP do servidor de configuração|Qualquer endereço IP válido|
-|-p |Obrigatório|Porta na qual o servidor de configuração escuta as conexões de entrada|443|
-|-s |Obrigatório|Inicia o serviço após a instalação bem-sucedida<br>(a ser substituído em versão futura)|*y*|
-|-c |Obrigatório|Modo de comunicação entre o agente e o servidor de processo<br>(a ser substituído em versão futura) |*https*|
-|-P |Obrigatório|Frase secreta do servidor de configuração|Qualquer caminho de arquivo UNC ou local válido|
+|-v|Obrigatório|Especifica a plataforma onde o Serviço de Mobilidade está sendo instalado </br> </br>- **VMware** : use esse valor se você estiver instalando o serviço de mobilidade em uma VM em execução no *Hosts do VMware vSphere ESXi*, *Hosts do Hyper-V* e *Servidores Físicos* </br> - **Azure** : use esse valor se você estiver instalando o agente em uma VM IaaS do Azure| VMware </br> As tabelas|
+|-q|Opcional|Especifica a execução do instalador no modo silencioso| N/D |
 
 
-#### <a name="example"></a>Exemplo
+#### <a name="mobility-service-configuration-command-line"></a>Linha de comando de configuração do Serviço de Mobilidade
+
 ```
-sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i 192.168.2.53 -p 443 -s y -c https -P /tmp/MobSvc.passphrase
+Usage:
+cd /usr/local/ASR/Vx/bin
+UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
 ```
+
+|Parâmetro|Tipo|Descrição|Valores possíveis|
+|-|-|-|-|
+|-i |Obrigatório|IP do Servidor de Configuração|Qualquer endereço IP válido|
+|-P |Obrigatório|Caminho completo do arquivo onde a senha de conexão é salva|Qualquer pasta válida|

@@ -1,28 +1,27 @@
 ---
-title: "Gerencie o acesso e permissões com funções - RBAC do Azure | Microsoft Docs"
+title: "Gerencie o acesso e permissões com RBAC – RBAC do Azure | Microsoft Docs"
 description: "Introdução ao gerenciamento de acesso com o controle de acesso baseado em função do Azure no Portal do Azure. Use as atribuições de função para atribuir permissões em seu diretório."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: andredm7
 manager: femila
-editor: 
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2017
-ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: d00ba4e6d1abd62e5a0d5a9d5bb229d3fa64b473
-ms.openlocfilehash: fb12fb78d4257fc8264bd476de70671eb8264323
-ms.lasthandoff: 01/24/2017
-
-
+ms.date: 07/13/2017
+ms.author: andredm
+ms.reviewer: rqureshi
+ms.openlocfilehash: 0462fe8ff75bdda397decb301c459795886e9e58
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="get-started-with-access-management-in-the-azure-portal"></a>Introdução ao gerenciamento de acesso no portal do Azure
-As empresas direcionadas a segurança devem focar em fornecer aos funcionários as permissões exatas necessárias. Muitas permissões expõem uma conta a ataques. Permissões insuficientes significa que os funcionários não podem ter seu trabalho feito com eficiência. O RBAC (controle de acesso baseado em função) do Azure ajuda a resolver esse problema ao oferecer o gerenciamento de acesso refinado para o Azure.
+# <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Introdução ao Controle de Acesso Baseado em Função no Portal do Azure
+As empresas direcionadas a segurança devem focar em fornecer aos funcionários as permissões exatas necessárias. Muitas permissões podem expor uma conta a ataques. Permissões insuficientes significa que os funcionários não podem ter seu trabalho feito com eficiência. O RBAC (controle de acesso baseado em função) do Azure ajuda a resolver esse problema ao oferecer o gerenciamento de acesso refinado para o Azure.
 
 Com o RBAC, você pode separar as tarefas dentro de sua equipe e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos. Em vez de apresentar todos irrestrito permissões em sua assinatura do Azure ou recursos, você pode permitir apenas determinadas ações. Por exemplo, use o RBAC para permitir que um funcionário gerencie máquinas virtuais em uma assinatura, enquanto outro pode gerenciar bancos de dados SQL dentro da mesma assinatura.
 
@@ -42,12 +41,12 @@ O RBAC do Azure tem três funções básicas que se aplicam a todos os tipos de 
 * **colaborador** pode criar e gerenciar todos os tipos de recursos do Azure, mas não pode conceder acesso a outras pessoas.
 * **leitor** pode exibir os recursos existentes do Azure.
 
-As demais funções RBAC no Azure permitem o gerenciamento de recursos específicos do Azure. Por exemplo, a função Colaborador de Máquina Virtual permite que o usuário crie e gerencie máquinas virtuais. Ela não lhes concede acesso à rede virtual ou à sub-rede com qual a máquina virtual se conecta.
+As demais funções RBAC no Azure permitem o gerenciamento de recursos específicos do Azure. Por exemplo, a função Colaborador de Máquina Virtual permite que o usuário crie e gerencie máquinas virtuais. Ela não lhes concede acesso à rede virtual ou à sub-rede com qual a máquina virtual se conecta. 
 
 [Funções internas RBAC](role-based-access-built-in-roles.md) lista as funções disponíveis no Azure. Ela especifica as operações e o escopo que cada função interna concede aos usuários. Se você pretende definir suas próprias funções para ter ainda mais controle, confira como criar [Funções personalizadas no RBAC do Azure](role-based-access-control-custom-roles.md).
 
 ## <a name="resource-hierarchy-and-access-inheritance"></a>Hierarquia de recursos e herança de acesso
-* Cada **assinatura** do Azure pertence somente a um diretório.
+* Cada **assinatura** do Azure pertence somente a um diretório. (Porém, cada diretório pode ter mais de uma assinatura).
 * Cada **grupo de recursos** pertence somente a uma assinatura.
 * Cada **recurso** pertence somente a um grupo de recursos.
 
@@ -68,4 +67,3 @@ O RBAC do Azure tem suporte somente para as operações de gerenciamento dos rec
 * Introdução ao [Controle de Acesso Baseado em Função](role-based-access-control-configure.md)no Portal do Azure.
 * Confira as [Funções internas do RBAC do Azure](role-based-access-built-in-roles.md)
 * Defina suas próprias [Funções personalizadas no RBAC do Azure](role-based-access-control-custom-roles.md)
-

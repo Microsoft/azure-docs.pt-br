@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/18/2016
 ms.author: alkohli@microsoft.com
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 562e20d274079d221360d45302ff288190c1cd6e
-
-
+ms.openlocfilehash: af135518f66eb8c94c183f28191f016fcd601ae1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Usar o Windows PowerShell para StorSimple para administrar o seu dispositivo
 ## <a name="overview"></a>Visão geral
@@ -34,7 +34,7 @@ Neste artigo, você aprenderá a:
 
 > [!NOTE]
 > * Os cmdlets do Windows PowerShell para StorSimple permitem gerenciar seu dispositivo StorSimple por um console serial ou remotamente por meio de comunicação remota do Windows PowerShell. Para obter mais informações sobre cada um dos cmdlets individuais que podem ser usados nessa interface, vá para [referência de cmdlets do Windows PowerShell para StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
-> * Os cmdlets do Azure PowerShell StorSimple são um conjunto diferente de cmdlets que permite automatizar tarefas de nível de serviço e migração do StorSimple a partir da linha de comando. Para obter mais informações sobre os cmdlets Azure PowerShell para StorSimple, vá para [referência do cmdlet do Azure StorSimple](https://docs.microsoft.com/powershell/servicemanagement/azure.storsimple/v3.1.0/azure.storsimple).
+> * Os cmdlets do Azure PowerShell StorSimple são um conjunto diferente de cmdlets que permite automatizar tarefas de nível de serviço e migração do StorSimple a partir da linha de comando. Para obter mais informações sobre os cmdlets Azure PowerShell para StorSimple, vá para [referência do cmdlet do Azure StorSimple](/powershell/module/azure/?view=azuresmps-3.7.0).
 > 
 > 
 
@@ -142,7 +142,7 @@ A tabela a seguir mostra um resumo de todas as tarefas comuns de gerenciamento e
 | Modificar as configurações de interface de rede DATA 0 em seu dispositivo StorSimple |[Modificar a interface de rede DATA 0 em seu dispositivo StorSimple](storsimple-modify-data-0.md) |
 | Parar um controlador  </br> Reiniciar ou desligar um controlador </br> Desligar um dispositivo</br>Redefinir o dispositivo para as configurações padrões de fábrica |[Gerenciar os controladores do dispositivo](storsimple-manage-device-controller.md) |
 | Instalar atualizações e hotfixes no modo de manutenção |[Atualizar seu dispositivo](storsimple-update-device.md) |
-| Entrar no modo de manutenção  </br> Sair do modo de manutenção |[Modos de dispositivo StorSimple](storsimple-device-modes.md) |
+| Entrar no modo de manutenção  </br>Sair do modo de manutenção |[Modos de dispositivo StorSimple](storsimple-device-modes.md) |
 | Criar um pacote de Suporte</br>Descriptografar e editar um pacote de suporte |[Criar e gerenciar pacotes de suporte](storsimple-create-manage-support-package.md) |
 | Iniciar uma sessão de suporte</br> |[Iniciar uma sessão de suporte no Windows PowerShell para StorSimple](storsimple-create-manage-support-package.md#manually-create-a-support-package) |
 
@@ -163,7 +163,7 @@ Você pode atualizar facilmente a Ajuda na interface do Windows PowerShell. Exec
 
 #### <a name="to-update-cmdlet-help"></a>Para atualizar a Ajuda de cmdlet
 1. Inicie o Windows PowerShell com a opção **Executar como administrador** .
-2. No prompt de comando, digite:  `Update-Help`
+2. No prompt de comando, digite: `Update-Help`
 3. Os arquivos de Ajuda atualizados serão instalados.
 4. Depois que os arquivos de ajuda forem instalados, digite: `Get-Help Get-Command`. Isso exibirá uma lista dos cmdlets para os quais a Ajuda está disponível.
 
@@ -174,10 +174,4 @@ Você pode atualizar facilmente a Ajuda na interface do Windows PowerShell. Exec
 
 ## <a name="next-steps"></a>Próximas etapas
 Se você tiver problemas com seu dispositivo StorSimple ao executar um dos fluxos de trabalho acima, consulte [Ferramentas para solucionar problemas em implantações de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

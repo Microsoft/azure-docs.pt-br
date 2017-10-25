@@ -3,8 +3,8 @@ title: "Introdução ao Azure Application Insights com Java no Eclipse | Microso
 description: Use o plug-in Eclipse para adicionar o monitoramento de desempenho e uso a seu site Java com o Application Insights
 services: application-insights
 documentationcenter: java
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 ms.assetid: e88c9f53-cd90-4abc-b097-1f170937908e
 ms.service: application-insights
 ms.workload: tbd
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: 16e1276d5c0cc7eb8a8a868fa3b31fd51fbb1b96
-ms.lasthandoff: 02/02/2017
-
-
+ms.author: bwren
+ms.openlocfilehash: f2f696a3bbe7893c1f521a3e5588f4f93805d6a2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Introdução ao Application Insights com Java no Eclipse
 O SDK do Application Insights envia telemetria por meio do seu aplicativo Web Java para que você possa analisar o uso e o desempenho. O plug-in Eclipse para o Application Insights instala automaticamente o SDK em seu projeto para que você obtenha telemetria já pronta, além de uma API que você pode usar para escrever telemetria personalizada.   
@@ -205,7 +204,7 @@ Se seu site ficar inativo, você obterá gráficos de tempos de resposta e tamb�
 [Saiba mais sobre testes de disponibilidade via web.][availability]
 
 ## <a name="diagnostic-logs"></a>Logs de diagnóstico
-Se você estiver usando Logback ou Log4J (v&1;.2 ou&2;.0) para rastreamento, você pode enviar seus logs de rastreamento automaticamente para o Application Insights, no qual você pode explorá-los e pesquisar o conteúdo deles.
+Se você estiver usando Logback ou Log4J (v 1.2 ou 2.0) para rastreamento, você pode enviar seus logs de rastreamento automaticamente para o Application Insights, no qual você pode explorá-los e pesquisar o conteúdo deles.
 
 [Saiba mais sobre logs de diagnóstico][javalogs]
 
@@ -225,7 +224,7 @@ Você pode inserir o código tanto no JavaScript da página da Web quanto no Jav
 
 #### <a name="track-usage"></a>Acompanhar uso
 * [Adicione telemetria do cliente Web][usage] para monitorar modos de exibição de página e métricas de usuário básico.
-* [Acompanhe métricas e eventos personalizados][track] para saber mais sobre como o aplicativo é usado, tanto no cliente quanto no servidor.
+* [Acompanhe métricas e eventos personalizados](app-insights-web-track-usage.md) para saber mais sobre como o aplicativo é usado, tanto no cliente quanto no servidor.
 
 <!--Link references-->
 
@@ -235,5 +234,4 @@ Você pode inserir o código tanto no JavaScript da página da Web quanto no Jav
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [track]: app-insights-api-custom-events-metrics.md
-[usage]: app-insights-web-track-usage.md
-
+[usage]: app-insights-javascript.md

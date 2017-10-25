@@ -8,17 +8,16 @@ manager: balans
 editor: dlepow
 ms.service: container-registry
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2017
 ms.author: cristyg
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 06b809c31cecef1714f60d04657eb74c611be8cb
-ms.lasthandoff: 03/28/2017
-
-
+ms.openlocfilehash: d737df98fee955b57166cb44f45f61dff906514e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-container-registry-repositories"></a>Repositórios de Registro de contêiner do Azure
 
@@ -54,4 +53,3 @@ Para exibir os repositórios de Registro de contêiner do Azure:
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que conhece os fundamentos, você está pronto para começar a usar o registro! Por exemplo, inicie a implantação de imagens de contêiner para um cluster de [Serviço de Contêiner do Azure](https://azure.microsoft.com/documentation/services/container-service/).
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 8f62547316e4ecc02da0341aab94010d880115f8
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 5e5c11251cd316e8161dbe362b300be76927ac01
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Use o PowerShell para criar uma VM do Azure com um servidor de relatório em modo nativo
 > [!IMPORTANT] 
@@ -37,7 +36,7 @@ Este tópico descreve e fornece orientação para a implantação e a configura�
 * **Assinatura do Azure**: verifique o número de núcleos disponíveis em sua Assinatura do Azure. Se você criar o tamanho recomendado de VM, **A3**, precisará de **4** núcleos disponíveis. Se você usar um tamanho de VM **A2**, precisará de **2** núcleos disponíveis.
   
   * Para verificar o limite de núcleos de sua assinatura, no portal clássico do Azure, clique em CONFIGURAÇÕES no painel esquerdo e clique em USO no menu superior.
-  * Para aumentar a cota de núcleos, entre em contato com o [Suporte do Azure](https://azure.microsoft.com/support/options/). Para saber mais sobre o tamanho da VM, consulte [Tamanhos de máquinas virtuais do Azure](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  * Para aumentar a cota de núcleos, entre em contato com o [Suporte do Azure](https://azure.microsoft.com/support/options/). Para saber mais sobre o tamanho da VM, consulte [Tamanhos de máquinas virtuais do Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * **Script do Windows PowerShell**: o tópico supõe que você tenha um conhecimento funcional básico do Windows PowerShell. Para saber mais sobre como usar o Windows PowerShell, consulte o seguinte:
   
   * [Iniciando o Windows PowerShell no Windows Server](https://technet.microsoft.com/library/hh847814.aspx)
@@ -67,7 +66,7 @@ Este tópico descreve e fornece orientação para a implantação e a configura�
    * **Tamanho:A3** é o tamanho recomendado da VM para as cargas de trabalho do SQL Server. Se uma VM for usada apenas como um servidor de relatório, o tamanho de VM A2 será suficiente, a menos que o servidor de relatório enfrente uma grande carga de trabalho. Para saber mais sobre preços da VM, consulte [Preços das Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
    * **Novo Nome de Usuário**: o nome fornecido é criado como um administrador na VM.
    * **Nova Senha** e **Confirmar**. Essa senha será usada para a nova conta de administrador, portanto, recomendamos o uso de uma senha forte.
-   * Clique em **Próximo**. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+   * Clique em **Avançar**. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 7. Na próxima página edite os campos a seguir:
    
    * **Serviço de Nuvem**: selecione **Criar um novo Serviço de Nuvem**.
@@ -512,7 +511,7 @@ Se você não quiser executar o script do PowerShell para configurar o servidor 
    
    1. Clique em **Alterar Banco de Dado**s.
    2. Clique em **Criar um novo banco de dados do servidor de relatório** e clique em **Próximo**.
-   3. Mantenha o **Nome do Servidor** padrão: como o nome da VM e mantenha o **Tipo de Autenticação** padrão como **Usuário Atual** – **Segurança Integrada**. Clique em **Próximo**.
+   3. Mantenha o **Nome do Servidor** padrão: como o nome da VM e mantenha o **Tipo de Autenticação** padrão como **Usuário Atual** – **Segurança Integrada**. Clique em **Avançar**.
    4. Mantenha o **Nome do Banco de Dados** padrão como **ReportServer** e clique em **Próximo**.
    5. Mantenha o **Tipo de Autenticação** padrão como **Credenciais do Serviço** e clique em **Próximo**.
    6. Clique em **Próximo** on the **Resumo** .
@@ -608,5 +607,4 @@ A tabela a seguir resume algumas opções disponíveis para publicação de rela
 
 ### <a name="links-to-other-resources-for-sql-server-in-azure-vms"></a>Links para outros recursos para SQL Server em VMs do Azure
 [Visão geral do SQL Server em máquinas virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
-
 

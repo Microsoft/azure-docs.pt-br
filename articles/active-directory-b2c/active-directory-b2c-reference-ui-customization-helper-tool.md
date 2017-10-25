@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: f9c1e41c423cc0d638d5c1d273d58b2fe713fa1c
-ms.openlocfilehash: 2aeb1f20255264ca97b8aff6bd506b5fa1832e28
-
-
+ms.openlocfilehash: e0c2d827553567ddbc7d006192dc35574e66f1cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: uma ferramenta auxiliar usada para demonstrar o recurso de personalização da interface de usuário (IU) da página
 Este artigo é um complemento do [artigo principal sobre a personalização da interface do usuário](active-directory-b2c-reference-ui-customization.md) no Active Directory B2C do Azure (AD do Azure). As etapas a seguir descrevem como usufruir do recurso de personalização da interface do usuário da página usando conteúdo de exemplo HTML e CSS que fornecemos.
@@ -86,10 +86,4 @@ No mesmo repositório, descompacte `B2CAzureStorageClient.zip` e execute o arqui
 Agora que você carregou o conteúdo de exemplo em sua própria conta de armazenamento, é preciso editar a política de inscrição para fazer referência a ela. Repita as etapas da seção acima ["Personalizar a política"](#customize-your-policy) , desta vez usando as URLs da sua própria conta de armazenamento. Por exemplo, o local do arquivo `unified.html` será `<url-of-your-container>/wingtip/unified.html`.
 
 Agora, você pode usar o botão **Executar Agora** ou seu próprio aplicativo para executar a política novamente. O resultado deve ser quase o mesmo; você usou o mesmo HTML e CSS de exemplo em ambos os casos. No entanto, as políticas agora estão fazendo referência à sua própria instância do Armazenamento de Blobs do Azure, e você é livre para editar e recarregar os arquivos como quiser. Para saber mais sobre como personalizar o HTML e CSS, confira o [artigo principal sobre personalização da interface do usuário](active-directory-b2c-reference-ui-customization.md).
-
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

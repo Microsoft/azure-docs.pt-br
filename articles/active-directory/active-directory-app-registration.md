@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 07/20/2017
 ms.author: priyamo
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: d2dd84007832c56f5893f0ea9f5effcf5ec5816b
-ms.lasthandoff: 03/29/2017
-
+ms.reviewer: elisol
+ms.openlocfilehash: 2f2817688beb2028fd0bba8522827d87a0097f21
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Registrar seu aplicativo com o locatário do Azure Active Directory
 
 Você pode usar o portal do Azure para registrar seu aplicativo em seu locatário do Azure AD (Azure Active Directory). Isso cria uma ID de aplicativo para o aplicativo e permite que ele receba tokens.
@@ -62,4 +62,3 @@ Você pode usar o editor de manifesto embutido para modificar determinadas propr
 
 1. Confira os [Inícios rápidos](active-directory-developers-guide.md) para obter instruções passo a passo detalhadas de aplicativos que executam a autenticação usando o Azure AD.
 2. Confira a lista completa de exemplos de código no [GitHub](https://github.com/azure-samples).
-

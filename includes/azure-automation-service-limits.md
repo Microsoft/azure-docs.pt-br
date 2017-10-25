@@ -8,8 +8,3 @@
 | Quantidade máxima de memória fornecida a um trabalho |400 MB |
 | Número máximo de soquetes de rede permitido por trabalho |1000 |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

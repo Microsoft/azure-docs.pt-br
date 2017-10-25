@@ -82,8 +82,3 @@
    
     Observe que na primeira inicialização, o registro com o provedor é requerido novamente. Porém, na segunda inicialização são usadas as credenciais armazenadas em cache e o registro é desviado. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

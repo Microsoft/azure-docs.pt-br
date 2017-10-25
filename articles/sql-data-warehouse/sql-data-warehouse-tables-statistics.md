@@ -3,7 +3,7 @@ title: "Gerenciamento de estatísticas em tabelas no SQL Data Warehouse | Micros
 description: "Introdução às estatísticas em tabelas no Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: shivaniguptamsft
 manager: jhubbard
 editor: 
 ms.assetid: faa1034d-314c-4f9d-af81-f5a9aedf33e4
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
 ms.date: 10/31/2016
-ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b2b99ec031ea26b4ab19e7327da035788661a0a8
-ms.lasthandoff: 12/08/2016
-
-
+ms.author: shigu;barbkess
+ms.openlocfilehash: 1d5ded69e394643ddfc3de0c6d30dbd30c8e848f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Gerenciamento de estatísticas em tabelas no SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -496,4 +495,3 @@ Para obter mais detalhes, veja [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] no M
 [UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
 
 <!--Other Web references-->  
-

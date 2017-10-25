@@ -1,30 +1,24 @@
 ---
 title: A ser enviado | Microsoft Azure
 description: A ser enviado.
-services: 
+services: marketplace
 documentationcenter: 
-author: squillace
-manager: timlt
+author: czeumault
+manager: carolz
 editor: 
 tags: billing
 ms.assetid: 81a82fbf-e756-4f3e-aade-3b9e43a5d0a7
-ms.service: value
+ms.service: marketplace
 ms.devlang: na
-ms.topic: article
+ms.topic: landing-page
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/21/2016
-ms.author: tysonn
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1ea970a7ff21e554a4bbad2f5ccbb91a86947f9a
-
-
+ms.author: carolz
+ms.openlocfilehash: 6dab62bd9cd9df40428118b81331cfdb4058821b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="to-be-submitted"></a>A ser enviado.
-
-
-
-<!--HONumber=Nov16_HO4-->
-
-

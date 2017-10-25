@@ -1,10 +1,10 @@
 ---
-title: "Associações do Hub de Eventos do Azure Functions | Microsoft Docs"
-description: "Entenda como usar associações do Hub de Eventos do Azure no Azure Functions."
+title: "Associações dos Hubs de Eventos do Azure Functions | Microsoft Docs"
+description: "Entenda como usar associações dos Hubs de Eventos do Azure no Azure Functions."
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"
@@ -14,57 +14,57 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/02/2016
+ms.date: 06/20/2017
 ms.author: wesmc
-translationtype: Human Translation
-ms.sourcegitcommit: c8e9f9709d13295c9414e525f1f60abf0d0accb7
-ms.openlocfilehash: 0bfbfd3828aacdee0b6630ced034f2c1e0451abd
-
-
+ms.openlocfilehash: 85eb6985ef3579b1b2313db3ce5f91c3471da72f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-functions-event-hub-bindings"></a>Associações do Hub de Eventos do Azure Functions
+# <a name="azure-functions-event-hubs-bindings"></a>Associações dos Hubs de Eventos do Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Este artigo explica como configurar e codificar associações do [Hub de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md) no Azure Functions.
+Este artigo explica como configurar e usar associações dos [Hubs de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md) no Azure Functions.
 O Azure Functions dá suporte a associações de gatilho e de saída para os Hubs de Eventos.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Se você for novo nos Hubs de Evento do Azure, consulte a [Visão geral do Hub de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md).
+Se você for novo nos Hubs de Evento do Azure, consulte a [Visão geral dos Hubs de Eventos](../event-hubs/event-hubs-what-is-event-hubs.md).
 
 <a name="trigger"></a>
 
-## <a name="event-hub-trigger"></a>Gatilho de Hub de evento
-Use o gatilho do Hub de Eventos do Azure para responder a um evento enviado para uma transmissão de evento do hub de eventos. É necessário ter acesso de leitura ao hub de eventos para configurar o gatilho.
+## <a name="event-hub-trigger"></a>Gatilho do hub de eventos
+Use o gatilho dos Hubs de Eventos do Azure para responder a um evento enviado para uma transmissão de evento do hub de eventos. É necessário ter acesso de leitura ao hub de eventos para configurar o gatilho.
 
-O gatilho de hub de eventos usa o seguinte objeto JSON na matriz `bindings` de function.json:
+O gatilho da função Hubs de Eventos usa o seguinte objeto JSON na matriz `bindings` de function.json:
 
 ```json
 {
     "type": "eventHubTrigger",
     "name": "<Name of trigger parameter in function signature>",
     "direction": "in",
-    "path": "<Name of the Event Hub>",
+    "path": "<Name of the event hub>",
     "consumerGroup": "Consumer group to use - see below",
     "connection": "<Name of app setting with connection string - see below>"
 }
 ```
 
-`consumerGroup` é uma propriedade opcional usada para definir o [grupo de consumidores](../event-hubs/event-hubs-what-is-event-hubs.md#event-consumers) usado para assinar eventos no hub. Se omitido, o grupo de consumidores `$Default` será usado.  
+`consumerGroup` é uma propriedade opcional usada para definir o [grupo de consumidores](../event-hubs/event-hubs-features.md#event-consumers) usado para assinar eventos no hub. Se omitido, o grupo de consumidores `$Default` será usado.  
 `connection` deve ser o nome de uma configuração de aplicativo que contém a cadeia de conexão para o namespace do hub de eventos.
 Copie essa cadeia de conexão clicando no botão **Informações de Conexão** do *namespace*, não no próprio hub de eventos. Essa cadeia de conexão deve ter, pelo menos, permissões de leitura para ativar o gatilho.
 
-[Configurações adicionais](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) podem ser fornecidas em um arquivo host.json para ajustar ainda mais gatilhos do hub de eventos.  
+[Configurações adicionais](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) podem ser fornecidas em um arquivo host.json para ajustar ainda mais gatilhos dos Hubs de Eventos.  
 
 <a name="triggerusage"></a>
 
 ## <a name="trigger-usage"></a>Uso de gatilho
-Quando uma função de gatilho do hub de eventos é disparada, a mensagem que a dispara é passada para a função como cadeia de caracteres.
+Quando uma função de gatilho dos Hubs de Eventos é disparada, a mensagem que a dispara é passada para a função como cadeia de caracteres.
 
 <a name="triggersample"></a>
 
 ## <a name="trigger-sample"></a>Exemplo de gatilho
-Suponha que você tenha o seguinte gatilho de hub de eventos na matriz `bindings` de function.json:
+Suponha que você tenha o seguinte gatilho dos Hubs de Eventos na matriz `bindings` de function.json:
 
 ```json
 {
@@ -76,7 +76,7 @@ Suponha que você tenha o seguinte gatilho de hub de eventos na matriz `bindings
 }
 ```
 
-Consulte o exemplo específico por linguagem de registro do corpo da mensagem do gatilho do hub de eventos.
+Consulte o exemplo específico a um idioma de registro do corpo da mensagem do gatilho do hub de eventos.
 
 * [C#](#triggercsharp)
 * [F#](#triggerfsharp)
@@ -92,6 +92,31 @@ using System;
 public static void Run(string myEventHubMessage, TraceWriter log)
 {
     log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
+}
+```
+
+Você também pode receber o evento como um objeto [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata), que fornece acesso aos metadados do evento.
+
+```cs
+#r "Microsoft.ServiceBus"
+using System.Text;
+using Microsoft.ServiceBus.Messaging;
+
+public static void Run(EventData myEventHubMessage, TraceWriter log)
+{
+    log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+}
+```
+
+Para receber eventos em um lote, altere o método de assinatura para `string[]` ou `EventData[]`.
+
+```cs
+public static void Run(string[] eventHubMessages, TraceWriter log)
+{
+    foreach (var message in eventHubMessages)
+    {
+        log.Info($"C# Event Hub trigger function processed a message: {message}");
+    }
 }
 ```
 
@@ -117,8 +142,8 @@ module.exports = function (context, myEventHubMessage) {
 
 <a name="output"></a>
 
-## <a name="event-hub-output-binding"></a>Associação de saída do Hub de Eventos
-Use a associação de saída do Hub de Eventos para gravar eventos em uma transmissão de evento do hub de eventos. É necessário ter permissão de envio para um hub de eventos a fim de gravar eventos nele.
+## <a name="event-hubs-output-binding"></a>Associação de saída dos Hubs de Eventos
+Use a associação de saída dos Hubs de Eventos para gravar eventos em uma transmissão de evento do hub de eventos. É necessário ter permissão de envio para um hub de eventos a fim de gravar eventos nele.
 
 A associação de saída usa o seguinte objeto JSON na matriz `bindings` de function.json:
 
@@ -136,7 +161,7 @@ A associação de saída usa o seguinte objeto JSON na matriz `bindings` de func
 Copie essa cadeia de conexão clicando no botão **Informações de Conexão** do *namespace*, não no próprio hub de eventos. Essa cadeia de conexão deve ter permissões de envio para enviar a mensagem à transmissão do evento.
 
 ## <a name="output-usage"></a>Uso de saída
-Esta seção mostra como usar a associação de saída do Hub de Eventos no seu código de função.
+Esta seção mostra como usar a associação de saída dos Hubs de Eventos no seu código de função.
 
 Você pode gerar mensagens de saída para o hub de eventos configurado com os seguintes tipos de parâmetro:
 
@@ -147,7 +172,7 @@ Você pode gerar mensagens de saída para o hub de eventos configurado com os se
 <a name="outputsample"></a>
 
 ## <a name="output-sample"></a>Amostra de saída
-Suponha que você tenha a seguinte associação de saída do Hub de Eventos na matriz `bindings` de function.json:
+Suponha que você tenha a seguinte associação de saída dos Hubs de Eventos na matriz `bindings` de function.json:
 
 ```json
 {
@@ -159,7 +184,7 @@ Suponha que você tenha a seguinte associação de saída do Hub de Eventos na m
 }
 ```
 
-Consulte o exemplo específico por linguagem de gravação de evento na mesma transmissão.
+Consulte o exemplo específico a um idioma de gravação de evento na mesma transmissão.
 
 * [C#](#outcsharp)
 * [F#](#outfsharp)
@@ -167,7 +192,7 @@ Consulte o exemplo específico por linguagem de gravação de evento na mesma tr
 
 <a name="outcsharp"></a>
 
-### <a name="output-sample-in-c"></a>Amostra de saída no C# #
+### <a name="output-sample-in-c"></a>Amostra de saída em C# #
 
 ```cs
 using System;
@@ -194,7 +219,7 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 <a name="outfsharp"></a>
 
-### <a name="output-sample-in-f"></a>Exemplo de saída em F# #
+### <a name="output-sample-in-f"></a>Amostra de saída em F# #
 
 ```fsharp
 let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
@@ -233,9 +258,3 @@ module.exports = function(context) {
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-

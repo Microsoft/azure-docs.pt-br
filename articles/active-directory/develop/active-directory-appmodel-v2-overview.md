@@ -1,5 +1,5 @@
 ---
-title: Recursos do ponto de extremidade do Azure AD v2.0 | Microsoft Docs
+title: Ponto de extremidade do Azure Active Directory v.2.0 | Microsoft Docs
 description: "Uma introdução à criação de aplicativos com conexão à conta da Microsoft e ao Active Directory do Azure."
 services: active-directory
 documentationcenter: 
@@ -12,53 +12,50 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/01/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
-ms.openlocfilehash: d3571d3d842ac908200c7e6b437b40d3c370b38d
-
-
+ms.custom: aaddev
+ms.openlocfilehash: 1e286044fb1a1b367fcac2dc14c47f68d5ed120d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sign-in-microsoft-account--azure-ad-users-in-a-single-app"></a>Conecte-se os usuários da Conta da Microsoft e do Azure AD em um único aplicativo
-Antigamente, um desenvolvedor de aplicativo que desejava oferecer suporte a contas da Microsoft e ao Active Directory do Azure tinha que se integrar a dois sistemas distintos.  Agora apresentamos uma nova versão da API de autenticação que permite aos usuários se conectarem com os dois tipos de contas usando o sistema do Azure AD.  Esse sistema de autenticação convergida é conhecido como **o ponto de extremidade v2.0**.  Com o ponto de extremidade v2.0, uma simples integração permite alcançar um público que se estende por milhões de usuários com contas pessoais e corporativas/de estudante.
-
-Aplicativos que usam o ponto de extremidade v2.0 também podem consumir APIs REST do [Microsoft Graph](https://graph.microsoft.io) e do [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) usando qualquer tipo de conta.
-
-<!-- For a quick introduction to the v2.0 endpoint, please view the [Getting Started with Microsoft Identities: Enterprise Grade Sign In For Your Apps](https://azure.microsoft.com/documentation/videos/build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps/) video. -->
+No passado, um desenvolvedor de aplicativos que quisesse dar suporte a contas da Microsoft pessoas e contas profissionais do Azure Active Directory precisava fazer a integração com dois sistemas separados.  O **ponto de extremidade do Azure AD v2.0** introduz uma nova versão da API de autenticação que permite que você entre nos dois tipos de contas usando uma integração simples.  Aplicativos que usam o ponto de extremidade v2.0 também consomem APIs REST do [Microsoft Graph](https://graph.microsoft.io) usando qualquer um dos tipos de conta.
 
 ## <a name="getting-started"></a>Introdução
->[!VIDEO https://channel9.msdn.com/Events/Build/2016/P530/player]
-
-
 Escolha sua plataforma favorita na lista a seguir para compilar um aplicativo usando nossas bibliotecas e estruturas de software livre.  Como alternativa, é possível usar nossa documentação do protocolo do OAuth 2.0 e OpenID Connect para enviar e receber mensagens de protocolo diretamente sem o uso de uma biblioteca de autenticação.
 
-<!-- TODO: Finalize this table  -->
+<br />
+
 [!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
 
 ## <a name="whats-new"></a>O que há de novo
-As informações conceituais aqui serão úteis para entender o que é possível ou não com o ponto de extremidade v2.0.
+As informações aqui serão úteis para entender o que é possível e o que não é com o ponto de extremidade v2.0.
 
 * Saiba mais sobre os [tipos de aplicativos que podem ser criados com o ponto de extremidade v2.0](active-directory-v2-flows.md).
 * Entenda as [limitações e restrições](active-directory-v2-limitations.md) do ponto de extremidade v2.0.
-* Recentemente, adicionamos suporte para [escopos de administrador restritos](active-directory-v2-scopes.md) e [Conceder credenciais do cliente OAuth2](active-directory-v2-protocols-oauth-client-creds.md).  Experimente-os!
+* Confira este vídeo de visão geral para o ponto de extremidade v2.0:
+
+>[!VIDEO https://channel9.msdn.com/Events/Build/2017/P4031/player]
 
 ## <a name="reference"></a>Referência
 Estes links serão úteis na exploração em profundidade da plataforma:
 
-* Build 2016: [Getting Started with Microsoft Identities: Enterprise Grade Sign In For Your Apps](https://azure.microsoft.com/documentation/videos/build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps/)
-* Obtenha ajuda no Stack Overflow usando as marcas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) ou [adal](http://stackoverflow.com/questions/tagged/adal).
 * [Referência do Protocolo v2.0](active-directory-v2-protocols.md)
 * [Referência do Token v2.0](active-directory-v2-tokens.md)
 * [Referência da Biblioteca v2.0](active-directory-v2-libraries.md)
 * [Escopos e Consentimento no ponto de extremidade v2.0](active-directory-v2-scopes.md)
-* [O Portal de Registro de Aplicativo da Microsoft](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)
-* [Referência à API REST do Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 * [O Microsoft Graph](https://graph.microsoft.io)
 
+## <a name="help--support"></a>Ajuda + suporte
+Esses são os melhores locais para obter ajuda com o desenvolvimento no Azure Active Directory.
+
+* [Marcas `azure-active-directory` e `adal` do Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)
+* [Feedback no Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)
 
 
-
-<!--HONumber=Jan17_HO4-->
-
+> [!NOTE]
+> Se você precisar apenas entrar em contas corporativas e de estudante usando o Azure Active Directory, comece com nosso [guia do desenvolvedor do Azure AD](active-directory-developers-guide.md).  O ponto de extremidade v2.0 destina-se ao uso por desenvolvedores que precisam explicitamente entrar em contas pessoais da Microsoft.
 

@@ -3,8 +3,3 @@ Os erros de provisionamento surgirão se você carregar ou capturar uma imagem d
 
 A tabela a seguir lista as combinações possíveis de imagens especializadas e generalizadas, o tipo de erro que será exibido e o que você precisa fazer para corrigir os erros.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

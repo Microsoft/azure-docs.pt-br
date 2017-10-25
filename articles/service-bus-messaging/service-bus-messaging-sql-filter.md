@@ -12,19 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 06/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: c5127a457e99772a52b76e28e7fd3a3e4dd861b0
-ms.lasthandoff: 03/24/2017
-
-
+ms.openlocfilehash: 3aaec8f9b6a3bbcf814f771405c3b589de6f7ae0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sqlfilter-syntax"></a>Sintaxe SQLFilter
 
-Um *SqlFilter* é uma instância da [Classe SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) e representa uma expressão de filtro baseada na linguagem SQL avaliada em uma [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Um SqlFilter dá suporte a um subconjunto do padrão SQL-92.  
+Um *SqlFilter* é uma instância da [classe SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) e representa uma expressão de filtro baseada na linguagem SQL avaliada em uma [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Um SqlFilter dá suporte a um subconjunto do padrão SQL-92.  
   
  Este tópico lista detalhes sobre a gramática de SqlFilter.  
   
@@ -61,7 +59,7 @@ Um *SqlFilter* é uma instância da [Classe SqlFilter](/dotnet/api/microsoft.ser
   
 ## <a name="arguments"></a>Argumentos  
   
--   `<scope>` é uma cadeia de caracteres opcional que indica o escopo do `<property_name>`. Os valores válidos são `sys` ou `user`. O valor `sys` indica o escopo do sistema, em que `<property_name>` é um nome de propriedade pública da [Classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica o escopo do usuário, em que `<property_name>` é uma chave de dicionário da [Classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). O escopo `user` será o escopo padrão se `<scope>` não for especificado.  
+-   `<scope>` é uma cadeia de caracteres opcional que indica o escopo do `<property_name>`. Os valores válidos são `sys` ou `user`. O valor `sys` indica o escopo do sistema, em que `<property_name>` é um nome de propriedade pública da [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica o escopo do usuário, em que `<property_name>` é uma chave de dicionário da [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). O escopo `user` será o escopo padrão se `<scope>` não for especificado.  
   
 ## <a name="remarks"></a>Comentários
 
@@ -87,7 +85,7 @@ Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao p
 [[:IsLetter:]][_[:IsLetter:][:IsDigit:]]*  
 ```  
   
-Isso significa qualquer cadeia de caracteres que começa com uma letra e é seguida por um ou mais sublinhados/letras/dígitos.  
+Essa gramática significa qualquer cadeia de caracteres que começa com uma letra e é seguida por um ou mais sublinhados/letras/dígitos.  
   
 `[:IsLetter:]` significa qualquer caractere Unicode categorizado como uma letra do Unicode. `System.Char.IsLetter(c)` retorna `true` se `c` é uma letra do Unicode.  
   

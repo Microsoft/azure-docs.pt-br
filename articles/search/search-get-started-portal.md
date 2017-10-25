@@ -1,5 +1,5 @@
 ---
-title: "Criar seu primeiro índice do Azure Search no portal | Microsoft Docs"
+title: "Tutorial: Criar seu primeiro índice do Azure Search no portal | Microsoft Docs"
 description: "No portal do Azure, use dados de exemplo predefinidos para gerar um índice. Explore a pesquisa de texto completo, filtros, facetas, pesquisa difusa, pesquisa geográfica e muito mais."
 services: search
 documentationcenter: 
@@ -13,16 +13,15 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 02/22/2017
+ms.date: 06/26/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 3f608b8ae7a7812b939e0d9ab1cb8e19853220fd
-ms.openlocfilehash: 6ed23693c95ce9025576d59fa6df9d640950ada3
-ms.lasthandoff: 02/24/2017
-
-
+ms.openlocfilehash: c49989058fdd98d623c5517060f725e5f7e436d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="build-and-query-your-first-azure-search-index-in-the-portal"></a>Criar e consultar seu primeiro índice do Azure Search no portal
+# <a name="tutorial-create-your-first-azure-search-index-in-the-portal"></a>Tutorial: Criar seu primeiro índice do Azure Search no portal
 
 No portal do Azure, comece com um conjunto de dados de exemplo predefinido para gerar um índice rapidamente usando o assistente **Importar dados**. Explore a pesquisa de texto completo, filtros, facetas, pesquisa difusa e pesquisa geográfica com o **Search Explorer**.  
 
@@ -35,11 +34,13 @@ Esta introdução sem código apresenta dados predefinidos para que você possa 
 
 **Tempo estimado:** cerca de 15 minutos, mas poderá ser maior se houver a necessidade de fazer inscrição na conta ou no serviço. 
 
-Como alternativa, você pode assistir a uma demonstração de seis minutos com as etapas neste tutorial em aproximadamente três minutos neste [vídeo de visão geral do Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
+Como alternativa, incremente usando uma [introdução baseada em código sobre a programação do Azure Search no .NET](search-howto-dotnet-sdk.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial assume que você tem uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) e [o serviço Azure Search](search-create-service-portal.md). 
+
+Se não quiser provisionar um serviço imediatamente, você pode assistir a uma demonstração de 6 minutos com as etapas neste tutorial que começa em aproximadamente três minutos neste [Vídeo de visão geral do Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
 
 ## <a name="find-your-service"></a>Localizar o serviço
 1. Entre no [Portal do Azure](https://portal.azure.com).
@@ -197,7 +198,7 @@ Agora você tem um índice de pesquisa que está pronto para consulta. **Gerenci
 
   Para exibir os componentes individuais, clique no bloco **Índice**, **Indexador** ou **Fontes de Dados** no painel para exibir uma lista dos objetos existentes. Para saber mais sobre as edições do índice que não exigem recriação, confira [Atualizar índice (API REST do Azure Search)](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
-+ Experimente as ferramentas e etapas com outras fontes de dados. O conjunto de dados de exemplo, `realestate-us-sample`, é de um banco de dados SQL que pode ser rastreado pelo Azure Search. Além do Banco de Dados SQL do Azure, o Azure Search pode rastrear e inferir um índice de estruturas de dados simples no Armazenamento de Tabelas do Azure, no Armazenamento de Blobs, no SQL Server em uma VM do Azure e no DocumentDB. Todas essas fontes de dados têm suporte no assistente. No código, você pode preencher um índice facilmente usando um *indexador*.
++ Experimente as ferramentas e etapas com outras fontes de dados. O conjunto de dados de exemplo, `realestate-us-sample`, é de um banco de dados SQL que pode ser rastreado pelo Azure Search. Além do Banco de Dados SQL do Azure, o Azure Search pode rastrear e inferir um índice de estruturas de dados simples no Armazenamento de Tabelas do Azure, no Armazenamento de Blobs, no SQL Server em uma VM do Azure e no Azure Cosmos DB. Todas essas fontes de dados têm suporte no assistente. No código, você pode preencher um índice facilmente usando um *indexador*.
 
 + Todas as outras fontes de dados que não são do indexador têm suporte por meio de um modelo push, em que seu código envia conjuntos de linhas novos e alterados em JSON para seu índice. Para saber mais, confira [Adicionar, atualizar ou excluir documentos no Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 

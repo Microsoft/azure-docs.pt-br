@@ -1,6 +1,6 @@
 ---
 title: "Conteúdo do SDK de aplicativos do Windows Universal"
-description: "Saiba mais sobre o conteúdo do SDK dos aplicativos do Windows Universal para o Mobile Engagement do Azure"
+description: "Saiba mais sobre o conteúdo do SDK dos aplicativos do Windows Universal para o Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,18 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ea47cba55c9689e23eb3592ae2559649d3377055
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: b28d525ab16487b963772e23fdecd11f94dcabd1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-universal-apps-sdk-content"></a>Conteúdo do SDK de aplicativos do Windows Universal
 Este documento lista e descreve o conteúdo implantado pelo SDK em seu aplicativo.
 
 ## <a name="the-resources-folder"></a>A pasta `/Resources`
-Essa pasta contém todos os recursos que o Engagement precisa. Você também pode personalizá-los para se adequarem ao seu aplicativo.
+Essa pasta contém todos os recursos que o Mobile Engagement precisa. Você também pode personalizá-los para se adequarem ao seu aplicativo.
 
 * `EngagementConfiguration.xml` : Arquivo de configuração do Mobile Engagement, é onde você pode personalizar configurações do Mobile Engagement (cadeia de conexão do Mobile Engagement, relatar falhas, etc.).
 
@@ -41,5 +40,4 @@ Essa pasta contém todos os recursos que o Engagement precisa. Você também pod
 
 ### <a name="overlay-folder"></a>/pasta sobreposição
 * `EngagementPageOverlay.cs` : A página de sobreposição responsável por adicionar a interface do usuário no aplicativo de alcance do Engagement ao seu filho.
-
 

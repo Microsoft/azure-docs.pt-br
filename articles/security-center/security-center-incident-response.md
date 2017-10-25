@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f40f64906bf87d8505fa1a209222163256326d14
-ms.openlocfilehash: a2cc4729ca5cb1dcc10630158ec3d94315fb01a5
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 6cd6c822eb255893feac2536d7bae034380094b2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Usando a Central de Segurança do Azure para uma resposta a incidentes
 Muitas organizações aprendem como responder aos incidentes de segurança somente depois de sofrer um ataque. Para reduzir os custos e danos, é importante ter um plano de resposta aos incidentes em vigor antes que ocorra um ataque. A Central de Segurança do Azure pode ser usada em diferentes estágios de uma resposta a incidentes.
@@ -53,7 +52,7 @@ Para esse cenário, focaremos nas funções do personas a seguir que fazem parte
 
 A Laura está no setor de operações de segurança. Suas responsabilidades incluem:
 
-* Monitorar e responder às ameaças de segurança&24; horas por dia.
+* Monitorar e responder às ameaças de segurança 24 horas por dia.
 * Expandir o proprietário das cargas de trabalho de nuvem ou o analista de segurança quando necessário.
 
 Sam é analista de segurança e suas responsabilidades incluem:
@@ -84,7 +83,7 @@ Laura se conectou ao portal do Azure e está trabalhando no console da Central d
    > Para este cenário, Laura fará uma avaliação sobre o alerta de Atividade do SQL mal-intencionada, como visto na figura anterior.
    >
    >
-2. Clique no alerta **Atividade do SQL mal-intencionada** e examine os recursos atacados na folha **Atividades do SQL mal-intencionadas**: ![Detalhes do incidente](./media/security-center-incident-response/security-center-incident-response-fig5.png) 
+2. Clique no alerta **Atividade de SQL mal-intencionada** e examine os recursos atacados na folha **Atividades do SQL mal-intencionadas**:![Detalhes do incidente](./media/security-center-incident-response/security-center-incident-response-fig5.png)
 
     Nessa folha, Laura pode fazer anotações sobre os recursos atacados, quantas vezes esse ataque aconteceu e quando ele foi detectado.
 3. Clique no **recurso atacado** para obter mais informações sobre o ataque.
@@ -101,4 +100,3 @@ A equipe de resposta a incidentes também pode aproveitar o recurso [Security Ce
 
 ## <a name="conclusion"></a>Conclusão
 Montar uma equipe antes que ocorra um incidente é muito importante para sua organização e influenciará positivamente em como os incidentes são lidados. Ter as ferramentas certas para monitorar os recursos pode ajudar a essa equipe a dar passos precisos para corrigir um incidente de segurança. Os recursos de detecção da [Central de Segurança](security-center-detection-capabilities.md) poderão auxiliar a TI a responder rapidamente aos incidentes de segurança e corrigir os problemas.
-

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2a717adb94ab92f206aab45e4836bb26252f89a0
-
-
+ms.openlocfilehash: df3ae8bf775370432b3648459a7c942afe69fb17
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-storsimple-bandwidth-templates"></a>Usar o serviço StorSimple Manager para gerenciar modelos de largura de banda do StorSimple
 ## <a name="overview"></a>Visão geral
@@ -156,10 +156,4 @@ Siga estas práticas recomendadas para seu dispositivo StorSimple:
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

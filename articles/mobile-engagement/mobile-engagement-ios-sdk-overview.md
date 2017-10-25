@@ -1,6 +1,6 @@
 ---
 title: "Visão geral do SDK para iOS do Azure Mobile Engagement | Microsoft Docs"
-description: "Atualizações e procedimentos mais recentes para o SDK do iOS para Mobile Engagement do Azure"
+description: "Atualizações e procedimentos mais recentes para o SDK do iOS para Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 07/17/2017
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: c8bb1161e874a3adda4a71ee889ca833db881e20
-ms.openlocfilehash: cd70b0b5656bef08a8be1c1a67754b203cceb905
-
-
+ms.openlocfilehash: 6acd343782a3ee07750e27ec3022ff81cedfadee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="ios-sdk-for-azure-mobile-engagement"></a>SDK do iOS para o Mobile Engagement do Azure
-Comece aqui obter todos os detalhes sobre como integrar o Mobile Engagement do Azure em um aplicativo iOS. Se você gostaria de experimentá-lo primeiro, faça nosso [tutorial de&15; minutos](mobile-engagement-ios-get-started.md).
+# <a name="ios-sdk-for-azure-mobile-engagement"></a>SDK do iOS para o Azure Mobile Engagement
+Comece aqui obter todos os detalhes sobre como integrar o Azure Mobile Engagement em um aplicativo iOS. Se você gostaria de experimentá-lo primeiro, faça nosso [tutorial de 15 minutos](mobile-engagement-ios-get-started.md).
 
 Clique para ver o [Conteúdo do SDK](mobile-engagement-ios-sdk-content.md)
 
@@ -31,8 +31,11 @@ Clique para ver o [Conteúdo do SDK](mobile-engagement-ios-sdk-content.md)
 3. Implementação do plano de marcação: [Como usar a API de marcação avançada do Mobile Engagement em seu aplicativo iOS](mobile-engagement-ios-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Notas de versão
-### <a name="401-12132016"></a>4.0.1 (12/13/2016)
-* Melhor entrega de log em segundo plano.
+### <a name="410-07172017"></a>4.1.0 (07/17/2017)
+* Corrigidas as notificações apagadas na tela de fundo.
+* Corrigidos os avisos no XCode 9 sobre as APIs não chamadas na fila principal.
+* Corrigida uma perda de memória em pesquisas Reach.
+* Removido o suporte para iOS 6.X. Desta versão em diante, o destino da implantação do seu aplicativo deverá ser pelo menos o iOS 7.
 
 Para a versão anterior, consulte as [notas de versão completas](mobile-engagement-ios-release-notes.md)
 
@@ -49,8 +52,8 @@ O XCode 8 é obrigatório desde a versão 4.0.0 do SDK.
 
 > [!NOTE]
 > Se você realmente depende do XCode 7, pode usar o [SDK do iOS Engagement v3.2.4](https://aka.ms/r6oouh). Há um bug conhecido no módulo de alcance nesta versão anterior durante a execução em dispositivos como iOS 10: as notificações de sistema não são acionadas. Para corrigir isso, você terá que implementar a API desaprovada `application:didReceiveRemoteNotification:` no representante do aplicativo da seguinte maneira:
-> 
-> 
+>
+>
 
     - (void)application:(UIApplication*)application
     didReceiveRemoteNotification:(NSDictionary*)userInfo
@@ -60,8 +63,8 @@ O XCode 8 é obrigatório desde a versão 4.0.0 do SDK.
 
 > [!IMPORTANT]
 > **Não recomendamos essa solução alternativa** pois esse comportamento pode alterar qualquer atualização da versão futura iOS (até mesmo pequenas) porque esta API do iOS foi preterida. Você deve mudar para o XCode 8 assim que possível.
-> 
-> 
+>
+>
 
 #### <a name="usernotifications-framework"></a>Estrutura UserNotifications
 Você precisa adicionar a estrutura `UserNotifications` em suas fases de build.
@@ -72,7 +75,7 @@ no Explorador de projeto, abra o painel de projeto e selecione o destino correto
 O XCode 8 pode redefinir a capacidade de envio por push do aplicativo. Verifique isso novamente na guia `capability` do destino selecionado.
 
 #### <a name="add-the-new-ios-10-notification-registration-code"></a>Adicionar o novo código de registro de notificação do iOS 10
-O trecho de código anterior para registrar o aplicativo para as notificações ainda funciona, mas está usando as APIs desaprovadas durante a execução no iOS 10. 
+O trecho de código anterior para registrar o aplicativo para as notificações ainda funciona, mas está usando as APIs desaprovadas durante a execução no iOS 10.
 
 Importe a estrutura `User Notification` :
 
@@ -176,14 +179,7 @@ Por exemplo, se você implementou a proposta 1 acima:
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         // Any other code
-  
+
         [UNUserNotificationCenter currentNotificationCenter].delegate = self;
         return YES;
       }
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

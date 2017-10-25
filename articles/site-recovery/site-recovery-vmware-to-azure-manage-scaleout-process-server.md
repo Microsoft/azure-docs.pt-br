@@ -1,5 +1,5 @@
 ---
-title: " Gerenciar um servidor de processo de escalonamento horizontal no Azure Site Recovery | Microsoft Docss"
+title: " Gerenciar um servidor de processo de escalonamento horizontal no Azure Site Recovery | Microsoft Docs"
 description: Este artigo descreve como configurar e gerenciar um servidor de processo de escalonamento horizontal no Azure Site Recovery.
 services: site-recovery
 documentationcenter: 
@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 2/14/2017
+ms.date: 06/29/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: cabbce12a07720c37375092962ee1f89c32269ef
-ms.openlocfilehash: 03bb87bdbf3dce07a282323f484d0aefae8bad62
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: e5c01de19917235c34c035415df86291b9152bf0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-a-scale-out-process-server"></a>Gerenciar um servidor de processo de escalonamento horizontal
 
 Um servidor de processo de escalonamento horizontal atua como um coordenador para transferência de dados entre os serviços do Site Recovery e sua infraestrutura local. Este artigo descreve como você pode definir, configurar e gerenciar um servidor de processo de escalonamento horizontal.
@@ -95,7 +94,7 @@ O parâmetro ProxySettingsFilePath utiliza um arquivo como entrada. Crie o arqui
   ```
   cmd
   cdpcli.exe --registermt
-  
+
   net stop obengine
 
   net start obengine
@@ -147,4 +146,3 @@ Pode levar até 15 minutos para que a exclusão do servidor de processo reflita 
 |4 vCPUs (2 soquetes * 2 núcleos @ 2,5 GHz), 8 GB de memória |300 GB |250 GB ou menos |Replique 85 computadores ou menos. |
 |8 vCPUs (2 soquetes * 4 núcleos @ 2,5 GHz), 12 GB de memória |600 GB |250 GB a 1 TB |Replique entre 85 e 150 computadores. |
 |12 vCPUs (2 soquetes * 6 núcleos @ 2,5 GHz), 24 GB de memória |1 TB |1 TB a 2 TB |Replique entre 150 e 225 computadores. |
-

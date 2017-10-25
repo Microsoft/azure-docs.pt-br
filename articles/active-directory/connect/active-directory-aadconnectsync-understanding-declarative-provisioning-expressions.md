@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: markvi;andkjell
-translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: 58908d65fdebd651e5cfab2b668574bdf7ab6085
-
-
+ms.date: 07/18/2017
+ms.author: billmath
+ms.openlocfilehash: e3a03a97b10e04fb85261620879b2102e1db8465
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo
 A sincronização do Azure AD Connect criada com base em provisionamento declarativo foi introduzida pela primeira vez no Forefront Identity Manager 2010. Ela permite a você implementar sua lógica completa de negócios de integração de identidade sem a necessidade de escrever código compilado.
@@ -81,7 +81,7 @@ As funções podem operar em atributos de valor único e de vários valores. Par
 
 Por exemplo:   
 `Trim([proxyAddresses])` Faz um corte de todos os valores no atributo proxyAddress.  
-@-sign, Para cada valor com um `Word([proxyAddresses],1,"@") & "@contoso.com"`, substitua o domínio por @contoso.com.  
+@-sign Para cada valor com um `Word([proxyAddresses],1,"@") & "@contoso.com"`, substitua o domínio por @contoso.com.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Procure o endereço SIP e remova-o dos valores.
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -97,10 +97,4 @@ Por exemplo:
 **Tópicos de referência**
 
 * [Azure AD Connect Sync: referência de funções](active-directory-aadconnectsync-functions-reference.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

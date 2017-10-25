@@ -1,0 +1,10 @@
+- name: kubernetes
+  href: kubernetes/container-service-kubernetes-walkthrough.md
+- name: Controlador de domínio/sistema operacional e Docker Swarm
+  href: dcos-swarm/container-service-dcos-quickstart.md
+- name: Recursos
+  items:
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=containers'
+    - name: Calculadora de preço
+      href: 'https://azure.microsoft.com/pricing/calculator/'

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 56eb95f5c8dfb34c0dbaec75efc5509f0c930ec3
-ms.lasthandoff: 03/06/2017
-
+ms.openlocfilehash: c2bed904b82c569b28a6e00d0cc9b49107c148dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -227,15 +227,28 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
     </outbound>  
 </policies>  
 ```  
+Neste exemplo, a política de serviço de back-end do conjunto roteia solicitações com base no valor da versão passado na cadeia de consulta para um serviço de back-end diferente daquele especificado na API.
   
- Neste exemplo, a política de serviço de back-end do conjunto roteia solicitações com base no valor da versão passado na cadeia de consulta para um serviço de back-end diferente daquele especificado na API.  
+Inicialmente, a URL base do serviço de back-end é derivada das configurações de API. Assim, a URL da solicitação `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` se torna `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef` em que `http://contoso.com/api/10.4/` é a URL do serviço de back-end especificada nas configurações de API.  
   
- Inicialmente, a URL base do serviço de back-end é derivada das configurações de API. Assim, a URL da solicitação `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` se torna `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef` em que `http://contoso.com/api/10.4/` é a URL do serviço de back-end especificada nas configurações de API.  
+Quando a instrução de política [<choose\>](api-management-advanced-policies.md#choose) é aplicada, a URL base do serviço de back-end pode se alterar novamente para `http://contoso.com/api/8.2` ou `http://contoso.com/api/9.1`, dependendo do valor do parâmetro de consulta de solicitação de versão. Por exemplo, se o valor for `"2013-15"`, a URL da solicitação final se tornará `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.  
   
- Quando a instrução de política [<choose\>](api-management-advanced-policies.md#choose) é aplicada, a URL base do serviço de back-end pode se alterar novamente para `http://contoso.com/api/8.2` ou `http://contoso.com/api/9.1`, dependendo do valor do parâmetro de consulta de solicitação de versão. Por exemplo, se o valor for `"2013-15"`, a URL da solicitação final se tornará `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.  
+Se ainda mais transformação da solicitação for desejada, outras [políticas de transformação](api-management-transformation-policies.md#TransformationPolicies) poderão ser usadas. Por exemplo, para remover o parâmetro de consulta de versão agora que a solicitação está sendo roteada para um back-end específico da versão, a política [Definir parâmetro de cadeia de caracteres de consulta](api-management-transformation-policies.md#SetQueryStringParameter) pode ser usada para remover o atributo de versão agora redundante.  
   
- Se ainda mais transformação da solicitação for desejada, outras [políticas de transformação](api-management-transformation-policies.md#TransformationPolicies) poderão ser usadas. Por exemplo, para remover o parâmetro de consulta de versão agora que a solicitação está sendo roteada para um back-end específico da versão, a política [Definir parâmetro de cadeia de caracteres de consulta](api-management-transformation-policies.md#SetQueryStringParameter) pode ser usada para remover o atributo de versão agora redundante.  
+### <a name="example"></a>Exemplo  
   
+```xml  
+<policies>  
+    <inbound>  
+        <set-backend-service backend-id="my-sf-service" sf-partition-key="@(context.Request.Url.Query.GetValueOrDefault("userId","")" sf-replica-type="primary" /> 
+    </inbound>  
+    <outbound>  
+        <base />  
+    </outbound>  
+</policies>  
+```  
+Neste exemplo, a política encaminha a solicitação para um back-end de Service Fabric usando a cadeia de caracteres de consulta userId como a chave de partição e usando a réplica primária da partição.  
+
 ### <a name="elements"></a>Elementos  
   
 |Nome|Descrição|Obrigatório|  
@@ -246,8 +259,13 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |Nome|Descrição|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|base-url|Nova URL base do serviço de back-end.|Sim|N/D|  
-  
+|base-url|Nova URL base do serviço de back-end.|Não|N/D|  
+|backend-id|Identificador do back-end para o qual encaminhar.|Não|N/D|  
+|sf-partition-key|Aplicável somente quando o back-end é um serviço do Service Fabric e é especificado usando 'backend-id'. Usado para resolver uma partição específica do serviço de resolução de nome.|Não|N/D|  
+|sf-replica-type|Aplicável somente quando o back-end é um serviço do Service Fabric e é especificado usando 'backend-id'. Controla se a solicitação deve ir para a réplica primária ou secundária de uma partição. |Não|N/D|    
+|sf-resolve-condition|Aplicável somente quando o back-end é um serviço do Service Fabric. Condição que identifica se a chamada para o back-end do Service Fabric deve ser repetida com a nova resolução.|Não|N/D|    
+|sf-service-instance-name|Aplicável somente quando o back-end é um serviço do Service Fabric. Permite alterar as instâncias de serviço em tempo de execução. |Não|N/D |    
+
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
@@ -284,7 +302,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 <set-body>Hello world!</set-body>  
 ```  
   
-#### <a name="example-accessing-the-body-as-a-string"></a>Exemplo acessando o corpo como uma cadeia de caracteres  
+#### <a name="example-accessing-the-body-as-a-string-note-that-we-are-preserving-the-original-request-body-so-that-we-can-access-it-later-in-the-pipeline"></a>Exemplo de acesso ao corpo como uma cadeia de caracteres. Observe que estamos preservando o corpo da solicitação original, de forma que possamos acessá-lo mais tarde no pipeline.
   
 ```xml  
 <set-body>  
@@ -298,7 +316,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 </set-body>  
 ```  
   
-#### <a name="example-accessing-the-body-as-a-jobject"></a>Exemplo acessando o corpo como um JObject  
+#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accesing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Exemplo de acesso ao corpo como um JObject. Observe que, como não estamos reservando o corpo da solicitação original, acessá-lo mais tarde no pipeline resultará em uma exceção.  
   
 ```xml  
 <set-body>   
@@ -380,18 +398,40 @@ A política `set-body` pode ser configurada para usar a linguagem de modelagem [
 
 Para acessar informações sobre a solicitação e a resposta, o modelo Líquido pode ser associado a um objeto de contexto com as seguintes propriedades: <br />
 <pre>context.
-Request.
-Url Method OriginalMethod OriginalUrl IpAddress MatchedParameters HasBody ClientCertificates Headers
+    Request.
+        Url
+        Method
+        OriginalMethod
+        OriginalUrl
+        IpAddress
+        MatchedParameters
+        HasBody
+        ClientCertificates
+        Headers
 
     Response.
         StatusCode
         Method
         Headers
 Url.
-Scheme Host Port Path Query QueryString ToUri ToString
+    Scheme
+    Host
+    Port
+    Path
+    Query
+    QueryString
+    ToUri
+    ToString
 
 OriginalUrl.
-Scheme Host Port Path Query QueryString ToUri ToString
+    Scheme
+    Host
+    Port
+    Path
+    Query
+    QueryString
+    ToUri
+    ToString
 </pre>
 
 
@@ -633,7 +673,7 @@ Scheme Host Port Path Query QueryString ToUri ToString
   <outbound>  
       <base />  
       <xsl-transform>  
-          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
+        <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
             <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />  
             <!-- Copy all nodes directly-->  
             <xsl:template match="node()| @*|*">  
@@ -641,7 +681,7 @@ Scheme Host Port Path Query QueryString ToUri ToString
                     <xsl:apply-templates select="@* | node()|*" />  
                 </xsl:copy>  
             </xsl:template>  
-          </xsl:stylesheet>  
+        </xsl:stylesheet>  
     </xsl-transform>  
   </outbound>  
 </policies>  
@@ -664,4 +704,3 @@ Scheme Host Port Path Query QueryString ToUri ToString
   
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como trabalhar com políticas, veja [Políticas em Gerenciamento de API](api-management-howto-policies.md).  
-

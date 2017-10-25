@@ -3,8 +3,8 @@ title: Usar o SDK Java do Data Lake Analytics para desenvolver aplicativos | Mic
 description: "Usar o SDK do Java da Análise Azure Data Lake para desenvolver aplicativos"
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.service: data-lake-analytics
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
-ms.openlocfilehash: 99e1c8956968264fbea696b85ac084281d75f02a
-
-
+ms.openlocfilehash: 795d9ec0b0cac5d74673404f1d0d851393336df0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-java-sdk"></a>Tutorial: introdução à Análise Azure Data Lake usando o SDK do Java
+# <a name="get-started-with-azure-data-lake-analytics-using-java-sdk"></a>Introdução ao Azure Data Lake Analytics usando o SDK do Java
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Saiba como usar o SDK do Java da Análise Azure Data Lake para criar uma conta do Azure Data Lake e executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, excluir sua conta e trabalhar com trabalhos. Para saber mais sobre o Data Lake, confira [Análise Azure Data Lake](data-lake-analytics-overview.md).
@@ -31,7 +31,6 @@ Neste tutorial, você desenvolverá um aplicativo de console Java que contém ex
 * Java Development Kit (JDK) 8 (usando o Java versão 1.8).
 * IntelliJ ou outro ambiente de desenvolvimento Java adequado. Isto é opcional, mas recomendado. As instruções abaixo usam o IntelliJ.
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Habilitar sua assinatura do Azure** para a visualização pública do Data Lake Analytics. Veja [instruções](data-lake-analytics-get-started-portal.md).
 * Crie um aplicativo do AAD (Azure Active Directory) e recupere a **ID do Cliente**, a **ID de Locatário** e a **Chave**. Para saber mais sobre os aplicativos do AAD e obter instruções sobre como obter uma ID do cliente, confira [Criar o aplicativo do Active Directory e a entidade de serviço usando o portal](../azure-resource-manager/resource-group-create-service-principal-portal.md). O URI de Resposta e a Chave também estarão disponíveis no portal depois do aplicativo ser criado e a chave ser gerada.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Como faço para me autenticar usando o Azure Active Directory?
@@ -350,9 +349,3 @@ Você precisará conceder permissão ao seu aplicativo para criar recursos no Az
 * Para conhecer o U-SQL, consulte [Introdução à linguagem U-SQL do Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md) e [Referência à linguagem U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 * Para obter as tarefas de gerenciamento, veja [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md).
 * Para obter uma visão geral da Análise do Data Lake, veja [Visão geral da Análise do Azure Data Lake](data-lake-analytics-overview.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

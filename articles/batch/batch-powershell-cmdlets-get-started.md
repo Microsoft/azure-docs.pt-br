@@ -15,25 +15,24 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: cc8942dacee60d6243e91a3b4360c0c07956fa66
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: e33be6ed658e00250ea1e80cd7da4d348fb18296
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gerenciar recursos do Lote com cmdlets do PowerShell
 
 Com os cmdlets do PowerShell do Lote do Azure, você pode executar e criar scripts para muitas das mesmas tarefas que executa com as APIs do Lote, o portal do Azure e a CLI (Interface de Linha de Comando) do Azure. Essa é uma breve introdução aos cmdlets que você pode usar para gerenciar suas contas do Lote e trabalhar com seus recursos do Lote, como pools, trabalhos e tarefas.
 
-Para obter uma lista completa de cmdlets do Lote e a sintaxe detalhada do cmdlet, consulte a [Referência de cmdlet do Lote do Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+Para obter uma lista completa de cmdlets do Lote e a sintaxe detalhada do cmdlet, consulte a [Referência de cmdlet do Lote do Azure](/powershell/module/azurerm.batch/#batch).
 
 Este artigo baseia-se nos cmdlets do Azure PowerShell versão 3.0.0. É recomendável que você atualize o Azure PowerShell com frequência para tirar proveito de atualizações e aprimoramentos do serviço.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Execute as seguintes operações para usar o Azure PowerShell para gerenciar os recursos de Lote.
 
-* [Instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs)
+* [Instalar e configurar o PowerShell do Azure](/powershell/azure/overview)
 * Execute o cmdlet **Login-AzureRmAccount** para se conectar à sua assinatura (os cmdlets do Lote do Azure são fornecidos no módulo Azure Resource Manager):
   
     `Login-AzureRmAccount`
@@ -43,7 +42,7 @@ Execute as seguintes operações para usar o Azure PowerShell para gerenciar os 
 
 ## <a name="manage-batch-accounts-and-keys"></a>Gerenciar contas e chaves do Batch
 ### <a name="create-a-batch-account"></a>Criar uma conta do Batch
-**New-AzureRmBatchAccount** cria uma conta do Lote em um grupo de recursos especificado. Se você ainda não tiver um grupo de recursos, crie um executando o cmdlet [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx). Especifique uma das regiões do Azure no parâmetro**Location**, como "EUA Central”. Por exemplo:
+**New-AzureRmBatchAccount** cria uma conta do Lote em um grupo de recursos especificado. Se você ainda não tiver um grupo de recursos, crie um executando o cmdlet [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Especifique uma das regiões do Azure no parâmetro**Location**, como "EUA Central”. Por exemplo:
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
@@ -100,7 +99,7 @@ Use cmdlets como **New-AzureBatchPool**, **New-AzureBatchJob** e **New-AzureBatc
 Ao usar muitos desses cmdlets, além de passar um objeto BatchContext, você precisa criar ou passar objetos que contêm as configurações detalhadas de recursos, conforme mostrado no exemplo a seguir. Confira a ajuda detalhada de cada cmdlet para obter exemplos adicionais.
 
 ### <a name="create-a-batch-pool"></a>Criar um pool do Lote
-Ao criar ou atualizar um pool de lote, selecione uma configuração de serviço de nuvem ou uma configuração de máquina virtual para o sistema operacional em nós de computação (confira [Visão geral do recurso de Lote](batch-api-basics.md#pool)). Sua escolha determina se os nós de computação têm a imagem gerada com uma do [versões de SO Convidado do Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases) ou com uma das imagens de VM com Linux ou Windows com suporte no Azure Marketplace.
+Ao criar ou atualizar um pool de lote, selecione a configuração de serviço de nuvem ou a configuração de máquina virtual para o sistema operacional em nós de computação (confira [Visão geral do recurso de Lote](batch-api-basics.md#pool)). Se você especificar a configuração do serviço de nuvem, os nós de computação serão representados com uma das [versões do sistema operacional convidado do Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Se você especificar a configuração da máquina virtual, poderá especificar uma das imagens de VM Linux ou Windows com suporte listadas no [Marketplace de Máquinas Virtuais do Azure][vm_marketplace] ou fornecer uma imagem personalizada preparada.
 
 Ao executar **New-AzureBatchPool**, passe as configurações do sistema operacional em um objeto PSCloudServiceConfiguration ou PSVirtualMachineConfiguration. Por exemplo, o cmdlet a seguir cria um novo pool do Lote com nós de computação de tamanho pequeno na configuração de serviço de nuvem, com a imagem criada com a última versão do sistema operacional da família 3 (Windows Server 2012). Aqui, o parâmetro **CloudServiceConfiguration** especifica a variável *$configuration* do objeto PSCloudServiceConfiguration. O parâmetro **BatchContext** especifica uma variável definida anteriormente *$context* como o objeto BatchAccountContext.
 
@@ -201,7 +200,7 @@ Agora, crie o pool e especifique o objeto de referência do pacote como o argume
 
     New-AzureBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 
-Veja mais informações sobre pacotes de aplicativo em [Implantação de aplicativos com pacotes de aplicativos do Lote do Azure](batch-application-packages.md).
+Veja mais informações sobre pacotes de aplicativos em [Implantar aplicativos em nós de computação com pacotes de aplicativos do Lote](batch-application-packages.md).
 
 > [!IMPORTANT]
 > Você deve [vincular uma conta de Armazenamento do Azure](#linked-storage-account-autostorage) à sua conta do Lote para usar os pacotes de aplicativos.
@@ -237,7 +236,7 @@ Agora você atualizou as propriedades do pool no serviço de Lote. Para realment
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter a sintaxe detalhada do cmdlet, veja [Referência de cmdlet do Lote do Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx).
-* Para obter mais informações sobre aplicativos e pacotes de aplicativos no Lote, confira [Implantação de aplicativos com pacotes de aplicativos do Lote do Azure](batch-application-packages.md).
+* Para obter a sintaxe detalhada do cmdlet, veja [Referência de cmdlet do Lote do Azure](/powershell/module/azurerm.batch/#batch).
+* Para obter mais informações sobre aplicativos e pacotes de aplicativos no Lote, confira [Implantação de aplicativos com pacotes de aplicativos do Lote](batch-application-packages.md).
 
-
+[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/

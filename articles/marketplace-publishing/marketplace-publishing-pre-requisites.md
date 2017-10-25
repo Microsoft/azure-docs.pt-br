@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8bc9d40daf0b9bc8256e88b39039fca7e4cb8a53
-
-
+ms.openlocfilehash: 4f86d444a2f2b97fd8605d480db358813bc39fd3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Pré-requisitos gerais para a criação de uma oferta para o Azure Marketplace
 Compreenda os pré-requisitos gerais, centrados em processos de negócios que são necessários para prosseguir com o processo de criação de oferta.
@@ -81,10 +81,4 @@ Depois que os pré-requisitos técnicos são atendidos, há os pré-requisitos t
 
 ## <a name="see-also"></a>Confira também
 * [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

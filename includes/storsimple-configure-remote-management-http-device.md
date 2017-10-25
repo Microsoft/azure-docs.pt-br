@@ -7,8 +7,3 @@
 5. Clique em **Baixar Certificado de Gerenciamento Remoto** para baixar um certificado de gerenciamento remoto. Você especificará um local no qual o arquivo será salvo. Esse certificado precisa então ser instalado na máquina cliente ou host que você usará para se conectar ao dispositivo virtual.
 6. Na parte inferior da página, clique em **Salvar** .
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

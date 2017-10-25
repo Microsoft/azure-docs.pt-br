@@ -12,20 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d8cc770e863381bcc9dc4417bd2b1f91ac0a34e9
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 6aa3ac7842df4657fca7f6b4264e1c6fe52dc0c6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>Como a serialização de dados afeta a atualização de um aplicativo
-Em uma [atualização de aplicativo sem interrupção](service-fabric-application-upgrade.md), a atualização é aplicada a um subconjunto de nós, um domínio de atualização de cada vez. Durante esse processo, alguns domínios de atualização estarão na versão mais recente do seu aplicativo, e alguns domínios de atualização terão a versão mínima do seu aplicativo. Durante a distribuição, a nova versão do seu aplicativo deve ser capaz de ler a versão antiga dos dados, e a versão antiga do seu aplicativo deve ser capaz de ler a nova versão dos dados. Se o formato de dados não for compatível com versões anteriores e posteriores, a atualização poderá falhar ou, pior ainda, os dados poderão ser perdidos ou corrompidos. Este artigo discute o que constitui o formato de dados e oferece as práticas recomendadas para garantir que seus dados sejam compatíveis de uma versão para outra.
+Em uma [atualização de aplicativo sem interrupção](service-fabric-application-upgrade.md), a atualização é aplicada a um subconjunto de nós, um domínio de atualização de cada vez. Durante esse processo, alguns domínios de atualização têm a versão mais recente do aplicativo, enquanto outros têm a versão mais antiga do aplicativo. Durante a distribuição, a nova versão do seu aplicativo deve ser capaz de ler a versão antiga dos dados, e a versão antiga do seu aplicativo deve ser capaz de ler a nova versão dos dados. Se o formato de dados não for compatível com versões anteriores e posteriores, a atualização poderá falhar ou, pior ainda, os dados poderão ser perdidos ou corrompidos. Este artigo discute o que constitui o formato de dados e oferece as práticas recomendadas para garantir que seus dados sejam compatíveis de uma versão para outra.
 
 ## <a name="what-makes-up-your-data-format"></a>O que compõe o seu formato de dados?
-No Service Fabric do Azure, os dados persistidos e replicados vêm de suas classes C#. Para aplicativos que usam [Coleções confiáveis](service-fabric-reliable-services-reliable-collections.md), são os objetos nos dicionários e filas confiáveis. Para aplicativos que usam [Reliable Actors](service-fabric-reliable-actors-introduction.md), esse é o estado de backup do ator. Essas classes C# devem ser serializáveis para que possam ser persistidas e replicadas. Portanto, o formato de dados é definido por campos e propriedades que são serializados e por como eles são serializados. Por exemplo, em um `IReliableDictionary<int, MyClass>` os dados são `int` serializados e `MyClass` serializadas.
+No Service Fabric do Azure, os dados persistidos e replicados vêm de suas classes C#. Para aplicativos que usam [Coleções Confiáveis](service-fabric-reliable-services-reliable-collections.md), esses dados são os objetos nos dicionários e nas filas confiáveis. Para aplicativos que usam [Reliable Actors](service-fabric-reliable-actors-introduction.md), esse é o estado de backup do ator. Essas classes C# devem ser serializáveis para que possam ser persistidas e replicadas. Portanto, o formato de dados é definido por campos e propriedades que são serializados e por como eles são serializados. Por exemplo, em um `IReliableDictionary<int, MyClass>` os dados são `int` serializados e `MyClass` serializadas.
 
 ### <a name="code-changes-that-result-in-a-data-format-change"></a>Alterações de código que resultam em uma alteração no formato dos dados
 Uma vez que o formato de dados é determinado pelas classes C#, alterações nas classes podem causar uma alteração no formato de dados. É necessário ter cuidado para garantir que uma atualização sem interrupção possa lidar com a alteração do formato de dados. Exemplos que podem causar alterações no formato de dados:
@@ -54,14 +53,13 @@ As duas versões do formato de dados e código devem ser compatíveis uma com a 
 O Contrato de Dados é a solução recomendada para garantir que seus dados sejam compatíveis. Ele possui regras de versão bem definidas para adição, remoção e alteração de campos. Ele também tem suporte para lidar com campos desconhecidos, conectando-se ao processo de serialização e desserialização e lidando com a herança de classe. Para saber mais, confira [Usando o contrato de dados](https://msdn.microsoft.com/library/ms733127.aspx).
 
 ## <a name="next-steps"></a>Próximas etapas
-[Atualizar seu Aplicativo Usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você a fazer uma atualização de aplicativo usando o Visual Studio.
+[Atualização do aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante a atualização de aplicativo usando o Visual Studio.
 
-[Atualizando seu aplicativo usando o Powershell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você uma atualização de aplicativo usando o PowerShell.
+[Atualização do aplicativo usando o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você uma atualização de aplicativo usando o PowerShell.
 
 Controle como seu aplicativo é atualizado usando [Parâmetros de Atualização](service-fabric-application-upgrade-parameters.md).
 
 Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultando os [Tópicos Avançados](service-fabric-application-upgrade-advanced.md).
 
 Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solucionando Problemas de Atualizações de Aplicativo ](service-fabric-application-upgrade-troubleshooting.md).
-
 

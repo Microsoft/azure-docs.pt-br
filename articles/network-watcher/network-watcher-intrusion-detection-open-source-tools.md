@@ -3,7 +3,7 @@ title: "Executar a detecção de invasão de rede com o Observador de Rede do Az
 description: "Este artigo descreve como usar o Observador de Rede do Azure e ferramentas de software livre para executar a detecção de invasão de rede"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: d60b1d44844c449e0f66dc0107a25531569d097b
-ms.openlocfilehash: 82d5e525859ebe03b152c63e4debbae469049c12
-ms.lasthandoff: 03/31/2017
-
+ms.author: jdial
+ms.openlocfilehash: aff1b5f9e8860d3b8dc09b37684bb8a4ac2bf134
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Executar a detecção de invasão de rede com o Observador de Rede e ferramentas de software livre
 
 Captura de pacote é um componente-chave para implementar sistemas de detecção de invasão de rede (IDS) e executar o Monitoramento de Segurança de Rede (NSM). Há várias ferramentas de IDS de software livre que processam capturas de pacote e procuram assinaturas de possíveis invasões de rede e atividades mal-intencionadas. Usar as capturas de pacote fornecidas pelo Observador de Rede, você pode analisar sua rede para invasões prejudiciais ou vulnerabilidades.
@@ -81,8 +80,8 @@ Enquanto os logs que produz Suricata contêm informações importantes sobre o q
 
 #### <a name="install-elasticsearch"></a>Instalar Elasticsearch
 
-1. O Elastic Stack da versão 5.0 e superior requer Java 8. Execute o comando `java -version` para verificar a versão. Se você não tiver o java instalado, veja a documentação em [site da Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
-1. Baixe o pacote de binários correto para o seu sistema:
+1. O Elastic Stack da versão 5.0 e superior exige o Java 8. Execute o comando `java -version` para verificar sua versão. Se você não tiver o java instalado, consulte a documentação no [site da Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
+1. Baixe o pacote de binários correto para seu sistema:
 
     ```
     curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
@@ -90,15 +89,15 @@ Enquanto os logs que produz Suricata contêm informações importantes sobre o q
     sudo /etc/init.d/elasticsearch start
     ```
 
-    Outros métodos de instalação podem ser encontrados em [Elasticsearch instalação](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html)
+    Outros métodos de instalação podem ser encontrados em [Instalação do Elasticsearch](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html)
 
-1. Verifique se Elasticsearch está em execução com o comando:
+1. Verifique se o Elasticsearch está sendo executado com o comando:
 
     ```
     curl http://127.0.0.1:9200
     ```
 
-    Você deve ver uma resposta semelhante a esta:
+    Você deve ver uma resposta semelhante a essa:
 
     ```
     {
@@ -115,7 +114,7 @@ Enquanto os logs que produz Suricata contêm informações importantes sobre o q
     }
     ```
 
-Para obter instruções adicionais de instalação pesquisa elástica, consulte a página [instalação](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html)
+Para obter instruções adicionais sobre a instalação da pesquisa elástica, consulte a página [Instalação](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html)
 
 ### <a name="install-logstash"></a>Instalar Logstash
 
@@ -244,7 +243,7 @@ Neste artigo, nós fornecemos um painel de exemplo para exibir detalhes e tendê
 
 1. Baixe o arquivo do painel [aqui](https://aka.ms/networkwatchersuricatadashboard), o arquivo de visualização [aqui](https://aka.ms/networkwatchersuricatavisualization)e o arquivo de pesquisa salva [aqui](https://aka.ms/networkwatchersuricatasavedsearch).
 
-1. Sob o **Management** guia de Kibana, navegue até **objetos salvos** e importar todos os três arquivos. Depois do **painel** guia, você pode abrir e carregar o painel de exemplo.
+1. Na guia **Management** (Gerenciamento) do Kibana, navegue até **Saved Objects** (Objetos Salvos) e importe todos os três arquivos. Em seguida, na guia **Painel**, você pode abrir e carregar o painel de exemplo.
 
 Você também pode criar suas próprias visualizações e painéis personalizados para métricas de seu próprio interesse. Leia mais sobre como criar visualizações do Kibana na [documentação oficial](https://www.elastic.co/guide/en/kibana/current/visualize.html) do Kibana.
 
@@ -296,4 +295,3 @@ Saiba como visualizar os logs de fluxo NSG com o Power BI visitando [fluxos de N
 [5]: ./media/network-watcher-intrusion-detection-open-source-tools/figure5.png
 [6]: ./media/network-watcher-intrusion-detection-open-source-tools/figure6.png
 [7]: ./media/network-watcher-intrusion-detection-open-source-tools/figure7.png
-

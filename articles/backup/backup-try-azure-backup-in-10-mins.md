@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/23/2017
+ms.date: 8/15/2017
 ms.author: markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: b188affca609dd5ff3aa0d2cba3ec81c1c91888f
-ms.openlocfilehash: 916a4e837d003a73a1801dd25b8ebfbfdcd86312
-ms.lasthandoff: 02/24/2017
-
-
+ms.openlocfilehash: 7a016ed92c68ce624aeb09d766adbc6fc8ba2b42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>Introdução: fazer backup de arquivos e pastas na implantação do Resource Manager
 Este artigo explica como fazer backup de arquivos e pastas do Windows Server (ou computador Windows) para o Azure com o Backup do Azure usando uma implantação do Resource Manager. É um tutorial que pretende explicar os conceitos básicos. Se deseja obter uma introdução ao uso do Backup do Azure, você está no lugar certo.
@@ -88,7 +87,7 @@ Quando você criar um cofre de Serviços de Recuperação, certifique-se de que 
 
     ![opções de configuração de armazenamento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    Por padrão, seu cofre tem armazenamento com redundância geográfica. Se você usar o Azure como um ponto de extremidade de armazenamento de backup principal, continue a usar **Georredundante**. Se você não usar o Azure como um ponto de extremidade de armazenamento de backup principal, escolha **Localmente redundante**, que reduz os custos de armazenamento do Azure. Leia mais sobre as opções de armazenamento [com redundância geográfica](../storage/storage-redundancy.md#geo-redundant-storage) e [com redundância local](../storage/storage-redundancy.md#locally-redundant-storage) nesta [Visão geral de redundância de armazenamento](../storage/storage-redundancy.md).
+    Por padrão, seu cofre tem armazenamento com redundância geográfica. Se você usar o Azure como um ponto de extremidade de armazenamento de backup principal, continue a usar **Georredundante**. Se você não usar o Azure como um ponto de extremidade de armazenamento de backup principal, escolha **Localmente redundante**, que reduz os custos de armazenamento do Azure. Leia mais sobre as opções de armazenamento [com redundância geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage) e [com redundância local](../storage/common/storage-redundancy.md#locally-redundant-storage) nesta [Visão geral de redundância de armazenamento](../storage/common/storage-redundancy.md).
 
 Agora que você criou um cofre, configure-o para fazer backup de arquivos e pastas.
 
@@ -164,6 +163,15 @@ Agora que você criou um cofre, configure-o para fazer backup de arquivos e past
 
 Agora, o agente está instalado e seu computador está registrado no cofre. Você está pronto para configurar e agendar o backup.
 
+## <a name="network-and-connectivity-requirements"></a>Requisitos de conectividade e rede
+
+Se seu computador/proxy tiver acesso limitado à Internet, verifique se as configurações do firewall no computador/proxy estão definidas para permitir as seguintes URLs: <br>
+    1. www.msftncsi.com
+    2. *.Microsoft.com
+    3. *.WindowsAzure.com
+    4. *.microsoftonline.com
+    5. *.windows.net
+
 ## <a name="back-up-your-files-and-folders"></a>Fazer o backup de arquivos e pastas
 O backup inicial inclui duas tarefas principais:
 
@@ -182,7 +190,7 @@ Para concluir o backup inicial, use o agente dos Serviços de Recuperação do M
 3. Na página de Introdução do Assistente de Agendamento de Backup, clique em **Avançar**.
 4. Na tela Selecionar Itens para Backup, clique em **Adicionar Itens**.
 5. Selecione os arquivos e pastas dos quais você deseja fazer backup e clique em **Ok**.
-6. Clique em **Próximo**.
+6. Clique em **Avançar**.
 7. Na tela **Especificar Agendamento de Backup**, especifique o **agendamento de backup** e clique em **Avançar**.
 
     Você pode agendar backups diários (com uma taxa máxima de três vezes por dia) ou backups semanais.
@@ -220,4 +228,3 @@ Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos s
 * Obtenha mais detalhes sobre o [backup de computadores que usam o Windows](backup-configure-vault.md).
 * Agora que você faz backup de seus arquivos e pastas, poderá [gerenciar seus servidores e cofres](backup-azure-manage-windows-server.md).
 * Se você precisar restaurar um backup, use este artigo para [restaurar os arquivos para um computador que usa o Windows](backup-azure-restore-windows-server.md).
-

@@ -9,8 +9,7 @@
   
 3. Clique em **Criar** para abrir a nova folha do SQL Server (servidor lógico).
 
-   <kbd> ![folha abrir servidor lógico](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd>
-    <kbd>![folha servidor lógico](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png) </kbd>
+   <kbd> ![abrir a folha do servidor lógico](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd> <kbd>![folha do servidor lógico](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png) </kbd>
   
 3. Na caixa de texto do nome do servidor da folha SQL Server (servidor lógico), forneça um nome válido para o novo servidor lógico. Uma marca de seleção verde indica que você forneceu um nome válido.
     

@@ -12,15 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 06/05/2017
 ms.author: v-sharos
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 7651a2ba6c206bb39d7cf8839f6f0f828fb3bc16
-ms.openlocfilehash: 25265349cb8cb47e93b7bea7103f1d06878a6158
-ms.lasthandoff: 02/28/2017
-
-
+ms.custom: 
+ms.openlocfilehash: b48c507e38eb7cadff56259f617e336e4efe5708
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Usar a interface de usuário do StorSimple Snapshot Manager para gerenciar trabalhos de backup e catálogo de backups
 
@@ -126,7 +125,7 @@ A tabela a seguir contém uma lista em ordem alfabética das ações do StorSimp
 | Examinar volumes novamente |Clique com o botão direito do mouse no nó **Volumes** . |Clique em **Examinar volumes novamente** para atualizar a lista de volumes que aparece no painel **Resultados**. |
 | Restaurar |Expanda **Catálogo de Backup**, expanda um grupo de volumes, expanda **Instantâneos Locais** ou **Instantâneos em Nuvem** e clique com o botão direito do mouse em um backup. |Clique em **Restaurar** para substituir os dados do grupo de volumes atual pelos dados do backup selecionado. |
 | Fazer Backup |Faça uma das opções a seguir:<ul><li>Expanda **Grupos de volumes** e clique com o botão direito do mouse em um grupo de volumes.</li><li>Expanda **Catálogo de Backup** e clique com o botão direito do mouse em um grupo de volumes.</li></ul> |Clique em **Fazer Backup** para iniciar um trabalho de backup imediatamente. |
-| Alternar Exibição de Importações |Clique com o botão direito do mouse no nó superior do painel **Escopo** (o nó **StorSimple Snapshot Manager** nos exemplos). |Clique em **Alternar Exibição de Importações** para mostrar ou ocultar os grupos de volumes e backups associados que foram importados do painel de serviço do StorSimple Manager. |
+| Alternar Exibição de Importações |Clique com o botão direito do mouse no nó superior do painel **Escopo** (o nó **StorSimple Snapshot Manager** nos exemplos). |Clique em **Alternar Exibição de Importações** para mostrar ou ocultar os grupos de volumes e backups associados que foram importados do painel de serviço do Gerenciador de Dispositivos StorSimple. |
 
 ### <a name="view-menu"></a>Menu Exibir
 Use o menu **Exibir** para criar uma exibição personalizada do conteúdo do painel **Resultados**. O menu **Exibir** contém as opções **Adicionar/Remover Colunas** e **Personalizar**.
@@ -273,8 +272,7 @@ Políticas de backup são agendas de trabalhos para instantâneos locais e na nu
 
 > [!NOTE]
 > Você pode manter um máximo de 64 backups.
-> 
-> 
+
 
 ### <a name="backup-catalog-node"></a>Nó Catálogo de Backups
 O nó **Catálogo de Backups** contém listas de backups locais e externos de volumes do Azure StorSimple. Este nó é organizado por grupo de volumes e cada contêiner do grupo de volumes contém estruturas separadas para instantâneos locais (o nó **Instantâneos Locais**) e instantâneos em nuvem (o nó de **Instantâneos em Nuvem**). Quando expandido, cada contêiner de grupo de volumes lista todos os backups bem-sucedidos que foram feitos interativamente ou por uma política configurada.
@@ -429,7 +427,7 @@ As tabelas a seguir mostram as combinações de teclas de atalho para cada nó n
 | V |Abre o menu **Exibição** . |
 | W |Abre um novo console do StorSimple Snapshot Manager voltado para o nó **Grupos de Volumes** . |
 | F |Atualiza o console do StorSimple Snapshot Manager. |
-| L |Abre a página **Exportar Lista **. |
+| L |Abre a página **Exportar Lista**. |
 | H |Abre a Ajuda online. |
 
 #### <a name="backup-catalog-node-shortcut-keys"></a>Teclas de atalho do nó Catálogo de Backups
@@ -451,5 +449,4 @@ As tabelas a seguir mostram as combinações de teclas de atalho para cada nó n
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 * Saiba como [usar o StorSimple Snapshot Manager para conectar e gerenciar dispositivos](storsimple-snapshot-manager-manage-devices.md).
-
 

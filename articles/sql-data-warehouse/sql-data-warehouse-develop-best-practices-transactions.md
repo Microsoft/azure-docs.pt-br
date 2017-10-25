@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ed017b542de11a5e8abe46e1651b04cb61c77265
-
-
+ms.openlocfilehash: f9f19d75a37351b3562ce8c2f3629df14c5437c6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="optimizing-transactions-for-sql-data-warehouse"></a>Otimização de transações para o SQL Data Warehouse
 Este artigo explica como otimizar o desempenho do seu código transacional ao minimizar o risco para reversões longas.
@@ -87,7 +88,7 @@ Vale a pena observar que todas as gravações para atualizar índices secundári
 Carregar dados em uma tabela não vazia com um índice clusterizado pode, muitas vezes, conter uma combinação de linhas total e minimamente registradas em log. Um índice clusterizado é uma árvore balanceada (árvore b) das páginas. Se a página que estiver sendo gravada já contiver linhas de outra transação, então essas gravações serão totalmente registradas em log. No entanto, se a página estiver vazia, a gravação para essa página será minimamente registrada em log.
 
 ## <a name="optimizing-deletes"></a>Otimizando exclusões
-`DELETE` é uma operação totalmente registrada em log.  Se você precisar excluir uma grande quantidade de dados de uma tabela ou uma partição, geralmente fará mais sentido `SELECT` (selecionar) os dados que deseja manter, que podem ser executados como uma operação minimamente registrada em log.  Para isso, crie uma nova tabela com [CTAS][CTAS].  Depois de criada, use [RENAME][RENAME] para alternar da tabela antiga para a tabela recém-criada.
+`DELETE` é uma operação totalmente registrada em log.  Se você precisar excluir uma grande quantidade de dados de uma tabela ou uma partição, geralmente fará mais sentido `SELECT` (selecionar) os dados que deseja manter, que podem ser executados como uma operação minimamente registrada em log.  Para isso, crie uma nova tabela com [CTAS][CTAS].  Depois de criada, use [RENAME][RENAME] para alternar sua tabela antiga com a recentemente criada.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -118,7 +119,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
 ## <a name="optimizing-updates"></a>Otimizando atualizações
-`UPDATE` é uma operação totalmente registrada em log.  Se você precisar atualizar um grande número de linhas em uma tabela ou em uma partição, em geral, poderá ser muito mais eficiente usar uma operação minimamente registrada em log, como [CTAS][CTAS] para isso.
+`UPDATE` é uma operação totalmente registrada em log.  Se você precisar atualizar um grande número de linhas em uma tabela ou em uma partição, no geral, poderá ser muito mais proveitoso usar uma operação minimamente registrada em log, tal como [CTAS][CTAS].
 
 No exemplo abaixo, uma atualização completa de tabela foi convertida em um `CTAS` para permitir o registro mínimo em log.
 
@@ -179,12 +180,12 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> A recriação de tabelas grandes pode se beneficiar do uso de recursos de gerenciamento de carga de trabalho do SQL Data Warehouse. Para obter mais detalhes, confira a seção de gerenciamento de carga de trabalho no artigo sobre [Concurrency][Concurrency].
+> A recriação de tabelas grandes pode se beneficiar do uso de recursos de gerenciamento de carga de trabalho do SQL Data Warehouse. Para obter mais detalhes, confira a seção de gerenciamento de carga de trabalho no artigo sobre [simultaneidade][concurrency].
 > 
 > 
 
 ## <a name="optimizing-with-partition-switching"></a>Otimizando com alternância de partição
-Quando houver modificações em grande escala dentro de uma [partição da tabela][partição da tabela], fará mais sentido considerar um padrão de troca de partições. Se a modificação de dados for significativa e se estender por várias partições, a simples iteração nas partições terá o mesmo resultado.
+Quando houver modificações em larga escala dentro de uma [partição da tabela][table partition], fará mais sentido considerar um padrão de troca de partições. Se a modificação de dados for significativa e se estender por várias partições, a simples iteração nas partições terá o mesmo resultado.
 
 As etapas para executar uma alternância de partições são as seguintes:
 
@@ -416,30 +417,24 @@ O SQL Data Warehouse do Azure permite pausar, retomar e dimensionar seu data war
 
 O melhor cenário é permitir que as transações de modificação de dados em trânsito sejam concluídas antes da pausa ou do dimensionamento do SQL Data Warehouse. No entanto, isso pode não sempre ser prático. Para reduzir o risco de uma longa reversão, considere uma das seguintes opções:
 
-* Regravar operações de longa duração usando [CTAS][CTAS]
+* Gravar novamente as operações de longa duração usando [CTAS][CTAS]
 * Divida a operação em partes, trabalhando com um subconjunto de linhas
 
 ## <a name="next-steps"></a>Próximas etapas
-Confira [Transações no SQL Data Warehouse][Transações no SQL Data Warehouse] para saber mais sobre os níveis de isolamento e os limites transacionais.  Para obter uma visão geral de outras práticas recomendadas, confira [Práticas Recomendadas do SQL Data Warehouse][Práticas Recomendadas do SQL Data Warehouse].
+Confira [Transações no SQL Data Warehouse][Transactions in SQL Data Warehouse] para saber mais sobre os níveis de isolamento e os limites transacionais.  Para obter uma visão geral de outras práticas recomendadas, confira [Práticas recomendadas para o Azure SQL Data Warehouse][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 
 <!--Article references-->
-[Transações no SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
-[partição da tabela]: ./sql-data-warehouse-tables-partition.md
+[Transactions in SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
+[table partition]: ./sql-data-warehouse-tables-partition.md
 [Concurrency]: ./sql-data-warehouse-develop-concurrency.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
-[Práticas Recomendadas do SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
-[alterar índice]:https://msdn.microsoft.com/library/ms188388.aspx
+[alter index]:https://msdn.microsoft.com/library/ms188388.aspx
 [RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!-- Other web references -->
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

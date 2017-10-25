@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 11/21/2016
-ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: ca8537a7e35e44efafb9b0a9d6ddefe069067475
-ms.openlocfilehash: de55bf7d9e68146745c90b96f280c8a71e27b2f9
-ms.lasthandoff: 03/02/2017
-
+ms.author: LADocs; padmavc
+ms.openlocfilehash: 28bb8296ddd820ec5aa9793dc0928b4b1e67bf6f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>Gerenciar metadados de artefato nas contas de integração de aplicativos lógicos
 
 É possível definir metadados personalizados para artefatos em contas de integração e recuperar esses metadados durante o tempo de execução do aplicativo lógico. Por exemplo, é possível especificar metadados para artefatos como parceiros, contratos, esquemas e mapas – todos armazenam metadados usando pares chave-valor. Atualmente, os artefatos não podem criar metadados por meio da interface do usuário, mas é possível usar APIs REST para criar metadados. Para adicionar metadados ao criar ou selecionar um parceiro, contrato ou esquema no portal do Azure, escolha **Editar como JSON**. Para recuperar metadados de artefato em aplicativos lógicos, é possível usar o recurso Pesquisa de Artefato da Conta de Integração.
@@ -32,7 +31,7 @@ ms.lasthandoff: 03/02/2017
 
 2. Adicione um artefato à conta de integração, por exemplo, um [parceiro](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner), [contrato](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements) ou [esquema](logic-apps-enterprise-integration-schemas.md).
 
-3.    Selecione o artefato, escolha **Editar como JSON** e insira os detalhes dos metadados.
+3.  Selecione o artefato, escolha **Editar como JSON** e insira os detalhes dos metadados.
 
     ![Inserir metadados](media/logic-apps-enterprise-integration-metadata/image1.png)
 
@@ -44,7 +43,7 @@ ms.lasthandoff: 03/02/2017
 
 3. No Designer de Aplicativos Lógicos, adicione um gatilho como *Solicitação* ou *HTTP* ao aplicativo lógico.
 
-4.    Escolha **Próxima Etapa** > **Adicionar uma ação**. Pesquise *integração* para poder localizá-la e, em seguida, selecione **Conta de Integração – Pesquisa de Artefato da Conta de Integração**.
+4.  Escolha **Próxima Etapa** > **Adicionar uma ação**. Pesquise *integração* para poder localizá-la e, em seguida, selecione **Conta de Integração – Pesquisa de Artefato da Conta de Integração**.
 
     ![Selecionar Pesquisa de Artefato da Conta de Integração](media/logic-apps-enterprise-integration-metadata/image2.png)
 
@@ -69,4 +68,3 @@ Os metadados do parceiro têm estes detalhes de `routingUrl`:
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Saiba mais sobre os contratos](logic-apps-enterprise-integration-agreements.md "Saiba mais sobre os contratos de integração corporativa")  
-

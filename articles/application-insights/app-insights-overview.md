@@ -3,22 +3,21 @@ title: "O que é o Application Insights do Azure? | Microsoft Docs"
 description: Gerenciamento de desempenho de aplicativo e acompanhamento de uso do seu aplicativo web online.  Detectar, realizar triagem e diagnosticar problemas, entender como as pessoas usam o seu aplicativo.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 379721d1-0f82-445a-b416-45b94cb969ec
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 3b029b67e52b212d604e3d645fe7a451b5a60b3e
-ms.lasthandoff: 03/16/2017
-
-
+ms.topic: overview
+ms.date: 05/14/2017
+ms.author: bwren
+ms.openlocfilehash: d822f25d9061809a27976314bfbd55dd46b1ee67
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-application-insights"></a>O que é o Application Insights?
 O Application Insights é um serviço de gerenciamento de desempenho de aplicativo (APM) extensível para desenvolvedores da Web em várias plataformas. Use-o para monitorar seu aplicativo Web online. Ele detectará anomalias de desempenho automaticamente. Ele inclui ferramentas de análise avançadas para ajudar você a diagnosticar problemas e entender o que os usuários realmente fazem com seu aplicativo.  Ele foi projetado para ajudar você a aprimorar continuamente o desempenho e a usabilidade do seu aplicativo. Ele funciona com aplicativos em uma ampla variedade de plataformas incluindo .NET e J2EE, hospedados localmente ou na nuvem. Ele se integra ao seu processo devOps e oferece pontos de conexão para uma ampla variedade de ferramentas de desenvolvimento.
@@ -64,14 +63,17 @@ Há várias maneiras de explorar seus dados. Confira estes artigos:
 
 |  |  |
 | --- | --- |
+| [**Detecção inteligente e alertas manuais**](app-insights-proactive-diagnostics.md)<br/>alertas automáticos se adaptam aos padrões normais de telemetria do seu aplicativo e são disparados quando há algo fora do padrão normal. Você também pode [definir alertas](app-insights-alerts.md) em níveis específicos de métricas padrão ou personalizadas. |![Exemplo de alerta](./media/app-insights-overview/alerts-tn.png) |
 | [**Mapa do aplicativo**](app-insights-app-map.md)<br/>Os componentes de seu aplicativo, com as principais métricas e alertas. |![Mapa do aplicativo](./media/app-insights-overview/appmap-tn.png)  |
+| [**Criador de perfil**](app-insights-profiler.md)<br/>Inspecione os perfis de execução de solicitações de amostras. |![Criador de perfil](./media/app-insights-overview/profiler.png) |
+| [**Análise de uso**](app-insights-usage-overview.md)<br/>Analise a retenção e a segmentação de usuários.|![Ferramenta de retenção](./media/app-insights-overview/retention.png) |
 | [**Pesquisa de diagnóstico para dados da instância**](app-insights-diagnostic-search.md)<br/>pesquise e filtre eventos como solicitações, exceções, chamadas de dependência, rastreamentos de log e exibições de página.  |![Como pesquisar telemetria](./media/app-insights-overview/search-tn.png) |
 | [**Metrics Explorer para os dados agregados**](app-insights-metrics-explorer.md)<br/>explore, filtre e segmente dados agregados, como taxas de solicitações, falhas e exceções; tempos de resposta e tempos de carregamento de página. |![Métricas](./media/app-insights-overview/metrics-tn.png) |
 | [**Painéis**](app-insights-dashboards.md#dashboards)<br/>faça um mashup de dados de vários recursos e compartilhe com outras pessoas. Excelente para aplicativos com vários componentes e para exibição contínua no ambiente de equipe. |![Exemplos de painéis](./media/app-insights-overview/dashboard-tn.png) |
 | [**Live Metrics Stream**](app-insights-live-stream.md)<br/>quando implantar um novo build, acompanhe esses indicadores de desempenho quase em tempo real para verificar se tudo está funcionando conforme esperado. |![Exemplo de métricas ao vivo](./media/app-insights-overview/live-metrics-tn.png) |
 | [**Analytics**](app-insights-analytics.md)<br/>responda perguntas difíceis sobre o desempenho e o uso do seu aplicativo usando essa poderosa linguagem de consulta. |![Exemplo de análise](./media/app-insights-overview/analytics-tn.png) |
-| [**Alertas automáticos e manuais**](app-insights-alerts.md)<br/>alertas automáticos se adaptam aos padrões normais de telemetria do seu aplicativo e são disparados quando há algo fora do padrão normal. Você também pode definir alertas em níveis específicos de métricas padrão ou personalizadas. |![Exemplo de alerta](./media/app-insights-overview/alerts-tn.png) |
 | [**Visual Studio**](app-insights-visual-studio.md)<br/>Veja dados de desempenho no código. Vá até o código dos rastreamentos de pilha.|![Visual Studio](./media/app-insights-overview/visual-studio-tn.png) |
+| [**Depurador de instantâneo**](app-insights-snapshot-debugger.md)<br/>Depure instantâneos tirado como exemplo de operações ao vivo, com valores de parâmetro.|![Visual Studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](app-insights-export-power-bi.md)<br/>Integre as métricas de uso com outro business intelligence.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**REST API**](https://dev.applicationinsights.io/)<br/>Escreva o código para executar consultas em suas métricas e dados brutos.| ![API REST](./media/app-insights-overview/rest-tn.png) |
 | [**Exportação contínua**](app-insights-export-telemetry.md)<br/>Exportação em massa de dados brutos para armazenamento assim que eles chegam. |![Exportação](./media/app-insights-overview/export-tn.png) |
@@ -90,10 +92,10 @@ Quando você recebe um alerta ou descobre um problema:
 
 * Avalie quantos usuários são afetados.
 * Correlacione falhas a exceções, a chamadas de dependência e a rastreamentos.
-* Examine os logs de rastreamento e despejos de pilha.
+* Examine o criador de perfil, instantâneos, despejos de pilha e logs de rastreamento.
 
 ### <a name="build-measure-learn"></a>Compilar, medir, aprender
-Meça a eficácia de cada novo recurso que você implanta.
+[Meça a eficácia](app-insights-usage-overview.md) de cada novo recurso que você implanta.
 
 * Planeje medir como os clientes usam a nova experiência do usuário ou as funcionalidades de negócios.
 * Escreva a telemetria personalizada em seu código.
@@ -134,7 +136,6 @@ Introdução ao tempo de desenvolvimento com:
   * [Solução de problemas][qna]
   * [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
   * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-  * [Obter suporte do desenvolvedor](app-insights-get-dev-support.md)
 * Suas sugestões:
   * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * Blog:
@@ -156,9 +157,8 @@ Introdução ao tempo de desenvolvimento com:
 [greenbrown]: app-insights-asp-net.md
 [ios]: https://github.com/Microsoft/ApplicationInsights-iOS
 [java]: app-insights-java-get-started.md
-[knowUsers]: app-insights-overview-usage.md
+[knowUsers]: app-insights-web-track-usage.md
 [platforms]: app-insights-platforms.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-

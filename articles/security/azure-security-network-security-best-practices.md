@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: TomSh
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 71e0d74f0e4787393e3184a3a5b553c4935cf785
-
-
+ms.openlocfilehash: 659304937eebb1b2fe6faf019dfef63e1e29bcd4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-network-security-best-practices"></a>Práticas recomendadas de rede do Azure
 O Microsoft Azure permite que você conecte dispositivos e máquinas virtuais a outros dispositivos de rede, colocando-os em redes virtuais do Azure. Uma Rede Virtual do Azure é uma construção de rede virtual que permite que você conecte placas de interface de rede virtual a uma rede virtual para permitir a comunicação baseada em TCP/IP entre os dispositivos habilitados para rede. As Máquinas Virtuais do Azure conectadas a uma Rede Virtual do Azure são capazes de se conectar a dispositivos na mesma Rede Virtual do Azure, em Redes Virtuais do Azure diferentes, na Internet ou até mesmo em suas próprias redes locais.
@@ -134,7 +134,7 @@ A [VPN site a site](../vpn-gateway/vpn-gateway-site-to-site-create.md) represent
 
 Embora a VPN site a site seja uma tecnologia confiável e estabelecida, o tráfego no túnel não atravessa a Internet. Além disso, a largura de banda é relativamente restrita a um máximo de aproximadamente 200 Mbps.
 
-Se você precisar de um nível excepcional de segurança ou de desempenho para as conexões entre locais, recomendamos que você use a Rota Expressa do Azure para sua conectividade entre locais. A Rota Expressa é um link WAN dedicado entre seu local ou um provedor de hospedagem do Exchange. Como essa é uma conexão de telecomunicações, seus dados não viajam pela Internet e, portanto, não são expostos aos potenciais riscos de comunicações pela Internet.
+Se você precisar de um nível excepcional de segurança ou de desempenho para as conexões entre locais, recomendamos que você use a Azure ExpressRoute para sua conectividade entre locais. O ExpressRoute é um link WAN dedicado entre seu local ou um provedor de hospedagem do Exchange. Como essa é uma conexão de telecomunicações, seus dados não viajam pela Internet e, portanto, não são expostos aos potenciais riscos de comunicações pela Internet.
 
 Para saber mais sobre o funcionamento da ExpressRoute do Azure e sobre como implantar, leia o artigo [Visão geral técnica da ExpressRoute](../expressroute/expressroute-introduction.md).
 
@@ -156,7 +156,7 @@ No nível da Rede Virtual do Azure, o Azure fornece três opções principais de
 ## <a name="http-based-load-balancing"></a>Balanceamento de carga baseado em HTTP
 O balanceamento de carga baseado em HTTP baseia as decisões sobre para qual servidor serão enviadas conexões usando características do protocolo HTTP. O Azure tem um balanceador de carga de HTTP que passa pelo nome do Application Gateway.
 
-É recomendável que você use o Application Gateway do Azure quando:
+É recomendável que você use o Gateway de Aplicativo do Azure quando:
 
 * Os aplicativos que exijam solicitações da mesma sessão de usuário/cliente para acessar a mesma máquina virtual de back-end. Exemplos disso são os aplicativos de carrinho de compras e servidores de email na Web.
 * Os aplicativos que desejam liberar os farms de servidores Web da sobrecarga da terminação SSL ao tirar proveito do recurso [descarregamento SSL](https://f5.com/glossary/ssl-offloading) do Gateway de Aplicativo.
@@ -235,9 +235,3 @@ No entanto, há muitos problemas de planejamento e de design que precisam ser ab
 A Microsoft criou o [Diagrama de arquitetura de referência de extensão do datacenter](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content) e material de apoio para ajudar você a entender a aparência de uma extensão do datacenter. Isso fornece um exemplo de implementação de referência que você pode usar para planejar e projetar uma extensão segura do datacenter corporativo para a nuvem. É recomendável que você leia este documento para ter uma ideia dos principais componentes de uma solução segura.
 
 Para saber mais sobre como estender com segurança seu data center para o Azure, veja o vídeo [Extensão do seu datacenter para o Microsoft Azure](https://www.youtube.com/watch?v=Th1oQQCb2KA).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

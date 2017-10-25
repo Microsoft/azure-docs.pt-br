@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
+ms.date: 08/15/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 4a70001f22b47546674c365705554ab30e05f53d
-ms.lasthandoff: 03/24/2017
-
-
+ms.reviewer: dhanyahk
+ms.openlocfilehash: 71ab5cb02ac70871fb8207ab9220b45d1c842dde
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de risco do Azure Active Directory
 
@@ -49,7 +49,14 @@ Os investimentos contínuos da Microsoft no processo de detecção levaram a:
 
 ### <a name="leaked-credentials"></a>Credenciais vazadas
 
-Credenciais vazadas são encontradas por pesquisadores de segurança da Microsoft postadas publicamente na dark web. Essas credenciais são normalmente encontradas em texto sem formatação. Elas são comparadas com as credenciais do Azure AD e, se houver uma correspondência, são relatadas como "Credenciais vazadas" no Identity Protection.
+Quando cibercriminosos comprometem senhas válidas de usuários legítimos, os criminosos muitas vezes compartilham essas credenciais. Geralmente, isso é feito postando-as publicamente na dark Web ou em paste sites, ou então permutando-as ou vendendo-as no mercado negro. O serviço de credenciais vazadas da Microsoft adquire pares de nome de usuário / senha pelo monitoramento de sites públicos e da dark Web, e também trabalhando com:
+
+- Pesquisadores
+- Representantes legais
+- Equipes de segurança da Microsoft
+- Outras fontes confiáveis 
+
+Quando o serviço obtém pares de nome de usuário / senha, eles são verificados em relação a credenciais válidas atuais de usuários do AAD. Quando uma correspondência é encontrada, isso significa que a senha do usuário foi comprometida e um *evento de risco de credenciais vazadas* é criado.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Entradas de endereços IP anônimos
 
@@ -64,7 +71,7 @@ Esse algoritmo de aprendizado de máquina ignora “*falsos positivos*” óbvio
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Entrada de locais desconhecidos
 
-Esse tipo de evento de risco considera locais de entrada (IP, Latitude/Longitude e ASN) para determinar os locais novos/desconhecidos. O sistema armazena informações sobre locais anteriores usados por um usuário e considera esses locais "familiares". O risco ainda é disparado quando a entrada ocorre em um local não presente na lista de locais familiares. O sistema tem um período inicial de aprendizado de 14 dias, durante o qual ele não sinaliza nenhum local novo como desconhecido. O sistema também ignora entradas de dispositivos conhecidos e locais que são geograficamente próximos de uma localização familiar. 
+Esse tipo de evento de risco considera locais de entrada (IP, Latitude/Longitude e ASN) para determinar os locais novos/desconhecidos. O sistema armazena informações sobre locais anteriores usados por um usuário e considera esses locais "familiares". O evento de risco é disparado quando a entrada ocorre em uma localização que ainda não está na lista de localizações conhecidas. O sistema tem um período inicial de aprendizado de 30 dias, durante o qual não sinaliza nenhuma nova localização como desconhecida. O sistema também ignora entradas de dispositivos conhecidos e locais que são geograficamente próximos de uma localização familiar. 
 
 ### <a name="sign-ins-from-infected-devices"></a>Entradas de dispositivos infectados
 
@@ -131,11 +138,11 @@ Recomendamos contatar o usuário imediatamente para verificar se ele estava usan
 Uma viagem impossível geralmente é um bom indicador de que um hacker conseguiu entrar com êxito. No entanto, podem ocorrer falsos positivos quando um usuário estiver viajando usando um novo dispositivo ou usando uma VPN que normalmente não é usada por outros usuários na organização. Outra fonte de falsos positivos são os aplicativos que transmitem IPs de servidor incorretamente como IPs de cliente, o que pode dar a entender que as entradas estão ocorrendo do datacenter em que o aplicativo de back-end está hospedado (geralmente são datacenters Microsoft, o que dá a entender que as entradas estão ocorrendo de endereços IP de propriedade da Microsoft). Como resultado desses falsos positivos, o nível de risco desse evento de risco é **Médio**.
 
 > [!TIP]
-> Você pode reduzir a quantidade de falsos positivos relatados para esse tipo de evento de risco configurando [redes nomeadas](active-directory-known-networks-azure-portal.md). 
+> Reduza a quantidade de falsos positivos relatados para esse tipo de evento de risco configurando [localizações nomeadas](active-directory-named-locations.md). 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Entrada de locais desconhecidos
 
-Locais desconhecidos podem fornecer uma forte indicação de que um invasor é capaz de usar uma identidade roubada. Falsos positivos podem ocorrer quando um usuário estiver viajando, experimentando um novo dispositivo ou usando uma nova VPN. Como resultado desses falsos positivos, o nível de risco desse tipo de evento é **Médio**.
+Locais desconhecidos podem fornecer uma forte indicação de que um invasor é capaz de usar uma identidade roubada. Falsos positivos podem ocorrer quando um usuário está viajando, experimentando um novo dispositivo ou usando uma nova VPN. Como resultado desses falsos positivos, o nível de risco desse tipo de evento é **Médio**.
 
 ### <a name="sign-ins-from-infected-devices"></a>Entradas de dispositivos infectados
 

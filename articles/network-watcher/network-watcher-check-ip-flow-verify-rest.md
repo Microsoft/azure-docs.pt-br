@@ -3,7 +3,7 @@ title: "Verifique o tráfego com a verificação de fluxo de IP do Observador de
 description: "Esse artigo descreve como verificar se o tráfego de ou para uma máquina virtual é permitido ou negado"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 3307a79f-03be-46a0-aaaf-b2079cb5f3b2
@@ -13,21 +13,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 18b98300ee103e3f3118f6db4e1c1a0e169eecad
-ms.lasthandoff: 03/04/2017
-
-
+ms.author: jdial
+ms.openlocfilehash: 3ccef9ef521b86ffc1eb6047174f4f9e5d9e4296
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Verifique se o tráfego é permitido ou negado com a verificação de fluxo de IP, um componente do Observador de Rede do Azure
 
 > [!div class="op_single_selector"]
 > - [Portal do Azure](network-watcher-check-ip-flow-verify-portal.md)
 > - [PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
-> - [CLI](network-watcher-check-ip-flow-verify-cli.md)
+> - [CLI 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-check-ip-flow-verify-cli.md)
 > - [API REST do Azure](network-watcher-check-ip-flow-verify-rest.md)
+
 
 Fluxo de IP Verifique se é um recurso do Observador de Rede que permite verificar se o tráfego é permitido para ou de uma máquina virtual. A validação pode ser executada para o tráfego de entrada ou saída. Esse cenário é útil para obter o estado atual de se uma máquina virtual pode se comunicar com um recurso externo ou um back-end. A Verificação de Fluxo de IP pode ser usada para verificar se as regras do Grupo de Segurança de Rede (NSG) estão configuradas corretamente e solucionar problemas de fluxos que estão sendo bloqueados por regras do NSG. Outro motivo para usar IP fluxo Verifique se é para garantir que deseja bloquear o tráfego está sendo bloqueado corretamente por NSG.
 
@@ -165,7 +166,6 @@ A resposta retornada informa se o tráfego é permitido ou negado. A resposta é
 ## <a name="next-steps"></a>Próximas etapas
 
 Se o tráfego estiver sendo bloqueado, mas não devesse estar, consulte [Gerenciar Grupos de Segurança de Rede](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para saber mais sobre Grupos de Segurança de Rede.
-
 
 
 

@@ -9,18 +9,18 @@ editor:
 tags: 
 ms.assetid: 3b28cf15-f820-4b3c-8310-908d6d5b9d0c
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & tune
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
-translationtype: Human Translation
-ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
-ms.openlocfilehash: 6766242bef4e6f976a621547941e8e34a4915c6c
-
-
+ms.openlocfilehash: 7e5da1c32484b0b94d2ad32ead6bb7c28f9744aa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="extended-events-in-sql-database"></a>Eventos estendidos no Banco de Dados SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -53,7 +53,7 @@ A exposição prévia aos itens a seguir é útil ao escolher o Arquivo de Event
 
 
 - PowerShell
-    - [Usando o Azure PowerShell com o Armazenamento do Azure](../storage/storage-powershell-guide-full.md) - fornece informações abrangentes sobre o PowerShell e o serviço de Armazenamento do Azure.
+    - [Usando o Azure PowerShell com o Armazenamento do Azure](../storage/common/storage-powershell-guide-full.md) - fornece informações abrangentes sobre o PowerShell e o serviço de Armazenamento do Azure.
 
 ## <a name="code-samples"></a>Exemplos de código
 
@@ -125,7 +125,7 @@ Para eventos estendidos, há DMVs adicionais que são comuns ao Banco de Dados S
 
 Você pode executar um simples SQL **SELECT** para obter uma lista dos evento, ações e destino disponíveis.
 
-```tsql
+```sql
 SELECT
         o.object_type,
         p.name         AS [package_name],
@@ -194,10 +194,10 @@ O destino **Arquivo de Evento** pode enfrentar latência de rede ou falhas ao pe
 
 ## <a name="related-links"></a>Links relacionados
 
-- [Usando o Azure PowerShell com o Armazenamento do Azure](../storage/storage-powershell-guide-full.md).
+- [Usando o Azure PowerShell com o Armazenamento do Azure](../storage/common/storage-powershell-guide-full.md).
 - [Cmdlets do Armazenamento do Azure](http://msdn.microsoft.com/library/dn806401.aspx)
-- [Usando o Azure PowerShell com o Armazenamento do Azure](../storage/storage-powershell-guide-full.md) - fornece informações abrangentes sobre o PowerShell e o serviço de Armazenamento do Azure.
-- [Como usar o Armazenamento de blob do .NET](../storage/storage-dotnet-how-to-use-blobs.md)
+- [Usando o Azure PowerShell com o Armazenamento do Azure](../storage/common/storage-powershell-guide-full.md) - fornece informações abrangentes sobre o PowerShell e o serviço de Armazenamento do Azure.
+- [Como usar o Armazenamento de blob do .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
 - [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
 - [Postagens do blog de Jonathan Kehayias sobre eventos estendidos no Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
@@ -215,9 +215,3 @@ Outros tópicos com exemplos de código para eventos estendidos estão disponív
 - Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-

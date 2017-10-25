@@ -11,7 +11,3 @@ No portal do Azure, você pode exibir o status da conexão para um gateway de VP
 5. Para exibir mais informações sobre a conexão, clique no nome da conexão para abrir a folha **Conexão VPN Site a Site**.
 
     ![Mais informações sobre o status da conexão](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "Mais informações sobre o status da conexão")
-
-<!--HONumber=Jan17_HO5-->
-
-

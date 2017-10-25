@@ -24,7 +24,7 @@ Na folha **Novo Cache Redis** , especifique a configuração desejada para o cac
 * Para **Assinatura**, selecione a assinatura do Azure que você deseja usar para o cache. Se sua conta tiver apenas uma assinatura, ela será automaticamente selecionada e o menu suspenso **Assinatura** não será exibido.
 * No **Grupo de recursos**, selecione ou crie um grupo de recursos para seu cache. Para obter mais informações, consulte [Usando os grupos de recursos para gerenciar seus recursos do Azure](../articles/azure-resource-manager/resource-group-overview.md). 
 * Use **Local** para especificar a localização geográfica em que o cache está hospedado. Para obter melhor desempenho, a Microsoft recomenda que você crie o cache na mesma região que o aplicativo de cliente de cache.
-* Utilize **Faixa de preço** para selecionar o tamanho e recursos de cache desejados.
+* Utilize o **Tipo de preço** para selecionar o tamanho e os recursos de cache desejados.
 * **cluster Redis** permite criar caches com mais de 53 GB e fragmentar dados em vários nós Redis. Para saber mais, consulte [Como configurar um cluster para um Cache Redis do Azure Premium](../articles/redis-cache/cache-how-to-premium-clustering.md).
 * **persistência Redis** oferece a capacidade de persistir o cache para uma conta de Armazenamento do Azure. Para obter instruções sobre como configurar a persistência, consulte [Como configurar a persistência para um Cache Redis do Azure Premium](../articles/redis-cache/cache-how-to-premium-persistence.md).
 * **Rede Virtual** provides enhanced security and isolation by restricting access to your cache to only those clients within the specified Azure Rede Virtual. Você pode usar todos os recursos da VNet como sub-redes, políticas de controle de acesso e outros recursos para restringir ainda mais o acesso ao Redis. Para saber mais,confira [Como configurar o suporte de Rede Virtual para um Cache Redis do Azure Premium](../articles/redis-cache/cache-how-to-premium-vnet.md).
@@ -33,9 +33,4 @@ Na folha **Novo Cache Redis** , especifique a configuração desejada para o cac
 Uma vez que as novas opções de cache forem configuradas, clique em **Criar**. Pode levar alguns minutos para que o cache seja criado. Para verificar o status, você pode monitorar o progresso na Startboard. Depois do cache ter sido criado, seu novo cache terá um status **Executando** e estará pronto para o uso com as [configurações padrão](../articles/redis-cache/cache-configure.md#default-redis-server-configuration).
 
 ![Cache criado](media/redis-cache-create/redis-cache-cache-created.png)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

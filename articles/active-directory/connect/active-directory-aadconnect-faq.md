@@ -11,14 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 08/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 27cc51d3f9220756fc1188f978dc158f17037bc3
-ms.lasthandoff: 03/30/2017
-
-
+ms.openlocfilehash: f1314b05d7471b6251de2173dc590bdebdafb476
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Perguntas frequentes sobre o Azure Active Directory Connect
 
@@ -33,7 +32,7 @@ Somente há suporte para instalar o Azure Connect AD usando o assistente de inst
 Há suporte para isso nas compilações de fevereiro de 2016.
 
 **P: O agente de integridade do AD DS funciona no núcleo do servidor?**  
-Sim. Depois de instalar o agente, você pode concluir o processo de registro usando o seguinte commandlet do PowerShell: 
+Sim. Depois de instalar o agente, você pode concluir o processo de registro usando o seguinte cmdlet do PowerShell: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
@@ -104,8 +103,7 @@ Não.
 
 * Você pode pesquisar e procurar perguntas e respostas técnicas na comunidade ou fazer sua própria pergunta clicando [aqui](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
-[Atendimento ao cliente do Azure AD Connect](https://manage.windowsazure.com/?getsupport=true)
+[Como obter suporte para o Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 
 * Use este link para obter suporte por meio do Portal do Azure.
-
 

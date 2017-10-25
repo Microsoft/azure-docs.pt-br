@@ -14,16 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: af8137de4be532465930524aab8db6bf1cf57dff
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: 93db099e9e25856e13c398c4a03a5728d178e5dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hierarquia País/Região usada pelo Gerenciador de Tráfego do Azure para método de roteamento de tráfico geográfico
 
-Este artigo lista os países e regiões usados pelo método de roteamento de tráfego **Geográfico** no Gerenciador de Tráfego do Azure. Você também pode obter essas informações de modo programático chamando a [API REST do Gerenciador de Tráfego do Azure](https://docs.microsoft.com/rest/api/trafficmanager/).  
+Este artigo lista os países e regiões usados pelo método de roteamento de tráfego **Geográfico** no Gerenciador de Tráfego do Azure. Você também pode obter essas informações de modo programático chamando a [API REST do Gerenciador de Tráfego do Azure](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
 - World(Mundo)
 
@@ -701,8 +700,4 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [Método de roteamento de tráfego Geográfico no Gerenciador de Tráfego do Azure](traffic-manager-routing-methods.md#geographic-traffic-routing-method).
-
-
-
-
+- Saiba mais sobre [Método de roteamento de tráfego Geográfico no Gerenciador de Tráfego do Azure](traffic-manager-routing-methods.md#geographic).

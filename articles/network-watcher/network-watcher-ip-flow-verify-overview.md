@@ -3,7 +3,7 @@ title: "Introdução à verificação de fluxo de IP no Observador de Rede do Az
 description: "Esta página fornece uma visão geral da capacidade de verificação de fluxo de IP do Observador de Rede"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: d352fb2d-4b4f-4ac4-9c2e-1cfccf0e7e03
@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bf015f8f646ecce6821379affd4d041329967fc8
-ms.lasthandoff: 03/04/2017
-
+ms.author: jdial
+ms.openlocfilehash: b2ad45e76320c59d18dce7b39166679801b4170a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-ip-flow-verify-in-azure-network-watcher"></a>Introdução à verificação de fluxo de IP no Observador de Rede do Azure
 
 A verificação de fluxo de IP confere se um pacote é permitido ou negado para ou a partir de uma máquina virtual com base nas informações de cinco tuplas. Essas informações consistem em direção, protocolo, IP local, IP remoto, porta local e porta remota. Se o pacote for negado por um grupo de segurança, o nome da regra que negou o pacote será retornado. Embora qualquer IP de origem ou destino possa ser escolhido, esse recurso ajuda os administradores a diagnosticarem rapidamente os problemas de conectividade a partir de ou com a Internet, e a partir de ou com o ambiente local.
@@ -36,7 +35,6 @@ Uma instância do Observador de Rede precisa ser criada em todas as regiões nas
 Visite o seguinte artigo para saber se um pacote é permitido ou negado para uma máquina virtual por meio do portal. [Verifique se o tráfego é permitido em uma VM com uma Verificação de Fluxo de IP usando o portal](network-watcher-check-ip-flow-verify-portal.md)
 
 [1]: ./media/network-watcher-ip-flow-verify-overview/figure1.png
-
 
 
 

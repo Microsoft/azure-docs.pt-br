@@ -2,7 +2,7 @@
 title: "Documentação do Catálogo de Dados do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como configurar um catálogo de dados em que sua organização pode localizar, entender e consumir fontes de dados. Tutoriais, referência de API e outras documentações."
 services: data-catalog
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -10,12 +10,13 @@ ms.service: data-catalog
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 05/25/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: c5ada5ff9a0ba37cecff9e2d507736457cc11eb5
-ms.openlocfilehash: b04ec1a07bd1d74aa061409823c78ea814d127fc
-
+ms.openlocfilehash: c901562753be86613ac4ca4dec1e727d1383e626
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="data-catalog-documentation"></a>Documentação do Catálogo de Dados
 
@@ -71,17 +72,12 @@ Saiba como usar o Catálogo de Dados para ajudar a sua organização e a sua equ
                     <div class="cardText">
                         <h3>REST</h3>
                         <p><a href="/rest/api/datacatalog/">API REST</a></p>
+                        <p><a href="/rest/api/datacatalog/data-catalog-search-syntax-reference">Referência de sintaxe de pesquisa</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

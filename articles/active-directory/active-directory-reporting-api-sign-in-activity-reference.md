@@ -3,7 +3,7 @@ title: "Referência da API de relatório da atividade de entrada do Azure Active
 description: "Referência para a API de relatório de atividade de entrada do Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634
@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2016
+ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dce65678f9fc96d5802a7b705689cc63e6532c84
-ms.lasthandoff: 03/24/2017
-
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: d83f1a899ba38dab2c1c1661adede87db6f88c20
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/17/2017
 
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Referência da API de relatório de atividade de entrada do Azure Active Directory
@@ -28,15 +29,23 @@ O escopo deste tópico é fornecer informações de referência sobre a **API de
 
 Consulte:
 
-* [Atividades de entrada](active-directory-reporting-azure-portal.md#sign-in-activities) para obter mais informações conceituais
+* [Atividades de entrada](active-directory-reporting-azure-portal.md#activity-reports) para obter mais informações conceituais
 * [Introdução à API de relatório do Azure Active Directory](active-directory-reporting-api-getting-started.md) para saber mais sobre a API de relatório.
 
-Para dúvidas, problemas ou comentários, entre em contato com a [Ajuda de relatório do AAD](mailto:aadreportinghelp@microsoft.com).
 
 ## <a name="who-can-access-the-api-data"></a>Quem pode acessar os dados da API?
-* Usuários na função de Administrador de segurança ou Leitor de segurança
+* Usuários e Entidades de Serviço na função de Administrador de segurança ou Leitor de segurança
 * Administradores globais
 * Qualquer aplicativo que tenha autorização para acessar a API (a autorização do aplicativo pode ser definida somente com base na permissão de Administrador Global)
+
+Para configurar o acesso a um aplicativo para acessar as APIs de segurança, como eventos de entrada, use o PowerShell a seguir para adicionar a entidade de serviço de aplicativos à função do Leitor de Segurança
+
+```PowerShell
+Connect-MsolService
+$servicePrincipal = Get-MsolServicePrincipal -AppPrincipalId "<app client id>"
+$role = Get-MsolRole | ? Name -eq "Security Reader"
+Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal -RoleMemberObjectId $servicePrincipal.ObjectId
+```
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para acessar esse relatório por meio da API de relatórios, você deve ter:

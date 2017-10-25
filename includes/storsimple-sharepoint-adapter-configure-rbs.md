@@ -44,7 +44,7 @@
    
    1. Carregue um documento no SharePoint. 
    2. Navegue até o caminho UNC que você configurou. Verifique se a estrutura do diretório do RBS foi criada e se ela contém o objeto carregado.
-6. (Opcional) Você pode usar o cmdlet do PowerShell `Migrate()` do Microsoft RBS incluído com o SharePoint para migrar o conteúdo BLOB existente para o dispositivo StorSimple. Para saber mais, consulte [Migrar conteúdo para dentro ou fora do RBS no SharePoint 2013][6] ou [Migrar conteúdo para dentro ou fora do RBS (SharePoint Foundation 2010)][7].
+6. (Opcional) Você pode usar o cmdlet do PowerShell `Migrate()` do Microsoft RBS incluído com o SharePoint para migrar o conteúdo BLOB existente para o dispositivo StorSimple. Para saber mais, confira [Migrar conteúdo para dentro ou fora do RBS no SharePoint 2013][6] ou [Migrar conteúdo para dentro ou fora do RBS (SharePoint Foundation 2010)][7].
 7. (Opcional) Em instalações de teste, você pode verificar se os BLOBs foram movidos para fora do banco de dados de conteúdo, como se segue: 
    
    1. Inicie o SQL Management Studio.
@@ -106,8 +106,3 @@
 
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx
-
-
-<!--HONumber=Nov16_HO3-->
-
-

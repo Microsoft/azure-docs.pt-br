@@ -8,8 +8,3 @@
 
 A página **Políticas de Backup** será atualizada para exibir a nova lista de políticas.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

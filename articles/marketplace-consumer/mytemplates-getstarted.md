@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: vybavar
-translationtype: Human Translation
-ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
 ms.openlocfilehash: 01657619cbe579c6818a790cc3ab95a33936a565
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Introdução aos modelos privados no Portal do Azure
 Um modelo do [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) é um modelo declarativo usado para definir a sua implantação. Você define os recursos a serem implantados em uma solução e especifica os parâmetros e variáveis que lhe permitem inserir valores para diferentes ambientes. O modelo consiste em JSON e expressões que podem ser usados na construção de valores para sua implantação.
@@ -132,10 +132,4 @@ Clique em **Selecionar** e em **Ok**. Agora você pode ver os usuários ou grupo
 * Para saber mais sobre a criação de modelos do Resource Manager, confira [Criando modelos](../azure-resource-manager/resource-group-authoring-templates.md)
 * Para conhecer as funções que podem ser usadas em um modelo do Resource Manager, veja [Funções do modelo](../azure-resource-manager/resource-group-template-functions.md)
 * Para obter diretrizes sobre como criar os modelos, confira [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/best-practices-resource-manager-design-templates.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

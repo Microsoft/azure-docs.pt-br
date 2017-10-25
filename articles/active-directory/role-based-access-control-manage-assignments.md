@@ -3,7 +3,7 @@ title: "Exibir atribuições de acesso a recursos do Azure | Microsoft Docs"
 description: "Exibir e gerenciar todas as atribuições de Controle de Acesso Baseado em Função para um usuário ou grupo no portal do Azure"
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: andredm7
 manager: femila
 editor: jeffsta
 ms.assetid: e6f9e657-8ee3-4eec-a21c-78fe1b52a005
@@ -12,28 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 3/01/2017
-ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 55baaf0984e01f3cbca7b2296f0b24661e70e7b5
-ms.lasthandoff: 03/04/2017
-
-
+ms.date: 05/04/2017
+ms.author: andredm
+ms.openlocfilehash: 72c695d08bdf5de003d51ffb0768184e1e4d00ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal---public-preview"></a>Exibir as atribuições de acesso para usuários e grupos no portal do Azure – Visualização pública
+# <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Exibir as atribuições de acesso para usuários e grupos no Portal do Azure
 > [!div class="op_single_selector"]
 > * [Gerenciar o acesso por usuário ou grupo](role-based-access-control-manage-assignments.md)
 > * [Gerenciar o acesso por recurso](role-based-access-control-configure.md)
 
-Com RBAC (controle de acesso baseado em função) na visualização do Azure Active Directory, você pode gerenciar o acesso aos recursos do Azure. [O que há na visualização?](active-directory-preview-explainer.md)
+Com RBAC (controle de acesso baseado em função) na visualização do Azure AD (Azure Active Directory), você pode gerenciar o acesso aos recursos do Azure. 
 
 O acesso atribuído com o RBAC é refinado porque há duas maneiras de restringir as permissões:
 
 * **Escopo:** as atribuições de função RBAC passam para uma assinatura, um grupo de recursos ou um recurso específico. Um usuário que recebe acesso a um recurso único não pode acessar os outros recursos na mesma assinatura.
 * **Função:** dentro do escopo da atribuição, o acesso é reduzido ainda mais com a atribuição de função. Funções podem ser de alto nível, como proprietário, ou específicas, como leitor de máquina virtual.
 
-Funções só podem ser atribuídas de uma assinatura, grupo de recursos ou recurso que seja o escopo da atribuição. Mas você pode exibir todas as atribuições de acesso para determinado usuário ou grupo em um mesmo lugar.
+Funções só podem ser atribuídas de uma assinatura, grupo de recursos ou recurso que seja o escopo da atribuição. Mas você pode exibir todas as atribuições de acesso para determinado usuário ou grupo em um mesmo lugar. Em de cada assinatura, você pode ter até 2.000 atribuições de função. 
 
 Saiba mais sobre como [Usar atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](role-based-access-control-configure.md).
 
@@ -60,5 +59,4 @@ Nessa folha, você pode excluir atribuições de acesso que foram atribuídas di
 
 * Introdução ao Controle de Acesso Baseado em Função a fim de [Usar atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](role-based-access-control-configure.md)
 * Confira as [Funções internas do RBAC do Azure](role-based-access-built-in-roles.md)
-
 

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
+ms.date: 08/14/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: f7c977dc2e385819dada976afa9497e9a20fd90c
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: 9dd56efb89e07ea61ae431d1ea2accd721cd6502
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Criar clusters HDInsight com o Data Lake Store usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -30,137 +29,137 @@ ms.lasthandoff: 03/22/2017
 >
 >
 
-Este artigo aborda o uso do portal do Azure para criar clusters HDInsight com acesso ao Azure Data Lake Store. Para tipos de cluster com suporte, é possível usar o Data Lake Store como armazenamento padrão ou como uma conta de armazenamento adicional. 
-
-Ao usar o Data Lake Store como armazenamento adicional, a conta de armazenamento padrão dos clusters continua sendo o armazenamento de Blobs do Azure e os arquivos relacionados ao cluster (como logs) ainda são gravados no armazenamento padrão. No entanto, os dados que você deseja processar podem ser armazenados em uma conta do Data Lake Store. O uso do Data Lake Store como uma conta de armazenamento adicional não afeta o desempenho nem a capacidade de ler ou gravar do cluster para o armazenamento.
-
-Aqui estão algumas considerações importantes para usar o HDInsight com o Data Lake Store:
-
-* A opção para criar clusters HDInsight com acesso ao Data Lake Store como armazenamento padrão está disponível para o HDInsight versão 3.5.
-
-* A opção para criar clusters HDInsight com acesso ao Data Lake Store como armazenamento padrão *não está disponível* para clusters HDInsight Premium.
-
-* A opção para criar clusters HDInsight com acesso ao Data Lake Store como armazenamento adicional está disponível para o HDInsight versões 3.2, 3.4 e 3.5.
-
-* Para clusters HBase (Windows e Linux), *não há suporte* para o Data Lake Store como uma opção de armazenamento para o armazenamento padrão ou para o adicional.
-
-* Para clusters Storm (Windows e Linux), é possível usar o Data Lake Store para gravar dados de uma topologia do Storm. Também é possível usar o Data Lake Store para dados de referência que, em seguida, podem ser lidos por uma topologia do Storm. Para saber mais, confira [Usar o Repositório Data Lake em uma topologia do Storm](#use-data-lake-store-in-a-storm-topology).
-
+Saiba como usar o portal do Azure para criar um cluster HDInsight com uma conta do Azure Data Lake Store como o armazenamento padrão ou um armazenamento adicional. Embora armazenamento adicional seja opcional para um cluster HDInsight, é recomendável armazenar seus dados comerciais em contas de armazenamento adicionais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, verifique se você atendeu aos seguintes requisitos:
 
 * **Uma assinatura do Azure**. Acesse [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-
-* **Uma conta do repositório Azure Data Lake**. Siga as instruções em [Introdução ao Azure Data Lake Store usando o portal do Azure](data-lake-store-get-started-portal.md).
-
+* **Uma conta do repositório Azure Data Lake**. Siga as instruções em [Introdução ao Azure Data Lake Store usando o portal do Azure](data-lake-store-get-started-portal.md). Você também deve criar uma pasta raiz na conta.  Neste tutorial, uma pasta raiz chamada __/clusters__ é usada.
 * **Uma entidade de serviço do Azure Active Directory**. Este tutorial fornece instruções sobre como criar uma entidade de serviço no Azure AD (Azure Active Directory). No entanto, para criar uma entidade de serviço, você deve ser um administrador do Azure AD. Se você for um administrador, ignore esse pré-requisito e continue com o tutorial.
 
     >[!NOTE]
-    >Você poderá criar uma entidade de serviço somente se for um administrador do Azure AD. O administrador do Azure AD deverá criar uma entidade de serviço antes que você possa criar um cluster HDInsight com o Data Lake Store. Além disso, a entidade de serviço deve ser criada com um certificado, conforme descrito em [Criar uma entidade de serviço com certificado](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+    >Você poderá criar uma entidade de serviço somente se for um administrador do Azure AD. O administrador do Azure AD deverá criar uma entidade de serviço antes que você possa criar um cluster HDInsight com o Data Lake Store. Além disso, a entidade de serviço deve ser criada com um certificado, conforme descrito em [Criar uma entidade de serviço com certificado](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
     >
 
-## <a name="create-an-hdinsight-cluster-with-access-to-a-data-lake-store"></a>Criar um cluster HDInsight com acesso a um Data Lake Store
-Nesta seção, você cria um cluster HDInsight Hadoop que usa o Data Lake Store como armazenamento padrão ou armazenamento adicional.
+## <a name="create-an-hdinsight-cluster"></a>Crie um cluster HDInsight
+
+Nesta seção, você cria um cluster HDInsight com contas do Data Lake Store como o padrão ou o armazenamento adicional. Este artigo concentra-se somente a parte da configuração de contas do Data Lake Store.  Para obter informações gerais sobre a criação do cluster, consulte [Criar clusters do Hadoop no HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
 
 ### <a name="create-a-cluster-with-data-lake-store-as-default-storage"></a>Criar um cluster com o Data Lake Store como armazenamento padrão
 
->[!NOTE]
->Você somente pode usar essa opção com clusters do HDInsight 3.5 (Standard Edition). Em clusters HDInsight 3.5, essa opção não está disponível para o tipo de cluster HBase.
+**Para criar um cluster HDInsight com um Data Lake Store como a conta de armazenamento padrão**
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-
-2. Para começar a provisionar um cluster HDInsight, siga as instruções em [Criar clusters Hadoop no HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
-
-3. Na folha **Armazenamento**, em **Tipo de armazenamento primário**, clique em **Data Lake Store**.
-
-4. Selecione uma conta existente do Data Lake Store e insira um caminho da pasta raiz em que os arquivos específicos ao cluster devem ser armazenados.
+2. Siga [Criar clusters](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) para obter as informações gerais sobre a criação de clusters do HDInsight.
+3. Na folha **Armazenamento**, em **Tipo de armazenamento primário**, selecione **Data Lake Store** e, em seguida, insira as seguintes informações:
 
     ![Adicionar entidade de serviço ao cluster do HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Adicionar entidade de serviço ao cluster do HDInsight")
 
-    
-    Na captura de tela acima, o caminho da pasta raiz é /clusters/myhdiadlcluster, em que *myhdiadlcluster* é o nome do cluster que está sendo criado. Nesse caso, verifique se a pasta */clusters* existe na conta do Data Lake Store. A pasta *myhdiadlcluster* é criada durante a criação do cluster. De modo semelhante, se o caminho raiz foi definido como */hdinsight/clusters/data/myhdiadlcluster*, verifique se */hdinsight/clusters/data/* existe na conta do Data Lake Store.
+    - **Selecionar conta do Data Lake Store**: selecione uma conta existente do Data Lake Store. Uma conta existente do Data Lake Store é necessária.  Consulte [Pré-requisitos](#prereuisites).
+    - **Caminho raiz**: insira um caminho em que os arquivos específicos de cluster deverão ser armazenados. Na captura de tela, é __/clusters/myhdiadlcluster/__, em que a pasta __/clusters__ deve existir e o Portal cria a pasta *myhdicluster*.  O *myhdicluster* é o nome do cluster.
+    - **Acesso ao Data Lake Store**: configure o acesso entre a conta do Data Lake Store e o cluster HDInsight. Para obter instruções, consulte [Configurar acesso ao Data Lake Store](#configure-data-lake-store-access).
+    - **Contas de armazenamento adicionais**: adicione Contas de Armazenamento do Azure como contas de armazenamento adicionais para o cluster. Para adicionar mais Data Lake Stores, dê ao cluster permissões sobre os dados em mais contas do Data Lake Store enquanto configura uma conta do Data Lake Store como o tipo de armazenamento principal. Consulte [Configurar acesso ao Data Lake Store](#configure-data-lake-store-access).
 
-5. Clique em **Acesso ao Data Lake Store** para configurar o acesso entre a conta do Data Lake Store e o cluster HDInsight. Para obter instruções, consulte [Configurar o acesso entre o cluster HDInsight e o Data Lake Store](#configure-access-between-hdinsight-cluster-and-data-lake-store). 
+4. Em **Acesso ao Data Lake Store**, clique em **Selecionar** e continue com a criação do cluster, conforme descrito em [Criar clusters Hadoop no HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
 
-### <a name="create-a-cluster-with-data-lake-store-as-additional-storage"></a>Criar um cluster com o Data Lake Store como armazenamento adicional 
+### <a name="create-a-cluster-with-data-lake-store-as-additional-storage"></a>Criar um cluster com o Data Lake Store como armazenamento adicional
+
+As instruções a seguir criam um cluster HDInsight com uma conta de Armazenamento do Azure como o armazenamento padrão e uma conta do Data Lake Store como um armazenamento adicional.
+**Para criar um cluster HDInsight com um Data Lake Store como a conta de armazenamento padrão**
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-
-2. Para começar a provisionar um cluster HDInsight, siga as instruções em [Criar clusters Hadoop no HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
-
-3. Na folha **Armazenamento**, em **Tipo de armazenamento primário**, selecione **Armazenamento do Azure**.
- 
-4. Em **Método de seleção**, siga um destes procedimentos:
-
-    * Para especificar uma conta de armazenamento que faz parte de sua assinatura do Azure, selecione **Minhas assinaturas** e, em seguida, selecione a conta de armazenamento.
-
-    * Para especificar uma conta de armazenamento que está fora de sua assinatura do Azure, selecione **Chave de acesso** e, em seguida, forneça as informações da conta de armazenamento externa.
-
-5. Em **Contêiner padrão**, retenha o nome do contêiner padrão sugerido pelo portal ou especifique seu próprio.
+2. Siga [Criar clusters](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) para obter as informações gerais sobre a criação de clusters do HDInsight.
+3. Na folha **Armazenamento**, em **Tipo de armazenamento primário**, selecione **Armazenamento do Azure** e, em seguida, insira as seguintes informações:
 
     ![Adicionar entidade de serviço ao cluster do HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "Adicionar entidade de serviço ao cluster do HDInsight")
 
-6. Ao usar o armazenamento de Blobs como armazenamento padrão, ainda é possível usar o Data Lake Store como armazenamento adicional para o cluster. Para fazer isso, clique em **Acesso ao Data Lake Store** para configurar o acesso entre a conta do Data Lake Store e o cluster HDInsight. Para obter instruções, consulte [Configurar o acesso entre o cluster HDInsight e o Data Lake Store](#configure-access-between-hdinsight-cluster-and-data-lake-store).
+    - **Método de seleção**: use uma das seguintes opções:
 
-## <a name="configure-access-between-hdinsight-cluster-and-data-lake-store"></a>Configurar o acesso entre o cluster HDInsight e o Data Lake Store
+        * Para especificar uma conta de armazenamento que faz parte de sua assinatura do Azure, selecione **Minhas assinaturas** e, em seguida, selecione a conta de armazenamento.
+        * Para especificar uma conta de armazenamento que está fora de sua assinatura do Azure, selecione **Chave de acesso** e, em seguida, forneça as informações da conta de armazenamento externa.
 
-Nesta seção, você configura o acesso entre os clusters HDInsight e o Data Lake Store usando uma entidade de serviço do Azure Active Directory
+    - **Contêiner padrão**: use o valor padrão ou especifique seu próprio nome.
 
-1. Na folha **Acesso ao Data Lake Store**, especifique se deseja usar uma nova entidade de serviço ou uma entidade de serviço existente. Esta etapa cria uma nova entidade de serviço. Para usar uma entidade de serviço existente, vá para a próxima etapa.
+    - Contas de Armazenamento adicionais: adicione mais contas de Armazenamento do Azure como armazenamento adicional.
+    - Acesso ao Data Lake Store: configure o acesso entre a conta do Data Lake Store e o cluster HDInsight. Para obter instruções, consulte [Configurar acesso ao Data Lake Store](#configure-data-lake-store-access).
 
-    a. Na folha **Acesso ao Data Lake Store**, clique em **Criar novo** e, em seguida, em **Entidade de Serviço**.
+## <a name="configure-data-lake-store-access"></a>Configurar acesso ao Data Lake Store 
 
-    b. Na folha **Criar uma Entidade de Serviço**, insira os valores necessários.  
+Nesta seção, você configura o acesso ao Data Lake Store de clusters do HDInsight usando uma entidade de serviço do Azure Active Directory. 
 
-    c. Clique em **Criar**. Um certificado e um aplicativo do Azure AD são criados automaticamente.
+### <a name="specify-a-service-principal"></a>Especificar uma entidade de serviço
+
+No portal do Azure, você pode usar uma entidade de serviço existente ou criar uma nova.
+
+**Para criar uma entidade de serviço do portal do Azure**
+
+1. Clique em **Acesso ao Data Lake Store** na folha Repositório.
+2. Na folha **Acesso ao Data Lake Store**, clique em **Criar novo**.
+3. Clique em **Entidade de Serviço** e siga as instruções para criar uma entidade de serviço.
+4. Baixe o certificado se você optar por usá-lo novamente no futuro. É útil baixar o certificado se você desejar usar a mesma entidade de serviço ao criar clusters HDInsight adicionais.
 
     ![Adicionar entidade de serviço ao cluster do HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png "Adicionar entidade de serviço ao cluster do HDInsight")
 
-    Você também pode clicar em **Baixar Certificado** para baixar o certificado associado à entidade de serviço que criou. É útil baixar o certificado se você desejar usar a mesma entidade de serviço ao criar clusters HDInsight adicionais. Clique em **Selecionar**.
+4. Clique em **Acessar** para configurar o acesso à pasta.  Consulte [Configurar permissões de arquivo](#configure-file-permissions).
 
-2. Para usar uma entidade de serviço existente, realize as etapas fornecidas abaixo.
 
-    a. Na folha **Acesso ao Data Lake Store**, clique em **Usar existente** e, em seguida, em **Entidade de Serviço**.
+**Para usar uma entidade de serviço existente do portal do Azure**
 
-    b. Na folha **Selecionar uma Entidade de Serviço**, pesquise uma entidade de serviço existente. Clique na entidade de serviço que você deseja usar e, em seguida, clique em **Selecionar**.
-
-    c. Na folha **Acesso ao Data Lake Store**, carregue o certificado (arquivo .pfx) associado à entidade de serviço selecionada e insira a senha do certificado.
+1. Clique em **Acesso ao Data Lake Store**.
+1. Na folha **Acesso ao Data Lake Store**, clique em **Usar existente**.
+2. Clique em **Entidade de Serviço** e, em seguida, selecione uma entidade de serviço. 
+3. Carregue o certificado (arquivo .pfx) associado à entidade de serviço selecionada e insira a senha do certificado.
 
     ![Adicionar entidade de serviço ao cluster do HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Adicionar entidade de serviço ao cluster do HDInsight")
 
-7. Na folha **Acesso do Data Lake Store**, clique em **Acessar**. A folha **Selecionar permissões de arquivo** é aberta por padrão. Ela lista todas as contas do Data Lake Store na assinatura.
+4. Clique em **Acessar** para configurar o acesso à pasta.  Consulte [Configurar permissões de arquivo](#configure-file-permissions).
 
-8. Selecione a conta do Data Lake Store que você deseja associar ao cluster. 
 
-    **Se você estiver usando o Data Lake Store como o armazenamento padrão**, atribua permissões em dois níveis.
+### <a name="configure-file-permissions"></a>Configurar permissões de arquivo
 
-    a. Primeiro, você deverá atribuir permissões no nível raiz da conta do Data Lake Store. Para fazer isso, focalize (não clique) o nome da conta do Data Lake Store para tornar a caixa de seleção visível. Marque a caixa de seleção.
+As configurações são diferentes dependendo de se a conta é usada como o armazenamento padrão ou uma conta de armazenamento adicional:
+
+- Usado como o armazenamento padrão
+
+    - permissão no nível raiz da conta do Data Lake Store
+    - permissão no nível raiz do armazenamento de cluster HDInsight. Por exemplo, a pasta __/clusters__ usada anteriormente no tutorial.
+- Usar como um armazenamento adicional
+
+    - Permissões nas pastas em que você precisa de acesso ao arquivo.
+
+**Para atribuir a permissão no nível raiz da conta do Data Lake Store**
+
+1. Na folha **Acesso do Data Lake Store**, clique em **Acessar**. A folha **Selecionar permissões de arquivo** é aberta. Ela lista todas as contas do Data Lake Store na assinatura.
+2. Focalize o mouse (não clique) no nome da conta do Data Lake Store para tornar a caixa de seleção visível, então selecione-a.
 
     ![Adicionar entidade de serviço ao cluster do HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Adicionar entidade de serviço ao cluster do HDInsight")
 
-    b. Em seguida, você deverá atribuir permissões na raiz de armazenamento de cluster HDInsight. De acordo com a captura de tela anterior, a raiz de armazenamento de cluster é a pasta **/clusters**, que é especificada durante a seleção do Data Lake Store como armazenamento padrão.
+  Por padrão, as opções __LER__, __GRAVAR__ E __EXECUTAR__ estão selecionadas.
 
-    ![Adicionar entidade de serviço ao cluster do HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.add.png "Adicionar entidade de serviço ao cluster do HDInsight")
+3. Clique em **Selecionar** na parte inferior da página.
+4. Clique em **Executar** para atribuir permissão.
+5. Clique em **Concluído**.
 
-    **Se você estiver usando o Data Lake Store como armazenamento adicional**, atribua permissões somente para a pasta que você deseja acessar por meio do cluster HDInsight. Por exemplo, na captura de tela abaixo, você fornece acesso apenas à pasta **hdiaddonstorage** em uma conta do Data Lake Store.
+**Para atribuir a permissão no nível de raiz do cluster HDInsight**
 
-    ![Atribuir permissões da entidade de serviço ao cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3-1.png "Atribuir permissões da entidade de serviço ao cluster HDInsight")
+1. Na folha **Acesso do Data Lake Store**, clique em **Acessar**. A folha **Selecionar permissões de arquivo** é aberta. Ela lista todas as contas do Data Lake Store na assinatura.
+1. Na folha **Selecionar permissões de arquivo**, clique no nome do Data Lake Store para mostrar seu conteúdo.
+2. Selecione a raiz de armazenamento de cluster HDInsight marcando a caixa de seleção à esquerda da pasta. De acordo com a captura de tela anterior, a raiz de armazenamento de cluster é a pasta __/clusters__ especificada durante a seleção do Data Lake Store como armazenamento padrão.
+3. Defina as permissões na pasta.  Por padrão, as opções ler, gravar e executar estão selecionadas.
+4. Clique em **Selecionar** na parte inferior da página.
+5. Clique em **Executar**.
+6. Clique em **Concluído**.
 
-9. Para todas as contas e caminhos selecionados, selecione as permissões (Leitura, Gravação ou Execução) e especifique se as permissões são aplicadas recursivamente aos itens filho também e, em seguida, clique em **Selecionar**.
+Se você estiver usando o Data Lake Store como armazenamento adicional, deverá atribuir permissões somente para as pastas que você deseja acessar por meio do cluster HDInsight. Por exemplo, na captura de tela abaixo, você fornece acesso apenas à pasta **hdiaddonstorage** em uma conta do Data Lake Store.
 
-11. Na janela **Atribuir permissões selecionadas**, para atribuir as permissões da entidade de serviço do Azure Active Directory na conta, nos arquivos ou nas pastas selecionadas, clique em **Executar**.
+![Atribuir permissões da entidade de serviço ao cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3-1.png "Atribuir permissões da entidade de serviço ao cluster HDInsight")
 
-    ![Atribuir permissões da entidade de serviço ao cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3-2.png "Atribuir permissões da entidade de serviço ao cluster HDInsight")
-
-12. Depois de atribuir as permissões com êxito, clique em **Concluído** em cada folha aberta para retornar à folha **Acesso ao Data Lake Store**.
-
-13. Em **Acesso ao Data Lake Store**, clique em **Selecionar** e continue com a criação do cluster, conforme descrito em [Criar clusters Hadoop no HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="verify-cluster-set-up"></a>Verificar a configuração do cluster
 
-Após a conclusão da configuração do cluster, na folha do cluster, verifique os resultados seguindo um ou ambos os procedimentos:
+Após a conclusão da configuração do cluster, na folha do cluster, verifique os resultados executando uma ou ambas as etapas a seguir:
 
 * Para verificar se o armazenamento associado do cluster é a conta do Data Lake Store especificada, clique em **Contas de armazenamento** no painel esquerdo.
 
@@ -181,7 +180,7 @@ Para executar uma consulta do Hive, use a interface de exibições do Hive no po
 
 Ao trabalhar com os dados em um Data Lake Store, há algumas cadeias de caracteres a serem alteradas.
 
-Se você usar, por exemplo, o cluster criado com o Data Lake Store como armazenamento primário, o caminho para os dados será: *adl://<data_lake_store_account_name>/azuredatalakestore.net/path/to/file*. Uma consulta do Hive para criar uma tabela com base em dados de exemplo armazenados na conta do Data Lake Store é parecida com esta:
+Se você usar, por exemplo, o cluster criado com o Data Lake Store como armazenamento primário, o caminho para os dados será: *adl://<data_lake_store_account_name>/azuredatalakestore.net/path/to/file*. Uma consulta do Hive para criar uma tabela com base em dados de exemplo armazenados na conta do Data Lake Store é parecida com a seguinte instrução:
 
     CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsstorage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
 
@@ -211,4 +210,3 @@ Você pode usar o Repositório Data Lake para gravar os dados de uma topologia d
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
-

@@ -1,5 +1,5 @@
 ---
-title: "Visão geral do Engajamento Móvel | Microsoft Docs"
+title: "Visão geral do Mobile Engagement | Microsoft Docs"
 description: "Visão geral do Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/04/2016
 ms.author: piyushjo;matt-gibbs
-translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
 ms.openlocfilehash: 42b50685b854cabe8906f42aac81ab82c63f8a94
-ms.lasthandoff: 01/30/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement-overview"></a>Visão geral do Azure Mobile Engagement
 O Azure Mobile Engagement é uma plataforma SaaS (software como serviço) de envolvimento com o usuário que fornece informações orientadas aos dados sobre uso do aplicativo, segmentação do usuário em tempo real, além de habilitar notificações por push com reconhecimento contextual e mensagens no aplicativo.
@@ -51,5 +50,4 @@ A Microsoft tem um compromisso de longo prazo com a privacidade, que é parte in
 [Introdução](/index.md)
 
 [Baixar aplicativos de demonstração com código-fonte](https://aka.ms/azmedemoapps)
-
 

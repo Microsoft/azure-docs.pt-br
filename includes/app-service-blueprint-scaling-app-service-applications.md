@@ -1,4 +1,4 @@
-* [Dimensionar Serviço de Aplicativo do Azure](../articles/app-service-web/web-sites-scale.md)
+* [Dimensionar Serviço de Aplicativo do Azure](../articles/app-service/web-sites-scale.md)
   
   * Noções Básicas Sobre Confiabilidade e Redundância
   * Aplicativos Com monitoração de estado vs aplicativos Sem monitoração de estado
@@ -7,7 +7,7 @@
 * Melhores práticas para colocação de escala do Serviço de Aplicativo
   
   * Esgotamento de porta e pooling de conexões
-  * [Utilização do Armazenamento do Azure do seu aplicativo do Serviço de Aplicativo](../articles/storage/storage-dotnet-how-to-use-blobs.md)
+  * [Utilização do Armazenamento do Azure do seu aplicativo do Serviço de Aplicativo](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md)
   * [Utilização do CDN do Azure do seu aplicativo do Serviço de Aplicativo](../articles/cdn/cdn-overview.md)
   * [Utilização do Cache Redis do Azure do seu aplicativo do Serviço de Aplicativo](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md)
 * Distribuição geográfica

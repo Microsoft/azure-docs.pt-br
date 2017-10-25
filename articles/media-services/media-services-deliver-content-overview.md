@@ -4,7 +4,7 @@ description: "Este tópico fornece uma visão geral do que está envolvido no fo
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 89ede54a-6a9c-4814-9858-dcfbb5f4fed5
 ms.service: media-services
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 09/28/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 249b87ecc9e43fa26a74e27f91f807d60b275eeb
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: 815aae57af93b0e4870bd9f61da248e4be328db4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deliver-content-to-customers"></a>Distribuir conteúdo aos clientes
 Quando você estiver distribuindo conteúdo de streaming ou vídeo sob demanda aos clientes, sua meta será distribuir vídeo de alta qualidade a vários dispositivos sob diferentes condições de rede.
@@ -27,7 +26,10 @@ Quando você estiver distribuindo conteúdo de streaming ou vídeo sob demanda a
 Para atingir esse objetivo, você pode:
 
 * Codificar o fluxo para uma transmissão de vídeo de múltiplas taxas de bits (taxa de bit adaptável). Isso cuidará da qualidade e das condições de rede.
-* Usar o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md) dos Serviços de Mídia do Microsoft Azure para reempacotar dinamicamente a transmissão em diferentes protocolos. Isso se encarregará da transmissão em diferentes dispositivos. Os Serviços de Mídia dá suporte a entrega das seguintes tecnologias de streaming de taxa de bits adaptável: HLS (HTTP Live Streaming), Smooth Streaming e MPEG DASH.
+* Usar o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md) dos Serviços de Mídia do Microsoft Azure para reempacotar dinamicamente a transmissão em diferentes protocolos. Isso se encarregará da transmissão em diferentes dispositivos. Os Serviços de Mídia permitem a entrega das seguintes tecnologias de streaming de taxa de bits adaptável: <br/>
+    * **HLS** (HTTP Live Streaming): adicione o caminho "(format = m3u8-aapl)" à parte "/Manifest" da URL para informar o servidor de origem de streaming para retornar o conteúdo HLS para consumo nos dispositivos nativos **Apple iOS** (para saber mais detalhes, consulte [localizadores](#locators) e [URLs](#URLs)),
+    * **MPEG-DASH**: adicione o caminho "(format=mpd-time-csf)" à parte "/Manifest" da URL para informar o servidor de origem de streaming para retornar MPEG-DASH (para saber mais detalhes, consulte [localizadores](#locators) e [URLs](#URLs)),
+    * **Smooth Streaming**.
 
 >[!NOTE]
 >Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. 
@@ -52,7 +54,7 @@ Você pode definir filtros para seus ativos com os Serviços de Mídia. Esses fi
 
 Para obter mais informações, consulte [Filtros e manifestos dinâmicos](media-services-dynamic-manifest-overview.md).
 
-## <a name="locators"></a>Localizadores
+## <a name="a-idlocatorslocators"></a><a id="locators"/>Localizadores
 Para fornecer ao usuário uma URL que possa ser usada para transmitir ou baixar seu conteúdo, primeiramente você precisa publicar o ativo criando um localizador. Um localizador fornece um ponto de entrada para acessar os arquivos contidos em um ativo. Os Serviços de Mídia oferecem suporte a dois tipos de localizadores:
 
 * Localizadores OnDemandOrigin. Esses localizadores são usados para transmitir mídia (por exemplo, MPEG-DASH, HLS ou Smooth Streaming) ou baixar arquivos progressivamente.
@@ -82,10 +84,10 @@ Para fornecer aos usuários URLs de streaming, você deve primeiro criar um loca
 > Você também pode transmitir seu conteúdo por uma conexão SSL. Para fazer isso, certifique-se de que suas URLs de streaming começam com HTTPS. Observe que, atualmente, o AMS não dá suporte ao SSL com domínios personalizados.  
 > 
 
-
 Você só poderá transmitir por SSL se o ponto de extremidade de streaming do qual você pode distribuir o conteúdo tiver sido criado depois de 10 de setembro de 2014. Se as URLs de streaming se basearem nos pontos de extremidade de streaming criados após 10 de setembro de 2014, a URL conterá "streaming.mediaservices.windows.net". URLs de streaming que contêm "origin.mediaservices.windows.net" (o formato antigo) não dão suporte a SSL. Se sua URL está no formato antigo e você deseja ser capaz de transmitir por SSL, crie um novo ponto de extremidade de streaming. Use as URLs baseadas no novo ponto de extremidade de streaming para transmitir conteúdo por SSL.
 
-## <a name="streaming-url-formats"></a>Formatos de URL de streaming
+## <a name="a-idurlsstreaming-url-formats"></a><a id="URLs"/>Formatos de URL de streaming
+
 ### <a name="mpeg-dash-format"></a>Formato MPEG-DASH
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=mpd-time-csf)
 
@@ -115,7 +117,7 @@ Exemplo:
 
 http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
-### <a name="a-idfmp4v20asmooth-streaming-20-manifest-legacy-manifest"></a><a id="fmp4_v20"></a>Manifesto do Smooth Streaming 2.0 (manifesto herdado)
+### <a id="fmp4_v20"></a>Manifesto do Smooth Streaming 2.0 (manifesto herdado)
 Por padrão, o formato de manifesto do Smooth Streaming contém a marca de repetição (r-tag). No entanto, alguns jogadores não dão suporte à r-tag. Os clientes com esses players podem usar um formato que desabilita a r-tag:
 
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=fmp4-v20)
@@ -185,5 +187,4 @@ Alguns dos clientes herdados do Smooth Streaming podem não dar suporte às marc
 
 ## <a name="related-topics"></a>Tópicos relacionados
 [Atualizar localizadores dos Serviços de Mídia depois de implantar chaves de armazenamento](media-services-roll-storage-access-keys.md)
-
 

@@ -1,0 +1,73 @@
+- name: Documentação do Serviço de Provisionamento de Dispositivos do Hub IoT do Azure
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: Sobre o Provisionamento de Dispositivos do IoT
+      href: about-iot-dps.md
+- name: Guia de início rápido
+  expanded: true
+  items:
+    - name: Configurar provisionamento automático
+      href: quick-setup-auto-provision.md
+    - name: Criar dispositivo simulado
+      href: quick-create-simulated-device.md
+- name: Tutoriais
+  items:
+    - name: 1 - Configurar recursos de nuvem
+      href: tutorial-set-up-cloud.md
+    - name: 2 - Configurar dispositivo
+      href: tutorial-set-up-device.md
+    - name: 3 - Provisionar um dispositivo para um hub IoT
+      href: tutorial-provision-device-to-hub.md
+    - name: 4 - Provisionar dispositivos para vários hubs
+      href: tutorial-provision-multiple-hubs.md
+- name: Conceitos
+  items:
+    - name: Conceitos do dispositivo
+      href: concepts-device.md
+    - name: Conceitos do serviço
+      href: concepts-service.md
+    - name: Conceitos da segurança
+      href: concepts-security.md
+- name: Guias de instruções
+  items:
+    - name: Gerenciar registros do dispositivo
+      href: how-to-manage-enrollments.md
+    - name: Usar um HSM com SDK
+      href: use-hsm-with-sdk.md
+- name: Referência
+  items:
+    - name: REST
+      href: /rest/api/iot-dps
+- name: Recursos
+  items:
+    - name: Hub IoT do Azure
+      href: 'https://azure.microsoft.com/services/iot-hub/'
+    - name: Catálogo de dispositivos Azure Certified para IoT
+      href: 'https://catalog.azureiotsuite.com/'
+    - name: Centro de Desenvolvedores do IoT do Azure
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: Ferramenta Device Explorer
+      href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
+    - name: ferramenta iothub-diagnostics
+      href: 'https://github.com/Azure/iothub-diagnostics'
+    - name: ferramenta iothub-explorer
+      href: 'https://github.com/Azure/iothub-explorer'
+    - name: Roteiro de aprendizagem
+      href: 'https://azure.microsoft.com/documentation/learning-paths/iot-hub/'
+    - name: Fórum do MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+    - name: Calculadora de preço
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-iot-hub'
+    - name: Estudos de casos técnicos
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'

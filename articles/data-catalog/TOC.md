@@ -20,22 +20,22 @@
 ## [Gerenciar ativos de dados](data-catalog-how-to-manage.md)
 ## [Salvar pesquisas e fixar ativos de dados](data-catalog-how-to-save-pin.md)
 ## [Configurar o glossário de negócios](data-catalog-how-to-business-glossary.md)
+## [Proteger o acesso ao catálogo de dados](data-catalog-how-to-secure-catalog.md)
+## [Exibir os ativos de dados relacionados](data-catalog-how-to-view-related-data-assets.md) 
 
 # Referência
+## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=data-catalog)
 ## [REST](/rest/api/datacatalog/)
+## [Referência de sintaxe de pesquisa](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Conceitos do desenvolvedor](data-catalog-developer-concepts.md)
-## [Exemplos do desenvolvedor](data-catalog-samples.md)
 
 # Recursos
+## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [Atalhos de teclado do Catálogo de Dados do Azure](data-catalog-keyboard-shortcuts.md)
-## [Terminologia](data-catalog-terminology.md)
+## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
+## [Preços](https://azure.microsoft.com/pricing/details/data-catalog/)
+## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Notas de versão](data-catalog-whats-new.md)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=data-catalog)
-## [Preços](https://azure.microsoft.com/pricing/details/data-catalog/)
-## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+## [Terminologia](data-catalog-terminology.md)

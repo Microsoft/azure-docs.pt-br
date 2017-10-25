@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: c38b73fa69bee34ce2434c6274cb017c99ef3c35
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-fiddler-to-evaluate-and-test-azure-search-rest-apis"></a>Usar o Fiddler para avaliar e testar as APIs REST de Pesquisa do Azure
 > [!div class="op_single_selector"]
 >
@@ -223,9 +223,3 @@ Consulte [Gerenciar seu serviço de Pesquisa no Azure](search-manage.md) para ob
 [3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

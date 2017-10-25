@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 6ad01761f7498512bbce82d85e9e5a3db618191e
-ms.openlocfilehash: 16bf75f97e735d3d5feab4d0d1446ca34c00ccfa
-
-
+ms.openlocfilehash: 32a693c059a1b4261f33a3d6f50f397365e9dac4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronização do Azure AD Connect: noções básicas sobre a configuração padrão
 Este artigo explica as regras da configuração pronta para uso. Ele documenta as regras e como elas afetarão a configuração. Ele também o orienta durante a configuração padrão da sincronização do Azure AD Connect. O objetivo é que o leitor compreenda como o modelo de configuração, chamado de provisionamento declarativo, está funcionando em um exemplo do mundo real. Este artigo pressupõe que você já instalou e configurou a sincronização do Azure AD Connect usando o assistente de instalação.
@@ -75,9 +75,9 @@ Um objeto de contato deve atender ao seguinte para ser sincronizado:
 
 * O contato deve ser habilitado para email. É verificado com as seguintes regras:
   * `IsPresent([proxyAddresses]) = True)`. O atributo proxyAddresses deve ser preenchido.
-  * Um endereço de email principal pode ser encontrado no atributo proxyAddresses ou no atributo de email. A presença de uma @ é usada para verificar se o conteúdo é um endereço de email. Uma dessas duas regras deve ser avaliada como True.
-    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Existe uma entrada com "SMTP:" e, se houver, uma @ pode ser encontrado na cadeia de caracteres?
-    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. O atributo de email está preenchido e, se estiver, uma @ pode ser encontrado na cadeia de caracteres?
+  * Um endereço de email principal pode ser encontrado no atributo proxyAddresses ou no atributo de email. A presença de @ é usada para verificar se o conteúdo é um endereço de email. Uma dessas duas regras deve ser avaliada como True.
+    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Existe uma entrada com "SMTP:" e, se houver, é possível encontrar @ na cadeia de caracteres?
+    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. O atributo de email está preenchido e, se estiver, é possível encontrar @ na cadeia de caracteres?
 
 Os seguintes objetos de contato **não** estão sincronizados ao AD do Azure:
 
@@ -236,10 +236,4 @@ Agora sabemos o suficiente sobre Regras de Sincronização para poder entender c
 
 * [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

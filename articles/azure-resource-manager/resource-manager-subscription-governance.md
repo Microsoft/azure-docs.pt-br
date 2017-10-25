@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: adae9827bbdb5f72b9e0fb4a1792fe54b9324706
-ms.openlocfilehash: 9f4f0ce9e389fa560345c77502db8e225827f054
-ms.lasthandoff: 01/10/2017
-
-
+ms.openlocfilehash: 3a19f2cf7566f38f80639d7c966638a3ec900cf4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Andaime empresarial do Azure — governança de assinatura prescritiva
 As empresas estão adotando cada vez mais a nuvem pública em busca de agilidade e flexibilidade. Elas estão usando os pontos fortes da nuvem para gerar receita ou otimizar recursos para os negócios. O Microsoft Azure fornece uma variedade de serviços que as empresas podem montar como blocos de construção para atender a uma ampla gama de aplicativos e cargas de trabalho. 
@@ -48,7 +47,7 @@ O andaime empresarial destina-se a ser a base de cada nova assinatura no Azure. 
 > 
 > 
 
-A imagem a seguir descreve os componentes do andaime. A base depende de um plano sólido para departamentos, contas e assinaturas. Os pilares consistem em políticas do Resource Manager e sólidos padrões de nomenclatura. O restante do andaime vem dos principais recursos e capacidades do Azure, que possibilitam um ambiente seguro e gerenciável.
+A imagem a seguir descreve os componentes do andaime. A base depende de um plano sólido para departamentos, contas e assinaturas. Os pilares consistem em políticas do Resource Manager e sólidos padrões de nomenclatura. O restante do andaime vem dos principais recursos e capacidades do Azure que possibilitam um ambiente seguro e gerenciável.
 
 ![componentes do andaime](./media/resource-manager-subscription-governance/components.png)
 
@@ -79,14 +78,15 @@ Os três padrões comuns para inscrições do Azure são:
 Aplique o andaime no nível de assinatura para estender os requisitos de governança da empresa na assinatura.
 
 ## <a name="naming-standards"></a>Padrões de nomenclatura
-O primeiro pilar do andaime são os padrões de nomenclatura. Os padrões de nomenclatura bem definidos permitem identificar recursos no portal, em uma cobrança e dentro de scripts. Provavelmente, você já tem padrões de nomenclatura para infraestrutura local. Ao adicionar o Azure ao seu ambiente, você deve estender esses padrões de nomenclatura para os recursos do Azure. O padrão de nomenclatura facilita gerenciamento eficiente do ambiente em todos os níveis.
+O primeiro pilar do andaime são os padrões de nomenclatura. Os padrões de nomenclatura bem definidos permitem identificar recursos no portal, em uma cobrança e dentro de scripts. Provavelmente, você já tem padrões de nomenclatura para a infraestrutura local. Ao adicionar o Azure ao seu ambiente, você deve estender esses padrões de nomenclatura para os recursos do Azure. O padrão de nomenclatura facilita gerenciamento eficiente do ambiente em todos os níveis.
 
 > [!TIP]
+> Para convenções de nomenclatura:
 > * Analise e adote onde possível as [Orientações de padrões e práticas](../guidance/guidance-naming-conventions.md). Essas diretrizes ajudam a decidir sobre um padrão de nomenclatura significativo.
 > * Use camelCasing para nomes de recursos (como myResourceGroup e vnetNetworkName). Observação: há determinados recursos, como contas de armazenamento, em que a única opção é usar letras minúsculas (e não outros caracteres especiais).
 > * Considere o uso de políticas do Azure Resource Manager (descritas na próxima seção) para impor padrões de nomenclatura.
 > 
-> 
+> As dicas anteriores lhe ajudarão-lo a implementar uma convenção de nomenclatura consistente.
 
 ## <a name="policies-and-auditing"></a>Políticas e auditoria
 O segundo pilar do andaime envolve a criação de [políticas do Azure Resource Manager](resource-manager-policy.md) e a [auditoria do log de atividades](resource-group-audit.md). As políticas do Resource Manager fornecem a capacidade de gerenciar riscos no Azure. Você pode definir políticas que garantem o domínio dos dados, restringindo, impondo ou auditando determinadas ações. 
@@ -156,14 +156,14 @@ As marcações de recurso são flexíveis e devem ser anexadas à maioria dos re
 Para obter mais exemplos de marcações, confira [Convenções de nomenclatura recomendadas para recursos do Azure](../guidance/guidance-naming-conventions.md).
 
 > [!TIP]
-> Crie uma estratégia de marcação que identifique nas assinaturas quais metadados são necessários para os negócios, as finanças, a segurança, o gerenciamento de riscos e o gerenciamento geral do ambiente. Considere criar uma política que exija marcação para:
+> Considere criar uma política que exija marcação para:
 > 
 > * Grupos de recursos
 > * Armazenamento
 > * Máquinas Virtuais
 > * Servidores Web/Ambientes do Serviço de Aplicativo
 > 
-> 
+> Essa estratégia de marcação identifica nas assinaturas quais metadados são necessários para os negócios, as finanças, a segurança, o gerenciamento de riscos e o gerenciamento geral do ambiente. 
 
 ## <a name="resource-group"></a>Grupo de recursos
 O Resource Manager permite colocar recursos em grupos significativos para gerenciamento, cobrança ou afinidade natural. Conforme mencionado anteriormente, o Azure tem dois modelos de implantação. No modelo Clássico mais antigo, a unidade básica de gerenciamento era a assinatura. Era difícil dividir recursos em uma assinatura, o que levou à criação de um grande número de assinaturas. Com o modelo do Resource Manager, vimos a introdução dos grupos de recursos. Os grupos de recursos são contêineres de recursos que têm um ciclo de vida comum ou compartilham um atributo, como "todos os servidores SQL" ou "Aplicativo A".
@@ -171,12 +171,12 @@ O Resource Manager permite colocar recursos em grupos significativos para gerenc
 Os grupos de recursos não podem ser contidos um dentro do outro e os recursos podem pertencer apenas a um grupo de recursos. É possível aplicar determinadas ações em todos os recursos em um grupo de recursos. Por exemplo, a exclusão de um grupo de recursos remove todos os recursos do grupo de recursos. Normalmente, você coloca um aplicativo inteiro ou sistema relacionado no mesmo grupo de recursos. Por exemplo, um aplicativo de três camadas chamado Aplicativo Web da Contoso conteria o servidor Web, o servidor de aplicativos e o servidor SQL no mesmo grupo de recursos.
 
 > [!TIP]
-> Como organizar os grupos de recursos pode variar de cargas de trabalho "TI Tradicional" a cargas de trabalho "TI da Agile"
+> O modo como organizar os grupos de recursos pode variar de cargas de trabalho de "TI Tradicional" a cargas de trabalho de "TI Ágil":
 > 
 > * As cargas de trabalho "TI Tradicional" são mais frequentemente agrupadas por itens no mesmo ciclo de vida, como um aplicativo. O agrupamento por aplicativo permite o gerenciamento individual de aplicativo.
 > * As cargas de trabalho "TI da Agile" tendem a se concentrar nos aplicativos de nuvem voltados para o cliente. Os grupos de recursos devem refletir as camadas da implantação (como Camada da Web, Camada de Aplicativo) e o gerenciamento.
 > 
-> 
+> Noções básicas sobre sua carga de trabalho ajudam a desenvolver uma estratégia de grupo de recursos.
 
 ## <a name="role-based-access-control"></a>Controle de acesso baseado em função
 Você provavelmente está se perguntando: "quem deve ter acesso aos recursos?" e "como controlar esse acesso?" Permitir ou negar acesso ao portal do Azure, bem como controlar o acesso aos recursos no portal é essencial. 
@@ -186,14 +186,15 @@ Quando o Azure foi inicialmente lançado, os controles de acesso para uma assina
 Essa proliferação de assinaturas não é mais necessária. Com o controle de acesso baseado em função, você pode atribuir usuários às funções padrão (como tipos de função comuns "leitor" e "gravador"). Você também pode definir funções personalizadas.
 
 > [!TIP]
+> Para implementar um controle de acesso baseado em função:
 > * Conecte seu repositório de identidades corporativo (mais frequentemente, o Active Directory) ao Azure Active Directory usando a ferramenta AD Connect.
 > * Controle o Administrador/Coadministrador de uma assinatura usando uma identidade gerenciada. **Não** atribua Administrador/Coadministrador a um novo proprietário da assinatura. Em vez disso, use funções RBAC para fornecer direitos de **Proprietário** a um grupo ou indivíduo.
 > * Adicione usuários do Azure a um grupo (por exemplo, Proprietários do Aplicativo X) no Active Directory. Use o grupo sincronizado para fornecer aos membros do grupo os direitos apropriados para gerenciar o grupo de recursos que contém o aplicativo.
 > * Siga o princípio de conceder o **privilégio mínimo** exigido para realizar o trabalho esperado. Por exemplo:
-> * Grupo de Implantação: um grupo que só é capaz de implantar recursos.
-> * Gerenciamento de Máquinas Virtuais: um grupo que é capaz de reiniciar VMs (para operações)
+>   * Grupo de Implantação: um grupo que só é capaz de implantar recursos.
+>   * Gerenciamento de Máquinas Virtuais: um grupo que é capaz de reiniciar VMs (para operações)
 > 
-> 
+> Essas dicas ajudam a gerenciar o acesso do usuário em sua assinatura.
 
 ## <a name="azure-resource-locks"></a>Bloqueios de recursos do Azure
 À medida que sua organização adiciona serviços principais à assinatura, torna-se cada vez mais importante garantir que esses serviços estejam disponíveis para evitar interrupção nos negócios. Os [Bloqueios de recursos](resource-group-lock-resources.md) permitem restringir operações nos recursos de alto valor, onde sua modificação ou exclusão teria um impacto significativo nos aplicativos ou na infraestrutura da nuvem. Você pode aplicar bloqueios a uma assinatura, um grupo de recursos ou um recurso. Normalmente, você aplica bloqueios a recursos fundamentais, como redes virtuais, gateways e contas de armazenamento. 
@@ -204,13 +205,13 @@ Para criar ou excluir bloqueios de gerenciamento, você deve ter acesso às aç�
 Das funções internas, somente Proprietário e Administrador do Acesso de Usuário recebem essas ações.
 
 > [!TIP]
-> As opções de rede principais devem ser protegidas com bloqueios. A exclusão acidental de uma VPN site a site, de gateway seria desastroso para uma assinatura do Azure. O Azure não permite a exclusão de uma rede virtual que esteja em uso, mas aplicar mais restrições é uma precaução útil. As políticas também são essenciais para a manutenção dos controles adequados. É recomendável aplicar um bloqueio **CanNotDelete** para políticas que estão em uso.
+> As opções de rede principais devem ser protegidas com bloqueios. A exclusão acidental de uma VPN site a site, de gateway seria desastroso para uma assinatura do Azure. O Azure não permite a exclusão de uma rede virtual que esteja em uso, mas aplicar mais restrições é uma precaução útil. 
 > 
 > * Rede virtual: CanNotDelete
 > * Grupo de Segurança de Rede: CanNotDelete
 > * Políticas: CanNotDelete
 > 
-> 
+> As políticas também são essenciais para a manutenção dos controles adequados. É recomendável aplicar um bloqueio **CanNotDelete** para políticas que estão em uso.
 
 ## <a name="core-networking-resources"></a>Recursos de rede essenciais
 O acesso a recursos pode ser interno (dentro da rede da empresa) ou externo (por meio da Internet). É fácil para os usuários em sua organização colocar recursos inadvertidamente no ponto errado e potencialmente abri-los para o acesso mal-intencionado. Assim como acontece com dispositivos locais, as empresas devem adicionar os controles adequados para garantir que os usuários do Azure tomam as decisões certas. Para governança da assinatura, identificamos recursos principais que fornecem controle básico de acesso. Os principais recursos consistem em:
@@ -221,15 +222,17 @@ O acesso a recursos pode ser interno (dentro da rede da empresa) ou externo (por
 ![rede principal](./media/resource-manager-subscription-governance/core-network.png)
 
 > [!TIP]
+> Para rede:
 > * Crie redes virtuais dedicadas a cargas de trabalho externas e internas. Essa abordagem reduz a possibilidade de colocar acidentalmente máquinas virtuais que são destinadas a cargas de trabalho internas em um espaço voltado para as cargas externas.
-> * Os grupos de segurança de rede são essenciais para essa configuração. No mínimo, bloqueie o acesso à Internet em redes virtuais internas e bloqueie o acesso à rede corporativa em redes virtuais externas.
+> * Configure grupos de segurança de rede para limitar o acesso. No mínimo, bloqueie o acesso à Internet em redes virtuais internas e bloqueie o acesso à rede corporativa em redes virtuais externas.
 > 
-> 
+> Essas dicas lhe ajudarão a implementar recursos de rede seguros.
 
 ### <a name="automation"></a>Automação
 Gerenciar recursos individualmente é demorado e potencialmente sujeito a erros para determinadas operações. O Azure fornece vários recursos de automação, incluindo Automação do Azure, Aplicativos Lógicos e Azure Functions. A [Automação do Azure](../automation/automation-intro.md) permite aos administradores criar e definir runbooks para lidar com tarefas comuns no gerenciamento de recursos. Crie runbooks usando um editor de código do PowerShell ou um editor gráfico. Você pode produzir fluxos de trabalho complexos de vários estágios. A Automação do Azure geralmente é usada para lidar com tarefas comuns, como desligar recursos não utilizados ou criar recursos em resposta a um gatilho específico sem a necessidade de intervenção humana.
 
 > [!TIP]
+> Para automação:
 > * Crie uma conta de Automação do Azure e examine os runbooks (linha de comando e gráfico) disponíveis na [Galeria de Runbooks](../automation/automation-runbook-gallery.md).
 > * Importe e personalize runbooks importantes para seu próprio uso.
 > 
@@ -251,5 +254,4 @@ A [Central de Segurança do Azure](../security-center/security-center-intro.md) 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Agora que você aprendeu sobre governança de assinatura, é hora de ver essas recomendações na prática. Veja [Exemplos de implementação da governança de assinatura do Azure](resource-manager-subscription-examples.md).
-
 

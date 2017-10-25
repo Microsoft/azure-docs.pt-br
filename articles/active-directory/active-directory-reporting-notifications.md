@@ -3,7 +3,7 @@ title: "Notificações de Relatórios do Active Directory do Azure"
 description: "Como usar as notificações de relatórios do Active Directory do Azure para entradas suspeitas."
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: ae6d4b0e-5931-4cb3-98bf-9be91b381c92
@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2016
+ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 90ba006f25c27e1dc24c85fdc4ef1d5e2a8d0e3d
-
-
+ms.custom: oldportal
+ms.reviewer: dhanyahk
+ms.openlocfilehash: f4632bd2af802b10c8c64972e8c605d7ad7c0eaf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Notificações de Relatórios do Active Directory do Azure
 ## <a name="what-reports-generate-email-notifications"></a>Quais relatórios geram notificações por email
@@ -46,10 +48,4 @@ Sim. Para desligar as notificações relacionadas a entradas anômalas no Portal
 * Curioso sobre que relatórios de segurança, auditoria e atividade estão disponíveis? Verifique [Relatórios de segurança, auditoria e atividade do AD do Azure](active-directory-view-access-usage-reports.md)
 * [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 * [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

@@ -12,28 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 09/19/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 1673e14285456307441c836ba2225556416d4a7b
-ms.openlocfilehash: 4c50968dd66ab351a5ef1b8e06557855870c5d4e
-ms.lasthandoff: 03/02/2017
-
-
+ms.openlocfilehash: 1d580ae43925bfb2cbe0fd9461cfb7e207fa56ec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções de entrada de usuário do Azure AD Connect
 O Azure AD (Azure Active Directory) Connect permite que os usuários se conectem a recursos de nuvem e locais usando as mesmas senhas. Este artigo descreve os principais conceitos de cada modelo de identidade, a fim de ajudá-lo a escolher a identidade que você deseja usar para entrar no Azure AD.
 
 Se já estiver familiarizado com o modelo de identidade do Azure AD e desejar saber mais sobre um método específico, consulte o link apropriado:
 
-* [Sincronização de senha](#password-synchronization) com [SSO (logon único)](active-directory-aadconnect-sso.md)
-* [Autenticação de passagem](active-directory-aadconnect-pass-through-authentication.md)
+* [Sincronização de hash de senha](#password-synchronization) com [SSO (logon único) contínuo](active-directory-aadconnect-sso.md)
+* [Autenticação de passagem](active-directory-aadconnect-pass-through-authentication.md) com o [SSO (logon único) contínuo](active-directory-aadconnect-sso.md)
 * [SSO federado (com o AD FS [Serviços de Federação do Active Directory])](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
 ## <a name="choosing-the-user-sign-in-method-for-your-organization"></a>Escolhendo um método de conexão do usuário para sua organização
-Para a maioria das organizações que deseja apenas habilitar a conexão do usuário no Office 365, em aplicativos SaaS e em outros recursos baseados no Azure AD, recomendamos a opção de sincronização de senha padrão. No entanto, algumas organizações tem um motivo específico pelo qual indicam que não podem usar essa opção. Elas podem escolher uma opção de conexão federada, como o AD FS ou a autenticação de passagem. É possível usar a tabela a seguir para ajudá-lo a fazer a escolha certa.
+Para a maioria das organizações que deseja apenas habilitar a conexão do usuário no Office 365, em aplicativos SaaS e em outros recursos baseados no Azure AD, recomendamos a opção de sincronização de hash padrão. No entanto, algumas organizações tem um motivo específico pelo qual indicam que não podem usar essa opção. Elas podem escolher uma opção de conexão federada, como o AD FS ou a autenticação de passagem. É possível usar a tabela a seguir para ajudá-lo a fazer a escolha certa.
 
-Eu preciso de | PS com SSO| PA com SSO| AD FS |
+Eu preciso de | PHS com SSO| PTA com SSO| AD FS |
  --- | --- | --- | --- |
 Sincronizar novos usuários, contatos e contas de grupo do Active Directory local para a nuvem automaticamente.|x|x|x|
 Configurar meu locatário para cenários híbridos do Office 365.|x|x|x|
@@ -42,19 +41,16 @@ Implementar o logon único usando credenciais corporativas.|x|x|x|
 Garantir que nenhuma senha é armazenada na nuvem.||x*|x|
 Habilitar soluções de autenticação multifator locais.|||x|
 
-*Por meio de um conector leve.
+*Por meio de um agente leve.
 
->[!NOTE]
-> A autenticação de passagem atualmente tem algumas limitações com clientes avançados. Consulte [Autenticação de passagem](active-directory-aadconnect-pass-through-authentication.md) para obter mais detalhes.
+### <a name="password-hash-synchronization"></a>Sincronização de hash de senha
+Com a sincronização de hash de senha, hashes de senhas de usuário são sincronizados do Active Directory local para o Azure AD. Quando as senhas são alteradas ou redefinidas localmente, os novos hashes de senha são sincronizados com o Azure AD imediatamente, para que os usuários sempre possam usar a mesma senha para recursos de nuvem e recursos locais. As senhas nunca são enviadas ao Azure AD nem armazenadas no Azure AD em texto não criptografado. É possível usar a sincronização de hash de senha em conjunto com write-back de senha para habilitar a redefinição de senha de autoatendimento no Azure AD.
 
-### <a name="password-synchronization"></a>Sincronização de senha
-Com a sincronização de senha, hashes de senhas de usuário são sincronizados do Active Directory local para o Azure AD. Quando as senhas são alteradas ou redefinidas localmente, as novas senhas são sincronizadas com o Azure AD imediatamente, para que os usuários sempre possam usar a mesma senha para recursos de nuvem e recursos locais. As senhas nunca são enviadas ao Azure AD nem armazenadas no Azure AD em texto não criptografado. É possível usar a sincronização de senha em conjunto com write-back de senha para habilitar a redefinição de senha de autoatendimento no Azure AD.
+Além disso, você também pode habilitar o [SSO contínuo](active-directory-aadconnect-sso.md) para usuários em computadores ingressados no domínio que estão na rede corporativa. Com o logon único, os usuários habilitados só precisarão inserir um nome de usuário para ajudá-los a acessar com segurança os recursos de nuvem.
 
-Além disso, você também pode habilitar o [SSO](active-directory-aadconnect-sso.md) para usuários em computadores ingressados no domínio que estão na rede corporativa. Com o logon único, os usuários habilitados só precisarão inserir um nome de usuário para ajudá-los a acessar com segurança os recursos de nuvem.
+![Sincronização de hash de senha](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
-![Sincronização de senha](./media/active-directory-aadconnect-user-signin/passwordhash.png)
-
-Para obter mais informações, consulte o artigo [Sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md).
+Para obter mais informações, consulte o artigo [Sincronização de hash de senha](active-directory-aadconnectsync-implement-password-synchronization.md).
 
 ### <a name="pass-through-authentication"></a>Autenticação de passagem
 Com a autenticação de passagem, a senha do usuário é validada no controlador do Active Directory local. A senha não precisa estar presente no Azure AD em nenhum formato. Isso permite que as políticas locais, como restrições de horário de conexão, sejam avaliadas durante a autenticação em serviços de nuvem.
@@ -104,7 +100,7 @@ O UPN do usuário está no formato username@domain. Por exemplo, para um Domíni
 ### <a name="user-principal-name-in-azure-ad"></a>Nome UPN no Azure AD
 O assistente do Azure AD Connect usa o atributo userPrincipalName ou permite especificar o atributo (em uma instalação personalizada) a ser usado de locais como o nome UPN no Azure AD. Esse é o valor que será usado para entrar no Azure AD. Se o valor do atributo userPrincipalName não corresponder a um domínio verificado no Azure AD, o Azure AD o substituirá por um valor .onmicrosoft.com padrão.
 
-Cada diretório no Azure Active Directory é fornecido com um nome de domínio interno, com o formato contoso.onmicrosoft.com, que permite começar a usar o Azure ou outros serviços da Microsoft. É possível melhorar e simplificar a experiência de conexão usando domínios personalizados. Para obter informações sobre nomes de domínio personalizados no Azure AD e como verificar um domínio, consulte [Adicionar seu nome de domínio personalizado ao Azure Active Directory](../active-directory-add-domain.md#add-a-custom-domain-name-to-your-directory).
+Cada diretório no Azure Active Directory é fornecido com um nome de domínio interno, com o formato contoso.onmicrosoft.com, que permite começar a usar o Azure ou outros serviços da Microsoft. É possível melhorar e simplificar a experiência de conexão usando domínios personalizados. Para obter informações sobre nomes de domínio personalizados no Azure AD e como verificar um domínio, consulte [Adicionar seu nome de domínio personalizado ao Azure Active Directory](../add-custom-domain.md#add-the-custom-domain-name-to-your-directory).
 
 ## <a name="azure-ad-sign-in-configuration"></a>Configuração de entrada do Azure AD
 ### <a name="azure-ad-sign-in-configuration-with-azure-ad-connect"></a>Configuração de entrada do Azure AD entrar com o Azure AD Connect
@@ -116,8 +112,8 @@ A página de conexão do Azure AD lista os sufixos UPN definidos para o Active D
 | Estado | Descrição | Ação necessária |
 |:--- |:--- |:--- |
 | Verificado |O Azure AD Connect encontrou uma correspondência de domínio verificado no Azure AD. Todos os usuários deste domínio podem se conectar usando suas credenciais locais. |Nenhuma ação é necessária. |
-| Não verificado |O Azure AD Connect encontrou uma correspondência de domínio personalizado, mas ele não é verificado. O sufixo UPN dos usuários desse domínio será alterado para o sufixo .onmicrosoft.com padrão após a sincronização, caso o domínio não seja verificado. | [Verifique o domínio personalizado no Azure AD.](../active-directory-add-domain.md#verify-the-domain-name-with-azure-ad) |
-| Não adicionado |O Azure AD Connect não encontrou um domínio personalizado que correspondesse ao sufixo UPN. O sufixo UPN dos usuários desse domínio será alterado para o sufixo .onmicrosoft.com padrão, caso o domínio não seja adicionado e verificado no Azure. | [Adicione e verifique um domínio personalizado que corresponde ao sufixo UPN.](../active-directory-add-domain.md) |
+| Não verificado |O Azure AD Connect encontrou uma correspondência de domínio personalizado, mas ele não é verificado. O sufixo UPN dos usuários desse domínio será alterado para o sufixo .onmicrosoft.com padrão após a sincronização, caso o domínio não seja verificado. | [Verifique o domínio personalizado no Azure AD.](../add-custom-domain.md#verify-the-custom-domain-name-in-azure-ad) |
+| Não adicionado |O Azure AD Connect não encontrou um domínio personalizado que correspondesse ao sufixo UPN. O sufixo UPN dos usuários desse domínio será alterado para o sufixo .onmicrosoft.com padrão, caso o domínio não seja adicionado e verificado no Azure. | [Adicione e verifique um domínio personalizado que corresponde ao sufixo UPN.](../add-custom-domain.md) |
 
 A página de conexão do Azure AD lista os sufixos UPN definidos para o Active Directory local e o domínio personalizado correspondente no Azure AD com o status de verificação atual. Em uma instalação personalizada, agora é possível selecionar o atributo do nome UPN na página de **conexão do Azure AD**.
 
@@ -131,7 +127,7 @@ O atributo userPrincipalName é o atributo que os usuários usam ao se conectare
 É altamente recomendável manter o atributo userPrincipalName padrão. Se esse atributo não for roteável e se não puder ser verificado, será possível selecionar outro atributo (email, por exemplo) como o atributo que contém a ID de conexão. Isso é conhecido como a ID Alternativa. O valor de atributo da ID Alternativa deve seguir o padrão RFC 822. É possível usar uma ID Alternativa tanto com o SSO de senha quanto com o SSO de federação como a solução de conexão.
 
 > [!NOTE]
-> O uso de uma ID Alternativa não é compatível com todas as cargas de trabalho do Office 365 nem com a autenticação de passagem. Para obter mais informações, consulte [Configurando uma ID de logon alternativa](https://technet.microsoft.com/library/dn659436.aspx).
+> O uso de uma ID Alternativa não é compatível com todas as cargas de trabalho do Office 365. Para obter mais informações, consulte [Configurando uma ID de logon alternativa](https://technet.microsoft.com/library/dn659436.aspx).
 >
 >
 
@@ -140,7 +136,7 @@ O atributo userPrincipalName é o atributo que os usuários usam ao se conectare
 
 Para as informações a seguir, suponhamos que o sufixo UPN contoso.com seja de nosso interesse, que é usado no diretório local como parte do UPN – por exemplo user@contoso.com.
 
-###### <a name="express-settingspassword-synchronization"></a>Configurações expressas/sincronização de senha
+###### <a name="express-settingspassword-hash-synchronization"></a>Configurações expressas/sincronização de hash de senha
 | Estado | Efeito sobre a experiência de entrada do usuário do Azure |
 |:---:|:--- |
 | Não adicionado |Nesse caso, nenhum domínio personalizado para contoso.com foi adicionado no diretório do Azure AD. Os usuários que têm o UPN local com o sufixo @contoso.com não poderão usar seus UPNs locais para entrar no Azure. Em vez disso, eles precisarão usar um novo UPN fornecido pelo Azure AD adicionando o sufixo do diretório padrão do Azure AD. Por exemplo, se você estiver sincronizando usuários com o diretório do Azure AD azurecontoso.onmicrosoft.com, o usuário local user@contoso.com receberá um UPN igual a user@azurecontoso.onmicrosoft.com. |
@@ -159,7 +155,7 @@ Se você selecionou a opção de conexão do usuário **Federação com o AD FS*
 | Verificado |Nesse caso, é possível continuar a configuração sem nenhuma ação adicional. |
 
 ## <a name="changing-the-user-sign-in-method"></a>Alterando o método de conexão do usuário
-É possível alterar o método de conexão do usuário de federação, sincronização de senha ou autenticação de passagem usando as tarefas disponíveis no Azure AD Connect após a configuração inicial do Azure AD Connect com o assistente. Execute o assistente do Azure AD Connect novamente e você verá uma lista de tarefas que podem ser executadas. Selecione **Alterar a entrada do usuário** na lista de tarefas.
+É possível alterar o método de conexão do usuário de federação, sincronização de hash de senha ou autenticação de passagem usando as tarefas disponíveis no Azure AD Connect após a configuração inicial do Azure AD Connect com o assistente. Execute o assistente do Azure AD Connect novamente e você verá uma lista de tarefas que podem ser executadas. Selecione **Alterar a entrada do usuário** na lista de tarefas.
 
 ![Alterar a entrada do usuário](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
@@ -172,11 +168,10 @@ Na página **Entrada de usuário**, selecione a entrada do usuário desejada.
 ![Conecte-se ao AD do Azure](./media/active-directory-aadconnect-user-signin/changeusersignin2a.png)
 
 > [!NOTE]
-> Se estiver fazendo apenas uma mudança temporária para a sincronização de senha, marque a caixa de seleção **Não converter contas de usuário**. Não marcar a opção converterá cada usuário em federado, o que pode levar várias horas.
+> Se estiver fazendo apenas uma mudança temporária para a sincronização de hash de senha, marque a caixa de seleção **Não converter contas de usuário**. Não marcar a opção converterá cada usuário em federado, o que pode levar várias horas.
 >
 >
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre [como integrar suas identidades locais ao Azure Active Directory](active-directory-aadconnect.md).
 - Saiba mais sobre os [conceitos de design do Azure AD Connect](active-directory-aadconnect-design-concepts.md).
-

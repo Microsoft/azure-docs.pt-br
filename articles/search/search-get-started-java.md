@@ -14,12 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
-ms.lasthandoff: 03/29/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Introdução à Pesquisa do Azure em Java
 > [!div class="op_single_selector"]
@@ -110,7 +109,7 @@ Todas as modificações de arquivos subsequentes e instruções de execução se
 7. Clique em **Concluir**.
 8. Selecione **Janela** > **Preferências** > **Java** > **JREs Instalados** > **Adicionar**.
 9. Em **Adicionar JRE**, selecione **VM padrão**.
-10. Clique em **Próximo**.
+10. Clique em **Avançar**.
 11. Na Definição do JRE, na página inicial do JRE, clique em **Diretório**.
 12. Navegue até **Arquivos de Programas** > **Java** e selecione o JDK instalado anteriormente. É importante selecionar o JDK como o JRE.
 13. Em JREs instalados, escolha o **JDK**. Suas configurações devem ter aparência semelhante à captura de tela a seguir.
@@ -180,4 +179,3 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para qu
 [10]: ./media/search-get-started-java/AzSearch-Java-BuildProject1.PNG
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
-

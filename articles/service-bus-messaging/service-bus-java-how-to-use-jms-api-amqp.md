@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 08/10/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: f0b0c3bc9daf1e44dfebecedf628b09c97394f94
-ms.openlocfilehash: eb22b8e8c2d2b4a619e50b94321d4f819764bdaa
-
-
+ms.openlocfilehash: 0848facd764c4fb0d7f95c1ae89ecb02a32257e1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Como usar a API do Serviço de Mensagem Java (JMS) com Barramento de Serviço e AMQP 1.0
 O AMQP 1.0 é um protocolo de mensagens eficiente, confiável e conectado que pode ser usado para criar aplicativos de mensagens robustos em plataformas cruzadas.
 
 O suporte para o AMQP 1.0 no Service Bus significa que você pode usar o enfileiramento e publicar/assinar os recursos de mensagens agenciadas a partir de uma variedade de plataformas usando um protocolo binário eficiente. Além disso, você pode criar aplicativos formados por componentes criados com o uso de uma mistura de linguagens, estruturas e sistemas operacionais.
 
-Este artigo explica como usar os recursos de sistema de mensagens do Barramento de Serviço (tópicos sobre filas e publicação/assinatura) de aplicativos Java usando o popular padrão de API do JMS (Java Message Service). Existe um [artigo complementar](service-bus-dotnet-advanced-message-queuing.md) que explica como fazer o mesmo usando a API do Barramento de Serviço do .NET. Você pode usar esses dois guias em conjunto para saber mais sobre mensagens em plataformas cruzadas usando o AMQP 1.0.
+Este artigo explica como usar os recursos de sistema de mensagens do Barramento de Serviço (tópicos sobre filas e publicação/assinatura) de aplicativos Java usando o popular padrão de API do JMS (Java Message Service). Existe um [artigo complementar](service-bus-amqp-dotnet.md) que explica como fazer o mesmo usando a API do Barramento de Serviço do .NET. Você pode usar esses dois guias em conjunto para saber mais sobre mensagens em plataformas cruzadas usando o AMQP 1.0.
 
 ## <a name="get-started-with-service-bus"></a>Introdução ao Barramento de serviço
 Este guia presume que você já tenha um namespace do Barramento de Serviço que contém uma fila denominada **queue1**. Caso contrário, você pode [criar o namespace e a fila](service-bus-create-namespace-portal.md) usando o [Portal do Azure](https://portal.azure.com). Para obter mais informações sobre como criar namespaces e filas do Barramento de Serviço, consulte [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md).
@@ -109,7 +109,7 @@ Em que **[jndi\_name]** e **[physical\_name]** têm os seguintes significados:
 * **[physical_name]**: o nome da entidade do Barramento de Serviço para a qual o aplicativo envia ou recebe mensagens.
 
 > [!NOTE]
-> Ao receber de uma assinatura de tópico do Barramento de Serviço, o nome físico especificado na JNDI deve ser o nome do tópico. O nome da assinatura é fornecido quando a assinatura durável é criada no código do aplicativo JMS. O [Guia do Desenvolvedor do AMQP 1.0 do Barramento de Serviço](service-bus-amqp-dotnet.md) fornece mais detalhes sobre como trabalhar com assinaturas de tópico do Barramento de Serviço por meio do JMS.
+> Ao receber de uma assinatura de tópico do Barramento de Serviço, o nome físico especificado na JNDI deve ser o nome do tópico. O nome da assinatura é fornecido quando a assinatura durável é criada no código do aplicativo JMS. O [Guia de desenvolvedor do AMQP 1.0 do Barramento de Serviço](service-bus-amqp-dotnet.md) fornece mais detalhes sobre como trabalhar com tópicos do Barramento de Serviço por meio do JMS.
 > 
 > 
 
@@ -247,9 +247,7 @@ exit
 ## <a name="cross-platform-messaging-between-jms-and-net"></a>Mensagens em plataformas cruzadas entre JMS e .NET
 Este guia mostrou como enviar e receber mensagens de e para o Service Bus usando o JMS. No entanto, um dos principais benefícios do AMQP 1.0 é que ele permite que os aplicativos sejam criados a partir de componentes escritos em diferentes linguagens, com mensagens trocadas de forma confiável e com total fidelidade.
 
-Usando a amostra do aplicativo JMS descrito acima e um aplicativo .NET similar retirado de um guia complementar, [Como usar o AMQP 1.0 com a API do .NET do Barramento de Serviço do .NET](service-bus-dotnet-advanced-message-queuing.md), é possível trocar mensagens entre o .NET e o Java. 
-
-Para obter mais informações sobre os detalhes de mensagens em plataformas cruzadas usando o Barramento de Serviço e o AMQP 1.0, consulte o [Guia do Desenvolvedor do AMQP 1.0 do Barramento de Serviço](service-bus-amqp-dotnet.md).
+Usando a amostra do aplicativo JMS descrito acima e um aplicativo .NET similar retirado de um guia complementar, [Como usar o Barramento de Serviço do .NET com o AMQP 1.0](service-bus-amqp-dotnet.md), é possível trocar mensagens entre o .NET e o Java. Leia este artigo para obter mais informações sobre os detalhes de mensagens em plataformas cruzadas usando o Barramento de Serviço e o AMQP 1.0.
 
 ### <a name="jms-to-net"></a>Do JMS para o .NET
 Para demonstrar as mensagens do JMS para o .NET:
@@ -313,13 +311,13 @@ As restrições a seguir ocorrem durante o uso do JMS sobre o AMQP 1.0 com o Ser
 * Apenas um **MessageProducer** ou **MessageConsumer** é permitido por **Sessão**. Se precisar criar vários **MessageProducers** ou **MessageConsumers** em um aplicativo, crie uma **Session** dedicada para cada um deles.
 * Assinaturas de tópico voláteis não são atualmente suportadas.
 * **MessageSelectors** não são atualmente suportados.
-* Destinos temporários como, por exemplo, **TemporaryQueue**, **TemporaryTopic** não têm suporte, juntamente com as APIs de **QueueRequestor** e **TopicRequestor** que os utilizam.
+* Os destinos temporários como, por exemplo, **TemporaryQueue**, **TemporaryTopic** não têm suporte no momento, juntamente com as APIs de **QueueRequestor** e **TopicRequestor** que os utilizam.
 * Não há suporte para as sessões transacionadas e transações distribuídas.
 
 ## <a name="summary"></a>Resumo
 Este guia de instruções explicou como usar os recursos do sistema de mensagens agenciado do Barramento de Serviço (tópicos sobre filas e publicação/assinatura) do Java usando a API popular JMS e o AMQP 1.0.
 
-Você também pode usar o AMQP 1.0 do Service Bus de outras linguagens, incluindo .NET, C, Python e PHP. Os componentes criados com essas diferentes linguagens podem trocar mensagens de forma confiável e com total fidelidade usando o suporte do AMQP 1.0 no Service Bus. Para obter mais informações, consulte o [Guia do Desenvolvedor do AMQP 1.0 do Barramento de Serviço](service-bus-amqp-dotnet.md).
+Você também pode usar o AMQP 1.0 do Service Bus de outras linguagens, incluindo .NET, C, Python e PHP. Os componentes criados com essas diferentes linguagens podem trocar mensagens de forma confiável e com total fidelidade usando o suporte do AMQP 1.0 no Service Bus.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Suporte para o AMQP 1.0 no Barramento de Serviço do Azure](service-bus-amqp-overview.md)
@@ -327,10 +325,4 @@ Você também pode usar o AMQP 1.0 do Service Bus de outras linguagens, incluind
 * [Guia do Desenvolvedor do AMQP 1.0 do Barramento de Serviço](service-bus-amqp-dotnet.md)
 * [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Centro de Desenvolvedores do Java](https://azure.microsoft.com/develop/java/)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

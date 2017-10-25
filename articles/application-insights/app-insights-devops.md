@@ -3,7 +3,7 @@ title: Monitoramento de desempenho de aplicativos Web - Azure Application Insigh
 description: Como o Application Insights se encaixa no ciclo do devOps
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: f6c8c895f406187f2bc525a60ca7e53f12e99d77
-ms.lasthandoff: 03/16/2017
-
-
+ms.author: bwren
+ms.openlocfilehash: de94633cabaa7a1562a5a4839a8a8924da91a283
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos detalhados para aplicativos Web e serviços com o Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Por que eu preciso do Application Insights?
@@ -162,8 +161,8 @@ Quando um alerta é gerado, o Application Insights pode criar automaticamente um
 ## <a name="but-what-about"></a>Mas e...?
 * [Privacidade e armazenamento](app-insights-data-retention-privacy.md) : sua telemetria é mantida em servidores seguros do Azure.
 * Desempenho: o impacto é muito baixo. A telemetria é feita em lotes.
-* [Suporte](app-insights-get-dev-support.md) - você pode tirar proveito do programa de suporte do Azure. Há fóruns interativos onde você pode obter as respostas dos nossos desenvolvedores. E, em último caso, nós podemos oferecer ajuda individual.
 * [Preço](app-insights-pricing.md) - você pode começar a usar gratuitamente e isso continua enquanto estiver no volume baixo.
+
 
 ## <a name="video"></a>Vídeo
 
@@ -175,5 +174,4 @@ Quando um alerta é gerado, o Application Insights pode criar automaticamente um
 * Instrumentar um aplicativo Web já em execução. Isso lhe fornece toda a telemetria de desempenho interna. Isso está disponível para [Java](app-insights-java-live.md) e [servidores IIS](app-insights-monitor-performance-live-website-now.md) e também para [aplicativos Web do Azure](app-insights-azure.md).
 * Instrumentar seu projeto durante o desenvolvimento. Você pode fazer isso para aplicativos [ASP.NET](app-insights-asp-net.md) ou [Java](app-insights-java-get-started.md), bem como [Node.js](app-insights-nodejs.md) e um host de [outros tipos](app-insights-platforms.md). 
 * Instrumentar [qualquer página da Web](app-insights-javascript.md) adicionando um trecho de código curto.
-
 

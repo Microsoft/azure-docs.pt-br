@@ -3,7 +3,7 @@ title: "Visão geral do IPv6 para o Azure Load Balancer | Microsoft Docs"
 description: Entender o suporte a IPv6 para o Azure Load Balancer e VMs com balanceamento de carga.
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 keywords: "ipv6, azure load balancer, pilha dual, ip público, ipv6 nativo, móvel, iot"
@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: bec4f89556a2daa41e19b0ecb2ab9bbbed849107
-ms.openlocfilehash: 3326b1ff8d1704b225cfb62886fbc992c6171211
-
+ms.openlocfilehash: 1902475c81c4f83f8ba69a05f9564bc65a5de833
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Visão geral do IPv6 para o Azure Load Balancer
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Balanceadores de carga voltados para a Internet podem ser implantados com um endereço IPv6. Além de conectividade IPv4, isso permite os seguintes recursos:
 
@@ -71,7 +74,9 @@ Limitações
 * As VMs do Azure não podem se conectar via IPv6 com outras VMs, outros serviços do Azure ou dispositivos locais. Eles só podem se comunicar com o Azure Load Balancer via IPv6. No entanto, elas podem se comunicar com esses outros recursos usando IPv4.
 * Há suporte para proteção de NSG (grupo de segurança de rede) para IPv4 em implantações de pilha dupla (IPv4+IPv6). Os NSGs não se aplicam aos pontos de extremidade IPv6.
 * O ponto de extremidade IPv6 na VM não é exposto diretamente à internet. Ele fica atrás de um balanceador de carga. Somente as portas especificadas nas regras do balanceador de carga são acessíveis via IPv6.
-* **Não há suporte atualmente**para a alteração do parâmetro IdleTimeout para IPv6. O padrão é de quatro minutos.
+* **No momento, não há suporte** para mudar o parâmetro IdleTimeout para IPv6. O padrão é de quatro minutos.
+* **No momento, não há suporte** para alterar o parâmetro loadDistributionMethod para IPv6.
+* **No momento, não há suporte** para IPs IPv6 reservados (em que IPAllocationMethod = estático).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -81,9 +86,3 @@ Saiba como implantar um balanceador de carga com IPv6.
 * [Implantar um balanceador de carga com IPv6 usando um modelo](load-balancer-ipv6-internet-template.md)
 * [Implantar um balanceador de carga com IPv6 usando o Azure PowerShell](load-balancer-ipv6-internet-ps.md)
 * [Implantar um balanceador de carga com IPv6 usando CLI do Azure](load-balancer-ipv6-internet-cli.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

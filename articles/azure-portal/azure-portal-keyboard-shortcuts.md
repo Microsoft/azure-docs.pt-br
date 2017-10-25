@@ -1,6 +1,6 @@
 ---
 title: Atalhos de teclado do portal do Azure | Microsoft Docs
-description: "Este artigo será sempre uma lista atualizada dos atalhos de teclado que funciona em todo o portal do Azure. Serviços individuais podem ter seus próprios atalhos de teclado especializados."
+description: Saiba mais sobre os atalhos de teclado que funcionam no portal do Azure.
 services: azure-portal
 documentationcenter: 
 author: flanakin
@@ -12,43 +12,38 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/07/2016
+ms.date: 08/24/2017
 ms.author: micflan
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 764bcf22809a2d613b405f6fb75c7a148a1b3fb9
-
-
+ms.custom: accessibility
+ms.openlocfilehash: d5f837d0017ca885144b91d35f489a6fc0e5670e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-portal-keyboard-shortcuts"></a>Atalhos de teclado do portal do Azure
-## <a name="open-hubs"></a>Hubs abertos
-| Atalho | Ação |
+# <a name="keyboard-shortcuts-in-the-azure-portal"></a>Atalhos de teclado no portal do Azure
+Este artigo mostra os atalhos de teclado que funcionam em todo o portal do Azure. Serviços individuais podem ter seus próprios atalhos de teclado.
+
+## <a name="actions"></a>Ações
+|Para fazer isto |Pressione |
 | --- | --- |
-| N |Notificações |
-| / |Procurar Serviços |
-| Uma |Sessões ativas |
-| B |Cobrança |
-| C |Criar |
+|Criar um novo recurso|G+N|
+|Abrir o painel 'Mais serviços'|G+B|
+|Pesquisar recursos|G+/| 
+|Procurar itens de menu do recurso|Ctrl+/ |
+|Mover para cima o item do painel esquerdo selecionado |ALT+Shift+Seta para Cima|
+|Mover para baixo o item do painel esquerdo selecionado |ALT+Shift+Seta para Baixo|
 
 ## <a name="navigation"></a>Navegação
-| Atalho | Ação |
+|Para fazer isto |Pressione |
 | --- | --- |
-| H |Painel de início do Azure |
-| F |Primeira folha aberta |
-| J |Folha aberta anterior |
-| K |Próxima folha aberta |
-| L |Última folha aberta |
-| - |Minimizar a folha ou restaurar de maximizado |
-| + |Maximizar a folha ou restaurar de minimizado |
-| # |Fechar folha atual |
-| ¦ |Fechar todas as folhas |
-| , |Mover o foco para a barra de comando |
-| . |Mover foco para barra de navegação |
-| ? |Exibir atalhos do teclado |
+|Mover o foco para a barra de comando |G+, |
+|Alternar o foco entre a barra superior e a barra lateral | G+. |
 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+## <a name="go-to"></a>Ir para
+|Para fazer isto |Pressione |
+| --- | --- |
+|Ir para o painel |G+D |
+|Ir para todos os recursos|G+A |
+|Ir para grupos de recursos|G+R |
+|Abrir o item do painel esquerdo nesta posição |G+número|

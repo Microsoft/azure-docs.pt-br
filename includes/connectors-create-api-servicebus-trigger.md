@@ -14,8 +14,3 @@ Veja como usar o gatilho **Barramento de Serviço - quando uma mensagem é receb
 
 Seu aplicativo lógico foi configurado com um gatilho. Quando um novo item é recebido na fila selecionada, o gatilho inicia uma execução de outros disparadores e ações no fluxo de trabalho.    
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

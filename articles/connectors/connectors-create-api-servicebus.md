@@ -3,8 +3,8 @@ title: "Saiba como usar o conector do Barramento de Serviço do Azure nos seus a
 description: "Crie aplicativos lógicos com o serviço de Aplicativo do Azure. Conecte-se ao Barramento de Serviço do Azure para enviar e receber mensagens. Você pode executar ações como enviar para a fila, enviar para o tópico, receber da fila e receber da assinatura."
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: msftman
-manager: erikre
+author: MandiOhlinger
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/02/2016
-ms.author: deonhe
-translationtype: Human Translation
-ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
-ms.openlocfilehash: 1e23402cbc63aeb262bfb471745589cc0bbd734f
-
-
+ms.author: mandia; ladocs
+ms.openlocfilehash: 1e2ce06f5993280dbdb67121849591e67f7979e9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-azure-service-bus-connector"></a>Introdução ao conector do Barramento de Serviço do Azure
 Conecte-se ao Barramento de Serviço do Azure para enviar e receber mensagens. Você pode executar ações como enviar para a fila, enviar para o tópico, receber da fila e receber da assinatura.
@@ -45,122 +45,10 @@ Uma ação é uma operação executada pelo fluxo de trabalho definido em um apl
 
 [!INCLUDE [Steps to create a Service Bus action](../../includes/connectors-create-api-servicebus-action.md)]
 
-## <a name="technical-details"></a>Detalhes técnicos
-Estes são os detalhes sobre os gatilhos, as ações e as respostas que essa conexão permite.
+## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-### <a name="service-bus-triggers"></a>Gatilhos do Barramento de Serviço
-O Barramento de Serviço tem os seguintes gatilhos:  
-
-| Gatilho | Descrição |
-| --- | --- |
-| [Quando uma mensagem é recebida em uma fila](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-queue) |Esta operação dispara um fluxo quando uma mensagem é recebida em uma fila. |
-| [Quando uma mensagem é recebida em uma assinatura de tópico](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-topic-subscription) |Esta operação dispara um fluxo quando uma mensagem é recebida em uma assinatura de tópico. |
-
-### <a name="service-bus-actions"></a>Ações do Barramento de Serviço
-O Barramento de Serviço tem as seguintes ações:
-
-| Ação | Descrição |
-| --- | --- |
-| [Enviar mensagem](connectors-create-api-servicebus.md#send-message) |Esta operação envia uma mensagem para uma fila ou um tópico. |
-
-### <a name="action-and-trigger-details"></a>Detalhes da ação e do gatilho
-A seguir, os detalhes das ações e dos gatilhos para esse conector, com suas respostas.
-
-#### <a name="send-message"></a>Enviar mensagem
-| Nome da propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| ContentData* |Conteúdo |Conteúdo da mensagem. |
-| ContentType |Tipo de conteúdo |Tipo do conteúdo da mensagem. |
-| Propriedades |Propriedades |Pares de chave-valor para cada propriedade agenciada. |
-| entityName* |Nome da fila/do tópico |Nome da fila ou do tópico. |
-
-Esses parâmetros avançados também estão disponíveis:
-
-| Nome da propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| MessageId |ID da Mensagem |Um valor definido pelo usuário que o Barramento de Serviço pode usar para identificar mensagens duplicadas, se habilitado. |
-| Para |Para |Endereço para envio. |
-| ReplyTo |Responder Para |Endereço de resposta da fila. |
-| ReplyToSessionId |ID da Sessão Responder Para |Identificador de resposta da sessão. |
-| Rótulo |Rótulo |Rótulo específico do aplicativo. |
-| ScheduledEnqueueTimeUtc |ScheduledEnqueueTimeUtc |Data e hora, em UTC, em que a mensagem será adicionada à fila. |
-| SessionId |Id da Sessão |Identificador da sessão. |
-| CorrelationId |ID de correlação |Identificador da correlação. |
-| TimeToLive |Vida Útil |A duração, em tiques, pela qual uma mensagem é válida. A duração começa quando a mensagem é enviada ao Barramento de Serviço. |
-
-Um * indica que uma propriedade é obrigatória.
-
-#### <a name="when-a-message-is-received-in-a-queue"></a>Quando uma mensagem é recebida em uma fila
-| Nome da propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| queueName* |Nome da fila |Nome da fila. |
-
-Um * indica que uma propriedade é obrigatória.
-
-##### <a name="output-details"></a>Detalhes de saída
-ServiceBusMessage: esse objeto tem o conteúdo e as propriedades de uma Mensagem do Barramento de Serviço.
-
-| Nome da propriedade | Tipo de dados | Descrição |
-| --- | --- | --- |
-| ContentData |string |Conteúdo da mensagem. |
-| ContentType |string |Tipo do conteúdo da mensagem. |
-| Propriedades |objeto |Pares de chave-valor para cada propriedade agenciada. |
-| MessageId |string |Um valor definido pelo usuário que o Barramento de Serviço pode usar para identificar mensagens duplicadas, se habilitado. |
-| Para |string |Endereço de envio. |
-| ReplyTo |cadeia de caracteres |Endereço de resposta da fila. |
-| ReplyToSessionId |string |Identificador de resposta da sessão. |
-| Rótulo |string |Rótulo específico do aplicativo. |
-| ScheduledEnqueueTimeUtc |string |Data e hora, em UTC, em que a mensagem será adicionada à fila. |
-| SessionId |string |Identificador da sessão. |
-| CorrelationId |string |Identificador da correlação. |
-| TimeToLive |cadeia de caracteres |A duração, em tiques, pela qual uma mensagem é válida. A duração começa quando a mensagem é enviada ao Barramento de Serviço. |
-
-#### <a name="when-a-message-is-received-in-a-topic-subscription"></a>Quando uma mensagem é recebida em uma assinatura de tópico
-| Nome da propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| topicName* |Nome do tópico |Nome do tópico. |
-| subscriptionName* |Nome da assinatura do tópico |Nome da assinatura do tópico. |
-
-Um * indica que uma propriedade é obrigatória.
-
-##### <a name="output-details"></a>Detalhes de saída
-ServiceBusMessage: esse objeto tem o conteúdo e as propriedades de uma Mensagem do Barramento de Serviço.
-
-| Nome da propriedade | Tipo de dados | Descrição |
-| --- | --- | --- |
-| ContentData |string |Conteúdo da mensagem. |
-| ContentType |string |Tipo do conteúdo da mensagem. |
-| Propriedades |objeto |Pares de chave-valor para cada propriedade agenciada. |
-| MessageId |string |Um valor definido pelo usuário que o Barramento de Serviço pode usar para identificar mensagens duplicadas, se habilitado. |
-| Para |string |Endereço de envio. |
-| ReplyTo |cadeia de caracteres |Endereço de resposta da fila. |
-| ReplyToSessionId |string |Identificador de resposta da sessão. |
-| Rótulo |string |Rótulo específico do aplicativo. |
-| ScheduledEnqueueTimeUtc |string |Data e hora, em UTC, em que a mensagem será adicionada à fila. |
-| SessionId |string |Identificador da sessão. |
-| CorrelationId |string |Identificador da correlação. |
-| TimeToLive |cadeia de caracteres |A duração, em tiques, pela qual uma mensagem é válida. A duração começa quando a mensagem é enviada ao Barramento de Serviço. |
-
-### <a name="http-responses"></a>Respostas HTTP
-As ações e os gatilhos anteriores podem retornar um ou mais dos seguintes códigos de status HTTP:
-
-| Name | Descrição |
-| --- | --- |
-| 200 |OK |
-| 202 |Aceita |
-| 400 |Solicitação incorreta |
-| 401 |Não Autorizado |
-| 403 |Proibido |
-| 404 |Não encontrado |
-| 500 |Erro interno do servidor. Ocorreu um erro desconhecido. |
-| padrão |Falha na operação. |
+Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/servicebus/). 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
 ms.openlocfilehash: 2428c707ddeed281fddd1e57bc5574603f0b9b1c
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="network-resource-provider"></a>Provedor de recursos de rede
 Uma necessidade básica para sucesso nos negócios de hoje é a capacidade de compilar e gerenciar aplicativos com reconhecimento de rede de grande escala de uma maneira ágil, flexível, segura e repetível. O Azure Resource Manager permite criar tais aplicativos como uma única coleção de recursos nos grupos de recursos. Esses recursos são gerenciados por meio de vários provedores de recursos no Resource Manager.
@@ -265,10 +265,4 @@ Você pode implantar serviços no Azure de um modelo usando o PowerShell, AzureC
 [Azure Resource Manager vs implantação clássica](../azure-resource-manager/resource-manager-deployment-model.md)
 
 [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

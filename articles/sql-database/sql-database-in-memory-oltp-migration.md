@@ -8,30 +8,30 @@ manager: jhubbard
 editor: MightyPen
 ms.assetid: c2bf14a0-905b-47b4-afb6-efe9a61147d5
 ms.service: sql-database
-ms.custom: development
+ms.custom: develop databases
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: jodebrui
-translationtype: Human Translation
-ms.sourcegitcommit: 42f3f6a24e423f54ad7bb282404ddc6ff2450cb7
-ms.openlocfilehash: 5b6fdbfa983cd5bb27ddd13860dfe89c5a3681b6
-
-
+ms.openlocfilehash: 50eed9aed417778bd497f55e20c8e732fdae9cf9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Usar o OLTP in-memory para melhorar o desempenho do aplicativo no Banco de Dados SQL
 O [OLTP in-memory](sql-database-in-memory.md) pode ser usado para melhorar o desempenho do processamento de transações, a ingestão de dados e os cenários de dados transitórios, em Bancos de Dados SQL [Premium](sql-database-service-tiers.md) do Azure sem aumentar o tipo de preço. 
 
 > [!NOTE] 
-> Saiba como o [Quorum dobra a principal carga de trabalho do banco de dados, enquanto reduz a DTU em 70% com o Banco de Dados SQL](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+> Saiba como o [Quorum dobra a principal carga de trabalho do banco de dados, enquanto reduz a DTU em 70% com o Banco de Dados SQL](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 
 Siga estas etapas para adotar o in-memory OLTP no banco de dados existente.
 
 ## <a name="step-1-ensure-you-are-using-a-premium-database"></a>Etapa 1: Garantir que você está usando um banco de dados Premium
-Há suporte para o OLTP in-memory apenas em bancos de dados Premium v12. Na Memória terá suporte se o resultado retornado for 1 (e não 0):
+Há suporte para o OLTP in-memory apenas em bancos de dados Premium. Na Memória terá suporte se o resultado retornado for 1 (e não 0):
 
 ```
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
@@ -173,10 +173,4 @@ Considere monitorar os efeitos de desempenho de  suas implementações de Na Mem
 * [OLTP Na Memória (Otimização Na Memória)](http://msdn.microsoft.com/library/dn133186.aspx)
 * [Introdução aos procedimentos armazenados compilados nativamente](http://msdn.microsoft.com/library/dn133184.aspx)
 * [Supervisor de Otimização de Memória](http://msdn.microsoft.com/library/dn284308.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

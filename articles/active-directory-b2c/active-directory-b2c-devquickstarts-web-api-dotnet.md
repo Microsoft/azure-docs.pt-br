@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 02ec1b7a58aff6ae0788e341e8987b9d32cb5a7b
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: 48452eb68f826d1c7aa61d5e5531f941ac1422b0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: chamar uma API Web de um aplicativo Web .NET
 
@@ -36,9 +35,9 @@ Para criar um aplicativo Web que chame uma API Web, você deve:
 
 1. [Criar um locatário do Azure AD B2C](active-directory-b2c-get-started.md).
 2. [Registrar uma api Web](active-directory-b2c-app-registration.md#register-a-web-api).
-3. [Registrar um aplicativo Web](active-directory-b2c-app-registration.md#register-a-web-application).
+3. [Registrar um aplicativo Web](active-directory-b2c-app-registration.md#register-a-web-app).
 4. [Configurar políticas](active-directory-b2c-reference-policies.md).
-5. [Conceder permissões para usar a API Web ao aplicativo Web](active-directory-b2c-access-tokens.md#granting-permissions-to-a-web-api).
+5. [Conceder permissões para usar a API Web ao aplicativo Web](active-directory-b2c-access-tokens.md#publishing-permissions).
 
 > [!IMPORTANT]
 > O aplicativo cliente e a API Web devem usar o mesmo diretório do Azure AD B2C.
@@ -46,10 +45,10 @@ Para criar um aplicativo Web que chame uma API Web, você deve:
 
 ## <a name="download-the-code"></a>Baixar o código
 
-O código para este tutorial é mantido no [GitHub](https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi). Você pode clonar a amostra executando:
+O código para este tutorial é mantido no [GitHub](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi). Você pode clonar a amostra executando:
 
 ```console
-git clone https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi.git
+git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
 Depois de baixar o código de exemplo, abra o arquivo .sln do Visual Studio para começar. Agora, sua solução contém dois projetos: `TaskWebApp` e `TaskService`. `TaskWebApp` é um aplicativo Web MVC com o qual o usuário interage. `TaskService` é API Web back-end do aplicativo que armazena a lista de tarefas de cada usuário. Este artigo não abrange a criação do aplicativo Web `TaskWebApp` nem da API Web `TaskService`. Para saber como criar um aplicativo Web .NET usando o Azure AD B2C, confira [nosso tutorial do aplicativo Web .NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md). Para saber como criar uma API Web .NET protegida usando o Azure AD B2C, confira [nosso tutorial da API Web .NET](active-directory-b2c-devquickstarts-api-dotnet.md).
@@ -187,5 +186,4 @@ Siga o mesmo padrão ao enviar solicitações de `POST` e `DELETE` à API Web, u
 ## <a name="run-the-sample-app"></a>Executar o aplicativo de exemplo
 
 Finalmente, compile e execute ambos os aplicativos. Inscreva-se e entre e crie tarefas para o usuário conectado. Saia e entre como outro usuário. Crie tarefas para esse usuário. Observe como as tarefas são armazenados por usuário na API, pois a API extrai a identidade do usuário do token que recebe. Além disso, experimente mudar os escopos. Remova a permissão de "gravação" e, em seguida, tente adicionar uma tarefa. Apenas certifique-se de sair sempre que você alterar o escopo.
-
 

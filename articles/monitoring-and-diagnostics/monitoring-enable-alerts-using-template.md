@@ -2,7 +2,7 @@
 title: "Criar uma métrica de alerta com um modelo do Resource Manager | Microsoft Docs"
 description: "Saiba como usar um modelo do Resource Manager para criar um alerta de métrica para receber notificações por email ou webhook."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/2/2017
+ms.date: 6/21/2017
 ms.author: johnkem
-translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: 4ea07a1cade7e3007b0f85214b4d41a61b527001
-
-
+ms.openlocfilehash: ac12605636d21fd0b5c89512c454ef2d899ef6dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
 Este artigo mostra como você pode usar um [o modelo do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para configurar alertas de métricas do Azure. Isso permite que você configure de modo automático alertas sobre os recursos quando eles são criados para garantir que todos os recursos sejam monitorados corretamente.
@@ -108,9 +108,9 @@ Para criar um alerta usando um modelo do Resource Manager, você cria um recurso
         },
         "windowSize": {
             "type": "string",
-            "defaultValue": "00:05:00",
+            "defaultValue": "PT5M",
             "metadata": {
-                "description": "Period of time used to monitor alert activity based on the threshold. Must be between 00:05:00 and 24:00:00. ISO 8601 duration format."
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
             }
         },
         "sendToServiceOwners": {
@@ -240,7 +240,7 @@ Um alerta em um modelo do Resource Manager geralmente é mais útil ao criar um 
         "metricName": "Percentage CPU",
         "operator": "GreaterThan",
         "threshold": "80",
-        "windowSize": "00:10:00",
+        "windowSize": "PT5M",
         "aggregation": "Average",
         "customEmails": "",
         "sendToServiceOwners": true,
@@ -377,7 +377,7 @@ Um alerta em um modelo do Resource Manager geralmente é mais útil ao criar um 
                         "resourceUri": "[variables('vmID')]",
                         "metricName": "[variables('metricName')]"
                     },
-                    "operator": "[parameters('operator')]",
+                    "operator": "[variables('operator')]",
                     "threshold": "[variables('threshold')]",
                     "windowSize": "[variables('windowSize')]",
                     "timeAggregation": "[variables('aggregation')]"
@@ -403,10 +403,4 @@ Um alerta em um modelo do Resource Manager geralmente é mais útil ao criar um 
 ## <a name="next-steps"></a>Próximas etapas
 * [Saiba mais sobre os Alertas](insights-receive-alert-notifications.md)
 * [Adicionar Configurações de Diagnóstico](monitoring-enable-diagnostic-logs-using-template.md) ao modelo do Resource Manager
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

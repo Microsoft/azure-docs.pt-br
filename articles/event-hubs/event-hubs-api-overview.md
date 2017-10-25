@@ -3,7 +3,7 @@ title: "Visão geral da API dos Hubs de Eventos do Azure | Microsoft Docs"
 description: "Visão geral das APIs de Hubs de Eventos do Azure disponíveis"
 services: event-hubs
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 3f221a0c-182d-4e39-9f3d-3a3c16c5c6ed
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
-ms.author: jotaub
-translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: 5a360462288e5df6e0ede5f11adabba158a9dd57
-
+ms.date: 08/15/2017
+ms.author: sethm
+ms.openlocfilehash: 40cd76e1aacb68d6051cae4a3c90a8970f5449f0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="available-event-hubs-apis"></a>APIs de Hubs de Eventos disponíveis
 
 ## <a name="runtime-apis"></a>APIs de tempo de execução
 
-A seguir, uma lista de todos os clientes de tempo de execução dos Hubs de Eventos disponíveis no momento. Embora algumas dessas bibliotecas também incluem a funcionalidade de gerenciamento limitado, também há [bibliotecas específicas](#management-apis) dedicada às operações de gerenciamento. O foco principal dessas bibliotecas é enviar e receber mensagens de um Hub de Eventos.
+Veja a seguir uma descrição de todos os clientes de tempo de execução dos Hubs de Eventos do Azure atualmente disponíveis. Embora algumas dessas bibliotecas também incluem a funcionalidade de gerenciamento limitado, também há [bibliotecas específicas](#management-apis) dedicada às operações de gerenciamento. O foco principal dessas bibliotecas é enviar e receber mensagens de um hub de eventos.
 
 Veja [informações adicionais](#additional-information) para obter mais detalhes sobre o status atual de cada biblioteca de tempo de execução.
 
@@ -39,7 +39,7 @@ Veja [informações adicionais](#additional-information) para obter mais detalhe
 ### <a name="additional-information"></a>Informações adicionais
 
 #### <a name="net"></a>.NET
-O ecossistema do .NET tem vários tempos de execução, portanto, há várias bibliotecas .NET de Hubs de Eventos. A biblioteca .NET Standard pode ser executada usando o .NET Core ou o .NET Framework, enquanto a biblioteca do .NET Framework só pode ser executada em um ambiente do .NET Framework. Para saber mais sobre o .NET Framework, veja [versões do framework.](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions)
+O ecossistema do .NET tem vários tempos de execução, portanto, há várias bibliotecas .NET de Hubs de Eventos. A biblioteca .NET Standard pode ser executada usando o .NET Core ou o .NET Framework, enquanto a biblioteca do .NET Framework só pode ser executada em um ambiente do .NET Framework. Para saber mais sobre o .NET Framework, veja [versões da estrutura](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
 
 #### <a name="node"></a>Nó
 
@@ -57,10 +57,5 @@ A seguir está uma lista de todas as bibliotecas específicas de gerenciamento d
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
 * [Visão Geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
-* [Criar um Hub de Eventos](event-hubs-create.md)
+* [Criar um hub de eventos](event-hubs-create.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

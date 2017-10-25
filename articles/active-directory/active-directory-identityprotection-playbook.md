@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 07/12/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 77031b3bbe2372bf2cac34bac45368ac40911641
-ms.openlocfilehash: 87070d7680a6d48e94099b47f9dc336a75332f6c
-
-
+ms.reviewer: nigu
+ms.openlocfilehash: 2ecd07faed785fa6aa179ac1cca35a70d965e1dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Guia estratégico do Azure Active Directory Identity Protection
 Este guia estratégico vai ajudá-lo a:
@@ -79,7 +80,7 @@ A entrada será exibida no painel do Identity Protection dentro de 5 minutos.
 5. Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com) usando as mesmas credenciais de antes, alguns minutos após a entrada anterior.
 
 A entrada será exibida no painel do Identity Protection dentro de 2 a 4 horas.<br>
-Devido aos complexos modelos de aprendizado de máquina envolvidos, há uma chance de que isso não seja captado.<br>  É conveniente replicar essas etapas para várias contas do Azure AD.
+Devido aos complexos modelos de aprendizado de máquina envolvidos, há uma chance de que isso não seja captado.<br> É conveniente replicar essas etapas para várias contas do Azure AD.
 
 ## <a name="simulating-vulnerabilities"></a>Simulação de vulnerabilidades
 Vulnerabilidades são pontos fracos no seu ambiente do Azure AD que podem ser explorados por um ator maligno. Atualmente, três tipos de vulnerabilidades são exibidas no Azure AD Identity Protection que aproveitam os outros recursos do Azure AD. Essas vulnerabilidades serão exibidas no painel do Identity Protection automaticamente depois que esses recursos forem configurados.
@@ -108,7 +109,7 @@ Vulnerabilidades são pontos fracos no seu ambiente do Azure AD que podem ser ex
 11. Clique em **Salvar**.
 12. Agora você pode testar o acesso condicional baseado em risco ao entrar usando um usuário com um nível de risco elevado. Se o risco do usuário for Médio, dependendo da configuração da política, sua entrada será bloqueada ou você será forçado a alterar a senha. 
     <br><br>
-    ![Guia estratégico](./media/active-directory-identityprotection-playbook/201.png "Playbook")
+    ![Guia estratégico](./media/active-directory-identityprotection-playbook/201.png "Guia estratégico")
     <br>
 
 ## <a name="sign-in-risk"></a>Risco de entrada
@@ -135,10 +136,4 @@ Vulnerabilidades são pontos fracos no seu ambiente do Azure AD que podem ser ex
 
 ## <a name="see-also"></a>Consulte também
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

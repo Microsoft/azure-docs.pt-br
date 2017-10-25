@@ -3,7 +3,7 @@ title: Modelos de portal do desenvolvedor do Gerenciamento de API do Azure | Mic
 description: "Saiba como personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos no Gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 5189f3d8-2a4c-4dc8-ab19-11c7df0114d4
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 090f724c3ea569d226622c7d57fec74549260f4e
-
+ms.openlocfilehash: 2f2a943657dd328fc5657b775ba0273f99718f39
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-api-management-developer-portal-templates"></a>Modelos de portal do desenvolvedor do Gerenciamento de API do Azure
 O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configura o respectivo conteúdo. Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como o [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), bem como um conjunto fornecido de [Recursos de cadeia de caracteres](api-management-template-resources.md#strings), [Recursos do Glyph](api-management-template-resources.md#glyphs) e [Controles de página](api-management-page-controls.md) localizados, você tem grande flexibilidade para configurar o conteúdo das páginas, conforme a necessidade, usando esses modelos.  
@@ -27,7 +28,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 
 
   
-##  <a name="a-namedeveloperportaltemplatesa-developer-portal-templates"></a><a name="DeveloperPortalTemplates"></a> Modelos de portal do desenvolvedor  
+##  <a name="DeveloperPortalTemplates"></a> Modelos de portal do desenvolvedor  
   
 -   [APIs](api-management-api-templates.md)  
     -   [Lista de APIs](api-management-api-templates.md#APIList)  
@@ -65,8 +66,3 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 -   [Referência de modelo de dados](api-management-template-data-model-reference.md)  
 -   [Controles de página](api-management-page-controls.md)  
 -   [Recursos de modelo](api-management-template-resources.md)
-
-
-<!--HONumber=Jan17_HO2-->
-
-

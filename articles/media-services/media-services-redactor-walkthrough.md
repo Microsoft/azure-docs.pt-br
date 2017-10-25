@@ -4,7 +4,7 @@ description: "Este tópico mostra instruções passo a passo sobre como executar
 services: media-services
 documentationcenter: 
 author: Lichard
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 09/03/2017
 ms.author: rli; juliako;
-translationtype: Human Translation
-ms.sourcegitcommit: 8d8575decb177001cefbb7f159841b64c3f84f41
-ms.openlocfilehash: d9bb513a7f5acc0ba41902795b159564b2562842
-
-
+ms.openlocfilehash: 0bd385ba78028a722c52cdf1508f3348ff90f05f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Passo a passo de edição facial com o Azure Media Analytics
 
@@ -29,8 +29,6 @@ ms.openlocfilehash: d9bb513a7f5acc0ba41902795b159564b2562842
 Para obter detalhes sobre o **Azure Media Redactor**, veja o tópico [Visão geral da edição de face](media-services-face-redaction.md).
 
 Este tópico mostra instruções passo a passo sobre como executar um fluxo de trabalho de edição completo usando o AMSE (Explorador dos Serviços de Mídia do Azure) e o Azure Media Redactor Visualizer (ferramenta de código-fonte aberto).
-
-No momento, o MP do **Azure Media Redactor** está em versão de Visualização. Ele está disponível em todas as regiões públicas do Azure, bem como em data centers do Governo dos EUA e da China. Esta visualização está disponível gratuitamente no momento. Na versão atual, há um limite de 10 minutos de duração do vídeo processado.
 
 Para saber mais, confira [este](https://azure.microsoft.com/en-us/blog/redaction-preview-available-globally) blog.
 
@@ -114,6 +112,10 @@ Se você for um desenvolvedor que está tentando analisar os dados de anotação
     ![Redação de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
 5.  O campo de texto inferior será atualizado com as IDs de face. Crie um arquivo chamado "idlist.txt" com essas IDs como uma lista delimitada por nova linha. 
+
+    >[!NOTE]
+    > O idlist.txt deve ser salvo em ANSI. É possível usar o bloco de notas para salvar em ANSI.
+    
 6.  Carregue esse arquivo no ativo de saída da etapa 1. Carregue o vídeo original também nesse ativo e defina-o como ativo primário. 
 7.  Execute o trabalho de Edição nesse ativo com o modo de "Edição" para obter o último vídeo editado. 
 
@@ -129,9 +131,4 @@ Se você for um desenvolvedor que está tentando analisar os dados de anotação
 
 [Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-
+[Anunciando a redação da face da Análise de Mídia do Azure](https://azure.microsoft.com/blog/azure-media-redactor/)

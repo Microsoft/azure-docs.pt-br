@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 387b274a993454814f7238f4cd89a52351a6fc1f
-
-
+ms.openlocfilehash: 303cdffa15fdfe9b83d0612edecafc6943d218f3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-8000-series-release-version-release-notes---july-2014"></a>Notas de versão de lançamento do StorSimple série 8000 - julho de 2014
 ## <a name="overview"></a>Visão geral
@@ -41,10 +41,4 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 | 8 |Failover de dispositivo |Não há suporte para vários failovers de um contêiner de volume do mesmo dispositivo de origem para diferentes dispositivos de destino. O failover de um único dispositivo inativo para vários dispositivos fará com que os contêineres de volume no primeiro dispositivo com failover percam a propriedade dos dados. Após o failover, esses contêineres de volume serão exibidos ou se comportarão de maneira diferente quando forem exibidos no Portal clássico do Azure. | |Sim |Não |
 | 9 |Instalação |Durante o Adaptador StorSimple para instalação do SharePoint, você precisa fornecer um IP do dispositivo para que a instalação seja concluída com êxito. | |Sim |Não |
 | 10 |Interfaces de rede |Na versão anterior, as interfaces de rede DADOS 2 e DADOS 3 foram trocadas no software. |Contate o Microsoft Support se você precisa configurar essas interfaces. |Sim |Não |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

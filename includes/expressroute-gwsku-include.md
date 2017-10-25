@@ -6,8 +6,3 @@ Os gateways de rede virtual de ExpressRoute podem usar os seguintes SKUs:
 * HighPerformance
 * UltraPerformance
 
-
-
-<!--HONumber=Dec16_HO1-->
-
-

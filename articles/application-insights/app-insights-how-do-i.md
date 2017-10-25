@@ -1,24 +1,23 @@
 ---
-title: Como... no Application Insights | Microsoft Docs
+title: Como... no Azure Application Insights | Microsoft Docs
 description: Perguntas Frequentes no Application Insights.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: 9e54ee2d67a8dfb5b480db01219e128607e26f51
-ms.lasthandoff: 02/02/2017
-
-
+ms.date: 04/04/2017
+ms.author: bwren
+ms.openlocfilehash: ef63e06c0621753e0a706d6efb709b943e38ee42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-do-i--in-application-insights"></a>Como ... no Application Insights?
 ## <a name="get-an-email-when-"></a>Receber um email quando...
@@ -81,55 +80,11 @@ Considere o seguinte:
 * [Criar novos recursos](app-insights-powershell-script-create-resource.md)
 * [Criar novos alertas](app-insights-alerts.md#automation)
 
-## <a name="application-versions-and-stamps"></a>Carimbos e versões de aplicativos
-### <a name="separate-the-results-from-dev-test-and-prod"></a>Separar os resultados de desenvolvimento, teste e produção
-* Para ambientes diferentes, configurar diferentes ikeys
-* Para diferentes carimbos (desenvolvimento, teste, produção) marcar a telemetria com diferentes valores de propriedade
+## <a name="separate-telemetry-from-different-versions"></a>Telemetria separada de versões diferentes
 
-[Saiba mais](app-insights-separate-resources.md)
-
-### <a name="filter-on-build-number"></a>Filtrar por número de compilação
-Quando publicar uma nova versão do seu aplicativo, você desejará ser capaz de separar a telemetria das compilações diferentes.
-
-Você pode definir a propriedade de versão do aplicativo para que possa filtrar resultados da [pesquisa](app-insights-diagnostic-search.md) e do [Metrics Explorer](app-insights-metrics-explorer.md).
-
-![](./media/app-insights-how-do-i/050-filter.png)
-
-Há vários métodos diferentes de definir a propriedade de Versão do aplicativo.
-
-* Definir diretamente:
-
-    `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
-* Defina a quebra automática de linha em um [inicializador de telemetria](app-insights-api-custom-events-metrics.md#defaults) para garantir que todas as instâncias de TelemetryClient sejam configuradas de forma consistente.
-* [ASP.NET] Definir a versão em `BuildInfo.config`. O módulo da Web selecionará a versão do nó BuildLabel. Inclua esse arquivo no seu projeto e não se esqueça de definir a propriedade Copy Always no Gerenciador de Soluções.
-
-    ```XML
-
-    <?xml version="1.0" encoding="utf-8"?>
-    <DeploymentEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
-      <ProjectName>AppVersionExpt</ProjectName>
-      <Build type="MSBuild">
-        <MSBuild>
-          <BuildLabel kind="label">1.0.0.2</BuildLabel>
-        </MSBuild>
-      </Build>
-    </DeploymentEvent>
-
-    ```
-* [ASP.NET] Gerar automaticamente BuildInfo.config no MSBuild. Para fazer isso, adicione algumas linhas ao arquivo .csproj:
-
-    ```XML
-
-    <PropertyGroup>
-      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup>
-    ```
-
-    Isso gera um arquivo chamado *nomedoSeuProjeto*.BuildInfo.config. O processo de Publicação renomeia o arquivo como BuildInfo.config.
-
-    O rótulo da compilação contém um espaço reservado (AutoGen_...) quando você cria com o Visual Studio. Mas quando compilado com o MSBuild, ele é preenchido com o número de versão correta.
-
-    Para permitir que o MSBuild gere números de versão, defina a versão como `1.0.*` em AssemblyReference.cs
+* Várias funções em um aplicativo: use um único recurso do Application Insights e filtre cloud_Rolename. [Saiba mais](app-insights-monitor-multi-role-apps.md)
+* Separação de desenvolvimento, teste e versões de lançamento: usar recursos diferentes do Application Insights. Pegue as chaves de instrumentação do web.config. [Saiba mais](app-insights-separate-resources.md)
+* Relatando versões de build: adicionar uma propriedade usando um inicializador de telemetria. [Saiba mais](app-insights-separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>Monitorar servidores de back-end e aplicativos de desktop
 [Use o módulo do SDK do Windows Server](app-insights-windows-desktop.md).
@@ -206,4 +161,3 @@ Entre as métricas que você pode exibir no Metrics Explorer, existe um conjunto
 ### <a name="to-display-more-performance-counters"></a>Para exibir mais contadores de desempenho
 * Primeiro, [adicione um novo gráfico](app-insights-metrics-explorer.md) e veja se o contador está no conjunto básico que oferecemos.
 * Caso contrário, [adicione o contador ao conjunto coletado pelo módulo do contador de desempenho](app-insights-performance-counters.md).
-

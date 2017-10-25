@@ -1,11 +1,12 @@
 ---
-title: "O que é uma ACL (Lista de Controle de Acesso) de rede?"
-description: Saiba mais sobre ACLs.
+title: "O que é uma lista de controle de acesso da rede do Azure?"
+description: Saiba mais sobre listas de controle de acesso no Azure
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
-editor: tysonn
+manager: timlt
+editor: 
+tags: azure-service-management
 ms.assetid: 83d66c84-8f6b-4388-8767-cd2de3e72d76
 ms.service: virtual-network
 ms.devlang: na
@@ -14,31 +15,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 66ddcea180395b830cdb5310446e1dbc02e7d784
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 9a0c85367968c9b38104012d75b1f3975be82cc1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="what-is-an-endpoint-access-control-list-acls"></a>O que é uma ACL (Lista de Controle de Acesso) do ponto de extremidade?
-Uma ACL (Lista de Controle de Acesso) de ponto de extremidade é uma melhoria de segurança disponível para a sua implantação do Azure. Uma ACL fornece a capacidade para permitir ou negar seletivamente o tráfego para um ponto de extremidade de máquina virtual. Essa capacidade de filtragem de pacotes proporciona uma camada adicional de segurança. Você pode especificar ACLs de rede apenas para pontos de extremidade. Não é possível especificar uma ACL para uma rede virtual ou uma sub-rede específica contida em uma rede virtual.
+# <a name="what-is-an-endpoint-access-control-list"></a>O que é uma lista de controle de acesso do ponto de extremidade?
 
 > [!IMPORTANT]
-> Recomendamos que você use NSGs (Grupos de segurança de rede) em vez de ACLs sempre que possível. Para saber mais sobre NSGs, confira [O que é um Grupo de segurança de rede?](virtual-networks-nsg.md).
-> 
-> 
+> O Azure tem dois [modelos de implantação](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) diferentes para criar e trabalhar com recursos: o Gerenciador de Recursos e o Clássico. Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo de implantação do Gerenciador de Recursos. 
 
-As ACLs podem ser configuradas usando o PowerShell ou o Portal de Gerenciamento. Para configurar ACLs usando o PowerShell, confira [Gerenciando ACLs (Listas de controle de acesso) para pontos de extremidade usando o PowerShell](virtual-networks-acl-powershell.md). Para configurar uma ACL de rede usando o Portal de Gerenciamento, consulte [Como configurar pontos de extremidade para uma máquina virtual](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Uma ACL (Lista de Controle de Acesso) de ponto de extremidade é uma melhoria de segurança disponível para a sua implantação do Azure. Uma ACL fornece a capacidade para permitir ou negar seletivamente o tráfego para um ponto de extremidade de máquina virtual. Essa capacidade de filtragem de pacotes proporciona uma camada adicional de segurança. Você pode especificar ACLs de rede apenas para pontos de extremidade. Não é possível especificar uma ACL para uma rede virtual ou uma sub-rede específica contida em uma rede virtual. Recomendamos que você use NSGs (grupos de segurança de rede) em vez de ACLs sempre que possível. Para saber mais sobre NSGs, confira [Visão geral do grupo de segurança de rede](virtual-networks-nsg.md)
+
+As ACLs podem ser configuradas usando o PowerShell ou o portal do Azure. Para configurar ACLs usando o PowerShell, confira [Gerenciando listas de controle de acesso para pontos de extremidade usando o PowerShell](virtual-networks-acl-powershell.md). Para configurar uma ACL de rede usando o portal do Azure, consulte [Como configurar pontos de extremidade para uma máquina virtual](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 Com as ACLs de rede, você pode fazer o seguinte:
 
 * Permitir ou negar seletivamente o tráfego de entrada com base no intervalo de endereços IPv4 de sub-rede remota para um ponto de extremidade de entrada de máquina virtual.
 * Inserir endereços IP em uma lista negra
 * Criar várias regras por ponto de extremidade de máquina virtual
-* Especificar até 50 regras de ACL por ponto de extremidade de máquina virtual
 * Usar a ordenação de regra para garantir que o conjunto correto de regras seja aplicado a um certo ponto de extremidade de máquina virtual (mais baixa para a mais alta)
 * Especificar uma ACL para um endereço IPv4 de sub-rede remota específica.
+
+Leia o artigo [Limites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) para obter limites de ACL.
 
 ## <a name="how-acls-work"></a>Como funcionam as ACLs
 Uma ACL é um objeto que contém uma lista de regras. Quando você cria uma ACL e a aplica a um ponto de extremidade de máquina virtual, a filtragem de pacotes ocorre no nó do host da VM. Isso significa que o tráfego de endereços IP remotos é filtrado pelo nó do host a fim de estabelecer uma correspondência de regras de ACL na sua VM. Isso impede que a VM gaste os preciosos ciclos de CPU na filtragem de pacotes.
@@ -85,11 +85,10 @@ Como é possível especificar várias regras para um ponto de extremidade, deve 
 | 200 |175.0.0.0/8 |80 |Permitir |
 
 ## <a name="network-acls-and-load-balanced-sets"></a>ACLs de rede e conjuntos de cargas balanceadas
-As ACLs de rede podem ser especificadas em um ponto de extremidade com conjunto de balanceamento de carga (Conjunto de LB). Se uma ACL for especificada para um conjunto de LB, a ACL de rede será aplicada a todas as máquinas virtuais nesse conjunto de LB. Por exemplo, se um conjunto de LB for criado com a "porta 80" e o conjunto de LB contiver 3 VMs, a ACL de rede criada no ponto de extremidade da "Porta 80" de uma VM será aplicada automaticamente às outras VMs.
+As ACLs de rede podem ser especificadas em um ponto de extremidade com conjunto de balanceamento de carga. Se uma ACL for especificada para um conjunto de carga balanceada, a ACL de rede será aplicada a todas as máquinas virtuais nesse conjunto de carga balanceada. Por exemplo, se um conjunto de carga balanceada for criado com a "porta 80" e o conjunto de carga balanceada contiver 3 VMs, a ACL de rede criada no ponto de extremidade da "Porta 80" de uma VM será aplicada automaticamente às outras VMs.
 
 ![ACLs de rede e conjuntos de cargas balanceadas](./media/virtual-networks-acl/IC674733.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-[Como gerenciar ACLs (Listas de controle de acesso) para pontos de extremidade usando o PowerShell](virtual-networks-acl-powershell.md)
-
+[Gerenciar listas de controle de acesso para pontos de extremidade usando o PowerShell](virtual-networks-acl-powershell.md)
 

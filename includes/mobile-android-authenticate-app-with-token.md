@@ -82,8 +82,3 @@ O exemplo anterior mostrou um logon padrão, que requer que o cliente contate o 
             }
         }
 6. Compile o aplicativo e teste a autenticação usando uma conta válida. Execute pelo menos uma vez. Durante a primeira execução, você deverá ser solicitado a iniciar uma sessão e criar o cache do token. Depois disso, cada execução tentará carregar o cache de token para autenticação. Não deve ser solicitado que você inicie uma sessão.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

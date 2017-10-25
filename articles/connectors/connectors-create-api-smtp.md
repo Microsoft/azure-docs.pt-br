@@ -1,10 +1,10 @@
 ---
-title: SMTP | Microsoft Docs
+title: "Conector SMTP no Aplicativo Lógico do Azure | Microsoft Docs"
 description: "Crie aplicativos lógicos com o serviço de Aplicativo do Azure. Conecte-se ao SMTP para enviar email."
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: msftman
-manager: erikre
+author: MandiOhlinger
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
-ms.author: deonhe
-translationtype: Human Translation
-ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
-ms.openlocfilehash: 3a0fdef111fbd4a9f7491e247f2236cf70b89dca
-
-
+ms.author: mandia; ladocs
+ms.openlocfilehash: 1cf96bbf8bd215d7ddb3c99860a5cb4e668be3c2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-smtp-connector"></a>Introdução ao conector do SMTP
 Conecte-se ao SMTP para enviar email.
@@ -27,7 +27,7 @@ Conecte-se ao SMTP para enviar email.
 Para usar [qualquer conector](apis-list.md), primeiro é preciso criar um aplicativo lógico. Você pode começar [criando um aplicativo lógico agora mesmo](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-smtp"></a>Conectar-se ao SMTP
-Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma *conexão* com o serviço. Uma [conexão](connectors-overview.md) fornece uma conectividade entre um aplicativo lógico e outro serviço. Por exemplo, para se conectar ao SMTP, é preciso ter uma *conexão* do SMTP. Para criar uma conexão, é preciso fornecer as credenciais normalmente usadas para acessar o serviço ao qual você deseja se conectar. Desse modo, no exemplo de SMTP, você precisa das credenciais do seu nome de conexão, do endereço do servidor SMTP e das informações de logon do usuário para criar a conexão com o SMTP. [Saiba mais sobre conexões]()  
+Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma *conexão* com o serviço. Uma [conexão](connectors-overview.md) fornece uma conectividade entre um aplicativo lógico e outro serviço. Por exemplo, para se conectar ao SMTP, é preciso ter uma *conexão* do SMTP. Para criar uma conexão, insira as credenciais que você normalmente usa para acessar o serviço ao qual se conecta. Assim, no exemplo de SMTP, insira as credenciais de seu nome de conexão, do endereço do servidor SMTP e das informações de logon do usuário para criar a conexão com o SMTP.  
 
 ### <a name="create-a-connection-to-smtp"></a>Criar uma conexão com o SMTP
 > [!INCLUDE [Steps to create a connection to SMTP](../../includes/connectors-create-api-smtp.md)]
@@ -37,7 +37,7 @@ Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma
 ## <a name="use-an-smtp-trigger"></a>Usar um gatilho de SMTP
 Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
-Neste exemplo, como o SMTP não tem seu próprio gatilho, usaremos o gatilho **Salesforce – quando um objeto é criado**. Esse gatilho será ativado quando um novo objeto for criado no Salesforce. Em nosso exemplo, nós o configuraremos de modo que toda vez que um novo cliente potencial for criado no Salesforce, uma ação *enviar email* ocorrerá por meio do conector de SMTP com uma notificação do novo cliente potencial que está sendo criado.
+Neste exemplo, como o SMTP não tem seu próprio gatilho, usaremos o gatilho **Salesforce – quando um objeto é criado**. Esse gatilho é ativado quando um novo objeto é criado no Salesforce. Em nosso exemplo, nós o configuraremos de modo que toda vez que um novo cliente potencial for criado no Salesforce, uma ação *enviar email* ocorrerá por meio do conector de SMTP com uma notificação do novo cliente potencial que está sendo criado.
 
 1. Digite *salesforce* na caixa de pesquisa no designer de aplicativos lógicos e escolha o gatilho **Salesforce — Quando um objeto é criado** .  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
@@ -64,63 +64,9 @@ Agora que o gatilho foi adicionado, siga estas etapas para adicionar uma ação 
    ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)  
 6. Salve seu trabalho para ativar o fluxo de trabalho.  
 
-## <a name="technical-details"></a>Detalhes técnicos
-Veja abaixo os detalhes sobre os gatilhos, as ações e as respostas que essa conexão permite:
+## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-## <a name="smtp-triggers"></a>Gatilhos de SMTP
-O SMTP não possui gatilhos. 
+Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/smtpconnector/).
 
-## <a name="smtp-actions"></a>Ações de SMTP
-O SMTP tem a seguinte ação:
-
-| Ação | Descrição |
-| --- | --- |
-| [Enviar email](connectors-create-api-smtp.md#send-email) |Esta operação envia um email para um ou mais destinatários. |
-
-### <a name="action-details"></a>Detalhes da ação
-Veja abaixo os detalhes da ação para esse conector, com suas respostas:
-
-### <a name="send-email"></a>Enviar Email
-Esta operação envia um email para um ou mais destinatários. 
-
-| Nome da Propriedade | Nome de exibição | Descrição |
-| --- | --- | --- |
-| Para |Para |Especifique endereços de email separados por ponto-e-vírgula, como recipient1@domain.com;recipient2@domain.com |
-| CC |cc |Especifique endereços de email separados por ponto-e-vírgula, como recipient1@domain.com;recipient2@domain.com |
-| Subject |Subject |Assunto do email |
-| Corpo |Corpo |Corpo do email |
-| Da |Da |Endereço de email do remetente, como sender@domain.com |
-| IsHtml |É Html |Envie o email como HTML (verdadeiro/falso) |
-| Cco |bcc |Especifique endereços de email separados por ponto-e-vírgula, como recipient1@domain.com;recipient2@domain.com |
-| Importância |Importância |Importância do email (Alta, Normal ou Baixa) |
-| ContentData |Dados do Conteúdo dos Anexos |Dados de conteúdo (codificados em base64 para transmissões e no estado em que se encontram para cadeia de caracteres) |
-| ContentType |Tipo de Conteúdo dos Anexos |Tipo de conteúdo |
-| ContentTransferEncoding |Codificação de Transferência de Conteúdo dos Anexos |Codificação de transferência de conteúdo (base64 ou nenhuma) |
-| FileName |Nome do Arquivo dos Anexos |Nome do arquivo |
-| ContentId |ID do Conteúdo dos Anexos |ID do conteúdo |
-
-Um * indica que uma propriedade é obrigatória
-
-## <a name="http-responses"></a>Respostas HTTP
-As ações e os gatilhos acima podem retornar um ou mais dos seguintes códigos de status HTTP: 
-
-| Nome | Descrição |
-| --- | --- |
-| 200 |OK |
-| 202 |Aceita |
-| 400 |Solicitação incorreta |
-| 401 |Não Autorizado |
-| 403 |Proibido |
-| 404 |Não encontrado |
-| 500 |Erro Interno do Servidor. Ocorreu um erro desconhecido. |
-| padrão |Falha na Operação. |
-
-## <a name="next-steps"></a>Próximas etapas
-[Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+## <a name="more-connectors"></a>Mais conectores
+Volte para a [Lista de APIs](apis-list.md).

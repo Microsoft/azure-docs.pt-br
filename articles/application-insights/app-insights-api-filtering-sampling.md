@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 4813610bc938c1a2fb6581bc9d8352b519a2d8ef
-ms.openlocfilehash: ea5285a7997beed926e35649362cee7de53e1efe
-
-
+ms.author: bwren
+ms.openlocfilehash: c04cdabf53e4018877691f7272f6cc022b42df39
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrando e pré-processando a telemetria no SDK do Application Insights
 
@@ -341,32 +341,11 @@ Qual é a diferença entre os processadores de telemetria e inicializadores de t
 * [Referência do ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
 
 ## <a name="sdk-code"></a>Código do SDK
-* [SDK de Núcleo do ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
-* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
+* [SDK de Núcleo do ASP.NET](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+* [SDK do ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [SDK do JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Próximas etapas
-* [Pesquisar eventos e logs][diagnostic]
+## <a name="next"></a>Próximas etapas
+* [Pesquisar eventos e logs](app-insights-diagnostic-search.md)
 * [Amostragem](app-insights-sampling.md)
-* [Solução de problemas][qna]
-
-<!--Link references-->
-
-[client]: app-insights-javascript.md
-[config]: app-insights-configuration-with-applicationinsights-config.md
-[create]: app-insights-create-new-resource.md
-[data]: app-insights-data-retention-privacy.md
-[diagnostic]: app-insights-diagnostic-search.md
-[exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-asp-net.md
-[java]: app-insights-java-get-started.md
-[metrics]: app-insights-metrics-explorer.md
-[qna]: app-insights-troubleshoot-faq.md
-[trace]: app-insights-search-diagnostic-logs.md
-[windows]: app-insights-windows-get-started.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-
+* [Solução de problemas](app-insights-troubleshoot-faq.md)

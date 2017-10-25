@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 496aa7754b35877900da020283c8b7efe0e04cef
-
-
+ms.openlocfilehash: ab08256fbc3caca05bf23a12016ad2acf4fc7412
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-apis-in-azure-api-management"></a>Como criar APIs no Gerenciamento de API do Azure
 Uma API no Gerenciamento de API representa um conjunto de operações que pode ser invocado pelas aplicações clientes. Novas APIs são criadas no Portal do editor e, depois, as operações desejadas são adicionadas. Após as operações serem adicionadas, a API é adicionada a um produto e pode ser publicada. Após uma API ser publicada, ela pode ser usada e assinada por desenvolvedores.
@@ -94,9 +94,3 @@ Após criar uma API e definir as configurações, as próximas etapas são adici
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 [How to secure back-end services using client certificate authentication in Azure API Management]: api-management-howto-mutual-certificates.md
 [How to authorize developer accounts using OAuth 2.0 in Azure API Management]: api-management-howto-oauth2.md
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-

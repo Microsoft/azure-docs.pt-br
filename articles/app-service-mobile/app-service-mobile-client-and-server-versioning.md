@@ -3,8 +3,8 @@ title: "Controle de versão de cliente e servidor SDK em Aplicativos Móveis e S
 description: "Lista dos SDKs clientes e compatibilidade com versões do SDK do servidor para os Serviços Móveis e Aplicativos Móveis do Azure"
 services: app-service\mobile
 documentationcenter: 
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.service: app-service-mobile
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: d74137dc3c994cb05e02c4f866043eabf134fcdd
-ms.lasthandoff: 03/09/2017
-
-
+ms.author: glenga
+ms.openlocfilehash: f79e819b1547f81498ea213858faf3c75e374782
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Controle de versão de cliente e servidor em Aplicativos Móveis e Serviços Móveis
 A versão mais recente dos Serviços Móveis do Azure é o recurso **Aplicativos Móveis** do Serviço de Aplicativo do Azure.
@@ -47,8 +46,8 @@ Você pode recusar a verificação de versão definindo um valor **verdadeiro** 
 
 > [!NOTE]
 > Há algumas alterações de comportamento entre os Serviços Móveis e os Aplicativos Móveis, especialmente nas áreas de sincronização offline, autenticação e notificações por push. Você deve recusar verificação somente após o teste completo para garantir que essas alterações de comportamento não interrompam a funcionalidade do aplicativo.
-> 
-> 
+>
+>
 
 ## <a name="summary-of-compatibility-for-all-versions"></a>Resumo de compatibilidade para todas as versões
 A tabela abaixo mostra a compatibilidade entre todos os tipos de cliente e de servidor. Um back-end é classificado como **Serviços** Móveis ou **Aplicativos** Móveis com base no SDK de servidor que ele usa.
@@ -80,7 +79,7 @@ Observação: os SDKs do cliente dos Serviços Móveis *não* enviam um valor de
 ### <a name="mobile-services-server-sdks"></a>SDKs de servidor de *Serviços* Móveis
 | Plataforma servidor | Versão | Cabeçalho de versão aceito |
 | --- | --- | --- |
-| .NET |[WindowsAzure.MobileServices.Backend.* versão 1.0. x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**Nenhum cabeçalho de versão ** |
+| .NET |[WindowsAzure.MobileServices.Backend.* versão 1.0. x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**Nenhum cabeçalho de versão** |
 | Node.js |(em breve) |**Nenhum cabeçalho de versão** |
 
 <!-- TODO: add Node npm version -->
@@ -130,5 +129,3 @@ A verificação de versão está incluída nas seguintes versões do SDK do serv
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Migrar um Serviço Móvel para o Serviço de Aplicativo do Azure]: app-service-mobile-migrating-from-mobile-services.md
-
-

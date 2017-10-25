@@ -3,7 +3,7 @@ title: "Exemplos de código do Azure Active Directory | Microsoft Docs"
 description: "Um índice de exemplos de código do Active Directory do Azure, organizados por cenário."
 services: active-directory
 documentationcenter: dev-center-name
-author: priyamohanram
+author: msmbaldwin
 manager: mbaldwin
 editor: 
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 07/19/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 06d8cb3ce2fe4419a79a63b76d67cc476d205e08
-ms.openlocfilehash: 4e8c8539fdcab348aa91644baafae217bd5e863a
-
-
+ms.custom: aaddev
+ms.openlocfilehash: 19d71e65dc2c78663d94c74228dcff038566391b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-code-samples"></a>Exemplos de código do Active Directory do Azure
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -130,9 +131,3 @@ Essas orientações usam tecnologia ligeiramente mais antiga, mas ainda podem se
 [Conceitos e referência da Graph API do Azure AD](https://msdn.microsoft.com/library/azure/hh974476.aspx)
 
 [Biblioteca auxiliar da Graph API do Azure AD](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

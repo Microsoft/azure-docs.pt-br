@@ -12,62 +12,76 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 07/13/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
-ms.openlocfilehash: 3ef5dcbcb5f8f6a57de575af20028875b9f920ea
-
-
+ms.openlocfilehash: 8996f5ce03e39557d9cc9c3de1ec214f5cd664b4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>Como monitorar o Cache Redis do Azure
-O Cache Redis do Azure fornece várias opções para monitorar suas instâncias de cache. Você pode exibir métricas, fixar gráficos de métricas ao quadro inicial, personalizar o intervalo de data e hora de gráficos de monitoramento, adicionar/remover as métricas de gráficos e definir alertas quando determinadas condições forem atendidas. Essas ferramentas permitem monitorar a integridade de suas instâncias de Cache Redis do Azure e ajudá-lo a gerenciar seus aplicativos de cache.
+O Cache Redis do Azure usa o [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) para fornecer várias opções para monitorar suas instâncias de cache. Você pode exibir métricas, fixar gráficos de métricas ao quadro inicial, personalizar o intervalo de data e hora de gráficos de monitoramento, adicionar/remover as métricas de gráficos e definir alertas quando determinadas condições forem atendidas. Essas ferramentas permitem monitorar a integridade de suas instâncias de Cache Redis do Azure e ajudá-lo a gerenciar seus aplicativos de cache.
 
-Quando o diagnóstico de cache é habilitado, métricas para instâncias do Cache Redis do Azure são coletadas aproximadamente a cada 30 segundos e armazenadas para que possam ser exibidas nos gráficos de métricas e avaliadas por regras de alerta.
+As métricas para instâncias do Cache Redis do Azure são coletadas usando o comando [INFO](http://redis.io/commands/info) de Redis aproximadamente duas vezes por minuto, e são armazenadas automaticamente por 30 dias (consulte [Exportar as métricas de cache](#export-cache-metrics) para configurar uma política de retenção diferente) para que possam ser exibidas nos gráficos de métricas e avaliadas por regras de alerta. Para saber mais sobre os diferentes valores INFO usados para cada métrica de cache, confira [Métricas disponíveis e intervalos de relatórios](#available-metrics-and-reporting-intervals).
 
-As métricas de cache são coletadas usando o comando [INFO](http://redis.io/commands/info) do Redis. Para saber mais sobre os diferentes valores INFO usados para cada métrica de cache, confira [Métricas disponíveis e intervalos de relatórios](#available-metrics-and-reporting-intervals).
+<a name="view-cache-metrics"></a>
 
-Para exibir as métricas de cache, [procure](cache-configure.md#configure-redis-cache-settings) sua instância de cache no [portal do Azure](https://portal.azure.com). As métricas para instâncias do Cache Redis do Azure são acessadas na folha **Métricas do Redis** .
+Para exibir as métricas de cache, [procure](cache-configure.md#configure-redis-cache-settings) sua instância de cache no [portal do Azure](https://portal.azure.com).  O Cache Redis do Azure fornece alguns gráficos internos na folha **Visão geral** e na folha **Métricas de Redis**. Cada gráfico pode ser personalizado com a adição ou remoção de métricas e a alteração do intervalo de relatório.
 
-![Métricas do Redis][redis-cache-redis-metrics-blade]
+![Métricas do Redis](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
 
-> [!IMPORTANT]
-> Se a mensagem a seguir for exibida na folha **Métricas do Redis** , siga as etapas na seção [Habilitar o diagnóstico de cache](#enable-cache-diagnostics) para habilitar o diagnóstico de cache.
-> 
-> `Monitoring may not be enabled. Click here to turn on Diagnostics.`
-> 
-> 
+## <a name="view-pre-configured-metrics-charts"></a>Exibir gráficos de métricas pré-configurados
 
-A folha **Métricas do Redis** tem gráficos de **Monitoramento** que exibem as métricas de cache. Cada gráfico pode ser personalizado com a adição ou remoção de métricas e a alteração do intervalo de relatório. Para exibir e configurar operações e alertas, a folha **Cache Redis** tem uma seção **Operações** que exibe **Eventos** e **Regras de alerta** de cache.
+A folha **Visão geral** tem os seguintes gráficos de monitoramento pré-configurados.
 
-## <a name="enable-cache-diagnostics"></a>Habilitar o diagnóstico de cache
-O Cache Redis do Azure fornece a capacidade de ter dados de diagnóstico armazenados em uma conta de armazenamento para que você possa usar as ferramentas desejadas para acessar e processar os dados diretamente. Para que o diagnóstico de cache seja coletado, armazenado e exibido no portal do Azure, uma conta de armazenamento deve ser configurada. Os caches na mesma região e assinatura compartilham a mesma conta de armazenamento de diagnóstico e, quando a configuração é alterada, se aplica a todos os caches na assinatura que estão nessa região.
+* [Gráficos de monitoramento](#monitoring-charts)
+* [Gráficos de uso](#usage-charts)
 
-Para habilitar e configurar o diagnóstico de cache, navegue até a folha do **Cache Redis** de sua instância de cache. Se o diagnóstico ainda não estiver habilitado, uma mensagem será exibida em vez de um gráfico de diagnóstico.
+### <a name="monitoring-charts"></a>Gráficos de monitoramento
+A seção **Monitoramento** na folha **Visão geral** tem os gráficos **Acertos e Erros**, **Gets e Sets**, **Conexões** e **Total de Comandos**.
 
-![Habilitar o diagnóstico de cache][redis-cache-enable-diagnostics]
+![Gráficos de monitoramento](./media/cache-how-to-monitor/redis-cache-monitoring-part.png)
 
-Clique na mensagem para exibir a folha **Métrica** e clique em **Configurações de diagnóstico** para habilitar e configurar as configurações de diagnóstico para a instância do serviço de cache.
+### <a name="usage-charts"></a>Gráficos de uso
+A seção **Uso** na folha **Visão geral** tem os gráficos **Carga do Servidor Redis**, **Uso de Memória**, **Largura de Banda de Rede** e **Uso de CPU** e também exibe o **Tipo de preço** para a instância de cache.
 
-![Configurações de diagnóstico][redis-cache-diagnostic-settings]
+![Gráficos de uso](./media/cache-how-to-monitor/redis-cache-usage-part.png)
 
-![Configurar o diagnóstico][redis-cache-configure-diagnostics]
+A **Tipo de preço** exibe a tipo de preço do cache e pode ser usada para [dimensionar](cache-how-to-scale.md) o cache para um tipo de preço diferente.
 
-Clique no botão **Ativado** para habilitar o diagnóstico de cache e exibir a configuração de diagnóstico.
+## <a name="view-metrics-with-azure-monitor"></a>Ver métricas com o Azure Monitor
+Para exibir as métricas do Redis e criar gráficos personalizados usando o Azure Monitor, clique em **Métricas** no **menu Recursos** e personalize o gráfico usando as métricas desejadas, intervalo de relatórios, o tipo de gráfico e muito mais.
 
-Clique na seta à direita de **Conta de Armazenamento** para selecionar uma conta de armazenamento para armazenar dados de diagnóstico. Para obter o melhor desempenho, selecione uma conta de armazenamento na mesma região que seu cache.
+![Métricas do Redis](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
-Quando as configurações de diagnóstico estiverem definidas, clique em **Salvar** para salvar a configuração. Observe que pode levar alguns minutos para que as alterações entrem em vigor.
+Para saber mais sobre como trabalhar com as métricas usando o Azure Monitor, consulte [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-> [!IMPORTANT]
-> Os caches na mesma região e assinatura compartilham as mesmas configurações de armazenamento de diagnóstico e, quando a configuração é alterada (diagnóstico habilitado/desabilitado ou alteração da conta de armazenamento), ela é aplicada a todos os caches na assinatura que estão nessa região.
-> 
-> 
+<a name="how-to-view-metrics-and-customize-chart"></a>
+<a name="enable-cache-diagnostics"></a>
+## <a name="export-cache-metrics"></a>Exportar métricas de cache
+Por padrão, as métricas de cache no Azure Monitor são [armazenadas durante 30 dias](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive) e, em seguida, excluídas. Para persistir suas métricas de cache por mais de 30 dias, [indique uma conta de armazenamento](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) e especifique uma política de **Retenção (dias)** para suas métricas de cache. 
 
-Para exibir as métricas armazenadas, examine as tabelas em sua conta de armazenamento com nomes que começam com `WADMetrics`. Para obter mais informações sobre como acessar as métricas armazenadas fora do portal do Azure, consulte o exemplo [Acessar dados de monitoramento do Cache Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) .
+Para configurar uma conta de armazenamento para suas métricas de cache:
+
+1. Clique em **Diagnóstico** no **menu Recursos** na folha **Cache Redis**.
+2. Clique em **Ativado**.
+3. Marque **Arquivar em uma conta de armazenamento**.
+4. Selecione a conta de armazenamento para armazenar as métricas de cache.
+5. Marque a caixa de seleção **1 minuto** e especifique uma política de **Retenção (dias)**. Se você não quiser aplicar qualquer política de retenção e manter os dados indefinidamente, defina **Retenção (dias)** como **0**.
+6. Clique em **Salvar**.
+
+![Diagnóstico do Redis](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
+
+>[!NOTE]
+>Além de arquivar suas métricas de cache no armazenamento, você também pode [transmiti-las para um Hub de Eventos ou enviá-las para o Log Analytics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#export-metrics).
+>
+>
+
+Para acessar suas métricas, você pode exibi-las no Portal do Azure conforme descrito anteriormente neste artigo, e também pode acessá-las usando a [API REST das métricas do Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
 
 > [!NOTE]
-> Apenas as métricas que estão armazenadas na conta de armazenamento selecionada são exibidas no portal do Azure. Se você alterar contas de armazenamento, os dados na conta de armazenamento configurada anteriormente permanecerão disponíveis para download, mas não serão exibidos no portal do Azure.  
+> Se você alterar contas de armazenamento, os dados na conta de armazenamento configurada anteriormente permanecerão disponíveis para download, mas não serão exibidos no portal do Azure.  
 > 
 > 
 
@@ -88,6 +102,7 @@ Cada métrica inclui duas versões. Uma métrica mede o desempenho de todo o cac
 | Clientes conectados |O número de conexões de cliente com o cache durante o intervalo de relatório especificado. Esse número é mapeado para `connected_clients` do comando INFO do Redis. Assim que o [limite de conexão](cache-configure.md#default-redis-server-configuration) for atingido, as tentativas de conexão subsequentes ao cache falharão. Observe que, mesmo que não haja um aplicativo cliente ativo, pode haver ainda algumas instâncias de clientes conectados devido a conexões e processos internos. |
 | Chaves removidas |O número de itens removidos do cache durante o intervalo de relatório especificado devido ao limite de `maxmemory` . Esse número é mapeado para `evicted_keys` do comando INFO do Redis. |
 | Chaves expiradas |O número de itens expirados do cache durante o intervalo de relatório especificado. Esse valor é mapeado para `expired_keys` do comando INFO do Redis. |
+| Total de chaves  | O número máximo de chaves no cache durante o período de relatório anterior. Esse número é mapeado para `keyspace` do comando INFO do Redis. Devido a uma limitação do sistema subjacente de métricas, para os caches com clustering habilitado, o Total de Chaves retorna o número máximo de chaves do fragmento que tinha o número máximo de chaves durante o intervalo do relatório.  |
 | Gets |O número de operações get do cache durante o intervalo de relatório especificado. Esse valor é a soma dos seguintes valores de informações do comando INFO all do Redis: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit` e `cmdstat_getrange`. Ele é equivalente à soma de acertos e erros de cache durante o intervalo de relatório. |
 | Carga do Servidor Redis |O percentual de ciclos em que o servidor Redis está ocupado processando, em vez de ocioso esperando por mensagens. Se esse contador atingir 100, isso indicará que o servidor Redis atingiu um limite de desempenho, e a CPU não pode processar o trabalho mais depressa. Se houver alta Carga do Servidor Redis, haverá exceções de tempo limite no cliente. Nesse caso, considere escalar verticalmente ou particionar seus dados em vários caches. |
 | Sets |O número de operações set para o cache durante o intervalo de relatório especificado. Esse valor é a soma dos seguintes valores de informações do comando INFO all do Redis : `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange` e `cmdstat_setnx`. |
@@ -98,218 +113,39 @@ Cada métrica inclui duas versões. Uma métrica mede o desempenho de todo o cac
 | Cache Lido |A quantidade de dados lidos do cache, em MB/s, durante o intervalo de relatório especificado. Esse valor é derivado das placas de adaptador de rede que dão suporte à máquina virtual que hospeda o cache e não é específico do Redis. **Esse valor corresponde à largura de banda da rede usada por esse cache. Se você deseja configurar alertas para limites de largura de banda de rede no servidor, crie-os usando o contador `Cache Read`. Confira [esta tabela](cache-faq.md#cache-performance) para ver os limites de largura de banda observados para vários tamanhos e tipos de preço de cache.** |
 | Gravação no Cache |A quantidade de dados gravados no cache, em MB/s, durante o intervalo de relatório especificado. Esse valor é derivado das placas de adaptador de rede que dão suporte à máquina virtual que hospeda o cache e não é específico do Redis. Esse valor corresponde à largura de banda de rede de dados enviados para o cache do cliente. |
 
-## <a name="how-to-view-metrics-and-customize-charts"></a>Como exibir métricas e personalizar gráficos
-Você pode exibir uma visão geral das métricas para o cache na folha **Métricas do Redis** . Para acessar a folha **Métricas do Redis**, escolha **Todas as configurações** > **Métricas do Redis**.
+<a name="operations-and-alerts"></a>
+## <a name="alerts"></a>Alertas
+É possível configurar para receber alertas com base em métricas e logs de atividades. O Azure Monitor permite configurar um alerta para que ele faça o seguinte quando for acionado:
 
-![Métricas do Redis][redis-cache-redis-metrics]
+* Enviar uma notificação por email
+* Chamar um webhook
+* Invocar um aplicativo lógico do Azure
 
-A folha **Métricas do Redis** contém os gráficos a seguir.
+Para configurar regras de Alerta para seu cache, clique em **Regras de alerta** no **menu Recursos**.
 
-| Gráfico de métricas do Redis | Métricas exibidas |
-| --- | --- |
-| Leitura de cache e Gravação em cache |Cache Lido |
-| Gravação no Cache | |
-| Clientes conectados |Clientes conectados |
-| Acertos e Erros |Acertos do Cache |
-| Erros de Cache | |
-| Total de Comandos |Total de Operações |
-| Gets e Sets |Gets |
-| Sets | |
-| Uso da CPU |CPU |
-| Uso de Memória |Memória Usada |
-| Memória RSS Usada | |
-| Carga do Servidor Redis |Carga do Servidor |
-| Contagem de chaves |Total de chaves |
-| Chaves removidas | |
-| Chaves expiradas | |
+![Monitoramento](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
-Para obter uma visão mais detalhada das métricas em um gráfico específico e personalizar o gráfico, clique no gráfico desejado na folha **Métricas do Redis** para exibir a folha **Métrica** desse gráfico.
+Para saber mais sobre como configurar e usar Alertas, consulte [Visão geral dos alertas](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-![Lâmina Métrica][redis-cache-metric-blade]
-
-Todos os alertas definidos nas métricas exibidas por um gráfico são listados na parte inferior da folha **Métrica** do gráfico.
-
-Para adicionar ou remover métricas ou alterar o intervalo de relatório, escolha **Editar Gráfico**.
-
-Para adicionar ou remover métricas do gráfico, clique na caixa de seleção ao lado do nome da métrica. Para alterar o intervalo de relatório, clique no intervalo desejado. Para alterar o **Tipo de gráfico**, clique no estilo desejado. Depois que as alterações desejadas forem feitas, clique em **Salvar**. 
-
-![Editar Gráfico][redis-cache-edit-chart]
-
-Quando você clicar em **Salvar**, suas alterações persistirão até que você saia da folha **Métrica**. Quando voltar mais tarde, você verá a métrica e o intervalo de tempo originais novamente. Para obter mais informações sobre como personalizar gráficos, consulte [Monitorar métricas de serviço](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
-
-Para exibir as métricas de determinado período de tempo em um gráfico, passe o mouse sobre um dos pontos ou barras específicos no gráfico que correspondem ao período de tempo desejado, e as métricas desse intervalo serão exibidas.
-
-![Exibir detalhes do gráfico][redis-cache-view-chart-details]
-
-## <a name="how-to-monitor-a-premium-cache-with-clustering"></a>Como monitorar um cache premium com clustering
-Os caches premium têm [clustering](cache-how-to-premium-clustering.md) habilitado pode ter até 10 fragmentos. Cada fragmento tem suas próprias métricas e essas métricas agregadas para fornecer métricas de cache como um todo. Cada métrica inclui duas versões. Uma métrica mede o desempenho de todo o cache e uma segunda versão da métrica que inclui `(Shard 0-9)` no desempenho de medidas do nome para um fragmento único em um cache. Por exemplo, se um cache tiver três fragmentos, `Cache Hits` será a quantidade total de ocorrências para todo o cache,`Cache Hits (Shard 2)` e será apenas as ocorrências para esse fragmento do cache.
-
-Cada gráfico de monitoramento exibe as métricas de nível superior para o cache com as métricas para cada fragmento de cache.
-
-![Monitoramento][redis-cache-premium-monitor]
-
-Passar o mouse sobre os pontos de dados exibe os detalhes para esse ponto no tempo. 
-
-![Monitoramento][redis-cache-premium-point-summary]
-
-Os valores maiores normalmente são os valores agregados ao cache enquanto os menores valores são as métricas individuais para o fragmento. Observe que neste exemplo há três fragmentos e os acertos de cache são distribuídos uniformemente entre os fragmentos.
-
-![Monitoramento][redis-cache-premium-point-shard]
-
-Para ver mais detalhes, clique no gráfico para exibir uma exibição expandida na folha **métrica** .
-
-![Monitoramento][redis-cache-premium-chart-detail]
-
-Por padrão, cada gráfico inclui o contador de desempenho do cache de nível superior, bem como os contadores de desempenho para os fragmentos individuais. Você pode personalizá-los na folha **Editar gráfico** .
-
-![Monitoramento][redis-cache-premium-edit]
-
-Para obter mais informações sobre contadores de desempenho disponíveis, consulte as [Métricas disponíveis e intervalos de relatório](#available-metrics-and-reporting-intervals).
-
-## <a name="operations-and-alerts"></a>Operações e alertas
-A seção **Operações** na folha **Cache Redis** tem as seções **Eventos** e **Regras de alerta**.
-
-![Operações][redis-cache-operations-events]
-
-Para ver uma lista das operações de cache recentes, clique no gráfico **Eventos** para exibir a folha **Eventos**. Exemplos de operações incluem a recuperação e a regeneração de chaves de acesso e a ativação e a resolução de regras de alerta. Para obter mais informações sobre cada evento, clique no evento na folha **Eventos** .
-
-Para saber mais sobre eventos, confira [Exibir eventos e logs de auditoria](../monitoring-and-diagnostics/insights-debugging-with-events.md).
-
-A seção **Regras de alerta** exibe a contagem de alertas para a instância de cache. Uma regra de alerta o habilita a monitorar sua instância de cache e receber um email sempre que determinado valor de métrica atinge o limite definido na regra. 
-
-Regras de alerta são avaliadas aproximadamente a cada cinco minutos e, quando uma regra de alerta é ativada, as notificações configuradas são enviadas. As notificações e ativações de regras de alerta não são processadas instantaneamente. Pode haver um atraso de alguns minutos antes que uma regra de alerta seja ativada e as notificações sejam enviadas.
-
-As regras de alerta podem ser exibidas e definidas na folha **Métrica** de um gráfico de monitoramento específico ou na folha **Regras de alerta**.
-
-As regras de alerta têm as propriedades a seguir.
-
-| Propriedade de regra de alerta | Descrição |
-| --- | --- |
-| Recurso |O recurso avaliado pela regra de alerta. Ao se criar uma regra de alerta de um cache Redis, o cache é o recurso. |
-| Nome |Nome que identifica com exclusividade a regra de alerta na instância atual do cache. |
-| Descrição |Descrição opcional da regra de alerta. |
-| Métrica |A métrica a ser monitorada pela regra de alerta. Para obter uma lista de métricas de cache, consulte Métricas disponíveis e intervalos de relatório. |
-| Condição |O operador de condição da regra de alerta. As opções possíveis são: maior que, maior ou igual a, menor que, menor ou igual a |
-| Limite |O valor usado para comparar à métrica usando o operador especificado pela propriedade de condição. Dependendo da métrica, esse valor pode ser em bytes/segundo, bytes, percentual ou contagem. |
-| Período |Especifica o período em que o valor médio da métrica é usado para a comparação de regra de alerta. Por exemplo, se o período for a última hora, o valor médio da métrica durante o intervalo da hora anterior será usado para a comparação. Se você quiser ser notificado quando o limite for atingido devido a um aumento de atividade, um período mais curto será apropriado. Para ser notificado quando houver atividade mantida acima do limite, use um período mais longo. |
-| Serviço de email e coadministradores |Se for verdadeiro, o administrador de serviço e o coadministrador receberão um email quando o alerta for ativado. |
-| Email de administrador adicional |Endereço de email opcional de um administrador adicional a ser notificado quando o alerta for ativado. |
-
-Apenas uma notificação é enviada por ativação de regra de alerta. Depois que o limite de uma regra é excedido e uma notificação é enviada, a regra não é avaliada novamente até que a métrica esteja abaixo do limite. Se a métrica subsequentemente exceder o limite, o alerta será reativado, e uma nova notificação será enviada.
-
-Para exibir todas as regras de alerta da instância de cache, clique na parte **Regras de alerta** da folha **Cache Redis**. Para exibir apenas as regras de alerta que usam uma métrica específica, navegue até a folha **Métrica** do gráfico que contém a métrica.
-
-![Regras de alerta][redis-cache-alert-rules]
-
-Para adicionar uma regra de alerta, clique em **Adicionar alerta** na folha **Métrica** ou na folha **Regras de alerta**. 
-
-Digite os critérios de regra desejados para a folha de regra **Adicionar um alerta** e clique em **OK**. 
-
-![Adicionar regra de alerta][redis-cache-add-alert]
+## <a name="activity-logs"></a>Logs de atividade
+Os logs de atividades fornecem informações sobre as operações realizadas em suas instâncias do Cache Redis do Azure. Anteriormente eles eram conhecidos como "logs de auditoria" ou "logs operacionais". Usando logs de atividades, é possível determinar “o que, quem e quando” para quaisquer operações de gravação (PUT, POST, DELETE) realizadas em suas instâncias do Cache Redis do Azure. 
 
 > [!NOTE]
-> Quando uma regra de alerta é criada clicando-se em **Adicionar alerta** na folha **Métrica**, apenas as métricas exibidas no gráfico nessa folha aparecem na lista suspensa **Métrica**. Quando uma regra de alerta é criada clicando-se em **Adicionar alerta** na folha **Regras de alerta**, todas as métricas de cache estão disponíveis na lista suspensa **Métrica**.
-> 
-> 
+> Os logs de atividade não incluem operações de leitura (GET).
+>
+>
 
-Quando uma regra de alerta é salva, ela aparece na folha **Regras de alerta**, bem como na folha **Métrica** dos gráficos que exibem a métrica usada na regra de alerta. Para editar uma regra de alerta, clique no nome da regra de alerta para exibir a folha **Editar Regra** . Na folha **Editar Regra** , você pode editar as propriedades da regra, excluir ou desabilitar a regra de alerta ou reabilitar a regra se ela tiver sido desabilitada anteriormente.
+Para exibir logs de atividade do seu cache, clique em **Logs de atividade** no **menu Recursos**.
 
-> [!NOTE]
-> As alterações feitas nas propriedades da regra podem levar alguns instantes para serem refletidas na folha **Regras de alerta** ou na folha **Métrica**.
-> 
-> 
-
-Quando uma regra de alerta é ativada, um email é enviado, dependendo da configuração da regra de alerta, e um ícone de alerta é exibido na parte **Regras de alerta** da folha **Cache Redis**.
-
-Uma regra de alerta é considerada resolvida quando a condição de alerta não é mais avaliada como verdadeira. Quando a condição de regra de alerta é resolvida, o ícone de alerta é substituído por uma marca de seleção. Para obter detalhes sobre ativações de alertas e resoluções, clique na parte **Eventos** na folha **Cache Redis** para exibir os eventos na folha **Eventos**.
-
-Para saber mais sobre os alertas no Azure, confira [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
-
-## <a name="metrics-on-the-redis-cache-blade"></a>Métricas na folha Cache Redis
-A folha **Cache Redis** exibe as categorias de métricas a seguir.
-
-* [Gráficos de monitoramento](#monitoring-charts)
-* [Gráficos de uso](#usage-charts)
-
-### <a name="monitoring-charts"></a>Gráficos de monitoramento
-A seção **Monitoramento** tem gráficos de **Acertos e Erros**, **Gets e Sets**, **Conexões** e **Total de Comandos**.
-
-![Gráficos de monitoramento][redis-cache-monitoring-part]
-
-Os gráficos de **Monitoramento** exibem as métricas a seguir.
-
-| Gráfico de monitoramento | Métricas de cache |
-| --- | --- |
-| Acertos e Erros |Acertos do Cache |
-| Erros de Cache | |
-| Gets e Sets |Gets |
-| Sets | |
-| Conexões |Clientes conectados |
-| Total de Comandos |Total de Operações |
-
-Para obter informações sobre como exibir as métricas e personalizar os gráficos individuais nesta seção, consulte a seção a seguir, [Como exibir métricas e personalizar gráficos de métricas](#how-to-view-metrics-and-customize-charts) .
-
-### <a name="usage-charts"></a>Gráficos de uso
-A seção **Uso** tem gráficos de **Carga do Servidor Redis**, **Uso de Memória**, **Largura de Banda de Rede** e **Uso de CPU** e também exibe ao**Tipo de preço** para a instância de cache.
-
-![Gráficos de uso][redis-cache-usage-part]
-
-A **Tipo de preço** exibe a tipo de preço do cache e pode ser usada para [dimensionar](cache-how-to-scale.md) o cache para um tipo de preço diferente.
-
-Os gráficos de **Uso** exibem as métricas a seguir.
-
-| Gráfico de uso | Métricas de cache |
-| --- | --- |
-| Carga do Servidor Redis |Carga do Servidor |
-| Uso de Memória |Memória Usada |
-| Largura de Banda de Rede |Gravação no Cache |
-| Uso da CPU |CPU |
-
-Para obter informações sobre como exibir as métricas e personalizar os gráficos individuais nesta seção, consulte a seção a seguir, [Como exibir métricas e personalizar gráficos de métricas](#how-to-view-metrics-and-customize-charts) .
-
-<!-- IMAGES -->
-
-[redis-cache-enable-diagnostics]: ./media/cache-how-to-monitor/redis-cache-enable-diagnostics.png
-
-[redis-cache-diagnostic-settings]: ./media/cache-how-to-monitor/redis-cache-diagnostic-settings.png
-
-[redis-cache-configure-diagnostics]: ./media/cache-how-to-monitor/redis-cache-configure-diagnostics.png
-
-[redis-cache-monitoring-part]: ./media/cache-how-to-monitor/redis-cache-monitoring-part.png
-
-[redis-cache-usage-part]: ./media/cache-how-to-monitor/redis-cache-usage-part.png
-
-[redis-cache-metric-blade]: ./media/cache-how-to-monitor/redis-cache-metric-blade.png
-
-[redis-cache-edit-chart]: ./media/cache-how-to-monitor/redis-cache-edit-chart.png
-
-[redis-cache-view-chart-details]: ./media/cache-how-to-monitor/redis-cache-view-chart-details.png
-
-[redis-cache-operations-events]: ./media/cache-how-to-monitor/redis-cache-operations-events.png
-
-[redis-cache-alert-rules]: ./media/cache-how-to-monitor/redis-cache-alert-rules.png
-
-[redis-cache-add-alert]: ./media/cache-how-to-monitor/redis-cache-add-alert.png
-
-[redis-cache-premium-monitor]: ./media/cache-how-to-monitor/redis-cache-premium-monitor.png
-
-[redis-cache-premium-edit]: ./media/cache-how-to-monitor/redis-cache-premium-edit.png
-
-[redis-cache-premium-chart-detail]: ./media/cache-how-to-monitor/redis-cache-premium-chart-detail.png
-
-[redis-cache-premium-point-summary]: ./media/cache-how-to-monitor/redis-cache-premium-point-summary.png
-
-[redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
-
-[redis-cache-redis-metrics]: ./media/cache-how-to-monitor/redis-cache-redis-metrics.png
-
-[redis-cache-redis-metrics-blade]: ./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png
+Para saber mais sobre como Logs de atividade, consulte [Visão geral dos logs de atividade do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
 
 
 
 
 
-<!--HONumber=Jan17_HO2-->
+
+
+
 
 

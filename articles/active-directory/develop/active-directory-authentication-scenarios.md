@@ -3,7 +3,7 @@ title: "Cenários de autenticação do Azure AD | Microsoft Docs"
 description: "Uma visão geral dos cinco cenários mais comuns de autenticação para o Azure Active Directory (AAD)"
 services: active-directory
 documentationcenter: dev-center-name
-author: bryanla
+author: skwan
 manager: mbaldwin
 editor: 
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
-ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 97c6724261e35063c461ee95ccad36372dd907db
-ms.lasthandoff: 03/29/2017
-
-
+ms.date: 04/27/2017
+ms.author: skwan
+ms.custom: aaddev
+ms.openlocfilehash: 2f9410bdaa037f1839cf7c12c3532b51be669ed5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Cenários de autenticação do AD do Azure
 O Azure Active Directory (Azure AD) simplifica a autenticação para os desenvolvedores fornecendo identidade como serviço, com suporte para protocolos padrão da indústria, como OAuth 2.0 e OpenID Connect, bem como bibliotecas de código aberto para plataformas diferentes para ajudá-lo a começar a codificar rapidamente. Este documento ajudará a compreender as vários cenários aos quais o Azure AD oferece suporte e mostrará como começar. Ele é dividido nas seguintes seções:
@@ -237,7 +237,7 @@ A identidade do aplicativo e os tipos de identidade do usuário delegado são di
 ##### <a name="delegated-user-identity-with-oauth-20-authorization-code-grant"></a>Identidade de usuário delegado com concessão de código de autorização do OAuth 2.0
 1. Um usuário já está conectado a um aplicativo web, cujo mecanismo de autenticação é independente do Azure AD.
 2. O aplicativo Web requer um código de autorização para adquirir um token de acesso, por isso, ele emite uma solicitação por meio do navegador ao ponto de extremidade de autorização do Azure AD, fornecendo a ID do Aplicativo e o URI de redirecionamento para o aplicativo Web após uma autenticação bem-sucedida. O usuário faz login no Azure AD.
-3. Se o usuário do aplicativo Web ainda não tiver consentido para permitir que o aplicativo Web chame a API da Web em seu nome, o usuário precisará de consentimento. O aplicativo exibirá as permissões que ele exige e se qualquer uma dessas permissões for de nível administrativo, um usuário normal no diretório não poderá conceder a permissão. Esse processo de consentimento só se aplica a aplicativos multilocatários, não a aplicativos de locatário único, uma vez que o aplicativo já terá as permissões necessárias.
+3. Se o usuário do aplicativo Web ainda não tiver consentido para permitir que o aplicativo Web chame a API da Web em seu nome, o usuário precisará de consentimento. O aplicativo exibirá as permissões que ele exige e se qualquer uma dessas permissões for de nível administrativo, um usuário normal no diretório não poderá conceder a permissão. Esse consentimento se aplica ao aplicativo de único locatário e multilocatário.  No caso de único locatário, um administrador pode executar o consentimento de administrador para consentir em nome de seus usuários.  Isso pode ser feito usando o botão `Grant Permissions` no [portal do Azure](https://portal.azure.com). 
 4. Depois que o usuário tiver concedido permissão, o aplicativo Web recebe o código de autorização de que precisa para adquirir um token de acesso.
 5. Usando o código de autorização emitido pelo Azure AD, o aplicativo Web envia uma solicitação ao ponto de extremidade do token do Azure AD que inclui o código de autorização, detalhes sobre o aplicativo cliente (ID do Aplicativo e o URI de redirecionamento) e o recurso desejado (URI de ID do aplicativo para a API da Web).
 6. O código de autorização e informações sobre o aplicativo Web e a API da Web são validados pelo Azure AD. Após a validação bem-sucedida, o Azure AD retorna dois tokens: um token de acesso JWT e um token de atualização JWT.
@@ -282,7 +282,7 @@ Consulte os exemplos de código para os cenários de aplicativo daemon ou de ser
 
 #### <a name="registering"></a>Registro
 * Locatário único: para a identidade do aplicativo e casos de identidade de usuário delegado, o aplicativo daemon ou de servidor deve ser registrado no mesmo diretório no Azure AD. A API da Web pode ser configurada para expor um conjunto de permissões, que são usadas para limitar o acesso do daemon ou do servidor a seus recursos. Se um tipo de identidade de usuário delegado estiver sendo usado, o aplicativo de servidor precisará selecionar as permissões desejadas no menu suspenso "Permissões para Outros Aplicativos" no Portal do Azure. Essa etapa não será necessária se o tipo de identidade de aplicativo estiver sendo usado.
-* Multilocatário: Primeiro, o aplicativo deamon ou de servidor é configurado para indicar as permissões necessárias para que seja funcional. Essa lista de permissões necessárias é mostrada em uma caixa de diálogo quando um usuário ou administrador no diretório de destino dá consentimento para o aplicativo, o que o torna disponível para sua organização. Alguns aplicativos exigem apenas permissões de nível de usuário, que qualquer usuário na organização pode conceder. Outros aplicativos exigem permissões de nível administrativo, que um usuário na organização não pode conceder. Somente um administrador do diretório pode dar consentimento para aplicativos que exigem esse nível de permissões. Quando o usuário ou o administrador concede sua permissão, ambas as APIs da Web são registradas no diretório.
+* Multilocatário: Primeiro, o aplicativo deamon ou de servidor é configurado para indicar as permissões necessárias para que seja funcional. Essa lista de permissões necessárias é mostrada em uma caixa de diálogo quando um usuário ou administrador no diretório de destino dá consentimento para o aplicativo, o que o torna disponível para sua organização. Alguns aplicativos exigem apenas permissões de nível de usuário, que qualquer usuário na organização pode conceder. Outros aplicativos exigem permissões de nível administrativo, que um usuário na organização não pode conceder. Somente um administrador do diretório pode dar consentimento para aplicativos que exigem esse nível de permissões. Quando o usuário ou administrador concede permissão, ambas as APIs Web são registradas no diretório delas.
 
 #### <a name="token-expiration"></a>Expiração do token
 Quando o primeiro aplicativo usa seu código de autorização para obter um token de acesso JWT, ele também recebe um token de atualização JWT. Quando o token de acesso expira, o token de atualização pode ser usado para autenticar o usuário novamente sem solicitar credenciais. Esse token de atualização é usado para autenticar o usuário, o que resulta em um novo token de acesso e token de atualização.
@@ -295,5 +295,4 @@ Quando o primeiro aplicativo usa seu código de autorização para obter um toke
 [Informações importantes sobre a substituição da chave de assinatura no Azure AD](active-directory-signing-key-rollover.md)
 
 [OAuth 2.0 no Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
-
 

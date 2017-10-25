@@ -3,8 +3,8 @@ title: Usando scripts do Windows PowerShell para publicar em ambientes de desenv
 description: Saiba como usar scripts do Windows PowerShell do Visual Studio para publicar em ambientes de teste e desenvolvimento.
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 5fff1301-5469-4d97-be88-c85c30f837c1
 ms.service: multiple
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f79068d5d1bb28762640545ebf13784b7070440e
-ms.lasthandoff: 03/25/2017
-
-
+ms.author: kraigb
+ms.openlocfilehash: 92753860ec820172e46f483831eb0c1cf1acb038
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>Usando scripts do Windows PowerShell para publicar para ambientes de desenvolvimento e teste
 Quando você cria um aplicativo Web no Visual Studio, pode gerar um script do Windows PowerShell que pode usar posteriormente para automatizar a publicação de seu site no Azure como um aplicativo Web no Serviço de Aplicativo do Azure ou em uma máquina virtual. Você pode editar e estender o script do Windows PowerShell no editor do Visual Studio para atender às suas necessidades ou integrar o script a scripts de compilação, teste e publicação existentes.
@@ -31,14 +30,14 @@ Usando esses scripts, você pode provisionar versões personalizadas (também co
 
 Você não precisa do SDK do Azure para gerar scripts para projetos Web. Esse recurso é para projetos Web, não as funções Web nos serviços de nuvem.
 
-* Azure PowerShell 0.7.4 ou posterior. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para obter mais informações.
+* Azure PowerShell 0.7.4 ou posterior. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para obter mais informações.
 * [Windows PowerShell 3.0](http://go.microsoft.com/?linkid=9811175) ou posterior.
 
 ## <a name="additional-tools"></a>Ferramentas adicionais
 Estão disponíveis ferramentas e recursos adicionais para trabalhar com o PowerShell no Visual Studio para desenvolvimento do Azure. Consulte [Ferramentas do PowerShell para Visual Studio](http://go.microsoft.com/fwlink/?LinkId=404012).
 
 ## <a name="generating-the-publish-scripts"></a>Gerando scripts de publicação
-Você pode gerar scripts de publicação para uma máquina virtual que hospeda seu site ao criar um novo projeto seguindo [estas instruções](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Você também pode [gerar scripts de publicação para aplicativos Web no Serviço de Aplicativo do Azure](app-service-web/web-sites-dotnet-get-started.md).
+Você pode gerar scripts de publicação para uma máquina virtual que hospeda seu site ao criar um novo projeto seguindo [estas instruções](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Você também pode [gerar scripts de publicação para aplicativos Web no Serviço de Aplicativo do Azure](app-service/app-service-web-get-started-dotnet.md).
 
 ## <a name="scripts-that-visual-studio-generates"></a>Scripts gerados pelo Visual Studio
 O Visual Studio gera uma pasta de nível de solução chamada **PublishScripts** que contém dois arquivos do Windows PowerShell, um script de publicação para sua máquina virtual ou site e um módulo que contém funções que você pode usar nos scripts. O Visual Studio também gera um arquivo no formato JSON que especifica os detalhes do projeto que você está implantando.
@@ -47,7 +46,7 @@ O Visual Studio gera uma pasta de nível de solução chamada **PublishScripts**
 O script de publicação contém etapas específicas de publicação para implantar em um site ou em uma máquina virtual. O Visual Studio fornece sintaxe colorida para o desenvolvimento do Windows PowerShell. Ajuda para as funções estão disponíveis e você pode editar livremente as funções no script para atender às necessidades de mudanças.
 
 ### <a name="windows-powershell-module"></a>Módulo do Windows PowerShell
-O módulo do Windows PowerShell que o Visual Studio gera contém funções que o script de publicação usa. Essas são funções do Azure PowerShell e não se destinam a serem modificadas. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para obter mais informações.
+O módulo do Windows PowerShell que o Visual Studio gera contém funções que o script de publicação usa. Essas são funções do Azure PowerShell e não se destinam a serem modificadas. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para obter mais informações.
 
 ### <a name="json-configuration-file"></a>Arquivo de configuração JSON
 O arquivo JSON é criado na pasta **Configurações** pasta e contém dados de configuração que especificam exatamente quais recursos implantar no Azure. O nome do arquivo que o Visual Studio gera é project-name-WAWS-dev.json se você tiver criado um site, ou o projeto name-VM-dev.json se você tiver criado uma máquina virtual. Aqui está um exemplo de um arquivo de configuração JSON é gerado quando você cria um site. A maior parte dos valores é autoexplicativa. O nome do site é gerado pelo Azure, portanto não pode coincidir com o nome do projeto.
@@ -141,7 +140,7 @@ Quando você cria uma máquina virtual, o arquivo de configuração JSON é seme
 
 Você pode editar a configuração JSON para alterar o que acontece quando você executa scripts de publicação. As seções `cloudService` e `virtualMachine` são necessárias, mas você pode excluir a seção `databases` se não precisar dela. As propriedades vazias no arquivo de configuração padrão que o Visual Studio gera são opcionais; aquelas que têm valores no arquivo de configuração padrão são obrigatórias.
 
-Se você tiver um site com vários ambientes de implantação (conhecidos como slots) em vez de um único site de produção no Azure, pode incluir o nome do slot no nome do site no arquivo de configuração JSON. Por exemplo, se você tiver um site chamado **mysite** e um slot para ele chamado **test**, o URI é mysite-test.cloudapp.net, mas o nome correto a ser usado no arquivo de configuração é mysite(test). Você só pode fazer isso se o site e os slots já existirem em sua assinatura. Se não existirem, crie o site executando o script sem especificar o slot e depois crie o slot no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885)e execute o script com o nome do site modificado. Para obter mais informações sobre os slots de implantação para aplicativos Web, consulte [Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure](app-service-web/web-sites-staged-publishing.md).
+Se você tiver um site com vários ambientes de implantação (conhecidos como slots) em vez de um único site de produção no Azure, pode incluir o nome do slot no nome do site no arquivo de configuração JSON. Por exemplo, se você tiver um site chamado **mysite** e um slot para ele chamado **test**, o URI é mysite-test.cloudapp.net, mas o nome correto a ser usado no arquivo de configuração é mysite(test). Você só pode fazer isso se o site e os slots já existirem em sua assinatura. Se não existirem, crie o site executando o script sem especificar o slot e depois crie o slot no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885)e execute o script com o nome do site modificado. Para obter mais informações sobre os slots de implantação para aplicativos Web, consulte [Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure](app-service/web-sites-staged-publishing.md).
 
 ## <a name="how-to-run-the-publish-scripts"></a>Como gerar scripts de publicação
 Se você nunca executou um script do Windows PowerShell antes, deve primeiro definir a política de execução para habilitar a execução dos scripts. Esse é um recurso de segurança para impedir que usuários executem scripts do Windows PowerShell se estiverem vulneráveis a malware ou vírus que envolvem a execução de scripts.
@@ -168,7 +167,7 @@ Consulte [Como criar um pacote de implantação na Web no Visual Studio](https:/
 
     Quando solicitado, forneça seu nome de usuário e senha.
 
-    Observe que quando você automatiza o script, esse método para fornecer credenciais do Azure não funciona. Em vez disso, você deve usar o arquivo .publishsettings para fornecer credenciais. Uma vez apenas, você usa o comando **Get-AzurePublishSettingsFile** para baixar o arquivo do Azure e depois usa **Import-AzurePublishSettingsFile** para importar o arquivo. Para saber mais, confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+    Observe que quando você automatiza o script, esse método para fornecer credenciais do Azure não funciona. Em vez disso, você deve usar o arquivo .publishsettings para fornecer credenciais. Uma vez apenas, você usa o comando **Get-AzurePublishSettingsFile** para baixar o arquivo do Azure e depois usa **Import-AzurePublishSettingsFile** para importar o arquivo. Para saber mais, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 4. (Opcional) Se você quiser criar recursos do Azure, como máquina virtual, banco de dados e site sem publicar o aplicativo Web, use o comando **Publish-WebApplication.ps1** com o argumento **-Configuration**, definido para o arquivo de configuração JSON. Essa linha de comando usa o arquivo de configuração JSON para determinar quais recursos criar. Como ela usa configurações padrão para outros argumentos de linha de comando, ela cria os recursos, mas não publica seu aplicativo Web. A opção –Verbose fornece mais informações sobre o que está acontecendo.
 
@@ -344,4 +343,3 @@ Para obter ajuda para as funções que você pode usar no prompt de comando do W
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre os scripts do PowerShell ao ler [Criando scripts com o Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) e confira outros scripts do Azure PowerShell no [Script Center](https://azure.microsoft.com/documentation/scripts/).
-

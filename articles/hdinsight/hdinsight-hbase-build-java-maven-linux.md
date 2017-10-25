@@ -1,6 +1,6 @@
 ---
-title: Criar um aplicativo HBase Java para Azure HDInsight | Microsoft Docs
-description: "Saiba como usar o Apache Maven para compilar um aplicativo do Apache HBase baseado em Java e depois implantá-lo no HDInsight baseada em Linux na nuvem do Azure."
+title: "Cliente HBase Java – Azure HDInsight | Microsoft Docs"
+description: "Saiba como usar o Apache Maven para compilar um aplicativo do Apache HBase baseado em Java e depois implantá-lo no HBase no HDInsight do Azure."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,85 +13,72 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 08/07/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 722fc88763fb5c9b79008706c9352a9bc8c8eaa7
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 03c88397e36c0fc7f19410e49f6b6f1a607659f8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="use-maven-to-build-java-applications-that-use-hbase-with-linux-based-hdinsight-hadoop"></a>Usar o Maven para compilar aplicativos Java que usam o HBase com o HDInsight baseado em Linux (Hadoop)
-Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.org/) em Java usando o Apache Maven. Em seguida, use o aplicativo com um cluster HDInsight baseados em Linux.
+# <a name="build-java-applications-for-apache-hbase"></a>Compilar aplicativos Java para Apache HBase
 
-[Maven](http://maven.apache.org/) é uma ferramenta de software para compreensão e gerenciamento de projetos que permite a você compilar software, documentação e relatórios para projetos Java. Neste artigo, você aprenderá a usá-la para criar um aplicativo básico de Java que cria, consulta e exclui tabelas HBase em clusters HDInsight baseados no Linux.
+Saiba como criar um aplicativo [Apache HBase](http://hbase.apache.org/) em Java. Depois, use o aplicativo com o HBase no Azure HDInsight.
+
+As etapas deste documentam usam [Maven](http://maven.apache.org/) para criar e compilar o projeto. Maven é uma ferramenta de software para compreensão e gerenciamento de projetos que permite a você compilar software, documentação e relatórios para projetos Java.
+
+> [!NOTE]
+> As etapas neste documento foram testadas mais recentemente com o HDInsight 3.6.
 
 > [!IMPORTANT]
-> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="requirements"></a>Requisitos
 
 * [Plataforma Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 8 ou posterior.
 
     > [!NOTE]
-    > O HDInsight 3.5 requer Java 8. Versões anteriores do HDInsight requerem Java 7.
+    > O HDInsight 3.5 e posterior usa Java 8. Versões anteriores do HDInsight requerem Java 7.
 
 * [Maven](http://maven.apache.org/)
 
 * [Um cluster HDInsight do Azure baseado em Linux com HBase](hdinsight-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
-  
+
   > [!NOTE]
-  > As etapas neste documento foram testadas com as versões 3.2, 3.3, 3.4 e 3.5 do cluster HDInsight. Os valores padrão fornecidos nos exemplos destinam-se um cluster HDInsight 3.5.
-
-* **Familiaridade com o SSH e SCP** ou **Azure PowerShell**. Este documento fornece etapas para usar o SSH/SCP e Azure PowerShell ao executar o exemplo.
-
-    Para obter informações sobre como instalar o Azure PowerShell, consulte [Começar com o Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
-
-    Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+  > As etapas neste documento foram testadas com as versões 3.4 e 3.5 do cluster HDInsight. Os valores padrão fornecidos nos exemplos destinam-se um cluster HDInsight 3.5.
 
 ## <a name="create-the-project"></a>Criar o projeto
 
-1. Por meio da linha de comando em seu ambiente de desenvolvimento, mude os diretórios para o local em que você deseja criar o projeto, por exemplo, `cd code/hdinsight`.
+1. Por meio da linha de comando em seu ambiente de desenvolvimento, mude os diretórios para o local em que você deseja criar o projeto, por exemplo, `cd code\hbase`.
 
 2. Use o comando **mvn** , que é instalado com o Maven, para gerar o scaffolding para o projeto.
-   
-        mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
-   
+
+    ```bash
+    mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    ```
+
+    > [!NOTE]
+    > Se você estiver usando o PowerShell, coloque os parâmetros `-D` entre aspas duplas.
+    >
+    > `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=hbaseapp" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`
+
     Esse comando cria um novo diretório com o mesmo nome que o parâmetro **artifactID** (**hbaseapp** neste exemplo). Esse diretório contém os seguintes itens:
-   
+
    * **pom.xml**: o[POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)(Modelo de Objeto de Projeto) contém informações e detalhes de configuração usados para compilar o projeto.
    * **src**: o diretório que contém **main\java\com\microsoft\examples**, no qual você criará seu aplicativo.
 
-3. Exclua o arquivo **src\test\java\com\microsoft\examples\apptest.java**, já que ele não será utilizado neste exemplo.
+3. Exclua o arquivo `src/test/java/com/microsoft/examples/apptest.java`. Ele não será usado neste exemplo.
 
 ## <a name="update-the-project-object-model"></a>Atualize o modelo do objeto do projeto
 
-1. Edite o arquivo **pom.xml** e adicione o código a seguir na seção `<dependencies>`:
-   
+1. Edite o arquivo `pom.xml` e adicione o seguinte código dentro da seção `<dependencies>`:
+
    ```xml
     <dependency>
         <groupId>org.apache.hbase</groupId>
         <artifactId>hbase-client</artifactId>
         <version>1.1.2</version>
     </dependency>
-   ```
-
-    Esta seção indica que o projeto precisa do **cliente hbase** versão **1.1.2**. No momento da compilação, essa dependência será baixada do repositório padrão do Maven. Você pode usar a [Pesquisa de repositório central do Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) para saber mais sobre essa dependência.
-   
-   > [!IMPORTANT]
-   > O número da versão deve corresponder à versão do HBase fornecida com o cluster HDInsight. Use a tabela a seguir para localizar o número da versão correta.
-   
-   | Versão do cluster HDInsight | Versão do HBase a ser usada |
-   | --- | --- |
-   | 3.2 |0.98.4-hadoop2 |
-   | 3.3, 3.4 e 3.5 |1.1.2 |
-   
-    Para saber mais sobre as versões e os componentes do HDInsight, confira [Quais são os diferentes componentes do Hadoop disponíveis com o HDInsight?](hdinsight-component-versioning.md).
-
-2. Se estiver usando um cluster HDInsight 3.3, 3.4 ou 3.5, também será necessário adicionar os seguintes itens à seção `<dependencies>`:
-   
-   ```xml
     <dependency>
         <groupId>org.apache.phoenix</groupId>
         <artifactId>phoenix-core</artifactId>
@@ -99,10 +86,20 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
     </dependency>
    ```
 
-    Esta seção carrega os componentes phoenix-core, necessários com a versão 1.1x do Hbase.
+    Esta seção indica que o projeto precisa dos componentes **hbase-client** e **phoenix-core**. Em tempo de compilação, essa dependência será baixada do repositório padrão do Maven. Você pode usar a [Pesquisa de repositório central do Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) para saber mais sobre essa dependência.
+
+   > [!IMPORTANT]
+   > O número da versão do cliente hbase deve corresponder à versão do HBase fornecida com o cluster HDInsight. Use a tabela a seguir para localizar o número da versão correta.
+
+   | Versão do cluster HDInsight | Versão do HBase a ser usada |
+   | --- | --- |
+   | 3.2 |0.98.4-hadoop2 |
+   | 3.3, 3.4, 3.5 e 3.6 |1.1.2 |
+
+    Para saber mais sobre as versões e os componentes do HDInsight, confira [Quais são os diferentes componentes do Hadoop disponíveis com o HDInsight?](hdinsight-component-versioning.md).
 
 3. Adicione o código a seguir ao arquivo **pom.xml**. Esse texto deve estar dentro das marcas `<project>...</project>` no arquivo, por exemplo, entre `</dependencies>` e `</project>`.
-   
+
    ```xml
     <build>
         <sourceDirectory>src</sourceDirectory>
@@ -148,35 +145,33 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
     </build>
    ```
 
-    Esta seção configura um recurso (**conf/hbase-site.xml**), que contém informações de configuração para o HBase.
-   
+    Esta seção configura um recurso (`conf/hbase-site.xml`), que contém informações de configuração para o HBase.
+
    > [!NOTE]
-   > Você também pode definir valores de configuração via código. Veja os comentários no exemplo **CreateTable**.
-   
+   > Você também pode definir valores de configuração via código. Veja os comentários no exemplo `CreateTable`.
+
     Esta seção também configura os plug-ins [Maven Compiler](http://maven.apache.org/plugins/maven-compiler-plugin/) e [Maven Shade](http://maven.apache.org/plugins/maven-shade-plugin/). O plug-in compilador é usado para compilar a topologia. O plug-in de tonalidade é usado para evitar a duplicação de licenças no pacote JAR que é criado pelo Maven. O plug-in serve para evitar o erro de arquivos de licença duplicados no momento da execução no cluster do HDInsight. Utilize o plug-in de tonalidade do Maven com a implementação `ApacheLicenseResourceTransformer` para isso.
-   
+
     O plug-in de tonalidade do Maven também produzirá um uber jar, que contém todas as dependências exigidas pelo aplicativo.
 
-4. Salve o arquivo **pom.xml** .
+4. Salve o arquivo `pom.xml`.
 
-5. Crie um diretório chamado **conf** no diretório **hbaseapp**. Esse diretório será usado para armazenar informações de configuração para se conectar ao HBase.
+5. Crie um diretório chamado `conf` no diretório `hbaseapp`. Esse diretório será usado para armazenar informações de configuração para se conectar ao HBase.
 
-6. Use o seguinte comando para copiar a configuração do HBase do servidor do HDInsight para o diretório **conf**. Substitua o **USERNAME** pelo nome do seu logon SSH. Substitua o **CLUSTERNAME** pelo nome do seu cluster HDInsight:
-   
-        scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
-   
-   > [!NOTE]
-   > Se você tiver usado uma senha para sua conta SSH, será necessário inserir a senha. Se você tiver usado uma chave SSH com a conta, talvez seja necessário usar o parâmetro `-i` para especificar o caminho para o arquivo de chave. O exemplo a seguir carregará a chave privada de `~/.ssh/id_rsa`:
-   > 
-   > `scp -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml`
+6. Use o seguinte comando para copiar a configuração HBase do cluster HBase para o diretório `conf`. Substitua `USERNAME` pelo nome de seu logon SSH. Substitua o `CLUSTERNAME` pelo nome do seu cluster HDInsight:
 
+    ```bash
+    scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
+    ```
+
+   Para saber mais sobre como usar `ssh` e `scp`, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="create-the-application"></a>Criar o aplicativo
 
-1. Vá ao diretório **hbaseapp\src\main\java\com\microsoft\examples** e renomeie o arquivo app.java como **CreateTable.java**.
+1. Acesse o diretório `hbaseapp/src/main/java/com/microsoft/examples` e renomeie o arquivo app.java como `CreateTable.java`.
 
-2. Abra o arquivo **CreateTable.java** e substitua o conteúdo existente pelo texto exibido a seguir:
-   
+2. Abra o arquivo `CreateTable.java` e substitua o conteúdo existente pelo texto exibido a seguir:
+
    ```java
     package com.microsoft.examples;
     import java.io.IOException;
@@ -249,10 +244,10 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
 
     Esse código é a classe **CreateTable**, que cria uma tabela chamada **pessoas** e a preenche com alguns usuários predefinidos.
 
-3. Salve o arquivo **CreateTable.java**.
+3. Salve o arquivo `CreateTable.java`.
 
-4. No diretório **hbaseapp/src/main/java/com/microsoft/examples**, crie um arquivo chamado **SearchByEmail.java**. Use o seguinte texto como o conteúdo deste arquivo:
-   
+4. No diretório `hbaseapp/src/main/java/com/microsoft/examples`, crie um novo arquivo chamado `SearchByEmail.java`. Use o seguinte texto como o conteúdo deste arquivo:
+
    ```java
     package com.microsoft.examples;
     import java.io.IOException;
@@ -328,10 +323,10 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
 
     A classe **SearchByEmail** pode ser usada para consultar por linhas, por endereço de email. Já que ele utiliza um filtro de expressão comum, você pode fornecer uma cadeia de caracteres ou então uma expressão comum ao utilizar a classe.
 
-5. Salve o arquivo **SearchByEmail.java**.
+5. Salve o arquivo `SearchByEmail.java`.
 
-6. No diretório **hbaseapp/src/main/hava/com/microsoft/examples**, crie um arquivo chamado **DeleteTable.java**. Use o seguinte texto como o conteúdo deste arquivo:
-   
+6. No diretório `hbaseapp/src/main/hava/com/microsoft/examples`, crie um novo arquivo chamado `DeleteTable.java`. Use o seguinte texto como o conteúdo deste arquivo:
+
    ```java
     package com.microsoft.examples;
     import java.io.IOException;
@@ -354,60 +349,62 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
     }
    ```
 
-    Essa classe limpa as tabelas HBase criadas nesse exemplo desabilitando e eliminando a tabela criada pela classe **CreateTable**.
+    Essa classe limpa as tabelas HBase criadas nesse exemplo desabilitando e eliminando a tabela criada pela classe `CreateTable`.
 
-7. Salve o arquivo **DeleteTable.java**.
+7. Salve o arquivo `DeleteTable.java`.
 
 ## <a name="build-and-package-the-application"></a>Compilar e criar o pacote do aplicativo
 
-1. Use o diretório **hbaseapp**, use o comando a seguir para compilar um arquivo JAR que contém o aplicativo:
-   
-        mvn clean package
-   
-    Esse comando limpará quaisquer artefatos de criação anteriores, baixará quaisquer dependências que ainda não tiverem sido instaladas e, então, compilará o aplicativo e criará seu pacote.
+1. Use o diretório `hbaseapp`, use o comando a seguir para compilar um arquivo JAR que contém o aplicativo:
 
-2. Assim que o comando for concluído, o diretório **hbaseapp/target** conterá um arquivo chamado **hbaseapp-1.0-SNAPSHOT.jar**.
-   
+    ```bash
+    mvn clean package
+    ```
+
+    Este comando compila e empacota o aplicativo em um arquivo .jar.
+
+2. Após a conclusão do comando, o diretório `hbaseapp/target` conterá um arquivo chamado `hbaseapp-1.0-SNAPSHOT.jar`.
+
    > [!NOTE]
-   > O arquivo **hbaseapp-1.0-SNAPSHOT.jar** é um uber jar. Ele contém todas as dependências exigidas para executar o aplicativo.
+   > O arquivo `hbaseapp-1.0-SNAPSHOT.jar` é um uber jar. Ele contém todas as dependências exigidas para executar o aplicativo.
 
 
 ## <a name="upload-the-jar-and-run-jobs-ssh"></a>Carregue o arquivo JAR e execute trabalhos (SSH)
 
-As etapas seguintes usam `scp` para copiar o arquivo JAR para o nó principal do cluster HDInsight. Então, o comando `ssh` será utilizado para se conectar ao cluster e executar o exemplo diretamente no nó principal.
+As etapas a seguir usam `scp` para copiar o arquivo JAR no nó principal de seu HBase no cluster HDInsight. Então, o comando `ssh` será utilizado para se conectar ao cluster e executar o exemplo diretamente no nó principal.
 
-1. Use o comando a seguir para carregar o arquivo jar para o cluster do HDInsight. Substitua o **USERNAME** pelo nome do seu logon SSH. Substitua o **CLUSTERNAME** pelo nome do seu cluster HDInsight:
-   
-        scp ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:hbaseapp-1.0-SNAPSHOT.jar
-   
-    Esse comando carregará o arquivo para o diretório inicial da sua conta de usuário do SSH.
-   
-   > [!NOTE]
-   > Se você tiver usado uma senha para sua conta SSH, será necessário inserir a senha. Se você tiver usado uma chave SSH com a conta, talvez seja necessário usar o parâmetro `-i` para especificar o caminho para o arquivo de chave. O exemplo a seguir carregará a chave privada de `~/.ssh/id_rsa`:
-   > 
-   > `scp -i ~/.ssh/id_rsa ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:hbaseapp-1.0-SNAPSHOT.jar`
+1. Use o comando a seguir para carregar o jar no cluster:
 
-2. Use o SSH para conectar ao cluster HDInsight. Substitua o **USERNAME** pelo nome do seu logon SSH. Substitua o **CLUSTERNAME** pelo nome do seu cluster HDInsight:
-   
-        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-   
-   > [!NOTE]
-   > Se você tiver usado uma senha para sua conta SSH, será necessário inserir a senha. Se você tiver usado uma chave SSH com a conta, talvez seja necessário usar o parâmetro `-i` para especificar o caminho para o arquivo de chave. O exemplo a seguir carregará a chave privada de `~/.ssh/id_rsa`:
-   > 
-   > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
+    ```bash
+    scp ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:hbaseapp-1.0-SNAPSHOT.jar
+    ```
 
-3. Uma vez conectado, use o seguinte para criar uma tabela do HBase usando o aplicativo Java:
-   
-        hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.CreateTable
-   
-    Esse comando cria uma nova tabela do HBase denominada **people** e popula essa tabela com os dados.
+    Substitua `USERNAME` pelo nome de seu logon SSH. Substitua o `CLUSTERNAME` pelo nome do seu cluster HDInsight.
 
-4. Em seguida, use o seguinte para procurar os endereços de email armazenados na tabela:
-   
-        hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.SearchByEmail contoso.com
-   
-    Você deve receber os seguintes resultados:
-   
+2. Use o comando a seguir para se conectar ao cluster HBase:
+
+    ```bash
+    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
+
+    Substitua `USERNAME` pelo nome de seu logon SSH. Substitua o `CLUSTERNAME` pelo nome do seu cluster HDInsight.
+
+3. Use o seguinte comando para criar uma tabela do HBase usando o aplicativo Java:
+
+    ```bash
+    yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.CreateTable
+    ```
+
+    Esse comando cria uma nova tabela do HBase chamada **people** e a preenche com dados.
+
+4. Use o seguinte comando para procurar endereços de email armazenados na tabela:
+
+    ```bash
+    yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.SearchByEmail contoso.com
+    ```
+
+    Você receberá as resultados a seguir:
+
         Franklin Holtz - ID: 2
         Franklin Holtz - franklin@contoso.com - ID: 2
         Rae Schroeder - ID: 4
@@ -415,12 +412,16 @@ As etapas seguintes usam `scp` para copiar o arquivo JAR para o nó principal do
         Gabriela Ingram - ID: 6
         Gabriela Ingram - gabriela@contoso.com - ID: 6
 
+5. Para excluir a tabela, use o seguinte comando:
+
+    
+
 ## <a name="upload-the-jar-and-run-jobs-powershell"></a>Carregue o arquivo JAR e execute trabalhos (PowerShell)
 
-As etapas a seguir usam o Azure PowerShell para carregar o arquivo JAR para o armazenamento padrão do cluster HDInsight. Os cmdlets do HDInsight serão usados para executar os exemplos remotamente.
+As etapas a seguir usam o Azure PowerShell para carregar o arquivo JAR para o armazenamento padrão do cluster HBase. Os cmdlets do HDInsight serão usados para executar os exemplos remotamente.
 
-1. Após instalar e configurar o Azure PowerShell, crie um arquivo chamado **hbase-runner.psm1**. Use o seguinte texto como o conteúdo deste arquivo:
-   
+1. Após instalar e configurar o Azure PowerShell, crie um arquivo chamado `hbase-runner.psm1`. Use o seguinte texto como o conteúdo deste arquivo:
+
    ```powershell
     <#
     .SYNOPSIS
@@ -472,7 +473,7 @@ As etapas a seguir usam o Azure PowerShell para carregar o arquivo JAR para o ar
     $creds=Get-Credential -Message "Enter the login for the cluster" -UserName "admin"
 
     # The JAR
-    $jarFile = "wasbs:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
+    $jarFile = "wasb:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
 
     # The job definition
     $jobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -619,47 +620,55 @@ As etapas a seguir usam o Azure PowerShell para carregar o arquivo JAR para o ar
    ```
 
     Esse arquivo contém dois módulos:
-   
-   * **Add-HDInsightFile** - utilizado para carregar arquivos no HDInsight
+
+   * **Add-HDInsightFile** – utilizado para carregar arquivos no cluster
    * **Start-HBaseExample** - utilizado para executar as classes criadas anteriormente
 
-2. Salve o arquivo **hbase-runner.psm1** .
+2. Salve o arquivo `hbase-runner.psm1`.
 
-3. Abra uma nova janela do Azure PowerShell, altere os diretórios para o diretório **hbaseapp** e, então, execute o comando a seguir:
-   
-        PS C:\ Import-Module c:\path\to\hbase-runner.psm1
-   
-    Altere o caminho para o local do arquivo **hbase-runner.psm1** criado anteriormente. Esse comando registra o módulo com o Azure PowerShell.
+3. Abra uma nova janela do Azure PowerShell, altere os diretórios para o diretório `hbaseapp` e execute o comando a seguir:
 
-4. Utilize o comando a seguir para carregar o **hbaseapp-1.0-SNAPSHOT.jar** para seu cluster HDInsight.
-   
-        Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName hdinsightclustername
-   
-    Substitua **nomedoclusterhdinsight** pelo nome do seu cluster HDInsight. O comando carregará então o **hbaseapp-1.0-SNAPSHOT.jar** para o local **example/jars** no armazenamento primário de seu cluster HDInsight.
+    ```powershell
+    PS C:\ Import-Module c:\path\to\hbase-runner.psm1
+    ```
 
-5. Após os arquivos terem sido carregados, use o seguinte código para criar uma nova tabela utilizando o **hbaseapp**:
-   
-        Start-HBaseExample -className com.microsoft.examples.CreateTable -clusterName hdinsightclustername
-   
-    Substitua **nomedoclusterhdinsight** pelo nome do seu cluster HDInsight.
-   
-    Esse comando cria uma nova tabela chamada **pessoas** em seu cluster HDInsight. Esse comando não mostra nenhuma saída na janela do console.
+    Altere o caminho até o local do arquivo `hbase-runner.psm1` criado anteriormente. Esse comando registra o módulo com o Azure PowerShell.
+
+4. Use o comando a seguir para carregar o `hbaseapp-1.0-SNAPSHOT.jar` em seu cluster.
+
+    ```powershell
+    Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName hdinsightclustername
+    ```
+
+    Substitua `hdinsightclustername` pelo nome do cluster. O comando carrega o `hbaseapp-1.0-SNAPSHOT.jar` no local `example/jars` no armazenamento primário do cluster.
+
+5. Para criar uma tabela usando `hbaseapp`, use o seguinte comando:
+
+    ```powershell
+    Start-HBaseExample -className com.microsoft.examples.CreateTable -clusterName hdinsightclustername
+    ```
+
+    Substitua `hdinsightclustername` pelo nome do cluster.
+
+    Esse comando cria uma tabela chamada **people** no HBase em seu cluster HDInsight. Esse comando não mostra nenhuma saída na janela do console.
 
 6. Para procurar por entradas na tabela, use o comando a seguir:
-   
-        Start-HBaseExample -className com.microsoft.examples.SearchByEmail -clusterName hdinsightclustername -emailRegex contoso.com
-   
-    Substitua **nomedoclusterhdinsight** pelo nome do seu cluster HDInsight.
-   
-    Isso utilizará a classe **SearchByEmail** para procurar por quaisquer linhas em que a família da coluna **contactinformation** e a coluna **email** contenham a cadeia de caracteres **contoso.com**. Você deve receber os seguintes resultados:
-   
+
+    ```powershell
+    Start-HBaseExample -className com.microsoft.examples.SearchByEmail -clusterName hdinsightclustername -emailRegex contoso.com
+    ```
+
+    Substitua `hdinsightclustername` pelo nome do cluster.
+
+    Esse comando usa a classe `SearchByEmail` para procurar por quaisquer linhas nas quais a família de colunas `contactinformation` e a coluna `email` contenham a cadeia de caracteres `contoso.com`. Você deve receber os seguintes resultados:
+
           Franklin Holtz - ID: 2
           Franklin Holtz - franklin@contoso.com - ID: 2
           Rae Schroeder - ID: 4
           Rae Schroeder - rae@contoso.com - ID: 4
           Gabriela Ingram - ID: 6
           Gabriela Ingram - gabriela@contoso.com - ID: 6
-   
+
     Usar **fabrikam.com** como o valor de `-emailRegex` retornará os usuários que tenham **fabrikam.com** no campo de email. Você também pode usar expressões regulares como o termo de pesquisa. Por exemplo, **^ r** retorna endereços que começam com a letra 'r'.
 
 ### <a name="no-results-or-unexpected-results-when-using-start-hbaseexample"></a>Nenhum resultado ou resultados inesperados ao usar o Start-HBaseExample
@@ -672,11 +681,12 @@ Após ter terminado o exemplo, use o seguinte para excluir a tabela **pessoas** 
 
 __De uma sessão `ssh`__:
 
-`hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable`
+`yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable`
 
 __Do Azure PowerShell__:
 
 `Start-HBaseExample -className com.microsoft.examples.DeleteTable -clusterName hdinsightclustername`
 
+## <a name="next-steps"></a>Próximas etapas
 
-
+[Saiba como usar o SQuirreL SQL com o HBase](hdinsight-hbase-phoenix-squirrel-linux.md)

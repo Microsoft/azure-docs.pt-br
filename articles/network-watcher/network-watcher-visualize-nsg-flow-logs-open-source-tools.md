@@ -3,7 +3,7 @@ title: "Visualizar logs de fluxo NSG de Observador de Rede do Azure usando ferra
 description: "Esta página descreve como usar ferramentas de código aberto para visualizar logs de fluxo NSG."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: e9b2dcad-4da4-4d6b-aee2-6d0afade0cb8
@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 7018320e601c1e8762e1c8fc409813a113a35044
-ms.lasthandoff: 03/06/2017
-
+ms.author: jdial
+ms.openlocfilehash: 8b313b68be07da1a943748d21da68c169980cfc2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizar logs de fluxo NSG do Observador de Rede do Azure usando ferramentas de código aberto
 
 Os logs de fluxo do Grupo de Segurança de Rede fornecem informações que podem ser usadas para entender a entrada e a saída de tráfego IP em Grupos de Segurança de Rede. Esses logs de fluxo exibem os fluxos de entrada e saída baseados em regras. A NIC de fluxo se aplica às informações de 5 tuplas sobre o fluxo (IP de Origem/Destino, Porta de Origem/Destino e Protocolo) e se o tráfego foi permitido ou negado.
@@ -29,7 +28,7 @@ Esses logs de fluxo podem ser difíceis de serem analisados e de obter ideias de
 
 ## <a name="scenario"></a>Cenário
 
-Neste artigo, vamos configurar uma solução que permitirá a visualização dos logs de fluxo do Grupo de Segurança de Rede usando o Elastic Stack.  Um conector de entrada Logstash obterá os logs de fluxo diretamente do blob de armazenamento configurado para conter os logs do fluxo. Em seguida, usando o Elastic Stack, os logs do fluxo serão indexados e usados para criar um painel Kibana para visualizar as informações.
+Neste artigo, vamos configurar uma solução que permitirá a visualização dos logs de fluxo do Grupo de Segurança de Rede usando o Elastic Stack.  Um plug-in de entrada Logstash obterá os logs de fluxo diretamente do blob de armazenamento configurado para conter os logs do fluxo. Em seguida, usando o Elastic Stack, os logs do fluxo serão indexados e usados para criar um painel Kibana para visualizar as informações.
 
 ![cenário][scenario]
 
@@ -88,7 +87,7 @@ Para obter instruções adicionais sobre a instalação da pesquisa elástica, c
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. Em seguida, precisamos configurar Logstash a leitura da saída do arquivo eve.json. Crie um arquivo logstash.conf usando:
+1. Em seguida, precisamos configurar o Logstash para acessar e analisar os logs de fluxo. Crie um arquivo logstash.conf usando:
 
     ```
     sudo touch /etc/logstash/conf.d/logstash.conf
@@ -97,66 +96,71 @@ Para obter instruções adicionais sobre a instalação da pesquisa elástica, c
 1. Adicione o seguinte conteúdo ao arquivo:
 
   ```
-    input {
-      azureblob
-        {
-            storage_account_name => "mystorageaccount"
-            storage_access_key => "storageaccesskey"
-            container => "nsgflowlogContainerName"
-            codec => "json"
-        }
-      }
-
-      filter {
-        split { field => "[records]" }
-        split { field => "[records][properties][flows]"}
-        split { field => "[records][properties][flows][flows]"}
-        split { field => "[records][properties][flows][flows][flowTuples]"}
-
-     mutate{
-      split => { "[records][resourceId]" => "/"}
-      add_field => {"Subscription" => "%{[records][resourceId][2]}"
-                    "ResourceGroup" => "%{[records][resourceId][4]}"
-                    "NetworkSecurityGroup" => "%{[records][resourceId][8]}"}
-      convert => {"Subscription" => "string"}
-      convert => {"ResourceGroup" => "string"}
-      convert => {"NetworkSecurityGroup" => "string"}
-      split => { "[records][properties][flows][flows][flowTuples]" => ","}
-      add_field => {
-                  "unixtimestamp" => "%{[records][properties][flows][flows][flowTuples][0]}"
-                  "srcIp" => "%{[records][properties][flows][flows][flowTuples][1]}"
-                  "destIp" => "%{[records][properties][flows][flows][flowTuples][2]}"
-                  "srcPort" => "%{[records][properties][flows][flows][flowTuples][3]}"
-                  "destPort" => "%{[records][properties][flows][flows][flowTuples][4]}"
-                  "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
-                  "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
-                  "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
-                   }
-      convert => {"unixtimestamp" => "integer"}
-      convert => {"srcPort" => "integer"}
-      convert => {"destPort" => "integer"}        
+input {
+   azureblob
+     {
+         storage_account_name => "mystorageaccount"
+         storage_access_key => "VGhpcyBpcyBhIGZha2Uga2V5Lg=="
+         container => "insights-logs-networksecuritygroupflowevent"
+         codec => "json"
+         # Refer https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-read-nsg-flow-logs
+         # Typical numbers could be 21/9 or 12/2 depends on the nsg log file types
+         file_head_bytes => 12
+         file_tail_bytes => 2
+         # Enable / tweak these settings when event is too big for codec to handle.
+         # break_json_down_policy => "with_head_tail"
+         # break_json_batch_count => 2
      }
+   }
 
-     date{
-       match => ["unixtimestamp" , "UNIX"]
-     }
-    }
+   filter {
+     split { field => "[records]" }
+     split { field => "[records][properties][flows]"}
+     split { field => "[records][properties][flows][flows]"}
+     split { field => "[records][properties][flows][flows][flowTuples]"}
 
-    output {
-      stdout { codec => rubydebug }
-      elasticsearch {
-        hosts => "localhost"
-        index => "nsg-flow-logs"
-      }
-    }  
+  mutate{
+   split => { "[records][resourceId]" => "/"}
+   add_field => {"Subscription" => "%{[records][resourceId][2]}"
+                 "ResourceGroup" => "%{[records][resourceId][4]}"
+                 "NetworkSecurityGroup" => "%{[records][resourceId][8]}"}
+   convert => {"Subscription" => "string"}
+   convert => {"ResourceGroup" => "string"}
+   convert => {"NetworkSecurityGroup" => "string"}
+   split => { "[records][properties][flows][flows][flowTuples]" => ","}
+   add_field => {
+               "unixtimestamp" => "%{[records][properties][flows][flows][flowTuples][0]}"
+               "srcIp" => "%{[records][properties][flows][flows][flowTuples][1]}"
+               "destIp" => "%{[records][properties][flows][flows][flowTuples][2]}"
+               "srcPort" => "%{[records][properties][flows][flows][flowTuples][3]}"
+               "destPort" => "%{[records][properties][flows][flows][flowTuples][4]}"
+               "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
+               "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
+               "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
+                }
+   convert => {"unixtimestamp" => "integer"}
+   convert => {"srcPort" => "integer"}
+   convert => {"destPort" => "integer"}        
+  }
 
+  date{
+    match => ["unixtimestamp" , "UNIX"]
+  }
+ }
+output {
+  stdout { codec => rubydebug }
+  elasticsearch {
+    hosts => "localhost"
+    index => "nsg-flow-logs"
+  }
+}  
   ```
 
 Para obter mais informações sobre como instalar o Logstash, consulte a [documentação oficial](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)
 
 ### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>Instalar o plugin de entrada do Logstash para o armazenamento de blobs do Azure
 
-Esse plug-in do Logstash permitirá o acesso direto aos logs do fluxo a partir da conta de armazenamento designada. Para instalar esse plug-in, do diretório de instalação Logstash padrão (nesse caso, /usr/share/logstash/bin), execute o comando:
+Esse plug-in do Logstash permitirá o acesso direto aos logs do fluxo por meio da conta de armazenamento designada. Para instalar esse plug-in, no diretório de instalação padrão do Logstash (nesse caso, /usr/share/logstash/bin), execute o comando:
 
 ```
 logstash-plugin install logstash-input-azureblob
@@ -252,4 +256,3 @@ Para saber como visualizar os logs de fluxo NSG com o Power BI, veja [Como visua
 [5]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure5.png
 [6]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure6.png
 [7]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure7.png
-

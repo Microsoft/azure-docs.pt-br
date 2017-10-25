@@ -2,7 +2,7 @@
 title: "Transmissão do Log de Atividades do Azure para os Hubs de Eventos | Microsoft Docs"
 description: Saiba como transmitir o Log de Atividades do Azure para os Hubs de Eventos.
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 6/06/2017
 ms.author: johnkem
-translationtype: Human Translation
-ms.sourcegitcommit: 51a7a274c0cdbec169154bd1100abb4534283cff
-ms.openlocfilehash: ac478dc5c6691ef9f6c4829bd47a81912774d032
-
-
+ms.openlocfilehash: 88c5701279f370914fac68872d67b02a7571748a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Transmissão do Log de Atividades do Azure para os Hubs de Eventos
 Os [**Logs de Atividade do Azure**](monitoring-overview-activity-logs.md) podem ser transmitidos quase em tempo real a qualquer aplicativo usando a opção interna "Exportar" no Portal, ou habilitando a ID da Regra de Barramento de Serviço em um Perfil de Log por meio de Cmdlets do Azure PowerShell ou da CLI do Azure.
@@ -54,7 +54,7 @@ Se já existir um perfil de log, primeiro remova esse perfil.
 3. Use `Set-AzureRmLogProfile` para criar um perfil:
 
 ```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
 A ID da Regra do Barramento de Serviço é uma cadeia de caracteres com este formato: {ID de recurso do barramento de serviço} /authorizationrules/ {nome da chave}, por exemplo 
@@ -79,10 +79,4 @@ A ID da Regra do Barramento de Serviço é uma cadeia de caracteres com este for
 * [Arquivar o Log de Atividades em uma conta de armazenamento](monitoring-archive-activity-log.md)
 * [Leia a visão geral do Log de Atividades do Azure](monitoring-overview-activity-logs.md)
 * [Configurar um alerta com base em um evento do Log de Atividades](insights-auditlog-to-webhook-email.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/24/2017
+ms.date: 07/21/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 5d37dbcce06ac979f3cabef1220e5f1fe8e67931
-ms.openlocfilehash: 6c0cd8aeaaa094a6bf046d47a96eddffc6430d44
-ms.lasthandoff: 03/01/2017
-
-
+ms.reviewer: jeedes
+ms.openlocfilehash: 32835e79188806bb2ff319eea23b1b52ab585ab1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Tutorial: Integração do Active Directory do Azure com a Área Restrita Salesforce
 
@@ -113,7 +113,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
  5. Para o **Tipo de Identidade SAML**, selecione **A declaração contém a ID de Federação do objeto de Usuário**. 
  6. Para **Local de Identidade SAML**, selecione **A identidade está no elemento NameIdentifier da instrução Subject**.
  7. No portal clássico do Azure, na página de diálogo **Configurar logon único na Área Restrita do Salesforce**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon do Provedor de Identidade**. 
- 8. O SFDC não dá suporte a logout SAML.  Como alternativa, cole 'https://login.windows.net/common/wsfederation?wa=wsignout1.0' na caixa de texto **URL de Logout do Provedor de Identidade** .
+ 8. O SFDC não dá suporte a logout SAML.  Como alternativa, cole “https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0” na caixa de texto **URL de Logoff do Provedor de Identidade**.
  9. Para **Associação de Solicitação Iniciada pelo Provedor de Serviços**, selecione **HTTP Post**. 
  10. Clique em **Salvar**.
 11. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
@@ -163,7 +163,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 8. Na página **Inserir suas credenciais da Área Restrita Salesforce para habilitar o provisionamento automático de usuários** , forneça as seguintes configurações:
    
    ![Área restrita do SalesForce](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746476.png "Área restrita do Salesforce")   
- 1. Na caixa de texto **Nome de Usuário de Administrador da área restrita Salesforce**, digite o nome da conta de uma área restrita Salesforce com o perfil **Administrador de Sistema** do Salesforce.com atribuído.
+ 1. Na caixa de texto **Nome de Usuário Administrador da área restrita Salesforce**, digite o nome da conta de uma área restrita Salesforce com o perfil **Administrador de Sistema** do Salesforce.com atribuído.
  2. Na caixa de texto **Senha do Administrador da Área Restrita Salesforce** , digite a senha dessa conta.
  3. Na caixa de texto **Token de Segurança do Usuário** , cole o valor do token de segurança.
  4. Clique em **Validar** para verificar sua configuração.
@@ -177,7 +177,7 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 **Para atribuir usuários à Área Restrita Salesforce, execute as etapas a seguir:**
 
 1. No Portal clássico do Azure, crie uma conta de teste.
-2. Na página de integração de aplicativos **Área Restrita Salesforce**, clique em **Atribuir usuários**.
+2. Na página de integração do aplicativo **Salesforce Sandbox**, clique em **Atribuir usuários**.
    
    ![Atribuir usuários](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769574.png "Atribuir usuários")
 3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
@@ -187,5 +187,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 Agora você deve aguardar 10 minutos e verificar se a conta foi sincronizada com a Área Restrita Salesforce.
 
 Se você quiser testar suas configurações de SSO, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
-
 

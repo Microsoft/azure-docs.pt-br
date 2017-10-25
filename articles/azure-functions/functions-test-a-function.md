@@ -4,7 +4,7 @@ description: Teste o Azure Functions usando Postman, cURL e Node.js.
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor, testes"
@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
-ms.openlocfilehash: a58bf41ec11b5826b60c1fc999240ea655be6d9d
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 41796a8cdde0756e5157ba276463a56b07679d04
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estratégias para testar seu código no Azure Functions
 
@@ -234,7 +233,7 @@ Na janela **Logs** do portal, é registrada uma saída semelhante à seguinte ao
 
 
 ### <a name="test-with-a-timer-trigger"></a>Testar com um gatilho de temporizador
-Para algumas funções, realmente não é possível testar adequadamente com as ferramentas já mencionadas. Por exemplo, considere uma função de gatilho de fila executada quando uma mensagem é inserida no [Armazenamento de Filas do Azure](../storage/storage-dotnet-how-to-use-queues.md). Você sempre pode escrever código para remover uma mensagem da fila e um exemplo disso em um projeto de console fornecido posteriormente neste artigo. No entanto, há outra abordagem que você pode usar para testar com funções diretamente.  
+Para algumas funções, realmente não é possível testar adequadamente com as ferramentas já mencionadas. Por exemplo, considere uma função de gatilho de fila executada quando uma mensagem é inserida no [Armazenamento de Filas do Azure](../storage/queues/storage-dotnet-how-to-use-queues.md). Você sempre pode escrever código para remover uma mensagem da fila e um exemplo disso em um projeto de console fornecido posteriormente neste artigo. No entanto, há outra abordagem que você pode usar para testar com funções diretamente.  
 
 Você pode usar um gatilho de temporizador configurado com uma associação de saída da fila. Esse código de gatilho de temporizador pode então escrever as mensagens de teste para a fila. Esta seção explica um exemplo.
 
@@ -377,12 +376,12 @@ Na janela **Logs** do portal, é registrada uma saída semelhante à seguinte ao
     2016-03-23T08:09:01.215 Function completed (Success, Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
 
 
-### <a name="test-a-queue-trigger-function-with-code-c"></a>Testar uma função de gatilho de fila com código: C# #
-Mencionamos anteriormente que você pode testar um gatilho de fila usando código para remover uma mensagem na fila. O exemplo de código a seguir é baseado no código C# apresentado no tutorial [Introdução ao Armazenamento de Filas do Azure](../storage/storage-dotnet-how-to-use-queues.md). Também há código para outras linguagens disponível nesse link.
+### <a name="test-a-queue-trigger-function-with-code-c"></a>Testar uma função de gatilho de fila com o código: C# #
+Mencionamos anteriormente que você pode testar um gatilho de fila usando código para remover uma mensagem na fila. O exemplo de código a seguir é baseado no código C# apresentado no tutorial [Introdução ao Armazenamento de Filas do Azure](../storage/queues/storage-dotnet-how-to-use-queues.md). Também há código para outras linguagens disponível nesse link.
 
 Para testar esse código em um aplicativo de console, que você deve:
 
-* [Configurar a cadeia de conexão de armazenamento no arquivo app.config](../storage/storage-dotnet-how-to-use-queues.md).
+* [Configurar a cadeia de conexão de armazenamento no arquivo app.config](../storage/queues/storage-dotnet-how-to-use-queues.md).
 * Passe um `name` e `address` como parâmetros para o aplicativo. Por exemplo: `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`. (Este código aceita o nome e o endereço de um novo usuário como argumentos de linha de comando durante o tempo de execução).
 
 Código C# de exemplo:
@@ -444,4 +443,3 @@ Na janela do navegador para a função de fila, você poderá ver cada mensagem 
 <!-- URLs. -->
 
 [portal do Azure]: https://portal.azure.com
-

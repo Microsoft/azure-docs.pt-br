@@ -15,8 +15,7 @@ Primeiro, você precisa ter um [Active Directory do Azure](https://azure.microso
 
 Em seguida, registre um aplicativo com o AAD Isso lhe dará uma conta de Entidade de Serviço com acesso ao cofre de chave de que sua máquina virtual precisará. No artigo Cofre de Chaves do Azure, você pode encontrar estas etapas na seção [Registrar um aplicativo com o Azure Active Directory](../articles/key-vault/key-vault-get-started.md#register), ou pode ver as etapas com capturas de tela na seção **Obter uma identidade para o aplicativo** desta [ostagem de blog](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Antes de concluir essas etapas, observe que você precisa coletar as seguintes informações durante esse registro e que  serão necessárias mais tarde, quando você habilitar a integração da Chave do Cofre do Azure em sua VM do SQL.
 
-* Após a adição do aplicativo, encontre a **ID do CLIENTE** na guia **CONFIGURAR**. 
-    ![ID de cliente do Azure Active Directory](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
+* Após a adição do aplicativo, encontre a **ID do CLIENTE** na guia **CONFIGURAR**.   ![ID de cliente do Azure Active Directory](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
   
     A ID do cliente é atribuída posteriormente ao parâmetro **$spName** (nome da Entidade de Serviço) no script do PowerShell a fim de habilitar a integração do Cofre da Chave do Azure. 
 * Além disso, durante essas etapas, ao criar a chave, copie o segredo de sua chave conforme mostra a seguinte captura de tela. Esse segredo é atribuído posteriormente ao parâmetro **$spSecret** (segredo da Entidade de serviço) no script do PowerShell.  
@@ -31,9 +30,4 @@ Quando você chega à etapa Criar um cofre de chave, observe a propriedade **vau
     New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
 
 A URL do cofre de chave será atribuída posteriormente ao parâmetro **$akvURL** no script do PowerShell a fim de habilitar a integração do Cofre da Chave do Azure.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

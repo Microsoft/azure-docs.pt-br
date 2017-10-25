@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 07/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 838be613a35ac4af988e089efb57e45365cc7636
-
-
+ms.openlocfilehash: 39bb294c96ce0c12d91cf8b3488ac3e1a7b2f7b2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-cloud-services"></a>Como configurar serviços de nuvem
 > [!div class="op_single_selector"]
@@ -42,11 +42,10 @@ O Azure pode garantir apenas 99,95 por cento de disponibilidade do serviço dura
 2. Em **monitoramento**, defina o nível de monitoramento como Detalhado ou Mínimo e configure as cadeias de conexão de diagnóstico necessárias para o monitoramento detalhado.
 3. Para as funções de serviço (agrupadas por função), você pode atualizar as seguintes configurações:
    
-    * **Configurações** 
-       Modifique os valores das diversas especificadas nos elementos *ConfigurationSettings* do arquivo de configuração do serviço (.cscfg).
+    * **Configurações** Modifique os valores das diversas configurações especificadas nos elementos *ConfigurationSettings* do arquivo de configuração do serviço (.cscfg).
 
     * **Certificados**  
-         Altere a impressão digital do certificado usado na criptografia SSL para uma função. Para alterar um certificado, você deve primeiro carregar o novo certificado (na página **Certificados** ). Em seguida, atualize a impressão digital na cadeia de caracteres do certificado exibida nas configurações da função.
+        Altere a impressão digital do certificado usado na criptografia SSL para uma função. Para alterar um certificado, você deve primeiro carregar o novo certificado (na página **Certificados** ). Em seguida, atualize a impressão digital na cadeia de caracteres do certificado exibida nas configurações da função.
 4. Em **sistema operacional**, você pode alterar a família ou a versão do sistema operacional para instâncias de função ou escolher **Automático** para habilitar as atualizações automáticas da versão atual do sistema operacional. As configurações do sistema operacional aplicam-se às funções Web e às funções de trabalho, mas não afetam as máquinas virtuais.
    
     Durante a implantação, a versão mais recente do sistema operacional é instalada em todas as instâncias de função e os sistemas operacionais são atualizados automaticamente por padrão. 
@@ -77,10 +76,4 @@ O Azure pode garantir apenas 99,95 por cento de disponibilidade do serviço dura
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage.md).
 * [Habilitar a conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure](cloud-services-role-enable-remote-desktop.md)
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

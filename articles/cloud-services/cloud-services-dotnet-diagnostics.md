@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/25/2016
+ms.date: 05/22/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 226e86703843b026d20123543cf5311a5355aad4
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 333d2f26ce043a167fb84858c8327cb39e868ffa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Habilitando o Diagnóstico do Azure nos Serviços de Nuvem do Azure
 Confira [Visão geral do Diagnóstico do Azure](../azure-diagnostics.md) para obter informações preliminares sobre o Diagnóstico do Azure.
@@ -32,7 +31,7 @@ Esse artigo assume que você tem uma assinatura do Azure e está usando o Visual
 
 ### <a name="step-1-create-a-worker-role"></a>Etapa 1: criar uma função de trabalho
 1. Inicie o **Visual Studio**.
-2. Crie um novo projeto **Serviço de Nuvem do Azure** no modelo **Nuvem** destinado ao .NET Framework 4.5.  Atribua o nome "WadExample" ao projeto e clique em Ok.
+2. Crie um projeto **Serviço de Nuvem do Azure** no modelo **Nuvem** destinado ao .NET Framework 4.5.  Atribua o nome "WadExample" ao projeto e clique em Ok.
 3. Selecione **Função de Trabalho** e clique em Ok. O projeto será criado.
 4. No **Gerenciador de Soluções**, clique duas vezes no arquivo de propriedades **WorkerRole1**.
 5. Na guia **Configuração**, desmarque **Habilitar Diagnóstico** para desabilitar o Diagnostics 1.0 (SDK 2.4 do Azure e mais recente).
@@ -132,7 +131,7 @@ namespace WorkerRole1
 4. Na caixa de diálogo **Criar Serviço de Nuvem e Conta de Armazenamento**, insira um **Nome** (por exemplo, "WadExample") e selecione uma região ou grupo de afinidades.
 5. Defina o **Ambiente** para **Preparo**.
 6. Modifique quaisquer outras **Configurações** como for apropriado e clique em **Publicar**.
-7. Após a implantação ter sido concluída, verifique no portal clássico do Azure se seu serviço de nuvem está em estado de **Execução** .
+7. Após a implantação ter sido concluída, verifique no Portal do Azure se seu serviço de nuvem está em estado de **Execução**.
 
 ### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>Etapa 4: Criar seu arquivo de configuração do Diagnostics e instalar a extensão
 1. Baixe a definição do esquema do arquivo de configuração pública ao executar o seguinte comando PowerShell:
@@ -140,7 +139,7 @@ namespace WorkerRole1
     ```powershell
     (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
     ```
-2. Adicione um arquivo XML ao projeto **WorkerRole1** clicando com o botão direito no projeto **WorkerRole1** e selecione **Adicionar** -> **Novo Item…** -> **Itens do Visual C#** -> **Dados** -> **Arquivo XML**. Nomeie o arquivo como "WadExample.xml".
+2. Adicione um arquivo XML ao projeto **WorkerRole1** clicando com o botão direito do mouse no projeto **WorkerRole1** e selecione **Adicionar** -> **Novo Item…** -> **Itens do Visual C#** -> **Dados** -> **Arquivo XML**. Nomeie o arquivo como "WadExample.xml".
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
 3. Associe o WadConfig.xsd com o arquivo de configuração. Certifique-se de que a janela do editor WadExample.xml é uma janela ativa. Pressione **F4** para abrir a janela **Propriedades**. Clique na propriedade **Schemas** da janela **Propriedades**. Clique em**...** in the **Esquemas** . Clique em **Adicionar…** e navegue até o local onde você salvou o arquivo XSD e selecione o arquivo WadConfig.xsd. Clique em **OK**.
@@ -186,7 +185,7 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -Diagnostic
 ```
 
 ### <a name="step-6-look-at-your-telemetry-data"></a>Etapa 6: Examinar os dados de telemetria
-No **Gerenciador de Servidores** do Visual Studio, navegue até a conta de armazenamento wadexample. Depois do serviço de nuvem ter sido executado por cerca de 5 minutos, você deverá ver as tabelas **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** e **WADSetOtherTable**. Clique duas vezes em uma das tabelas para exibir a telemetria que foi coletada.
+No **Gerenciador de Servidores** do Visual Studio, navegue até a conta de armazenamento wadexample. Depois do serviço de nuvem ter sido executado por cerca de cinco (5) minutos, você deverá ver as tabelas **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** e **WADSetOtherTable**. Clique duas vezes em uma das tabelas para exibir a telemetria que foi coletada.
 
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
@@ -197,7 +196,7 @@ O arquivo de configuração do Diagnóstico define valores que são usados para 
 Caso tenha problemas, veja [Solucionando problemas do Diagnóstico do Azure](../azure-diagnostics-troubleshooting.md) para obter ajuda com problemas comuns.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Ver uma lista de artigos sobre o Diagnóstico do Azure relacionados a máquinas virtuais](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics) para alterar os dados coletados, solucionar problemas ou saber mais sobre o diagnóstico em geral.
+[Veja uma lista de artigos sobre diagnóstico de máquina virtual do Azure](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics) para alterar os dados coletados, solucionar problemas ou saber mais sobre o diagnóstico em geral.
 
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 
@@ -205,4 +204,3 @@ Caso tenha problemas, veja [Solucionando problemas do Diagnóstico do Azure](../
 [Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Free Trial]: http://azure.microsoft.com/pricing/free-trial/
 [Install and configure Azure PowerShell version 0.8.7 or later]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
 ms.openlocfilehash: bf4f0b64d1230395bf5dacc467d09debecdef559
-ms.lasthandoff: 01/24/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-management-in-azure"></a>Gerenciamento de segurança no Azure
 Os assinantes do Azure podem gerenciar ambientes de nuvem de vários dispositivos, incluindo estações de trabalho, computadores de desenvolvedores e até mesmo dispositivos de usuário final com privilégios que têm permissões de tarefas específicas. Em alguns casos, as funções administrativas são executadas por meio de consoles baseado na Web, como o [Portal do Azure](https://azure.microsoft.com/features/azure-portal/). Em outros casos, pode haver conexões diretas ao Azure de sistemas locais por meio de VPNs (Redes Virtuais Privadas), Serviços de Terminal, protocolos de aplicativos de cliente ou (programaticamente) a SMAPI (API de Gerenciamento de Serviços do Azure). Além disso, os pontos de extremidade do cliente podem ser unidos ao domínio ou isolados e não gerenciados, como tablets ou smartphones.
@@ -108,7 +107,7 @@ Para centralizar todo o acesso administrativo e simplificar o monitoramento e o 
 Um Gateway de Área de Trabalho Remota é um serviço de proxy RDP com base em políticas que impõe requisitos de segurança. Implementar o Gateway de Área de Trabalho Remota junto com o NAP (Proteção de Acesso à Rede) do Windows Server ajuda a garantir que somente os clientes que atendam a critérios de integridade de segurança específicos estabelecidos pelos GPOs (Objetos de Política de Grupo) do AD DS (Serviços de Domínio do Active Directory) possam se conectar. Além disso:
 
 * Provisione um [certificado de gerenciamento do Azure](http://msdn.microsoft.com/library/azure/gg551722.aspx) no Gateway de Área de Trabalho Remota para que ele seja o único host com permissão para acessar o portal do Azure.
-* Una o Gateway de Área de Trabalho Remota ao mesmo [domínio de gerenciamento](http://technet.microsoft.com/library/bb727085.aspx) que as estações de trabalho do administrador. Isso é necessário quando você usa uma VPN IPsec de site a site ou a Rota Expressa em um domínio que tem uma relação de confiança unidirecional para com o Azure AD ou se está associando credenciais entre a instância local do AD DS e o Azure AD.
+* Una o Gateway de Área de Trabalho Remota ao mesmo [domínio de gerenciamento](http://technet.microsoft.com/library/bb727085.aspx) que as estações de trabalho do administrador. Isso é necessário quando você usa uma VPN IPsec de site a site ou o ExpressRoute em um domínio que tem uma relação de confiança unidirecional para com o Azure AD ou se está associando credenciais entre a instância local do AD DS e o Azure AD.
 * Configure uma [política de autorização de conexão de cliente](http://technet.microsoft.com/library/cc753324.aspx) para permitir que o Gateway de Área de Trabalho Remota verifique se o nome do computador cliente é válido (ingressado no domínio) e tem permissão para acessar o portal do Azure.
 * Use IPsec para a [VPN do Azure](https://azure.microsoft.com/documentation/services/vpn-gateway/) para proteger ainda mais o tráfego de gerenciamento contra interceptação e roubo de tokens ou considere um link da Internet isolado por meio do [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 * Habilite a autenticação multifator (via [Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication.md)) ou a autenticação de cartão inteligente para administradores que fazem logon por meio do Gateway de Área de Trabalho Remota.
@@ -233,4 +232,3 @@ Os seguintes recursos estão disponíveis para fornecer informações mais gerai
 [2]: ./media/azure-security-management/stand-alone-hardened-workstation-topology.png
 [3]: ./media/azure-security-management/hardened-workstation-enabled-with-hyper-v.png
 [4]: ./media/azure-security-management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png
-

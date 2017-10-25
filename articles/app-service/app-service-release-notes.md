@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/10/2016
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dc7b51cd0d015770b1100e895da633e8bde4b8da
-
-
+ms.openlocfilehash: 357e58665f5cdf6ea9a3fcaee4a390f2b0d2045f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sdk-for-net-251-release-notes"></a>Notas de versão SDK do Azure para .NET 2.5.1
 Este documento contém as notas de versão do SDK do Azure para a versão do .NET 2.5.1. 
@@ -28,7 +28,7 @@ Estes são os novos recursos e atualizações no SDK do Azure para .NET 2.5.1.
 
 * Novos recursos\cenários relacionados a **Extensões de Ferramentas da Web**. 
   
-  * Sites do Azure foi renomeado para Serviço de Aplicativo do Azure. Para obter mais informações, consulte [Serviço de Aplicativo do Azure e Serviços do Azure existentes](../app-service-web/app-service-changes-existing-services.md).
+  * Sites do Azure foi renomeado para Serviço de Aplicativo do Azure. 
   * Suporte a Aplicativos de API do Azure (visualização) foi adicionado para que os clientes possam publicar projetos do ASP.NET como aplicativos de API e, em seguida, usar o gesto Adicionar > Cliente de Aplicativos de API do Azure em projetos C# para gerar código com base na estrutura do Aplicativo de API implantado. 
   * O nó Sites no Gerenciador de Servidores foi preterido em prol do nó do Serviço de Aplicativo do Azure, que contém suporte para agrupamento de Aplicativos de API do Azure, Aplicativos Móveis e Aplicativos Web com base em grupo de recursos.
   * Suporte a Aplicativos Móveis do Azure (visualização) foi adicionado para que os clientes possam criar novos projetos de Aplicativos Móveis, adicionar controladores de Aplicativos Móveis, publicar os projetos e depurar aplicativos remotamente.
@@ -46,7 +46,7 @@ Estes são os novos recursos e atualizações no SDK do Azure para .NET 2.5.1.
     
     Para obter mais informações, consulte [Introdução ao uso das ferramentas do HDInsight Hadoop para Visual Studio](../hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-## <a name="a-idknownissues251aazure-sdk-for-net-251-known-issues-and-limitations"></a><a id="known_issues_2_5_1"></a>Limitações e problemas conhecidos do SDK do Azure para .NET 2.5.1
+## <a id="known_issues_2_5_1"></a>Limitações e problemas conhecidos do SDK do Azure para .NET 2.5.1
 * O recurso de Aplicativos de API do Azure está visível como um destino de implantação para Aplicativos Móveis. Aplicativos Web devem ser o único destino para Aplicativos Móveis até uma versão subsequente. 
 * Provisionamento de Aplicativo de API do Azure pode resultar em êxito, mas falha intermitente em atualizar o andamento na janela de Atividade do Serviço de Aplicativo do Azure. A solução alternativa é verificar o status do novo Aplicativo de API do Azure no Portal do Azure. 
 * A experiência Arquivo > Novo Projeto > Aplicativo de API > F5 resulta em um erro de HTTP porque não há nenhum default/index.html. A solução alternativa é navegar manualmente para a URL /api/values. 
@@ -62,10 +62,4 @@ Estes são os novos recursos e atualizações no SDK do Azure para .NET 2.5.1.
 * Projetos de Aplicativo de API não podem ser usados em conjunto com os projetos de Serviço de Nuvem.
 * Modelos de projeto de Aplicativo de API só estão disponíveis em C#.
 * Consumo do Aplicativo de API através do menu de contexto "Adicionar Cliente do Aplicativo de API do Azure" só têm suporte em C#.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -18,8 +18,3 @@ Nos detalhes de uso, você pode ver todas as marcas na coluna **Marcas** :
 
 Ao analisar essas marcas juntamente com o uso, as organizações poderão adquirir novas percepções sobre os respectivos dados de consumo.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

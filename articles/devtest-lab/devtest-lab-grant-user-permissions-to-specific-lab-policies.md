@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f1524fa83de6ce53f853ed6859de15076e20ea3b
-
-
+ms.openlocfilehash: fa7c1e4435106d0fc25cb7f77f195eb48705772d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Conceder permissões de usuário para políticas específicas do laboratório
 ## <a name="overview"></a>Visão geral
@@ -29,7 +29,7 @@ Como discutido no artigo [Controle de acesso baseado em função do Azure](../ac
 
 Nos Laboratórios de Desenvolvimento/Teste, uma política é um tipo de recurso que habilita a ação de RBAC **Microsoft.DevTestLab/labs/policySets/policies/**. Cada política do laboratório é um recurso do tipo de recurso Política e pode ser atribuída como um escopo a uma função RBAC.
 
-Por exemplo, para conceder a permissão de leitura/gravação aos usuários para a política **Tamanhos de VM Permitidos**, você deve criar uma função personalizada que funciona com a ação **Microsoft.DevTestLab/labs/policySets/policies/***, em seguida, atribua aos usuários adequados essa função personalizada no escopo de **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
+Por exemplo, para conceder a permissão de leitura/gravação aos usuários para a política **Tamanhos de VM Permitidos**, você criaria uma função personalizada que funcionasse com a ação **Microsoft.DevTestLab/labs/policySets/policies/*** e, em seguida, atribuiria os usuários adequados a essa função personalizada no escopo de **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
 Para saber mais sobre as funções personalizadas no RBAC, consulte o [Controle de acesso das funções personalizadas](../active-directory/role-based-access-control-custom-roles.md).
 
@@ -73,7 +73,7 @@ No exemplo a seguir, o **ObjectId** do usuário *SomeUser* é 05DEFF7B-0AC3-4ABF
 
 Depois de você ter o **ObjectId** para o usuário e um nome de função personalizado, poderá atribuir essa função ao usuário com o cmdlet **New-AzureRmRoleAssignment**:
 
-    PS C:\>New-AzureRmRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/policies/AllowedVmSizesInLab
+    PS C:\>New-AzureRmRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/default/policies/AllowedVmSizesInLab
 
 No exemplo anterior, a política **AllowedVmSizesInLab** é usada. Você pode usar qualquer uma das políticas a seguir:
 
@@ -92,10 +92,4 @@ Após você tiver concedido permissões de usuário para políticas específicas
 * [Criar um modelo de laboratório](devtest-lab-create-template.md).
 * [Criar artefatos personalizados para suas VMs](devtest-lab-artifact-author.md).
 * [Adicionar uma VM com artefatos a um laboratório](devtest-lab-add-vm-with-artifacts.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

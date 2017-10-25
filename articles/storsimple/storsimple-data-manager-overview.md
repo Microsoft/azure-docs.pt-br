@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-translationtype: Human Translation
-ms.sourcegitcommit: 32fcca540c1db317c5f11e94b2ee3359cadcc806
 ms.openlocfilehash: aedb44610fe57055851538b9dbdb810e66e58d73
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="storsimple-data-manager-overview-private-preview"></a>Visão geral do Gerenciador de Dados do StorSimple (Visualização particular)
 
 ## <a name="overview"></a>Visão geral
@@ -72,8 +72,3 @@ O Gerenciador de Dados do StorSimple está em visualização particular. Execute
 ## <a name="next-steps"></a>Próximas etapas
 
 [Use a interface do usuário do Gerenciador de Dados StorSimple para transformar seus dados](storsimple-data-manager-ui.md).
-
-
-<!--HONumber=Nov16_HO4-->
-
-

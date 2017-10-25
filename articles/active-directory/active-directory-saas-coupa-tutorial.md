@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: d1660c9ea528741ea02e6bbae7b1f8fd7afea0eb
 ms.openlocfilehash: c952975919cfd948f1b9ea93ff2ac2641a53f923
-ms.lasthandoff: 02/17/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: integração do Active Directory do Azure ao Coupa
 O objetivo deste tutorial é mostrar a integração do Azure ao Coupa.  
@@ -79,7 +78,7 @@ Configurar o logon único para o Coupa exige que você recupere um valor de impr
    
    ![Metadados SP do Coupa](./media/active-directory-saas-coupa-tutorial/IC791901.png "Metadados SP do Coupa")
 4. Em uma janela de navegador diferente, faça logon no portal clássico do Azure.
-5. Na página de integração do aplicativo **Coupa**, clique em **Configurar logon único** para abrir o diálogo** Configurar Logon Único**.
+5. Na página de integração do aplicativo **Coupa**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
    
    ![Configurar Logon Único](./media/active-directory-saas-coupa-tutorial/IC791902.png "Configurar Logon Único")
 6. Na página **Como você deseja que os usuários façam logon no Coupa**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
@@ -91,7 +90,7 @@ Configurar o logon único para o Coupa exige que você recupere um valor de impr
    1. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para fazer logon no seu aplicativo Coupa (por exemplo: “*http://company.Coupa.com*”).
    2. Abra o arquivo de metadados do Coupa baixado e copie o **Índice/URL de AssertionConsumerService**.
    3. Na caixa de texto **URL de Resposta do Coupa**, cole o valor de **Índice/URL de AssertionConsumerService**.
-   4. Clique em **Próximo**.
+   4. Clique em **Avançar**.
 8. Na página **Configurar logon único no Coupa**, para baixar seu arquivo de metadados, clique em **Baixar metadados** e salve o arquivo localmente no computador.
    
    ![Configurar Logon Único](./media/active-directory-saas-coupa-tutorial/IC791905.png "Configurar Logon Único")
@@ -151,5 +150,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
    ![Sim](./media/active-directory-saas-coupa-tutorial/IC767830.png "Sim")
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
-
 

@@ -12,16 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: d7f6f9582a3d15563c19d69845836a92a35ee95e
-ms.lasthandoff: 03/16/2017
-
-
+ms.author: bwren
+ms.openlocfilehash: 49edbaad0af2eeef4b8c348b9fd34e37ba7e80e9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-analytics-in-application-insights"></a>Usando Análise no Application Insights
-O [Analytics](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
+O [Analytics](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta do Log Analytics.
 
 * **[Assista ao vídeo introdutório](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Faça um test drive do Analytics com nossos dados simulados](https://analytics.applicationinsights.io/demo)** se seu aplicativo ainda não estiver enviando dados para o Application Insights.
@@ -39,7 +38,7 @@ Há um [tour mais extenso aqui](app-insights-analytics-tour.md).
 ### <a name="write-a-query"></a>Escreva uma consulta
 ![Exibição de esquema](./media/app-insights-analytics-using/150.png)
 
-Comece com os nomes de uma das tabelas listadas à esquerda (ou os operadores [range](app-insights-analytics-reference.md#range-operator) ou [union](app-insights-analytics-reference.md#union-operator)). Use `|` para criar um pipeline de [operadores](app-insights-analytics-reference.md#queries-and-operators). 
+Comece com os nomes de uma das tabelas listadas à esquerda (ou os operadores [range](https://docs.loganalytics.io/queryLanguage/query_language_rangeoperator.html) ou [union](https://docs.loganalytics.io/queryLanguage/query_language_unionoperator.html)). Use `|` para criar um pipeline de [operadores](https://docs.loganalytics.io/learn/cheatsheets/useful_operators.html). 
 
 O IntelliSense mostrará os operadores e os elementos de expressão que você pode usar. Clique no ícone de informações (ou pressione CTRL + espaço) para obter uma descrição mais detalhada e exemplos de como usar cada elemento.
 
@@ -50,7 +49,7 @@ Confira a [tour da linguagem do Analytics](app-insights-analytics-tour.md) e a [
 
 1. Você pode usar quebras de linha simples em uma consulta.
 2. Coloque o cursor na ou no final da consulta que você deseja executar.
-3. Verifique o intervalo de tempo da consulta. (Você pode alterá-lo ou substituí-lo, incluindo sua própria cláusula [`where...timestamp...`](app-insights-analytics-tour.md#time-range) em sua consulta.)
+3. Verifique o intervalo de tempo da consulta. (Você pode alterá-lo ou substituí-lo, incluindo sua própria cláusula [`where...timestamp...`](https://docs.loganalytics.io/concepts/concepts_datatypes_timespan.html) em sua consulta.)
 3. Clique em Ir para executar a consulta.
 4. Não coloque linhas em branco em sua consulta. Você pode manter várias consultas separadas em uma guia de consulta separando-as com linhas em branco. Somente a consulta que possui o cursor é executada.
 
@@ -72,7 +71,7 @@ Você pode classificar, filtrar, paginar e agrupar os resultados retornados da s
 > [!NOTE]
 > A classificação, o agrupamento e a filtragem no navegador não executam a consulta novamente. Eles apenas reorganizam os resultados que foram retornados por sua última consulta. 
 > 
-> Para executar essas tarefas no servidor antes que os resultados sejam retornados, escreva sua consulta com os operadores [sort](app-insights-analytics-reference.md#sort-operator), [summarize](app-insights-analytics-reference.md#summarize-operator) e [where](app-insights-analytics-reference.md#where-operator).
+> Para executar essas tarefas no servidor antes que os resultados sejam retornados, escreva sua consulta com os operadores [sort](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html), [summarize](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) e [where](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html).
 > 
 > 
 
@@ -100,7 +99,7 @@ Se você acha que não está vendo todos os resultados esperados, há alguns mot
 
     No entanto, você pode alterar o filtro de intervalo de tempo usando o menu suspenso.
 
-    Ou você pode substituir o intervalo automático incluindo sua própria [`where  ... timestamp ...` cláusula](app-insights-analytics-reference.md#where-operator) em sua consulta. Por exemplo:
+    Ou você pode substituir o intervalo automático incluindo sua própria [`where  ... timestamp ...` cláusula](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) em sua consulta. Por exemplo:
 
     `requests | where timestamp > ago('2d')`
 
@@ -108,10 +107,10 @@ Se você acha que não está vendo todos os resultados esperados, há alguns mot
 
     É recomendável evitar atingir o limite. Use o filtro de intervalo de tempo ou operadores como:
 
-  * [top 100 by timestamp](app-insights-analytics-reference.md#top-operator) 
-  * [take 100](app-insights-analytics-reference.md#take-operator)
-  * [summarize ](app-insights-analytics-reference.md#summarize-operator) 
-  * [where timestamp > ago(3d)](app-insights-analytics-reference.md#where-operator)
+  * [top 100 by timestamp](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) 
+  * [take 100](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html)
+  * [summarize ](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) 
+  * [where timestamp > ago(3d)](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html)
 
 (Quer de 10 mil linhas? Considere usar [Exportação contínua](app-insights-export-telemetry.md) em vez disso. A análise foi projetada para análise, em vez de recuperar dados brutos.)
 
@@ -122,10 +121,20 @@ Selecione o tipo de diagrama que você deseja:
 
 Se você tiver várias colunas dos tipos corretos, você poderá escolher os eixos x e y, e uma coluna de dimensões pelas quais dividir os resultados.
 
-Por padrão, os resultados são exibidos inicialmente como uma tabela e você seleciona o diagrama manualmente. Mas você pode usar a [diretiva de renderização](app-insights-analytics-reference.md#render-directive) ao final de uma consulta para selecionar um diagrama.
+Por padrão, os resultados são exibidos inicialmente como uma tabela e você seleciona o diagrama manualmente. Mas você pode usar a [diretiva de renderização](https://docs.loganalytics.io/queryLanguage/query_language_renderoperator.html) ao final de uma consulta para selecionar um diagrama.
+
+### <a name="analytics-diagnostics"></a>Diagnóstico de análise
+
+
+Em um gráfico de tempo, se houver uma alteração ou pico repentino em seus dados, você poderá ver um ponto em destaque na linha. Isso indica que o Diagnóstico de Análise identificou uma combinação de propriedades que filtra a alteração repentina. Clique no ponto para obter mais detalhes sobre o filtro e para ver a versão filtrada. Isso pode ajudar a identificar o que causou a alteração. 
+
+[Saiba mais sobre o Diagnóstico de Análise](app-insights-analytics-diagnostics.md)
+
+
+![Diagnóstico de análise](./media/app-insights-analytics-using/analytics-diagnostics.png)
 
 ## <a name="pin-to-dashboard"></a>Fixar no painel
-Você pode fixar um diagrama ou tabela em um dos seus [painéis compartilhados](app-insights-dashboards.md) , basta clicar no marcador. (Talvez seja necessário [atualizar o pacote de preços do seu aplicativo](app-insights-pricing.md) para ativar esse recurso). 
+Você pode fixar um diagrama ou tabela em um dos seus [painéis compartilhados](app-insights-dashboards.md) , basta clicar no marcador. 
 
 ![Clicar no marcador](./media/app-insights-analytics-using/pin-01.png)
 
@@ -134,7 +143,7 @@ Isso significa que, quando você monta um painel para ajudar a monitorar o desem
 Você poderá fixar uma tabela no painel, se ele tiver quatro ou menos colunas. Somente as primeiras sete linhas são exibidas.
 
 ### <a name="dashboard-refresh"></a>Atualização do painel
-O gráfico fixado no painel é atualizado de forma automática ao executar novamente a consulta aproximadamente a cada duas horas.
+O gráfico fixado no painel é atualizado de forma automática ao executar novamente a consulta aproximadamente a cada hora. Você também pode clicar no botão Atualizar.
 
 ### <a name="automatic-simplifications"></a>Simplificações automáticas
 
@@ -228,5 +237,4 @@ Se você usar [LogStash](https://www.elastic.co/guide/en/logstash/current/gettin
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
 

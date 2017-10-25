@@ -5,20 +5,19 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
-ms.assetid: d92e3edb-31aa-4d21-9bf8-6e5917d7bf5f
+ms.assetid: 15ba026e-96fc-4ae8-b135-0169da810e99
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 04/13/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 6844a46978618d5dc3292168bbcc228480311d47
-ms.openlocfilehash: e84a3aeb9e7a8cddccb293ab2bb9d7fdc5fa82b4
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: 8a7481b71df5ca407dbed5da3d3cc26991504c82
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-maxxpoint"></a>Tutorial: Integração do Azure Active Directory ao MaxxPoint
 
@@ -28,9 +27,9 @@ A integração do MaxxPoint ao Azure AD oferece os seguintes benefícios:
 
 - No Azure AD, é possível controlar quem tem acesso ao MaxxPoint
 - Você pode permitir que seus usuários façam logon automaticamente no MaxxPoint (logon único) com as contas do Azure AD deles
-- Você pode gerenciar suas contas em um único local - o portal de Gerenciamento do Azure
+- Você pode gerenciar suas contas em um único local: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,16 +38,13 @@ Para configurar a integração do Azure AD ao MaxxPoint, você precisa dos segui
 - Uma assinatura do AD do Azure
 - Uma assinatura habilitada para logon único do MaxxPoint
 
-
 > [!NOTE]
 > Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, você poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
-
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
@@ -62,7 +58,7 @@ Para configurar a integração do MaxxPoint ao Azure AD, você precisará adicio
 
 **Para adicionar o MaxxPoint da galeria, execute as seguintes etapas:**
 
-1. No **[Portal de Gerenciamento do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
     ![Active Directory][1]
 
@@ -70,7 +66,7 @@ Para configurar a integração do MaxxPoint ao Azure AD, você precisará adicio
 
     ![Aplicativos][2]
     
-3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![Aplicativos][3]
 
@@ -82,7 +78,6 @@ Para configurar a integração do MaxxPoint ao Azure AD, você precisará adicio
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-maxxpoint-tutorial/tutorial_maxxpoint_0001.png)
 
-
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você vai configurar e testar o logon único do Azure AD com o MaxxPoint com base em um usuário de teste chamado "Brenda Fernandes".
 
@@ -92,7 +87,7 @@ Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuá
 
 Para configurar e testar o logon único do Azure AD com o MaxxPoint, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
+1. **[Configuração do Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
 2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar logon único do Azure AD com Britta Simon.
 3. **[Criar um usuário de teste do MaxxPoint](#creating-a-maxxpoint-test-user)** — para ter um equivalente de Brenda Fernandes no MaxxPoint que esteja vinculado à representação dela no Azure AD.
 4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do Azure AD.
@@ -100,17 +95,17 @@ Para configurar e testar o logon único do Azure AD com o MaxxPoint, você preci
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciamento do Azure e configura o logon único em seu aplicativo MaxxPoint.
+Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e configura o logon único em seu aplicativo MaxxPoint.
 
 **Para configurar o logon único do Azure AD com o MaxxPoint, execute as seguintes etapas:**
 
-1. No Portal de Gerenciamento do Azure, na página de integração de aplicativos do **MaxxPoint**, clique em **Logon único**.
+1. No Portal do Azure, na página de integração de aplicativos do **MaxxPoint**, clique em **Logon único**.
 
-    ![Configurar o logon único][4]
+    ![Configurar Logon Único][4]
 
-2. Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar o logon único](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_300.png)
+    ![Configurar Logon Único](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_300.png)
 
 3. Na seção **Domínio e URLs do MaxxPoint**, se você quiser configurar o aplicativo no **Modo iniciado por IDP**, não é necessário executar qualquer etapa.
 
@@ -120,44 +115,34 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
     
     ![Configurar o logon único](./media/active-directory-saas-maxxpoint-tutorial/tutorial_maxxpoint_03.png)
 
-    a. Clique na opção **Mostrar URL configurações avançadas**
+    a. Clique na opção **Mostrar configurações avançadas de URL**
 
     b. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://maxxpoint.westipc.com/default/sso/login/entity/<customer-id>-azure`
 
     > [!NOTE] 
-    > Observe que esse não é o valor real. Você precisa atualizar esse valor com a URL de Entrada real. Entre em contato com a [equipe de suporte do MaxxPoint](mailto:iumsupport@intercall.com) para obter esses valores.
+    > Observe que esse não é o valor real. Você precisa atualizar esse valor com a URL de Entrada real. Ligue para a equipe do MaxxPoint **888-728-0950** para obter esse valor.
 
-5. Na seção **Certificado de Autenticação SAML**, clique em **Criar novo certificado**.
+5. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
-    ![Configurar o logon único](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_400.png)     
+    ![Configurar o logon único](./media/active-directory-saas-maxxpoint-tutorial/tutorial_maxxpoint_06.png) 
 
-6. Na caixa de diálogo **Criar um Novo Certificado**, clique no ícone de calendário e selecione uma **data de expiração**. Em seguida, clique no botão **Salvar**.
+6. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_500.png)
+    ![Configurar Logon Único](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_400.png)
 
-7. Na seção **Certificado de Autenticação SAML**, selecione **Ativar o novo certificado** e clique no botão **Salvar**.
+7. Para obter o SSO configurado para seu aplicativo, ligue para a equipe de suporte do MaxxPoint no número **888-728-0950** e ela irá ajudá-lo sobre como disponibilizar o arquivo **XML de Metadados** baixado. 
 
-    ![Configurar o logon único](./media/active-directory-saas-maxxpoint-tutorial/tutorial_maxxpoint_05.png)
-
-8. Na janela pop-up **Certificado de substituição**, clique em **OK**.
-
-    ![Configurar o logon único](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_600.png)
-
-9. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
-
-    ![Configurar Logon Único](./media/active-directory-saas-maxxpoint-tutorial/tutorial_maxxpoint_06.png) 
-
-10. Para que o SSO seja configurado para o aplicativo, entre em contato com a [equipe de suporte do MaxxPoint](mailto:iumsupport@intercall.com) e forneça os **metadados** baixados. 
-
+> [!TIP]
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, simplesmente clique na guia **Logon Único** e acesse a documentação inserida através da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal de Gerenciamento do Azure chamado Britta Simon.
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][100]
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **portal de Gerenciamento do Azure**, no painel navegação à esquerda, clique em **Azure Active Directory**.
+1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-maxxpoint-tutorial/create_aaduser_01.png) 
 
@@ -165,7 +150,7 @@ O objetivo desta seção é criar um usuário de teste no Portal de Gerenciament
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-maxxpoint-tutorial/create_aaduser_02.png) 
 
-3. Na parte superior da caixa de diálogo, clique em **adicionar** para abrir o **usuário** caixa de diálogo.
+3. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-maxxpoint-tutorial/create_aaduser_03.png) 
 
@@ -173,20 +158,17 @@ O objetivo desta seção é criar um usuário de teste no Portal de Gerenciament
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-maxxpoint-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Britta Simon**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** de Britta Simon.
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
-    c. Selecione **Mostrar Senha** e anote o valor de **Senha**.
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
 
     d. Clique em **Criar**. 
 
-
-
 ### <a name="creating-a-maxxpoint-test-user"></a>Criar um usuário de teste do MaxxPoint
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no MaxxPoint. Trabalhe com a [equipe de suporte do MaxxPoint](mailto:iumsupport@intercall.com) para adicionar os usuários na plataforma do MaxxPoint.
-
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no MaxxPoint. Ligue para a equipe de suporte do MaxxPoint no número **888-728-0950** para adicionar os usuários no aplicativo MaxxPoint.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
@@ -196,7 +178,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 **Para atribuir Brenda Fernandes ao MaxxPoint, execute as seguintes etapas:**
 
-1. No Portal de Gerenciamento do Azure, abra a exibição de aplicativos e, em seguida, navegue até o modo de exibição de diretório e vá para **Aplicativos empresariais**, depois clique em **Todos os aplicativos**.
+1. No portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
@@ -208,18 +190,16 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Na caixa de diálogo **Usuários e grupos**, selecione **Britta Simon** na lista de usuários.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique no botão **Selecionar** na caixa de diálogo **Usuários e grupos**.
+6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique no botão **Atribuir** na caixa de diálogo **Adicionar Atribuição**.
+7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
-
-
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.

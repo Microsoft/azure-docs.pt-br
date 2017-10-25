@@ -3,7 +3,7 @@ title: Automatizar o Azure Application Insights com o PowerShell | Microsoft Doc
 description: Automatize criando testes de disponibilidade, alerta e recursos no PowerShell usando um modelo do Azure Resource Manager.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
 ms.service: application-insights
@@ -11,14 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 0ca485599d159fd4e7e001b68e4d4b41b6b2043f
-ms.lasthandoff: 03/29/2017
-
-
+ms.date: 04/02/2017
+ms.author: bwren
+ms.openlocfilehash: 88dbb9515300f847789bc889911cdeff5f5bdb53
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Criar recursos do Application Insights usando o PowerShell
 Este artigo mostra como automatizar a criação e atualização de recursos do [Application Insights](app-insights-overview.md) automaticamente usando o Gerenciamento de Recursos do Azure. Por exemplo, você pode fazer isso como parte de um processo de compilação. Juntamente com o recurso básico do Application Insights, é possível criar [testes na Web de disponibilidade](app-insights-monitor-web-app-availability.md), configurar [alertas](app-insights-alerts.md), definir o [esquema de preços](app-insights-pricing.md) e criar outros recursos do Azure.
@@ -173,6 +172,16 @@ Criar um novo arquivo .json - vamos chamá-lo de `template1.json` neste exemplo.
 
 Você pode adicionar outros parâmetros – você encontrará suas descrições na seção de parâmetros do modelo.
 
+## <a name="to-get-the-instrumentation-key"></a>Para obter a chave de instrumentação
+Depois de criar um recurso de aplicativo, você desejará a chave de instrumentação: 
+
+```PS
+    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
+    $details = Get-AzureRmResource -ResourceId $resource.ResourceId
+    $ikey = $details.Properties.InstrumentationKey
+```
+
+
 <a id="price"></a>
 ## <a name="set-the-price-plan"></a>Definir o plano de preço
 
@@ -193,17 +202,11 @@ Para criar um recurso de aplicativo com o plano de preço Enterprise, usando o m
 |2|Enterprise|
 
 * Se desejar usar apenas o plano de preço Básico padrão, omita o recurso CurrentBillingFeatures do modelo.
+* Se você quiser alterar o plano de preço depois que o recurso do componente tiver sido criado, você poderá usar um modelo que omita o recurso "microsoft.insights/components". Além disso, omita o nó `dependsOn` do recurso de cobrança. 
+
+Para verificar se o plano de preços atualizado, examine a folha "Recursos + preços" no navegador. **Atualize a exibição do navegador** para certificar-se de que você vê o estado mais recente.
 
 
-## <a name="to-get-the-instrumentation-key"></a>Para obter a chave de instrumentação
-Depois de criar um recurso de aplicativo, você desejará o iKey: 
-
-```PS
-
-    $resource = Get-AzureRmResource -ResourceId "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<YOUR RESOURCE GROUP>/providers/Microsoft.Insights/components/<YOUR APP NAME>"
-
-    $resource.Properties.InstrumentationKey
-```
 
 ## <a name="add-a-metric-alert"></a>Adicionar um alerta de Métrica
 
@@ -447,5 +450,4 @@ Outros artigos sobre automação:
 * [Enviar o Diagnóstico do Azure para o Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Implantar no Azure pelo GitHub](http://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [Criar anotações de versão](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
-
 

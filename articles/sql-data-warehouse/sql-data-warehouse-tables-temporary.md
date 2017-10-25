@@ -3,7 +3,7 @@ title: "Tabelas temporárias no SQL Data Warehouse | Microsoft Docs"
 description: "Introdução às tabelas temporárias no Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: shivaniguptamsft
 manager: jhubbard
 editor: 
 ms.assetid: 9b1119eb-7f54-46d0-ad74-19c85a2a555a
@@ -12,23 +12,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
-ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 83b12c6daf5422039f3dd95eb9b177b972fad840
-
-
+ms.author: shigu;barbkess
+ms.openlocfilehash: fd8c31a727dae3b011aa8294a81f005bad72a278
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Tabelas temporárias no SQL Data Warehouse
 > [!div class="op_single_selector"]
-> * [Visão geral][Visão geral]
-> * [Tipos de dados][Tipos de dados]
-> * [Distribuir][Distribuir]
-> * [Índice][Índice]
-> * [Partition][Partition]
-> * [Estatísticas][Estatísticas]
-> * [Temporário][Temporário]
+> * [Visão geral][Overview]
+> * [Tipos de Dados][Data Types]
+> * [Distribuir][Distribute]
+> * [Índice][Index]
+> * [Partição][Partition]
+> * [Estatísticas][Statistics]
+> * [Temporário][Temporary]
 > 
 > 
 
@@ -231,26 +232,20 @@ DROP TABLE #stats_ddl;
 O SQL Data Warehouse impõe algumas limitações ao implementar a tabelas temporárias.  Atualmente, somente a sessão com o escopo das tabelas temporárias é suportada.  Não há suporte para as Tabelas Temporárias Globais.  E mais, as exibições não podem ser criadas nas tabelas temporárias.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações, confira os artigos na [Visão geral da tabela][Visão geral], [Tipos de dados de tabela][Tipos de dados], [Distribuindo uma tabela][Distribuir], [Indexar uma tabela][Índice], [Particionar uma tabela][Partition] e [Manter estatísticas de tabela][Estatísticas].  Para obter mais informações sobre as práticas recomendadas, confira [Práticas Recomendadas do SQL Data Warehouse][Práticas Recomendadas do SQL Data Warehouse].
+Para saber mais, consulte os artigos [Table Overview][Overview] (Visão Geral da Tabela), [Table Data Types][Data Types] (Tipos de Dados da Tabela), [Distributing a Table][Distribute] (Distribuir uma Tabela), [Indexing a Table][Index] (Indexar uma Tabela), [Partitioning a Table][Partition] (Particionar uma Tabela) e [Maintaining Table Statistics][Statistics] (Manter Estatísticas de Tabela).  Para saber mais sobre as práticas recomendadas, consulte [Práticas Recomendadas do SQL Data Warehouse][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral]: ./sql-data-warehouse-tables-overview.md
-[Tipos de dados]: ./sql-data-warehouse-tables-data-types.md
-[Distribuir]: ./sql-data-warehouse-tables-distribute.md
-[Índice]: ./sql-data-warehouse-tables-index.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Estatísticas]: ./sql-data-warehouse-tables-statistics.md
-[Temporário]: ./sql-data-warehouse-tables-temporary.md
-[Práticas Recomendadas do SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

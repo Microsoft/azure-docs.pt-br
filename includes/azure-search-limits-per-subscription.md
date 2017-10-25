@@ -15,8 +15,3 @@ Os limites de serviço máximos podem ser aumentados mediante solicitação. Se 
 
 <sup>4</sup> Básica tem uma partição fixa. Nesse nível, SUs adicionais são usadas para alocar mais réplicas para cargas de trabalho de consulta maior.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

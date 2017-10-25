@@ -3,7 +3,7 @@ title: Recursos de modelo no Gerenciamento de API do Azure | Microsoft Docs
 description: "Saiba mais sobre os tipos de recursos disponíveis para uso em modelos de portal do desenvolvedor no Gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 51a1b4c6-a9fd-4524-9e0e-03a9800c3e94
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
-
+ms.openlocfilehash: 212e7ea7bb2ffea63c7ba210195df0da38aa8f0a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de modelo no Gerenciamento de API do Azure
 O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso em modelos de portal do desenvolvedor.  
@@ -26,7 +27,7 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
   
 -   [Recursos de glifo](#glyphs)  
   
-##  <a name="a-namestringsa-string-resources"></a><a name="strings"></a> Recursos de cadeia de caracteres  
+##  <a name="strings"></a> Recursos de cadeia de caracteres  
  O Gerenciamento de API fornece um conjunto abrangente de recursos de cadeia de caracteres para uso no portal do desenvolvedor. Esses recursos estão localizados em todos os idiomas aos quais o Gerenciamento de API dá suporte. O conjunto de modelos padrão usa esses recursos para cabeçalhos de página, rótulos e quaisquer cadeias de caracteres constantes que sejam exibidas no portal do desenvolvedor. Para usar um recurso de cadeia de caracteres em seus modelos, forneça o prefixo de cadeia de caracteres do recurso seguido do nome da cadeia de caracteres, conforme mostrado no exemplo a seguir.  
   
 ```  
@@ -83,13 +84,13 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
   
 -   [UserProfile](#UserProfile)  
   
-###  <a name="a-nameapisstringsa-apisstrings"></a><a name="ApisStrings"></a> ApisStrings  
+###  <a name="ApisStrings"></a> ApisStrings  
   
 |Nome|Texto|  
 |----------|----------|  
 |PageTitleApis|APIs|  
   
-###  <a name="a-nameappdetailsstringsa-appdetailsstrings"></a><a name="AppDetailsStrings"></a> AppDetailsStrings  
+###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
 |Nome|Texto|  
 |----------|----------|  
@@ -98,7 +99,7 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
 |WebApplicationsScreenshotAlt|Captura de tela|  
 |WebApplicationsScreenshotsHeader|Capturas de tela|  
   
-###  <a name="a-nameapplicationliststringsa-applicationliststrings"></a><a name="ApplicationListStrings"></a> ApplicationListStrings  
+###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
 |Nome|Texto|  
 |----------|----------|  
@@ -114,13 +115,13 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
 |WebDevelopersSubmitLink|Enviar|  
 |WebDevelopersYourApplicationsHeader|Seus aplicativos|  
   
-###  <a name="a-nameappstringsa-appstrings"></a><a name="AppStrings"></a> AppStrings  
+###  <a name="AppStrings"></a> AppStrings  
   
 |Nome|Texto|  
 |----------|----------|  
 |WebApplicationsHeader|Aplicativos|  
   
-###  <a name="a-namecommonresourcesa-commonresources"></a><a name="CommonResources"></a> CommonResources  
+###  <a name="CommonResources"></a> CommonResources  
   
 |Nome|Texto|  
 |----------|----------|  
@@ -131,7 +132,7 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
 |AzureActiveDirectory|Azure Active Directory|  
 |HttpLargeRequestMessage|O corpo da solicitação HTTP é grande demais.|  
   
-###  <a name="a-namecommonstringsa-commonstrings"></a><a name="CommonStrings"></a> CommonStrings  
+###  <a name="CommonStrings"></a> CommonStrings  
   
 |Nome|Texto|  
 |----------|----------|  
@@ -155,7 +156,7 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
 |TablePlaceholderNothingToDisplay|Não há dados para o período e escopo selecionados|  
 |ButtonLabelClose|Feche|  
   
-###  <a name="a-namedocumentationa-documentation"></a><a name="Documentation"></a> Documentação  
+###  <a name="Documentation"></a> Documentação  
   
 |Nome|Texto|  
 |----------|----------|  
@@ -285,11 +286,11 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
 |OAuth2AuthorizationServerCommunicationException|Não foi possível estabelecer uma conexão HTTP com o servidor de autorização ou ele foi fechado inesperadamente.|  
 |WebDocumentationOAuth2GeneralErrorMessage|Ocorreu um erro inesperado.|  
 |AuthorizationServerCommunicationException|Ocorreu uma exceção de comunicação do servidor de autorização. Entre em contato com o administrador.|  
-|TextblockSubscriptionKeyHeaderDescription|Chave de assinatura que fornece acesso a esta API. Encontrado no seu `<a href='/developer'\>Profile</a\>`.|  
+|TextblockSubscriptionKeyHeaderDescription|Chave de assinatura que fornece acesso a esta API. Encontrada em seu <a href='/developer'\>Perfil</a\>.|  
 |TextblockOAuthHeaderDescription|O token de acesso OAuth 2.0 obtido de <i\>{0}</i\>. Tipos de concessão com suporte: <i\>{1}</i\>.|  
 |TextblockContentTypeHeaderDescription|Tipo de mídia do corpo enviado para a API.|  
-|ErrorMessageApiNotAccessible|A API que você está tentando chamar não está acessível no momento. Entre em contato com o fornecedor de API `<a href="/issues"\>here</a\>`.|  
-|ErrorMessageApiTimedout|A API que você está tentando chamar está demorando mais que o normal obter uma resposta. Entre em contato com o fornecedor de API `<a href="/issues"\>here</a\>`.|  
+|ErrorMessageApiNotAccessible|A API que você está tentando chamar não está acessível no momento. Contate o distribuidor da API <a href="/issues"\>aqui</a\>.|  
+|ErrorMessageApiTimedout|A API que você está tentando chamar está demorando mais que o normal obter uma resposta. Contate o distribuidor da API <a href="/issues"\>aqui</a\>.|  
 |BadRequestParameterExpected|"o parâmetro '{0}' é esperado"|  
 |TooltipTextDoubleClickToSelectAll|Clique duas vezes para selecionar tudo.|  
 |TooltipTextHideRevealSecret|Mostrar/Ocultar|  
@@ -303,7 +304,7 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
 |SectionHeadingCodeSamples|Exemplos de código|  
 |TextblockOpenidConnectHeaderDescription|Token de ID de OpenID Connect obtido de <i\>{0}</i\>. Tipos de concessão com suporte: <i\>{1}</i\>.|  
   
-###  <a name="a-nameerrorpagestringsa-errorpagestrings"></a><a name="ErrorPageStrings"></a> ErrorPageStrings  
+###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
 |Nome|Texto|  
 |----------|----------|  
@@ -321,7 +322,7 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
 |TitlePotentialCause|Possível causa|  
 |TitlePotentialSolution|Possivelmente é apenas um problema temporário, algumas opções para tentar|  
   
-###  <a name="a-nameissuesstringsa-issuesstrings"></a><a name="IssuesStrings"></a> IssuesStrings  
+###  <a name="IssuesStrings"></a> IssuesStrings  
   
 |Nome|Texto|  
 |----------|----------|  
@@ -332,7 +333,7 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
 |WebIssuesSignIn|entrar|  
 |WebIssuesStatusReportedBy|Status: {0} &#124; Relatado por {1}|  
   
-###  <a name="a-namenotfoundstringsa-notfoundstrings"></a><a name="NotFoundStrings"></a> NotFoundStrings  
+###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
 |Nome|Texto|  
 |----------|----------|  
@@ -347,7 +348,7 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
 |TitlePotentialCause|Possível causa|  
 |TitlePotentialSolution|Solução em potencial|  
   
-###  <a name="a-nameproductdetailsstringsa-productdetailsstrings"></a><a name="ProductDetailsStrings"></a> ProductDetailsStrings  
+###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
 |Nome|Texto|  
 |----------|----------|  
@@ -369,13 +370,13 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
 |TextblockSubscriptionDescription|Uma nova assinatura será criada da seguinte maneira:|  
 |TextblockSubscriptionLimitReached|Limite de assinaturas atingido.|  
   
-###  <a name="a-nameproductsstringsa-productsstrings"></a><a name="ProductsStrings"></a> ProductsStrings  
+###  <a name="ProductsStrings"></a> ProductsStrings  
   
 |Nome|Texto|  
 |----------|----------|  
 |PageTitleProducts|Produtos|  
   
-###  <a name="a-nameproviderinfostringsa-providerinfostrings"></a><a name="ProviderInfoStrings"></a> ProviderInfoStrings  
+###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
 |Nome|Texto|  
 |----------|----------|  
@@ -383,7 +384,7 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
 |TextboxExternalIdentitiesSigninInvitation|Como alternativa, entre com|  
 |TextboxExternalIdentitiesSigninInvitationPrimary|Entre com:|  
   
-###  <a name="a-namesigninresourcesa-signinresources"></a><a name="SigninResources"></a> SigninResources  
+###  <a name="SigninResources"></a> SigninResources  
   
 |Nome|Texto|  
 |----------|----------|  
@@ -479,7 +480,7 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
 |DialogHeadingTermsOfUse|Termos de Uso|  
 |ValidationMessageConsentNotAccepted|Você deve concordar com os Termos de Uso antes de continuar.|  
   
-###  <a name="a-namesigninstringsa-signinstrings"></a><a name="SigninStrings"></a> SigninStrings  
+###  <a name="SigninStrings"></a> SigninStrings  
   
 |Nome|Texto|  
 |----------|----------|  
@@ -491,7 +492,7 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
 |WebAuthenticationSigninTitle|Entrar|  
 |WebAuthenticationSignUpNow|Inscreva-se agora mesmo|  
   
-###  <a name="a-namesignupstringsa-signupstrings"></a><a name="SignupStrings"></a> SignupStrings  
+###  <a name="SignupStrings"></a> SignupStrings  
   
 |Nome|Texto|  
 |----------|----------|  
@@ -501,7 +502,7 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
 |WebAuthenticationSigninNow|Entrar agora|  
 |ButtonLabelSignup|Inscrição|  
   
-###  <a name="a-namesubscriptionliststringsa-subscriptionliststrings"></a><a name="SubscriptionListStrings"></a> SubscriptionListStrings  
+###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
 |Nome|Texto|  
 |----------|----------|  
@@ -524,7 +525,7 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
 |PageTitleRenameSubscription|Renomear assinatura|  
 |SubscriptionPropertyLabelName|Nome da assinatura|  
   
-###  <a name="a-namesubscriptionstringsa-subscriptionstrings"></a><a name="SubscriptionStrings"></a> SubscriptionStrings  
+###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
 |Nome|Texto|  
 |----------|----------|  
@@ -535,14 +536,14 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
 |InformationMessageKeyWasRegenerated|Tem a certeza de que deseja regenerar esta chave?|  
 |ButtonLabelShowKey|Mostrar|  
   
-###  <a name="a-nameupdateprofilestringsa-updateprofilestrings"></a><a name="UpdateProfileStrings"></a> UpdateProfileStrings  
+###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
 |Nome|Texto|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Atualizar perfil|  
 |PageTitleUpdateProfile|Atualizar informações da conta|  
   
-###  <a name="a-nameuserprofilea-userprofile"></a><a name="UserProfile"></a> UserProfile  
+###  <a name="UserProfile"></a> UserProfile  
   
 |Nome|Texto|  
 |----------|----------|  
@@ -566,7 +567,7 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
 |ValidationMessageSubscriptionNameRequired|Não é possível deixar em branco o nome da assinatura.|  
 |ApiManagementUserLimitReached|Este serviço atingiu o número máximo de usuários permitidos. Atualize para um tipo de preço mais alto.|  
   
-##  <a name="a-nameglyphsa-glyph-resources"></a><a name="glyphs"></a> Recursos de glifo  
+##  <a name="glyphs"></a> Recursos de glifo  
  Modelos de portal do desenvolvedor do Gerenciamento de API podem usar os glifos do [Glyphicons do Bootstrap](http://getbootstrap.com/components/#glyphicons). Este conjunto de glifos inclui mais de 250 glifos no formato de fonte do conjunto [Glyphicon](http://glyphicons.com/) Halflings. Para usar um glifo desse conjunto, use a sintaxe a seguir.  
   
 ```html  
@@ -576,9 +577,4 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
  Para obter a lista completa de glifos, consulte [Glyphicons do Bootstrap](http://getbootstrap.com/components/#glyphicons).
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o portal de desenvolvedor de Gerenciamento de API usando modelos](api-management-developer-portal-templates.md).
-
-
-<!--HONumber=Jan17_HO2-->
-
-
+Para saber mais sobre como trabalhar com modelos, confira [Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos](api-management-developer-portal-templates.md).

@@ -3,7 +3,7 @@ title: "Exibição da topologia do Observador de rede do Azure - CLI do Azure | 
 description: Este artigo descreve como usar a CLI do Azure para consultar a sua topologia de rede.
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 5cd279d7-3ab0-4813-aaa4-6a648bf74e7b
@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 02add070405f3f00d3631362a2b139239d44c34d
-ms.lasthandoff: 03/28/2017
-
+ms.author: jdial
+ms.openlocfilehash: 654c23e567d81bff1cb0c3091ba3d8f96f0a3eda
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="view-network-watcher-topology-with-azure-cli"></a>Como exibir a topologia do Observador de rede com a CLI do Azure
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-topology-powershell.md)
-> - [CLI](network-watcher-topology-cli.md)
+> - [CLI 1.0](network-watcher-topology-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-topology-cli.md)
 > - [API REST](network-watcher-topology-rest.md)
 
 O recurso de topologia do Observador de rede fornece uma representação visual dos recursos de rede em uma assinatura. No portal, essa visualização é apresentada para você automaticamente. As informações que seguem a visualização de topologia no portal podem ser recuperadas por meio do PowerShell.
@@ -114,4 +114,3 @@ Os resultados retornados têm uma propriedade de nome "Recursos", que contêm o 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as regras de segurança que são aplicadas aos recursos de rede no artigo [Visão geral de exibição do grupo de segurança](network-watcher-security-group-view-overview.md)
-

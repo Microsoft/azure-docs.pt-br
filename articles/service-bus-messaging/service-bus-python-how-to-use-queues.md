@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 08/10/2017
 ms.author: sethm;lmazuel
-translationtype: Human Translation
-ms.sourcegitcommit: 0f9f732d6998a6ee50b0aea4edfc615ac61025ce
-ms.openlocfilehash: 775959d93105ca9fb28ce72e4ee4adf6b956e815
-
-
+ms.openlocfilehash: e1e81ad1d7b4fe0e044917f090cac59dfd5b6332
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-to-use-service-bus-queues"></a>Como usar filas do Barramento de Serviço
+# <a name="how-to-use-service-bus-queues-with-python"></a>Como usar filas do Barramento de Serviço com Python
+
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 Este artigo descreve como usar as filas do Barramento de Serviço. Os exemplos são escritos em Python e usam o [pacote de Barramento de Serviço do Azure para Python][Python Azure Service Bus package]. Os cenários cobertos incluem **criar filas, enviar e receber mensagens** e **excluir filas**.
@@ -50,13 +51,13 @@ bus_service = ServiceBusService(
     shared_access_key_value='sharedaccesskey')
 ```
 
-Os valores para o nome chave e valor da SAS podem ser encontrados na informação de conexão do [Portal Clássico do Azure][Azure classic portal] ou no painel das **Propriedades** do Visual Studio ao selecionar o namespace do Barramento de Serviço no Gerenciador de Servidores (conforme mostrado na seção anterior).
+Os valores para o nome chave e valor da SAS podem ser encontrados na informação de conexão do [Portal do Azure][Azure portal] ou no painel das **Propriedades** do Visual Studio ao selecionar o namespace do Barramento de Serviço no Gerenciador de Servidores (conforme mostrado na seção anterior).
 
 ```python
 bus_service.create_queue('taskqueue')
 ```
 
-**create_queue** também dá suporte para opções adicionais, que permitem a substituição de configurações padrão da fila, como a vida útil (TTL) da mensagem ou o tamanho máximo da fila. O exemplo a seguir define o tamanho máximo da fila como 5 GB e o valor de TTL como um minuto:
+O método `create_queue` também dá suporte para opções adicionais, que permitem a substituição de configurações padrão da fila, como a vida útil (TTL) da mensagem ou o tamanho máximo da fila. O exemplo a seguir define o tamanho máximo da fila como 5 GB e o valor de TTL como um minuto:
 
 ```python
 queue_options = Queue()
@@ -67,9 +68,9 @@ bus_service.create_queue('taskqueue', queue_options)
 ```
 
 ## <a name="send-messages-to-a-queue"></a>Enviar mensagens a uma fila
-Para enviar uma mensagem para uma fila do Barramento de Serviço, seu aplicativo chamará o método **send\_Queue\_Message** no objeto **ServiceBusService**.
+Para enviar uma mensagem para uma fila do Barramento de Serviço, seu aplicativo chamará o método `send_queue_message` no objeto **ServiceBusService**.
 
-O exemplo a seguir demonstra como enviar uma mensagem de teste à fila chamada *taskqueue usando* **send\_queue\_message**:
+O exemplo a seguir demonstra como enviar uma mensagem de teste à fila chamada `taskqueue` usando `send_queue_message`:
 
 ```python
 msg = Message(b'Test Message')
@@ -79,18 +80,18 @@ bus_service.send_queue_message('taskqueue', msg)
 As filas do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Para saber mais sobre cotas, confira [Service Bus quotas][Service Bus quotas] (Cotas do Barramento de Serviço).
 
 ## <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
-As mensagens são recebidas de uma fila usando o método **receive\_queue\_message** no objeto **ServiceBusService**:
+As mensagens são recebidas de uma fila usando o método `receive_queue_message` no objeto **ServiceBusService**:
 
 ```python
 msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
 print(msg.body)
 ```
 
-As mensagens são excluídas da fila conforme elas são lidas quando o parâmetro **peek\_lock** é definido como **False**. Você pode ler (espiar) e bloquear a mensagem sem excluí-la da fila definindo o parâmetro **peek\_lock** como **True**.
+As mensagens são excluídas da fila conforme são lidas quando o parâmetro `peek_lock` é definido como **False**. Você pode ler (espiar) e bloquear a mensagem sem excluí-la da fila ao definir o parâmetro `peek_lock` como **True**.
 
 O comportamento da leitura e da exclusão da mensagem como parte da operação de recebimento é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo possa tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Barramento de Serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
 
-Se o parâmetro **peek\_lock** estiver definido como **True**, o processo de recebimento se torna uma operação de duas etapas, o que torna possível o suporte a aplicativos que não toleram mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo conclui o processamento da mensagem (ou a armazena de forma segura para processamento futuro), ele conclui a segunda etapa do processo de recebimento chamando o método **delete** no objeto **Message**. O método **delete** marcará a mensagem como tendo sido consumida e a removerá da fila.
+Se o parâmetro `peek_lock` estiver definido como **True**, o processo de recebimento se torna uma operação de duas etapas, o que torna possível o suporte a aplicativos que não toleram mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo conclui o processamento da mensagem (ou a armazena de forma segura para processamento futuro), ele conclui a segunda etapa do processo de recebimento chamando o método **delete** no objeto **Message**. O método **delete** marcará a mensagem como tendo sido consumida e a removerá da fila.
 
 ```python
 msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)
@@ -111,14 +112,8 @@ Agora que você já aprendeu sobre as noções básicas das filas do Barramento 
 
 * [Filas, tópicos e assinaturas][Queues, topics, and subscriptions]
 
-[Azure classic portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [Python Azure Service Bus package]: https://pypi.python.org/pypi/azure-servicebus  
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Service Bus quotas]: service-bus-quotas.md
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

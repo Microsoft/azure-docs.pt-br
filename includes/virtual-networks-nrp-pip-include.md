@@ -39,8 +39,3 @@ Endereço IP de público exemplo, no formato JSON:
 * Saiba mais sobre [endereços IP públicos em nível de instância](../articles/virtual-network/virtual-networks-instance-level-public-ip.md).
 * Leia a [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163638.aspx) para endereços IP públicos.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

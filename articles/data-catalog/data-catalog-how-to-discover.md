@@ -1,6 +1,6 @@
 ---
-title: Como descobrir fontes de dados | Microsoft Docs
-description: "Artigo de instruções realçando como descobrir ativos de dados registrados com o Catálogo de Dados do Azure, incluindo pesquisa e filtragem e o uso dos recursos de realce de ocorrências do portal do Catálogo de Dados do Azure."
+title: "Como descobrir fontes de dados no Catálogo de Dados do Azure | Microsoft Docs"
+description: "Este artigo destaca como descobrir ativos de dados registrados com o Catálogo de Dados do Azure, incluindo pesquisa e filtragem e o uso dos recursos de destaque realce de ocorrências do portal do Catálogo de Dados do Azure."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -13,62 +13,56 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 08/15/2017
 ms.author: maroche
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0c90aff38ebe33e8c26f9e46db7e61786ea9a7dd
-
-
+ms.openlocfilehash: 9ff67dcb5ecb00440f73f979fd8d2b79a570c674
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-to-discover-data-sources"></a>Como descobrir fontes de dados
+# <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Como descobrir fontes de dados no Catálogo de Dados do Azure
 ## <a name="introduction"></a>Introdução
-**Catálogo de Dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em fontes de dados da empresa. Em outras palavras, o **Catálogo de Dados do Azure** ajuda as pessoas a descobrir, entender e usar fontes de dados, ajudando as empresas a obter mais valor de seus dados existentes. Depois que uma fonte de dados é registrada com o **Catálogo de Dados do Azure**, seus metadados são indexados pelo serviço para que os usuários possam pesquisar facilmente e descobrir os dados de que precisam.
+O Catálogo de Dados do Azure é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e descoberta para fontes de dados da empresa. Em outras palavras, o Catálogo de Dados ajuda as pessoas a descobrir, entender e usar fontes de dados, além de ajudar as organizações a obterem mais valor dos seus dados existentes. Depois que uma fonte de dados for registrada com o Catálogo de Dados, seus metadados serão indexados pelo serviço de modo que você possa facilmente pesquisar para descobrir os dados de que precisa.
 
 ## <a name="searching-and-filtering"></a>Pesquisando e filtrando
-A descoberta no **Catálogo de Dados do Azure** usa dois mecanismos primários: pesquisa e filtragem.
+A descoberta no Catálogo de Dados usa dois mecanismos principais: pesquisa e filtragem.
 
-A pesquisa foi projetada para ser intuitiva e poderosa. Por padrão, os termos de pesquisa são comparados a qualquer propriedade do catálogo, inclusive anotações fornecidas pelo usuário.
+A pesquisa foi projetada para ser intuitiva e eficiente. Por padrão, os termos de pesquisa são correspondidos com alguma propriedade no catálogo, incluindo anotações fornecidas pelo usuário.
 
-A filtragem foi desenvolvida para complementar a pesquisa. Os usuários podem selecionar características específicas como especialistas, tipo de fonte de dados, tipo de objeto e marcas, para exibir apenas ativos de dados correspondentes e também para restringir os resultados da pesquisa a ativos correspondentes.
+A filtragem foi desenvolvida para complementar a pesquisa. Você pode selecionar características específicas, como especialistas, tipo de fonte de dados, tipo de objeto e marcas. Você pode exibir somente ativos de dados correspondentes e restringir os resultados da pesquisa a ativos correspondentes.
 
-Usando uma combinação de pesquisa e filtragem, os usuários podem navegar rapidamente pelas fontes de dados que foram registradas com o **Catálogo de Dados do Azure** para descobrir as fontes de dados de que precisam.
+Ao usar uma combinação de pesquisa e filtragem, você pode navegar rapidamente pelas fontes de dados que foram registradas com o Catálogo de Dados para descobrir as fontes de dados de que você precisa.
 
 ## <a name="search-syntax"></a>Sintaxe de pesquisa
-Embora a pesquisa de texto livre padrão seja simples e intuitiva, os usuários também podem usar a sintaxe de pesquisa do **Catálogo de Dados do Azure**para ter maior controle sobre os resultados da pesquisa. **Catálogo de Dados do Azure** dá suporte às seguintes técnicas:
+Embora a pesquisa de texto livre padrão seja simples e intuitiva, você também pode usar a sintaxe de pesquisa do Catálogo de Dados para maior controle sobre os resultados da pesquisa. A pesquisa do Catálogo de Dados dá suporte às seguintes técnicas:
 
 | Técnica | Uso | Exemplo |
 | --- | --- | --- |
-| Pesquisa básica |Pesquisa básica usando um ou mais termos de pesquisa. Os resultados são quaisquer ativos que correspondam a qualquer propriedade com um ou mais dos termos especificados. |dados de vendas |
-| Escopo de propriedade |Retornar apenas as fontes de dados em que o termo de pesquisa corresponda à propriedade especificada |nome:finanças |
-| Operadores boolianos |Ampliar ou restringir uma pesquisa usando operações boolianas |finanças NOT corporativo |
-| Agrupando com parênteses |Usar parênteses para agrupar partes da consulta para obter o isolamento lógico, principalmente em conjunto com operadores boolianos |name:finance AND (tags:Q1 OR tags:Q2) |
-| Operadores de comparação |Usar comparações que não sejam de igualdade para propriedades que tenham tipos de dados numéricos e de data |modifiedTime > "11/05/2014" |
+| Pesquisa básica |Pesquisa básica que usa um ou mais termos de pesquisa. Os resultados são quaisquer ativos que correspondam a qualquer propriedade com um ou mais dos termos especificados. |`sales data` |
+| Escopo de propriedade |Retornar apenas as fontes de dados em que o termo de pesquisa corresponda à propriedade especificada. |`name:finance` |
+| Operadores boolianos |Ampliar ou restringir uma pesquisa usando operações boolianas. |`finance NOT corporate` |
+| Agrupamento com parênteses |Use parênteses para agrupar partes da consulta para obter o isolamento lógico, principalmente em conjunto com operadores boolianos. |`name:finance AND (tags:Q1 OR tags:Q2)` |
+| Operadores de comparação |Use comparações que não sejam de igualdade para propriedades que tenham tipos de dados numéricos e de data. |`modifiedTime > "11/05/2014"` |
 
-Para obter mais informações sobre a pesquisa do **Catálogo de Dados do Azure** , consulte [https://msdn.microsoft.com/library/azure/mt267594.aspx](https://msdn.microsoft.com/library/azure/mt267594.aspx).
+Para obter mais informações sobre a pesquisa no Catálogo de Dados, consulte o artigo [Catálogo de Dados do Azure](https://msdn.microsoft.com/library/azure/mt267594.aspx).
 
 ## <a name="hit-highlighting"></a>Realce de ocorrência
-Ao serem exibidos resultados de pesquisa, todas as propriedades exibidas que corresponderem aos termos de pesquisa especificados (como o nome do ativo de dados, a descrição e as marcas) serão realçadas para facilitar a identificação do motivo pelo qual determinado ativo de dados foi retornado por determinada pesquisa.
+Quando você exibe o resultados da pesquisa, todas as propriedades exibidas que correspondem aos termos de pesquisa especificados (como o nome do ativo de dados, a descrição e as marcas) são destacadas para facilitar a identificação do motivo pelo qual um determinado ativo de dados foi retornado por uma determinada pesquisa.
 
 > [!NOTE]
-> Os usuários podem desativar o realce de ocorrências, se desejado, usando a opção "Realce" no portal do **Catálogo de Dados do Azure** .
+> Para desligar o destaque de ocorrências, use a opção **Destacar** no portal do Catálogo de Dados.
 >
 >
 
-Ao serem exibidos resultados de pesquisa, talvez não seja sempre óbvio o motivo pelo qual um ativo de dados é incluído, mesmo com o realce de ocorrências habilitado. Como todas as propriedades são pesquisadas por padrão, um ativo de dados pode ser retornado devido a uma correspondência em uma propriedade de nível de coluna. E como vários usuários podem anotar ativos de dados registrados com suas próprias marcas e descrições, talvez nem todos os metadados sejam exibidos na lista de resultados de pesquisa.
+Ao exibir os resultados da pesquisa, talvez não seja sempre óbvio o motivo pelo qual um ativo de dados é incluído, mesmo com o destaque de ocorrências habilitado. Como todas as propriedades são pesquisadas por padrão, um ativo de dados pode ser retornado devido a uma correspondência em uma propriedade no nível de coluna. E uma vez que vários usuários podem anotar ativos de dados registrados com suas próprias marcas e descrições, talvez nem todos os metadados sejam exibidos na lista de resultados da pesquisa.
 
-No modo de exibição em bloco padrão, cada bloco exibido nos resultados de pesquisa inclui um ícone "Exibir correspondências do termo de pesquisa", que permite ao usuário exibir rapidamente o número de correspondências e sua localização e acessá-las, se desejar.
+No modo de exibição em bloco padrão, cada bloco exibido nos resultados da pesquisa inclui um ícone **Exibir correspondências do termo de pesquisa** para que você possa rapidamente exibir o número de correspondências e sua localização e acessá-las, se desejar.
 
  ![Realce de ocorrências e correspondências de pesquisa no portal do Catálogo de Dados do Azure](./media/data-catalog-how-to-discover/search-matches.png)
 
 ## <a name="summary"></a>Resumo
-O registro de uma fonte de dados no **Catálogo de Dados do Azure** facilita a descoberta e a compreensão da fonte de dados, copiando metadados estruturais e descritivos da fonte de dados para o serviço de Catálogo. Depois que uma fonte de dados é registrada, os usuários podem descobri-la usando a filtragem e a pesquisa no portal do **Catálogo de Dados do Azure** .
+Uma vez que registrar uma fonte de dados com o catálogo de dados copia os metadados estruturais e descritivos da fonte de dados para o serviço de catálogo, fica mais fácil descobrir e entender a fonte de dados. Após ter registrado uma fonte de dados, você pode descobri-la usando a filtragem e a pesquisa dentro do Catálogo de Dados.
 
-## <a name="see-also"></a>Consulte também
-* [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como descobrir fontes de dados.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+## <a name="next-steps"></a>Próximas etapas
+* Para obter detalhes passo a passo sobre como descobrir fontes de dados, consulte [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md).

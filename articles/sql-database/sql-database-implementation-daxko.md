@@ -8,19 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 00c8a713-f20c-4d6b-b8b7-0c1b9ba5f05b
 ms.service: sql-database
-ms.custom: customer implementations
+ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: b759e9936a45f989088de5e89a59371c5ea64e1c
-ms.openlocfilehash: 079a05d16ccebb705f410e25f0ed5762db20ae22
-ms.lasthandoff: 02/11/2017
-
-
+ms.openlocfilehash: 3e43494721f03ce8e56cb069638ad24df7222386
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI usou o Azure para acelerar o ciclo de desenvolvimento e aprimorar o serviço de atendimento ao cliente e o desempenho
 ![Logotipo da CSI/Daxko](./media/sql-database-implementation-daxko/csidaxkologo25.png)
@@ -67,8 +66,8 @@ Vários recursos do Azure ajudaram a CSI Software a mudar: do foco na infraestru
 
 Atualmente, a CSI Software fornece aproximadamente 550 bancos de dados para os clientes. Antes dos pools elásticos, era difícil gerenciar muitos bancos de dados em uma estrutura em camadas. Os gerentes de operações precisavam atribuir camadas de desempenho com base nas necessidades dos clientes, o que sobrecarregava significativamente os recursos de TI. Com os pools elásticos, os gerentes podem atribuir locatários a um pool premium ou standard, conforme apropriado e mover os clientes com base no tamanho e na necessidade. Os clientes sentiram os efeitos dos pools elásticos quase que instantaneamente; antes dos pools elásticos, os clientes tinham tempos limite e outros problemas durante os períodos de maior uso, mas com os pools elásticos, eles podem realizar uma grande quantidade de atividades, conforme a necessidade e podem continuar usando o SpectrumNG sem problemas.
 
-## <a name="azure-active-geo-replication-accelerates-reporting"></a>A Replicação Geográfica Ativa do Azure acelere a geração de relatórios
-Vários clientes da CSI Software também estão se beneficiando com a Replicação Geográfica Ativa do Azure. Com a Replicação Geográfica Ativa, é possível configurar até quatro bancos de dados secundários legíveis na mesma região ou em regiões diferentes de datacenter. A CSI Software usa a Replicação Geográfica Ativa de duas maneiras: primeira, os bancos de dados secundários são disponibilizados no caso de interrupção de um datacenter ou de incapacidade de conexão com o banco de dados primário; segunda, os bancos de dados secundários são legíveis e podem ser usados para transferir cargas de trabalho somente leitura, como trabalhos de geração de relatórios. Alguns clientes da CSI Software usam esse benefício para acelerar os fluxos de trabalho de relatório.
+## <a name="azure-active-geo-replication-accelerates-reporting"></a>A replicação geográfica ativa do Azure acelera a geração de relatórios
+Vários clientes da CSI Software também estão se beneficiando com a replicação geográfica ativa do Azure. Com a replicação geográfica ativa, é possível configurar até quatro bancos de dados secundários legíveis na mesma região ou em regiões diferentes de datacenter. A CSI Software usa a replicação geográfica ativa de duas maneiras: primeira, os bancos de dados secundários são disponibilizados no caso de interrupção de um datacenter ou de incapacidade de conexão com o banco de dados primário; segunda, os bancos de dados secundários são legíveis e podem ser usados para transferir cargas de trabalho somente leitura, como trabalhos de geração de relatórios. Alguns clientes da CSI Software usam esse benefício para acelerar os fluxos de trabalho de relatório.
 
 ## <a name="csi-software-application-logic-and-architecture"></a>Arquitetura e lógica de aplicativo da CSI Software
 O SpectrumNG usa funções web. Como o aplicativo é multilocatário, um serviço do WCF é usado para tratar da solicitação de conexão inicial dos clientes. Como Molina declara, "A solicitação identifica cada cliente, o que nos permite criar uma cadeia de conexão com seus bancos de dados para fazer tudo o que precisamos fazer".
@@ -91,9 +90,8 @@ O Banco de Dados SQL do Azure não é apenas uma dádiva para os clientes do Spe
 * Para saber mais sobre os pools elásticos do Azure, consulte [pools elásticos](sql-database-elastic-pool.md).
 * Para saber mais sobre as ferramentas de bancos de dados e dimensionamento elástico, confira as [ferramentas de banco de dados elástico e dimensionamento elástico](sql-database-elastic-scale-get-started.md).
 * Para saber mais sobre como migrar um banco de dados do SQL Server, confira [Migrar um banco de dados do SQL Server para o Azure](sql-database-cloud-migrate.md).
-* Para saber mais sobre a Replicação Geográfica Ativa, confira [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md).
+* Para saber mais sobre a replicação geográfica ativa, confira [Replicação geográfica ativa](sql-database-geo-replication-overview.md).
 * Para saber mais sobre funções web e funções de trabalho, confira [funções de trabalho](../fundamentals-introduction-to-azure.md#compute).    
 * Para saber mais sobre o Barramento de Serviço, confira [Barramento de Serviço do Azure](https://azure.microsoft.com/services/service-bus/).
 * Para saber mais sobre dimensionamento automático, confira o artigo sobre o [dimensionamento de serviços de nuvem](../cloud-services/cloud-services-how-to-scale.md).
-
 

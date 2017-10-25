@@ -1,5 +1,5 @@
 ---
-title: "Conectar-se a uma Máquina Virtual do SQL Server no Azure (clássico) | Microsoft Docs"
+title: "Conectar-se a uma máquina virtual do SQL Server no Azure (clássico) | Microsoft Docs"
 description: "Saiba como se conectar ao SQL Server em execução em uma Máquina Virtual no Azure. Este tópico usa o modelo de implantação clássica. Os cenários diferem dependendo da configuração da rede e do local do cliente."
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: edc013dee657cbda7c0d9020b6ff4ccda0580dcd
-ms.lasthandoff: 03/25/2017
-
-
+experimental_id: d51f3cc6-753b-4e
+ms.openlocfilehash: 4218b6d274abbeda542c1507aec998ba56f5c145
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Conectar-se a uma máquina virtual do SQL Server no Azure (implantação clássica)
 > [!div class="op_single_selector"]
@@ -109,5 +109,4 @@ Se pretende usar os Grupos de Disponibilidade AlwaysOn para alta disponibilidade
 [Explore o Roteiro de Aprendizagem](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) do SQL Server nas máquinas virtuais do Azure. 
 
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
 

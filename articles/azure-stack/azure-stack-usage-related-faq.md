@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: alfredop
-translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 9abc054e7979bffb4172f9bcd85d3b5dd222e456
-ms.lasthandoff: 03/10/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 166147c8cb4949be1b23e0a06868e66c8a5844f4
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="azure-stack-usage-api-faqs"></a>Azure Stack Usage API FAQs
+# <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Frequently asked questions in Azure Stack usage API 
 This article answers some frequently asked questions about the Azure Stack Usage API.
 
 ## <a name="what-meter-ids-can-i-see"></a>What meter IDs can I see?
@@ -47,13 +47,14 @@ Currently, usage is reported for the network, storage, and compute resource prov
 | **Compute** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Base VM Size Hours |Virtual core minutes | Number of vcores times minutes the VM ran |
 | |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Windows VM Size Hours |Virtual core minutes | Number of vcores times minutes the VM ran |
 | |6DAB500F-A4FD-49C4-956D-229BB9C8C793 |VM size hours |VM hours |Captures both Base and Windows VM. Does not adjust for vcores |
+| **Key Vault** | EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |Key Vault transactions | Request count in 10000s| Number of REST API requests received by Key Vault data plane |
 
-## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>How do the Azure Stack Usage APIs compare to the [Azure Usage API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (currently in public preview)?
+## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>How do the Azure Stack usage APIs compare to the [Azure usage API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (currently in public preview)?
 * The Tenant Usage API is consistent with the Azure API, with one exception: the *showDetails* flag currently is not supported in Azure Stack.
 * The Provider Usage API applies only to Azure Stack.
 * Currently, the [RateCard API](https://msdn.microsoft.com/en-us/library/azure/mt219004.aspx) that is available in Azure is not available in Azure Stack.
 
-## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>What is the difference between Usage Time and Reported Time?
+## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>What is the difference between usage time and reported time?
 Usage data reports have two main time values:
 
 * **Reported Time**. The time when the usage event entered the usage system
@@ -63,7 +64,7 @@ You might see a discrepancy in values for Usage Time and Reported Time for a spe
 
 Currently, you can query *only by Reported Time*.
 
-## <a name="what-do-these-usage-api-error-codes-mean"></a>What do these Usage API error codes mean?
+## <a name="what-do-these-usage-api-error-codes-mean"></a>What do these usage API error codes mean?
 | **HTTP status code** | **Error code** | **Description** |
 | --- | --- | --- |
 | 400/Bad Request |*NoApiVersion* |The *api-version* query parameter is missing. |

@@ -3,7 +3,7 @@ title: "O que é a Automação do Azure | Microsoft Docs"
 description: "Saiba qual valor a Automação do Azure fornece e obtenha respostas para perguntas comuns para que você pode começar a criar usando runbooks e DSC de Automação do Azure."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "o que é automação, automação do azure, exemplos de automação do azure"
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 15456a887aab29ac6c4ee74d15b8b8ef8d3047d3
-ms.openlocfilehash: 4e7488f954ce50298aba0da83ae07f7a0de6a73d
-
-
+ms.openlocfilehash: c9f5c346350a62540ba29444b1b00cc9dc398d56
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-overview"></a>Visão geral da Automação do Azure
 A Automação do Microsoft Azure fornece uma maneira para os usuários automatizarem tarefas manuais, longas, sujeitas a erros e repetidas com frequência que normalmente são executadas em um ambiente de nuvem e corporativo. Ele economiza tempo e aumenta a confiabilidade das tarefas administrativas regulares e até mesmo agenda a sua execução automática em intervalos regulares. Você pode automatizar processos usando runbooks ou automatizar o gerenciamento de configuração usando Configuração de Estado Desejado. Este artigo fornece uma visão geral da Automação do Azure e responde a perguntas comuns. Você pode consultar outros artigos desta biblioteca para obter informações mais detalhadas sobre os diferentes tópicos.
@@ -50,7 +50,7 @@ Prefere assistir do que ler? Examine o vídeo abaixo da sessão do Microsoft Ign
 [DSC de Automação do Azure](automation-dsc-overview.md) é uma solução baseada em nuvem para DSC do PowerShell que fornece os serviços necessários para ambientes corporativos.  Você pode gerenciar seus recursos de DSC na Automação do Azure e aplicar as configurações a máquinas virtuais ou físicas que as recuperam de um servidor de recepção DSC na nuvem do Azure.  Ele também fornece serviços de relatório que informam sobre eventos importantes, como nós que desviam de sua configuração atribuída e quando uma nova configuração foi aplicada. 
 
 ## <a name="creating-your-own-dsc-configurations-with-azure-automation"></a>Criando suas próprias configurações DSC com a Automação do Azure
-[Configurações DSC](automation-dsc-overview.md#azure-automation-dsc-terms) especifica o estado desejado de um nó.  Vários nós podem aplicar a mesma configuração para garantir que todos eles mantenham um estado idêntico.  Você pode criar uma configuração que usa qualquer editor de texto em seu computador local e importá-la para Automação do Azure, onde poderá compilá-la e aplicar nós.
+[Configurações DSC](automation-dsc-overview.md) especifica o estado desejado de um nó.  Vários nós podem aplicar a mesma configuração para garantir que todos eles mantenham um estado idêntico.  Você pode criar uma configuração que usa qualquer editor de texto em seu computador local e importá-la para Automação do Azure, onde poderá compilá-la e aplicar nós.
 
 ## <a name="getting-modules-and-configurations"></a>Obtendo módulos e configurações
 Você pode obter [módulos do PowerShell](automation-runbook-gallery.md#modules-in-powershell-gallery) contendo cmdlets que você pode usar em seus runbooks e configurações de DSC da [Galeria do PowerShell](http://www.powershellgallery.com/). Você pode iniciar esta galeria no portal do Azure e importar módulos diretamente na Automação do Azure ou pode baixá-los e instalá-los manualmente. Não é possível instalar os módulos diretamente do portal do Azure, mas você pode baixá-los e instalá-los como o faria com qualquer módulo. 
@@ -83,10 +83,4 @@ Uma variedade de recursos está disponível para você aprender mais sobre a Aut
 
 ## <a name="can-i-provide-feedback"></a>Posso fornecer comentários?
 **Envie-nos comentários!** Se você estiver procurando por uma solução de runbook de Automação do Azure ou por um módulo de integração, poste uma Solicitação de script no Script Center. Se você tiver comentários ou solicitações de recurso para a Automação do Azure, poste-os em [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Obrigado! 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

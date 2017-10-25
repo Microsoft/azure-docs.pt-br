@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 07/12/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e81ef1d182108114305291273227ce2ac4dacf3f
-
-
+ms.reviewer: nigu
+ms.openlocfilehash: e45936280b51fb2e54012a688fceddcc8dabe984
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Experiências de entrada com a proteção de identidade do Azure AD
 Com o Azure Active Directory Identity Protection, é possível:
@@ -110,10 +111,4 @@ Caso os usuários comprometidos sejam impedidos de entrar, um administrador pode
 
 ## <a name="see-also"></a>Consulte também
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
-
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

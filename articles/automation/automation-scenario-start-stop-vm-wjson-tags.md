@@ -3,7 +3,7 @@ title: Usar marcas formatada em JSON para agendar o estado da VM do Azure | Micr
 description: "Este artigo demonstra como usar cadeias de caracteres JSON em marcações para automatizar o agendamento do desligamento e inicialização de VM."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 6afed5d2-e939-4749-8b2c-9312b4c16fb2
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
-translationtype: Human Translation
-ms.sourcegitcommit: 00d348306f76194bb44e5252be5c956a48192768
-ms.openlocfilehash: 69f05a8c0fc88201fc365546870585de5a419f1d
-
-
+ms.openlocfilehash: cae4020741003be54b133efa121b3c09b859a176
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-scenario-using-json-formatted-tags-to-create-a-schedule-for-azure-vm-startup-and-shutdown"></a>Cenário de Automação do Azure: usando marcações formatadas JSON para criar um agendamento para inicialização e desligamento de VM do Azure
 Muitas vezes, os clientes desejam agendar a inicialização e desligamento de máquinas virtuais para ajudar a reduzir os custos de assinatura ou dar suporte a requisitos técnicos e de negócios.
@@ -145,7 +145,7 @@ Siga estas etapas para marcar uma máquina virtual ou um grupo de recursos no po
 ### <a name="tag-from-powershell"></a>Marcar do PowerShell
 Todos os runbooks importados contém informações de Ajuda no início do script para descrever como executar runbooks diretamente do PowerShell. Você pode chamar os runbooks Add-ScheduleResource e Update-ScheduleResource do PowerShell. Você pode fazer isso transmitindo parâmetros necessários que permitem a você criar ou atualizar a marcação de Agendamento em uma VM ou em um grupo de recursos fora do portal.
 
-Para criar, adicionar e excluir marcações pelo PowerShell, primeiramente você precisa [configurar seu ambiente do PowerShell para o Azure](/powershell/azureps-cmdlets-docs). Depois de concluir a instalação, você poderá continuar com as etapas a seguir.
+Para criar, adicionar e excluir marcações pelo PowerShell, primeiramente você precisa [configurar seu ambiente do PowerShell para o Azure](/powershell/azure/overview). Depois de concluir a instalação, você poderá continuar com as etapas a seguir.
 
 ### <a name="create-a-schedule-tag-with-powershell"></a>Criar uma marcação de agendamento com o PowerShell
 1. Abra uma sessão do PowerShell. Em seguida, use o exemplo abaixo para autenticar com sua conta Executar como e para especificar uma assinatura:
@@ -241,9 +241,3 @@ O **Resumo do Trabalho** inclui mensagens de fluxos de saída, de aviso e de err
 * Para saber mais sobre o recurso de suporte a scripts do PowerShell, veja [Suporte a scripts nativos do PowerShell na Automação do Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
 * Para saber mais sobre o registro em log de runbook e de saída, consulte [Saída e mensagens de runbook na Automação do Azure](automation-runbook-output-and-messages.md).
 * Para saber mais sobre uma conta Run As do Azure e como autenticar seus runbooks usando essa conta, consulte [Autenticar runbooks com a conta Run As do Azure](automation-sec-configure-azure-runas-account.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

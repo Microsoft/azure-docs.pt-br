@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: garbrad
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b4fffba6d95f4c9c30ab3a1ecd9dfeb7acd9119d
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 440a062e5fff73526b2d77d7d0a7c52ca72a66f1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Usando o DNS dinâmico para registrar os nomes de host em seu próprio servidor DNS
 [Azure fornece resolução de nomes](virtual-networks-name-resolution-for-vms-and-role-instances.md) para VMs (máquinas virtuais) e instâncias de função. Contudo, quando a resolução de nome precisar ir além do que é fornecido pelo Azure, você pode fornecer seus próprios servidores DNS. Isso permite que você personalize sua solução DNS para ajustá-la às suas próprias necessidades específicas. Por exemplo, você poderá precisar acessar recursos locais por meio do controlador de domínio Active Directory.
@@ -68,5 +67,4 @@ Quando estiver usando um servidor DNS do Windows, você poderá usar a autentica
 Se necessário, você pode adicionar um sufixo de pesquisa DNS em suas VMs. O sufixo DNS é especificado no arquivo */etc/resolv.conf* . A maioria das distribuições de Linux gerencia automaticamente o conteúdo desse arquivo, então, normalmente você não pode editá-lo. No entanto, você pode substituir o sufixo, usando o comando *substituem* do cliente DHCP. Para fazer isso, em */etc/dhcp/dhclient.conf*, adicione:
 
         supersede domain-name <required-dns-suffix>;
-
 

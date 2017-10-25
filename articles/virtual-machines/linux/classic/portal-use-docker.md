@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 0197d78185cda05cec3512e6a4ad411ae0da60da
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: 932744208d9d53c87e31dcdf9e34539750be4bdb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-docker-vm-extension-with-the-azure-classic-portal"></a>Usando a extensão de VM do Docker com o portal clássico do Azure
 > [!IMPORTANT] 
@@ -159,9 +158,8 @@ Você está pronto para conferir o [Guia do usuário do Docker] e usar sua máqu
 
 <!--Link references-->
 [Como usar a extensão de VM Docker da Interface de Linha de Comando (CLI do Azure)]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
-[Agente Linux do Azure]:../../virtual-machines-linux-agent-user-guide.md
+[Agente Linux do Azure]:../agent-user-guide.md
 [Link 3 to another azure.microsoft.com documentation topic]:../storage-whatis-account.md
 
 [Executando Docker com https]:http://docs.docker.com/articles/https/
 [Guia do usuário do Docker]:https://docs.docker.com/userguide/
-

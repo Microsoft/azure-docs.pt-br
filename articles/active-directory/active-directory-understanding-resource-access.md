@@ -1,6 +1,6 @@
 ---
 title: "Noções básicas sobre o acesso aos recursos no Azure | Microsoft Docs"
-description: "Este tópico explica os conceitos sobre como usar os administradores de assinatura para controlar o acesso aos recursos no portal do Azure completo."
+description: "Este tópico explica os conceitos sobre como usar os administradores de assinatura para controlar o acesso aos recursos no Portal do Azure completo"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,24 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 09/07/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
-ms.openlocfilehash: 9906aa7ac4296089fd2e41897323e757b181a022
-ms.lasthandoff: 02/08/2017
-
-
+ms.custom: oldportal;it-pro;
+ms.openlocfilehash: e5ac068e37d921530272e5eb3dc76d976a86a742
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-resource-access-in-azure"></a>Noções básicas sobre o acesso aos recursos do Azure
-> [!NOTE]
-> Este tópico explica os conceitos sobre como usar os administradores de assinatura para controlar o acesso aos recursos no portal do Azure completo. Como alternativa, o portal de visualização do Azure fornece [O controle de acesso baseado em funções](role-based-access-control-configure.md) para que os recursos do Azure possam ser gerenciados com mais precisão.
-> 
-> 
 
-Em outubro de 2013, o Portal clássico do Azure e as APIs de Gerenciamento de Serviço foram integrados ao Active Directory do Azure para definir as bases visando melhorar a experiência do usuário no gerenciamento do acesso aos recursos do Azure. O Active Directory do Azure já fornece ótimos recursos como o gerenciamento de usuários, sincronização de diretórios local, multi-factor authentication e controle de acesso do aplicativo. Naturalmente, eles também devem ser disponibilizados para gerenciar os recursos do Azure globalmente.
-
-O controle de acesso no Azure parte de uma perspectiva de cobrança. O proprietário de uma conta do Azure, acessada pela visitação ao [Centro de Contas do Azure](https://account.windowsazure.com/subscriptions), é o Administrador da Conta (AA). As assinaturas são um contêiner para cobrança, mas também atuam como um limite de segurança: cada assinatura tem um Administrador de Serviços (SA) que pode adicionar, remover e modificar recursos do Azure nessa assinatura usando o [Portal clássico do Azure](https://manage.windowsazure.com/). O SA padrão de uma nova assinatura é o AA, mas o AA pode alterar o SA no Centro de contas do Azure.
+O controle de acesso no Azure parte de uma perspectiva de cobrança. O proprietário de uma conta do Azure, acessada pela visitação ao [Centro de Contas do Azure](https://account.windowsazure.com/subscriptions), é o Administrador da Conta (AA). As assinaturas são um contêiner para cobrança, mas também atuam como um limite de segurança: cada assinatura tem um Administrador de Serviços (SA) que pode adicionar, remover e modificar recursos do Azure nessa assinatura usando o [Portal do Azure](https://portal.azure.com/). O SA padrão de uma nova assinatura é o AA, mas o AA pode alterar o SA no Centro de contas do Azure.
 
 <br><br>![Contas do Azure][1]
 
@@ -66,4 +60,3 @@ Operações como mover recursos entre as assinaturas podem ser mais difíceis co
 [2]: ./media/active-directory-understanding-resource-access/IC707932.png
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
-

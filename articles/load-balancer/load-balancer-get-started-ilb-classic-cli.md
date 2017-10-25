@@ -3,7 +3,7 @@ title: "Criar um balanceador de carga interno - CLI do Azure clássica | Microso
 description: "Saiba como criar um balanceador de carga interno no modelo de implantação clássico usando a CLI do Azure"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -15,13 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: d24b95f75b5ffd1116b07cf9f8bac33767a9c835
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: f740633230b2479f77d7d09a31dbbf3f72ffb174
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-the-azure-cli"></a>Introdução à criação de um balanceador de carga interno (clássico) usando a CLI do Azure
 
 > [!div class="op_single_selector"]
@@ -42,7 +41,7 @@ Para criar um conjunto de balanceadores de carga internos e os servidores que en
 
 1. Crie uma instância do Balanceamento de Carga Interno que será o ponto de extremidade do tráfego de entrada a ser balanceado nos servidores de um conjunto de balanceamento de carga.
 2. Adicione pontos de extremidade correspondentes às máquinas virtuais que receberão o tráfego de entrada.
-3. Configure os servidores que enviarão o tráfego com a carga a ser balanceada para enviar o tráfego para o endereço VIP (IP Virtual) da instância do Balanceamento de Carga Interno.
+3. Configure os servidores para enviar o tráfego para o endereço VIP (IP Virtual) da instância do Balanceamento de Carga Interno.
 
 ## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>Passo a passo da criação de um balanceador de carga interno usando a CLI
 
@@ -92,7 +91,7 @@ Apresentamos a seguir um exemplo da saída:
 
 ### <a name="step-2"></a>Etapa 2
 
-Você configura o conjunto de balanceadores de carga internos quando adicionar o primeiro ponto de extremidade. Você associará o ponto de extremidade, a máquina virtual e a porta de investigação ao conjunto de balanceador de carga interno nesta etapa.
+Você configura o conjunto de balanceadores de carga internos quando adicionar o primeiro ponto de extremidade. Você pode associar o ponto de extremidade, a máquina virtual e a porta de investigação ao conjunto de balanceador de carga interno nesta etapa.
 
 ```azurecli
 azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
@@ -100,13 +99,13 @@ azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 
 
 ### <a name="step-3"></a>Etapa 3
 
-Verifique a configuração do balanceador de carga usando o `azure vm show`nome da máquina virtual**
+Verifique a configuração do balanceador de carga usando o `azure vm show` *nome da máquina virtual*
 
 ```azurecli
 azure vm show DB1
 ```
 
-A saída será:
+A saída é da seguinte maneira:
 
     azure vm show DB1
     info:    Executing command vm show
@@ -180,4 +179,3 @@ Confira `azure vm endpoint --help` para obter mais informações.
 [Configurar um modo de distribuição do balanceador de carga usando a afinidade de IP de origem](load-balancer-distribution-mode.md)
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
-

@@ -8,8 +8,3 @@
    
     Você será notificado quando a atualização for instalada.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

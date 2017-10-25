@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: d2f94ead2e5c7e60037e601ce65a03e809b66dd3
-
-
+ms.author: bwren
+ms.openlocfilehash: f017b8ca42ff3560e17d8aac303a4f834d298540
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introdução ao Application Insights em um projeto Web Java
 
@@ -143,7 +143,7 @@ Substitua a chave de instrumentação que você obteve no Portal do Azure.
       <!-- These initializers add context data to each event -->
 
       <TelemetryInitializers>
-        <Add   type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
@@ -386,7 +386,7 @@ Se seu site ficar inativo, você obterá gráficos de tempos de resposta e tamb�
 * Gravar [telemetria personalizada](app-insights-api-custom-events-metrics.md) para controlar o uso no navegador ou no servidor.
 * Criar [painéis](app-insights-dashboards.md) para reunir os gráficos de chave para seu sistema de monitoramento.
 * Usar [Análise](app-insights-analytics.md) para consultas avançadas por telemetria a o aplicativo
-* Para obter mais informações, consulte o [Centro de desenvolvedores do Java](/develop/java/).
+* Para saber mais, visite [Azure para desenvolvedores Java](/java/azure).
 
 <!--Link references-->
 
@@ -397,5 +397,4 @@ Se seu site ficar inativo, você obterá gráficos de tempos de resposta e tamb�
 [eclipse]: app-insights-java-eclipse.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
-
+[usage]: app-insights-javascript.md

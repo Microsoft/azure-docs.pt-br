@@ -13,17 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 807c80b397abe6ff4dfebc2aa7e443c7c5e84e99
-ms.openlocfilehash: 313118740815de02a9f0797ab334eb7f6f900c58
-ms.lasthandoff: 03/02/2017
-
-
+ms.openlocfilehash: 57b170539513953bd6a01ab4dd362a65cf905496
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Noções básicas sobre tokens de usuário na colaboração B2B do Azure AD
 
 Se você quiser saber qual é a aparência do token para um usuário de colaboração B2B, estes são os detalhes do token de portador e do conteúdo do token para um convidado do Azure AD (Azure Active Directory) e um convidado de conta da Microsoft no locatário de recursos (para tenantid:04dcc6ab-388a-4559-b527-fbec656300ea). Para ver o conteúdo JWT (Token Web JSON), use [https://jwt.io/](https://jwt.io/) ou [http://calebb.net](http://calebb.net/).
@@ -53,4 +50,3 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Mapeamento de declarações do usuário de colaboração B2B](active-directory-b2b-claims-mapping.md)
 * [Compartilhamento externo do Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitações atuais da colaboração B2B](active-directory-b2b-current-limitations.md)
-

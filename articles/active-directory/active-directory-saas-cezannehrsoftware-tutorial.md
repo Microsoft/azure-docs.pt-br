@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o Cezanne HR Software | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Cezanne HR Software."
+title: "Tutorial: integração do Azure Active Directory com o software Cezanne HR | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o software Cezanne HR."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,310 +11,279 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 07/05/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 9585494ebff68891d374a29e8e3e4b7756914bcc
-ms.openlocfilehash: d8a654340df56002e503f2f61e910facb51696c5
-ms.lasthandoff: 02/06/2017
-
-
+ms.openlocfilehash: 623c438edfce5f98c2d32d8bb25a97d86aa77909
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integração do Azure Active Directory ao Cezanne HR Software
+# <a name="tutorial-integrate-azure-active-directory-with-cezanne-hr-software"></a>Tutorial: integração do Azure Active Directory com o software Cezanne HR
 
-Neste tutorial, você aprende a integrar o Cezanne HR Software ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprende a integrar o software Cezanne HR ao Azure AD (Azure Active Directory).
 
-A integração do Cezanne HR Software ao Azure AD oferece os seguintes benefícios:
+A integração do software Cezanne HR ao Azure AD oferece os benefícios a seguir. Você pode:
 
-- Você pode controlar, no Azure AD, quem tem acesso ao Cezanne HR Software
-- Você pode habilitar seus usuários a fazerem logon automaticamente no Cezanne HR Software (logon único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um único local - o portal de Gerenciamento do Azure
+- Controle, no Azure AD, quem tem acesso ao software Cezanne HR.
+- Habilite seus usuários, com as respectivas contas do Azure AD, a fazer logon automaticamente no software Cezanne HR via SSO (logon único).
+- Gerenciar suas contas em um local central: o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
+Para saber mais sobre a integração de aplicativos de SaaS (software como serviço) com o Azure AD, consulte [O que é acesso a aplicativos e SSO com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com o Cezanne HR Software, você precisa dos seguintes itens:
+Para configurar a integração do Azure AD com o software Cezanne HR, você precisará dos seguintes itens:
 
 - Uma assinatura do AD do Azure
-- Uma assinatura do Cezanne HR Software habilitada para logon único
-
+- Uma assinatura do software Cezanne HR com SSO habilitado
 
 > [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> Para testar as etapas deste tutorial, recomendamos que você não use um ambiente de produção.
 
-
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+Para testar as etapas neste tutorial, siga estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, você poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
-
+- Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testa o SSO do Azure AD em um ambiente de teste. 
 
-1. Adição do Cezanne HR Software da galeria
-2. Configurar e testar o logon único do AD do Azure
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
+* Adicionando o software Cezanne HR da galeria
+* Configurar e testar o SSO do Azure AD
 
-## <a name="adding-cezanne-hr-software-from-the-gallery"></a>Adição do Cezanne HR Software da galeria
-Para configurar a integração do Cezanne HR Software com o Azure AD, você precisa adicionar o Cezanne HR Software, por meio da galeria, à sua lista de aplicativos de SaaS gerenciados.
+## <a name="add-cezanne-hr-software-from-the-gallery"></a>Adicionar o software Cezanne HR da galeria
+Para configurar a integração do software Cezanne HR com o Azure AD, adicione o software Cezanne HR, por meio da galeria, à sua lista de aplicativos de SaaS gerenciados.
 
-**Para adicionar o Cezanne HR Software por meio da galeria, execute as seguintes etapas:**
+Para adicionar o software Cezanne HR da galeria, execute o seguinte:
 
-1. No **[Portal de Gerenciamento do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. No **[portal do Azure](https://portal.azure.com)**, no painel esquerdo, selecione o botão **Azure Active Directory**. 
 
-    ![Active Directory][1]
+    ![Botão "Azure Active Directory"][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Selecione **Aplicativos empresariais** > **Todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![O link "Todos os aplicativos"][2]
     
-3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
+3. Para adicionar um novo aplicativo, na parte superior da caixa de diálogo **Todos os aplicativos**, selecione **Novo aplicativo**.
 
-    ![Aplicativos][3]
+    ![O botão “Novo aplicativo”][3]
 
 4. Na caixa de pesquisa, digite **Cezanne HR Software**.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_00001.png)
+    ![A caixa de pesquisa](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_search.png)
 
-5. No painel de resultados, escolha **Cezanne HR Software** e clique no botão **Adicionar** para adicionar o aplicativo.
+5. Na lista de resultados, escolha **software Cezanne HR** e adicione o aplicativo selecionando o botão **Adicionar**.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_0001.png)
+    ![A lista de resultados](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_addfromgallery.png)
 
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
+Nesta seção, você configura e testa o SSO do Azure AD com o software Cezanne HR, com base em uma usuária de teste chamada “Brenda Fernandes”.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
-Nesta seção, você configura e testa o logon único do Azure AD com o Cezanne HR Software, com base em um usuário de teste chamado “Brenda Fernandes”.
+Para o SSO funcionar, o Azure AD precisa saber qual é o equivalente do usuário do Azure AD no software Cezanne HR. Em outras palavras, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do software Cezanne HR.
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Cezanne HR Software é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Cezanne HR Software.
+Para estabelecer a relação de vínculo, atribua o valor **nome de usuário** do software Cezanne HR como o valor **Username** do Azure AD.
 
-Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** ao Azure AD como sendo o valor de **Nome de usuário** no Cezanne HR Software.
+Para configurar e testar o SSO do Azure AD usando o software Cezanne HR, conclua os blocos de construção a seguir.
 
-Para configurar e testar o logon único do Azure AD com o Cezanne HR Software, você precisa concluir os seguintes blocos de construção:
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criação de um usuário de teste do Cezanne HR Software](#creating-a-cezanne-hr-software-test-user)** - para ter um equivalente de Brenda Fernandes no Cezanne HR Software que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+Nesta seção, você pode habilitar o SSO do Azure AD no portal do Azure e configura o SSO em seu aplicativo do software Cezanne HR fazendo seguinte:
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+1. No portal do Azure, na página de integração de aplicativo do **software Cezanne HR**, selecione **Logon único**.
 
-Nesta seção, você habilitará o logon único do Azure AD no Portal de Gerenciamento do Azure e configurará o logon único em seu aplicativo Cezanne HR Software.
+    ![O comando "Logon único"][4]
 
-**Para configurar o logon único do Azure AD com o Cezanne HR Software, execute as seguintes etapas:**
-
-1. No Portal de Gerenciamento do Azure, na página de integração de aplicativos do **Cezanne HR Software**, clique em **Logon único**.
-
-    ![Configurar Logon Único][4]
-
-2. Na página da caixa de diálogo **Logon único**, como **Modo**, selecione **Logon com base em SAML** para habilitar o logon único.
+2. Para habilitar o SSO, na caixa de diálogo **Logon único**, selecione o **Modo** **Logon baseado em SAML**.
  
-    ![Configurar Logon Único](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_01.png)
+    ![A caixa "Modo"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_samlbase.png)
 
-3. Na seção **URLs e Domínio do Cezanne HR Software**, execute as seguintes etapas:
+3. Em **Domínio e URLs do Software Cezanne HR**, faça o seguinte:
 
-    ![Configurar Logon Único](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_02.png)
+    ![A seção "URLs e Domínio e URLs do Software Cezanne HR"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://w3.cezanneondemand.com/cezannehr/-/<tenant id>`
-    
-    b. Na caixa de texto **Identificador**, digite: `https://w3.cezanneondemand.com/CezanneOnDemand/`
+    a. Na caixa **URL de Entrada**, digite uma URL com a seguinte sintaxe: `https://w3.cezanneondemand.com/cezannehr/-/<tenant id>`
 
+    b. Na caixa **URL de Resposta**, digite uma URL com a seguinte sintaxe: `https://w3.cezanneondemand.com:443/<tenantid>`    
+     
     > [!NOTE] 
-    > Observe que esses não são os valores reais. É necessário atualizar esses valores com a URL de Entrada e o Identificador reais. Aqui, sugerimos que você use o valor exclusivo de URL no Identificador. Para obter esses valores, entre em contato com a [equipe de suporte do Cezanne HR Software](mailto:info@cezannehr.com).
+    > Os valores anteriores não são reais. Atualize-os com a URL de resposta real e a URL de logon. Para obter os valores, entre em contato com a [equipe de suporte do cliente software Cezanne HR](mailto:info@cezannehr.com).
 
-4. Sobre o **certificado de autenticação SAML** seção, clique em **criar novo certificado**.
+4. Na seção **Certificado de Autenticação do SAML**, selecione **Certificado (Base64)** e salve o arquivo do certificado no computador.
 
-    ![Configurar Logon Único](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_03.png)     
+    ![A seção “Certificado de Autenticação SAML”](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_certificate.png) 
 
-5. Sobre o **criar um novo certificado** caixa de diálogo, clique no ícone de calendário e selecione um **data de expiração**. Em seguida, clique no botão **Salvar**.
+5. Selecione **Salvar**.
 
-    ![Configurar o logon único](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_300.png)
-
-6. Sobre o **certificado de autenticação SAML** seção, selecione **ativar o novo certificado** e clique em **salvar** botão.
-
-    ![Configurar Logon Único](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_04.png)
-
-7. No pop-up **certificado de substituição** janela, clique em **OK**.
-
-    ![Configurar o logon único](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_400.png)
-
-8. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
-
-    ![Configurar o logon único](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_05.png) 
-
-9. Na seção **Configuração do Cezanne HR Software**, clique em **Configurar o Cezanne HR Software** para abrir a janela **Configurar logon**.
-
-    ![Configurar Logon Único](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_06.png) 
-
-    ![Configurar Logon Único](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_07.png)
-
-10. Em uma janela diferente do navegador da Web, faça logon em seu locatário do Cezanne HR Software como um administrador.
-
-11. No painel de navegação esquerdo, clique em **Configuração do Sistema**. Vá para **Configurações de Segurança**. Em seguida, navegue até **Configuração de Logon Único**.
-
-    ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
-
-12. No painel **Permitir que os usuários façam logon usando o SSO (Serviço de Logon Único)** a seguir, marque a caixa **SAML 2.0** e selecione a opção **Configuração Avançada**.
-
-    ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
-
-13. Clique no botão **Adicionar Novo** .
-
-    ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
-
-14. Execute as etapas a seguir na seção **PROVEDORES DE IDENTIDADE DO SAML 2.0** .
-
-    ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
-
-    a. Insira o nome do seu Provedor de Identidade como o **Nome de Exibição**.
-
-    b. Na caixa de texto **Identificador de Entidade**, coloque o valor de **ID da Entidade SAML** do assistente de configuração de aplicativo do Azure AD.
-
-    c. Altere a **Associação SAML** para 'POST'.
-
-    d. Na caixa de texto **Ponto de Extremidade de Serviço de Token de Segurança**, insira o valor da **URL de Serviço de Logon Único SAML** do assistente de configuração de aplicativo do Azure AD.
-
-    e. Na caixa de texto **Nome de Atributo da ID de Usuário** insira 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'.
-
-    f. Clique no ícone **Carregar** para carregar o certificado baixado do Azure AD.
-
-    g. Clique no botão **Ok** . 
-
-15. Clique no botão **Salvar** .
-
-    ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
-
-
-
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal de Gerenciamento do Azure chamado Brenda Fernandes.
-
-![Criar um usuário do AD do Azure][100]
-
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
-
-1. No **portal de Gerenciamento do Azure**, no painel navegação à esquerda, clique em **Azure Active Directory**.
-
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_01.png) 
-
-2. Vá para **usuários e grupos** e clique em **todos os usuários** para exibir a lista de usuários.
+    ![Clique no botão “Salvar”](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_400.png)
     
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_02.png) 
+6. Em **Configuração do Software Cezanne HR**, selecione **Configurar o software Cezanne HR** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML** e a URL do **Serviço de Logon Único SAML** da seção **Referência Rápida**.
 
-3. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
- 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_03.png) 
+    ![A seção "Configuração do Software Cezanne HR"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
- 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_04.png) 
+7. Em uma janela diferente do navegador da Web, faça logon em seu locatário do software Cezanne HR como um administrador.
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+8. No painel esquerdo, selecione **Configuração do Sistema**. Selecione **Configurações de Segurança** > **Configuração de Logon Único**.
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+    ![O link "Configuração de Logon Único"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
-    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+9. No painel **Permitir que os usuários façam logon usando o SSO (Serviço de Logon Único)**, marque a caixa de seleção **SAML 2.0** e selecione a opção **Configuração Avançada**.
 
-    d. Clique em **Criar**. 
+    ![Opções de logon único em serviços](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
+10. Selecione **Adicionar Novo**.
 
+    ![O botão “Adicionar Novo”](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
-### <a name="creating-a-cezanne-hr-software-test-user"></a>Criação de um usuário de teste do Cezanne HR Software
+11. Em **Provedores de Identidade SAML 2.0**, faça o seguinte:
 
-Para habilitar usuários do AD do Azure a fazer logon no Cezanne HR Software, eles devem ser provisionados no Cezanne HR Software. No caso do Cezanne HR Software, o provisionamento é uma tarefa manual.
-
-####<a name="to-provision-a-user-account-perform-the-following-steps"></a>Para provisionar uma conta de usuário, execute as seguintes etapas:
-
-1.  Faça logon no site da empresa Cezanne HR Software como um administrador.
-
-2.  No painel de navegação esquerdo, clique em **Configuração do Sistema**. Vá para **Gerenciar Usuários**. Em seguida, navegue até **Add New User**.
-
-    ![Novo Usuário](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "Novo Usuário")
-
-3.  Na seção **Person Details** , execute etapas abaixo:
-
-    ![Novo Usuário](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "Novo Usuário")
-
-    a. Defina **Internal User** como OFF.
-
-    b. Na caixa de texto **Nome**, digite **Brenda**.  
-
-    c. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-
-    d. Na caixa de texto **Email** , digite o endereço de email da conta de Brenda Fernandes.
-
-4.  Na seção **Informações da Conta** , execute as etapas abaixo:
-
-    ![Novo Usuário](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "Novo Usuário")
-
-    a. Na caixa de texto **Nome de usuário** , digite o endereço de email da conta de Brenda Fernandes.
-
-    b. Na caixa de texto **Senha** , digite a senha da conta de Brenda Fernandes.
-
-    c. Selecione **Profissional de RH** como **Função de Segurança**.
-
-    d. Clique em **OK**.
-
-5. Navegue até a guia **Logon Único** e selecione **Adicionar Novo** na área **Identificadores SAML 2.0**.
-
-    ![Usuário](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Usuário")
-
-6. Escolha o **Provedor de Identidade** para o Provedor de Identidade e, na caixa de texto de **Identificador do Usuário**, insira o endereço de email da conta de Brenda Fernandes.
-
-    ![Usuário](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "Usuário")
+    ![A seção "Provedores de identidade SAML 2.0"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
     
-7. Clique no botão **Salvar** .
+    a. Na caixa **Nome de Exibição**, insira o nome do seu provedor de Identidade.
 
-    ![Usuário](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "Usuário")
+    b. Na caixa **Identificador da Entidade**, cole o **ID da Entidade SAML** que você copiou do portal do Azure. 
 
+    c. Na caixa de listagem **Associação SAML**, selecione **POST**.
 
+    d. Na caixa **Ponto de Extremidade de Serviço de Token de Segurança**, cole a URL **Serviço de Logon Único SAML** que você copiou do portal do Azure. 
+    
+    e. Na caixa **Nome do atributo de ID de usuário**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    
+    f. Para carregar o certificado baixado do Azure AD, selecione o botão **Carregar**.
+    
+    g. Selecione **OK**. 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+12. Selecione **Salvar**.
 
-Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao Cezanne HR Software.
+    ![Clique no botão “Salvar”](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
-![Atribuir usuário][200] 
+> [!TIP]
+> Ao configurar o aplicativo, você pode ler as instruções anteriores em uma versão concisa no [portal do Azure](https://portal.azure.com). Depois de adicionar o aplicativo do **Active Directory**, seção  > **Aplicativos Empresariais**, selecione a guia **Logon único**. Em seguida, acesse a documentação inserida na seção **Configuração**. 
 
-**Para atribuir Brenda Fernandes ao Cezanne HR Software, execute as seguintes etapas:**
+Para saber mais sobre o recurso de documentação inserida, consulte [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> 
 
-1. No portal de gerenciamento do Azure, abra a exibição de aplicativos e, em seguida, navegue até o modo de exibição de diretório e vá para **aplicativos empresariais** e clique em **todos os aplicativos**.
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+Nesta seção, você cria a usuária de teste Brenda Fernandes no portal do Azure.
 
-    ![Atribuir usuário][201] 
+![A usuária de teste Brenda Fernandes][100]
+
+Para criar um usuário de teste no Azure AD, faça o seguinte:
+
+1. No **portal do Azure**, no painel esquerdo, selecione o botão **Azure Active Directory**.
+
+    ![Botão "Azure Active Directory"](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_01.png) 
+
+2. Para exibir a lista de usuários, selecione **Usuários e grupos** > **Todos os usuários**.
+    
+    ![O link “Todos os usuários”](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_02.png) 
+    
+    A caixa de diálogo **Todos os usuários** é aberta.
+
+3. Para abrir a caixa de diálogo **Usuário**, selecione **Adicionar**.
+ 
+    ![O botão “Adicionar”](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_03.png) 
+
+4. Na caixa de diálogo **Usuário**, faça o seguinte:
+ 
+    ![Caixa de diálogo "Usuário"](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_04.png) 
+
+    a. Na caixa **Nome**, digite **BrendaFernandes**.
+
+    b. Na caixa **Nome de usuário**, digite o **endereço de email** da usuária Brenda Fernandes.
+
+    c. Marque a caixa de seleção **Mostrar Senha** e anote o valor gerado na caixa **Senha**.
+
+    d. Selecione **Criar**.
+ 
+### <a name="create-a-cezanne-hr-software-test-user"></a>Criar um usuário de teste do software Cezanne HR
+
+Para habilitar usuários do Azure AD a entrar no software Cezanne HR, eles deverão ser provisionados no software Cezanne HR. No caso do software Cezanne HR, o provisionamento é uma tarefa manual.
+
+Provisione uma conta de usuário fazendo o seguinte:
+
+1.  Entre no site da empresa do software Cezanne HR como um administrador.
+
+2.  No painel esquerdo, selecione **System Setup (Configuração do Sistema)** > **Manage Users (Gerenciar Usuários)** > **Add New User (Adicionar Novo Usuário)**.
+
+    ![O link "Adicionar Novo Usuário"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "Novo Usuário")
+
+3.  Em **Person Details (Detalhes Pessoais)**, faça o seguinte:
+
+    ![A seção "Detalhes Pessoais"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "Novo Usuário")
+    
+    a. Defina **Internal User (Usuário Interno)** como **OFF (DESATIVADO)**.
+    
+    b. Na caixa **First Name (Nome)**, digite o nome do usuário, por exemplo, **Brenda**.  
+ 
+    c. Em **Last Name (Sobrenome)**, digite o sobrenome do usuário, por exemplo, **Fernandes**.
+    
+    d. Na caixa **Email**, digite o endereço de email do usuário, por exemplo, Brittasimon@contoso.com.
+
+4.  Em **Account Information (Informações de Conta)**, faça o seguinte:
+
+    ![A seção "Informações de conta"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "Novo Usuário")
+    
+    a. Na caixa **Username (Nome de Usuário)**, digite o endereço de email do usuário, por exemplo, Brittasimon@contoso.com.
+    
+    b. Na caixa **Password (Senha)**, digite a senha do usuário.
+    
+    c. Na caixa **Security Role (Função de Segurança)**, selecione **HR Professional (Profissional de RH)**.
+    
+    d. Selecione **OK**.
+
+5. Na guia **Single sign-on (Logon único)**, na seção **SAML 2.0 Identifiers (Identificadores SAML 2.0)**, selecione **Add New (Adicionar Novo)**.
+
+    ![O botão "Adicionar Novo"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Usuário")
+
+6. Na caixa de listagem **Identity Provider (Provedor de Identidade)**, selecione seu provedor de identidade. Na caixa **User Identifier (Identificador de Usuário)**, digite o endereço de email para a conta da usuária de teste Brenda Fernandes.
+
+    ![As caixas "Provedor de Identidade" e "Identificador de Usuário"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "Usuário")
+    
+7. Selecione **Salvar**.
+
+    ![O botão "Salvar"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "Usuário")
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+
+Nesta seção, você permite que a usuária de teste Brenda Fernandes use o SSO do Azure, concedendo a ela acesso ao software Cezanne HR.
+
+![Testar o acesso do usuário][200] 
+
+1. No Portal do Azure, abra a exibição de aplicativos, vá para a exibição de diretório. Selecione **Aplicativos empresariais** > **Todos os aplicativos**.
+
+    ![O link "Todos os aplicativos"][201] 
 
 2. Na lista de aplicativos, selecione **Cezanne HR Software**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_50.png) 
+    ![A lista "Aplicativos"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+4. Selecione **Adicionar**. Em seguida, na caixa de diálogo **Adicionar Atribuição**, selecione **Usuários e grupos**.
 
-    ![Atribuir usuário][203]
+    ![Link “Usuários e Grupos”][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Na caixa de diálogo **Usuários e grupos**, na lista **Usuários**, selecione **Brenda Fernandes**.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+6. Na caixa de diálogo **Usuários e grupos**, selecione **Selecionar**.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+7. Na caixa de diálogo **Adicionar Atribuição**, selecione **Atribuir**.
     
+### <a name="test-sso"></a>Testar o SSO
 
+Nesta seção, você testará sua configuração de SSO do Azure AD usando o Painel de Acesso.
 
-### <a name="testing-single-sign-on"></a>Teste do logon único
+Quando selecionar o bloco do software Cezanne HR no Painel de Acesso, você entrará automaticamente no seu aplicativo do software Cezanne HR.
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+## <a name="next-steps"></a>Próximas etapas
 
-Quando clicar no bloco Cezanne HR Software no Painel de Acesso, você deverá fazer logon automaticamente no seu aplicativo Cezanne HR Software.
-
-
-## <a name="additional-resources"></a>Recursos adicionais
-
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
+* [Lista de tutoriais sobre como integrar aplicativos SaaS ao Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [O que é acesso a aplicativos e SSO com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 
@@ -329,3 +298,4 @@ Quando clicar no bloco Cezanne HR Software no Painel de Acesso, você deverá fa
 [201]: ./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_203.png
+

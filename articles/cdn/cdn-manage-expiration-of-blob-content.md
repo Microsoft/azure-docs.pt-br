@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 7c6ca3789e9a5dcde799d9ef40b58bd2f3c8966c
-ms.lasthandoff: 03/21/2017
-
-
+ms.openlocfilehash: d4741921806e443d92c385a04b781cec296c2ae8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-expiration-of-azure-storage-blobs-in-azure-cdn"></a>Gerenciar a expiração dos blobs de Armazenamento do Azure na CDN do Azure
 > [!div class="op_single_selector"]
@@ -28,7 +27,7 @@ ms.lasthandoff: 03/21/2017
 > 
 > 
 
-O [serviço blob](../storage/storage-introduction.md#blob-storage) no [Armazenamento do Azure](../storage/storage-introduction.md) é uma das várias origens baseadas no Azure integrada à CDN do Azure.  Qualquer conteúdo de blob publicamente acessível pode ser armazenado em cache no Azure CDN até que o tempo de vida (TTL) seja decorrido.  O TTL é determinado pelo [*Controle de Cache* ](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) na resposta HTTP do Armazenamento do Azure.
+O [serviço blob](../storage/common/storage-introduction.md#blob-storage) no [Armazenamento do Azure](../storage/common/storage-introduction.md) é uma das várias origens baseadas no Azure integrada à CDN do Azure.  Qualquer conteúdo de blob publicamente acessível pode ser armazenado em cache no Azure CDN até que o tempo de vida (TTL) seja decorrido.  O TTL é determinado pelo [*Controle de Cache* ](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) na resposta HTTP do Armazenamento do Azure.
 
 > [!TIP]
 > Você pode optar por não definir nenhum TTL em um blob.  Nesse caso, o Azure CDN aplica automaticamente um TTL padrão de sete dias.
@@ -42,7 +41,7 @@ O [serviço blob](../storage/storage-introduction.md#blob-storage) no [Armazenam
 Este tutorial demonstra várias maneiras que você pode definir o TTL em um blob no Armazenamento do Azure.  
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell](/powershell/azureps-cmdlets-docs) é uma das maneiras mais rápidas e eficientes de administrar os serviços do Azure.  Use o cmdlet `Get-AzureStorageBlob` para obter uma referência para o blob, em seguida, defina a propriedade `.ICloudBlob.Properties.CacheControl`. 
+[Azure PowerShell](/powershell/azure/overview) é uma das maneiras mais rápidas e eficientes de administrar os serviços do Azure.  Use o cmdlet `Get-AzureStorageBlob` para obter uma referência para o blob, em seguida, defina a propriedade `.ICloudBlob.Properties.CacheControl`. 
 
 ```powershell
 # Create a storage context
@@ -64,7 +63,7 @@ $blob.ICloudBlob.SetProperties()
 > 
 
 ## <a name="azure-storage-client-library-for-net"></a>Biblioteca do Cliente de Armazenamento do Azure para .NET
-Para definir o TTL de um blob usando o .NET, use a [Biblioteca do Cliente de Armazenamento do Azure para .NET](../storage/storage-dotnet-how-to-use-blobs.md) para definir a propriedade [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx).
+Para definir o TTL de um blob usando o .NET, use a [Biblioteca do Cliente de Armazenamento do Azure para .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) para definir a propriedade [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx).
 
 ```csharp
 class Program
@@ -119,5 +118,4 @@ Você pode verificar facilmente a TTL de seus blobs.  Usando as [ferramentas de 
 ## <a name="next-steps"></a>Próximas etapas
 * [Leia sobre o cabeçalho *Cache-Control*](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 * [Saiba como gerenciar a expiração do conteúdo do Serviço de Nuvem na CDN do Azure](cdn-manage-expiration-of-cloud-service-content.md)
-
 

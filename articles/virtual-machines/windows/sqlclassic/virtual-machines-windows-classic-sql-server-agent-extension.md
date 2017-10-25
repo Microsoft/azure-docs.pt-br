@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/18/2017
+ms.date: 07/05/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 4082fe7baad4f9d40746410024e071f34f458a40
-ms.lasthandoff: 03/25/2017
-
+ms.openlocfilehash: 30fa9128cd51a7498449c991b58500ad9acdd3d4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatizar tarefas de gerenciamento em máquinas virtuais do Azure com a Extensão do Agente do SQL Server (Clássica)
 > [!div class="op_single_selector"]
@@ -49,6 +49,7 @@ Requisitos para uso da extensão SQL Server IaaS Agent em sua VM:
 ### <a name="operating-system"></a>Sistema operacional:
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 ### <a name="sql-server-versions"></a>Versões do SQL Server:
 * SQL Server 2012
@@ -56,7 +57,7 @@ Requisitos para uso da extensão SQL Server IaaS Agent em sua VM:
 * SQL Server 2016
 
 ### <a name="azure-powershell"></a>PowerShell do Azure:
-[Baixe e configure os comandos mais recentes do Azure PowerShell](/powershell/azureps-cmdlets-docs).
+[Baixe e configure os comandos mais recentes do Azure PowerShell](/powershell/azure/overview).
 
 Em seguida, conecte o Windows PowerShell à sua assinatura do Azure usando o comando **Add-AzureAccount** .
 
@@ -104,5 +105,4 @@ Você também pode usar o cmdlet **Remove-AzureVMSqlServerExtension** do Powersh
 Comece a usar um dos serviços com suporte da extensão. Para obter mais detalhes, confira os tópicos citados na seção [Serviços com suporte](#supported-services) deste artigo.
 
 Para obter mais informações sobre como executar o SQL Server em Máquinas Virtuais do Azure, veja [Visão geral do SQL Server em Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
 

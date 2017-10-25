@@ -3,7 +3,7 @@ title: Elementos da linguagem Transact-SQL do SQL Data Warehouse | Microsoft Doc
 description: "Lista de links para conteúdo de referência dos elementos da linguagem Transact-SQL usados para o SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: 
 ms.assetid: ea0b9a3e-e489-458e-addc-cc153e5cc158
@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: reference
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 126aac98dd9b4b9b3ab3cc4778b75cec7413a7fe
-
-
+ms.author: kevin;barbkess
+ms.openlocfilehash: 7a20cd8f3c2f304d12a49755dbe6e04f9b1d36df
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="language-elements"></a>Elementos de linguagem
 ## <a name="core-elements"></a>Elementos principais
@@ -278,17 +279,11 @@ ms.openlocfilehash: 126aac98dd9b4b9b3ab3cc4778b75cec7413a7fe
 * [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter informações de referência, consulte [Visão geral de referência do SQL Data Warehouse][Visão geral de referência do SQL Data Warehouse].
+Para obter mais informações de referência, consulte [Visão geral de referência do SQL Data Warehouse][SQL Data Warehouse reference overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral de referência do SQL Data Warehouse]: sql-data-warehouse-overview-reference.md
+[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

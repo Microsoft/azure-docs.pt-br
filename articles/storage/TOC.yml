@@ -1,0 +1,18 @@
+- name: Documentação do Armazenamento do Azure
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: Introdução
+      href: ./common/storage-introduction.md
+    - name: 'Escolher Blobs, Arquivos ou Discos'
+      href: ./common/storage-decide-blobs-files-disks.md
+- name: Blobs
+  href: ./blobs/storage-blobs-introduction.md
+- name: Arquivos
+  href: ./files/storage-files-introduction.md
+- name: Filas
+  href: ./queues/storage-queues-introduction.md
+- name: Tabelas
+  href: ../cosmos-db/table-storage-overview.md
+- name: Discos
+  href: ../virtual-machines/windows/managed-disks-overview.md

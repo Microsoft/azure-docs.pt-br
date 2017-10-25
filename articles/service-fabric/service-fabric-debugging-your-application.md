@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
+ms.date: 06/29/2017
 ms.author: vturecek;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 6167f3edd3e99522a8997382d6569c82ea387d5c
-ms.lasthandoff: 03/09/2017
-
-
+ms.openlocfilehash: 2459025899a7f5ffebf44fa104ed112c0eb99dfa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Depurar seu aplicativo do Service Fabric usando o Visual Studio
 > [!div class="op_single_selector"]
@@ -54,7 +53,7 @@ Você pode economizar tempo e dinheiro implantando e depurando seu aplicativo do
     ```csharp
     ServiceEventSource.Current.ServiceMessage(this, "My ServiceMessage with a parameter {0}", result.Value.ToString());
     ```
-7. A janela **Eventos de Diagnóstico** permite filtragem, pausa e inspeção de eventos em tempo real.  O filtro é uma pesquisa simples de cadeia de caracteres da mensagem do evento, incluindo seu conteúdo.
+7. A janela **Eventos de Diagnóstico** permite filtragem, pausa e eventos de inspeção em tempo real.  O filtro é uma pesquisa simples de cadeia de caracteres da mensagem do evento, incluindo seu conteúdo.
    
     ![Filtrar, pausar e retomar ou inspecionar eventos em tempo real][diagnosticeventsactions]
 8. A depuração de serviços é semelhante à depuração de qualquer outro aplicativo. Normalmente, você define pontos de interrupção por meio do Visual Studio para fácil depuração. Embora as Reliable Collections sejam replicadas em vários nós, elas ainda implementam IEnumerable. Isso significa que você pode usar o Modo de Exibição Resultados no Visual Studio durante a depuração para ver o que foi armazenado. Basta definir um ponto de interrupção em qualquer lugar em seu código.
@@ -81,7 +80,7 @@ Se seus aplicativos do Service Fabric estiverem em execução em um cluster do S
    
     ![Habilitar depuração remota][enableremotedebugging]
    
-    Isso vai iniciar o processo de habilitar a extensão de depuração remota no seus nós de cluster, bem como as configurações de rede necessárias.
+    Isso iniciará o processo de habilitar a extensão de depuração remota em seus nós de cluster, bem como as configurações de rede necessárias.
 2. Clique com o botão direito do mouse no nó de cluster em **Gerenciador de Nuvem** e escolha **Anexar Depurador**
    
     ![Anexar Depurador][attachdebugger]
@@ -127,7 +126,7 @@ Você também pode transmitir rastreamentos diretamente de um nó de cluster rem
    
     ![Habilitar transmissão remota de rastreamentos][enablestreamingtraces]
    
-    Isso vai iniciar o processo de habilitar a extensão de transmissão de rastreamentos, bem como as configurações de rede necessárias.
+    Isso iniciará o processo de habilitar a extensão de rastreamentos de streaming em seus nós de cluster, bem como as configurações de rede necessárias.
 2. Expanda o elemento **Nós** no **Gerenciador de Nuvem**, clique com o botão direito do mouse no nó do qual deseja transmitir rastreamentos e escolha **Exibir Transmissão de Rastreamentos**
    
     ![Exibir transmissão remota de rastreamentos][viewremotestreamingtraces]
@@ -160,4 +159,3 @@ Você também pode transmitir rastreamentos diretamente de um nó de cluster rem
 [viewingstreamingtraces]: ./media/service-fabric-debugging-your-application/viewingstreamingtraces.png
 [viewremotestreamingtraces]: ./media/service-fabric-debugging-your-application/viewremotestreamingtraces.png
 [disablestreamingtraces]: ./media/service-fabric-debugging-your-application/disablestreamingtraces.png
-

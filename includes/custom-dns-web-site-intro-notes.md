@@ -3,13 +3,8 @@ Este artigo serve para Serviço de Aplicativo do Azure (aplicativos Web, Aplicat
 > [!NOTE]
 > Se seu aplicativo tiver balanceamento de carga do [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/), clique no seletor na parte superior desse artigo para obter etapas específicas.
 > 
-> **Nomes de domínio personalizados não são habilitados para a camada Gratuita**. Você deve [escalar verticalmente para um tipo de preço mais alto](../articles/app-service-web/web-sites-scale.md), que pode alterar o quanto você será cobrado por sua assinatura. 
+> **Nomes de domínio personalizados não são habilitados para a camada Gratuita**. Você deve [escalar verticalmente para um tipo de preço mais alto](../articles/app-service/web-sites-scale.md), que pode alterar o quanto você será cobrado por sua assinatura. 
 > Consulte [Preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/) para obter mais informações.
 > 
 > 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

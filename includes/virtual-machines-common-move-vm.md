@@ -27,8 +27,3 @@ Você pode mover uma VM e recursos associados para outro grupo de recursos usand
    
     ![Captura de tela da folha Mover recursos.](./media/virtual-machines-common-move-vm/move-rg-list.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

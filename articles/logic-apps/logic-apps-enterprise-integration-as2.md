@@ -12,14 +12,13 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
-ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 5733592fc1633d8722905c33dd267b4cbe1fe184
-ms.lasthandoff: 03/10/2017
-
-
+ms.date: 06/08/2017
+ms.author: LADocs; mandia
+ms.openlocfilehash: 91b2f16611b88aa4b9395ca301d88042065ad9dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Troca de mensagens AS2 para integração empresarial com aplicativos lógicos
 
@@ -39,9 +38,9 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
 
 ## <a name="create-an-as2-agreement"></a>Criar um contrato AS2
 
-1.    Entre no [portal do Azure](http://portal.azure.com "portal do Azure").  
+1.  Entre no [portal do Azure](http://portal.azure.com "portal do Azure").  
 
-2.    No menu à esquerda, selecione **Mais serviços**. Na caixa de pesquisa, digite **integração** como filtro. Na lista de resultados, selecione **Contas de Integração**.
+2.  No menu à esquerda, selecione **Mais serviços**. Na caixa de pesquisa, digite **integração** como filtro. Na lista de resultados, selecione **Contas de Integração**.
 
     > [!TIP]
     > Se você não encontrar a opção **Mais serviços**, talvez seja necessário expandir o menu primeiro. Na parte superior do menu recolhido, selecione **Mostrar menu**.
@@ -80,7 +79,7 @@ Caso não encontre nenhuma conta de integração, [crie uma primeiro](../logic-a
 
 Depois de configurar as propriedades do contrato, você pode configurar como este contrato identifica e manipula mensagens de entrada recebidas do seu parceiro por meio deste contrato.
 
-1.    Em **Adicionar**, selecione **Configurações de Recebimento**.
+1.  Em **Adicionar**, selecione **Configurações de Recebimento**.
 Configure essas propriedades com base em seu contrato com o parceiro que troca mensagens com você. Para obter descrições de propriedades, confira a tabela nesta seção.
 
     ![Configure "Configurações de recebimento"](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)
@@ -89,7 +88,7 @@ Configure essas propriedades com base em seu contrato com o parceiro que troca m
 
 3. Para exigir que todas as mensagens recebidas sejam assinadas, selecione **A mensagem deve ser assinada**. Na lista **Certificado**, selecione um [certificado público de parceiro convidado](../logic-apps/logic-apps-enterprise-integration-certificates.md) existente para validar a assinatura nas mensagens. Ou crie o certificado, se você não tiver um.
 
-4.    Para exigir que todas as mensagens de entrada sejam criptografadas, selecione **Mensagem deve ser criptografada**. Na lista **Certificado**, selecione um [certificado privado de parceiro host](../logic-apps/logic-apps-enterprise-integration-certificates.md) existente para descriptografar as mensagens de entrada. Ou crie o certificado, se você não tiver um.
+4.  Para exigir que todas as mensagens de entrada sejam criptografadas, selecione **Mensagem deve ser criptografada**. Na lista **Certificado**, selecione um [certificado privado de parceiro host](../logic-apps/logic-apps-enterprise-integration-certificates.md) existente para descriptografar as mensagens de entrada. Ou crie o certificado, se você não tiver um.
 
 5. Para exigir que as mensagens sejam compactadas, selecione **A mensagem deve ser compactada**.
 
@@ -120,10 +119,10 @@ Agora o contrato está pronto para lidar com mensagens de entrada de acordo com 
 
 Você pode configurar como este contrato identifica e trata mensagens de saída enviadas a seus parceiros por meio deste contrato.
 
-1.    Em **Adicionar**, selecione **Configurações de Envio**.
+1.  Em **Adicionar**, selecione **Configurações de Envio**.
 Configure essas propriedades com base em seu contrato com o parceiro que troca mensagens com você. Para obter descrições de propriedades, confira a tabela nesta seção.
 
-    ![Definição das propriedades de "Configurações de Envio"](./media/logic-apps-enterprise-integration-agreements/agreement-5.png)
+    ![Definição das propriedades de "Configurações de Envio"](./media/logic-apps-enterprise-integration-agreements/agreement-51.png)
 
 2. Para enviar mensagens assinadas a seu parceiro, selecione **Habilitar a assinatura de mensagens**. Para assinar as mensagens, na lista **Algoritmo MIC**, selecione o *algoritmo MIC de certificado privado de parceiro host*. E, na lista de **Certificados**, selecione um [certificado particular de parceiro host](../logic-apps/logic-apps-enterprise-integration-certificates.md) existente.
 
@@ -140,9 +139,11 @@ E, na lista de **Certificados**, selecione um [certificado público de parceiro 
 
 8. Para receber MDNs assíncronas para mensagens enviadas, selecione **Solicitar MDN assíncrona**. Se selecionar essa opção, insira a URL para onde enviar as MDNs.
 
-9. Para exigir o não repúdio de recebimento, selecione **Habilitar NRR**.
+9. Para exigir o não repúdio de recebimento, selecione **Habilitar NRR**.  
 
-10. Após terminar, salve suas configurações, escolhendo **OK**.
+10. Para especificar o formato de algoritmo para usar no MIC ou na assinatura dos cabeçalhos de saída da mensagem AS2 ou MDN, selecione **Formato de Algoritmo SHA2**.  
+
+11. Após terminar, salve suas configurações, escolhendo **OK**.
 
 Agora o contrato está pronto para lidar com mensagens de saída de acordo com as configurações selecionadas.
 
@@ -161,17 +162,20 @@ Agora o contrato está pronto para lidar com mensagens de saída de acordo com a
 | Solicitar MDN assíncrona |Exige que as MDNs assíncronas sejam enviadas para este contrato. |
 | URL |Especifique a URL para a qual enviar os MDNs. |
 | Habilitar NRR |Requer o não-repúdio de recebimento (NRR), um atributo de comunicação que fornece evidência de que os dados foram recebidos conforme endereçados. |
+| Formato de algoritmo SHA2 |Selecione o formato de algoritmo para usar no MIC ou na assinatura dos cabeçalhos de saída da mensagem AS2 ou MDN |
 
 ## <a name="find-your-created-agreement"></a>Como localizar seu contrato criado
 
-1.    Depois que você terminar de definir todas as suas propriedades de contrato, na folha **Adicionar**, escolha **OK** para terminar de criar o contrato e retornar para a folha da conta de integração.
+1.  Depois que você terminar de definir todas as suas propriedades de contrato, na folha **Adicionar**, escolha **OK** para terminar de criar o contrato e retornar para a folha da conta de integração.
 
     Agora seu contrato recém-adicionado é exibido na lista **Contratos**.
 
-2.    Você também pode visualizar seus contratos na visão geral de conta de integração. Na folha de conta de integração, escolha **Visão geral** e selecione o bloco **Contratos**. 
+2.  Você também pode visualizar seus contratos na visão geral de conta de integração. Na folha de conta de integração, escolha **Visão geral** e selecione o bloco **Contratos**. 
 
     ![Escolha o bloco de "Contratos" para exibir todos os contratos](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
 
+## <a name="view-the-swagger"></a>Exibir o Swagger
+Consulte os [detalhes do Swagger](/connectors/as2/). 
+
 ## <a name="next-steps"></a>Próximas etapas
 * [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")  
-

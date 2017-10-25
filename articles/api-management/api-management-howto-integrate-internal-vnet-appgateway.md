@@ -1,6 +1,6 @@
 ---
-title: Como usar o gerenciamento de API do Azure na rede virtual com gateway de aplicativo | Microsoft Docs
-description: Saiba como instalar e configurar o gerenciamento de API do Azure na rede virtual interna com o gateway de aplicativo (WAF) como front-end
+title: Como usar o Gerenciamento de API do Azure na rede virtual com Gateway de Aplicativo | Microsoft Docs
+description: Saiba como instalar e configurar o gerenciamento de API do Azure na rede virtual interna com o Gateway de Aplicativo (WAF) como front-end
 services: api-management
 documentationcenter: 
 author: solankisamir
@@ -12,14 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2017
+ms.date: 09/19/2017
 ms.author: sasolank
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 46210c7bc3158c27cda40fb85ffef16820dcbdef
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: df21b7213a647a66a16a84889bf7a24fde03c493
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Como integrar o gerenciamento de API em uma VNET interna com o gateway de aplicativo 
 
@@ -33,8 +32,18 @@ Combinar o Gerenciamento de API provisionado em uma rede virtual interna com o f
 * Usar um único recurso de Gerenciamento de API e ter uma sub-rede de APIs definida no Gerenciamento de API disponível para consumidores externos.
 * Fornecer uma maneira rápida de ativar e desativar o acesso ao Gerenciamento de API da Internet pública. 
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para executar as etapas descritas neste artigo, você precisa ter:
+
++ Uma assinatura ativa do Azure.
+
+    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
++ Uma instância do APIM. Para obter mais informações, consulte [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
+
 ##<a name="scenario"> </a> Cenário
-Este artigo ensinará a usar um único serviço de gerenciamento de API para consumidores internos e externos e a fazê-lo atuar como um único front-end para APIs locais e na nuvem. Você também verá como expor somente um subconjunto de suas APIs (destacadas em verde no exemplo) para Consumo Externo usando a funcionalidade de PathBasedRouting disponível no Gateway de Aplicativo.
+Este descreve como usar um único serviço do Gerenciamento de API para consumidores internos e externos e como fazê-lo atuar como um único front-end para APIs locais e na nuvem. Você também verá como expor somente um subconjunto de suas APIs (destacadas em verde no exemplo) para Consumo Externo usando a funcionalidade de PathBasedRouting disponível no Gateway de Aplicativo.
 
 No primeiro exemplo de instalação, todas as suas APIs são gerenciadas somente de dentro da sua Rede Virtual. Os consumidores internos (destacados em laranja) podem acessar todas as APIs internas e externas. O tráfego nunca segue para a Internet, um alto desempenho é entregue via circuitos de Rota Expressa.
 
@@ -54,7 +63,7 @@ No primeiro exemplo de instalação, todas as suas APIs são gerenciadas somente
 * **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (HTTP ou HTTPS, esses valores diferenciam maiúsculas de minúsculas) e o nome do certificado SSL (caso esteja configurando o descarregamento SSL).
 * **Regra:** a regra vincula um ouvinte para um pool de servidor de back-end.
 * **Investigação de Integridade Personalizada:** o gateway de aplicativo, por padrão, usa investigações baseadas em endereço IP para entender quais servidores no BackendAddressPool estão ativos. O serviço de gerenciamento de API responde apenas às solicitações que têm o cabeçalho de host correto, portanto, as investigações padrão falham. Uma investigação de integridade personalizada precisa ser definida para ajudar o gateway de aplicativo a determinar que o serviço está ativo e, assim, encaminhar as solicitações.
-* **Certificado de domínio personalizado:** para acessar o gerenciamento de API da Internet, você precisa fazer um mapeamento do nome do host de CNAME para o nome DNS de front-end do gateway de aplicativo. Isso garante que o certificado e o cabeçalho do nome do host enviados ao Gateway de Aplicativo que são encaminhados ao Gerenciamento de API possam ser reconhecidos e validados pelo APIM.
+* **Certificado de domínio personalizado:** para acessar o gerenciamento de API da Internet, você precisa fazer um mapeamento do nome do host de CNAME para o nome DNS de front-end do Gateway de Aplicativo. Isso garante que o certificado e o cabeçalho do nome do host enviados ao Gateway de Aplicativo que são encaminhados ao Gerenciamento de API possam ser reconhecidos e validados pelo APIM.
 
 ## <a name="overview-steps"> </a> Etapas necessárias para integrar o Gerenciamento de API e o Gateway de Aplicativo 
 
@@ -62,8 +71,8 @@ No primeiro exemplo de instalação, todas as suas APIs são gerenciadas somente
 2. Crie uma rede virtual, uma sub-rede e um IP público para o gateway de aplicativo. Crie outra sub-rede para o gerenciamento de API.
 3. Crie um serviço de Gerenciamento de API dentro da sub-rede da VNET criada acima e não deixe de usar o Modo interno.
 4. Configure o nome de domínio personalizado no serviço de Gerenciamento de API.
-5. Crie um objeto de configuração do gateway de aplicativo.
-6. Crie um recurso de gateway de aplicativo.
+5. Crie um objeto de configuração do Gateway de Aplicativo.
+6. Crie um recurso de Gateway de Aplicativo.
 7. Crie um CNAME do nome DNS público do Gateway de Aplicativo para o nome do host do proxy de Gerenciamento de API.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Criar um grupo de recursos para o Gerenciador de Recursos
@@ -103,7 +112,7 @@ O exemplo a seguir mostra como criar uma rede virtual usando o Resource Manager.
 
 ### <a name="step-1"></a>Etapa 1
 
-Ao criar uma rede virtual, atribua o intervalo de endereço 10.0.0.0/24 à variável de sub-rede a ser usada para o gateway de aplicativo.
+Ao criar uma rede virtual, atribua o intervalo de endereço 10.0.0.0/24 à variável de sub-rede a ser usada para o Gateway de Aplicativo.
 
 ```powershell
 $appgatewaysubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "apim01" -AddressPrefix "10.0.0.0/24"
@@ -147,7 +156,7 @@ $apimVirtualNetwork = New-AzureRmApiManagementVirtualNetwork -Location "West US"
 Crie um serviço de gerenciamento de API dentro da rede virtual.
 
 ```powershell
-$apimService = New-AzureRmApiManagement -ResourceGroupName "apim-appGw-RG" -Location "West US" -Name "ContosoApi" -Organization "Contoso" -AdminEmail "admin@contoso.com" -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Premium"
+$apimService = New-AzureRmApiManagement -ResourceGroupName "apim-appGw-RG" -Location "West US" -Name "ContosoApi" -Organization "Contoso" -AdminEmail "admin@contoso.com" -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer"
 ```
 Depois que o comando acima for bem-sucedido, confira a [Configuração DNS necessária para acessar o serviço de Gerenciamento de API da VNET interna](api-management-using-with-internal-vnet.md#apim-dns-configuration) para acessá-lo.
 
@@ -180,11 +189,11 @@ Um endereço IP é atribuído ao application gateway quando o serviço é inicia
 
 ## <a name="create-application-gateway-configuration"></a>Criar uma configuração do gateway de aplicativo
 
-Todos os itens de configuração devem estar configurados antes de criar o application gateway. As etapas a seguir criam os itens de configuração necessários para um recurso de gateway de aplicativo.
+Todos os itens de configuração devem estar configurados antes de criar o gateway de aplicativo. As etapas a seguir criam os itens de configuração necessários para um recurso de gateway de aplicativo.
 
 ### <a name="step-1"></a>Etapa 1
 
-Crie uma configuração de IP do gateway de aplicativo chamada **gatewayIP01**. Quando o Application Gateway é iniciado, ele escolhe um endereço IP na sub-rede configurada e no tráfego de rede da rota para os endereços IP no pool de IPs de back-end. Tenha em mente que cada instância usa um endereço IP.
+Crie uma configuração de IP do gateway de aplicativo chamada **gatewayIP01**. Quando o Gateway de Aplicativo é iniciado, ele escolhe um endereço IP na sub-rede configurada e no tráfego de rede da rota para os endereços IP no pool de IPs de back-end. Tenha em mente que cada instância usa um endereço IP.
 
 ```powershell
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name "gatewayIP01" -Subnet $appgatewaysubnetdata
@@ -235,7 +244,7 @@ $apimprobe = New-AzureRmApplicationGatewayProbeConfig -Name "apimproxyprobe" -Pr
 
 ### <a name="step-7"></a>Etapa 7
 
-Carregue o certificado a ser usado nos recursos do pool de back-end habilitado para SSL.
+Carregue o certificado a ser usado nos recursos do pool de back-end habilitado para SSL. Esse é o mesmo certificado que você forneceu na etapa 4 acima.
 
 ```powershell
 $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile <full path to .cer file>
@@ -258,19 +267,46 @@ $apimProxyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "a
 ```
 
 ### <a name="step-10"></a>Etapa 10
-Configure os caminhos de regra de URL para os pools de back-end. Isso permite que você selecione somente algumas das APIs do Gerenciamento de API para serem expostas ao público. (por exemplo, se houver `Echo API` (/echo/), `Calculator API` (/calc/) etc. deixe somente `Echo API` acessível na Internet). 
+
+Crie configurações para um back-end fictício (inexistente). Solicitações para caminhos de API que não queremos expor do Gerenciamento de API por meio do Gateway de Aplicativo atingirão esse back-end e retornarão 404.
+
+Defina as configurações de HTTP para o back-end fictício.
+
+```powershell
+$dummyBackendSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "dummySetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled
+```
+
+Configure um back-end fictício **dummyBackendPool** que aponte para um endereço FQDN **dummybackend.com**. Esse endereço FQDN não existe na rede virtual.
+
+```powershell
+$dummyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "dummyBackendPool" -BackendFqdns "dummybackend.com"
+```
+
+Crie uma configuração de regra que o Gateway de Aplicativo usará por padrão que aponte para o back-end inexistente **dummybackend.com** na Rede Virtual.
+
+```powershell
+$dummyPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "nonexistentapis" -Paths "/*" -BackendAddressPool $dummyBackendPool -BackendHttpSettings $dummyBackendSetting
+```
+
+### <a name="step-11"></a>Etapa 11
+
+Configure os caminhos de regra de URL para os pools de back-end. Isso permite que você selecione somente algumas das APIs do Gerenciamento de API para serem expostas ao público. Por exemplo, se houver `Echo API` (/echo/), `Calculator API` (/calc/) etc., deixe somente `Echo API` acessível na Internet. 
 
 O exemplo a seguir cria uma regra simples para o tráfego de roteamento do caminho "/eco/" para o "apimProxyBackendPool" do back-end.
 
 ```powershell
 $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
-
-$urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule -DefaultBackendAddressPool $apimProxyBackendPool -DefaultBackendHttpSettings $apimPoolSetting
 ```
 
-A etapa acima garante que apenas solicitações para o caminho "/echo" sejam permitidas pelo gateway de aplicativo. As solicitações para outras APIs configuradas no gerenciamento de API emitirão erros 404 do gateway de aplicativo quando acessadas da Internet. 
+Se o caminho não corresponder às regras de caminho que você deseja habilitar do gerenciamento de API, a configuração de mapa de caminho de regra também configurará um pool de endereços de back-end padrão chamado **dummyBackendPool**. Por exemplo, http://api.contoso.net/calc/* vai para **dummyBackendPool** conforme ele é definido como o pool padrão para tráfego não correspondente.
 
-### <a name="step-11"></a>Etapa 11
+```powershell
+$urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting
+```
+
+A etapa acima garante que apenas solicitações para o caminho "/echo" sejam permitidas pelo gateway de aplicativo. As solicitações para outras APIs configuradas no gerenciamento de API emitirão erros 404 do Gateway de Aplicativo quando acessadas da Internet. 
+
+### <a name="step-12"></a>Etapa 12
 
 Crie uma configuração de regra para o Gateway de Aplicativo para usar o roteamento baseado em caminho de URL.
 
@@ -278,7 +314,7 @@ Crie uma configuração de regra para o Gateway de Aplicativo para usar o roteam
 $rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType PathBasedRouting -HttpListener $listener -UrlPathMap $urlPathMap
 ```
 
-### <a name="step-12"></a>Etapa 12
+### <a name="step-13"></a>Etapa 13
 
 Configure o número de instâncias e o tamanho do gateway de aplicativo. Aqui, estamos usando o [WAF SKU](../application-gateway/application-gateway-webapplicationfirewall-overview.md) para aumentar a segurança do recurso de Gerenciamento de API.
 
@@ -286,7 +322,7 @@ Configure o número de instâncias e o tamanho do gateway de aplicativo. Aqui, e
 $sku = New-AzureRmApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity 2
 ```
 
-### <a name="step-13"></a>Etapa 13
+### <a name="step-14"></a>Etapa 14
 
 Configure WAF para ativar o modo de "Prevenção".
 ```powershell
@@ -295,17 +331,17 @@ $config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enab
 
 ## <a name="create-application-gateway"></a>Criar um Application Gateway
 
-Crie um gateway de aplicativo com todos os objetos de configuração das etapas anteriores.
+Crie um Gateway de Aplicativo com todos os objetos de configuração das etapas anteriores.
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name "appgwtest" -ResourceGroupName "apim-appGw-RG" -Location "West US" -BackendAddressPools $apimProxyBackendPool -BackendHttpSettingsCollection $apimPoolSetting -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert -Probes $apimprobe
+$appgw = New-AzureRmApplicationGateway -Name $applicationGatewayName -ResourceGroupName $resourceGroupName  -Location $location -BackendAddressPools $apimProxyBackendPool, $dummyBackendPool -BackendHttpSettingsCollection $apimPoolSetting, $dummyBackendSetting  -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert -Probes $apimprobe
 ```
 
-## <a name="cname-the-api-management-proxy-hostname-to-the-public-dns-name-of-the-application-gateway-resource"></a>Dê um CNAME ao nome do host do proxy do gerenciamento de API para o nome DNS público do recurso de gateway de aplicativo
+## <a name="cname-the-api-management-proxy-hostname-to-the-public-dns-name-of-the-application-gateway-resource"></a>Dê um CNAME ao nome do host do proxy do Gerenciamento de API para o nome DNS público do recurso de Gateway de Aplicativo
 
-Depois de criar o gateway, a próxima etapa será configurar o front-end para comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. 
+Depois de criar o gateway, a próxima etapa será configurar o front-end para comunicação. Ao usar um IP público, o Gateway de Aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. 
 
-O nome DNS do gateway de aplicativo deve ser usado para criar um registro CNAME, que aponta o nome de host do proxy APIM (conforme `api.contoso.net` mostrado no exemplo anterior) para esse nome DNS. Para configurar o registro CNAME de IP de front-end, recupere os detalhes do gateway de aplicativo e seu nome DNS/IP associado usando o elemento PublicIPAddress. O uso de registros A não é recomendável, pois o VIP pode mudar na reinicialização do gateway.
+O nome DNS do gateway de aplicativo deve ser usado para criar um registro CNAME, que aponta o nome de host do proxy APIM (conforme `api.contoso.net` mostrado no exemplo anterior) para esse nome DNS. Para configurar o registro CNAME de IP de front-end, recupere os detalhes do Gateway de Aplicativo e seu nome DNS/IP associado usando o elemento PublicIPAddress. O uso de registros A não é recomendável, pois o VIP pode mudar na reinicialização do gateway.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName "apim-appGw-RG" -Name "publicIP01"
@@ -316,10 +352,9 @@ O Gerenciamento de API do Azure configurado em uma VNET fornece uma interface de
 
 ##<a name="next-steps"> </a> Próximas etapas
 * Saiba mais sobre o Gateway de Aplicativo do Azure
-  * [Visão geral do Application Gateway](../application-gateway/application-gateway-introduction.md)
+  * [Visão geral do Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md)
   * [Firewall do Aplicativo Web do Gateway de Aplicativo (visualização)](../application-gateway/application-gateway-webapplicationfirewall-overview.md)
+  * [Gateway de Aplicativo usando Roteamento com base em Caminho](../application-gateway/application-gateway-create-url-route-arm-ps.md)
 * Saiba mais sobre o gerenciamento de API nas VNETs
+  * [Usando o Gerenciamento de API disponível somente na VNET](api-management-using-with-internal-vnet.md)
   * [Uso do Gerenciamento de API na rede virtual](api-management-using-with-vnet.md)
-
-
-

@@ -9,19 +9,18 @@ editor:
 tags: 
 ms.assetid: c05abd9e-28a7-4c97-9bdf-bc60d08fc92e
 ms.service: sql-database
-ms.custom: overview
+ms.custom: load & move data
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 03/17/2017
 ms.author: rickbyh
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 9716975994d1ab3b7cf63efc6480efcd48eb67bb
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: c4efec378a31852feacfce4ed4f040f80284e230
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolvendo diferenças de Transact-SQL durante a migração para o Banco de Dados SQL   
 Quando [migrar seu banco de dados](sql-database-cloud-migrate.md) do SQL Server para o SQL Server do Azure, você poderá descobrir que seu banco de dados requer alguma reengenharia antes que o SQL Server possa ser migrado. Este tópico fornece diretrizes para ajudá-lo tanto a realizar essa reengenharia quanto a entender os motivos subjacentes pelos quais a reengenharia é necessária. Para detectar incompatibilidades, use o [DMA (Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595).
@@ -31,7 +30,7 @@ Há suporte total, tanto no Microsoft SQL Server quanto no Banco de Dados SQL do
 
 Além disso, há alguns recursos e sintaxe sem suporte nenhum, porque o Banco de Dados SQL do Azure foi criado para isolar recursos de dependências no banco de dados mestre e no sistema operacional. Assim, a maioria das atividades no nível do servidor são inapropriadas para o Banco de Dados SQL. As opções e instruções Transact-SQL não estão disponíveis se elas configuram opções no nível do servidor, componentes do sistema operacional ou se especificam a configuração do sistema de arquivos. Quando essas funcionalidades são necessárias, uma alternativa apropriada costuma estar disponível de alguma forma no Banco de Dados SQL ou em outro recurso ou serviço do Azure. 
 
-Por exemplo, alta disponibilidade é criada no Azure, então configurar o Always On não é necessário (embora você talvez queira configurar a replicação geográfica ativa para recuperação mais rápida em caso de um desastre). Assim, não há suporte para as instruções Transact-SQL relacionadas aos grupos de disponibilidade no Banco de Dados SQL nem para as exibições de gerenciamento dinâmico relacionadas ao AlwaysOn.
+Por exemplo, alta disponibilidade é criada no Azure, então, configurar o Always On não é necessário (embora você talvez queira configurar a replicação geográfica ativa para recuperação mais rápida em caso de um desastre). Assim, não há suporte para as instruções Transact-SQL relacionadas aos grupos de disponibilidade no Banco de Dados SQL nem para as exibições de gerenciamento dinâmico relacionadas ao AlwaysOn.
 
 Para obter uma lista dos recursos com e sem suporte no Banco de Dados SQL, consulte [Comparação de recursos do Banco de Dados SQL do Azure](sql-database-features.md). A lista nesta página complementa o tópico Diretrizes e recursos e se concentra nas instruções Transact-SQL.
 
@@ -91,5 +90,4 @@ Em alguns casos, o assunto geral de um tópico pode ser usado em um produto, mas
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter uma lista dos recursos com e sem suporte no Banco de Dados SQL, consulte [Comparação de recursos do Banco de Dados SQL do Azure](sql-database-features.md). A lista nesta página complementa o tópico Diretrizes e recursos e se concentra nas instruções Transact-SQL.
-
 

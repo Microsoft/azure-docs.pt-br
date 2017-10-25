@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 08/02/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 2b278b5c512d3ea0ff045869487d4551118c0e5c
-ms.lasthandoff: 03/14/2017
-
-
+ms.openlocfilehash: ffef289e154986e4b08a072d3a95f77818fb9c35
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Preparação para fazer backup de cargas de trabalho usando o Servidor de Backup do Azure
 > [!div class="op_single_selector"]
@@ -58,11 +57,13 @@ Se você planeja ingressar o Servidor de Backup do Azure em um domínio, recomen
 ## <a name="2-backup-vault"></a>2. Cofre de backup
 ![etapa2](./media/backup-azure-microsoft-azure-backup/step2.png)
 
-Se você envia os dados de backup para o Azure ou os mantêm localmente, o Servidor de Backup do Azure deve ser registrado em um cofre.
+Se você envia os dados de backup para o Azure ou os mantêm localmente, o Servidor de Backup do Azure deve ser registrado em um cofre. Se você é um novo usuário do Backup do Azure e deseja usar o Servidor de Backup do Azure, consulte a versão do portal do Azure deste artigo – [Preparar-se para fazer backup de cargas de trabalho usando o Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md).
 
 > [!IMPORTANT]
-> A partir de março de 2017, você não poderá mais usar o portal clássico para criar os cofres de Backup. Ainda há suporte para os cofres de Backup existentes, e é possível [usar o Azure PowerShell para criar os Cofres de Backup](./backup-client-automation-classic.md#create-a-backup-vault). No entanto, a Microsoft recomenda a criação de cofres dos Serviços de Recuperação para todas as implantações, pois aperfeiçoamentos futuros só se aplicam aos cofres dos Serviços de Recuperação.
->
+> A partir de março de 2017, você não poderá mais usar o portal clássico para criar os cofres de Backup.
+> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> Após 15 de outubro de 2017, você não poderá usar o PowerShell para criar os Cofres do Backup. **Em 1º de novembro de 2017**:
+>- Todos os Cofres do Backup restantes serão atualizados automaticamente para os cofres dos Serviços de Recuperação.
+>- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
 >
 
 
@@ -116,12 +117,12 @@ Após concluir o processo de extração, marque a caixa para iniciar o *setup.ex
 
 4. Forneça um local para a instalação dos arquivos do servidor de Backup do Microsoft Azure e clique em **Avançar**.
 
-    ![Pré-requisito&2; do Backup do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/space-screen.png)
+    ![Pré-requisito 2 do Backup do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
     O local temporário é um requisito para o backup do Azure. Verifique se o local temporário é de pelo menos 5% dos dados planejados para fazer backup na nuvem. Para proteção de disco, será necessário configurar discos separados após a conclusão da instalação. Para saber mais sobre pools de armazenamento, consulte [Configurar os pools de armazenamento e o armazenamento em disco](https://technet.microsoft.com/library/hh758075.aspx).
 5. Forneça uma senha forte para as contas de usuário local restritas e clique em **Avançar**.
 
-    ![Pré-requisito&2; do Backup do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/security-screen.png)
+    ![Pré-requisito 2 do Backup do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/security-screen.png)
 6. Selecione se você deseja usar o *Microsoft Update* para verificar se há atualizações e clique em **Avançar**.
 
    > [!NOTE]
@@ -129,15 +130,15 @@ Após concluir o processo de extração, marque a caixa para iniciar o *setup.ex
    >
    >
 
-    ![Pré-requisito&2; do Backup do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
+    ![Pré-requisito 2 do Backup do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 7. Examine o *Resumo das Configurações* e clique em **Instalar**.
 
-    ![Pré-requisito&2; do Backup do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
+    ![Pré-requisito 2 do Backup do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
 8. A instalação acontece em fases. Na primeira fase, o Agente de Serviços de Recuperação do Microsoft Azure é instalado no servidor. O assistente também verifica a conectividade direta com a Internet. Se houver conectividade com a Internet, você poderá prosseguir com a instalação; caso contrário, será necessário fornecer detalhes de proxy para se conectar à Internet.
 
     A próxima etapa será configurar o Agente de Serviços de Recuperação do Microsoft Azure. Como parte da configuração, você precisará fornecer as credenciais do cofre para registrar o computador no cofre de backup. Você fornecerá uma senha para criptografar/descriptografar os dados enviados entre o Azure e seus locais. Você pode gerar automaticamente uma senha ou fornecer sua própria senha mínima de 16 caracteres. Prossiga com o assistente até o agente ser configurado.
 
-    ![Pré-requisito&2; do Servidor de Backup do Azure](./media/backup-azure-microsoft-azure-backup/mars/04.png)
+    ![Pré-requisito 2 do Servidor de Backup do Azure](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 9. Assim que o registro do Servidor de Backup do Microsoft Azure for concluído com êxito, o assistente de instalação geral prosseguirá na instalação e na configuração dos componentes do SQL Server e do Servidor de Backup do Azure. Após a conclusão da instalação do componente do SQL Server, os componentes do Servidor de Backup do Azure serão instalados.
 
     ![Servidor de Backup do Azure](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
@@ -199,4 +200,3 @@ Você pode usar estes artigos para obter um entendimento mais profundo sobre a p
 * [Backup do SQL Server](backup-azure-backup-sql.md)
 * [Backup do servidor do SharePoint](backup-azure-backup-sharepoint.md)
 * [Backup do servidor alternativo](backup-azure-alternate-dpm-server.md)
-

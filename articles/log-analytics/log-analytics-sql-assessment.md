@@ -12,17 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: a78c3877ac64b9376104d853d6b66b90fbb476d8
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: d2aed3315fe60ace46dfb4176dc13aa417257b0c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Otimizar seu ambiente do SQL Server com a solução de Avaliação de SQL da Log Analytics
+
+![Símbolo da Avaliação do SQL](./media/log-analytics-sql-assessment/sql-assessment-symbol.png)
 
 Você pode usar a solução de Avaliação de SQL para avaliar o risco e a integridade de seus ambientes de servidor em intervalos regulares. Este artigo ajudará você a instalar a solução para que você possa tomar ações corretivas para potenciais problemas.
 
@@ -64,7 +65,7 @@ A tabela a seguir mostra os métodos de coleta de dados dos agentes, se o SCOM (
 
 | plataforma | Agente direto | Agente SCOM | Armazenamento do Azure | SCOM necessário? | Os dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Sim](./media/log-analytics-sql-assessment/oms-bullet-green.png) |![Sim](./media/log-analytics-sql-assessment/oms-bullet-green.png) |![Não](./media/log-analytics-sql-assessment/oms-bullet-red.png) |![Não](./media/log-analytics-sql-assessment/oms-bullet-red.png) |![Sim](./media/log-analytics-sql-assessment/oms-bullet-green.png) |7 dias |
+| Windows | &#8226; | &#8226; |  |  | &#8226; |7 dias |
 
 ## <a name="operations-manager-run-as-accounts-for-oms"></a>Contas Executar como do Operations Manager para OMS
 O Log Analytics no OMS usa o grupo de gerenciamento e o agente do Operations Manager para coletar e enviar dados para o serviço do OMS. O OMS é criado com base nos pacotes de gerenciamento para cargas de trabalho para fornecer serviços com valor agregado. Cada carga de trabalho exige privilégios específicos da carga de trabalho para executar pacotes de gerenciamento em um contexto de segurança diferente, como uma conta de domínio. Você precisa fornecer informações de credenciais configurando uma conta Executar como do Operations Manager.
@@ -168,6 +169,8 @@ Veja as avaliações de conformidade resumidas para sua infraestrutura e faça u
 ## <a name="ignore-recommendations"></a>Ignorar as recomendações
 Se houver recomendações que deseja ignorar, você poderá criar um arquivo de texto que será usado pelo OMS para impedir que as recomendações sejam exibidas nos resultados da avaliação.
 
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Para identificar as recomendações que serão ignoradas
 1. Entre em seu espaço de trabalho e abra a Pesquisa de Log. Use a consulta a seguir para listar as recomendações que falharam para os computadores em seu ambiente.
 
@@ -203,7 +206,7 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
 
 * Não no momento.
 
-*Se outro servidor for descoberto após ter adicionado uma solução de avaliação de SQL, ele será avaliado?*
+*Se outro servidor for descoberto após ter adicionado a solução de avaliação do SQL, ele será avaliado?*
 
 * Sim, assim que for descoberto, ele é avaliado a partir de então a cada sete dias.
 
@@ -245,4 +248,3 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Pesquise nos logs](log-analytics-log-searches.md) para exibir dados detalhados de Avaliação do SQL e recomendações.
-

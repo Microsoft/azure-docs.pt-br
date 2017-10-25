@@ -3,7 +3,7 @@ title: Como distribuir tabelas no SQL Data Warehouse | Microsoft Docs
 description: "Introdução à distribuição de tabelas no Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: shivaniguptamsft
 manager: barbkess
 editor: 
 ms.assetid: 5ed4337f-7262-4ef6-8fd6-1809ce9634fc
@@ -12,23 +12,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
-ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 4becdace365fce1fb70e9e870dd4c8b81d1c7496
-
-
+ms.author: shigu;barbkess
+ms.openlocfilehash: d0e12bf821a81826a20b8db84e76c48fa60ad9b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="distributing-tables-in-sql-data-warehouse"></a>Distribuindo tabelas no SQL Data Warehouse
 > [!div class="op_single_selector"]
-> * [Visão geral][Visão geral]
-> * [Tipos de dados][Tipos de dados]
-> * [Distribuir][Distribuir]
-> * [Índice][Índice]
-> * [Partition][Partition]
-> * [Estatísticas][Estatísticas]
-> * [Temporário][Temporário]
+> * [Visão geral][Overview]
+> * [Tipos de Dados][Data Types]
+> * [Distribuir][Distribute]
+> * [Índice][Index]
+> * [Partição][Partition]
+> * [Estatísticas][Statistics]
+> * [Temporário][Temporary]
 >
 >
 
@@ -180,7 +181,7 @@ Uma maneira simples de identificar uma tabela como distorcida é usar `DBCC PDW_
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-No entanto, se você consultar as exibições de gerenciamento dinâmico do Azure SQL Data Warehouse (DMV), poderá executar uma análise mais detalhada.  Para começar, crie o modo de exibição [dbo.vTableSizes][dbo.vTableSizes] usando o SQL do artigo [Visão geral da tabela][Visão geral].  Depois que a exibição é criada, execute esta consulta para identificar quais tabelas têm mais de 10% de distorção de dados.
+No entanto, se você consultar as exibições de gerenciamento dinâmico do Azure SQL Data Warehouse (DMV), poderá executar uma análise mais detalhada.  Para começar, crie o modo de exibição [dbo.vTableSizes][dbo.vTableSizes] usando o SQL do artigo [Visão geral da tabela][Overview].  Depois que a exibição é criada, execute esta consulta para identificar quais tabelas têm mais de 10% de distorção de dados.
 
 ```sql
 select *
@@ -198,7 +199,7 @@ order by two_part_name, row_count
 ```
 
 ### <a name="resolving-data-skew"></a>Resolvendo distorções de dados
-Nem toda distorção é suficiente para exigir uma correção.  Em alguns casos, o desempenho de uma tabela em algumas consultas pode superar os danos de distorção de dados.  Para decidir se deve resolver a distorção de dados em uma tabela, você deve compreender o máximo possível sobre os volumes de dados e consultas na carga de trabalho.   Uma maneira de observar o impacto da distorção é usar as etapas do artigo [Consultar monitoramento][Consultar monitoramento] para monitorar o impacto da distorção no desempenho da consulta e, especificamente, o impacto em quanto tempo as consultas demoram para concluir as distribuições individuais.
+Nem toda distorção é suficiente para exigir uma correção.  Em alguns casos, o desempenho de uma tabela em algumas consultas pode superar os danos de distorção de dados.  Para decidir se deve resolver a distorção de dados em uma tabela, você deve compreender o máximo possível sobre os volumes de dados e consultas na carga de trabalho.   Uma maneira de observar o impacto da distorção é usar as etapas do artigo [Consultar monitoramento][Query Monitoring] para monitorar o impacto da distorção no desempenho da consulta e, especificamente, o impacto sobre o tempo usado para conclusão das consultas nas distribuições individuais.
 
 A distribuição de dados é uma questão de encontrar o equilíbrio certo entre minimizar a distorção de dados e minimizar a movimentação de dados. Esses podem ser objetivos opostos e, às vezes, você desejará manter a distorção de dados para reduzir a movimentação de dados. Por exemplo, quando a coluna de distribuição com frequência é a coluna compartilhada em junções e agregações, você vai minimizar a movimentação de dados. O benefício de ter o mínimo de movimentação de dados pode superar o impacto de ter a distorção de dados.
 
@@ -283,31 +284,25 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre o design da tabela, confira os artigos [Distribuir][Distribuir], [Índice][Índice], [Partition][Partition], [Tipos de dados][Tipos de dados], [Estatísticas][Estatísticas] e [Tabelas temporárias][Temporário].
+Para saber mais sobre o design da tabela, confira os artigos [Distribuir][Distribute], [Índice][Index], [Partição][Partition], [Tipos de dados][Data Types], [Estatísticas][Statistics] e [Tabelas temporárias][Temporary].
 
-Para obter uma visão geral das práticas recomendadas, confira [SQL Data Warehouse Best Practices][SQL Data Warehouse Best Practices].
+Para obter uma visão geral das práticas recomendadas, confira [Práticas recomendadas para o SQL Data Warehouse][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral]: ./sql-data-warehouse-tables-overview.md
-[Tipos de dados]: ./sql-data-warehouse-tables-data-types.md
-[Distribuir]: ./sql-data-warehouse-tables-distribute.md
-[Índice]: ./sql-data-warehouse-tables-index.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Estatísticas]: ./sql-data-warehouse-tables-statistics.md
-[Temporário]: ./sql-data-warehouse-tables-temporary.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-[Consultar monitoramento]: ./sql-data-warehouse-manage-monitor.md
+[Query Monitoring]: ./sql-data-warehouse-manage-monitor.md
 [dbo.vTableSizes]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 
 <!--MSDN references-->
 [DBCC PDW_SHOWSPACEUSED()]: https://msdn.microsoft.com/library/mt204028.aspx
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -3,7 +3,7 @@ title: "Solução de problemas do Azure SQL Data Warehouse | Microsoft Docs"
 description: "Solução de problemas do Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: 
 ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 03/03/2017
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 73f10984b7fe2636f5b9f664b831adc910e7ac7a
-ms.lasthandoff: 03/04/2017
-
-
+ms.custom: manage
+ms.date: 03/30/2017
+ms.author: kevin;barbkess
+ms.openlocfilehash: d269e62b8d49a6c96ce40c2e31c4096e16e07793
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Solução de problemas do Azure SQL Data Warehouse
 Este tópico lista algumas das perguntas mais comuns que ouvimos de nossos clientes sobre solução de problemas.
@@ -31,12 +31,13 @@ Este tópico lista algumas das perguntas mais comuns que ouvimos de nossos clien
 | A entidade de segurança do servidor "MyUserName" não é capaz de acessar o banco de dados "mestre" no contexto de segurança atual. Não é possível abrir o banco de dados padrão do usuário. Falha no logon. Falha de logon do usuário 'MyUserName'. (Microsoft SQL Server, erro: 916) |Esse erro ocorre quando um usuário do AAD tenta se conectar no banco de dados mestre, mas não tem um usuário no mestre.  Para corrigir esse problema, especifique o SQL Data Warehouse que deseja conectar no momento da conexão ou adicione o usuário ao banco de dados mestre.  Confira o artigo [Visão geral de segurança][Security overview] para obter mais detalhes. |
 | Erro CTAIP |Esse erro pode ocorrer quando um logon tiver sido criado no banco de dados mestre do SQL Server, mas não no banco de dados do SQL Data Warehouse.  Se você encontrar esse erro, examine o artigo [Visão geral de segurança][Security overview].  Este artigo explica como criar um logon e um usuário no mestre e, em seguida, como criar um usuário no banco de dados do SQL Data Warehouse. |
 | Bloqueado pelo firewall |Bancos de Dados SQL do Azure são protegidos pelo servidor e firewalls de nível de banco de dados para garantir que somente os endereços IP conhecidos possam acessar um bancos de dados. Os firewalls são seguros por padrão, o que significa que você deve habilitar explicitamente um endereço IP ou um intervalo de endereços antes de se conectar.  Para configurar seu firewall para acesso, siga as etapas na seção [Configurar o acesso ao servidor de firewall para o IP do cliente][Configure server firewall access for your client IP] nas [Instruções de provisionamento][Provisioning instructions]. |
-| Não é possível conectar-se com a ferramenta ou driver |O SQL Data Warehouse recomenda usar o [SSMS][SSMS], o [SSDT para Visual Studio 2015][SSDT for Visual Studio 2015] ou o [sqlcmd][sqlcmd] para consultar os dados. Para obter mais detalhes sobre os drivers e como se conectar ao SQL Data Warehouse, confira os artigos [Drivers do Azure SQL Data Warehouse][Drivers for Azure SQL Data Warehouse] e [Conectar-se ao Azure SQL Data Warehouse][Connect to Azure SQL Data Warehouse]. |
+| Não é possível conectar-se com a ferramenta ou driver |O SQL Data Warehouse recomenda usar o [SSMS][SSMS], o [SSDT para Visual Studio][SSDT for Visual Studio] ou o [sqlcmd][sqlcmd] para consultar os dados. Para obter mais detalhes sobre os drivers e como se conectar ao SQL Data Warehouse, confira os artigos [Drivers do Azure SQL Data Warehouse][Drivers for Azure SQL Data Warehouse] e [Conectar-se ao Azure SQL Data Warehouse][Connect to Azure SQL Data Warehouse]. |
 
 ## <a name="tools"></a>Ferramentas
 | Problema | Resolução |
 |:--- |:--- |
 | O Pesquisador de objetos do Visual Studio não tem usuários de AAD |Esse é um problema conhecido.  Como alternativa, exiba os usuários em [sys.database_principals][sys.database_principals].  Confira [Autenticação do Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse] para saber mais sobre como usar o Azure Active Directory com o SQL Data Warehouse. |
+|Escrever script manualmente usando o assistente de script ou conectar-se via SSMS é lento, trava ou produz erros| Certifique-se de que os usuários foram criados no banco de dados mestre. Nas opções de script, certifique-se também de que a edição do mecanismo está definida como "Edição do SQL Data Warehouse do Microsoft Azure" e o tipo de mecanismo é "Banco de Dados SQL do Microsoft Azure".|
 
 ## <a name="performance"></a>Desempenho
 | Problema | Resolução |
@@ -54,6 +55,7 @@ Este tópico lista algumas das perguntas mais comuns que ouvimos de nossos clien
 | Msg 40847: não foi possível executar a operação, pois o servidor excederia a cota de Unidade de Transação de Banco de Dados permitida de 45000. |Reduza a [DWU][DWU] do banco de dados que você está tentando criar ou [solicite um aumento de cota][request a quota increase]. |
 | Investigação da utilização de espaço |Confira os [Tamanhos da tabela][Table sizes] para entender a utilização do espaço de seu sistema. |
 | Ajuda com o gerenciamento de tabelas |Confira o artigo [Visão geral da tabela][Overview] para obter ajuda com o gerenciamento de suas tabelas.  Este artigo também inclui links para tópicos mais detalhados, como [Tipos de dados de tabela][Data types], [Distribuindo uma tabela][Distribute], [Indexando uma tabela][Index], [Particionando uma tabela][Partition], [Mantendo as estatísticas da tabela][Statistics] e [Tabelas temporárias][Temporary]. |
+|A barra de progresso TDE (Transparent Data Encryption) não está atualizando no Portal do Azure|Você pode exibir o estado de TDE via [PowerShell](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption).|
 
 ## <a name="polybase"></a>Polybase
 | Problema | Resolução |
@@ -88,7 +90,7 @@ Se você não é capaz de encontrar uma solução para seu problema acima, aqui 
 <!--Article references-->
 [Security overview]: ./sql-data-warehouse-overview-manage-security.md
 [SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
-[SSDT for Visual Studio 2015]: ./sql-data-warehouse-install-visual-studio.md
+[SSDT for Visual Studio]: ./sql-data-warehouse-install-visual-studio.md
 [Drivers for Azure SQL Data Warehouse]: ./sql-data-warehouse-connection-strings.md
 [Connect to Azure SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
 [Criar um tíquete de suporte]: ./sql-data-warehouse-get-started-create-support-ticket.md
@@ -133,4 +135,3 @@ Se você não é capaz de encontrar uma solução para seu problema acima, aqui 
 [Fórum Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-

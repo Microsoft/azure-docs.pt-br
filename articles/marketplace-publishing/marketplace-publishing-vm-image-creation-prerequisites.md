@@ -14,16 +14,16 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 8c2dbd0a79a616e291c974c16d20d423cbb25ce2
-
-
+ms.openlocfilehash: af3e2ad623d8d7bfafe676411f9ae3fbee78aab8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Pré-requisitos técnicos para criar uma imagem de máquina virtual para o Azure Marketplace
 Leia o processo completamente antes de começar e compreender onde e por que cada etapa é executada. O quanto for possível, você deve preparar informações da sua empresa e outros dados, baixar as ferramentas necessárias e criar componentes técnicos antes de iniciar o processo de criação de oferta. Esses itens devem estar claros com a leitura deste artigo.  
 
-## <a name="download-needed-tools-applications"></a>Baixe as ferramentas e aplicativos necessários
+## <a name="download-needed-tools--applications"></a>Baixe as ferramentas e aplicativos necessários
 Você deve ter os seguintes itens prontos antes de iniciar o processo:
 
 * Dependendo de qual sistema operacional você está buscando, instale os [cmdlets do Azure PowerShell](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) ou uma [ferramenta de interface de linha de comando do Linux](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409) na página [Downloads do Azure](https://azure.microsoft.com/downloads/).
@@ -51,17 +51,4 @@ Você pode desenvolver VHDs do Azure na nuvem ou no local:
 * Desenvolvimento baseado em nuvem significa que todas as etapas de desenvolvimento são executadas remotamente em um VHD residente no Azure.
 * O desenvolvimento local requer o download de um VHD e desenvolvê-lo usando a infraestrutura local. Embora isso seja possível, não é recomendável. Observe que desenvolver para o Windows ou SQL localmente requer que você tenha as chaves de licença locais relevante. Você não pode incluir ou instalar o SQL Server depois de criar uma VM. Você também deve basear sua oferta em uma imagem SQL aprovada no portal do Azure. Se você optar por desenvolver localmente, execute algumas etapas diferentes do que se você estivesse desenvolvendo na nuvem. Você pode encontrar informações relevantes em [Criar uma imagem de VM local](marketplace-publishing-vm-image-creation-on-premise.md).
 
-## <a name="next-steps"></a>Próximas etapas
-Agora você revisou os pré-requisitos e concluiu a tarefa necessária, pode prosseguir com a criação de sua oferta de imagem da Máquina Virtual, conforme detalhado no [Guia de publicação de imagem de Máquina Virtual](marketplace-publishing-vm-image-creation.md)
-
-## <a name="see-also"></a>Confira também
-* [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
-* [Criar uma máquina virtual que executa o Windows no Portal de Visualização do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

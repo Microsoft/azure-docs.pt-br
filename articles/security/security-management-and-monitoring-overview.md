@@ -14,19 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f0c174d7d845dd7e48de6388270dde2469d89a12
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 6787877deabafd0b7308e190cb45b4036049b05b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Visão geral de monitoramento e gerenciamento de segurança do Azure
 O Azure fornece mecanismos de segurança para auxiliar no gerenciamento e monitoramento de serviços de nuvem e máquinas virtuais do Azure. Este artigo fornece uma visão geral desses recursos e serviços de segurança básicos. São fornecidos links para artigos que apresentam detalhes de cada um para que você possa saber mais sobre eles.
 
 A segurança de seus serviços em nuvem da Microsoft é uma parceria e responsabilidade compartilhada entre você e a Microsoft. Responsabilidade compartilhada significa que a Microsoft é responsável pelo Microsoft Azure e pela segurança física de seus data centers (com o uso de proteções de segurança, como portas de entrada bloqueadas com acesso por crachá, grades e vigilância). Além disso, o Azure fornece fortes níveis de segurança de nuvem na camada de software que atendem às necessidades de segurança, privacidade e conformidade de seus clientes exigentes.
 
-Você é o proprietário de seus dados e identidades, tem a responsabilidade de protegê-los, além de ser responsável pela segurança de seus recursos locais e dos componentes de nuvem que estão sob seu controle. A Microsoft fornece controles de segurança e funcionalidades para ajudá-lo a proteger seus dados e aplicativos. Sua responsabilidade pela segurança é baseada no tipo de serviço de nuvem.
+Você é o proprietário de seus dados e identidades, tem a responsabilidade de protegê-los, além de ser responsável pela segurança de seus recursos locais e dos componentes de nuvem que estão sob seu controle. A Microsoft fornece controles de segurança e funcionalidades para ajudá-lo a proteger seus dados e aplicativos. Seu grau de responsabilidade pela segurança se baseia no tipo de serviço de nuvem.
 
 A tabela a seguir resume a proporção de responsabilidade assumida pela Microsoft e pelo cliente.
 
@@ -39,7 +38,7 @@ Aqui estão os principais recursos que serão abordados neste artigo:
 * Controle de Acesso Baseado em Função
 * Antimalware
 * Multi-Factor Authentication
-* Rota Expressa
+* ExpressRoute
 * Gateways de rede virtual
 * Privileged Identity Management
 * Identity Protection
@@ -79,12 +78,12 @@ Saiba mais:
 * [O que é o Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 * [Como funciona o Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
 
-## <a name="expressroute"></a>Rota Expressa
-A Rota Expressa do Microsoft Azure permite que você estenda suas redes locais até a nuvem da Microsoft por meio de uma conexão privada dedicada, facilitada por um provedor de conectividade. Com a Rota Expressa, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como o Microsoft Azure, o Office 365 e o CRM Online. A conectividade pode ocorrer de uma rede “qualquer para qualquer” (VPN IP), uma rede Ethernet ponto a ponto ou uma conexão cruzada virtual por meio de um provedor de conectividade em uma colocalização. As conexões da Rota Expressa não passam pela Internet pública. Isso permite que as conexões da Rota Expressa ofereçam mais confiabilidade, mais velocidade, latências menores e muito mais segurança do que as conexões típicas pela Internet.
+## <a name="expressroute"></a>ExpressRoute
+A Microsoft Azure ExpressRoute permite que você estenda suas redes locais até a nuvem da Microsoft por meio de uma conexão privada dedicada, facilitada por um provedor de conectividade. Com o ExpressRoute, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como o Microsoft Azure, o Office 365 e o CRM Online. A conectividade pode ocorrer de uma rede “qualquer para qualquer” (VPN IP), uma rede Ethernet ponto a ponto ou uma conexão cruzada virtual por meio de um provedor de conectividade em uma colocalização. As conexões do ExpressRoute não passam pela Internet pública. Isso permite que as conexões do ExpressRoute ofereçam mais confiabilidade, mais velocidade, latências menores e muito mais segurança do que as conexões típicas pela Internet.
 
 Saiba mais:
 
-* [Visão Geral Técnica da Rota Expressa](../expressroute/expressroute-introduction.md)
+* [Visão Geral Técnica do ExpressRoute](../expressroute/expressroute-introduction.md)
 
 ## <a name="virtual-network-gateways"></a>Gateways de rede virtual
 Os Gateways de VPN, também chamados de Gateways de Rede Virtual do Azure, são usados para enviar o tráfego de rede entre redes virtuais e locais. Eles também são usados para enviar tráfego entre várias redes virtuais no Azure (VNet-to-VNet).  Os gateways de VPN fornecem conectividade segura entre instalações entre o Azure e sua infraestrutura.
@@ -130,4 +129,3 @@ Saiba mais:
 
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
-

@@ -13,16 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 05/23/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 42f93a638ea0bb5139063b76b223fd811ba58fb4
-ms.openlocfilehash: 98bf824831f60a70877e8c41f8b60c339df173d6
-ms.lasthandoff: 02/24/2017
-
-
+ms.openlocfilehash: 149a493f7b369415f0a2726dd6a576f0195c13d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurar aplicativos SaaS para colaboração B2B
 
 A colaboração B2B do Azure Active Directory (Azure AD) funciona com a maioria dos aplicativos que se integra no Azure AD. Nesta seção, examinaremos as instruções de como configurar alguns aplicativos SaaS populares para usar com o B2B do Azure AD.
@@ -81,7 +79,7 @@ Você pode permitir que os usuários autentiquem os usuários convidados do Box 
 
 1. Adicione o aplicativo Box a partir dos aplicativos da empresa.
 
-2. Configure o logon único fazendo o seguinte:
+2. Configure o logon único na seguinte ordem:
 
   ![Configurar logon único do Box](media/active-directory-b2b-configure-saas-apps/configure-box-sso.png)
 
@@ -94,7 +92,7 @@ Você pode permitir que os usuários autentiquem os usuários convidados do Box 
 
  d. Para começar a configurar seu locatário Box.com para usar o Azure AD como um provedor de identidade, baixe o arquivo de metadados e salve-o em sua unidade local.
 
- e. Encaminhe o arquivo de metadados para a equipe de suporte do Box, que irá configurar o logon único para você.
+ e. Encaminhe o arquivo de metadados para a equipe de suporte do Box, que configura o logon único para você.
 
 3. Para a configuração automática do usuário do Azure AD, no painel esquerdo, selecione **Provisionamento**, em seguida, selecione **Autorizar**.
 
@@ -116,4 +114,3 @@ Consulte os seguintes artigos na colaboração B2B do Azure AD:
 * [Mapeamento de declarações de usuário de colaboração B2B](active-directory-b2b-claims-mapping.md)
 * [Compartilhamento externo do Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitações atuais da colaboração B2B](active-directory-b2b-current-limitations.md)
-

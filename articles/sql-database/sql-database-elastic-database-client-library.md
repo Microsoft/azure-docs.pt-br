@@ -8,18 +8,18 @@ author: ddove
 editor: 
 ms.assetid: 1f11c52d-13c1-4994-b9b1-5b1ae2f9255f
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 509a77a5059a39f964a1d89099998a07fd2cbfd5
-
-
+ms.openlocfilehash: 0128b333f04847ab646dcb0759fcef5f7e86ffd9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Criando bancos de dados de nuvem escalonáveis
 A escala horizontal dos bancos de dados pode ser feita facilmente usando recursos e ferramentas escalonáveis do Banco de Dados SQL do Azure. Em particular, você pode usar a **Biblioteca de cliente do banco de dados elástico** para criar e gerenciar bancos de dados escalonados. Esse recurso permite que você desenvolva facilmente aplicativos fragmentados usando centenas — ou até mesmo milhares - de bancos de dados SQL do Azure. [Trabalhos elásticos](sql-database-elastic-jobs-powershell.md) podem ser usados para ajudar a facilitar o gerenciamento desses bancos de dados.
@@ -72,10 +72,4 @@ A biblioteca agora está disponível como software livre no [GitHub](https://git
 <!--Anchors-->
 <!--Image references-->
 [1]:./media/sql-database-elastic-database-client-library/glossary.png
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

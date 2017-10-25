@@ -12,22 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2016
-ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 74ad61e9fea56a17d2563a0e1b2364777c44856e
-ms.openlocfilehash: 3552caf7e419459095321b3b248ba441097766f4
-
-
+ms.date: 07/05/2017
+ms.author: ambapat
+ms.openlocfilehash: b34c67ecc1bd50157ded790948ac7b88a5807ddb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-key-vault-service-limits"></a>Limites de serviços do Azure Key Vault
 Esses são os limites de serviço para o Azure Key Vault.
 
 [!INCLUDE [key-vault-limits](../../includes/key-vault-limits.md)]
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

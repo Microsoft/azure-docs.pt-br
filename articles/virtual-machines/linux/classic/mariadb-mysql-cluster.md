@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/15/2015
 ms.author: asabbour
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 53e9bf18b26338212411ea7c4f260eb308486738
-ms.lasthandoff: 03/27/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>Cluster MariaDB (MySQL): tutorial do Azure
 > [!IMPORTANT]
@@ -365,4 +364,3 @@ Pode ser interessante ver [outra maneira de clusterizar o MySQL no Linux](mysql-
 [MariaDBs]:https://mariadb.org/en/about/
 [criar uma chave SSH para autenticação]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
 [issue #1268 in the Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268
-

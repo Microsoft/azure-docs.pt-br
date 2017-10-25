@@ -15,12 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
 ms.openlocfilehash: 6e02f42613808bcb13c0057e9f8fcc1c02273e77
-ms.lasthandoff: 03/25/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Como executar um servidor de aplicativos do Java em uma máquina virtual criada com o modelo de implantação clássico
 > [!IMPORTANT]
@@ -55,7 +54,7 @@ A instalação completa resulta na execução do Tomcat em uma máquina virtual.
    4. Selecione a **Assinatura** apropriada.
    5. Para o **Grupo de recursos**, clique em **Criar novo** e insira o nome de um novo grupo de recursos. Se preferir, clique em **Usar existente** e selecione um dos grupos de recursos disponíveis.
    6. Selecione uma localização em que a máquina virtual reside, como **Centro-Sul dos EUA**.
-6. Clique em **Próximo**.
+6. Clique em **Avançar**.
 7. Na folha **Tamanho da imagem de máquina virtual**, selecione **A1 Padrão** ou outra imagem apropriada.
 8. Clique em **Selecionar**.
 
@@ -121,7 +120,7 @@ Para ver o Tomcat em execução em máquinas externas, você precisará criar um
 10. Na tela **Nome**, especifique um nome para a regra, como **HttpIn** (no entanto, o nome da regra não precisa corresponder ao nome do ponto de extremidade) e clique em **Concluir**.  
     ![Nome da nova regra de entrada][NewRuleName]
 
-Neste ponto, o site do Tomcat deverá estar visível em um navegador externo. Na janela de endereço do navegador, digite uma URL no formato **http://*your\_DNS\_name*.cloudapp.net**, em que***your\_DNS\_name*** é o nome DNS especificado quando a máquina virtual foi criada.
+Neste ponto, o site do Tomcat deverá estar visível em um navegador externo. Na janela de endereço do navegador, digite uma URL no formato **http://*your\_DNS\_name*.cloudapp.net**, em que ***your\_DNS\_name*** é o nome DNS especificado quando a máquina virtual foi criada.
 
 ## <a name="application-lifecycle-considerations"></a>Considerações sobre o ciclo de vida do aplicativo
 * Você pode criar o próprio arquivo web do aplicativo (WAR) e adicioná-lo à pasta **webapps** . Por exemplo, crie um projeto Web dinâmico JSP (Página de Serviço Java) básico e exporte-o como um arquivo WAR. Em seguida, copie o WAR para a pasta **webapps** do Apache Tomcat na máquina virtual e, em seguida, execute-o em um navegador.
@@ -159,4 +158,3 @@ Neste ponto, o site do Tomcat deverá estar visível em um navegador externo. Na
 6. In the **Add endpoint** dialog box, ensure **Add standalone endpoint** is selected, and then click **Next**.
 7. In the **New endpoint details** dialog box:
 -->
-

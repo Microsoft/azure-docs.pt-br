@@ -3,7 +3,7 @@ title: "Políticas avançadas de Gerenciamento de API do Azure| Microsoft Docs"
 description: "Saiba mais sobre as políticas avançadas disponíveis para uso no Gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 8a13348b-7856-428f-8e35-9e4273d94323
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: bfadac7b34eca2ef1f9bcabc6e267ca9572990b8
-ms.lasthandoff: 03/18/2017
-
+ms.openlocfilehash: e5a658e0d20d42911870f2522f6c1bab7529ea11
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -27,7 +27,9 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   [Controlar fluxo](api-management-advanced-policies.md#choose) - Aplica-se condicionalmente a instruções de políticas com base nos resultados da avaliação do booliano [expressions](api-management-policy-expressions.md).  
   
--   [Encaminhar solicitação](#ForwardRequest) -Encaminha a solicitação ao serviço de back-end.  
+-   [Encaminhar solicitação](#ForwardRequest) -Encaminha a solicitação ao serviço de back-end.
+
+-   [Simultaneidade de limite](#LimitConcurrency) - impede que as políticas embutidas sejam executadas mais do que o número especificado de solicitações por vez.
   
 -   [Registrar no Hub de Eventos](#log-to-eventhub) – envia mensagens no formato especificado para um Hub de Eventos definido por uma entidade Logger. 
 
@@ -35,18 +37,20 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   [Repetir](#Retry) - repete a execução das instruções de política, se e até que a condição seja atendida. A execução será repetida em intervalos de tempo especificados até e a contagem de repetições especificada.  
   
--   [Retornar resposta](#ReturnResponse) - Anula a execução de pipeline e retorna a resposta especificada diretamente para o autor da chamada.  
+-   [Retornar resposta](#ReturnResponse) - Anula a execução de pipeline e retorna a resposta especificada diretamente para o autor da chamada. 
   
 -   [Enviar solicitação unidirecional](#SendOneWayRequest) - Envia uma solicitação para a URL especificada sem aguardar uma resposta.  
   
 -   [Enviar solicitação](#SendRequest) - Envia uma solicitação para a URL especificada.  
-  
--   [Definir variável](api-management-advanced-policies.md#set-variable) – persiste um valor em uma variável de [contexto](api-management-policy-expressions.md#ContextVariables) nomeada para acesso posterior.  
-  
+
+-   [Definir proxy HTTP](#SetHttpProxy) – permite a você, por meio de um proxy HTTP, reencaminhar solicitações encaminhadas.  
+
 -   [Definir método de solicitação](#SetRequestMethod) - Permite alterar o método HTTP de uma solicitação.  
   
 -   [Definir código de status](#SetStatus) – altera o código de status de HTTP para o valor especificado.  
   
+-   [Definir variável](api-management-advanced-policies.md#set-variable) – persiste um valor em uma variável de [contexto](api-management-policy-expressions.md#ContextVariables) nomeada para acesso posterior.  
+
 -   [Rastreamento](#Trace) - adiciona uma cadeia de caracteres para a saída do [Inspetor de API](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/).  
   
 -   [Aguardar](#Wait) – aguarda a conclusão das políticas [Enviar solicitação](api-management-advanced-policies.md#SendRequest), [Obter valor do cache](api-management-caching-policies.md#GetFromCacheByKey) ou [Controlar fluxo](api-management-advanced-policies.md#choose) antes de continuar.  
@@ -263,6 +267,56 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 -   **Escopos da política:** todos os escopos  
   
+##  <a name="LimitConcurrency"></a> Simultaneidade de limite  
+ A política `limit-concurrency` impede que as políticas embutidas sejam executadas mais do que o número especificado de solicitações em um determinado momento. Ao exceder o limite, novas solicitações são adicionadas a uma fila, até que o comprimento máximo da fila seja atingido. Quando a fila atinge seu máximo, novas solicitações falham imediatamente.
+  
+###  <a name="LimitConcurrencyStatement"></a> Declaração de política  
+  
+```xml  
+<limit-concurrency key="expression" max-count="number" timeout="in seconds" max-queue-length="number">
+        <!— nested policy statements -->  
+</limit-concurrency>
+``` 
+
+### <a name="examples"></a>Exemplos  
+  
+####  <a name="ChooseExample"></a> Exemplo  
+ O exemplo a seguir demonstra como limitar o número de solicitações encaminhadas a um back-end com base no valor de uma variável de contexto.
+ 
+```xml  
+<policies>
+  <inbound>…</inbound>
+  <backend>
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3" timeout="60">
+      <forward-request timeout="120"/>
+    <limit-concurrency/>
+  </backend>
+  <outbound>…</outbound>
+</policies>
+```
+
+### <a name="elements"></a>Elementos  
+  
+|Elemento|Descrição|Obrigatório|  
+|-------------|-----------------|--------------|    
+|limit-concurrency|Elemento raiz.|Sim|  
+  
+### <a name="attributes"></a>Atributos  
+  
+|Atributo|Descrição|Obrigatório|Padrão|  
+|---------------|-----------------|--------------|--------------|  
+|chave|Uma cadeia de caracteres. Expressão permitida. Especifica o escopo de simultaneidade. Pode ser compartilhado por várias políticas.|Sim|N/D|  
+|max-count|Um inteiro. Especifica um número máximo de solicitações que são permitidas para inserir a política.|Sim|N/D|  
+|Tempo limite|Um inteiro. Expressão permitida. Especifica o número de segundos que uma solicitação deve esperar para inserir um escopo antes de falhar com "429 Muitas solicitações"|Não|Infinito|  
+|max-queue-length|Um inteiro. Expressão permitida. Especifica o comprimento máximo da fila. Solicitações de entrada que tentarem inserir essa política serão encerradas com "429 Muitas solicitações" assim que a fila atingir seu comprimento máximo.|Não|Infinito|  
+  
+###  <a name="ChooseUsage"></a> Uso  
+ Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+  
+-   **Seções da política:** entrada, saída, back-end, em caso de erro  
+  
+-   **Escopos da política:** todos os escopos  
+
 ##  <a name="log-to-eventhub"></a> Registrar no Hub de Eventos  
  A política `log-to-eventhub` envia mensagens no formato especificado para um Hub de Eventos definido por uma entidade Logger. Como o nome sugere, a política é usada para salvar informações de contexto de solicitação ou de resposta solicitadas para a análise online ou offline.  
   
@@ -440,9 +494,9 @@ status code and media type. If no example or schema found, the content is empty.
 ```xml  
 <return-response>  
    <set-status code="401" reason="Unauthorized"/>  
-     <set-header name="WWW-Authenticate" exists-action="override">  
-        <value>Bearer error="invalid_token"</value>  
-     </set-header>  
+   <set-header name="WWW-Authenticate" exists-action="override">  
+      <value>Bearer error="invalid_token"</value>  
+   </set-header>  
 </return-response>  
   
 ```  
@@ -620,6 +674,144 @@ status code and media type. If no example or schema found, the content is empty.
   
 -   **Escopos da política:** todos os escopos  
   
+##  <a name="SetHttpProxy"></a> Definir proxy HTTP  
+ A política `proxy` permite reencaminhar, por meio de um proxy HTTP, as solicitações encaminhadas aos back-ends. Entre o gateway e o proxy, há suporte apenas para HTTP (e não para HTTPS). Somente autenticação básica e NTLM.
+  
+### <a name="policy-statement"></a>Declaração de política  
+  
+```xml  
+<proxy url="http://hostname-or-ip:port" username="username" password="password" />  
+  
+```  
+  
+### <a name="example"></a>Exemplo  
+Observe o uso de [propriedades](api-management-howto-properties.md) como valores de nome de usuário e senha para evitar armazenar informações confidenciais no documento de política.  
+  
+```xml  
+<proxy url="http://192.168.1.1:8080" username={{username}} password={{password}} />
+  
+```  
+  
+### <a name="elements"></a>Elementos  
+  
+|Elemento|Descrição|Obrigatório|  
+|-------------|-----------------|--------------|  
+|proxy|Elemento raiz|Sim|  
+
+### <a name="attributes"></a>Atributos  
+  
+|Atributo|Descrição|Obrigatório|Padrão|  
+|---------------|-----------------|--------------|-------------|  
+|url="string"|URL do proxy no formato http://host:porta.|Sim|N/D |  
+|username="string"|Nome de usuário a ser usado para autenticação com o proxy.|Não|N/D |  
+|password="string"|Senha a ser usada para autenticação com o proxy.|Não|N/D |  
+
+### <a name="usage"></a>Uso  
+ Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+  
+-   **Seções de política:** de entrada  
+  
+-   **Escopos da política:** todos os escopos  
+
+##  <a name="SetRequestMethod"></a> Definir método de solicitação  
+ A política `set-method` permite alterar o método de solicitação HTTP de uma solicitação.  
+  
+### <a name="policy-statement"></a>Declaração de política  
+  
+```xml  
+<set-method>METHOD</set-method>  
+  
+```  
+  
+### <a name="example"></a>Exemplo  
+ Essa política de exemplo que usa a política `set-method` mostra um exemplo de envio de uma mensagem para uma sala de chat do Slack se o código de resposta HTTP for maior ou igual a 500. Para obter mais informações sobre esse exemplo, consulte [Uso dos serviços externos do serviço de Gerenciamento de API do Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
+  
+```xml  
+<choose>  
+    <when condition="@(context.Response.StatusCode >= 500)">  
+      <send-one-way-request mode="new">  
+        <set-url>https://hooks.slack.com/services/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</set-url>  
+        <set-method>POST</set-method>  
+        <set-body>@{  
+                return new JObject(  
+                        new JProperty("username","APIM Alert"),  
+                        new JProperty("icon_emoji", ":ghost:"),  
+                        new JProperty("text", String.Format("{0} {1}\nHost: {2}\n{3} {4}\n User: {5}",  
+                                                context.Request.Method,  
+                                                context.Request.Url.Path + context.Request.Url.QueryString,  
+                                                context.Request.Url.Host,  
+                                                context.Response.StatusCode,  
+                                                context.Response.StatusReason,  
+                                                context.User.Email  
+                                                ))  
+                        ).ToString();  
+            }</set-body>  
+      </send-one-way-request>  
+    </when>  
+</choose>  
+  
+```  
+  
+### <a name="elements"></a>Elementos  
+  
+|Elemento|Descrição|Obrigatório|  
+|-------------|-----------------|--------------|  
+|set-method|Elemento raiz. O valor do elemento especifica o método HTTP.|Sim|  
+  
+### <a name="usage"></a>Uso  
+ Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+  
+-   **Seções de política:** entrada, em caso de erro  
+  
+-   **Escopos da política:** todos os escopos  
+  
+##  <a name="SetStatus"></a> Definir código de status  
+ A política `set-status` define o código de status HTTP para o valor especificado.  
+  
+### <a name="policy-statement"></a>Declaração de política  
+  
+```xml  
+<set-status code="" reason=""/>  
+  
+```  
+  
+### <a name="example"></a>Exemplo  
+ Este exemplo mostra como retornar uma resposta 401, se o token de autorização for inválido. Para obter mais informações, consulte [Uso dos serviços externos do serviço de Gerenciamento de API do Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)  
+  
+```xml  
+<choose>  
+  <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">  
+    <return-response response-variable-name="existing response variable">  
+      <set-status code="401" reason="Unauthorized" />  
+      <set-header name="WWW-Authenticate" exists-action="override">  
+        <value>Bearer error="invalid_token"</value>  
+      </set-header>  
+    </return-response>  
+  </when>  
+</choose>  
+  
+```  
+  
+### <a name="elements"></a>Elementos  
+  
+|Elemento|Descrição|Obrigatório|  
+|-------------|-----------------|--------------|  
+|set-status|Elemento raiz.|Sim|  
+  
+### <a name="attributes"></a>Atributos  
+  
+|Atributo|Descrição|Obrigatório|Padrão|  
+|---------------|-----------------|--------------|-------------|  
+|code="integer"|O código de status HTTP a ser retornado.|Sim|N/D|  
+|reason="string"|Uma descrição do motivo para retornar o código de status.|Sim|N/D|  
+  
+### <a name="usage"></a>Uso  
+ Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+  
+-   **Seções de política:** saída, back-end, em caso de erro  
+  
+-   **Escopos da política:** todos os escopos  
+
 ##  <a name="set-variable"></a> Definir variável  
  A política `set-variable` declara uma variável de [contexto](api-management-policy-expressions.md#ContextVariables) e atribui a ela um valor especificado por meio de uma [expressão](api-management-policy-expressions.md) ou literal de cadeia de caracteres. Se a expressão contiver um literal ele será convertido em uma cadeia de caracteres e o tipo do valor será `System.String`.  
   
@@ -720,106 +912,7 @@ status code and media type. If no example or schema found, the content is empty.
 -   System.Char?  
   
 -   System.DateTime?  
-  
-##  <a name="SetRequestMethod"></a> Definir método de solicitação  
- A política `set-method` permite alterar o método de solicitação HTTP de uma solicitação.  
-  
-### <a name="policy-statement"></a>Declaração de política  
-  
-```xml  
-<set-method>METHOD</set-method>  
-  
-```  
-  
-### <a name="example"></a>Exemplo  
- Essa política de exemplo que usa a política `set-method` mostra um exemplo de envio de uma mensagem para uma sala de chat do Slack se o código de resposta HTTP for maior ou igual a 500. Para obter mais informações sobre esse exemplo, consulte [Uso dos serviços externos do serviço de Gerenciamento de API do Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
-  
-```xml  
-<choose>  
-    <when condition="@(context.Response.StatusCode >= 500)">  
-      <send-one-way-request mode="new">  
-        <set-url>https://hooks.slack.com/services/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</set-url>  
-        <set-method>POST</set-method>  
-        <set-body>@{  
-                return new JObject(  
-                        new JProperty("username","APIM Alert"),  
-                        new JProperty("icon_emoji", ":ghost:"),  
-                        new JProperty("text", String.Format("{0} {1}\nHost: {2}\n{3} {4}\n User: {5}",  
-                                                context.Request.Method,  
-                                                context.Request.Url.Path + context.Request.Url.QueryString,  
-                                                context.Request.Url.Host,  
-                                                context.Response.StatusCode,  
-                                                context.Response.StatusReason,  
-                                                context.User.Email  
-                                                ))  
-                        ).ToString();  
-            }</set-body>  
-      </send-one-way-request>  
-    </when>  
-</choose>  
-  
-```  
-  
-### <a name="elements"></a>Elementos  
-  
-|Elemento|Descrição|Obrigatório|  
-|-------------|-----------------|--------------|  
-|set-method|Elemento raiz. O valor do elemento especifica o método HTTP.|Sim|  
-  
-### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
-  
--   **Seções de política:** entrada, em caso de erro  
-  
--   **Escopos da política:** todos os escopos  
-  
-##  <a name="SetStatus"></a> Definir código de status  
- A política `set-status` define o código de status HTTP para o valor especificado.  
-  
-### <a name="policy-statement"></a>Declaração de política  
-  
-```xml  
-<set-status code="" reason=""/>  
-  
-```  
-  
-### <a name="example"></a>Exemplo  
- Este exemplo mostra como retornar uma resposta 401, se o token de autorização for inválido. Para obter mais informações, consulte [Uso dos serviços externos do serviço de Gerenciamento de API do Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)  
-  
-```xml  
-<choose>  
-  <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">  
-    <return-response response-variable-name="existing response variable">  
-      <set-status code="401" reason="Unauthorized" />  
-      <set-header name="WWW-Authenticate" exists-action="override">  
-        <value>Bearer error="invalid_token"</value>  
-      </set-header>  
-    </return-response>  
-  </when>  
-</choose>  
-  
-```  
-  
-### <a name="elements"></a>Elementos  
-  
-|Elemento|Descrição|Obrigatório|  
-|-------------|-----------------|--------------|  
-|set-status|Elemento raiz.|Sim|  
-  
-### <a name="attributes"></a>Atributos  
-  
-|Atributo|Descrição|Obrigatório|Padrão|  
-|---------------|-----------------|--------------|-------------|  
-|code="integer"|O código de status HTTP a ser retornado.|Sim|N/D|  
-|reason="string"|Uma descrição do motivo para retornar o código de status.|Sim|N/D|  
-  
-### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
-  
--   **Seções de política:** saída, back-end, em caso de erro  
-  
--   **Escopos da política:** todos os escopos  
-  
+
 ##  <a name="Trace"></a> Rastreamento  
  A política `trace` adiciona uma cadeia de caracteres à saída do [Inspetor de API](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/). A política será executada somente quando o rastreamento for disparado, ou seja, o cabeçalho de solicitação `Ocp-Apim-Trace` está presente e definido como `true` e o cabeçalho de solicitação `Ocp-Apim-Subscription-Key` está presente e contém uma chave válida associada à conta do administrador.  
   
@@ -921,6 +1014,5 @@ status code and media type. If no example or schema found, the content is empty.
   
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre como trabalhar com políticas, consulte:
--    [Políticas no Gerenciamento de API](api-management-howto-policies.md) 
--    [Expressões de política](api-management-policy-expressions.md)
-
+-   [Políticas no Gerenciamento de API](api-management-howto-policies.md) 
+-   [Expressões de política](api-management-policy-expressions.md)

@@ -2,7 +2,7 @@
 title: "Documentação da Automação do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba mais sobre como usar a Automação para automatizar o gerenciamento de processos e de configuração para economizar tempo e aumentar a confiabilidade das tarefas administrativas comuns."
 services: automation
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 5a96f86157516585742bf184a65f42b1a2070a95
-ms.openlocfilehash: 008fe9bc549d2ba4bc043c344b39409a04efe598
-
+ms.openlocfilehash: ed25b6abaacbdd44b718a1a5febce5a02dacc334
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automation-documentation"></a>Documentação da Automação do Azure
 
@@ -168,7 +169,7 @@ Saiba mais sobre como usar a Automação para economizar tempo e aumentar a conf
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt662285.aspx">API REST</a></p>
+                        <p><a href="/rest/api/automation/">API REST</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt163781">API REST Clássica</a></p>
                     </div>
                 </div>
@@ -176,11 +177,5 @@ Saiba mais sobre como usar a Automação para economizar tempo e aumentar a conf
         </div>
     </li>
 </ul>
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

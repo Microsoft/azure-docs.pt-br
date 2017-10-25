@@ -23,8 +23,3 @@
    | 5 |PDUs |
 4. Para ativar o sistema, inverta os comutadores de energia em ambos os PCMs para a posição LIGADO.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

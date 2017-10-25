@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 07/18/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
-ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
-ms.lasthandoff: 12/06/2016
-
-
+ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Conectando seus produtos de segurança à Solução de Segurança e Auditoria do OMS (Operations Management Suite) 
 Este documento ajudará você a conectar seus produtos de segurança à Solução de Segurança e Auditoria do OMS. Há suporte para as fontes a seguir:
@@ -64,7 +63,7 @@ No computador agente, os eventos precisam ser enviados do daemon syslog para a p
     log { source(src); filter(f_local4_oms); destination(security_oms); };
     
 3. Baixe o arquivo *security_events.conf* e coloque-o em */etc/opt/microsoft/omsagent/conf/omsagent.d/* no computador agente do OMS.
-4. Digite o comando abaixo para reiniciar o daemon syslog:  *For syslog-ng run:*
+4. Digite o comando abaixo para reiniciar o daemon syslog: *For syslog-ng run:*
     
     ```
     sudo service rsyslog restart
@@ -90,11 +89,13 @@ No computador agente, os eventos precisam ser enviados do daemon syslog para a p
     ```
 6. Digite o comando abaixo e examine o resultado para confirmar que não há erros no log do Agente do OMS:
 
-    ```    
+    ``` 
     tail /var/opt/microsoft/omsagent/log/omsagent.log
     ```
 
 ## <a name="reviewing-collected-security-events"></a>Revisando os eventos de segurança coletados
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 Após terminar configuração, o evento de segurança começará a ser processado pela Segurança do OMS. Para visualizar esses eventos, abra a Pesquisa de Log, digite o comando *Type=CommonSecurityLog* no campo de pesquisa e pressione ENTER. O exemplo a seguir mostra o resultado desse comando. Observe que, nesse caso, a Segurança do OMS já incluiu logs de segurança de vários fornecedores:
    
@@ -111,5 +112,4 @@ Neste documento, você aprendeu como conectar sua solução CEF ao OMS. Para sab
 * [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
 * [Monitorando e respondendo a alertas de segurança na solução de Segurança e Auditoria do Operations Management Suite](oms-security-responding-alerts.md)
 * [Monitorando recursos na solução de Segurança e Auditoria do Operations Management Suite](oms-security-monitoring-resources.md)
-
 

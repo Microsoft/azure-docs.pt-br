@@ -1,6 +1,6 @@
 ---
-title: "Mobile Engagement do Azure - Interface do usuário - Segmentos"
-description: "Como criar e gerenciar segmentos de usuários para identificar padrões de uso usando o Mobile Engagement do Azure"
+title: "Azure Mobile Engagement - Interface do usuário - Segmentos"
+description: "Como criar e gerenciar segmentos de usuários para identificar padrões de uso usando o Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b4f1df6f46b7b8349fcea649ebcdf34fc363491d
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 087f4a1fef420abe9669f8dfe2b84c7a847ce263
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-and-manage-segments-of-users-to-identify-usage-patterns"></a>Como criar e gerenciar segmentos de usuários para identificar padrões de uso
 Este artigo descreve a guia **SEGMENTOS** do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis.
@@ -27,7 +26,7 @@ Este artigo descreve a guia **SEGMENTOS** do portal do **Mobile Engagement**. Vo
 A seção de segmentos da interface do usuário permite que você trabalhe na segmentação dos usuários com base no comportamento diferente e na análise que você pode obter do aplicativo e também pode acessar por meio da API de segmentos. Os segmentos são primeiramente calculados 24 horas após terem sido criados e serão recalculados com base nas informações de análise mais recentes a cada 24 horas. Após um segmento ter sido calculado, ele exibe um gráfico de “Histórico diário" todos os dias.
 
 > [!NOTE]
-> Muitas seções da interface do usuário do portal do **Engajamento Móvel** contêm o botão **MOSTRAR AJUDA**. Pressione este botão para obter mais informações contextuais sobre uma seção.
+> Muitas seções da interface do usuário do portal do **Mobile Engagement** contêm o botão **MOSTRAR AJUDA**. Pressione este botão para obter mais informações contextuais sobre uma seção.
 > 
 > 
 
@@ -43,12 +42,12 @@ Você pode criar um segmento com base em até 10 critérios em um período espec
  ![segments2][36]
 
 Os segmentos permitem segmentar os usuários finais do seu aplicativo.
-Segmentar os usuários é uma importante estratégia de marketing. O Mobile Engagement do Azure permite que você obtenha os dados dos históricos e crie segmentos personalizados. Essa poderosa ferramenta permite que você saiba mais sobre a experiência dos clientes em seu aplicativo. Você pode facilmente analisar os segmentos e usá-los como destinos de envio.
+Segmentar os usuários é uma importante estratégia de marketing. O Azure Mobile Engagement permite que você obtenha os dados dos históricos e crie segmentos personalizados. Essa poderosa ferramenta permite que você saiba mais sobre a experiência dos clientes em seu aplicativo. Você pode facilmente analisar os segmentos e usá-los como destinos de envio.
 Um caso de uso comum é quando você deseja enviar uma notificação para estimular os usuários finais a avaliar o seu aplicativo na loja. Em vez de enviar uma notificação para todos os seus usuários finais, você pode criar um segmento que especifique somente os usuários que usaram o aplicativo todos os dias no último mês e que têm tido um ótima experiência. Quando você envia notificações por push menos extremamente específicas, você pode obter um melhor ROI.
 
  ![segments3][37]
 
-### <a name="segments-you-can-create-based-on-the-major-azure-mobile-engagement-elements"></a>Segmentos que você pode criar com base nos elementos principais do Mobile Engagement do Azure:
+### <a name="segments-you-can-create-based-on-the-major-azure-mobile-engagement-elements"></a>Segmentos que você pode criar com base nos elementos principais do Azure Mobile Engagement:
 * Evento: crie um segmento que tem como alvo um determinado evento do aplicativo que ocorrereu mais de duas vezes por semana. 
 * Sessão: crie um segmento de usuários que usaram o aplicativo mais de 5 vezes na semana passada.
 * Atividade: crie um segmento de usuários que usaram uma página ou conteúdo mais ou menos 10 vezes no mês passado.
@@ -206,5 +205,4 @@ Neste exemplo, 47,7% do total dos usuários finais correspondente ao critério. 
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
 

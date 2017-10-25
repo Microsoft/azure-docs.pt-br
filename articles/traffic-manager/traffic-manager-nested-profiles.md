@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: e274d10b59c6f198962974fda0a804f4d993c324
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: 1ac4ec2775ca9f690f5adf4f939908f8cee3f715
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="nested-traffic-manager-profiles"></a>Perfis aninhados do Gerenciador de Tráfego
 
 O Gerenciador de Tráfego inclui uma variedade de métodos de roteamento de tráfego que permitem controlar como o Gerenciador de Tráfego escolhe qual ponto de extremidade deve receber o tráfego de cada usuário final. Para obter mais informações, consulte [Métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md).
@@ -45,7 +44,7 @@ O diagrama a seguir ilustra esse exemplo:
 
 Nessa configuração, o tráfego direcionado por meio do perfil pai distribui o tráfego entre regiões normalmente. Na Europa Ocidental, o perfil aninhado distribui o tráfego para os pontos de extremidade de produção e de teste de acordo com os pesos atribuídos.
 
-Quando o perfil pai usa o método de roteamento de tráfego por “Desempenho”, uma localização deve ser atribuída a cada ponto de extremidade. A localização é atribuída quando você configura o ponto de extremidade. Escolha a região do Azure mais próxima de sua implantação. As regiões do Azure são os valores de localização com suporte na Tabela de Latência da Internet. Para obter mais informações, consulte [Método de roteamento de tráfego por “Desempenho” do Gerenciador de Tráfego](traffic-manager-routing-methods.md#performance-traffic-routing-method).
+Quando o perfil pai usa o método de roteamento de tráfego por “Desempenho”, uma localização deve ser atribuída a cada ponto de extremidade. A localização é atribuída quando você configura o ponto de extremidade. Escolha a região do Azure mais próxima de sua implantação. As regiões do Azure são os valores de localização com suporte na Tabela de Latência da Internet. Para obter mais informações, consulte [Método de roteamento de tráfego por “Desempenho” do Gerenciador de Tráfego](traffic-manager-routing-methods.md#performance).
 
 ## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>Exemplo 2: monitoramento de ponto de extremidade em Perfis Aninhados
 
@@ -115,4 +114,3 @@ Aprenda a [criar um perfil do Gerenciador de Tráfego](traffic-manager-create-pr
 [8]: ./media/traffic-manager-nested-profiles/figure-8.png
 [9]: ./media/traffic-manager-nested-profiles/figure-9.png
 [10]: ./media/traffic-manager-nested-profiles/figure-10.png
-

@@ -14,15 +14,14 @@ Execute as etapas a seguir para baixar a atualização do software do Catálogo 
     A listagem de hotfixes aparece, por exemplo, **Atualização de pacote cumulativo de software 4.0 para a série 8000 do StorSimple**.
    
     ![Pesquisar o catálogo](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
-4. Clique em **Adicionar**. A atualização é adicionada ao carrinho de compras.
-5. Pesquise quaisquer hotfixes adicionais relacionados na tabela acima (**4011841**) e adicione cada um deles ao carrinho de compras.
-6. Clique em **Exibir carrinho**.
-7. Clique em **Download**. Especifique ou **Procure** a localização em que deseja que o download apareça. As atualizações são baixadas para o local especificado e colocadas em uma subpasta com o mesmo nome que a atualização. A pasta também pode ser copiada para um compartilhamento de rede que seja acessível do dispositivo.
+
+4. Clique em **Download**. Especifique ou **Navegue** até o local em que deseja que o download apareça. Clique nos arquivos para baixar no local e pasta especificados. A pasta também pode ser copiada para um compartilhamento de rede que seja acessível do dispositivo.
+5. Procure quaisquer hotfixes adicionais listados na tabela acima (**4011841**) e baixe os arquivos correspondentes às pastas específicas, conforme listado na tabela anterior.
 
 > [!NOTE]
 > Os hotfixes devem estar acessíveis nos dois controladores para detectar mensagens de erro potenciais do controlador em par.
 >
-> Os hotfixes devem ser copiados em pastas separadas 3. A atualização de software do dispositivo deve ser copiada no _FirstOrderUpdate_ pasta, todas as outras atualizações sem interrupção devem ser copiadas no _SecondOrderUpdate_ pasta e modo de manutenção atualizações devem ser copiadas em _ThirdOrderUpdate_ pasta.
+> Os hotfixes devem ser copiados em pastas separadas 3. Por exemplo, a atualização do software do dispositivo/agente Cis/MDS pode ser copiada na pasta _FirstOrderUpdate_, todas as outras atualizações sem interrupção devem ser copiadas na pasta _SecondOrderUpdate_ e as atualizações do modo de manutenção devem ser copiadas na pasta _ThirdOrderUpdate_.
 
 #### <a name="to-install-and-verify-regular-mode-hotfixes"></a>Para instalar e verificar os hotfixes do modo normal
 
@@ -40,11 +39,11 @@ Siga as etapas abaixo para instalar e verificar os hotfixes do modo normal. Caso
    
     Forneça a senha, quando solicitado.
    
-    Abaixo está uma saída de exemplo para instalar as atualizações de ordem primeiro.
+    Abaixo está uma saída de exemplo para instalar as atualizações de ordem primeiro. Para obter a primeira atualização da ordem, aponte para o arquivo específico.
    
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
-        \FirstOrderUpdate\ -Credential contoso\John
+        \FirstOrderUpdate\HcsSoftwareUpdate.exe -Credential contoso\John
    
         Confirm
    
@@ -79,10 +78,10 @@ Siga as etapas abaixo para instalar e verificar os hotfixes do modo normal. Caso
     Controller1Events   :
     ```
 
-    > [!NOTE] 
+    > [!NOTE]
     > Ocasionalmente, o cmdlet relatará `False` quando a atualização ainda estiver em andamento. Para garantir que o hotfix seja concluído, aguarde alguns minutos, execute esse comando novamente e verifique se `RunInProgress` é `False`. Em caso positivo, o hotfix foi concluído.
 
-1. Depois que a atualização do software estiver concluída, verifique as versões de software do sistema. Digite:
+6. Depois que a atualização do software estiver concluída, verifique as versões de software do sistema. Digite:
    
     `Get-HcsSystem`
    
@@ -94,9 +93,12 @@ Siga as etapas abaixo para instalar e verificar os hotfixes do modo normal. Caso
     Se o número de versão não mudar após a aplicação da atualização, isso indica que houve falha na aplicação do hotfix. Caso isso aconteça, entre em contato com o [Suporte da Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) para obter mais ajuda.
      
     > [!IMPORTANT]
-    > Você deve reiniciar o controlador ativo por meio do cmdlet `Restart-HcsController` antes de aplicar as atualizações restantes.
+    > Você deve reiniciar o controlador ativo via cmdlet `Restart-HcsController` antes de aplicar a próxima atualização.
      
-7. Repita as etapas 3 a 5 para instalar as atualizações de ordem de segundo. Várias atualizações podem ser instaladas executando apenas o `Start-HcsHotfix cmdlet` e apontando para a pasta onde as atualizações da segunda ordem estão localizadas. O cmdlet executará todas as atualizações disponíveis na pasta. Se uma atualização já estiver instalada, a lógica de atualização detectar que e não aplicar essa atualização. Depois que todos os hotfixes são instalados, use o `Get-HcsSystem` cmdlet. As versões devem ser:
+7. Repita as etapas 3 a 5 para instalar o agente Cis/MDS baixado para a pasta _FirstOrderUpdate_. 
+8. Repita as etapas 3 a 5 para instalar as atualizações de ordem de segundo. **Para atualizações da segunda ordem, várias atualizações podem ser instaladas executando apenas o `Start-HcsHotfix cmdlet` e apontando para a pasta onde as atualizações da segunda ordem estão localizadas. O cmdlet executará todas as atualizações disponíveis na pasta.** Se uma atualização já estiver instalada, a lógica de atualização detectar que e não aplicar essa atualização. 
+
+Depois que todos os hotfixes são instalados, use o `Get-HcsSystem` cmdlet. As versões devem ser:
 
    * `CisAgentVersion:  1.0.9441.0`
    * `MdsAgentVersion: 35.2.2.0`
@@ -247,9 +249,4 @@ Para instalar as atualizações de firmware de disco, siga as instruções abaix
    `Exit-HcsMaintenanceMode`
 
 5. Os controladores são reiniciados quando você sai do modo de manutenção. Depois que as atualizações do firmware de disco forem aplicadas com êxito e o dispositivo tiver saído do modo de manutenção, retorne ao portal clássico do Azure. Observe que, por 24 horas, o portal poderá não mostrar que as atualizações do modo de manutenção foram instaladas.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

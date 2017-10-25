@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a853b4dbd1952ba4ea8ee68ea3ca98f588bb71a2
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="mapping-an-existing-web-service-to-odata-through-csdl"></a>Mapeamento de um serviço Web existente para OData por meio de CSDL
 > [!IMPORTANT]
@@ -47,7 +47,7 @@ O **fluxo de dados** ocorre na direção oposta:
 
 Para saber mais sobre Atom, o Atom Pub e o protocolo OData sobre os quais as extensões do Azure Marketplace são compiladas, consulte: [http://msdn.microsoft.com/library/ff478141.aspx](http://msdn.microsoft.com/library/ff478141.aspx)
 
-Trecho do link acima:       *"A finalidade do protocolo Open Data (citado a partir de agora como OData) é fornecer um protocolo baseado em REST para operações ao estilo CRUD (Criar, Ler, Atualizar e Excluir) em recursos expostos como serviços de dados. Um "serviço de dados" é um ponto de extremidade no qual há dados expostos de uma ou mais "coleções", cada um com zero ou mais "entradas", compostas por pares de valor nomeado digitados. O OData é publicado pela Microsoft em Padrões OASIS (Organização para o Avanço de Padrões em Informação Estruturadas) para que qualquer pessoa que quiser possa criar servidores, clientes ou ferramentas sem royalties ou restrições".*
+Trecho do link acima: *"A finalidade do protocolo Open Data (citado a partir de agora como OData) é fornecer um protocolo baseado em REST para operações ao estilo CRUD (Criar, Ler, Atualizar e Excluir) em recursos expostos como serviços de dados. Um "serviço de dados" é um ponto de extremidade no qual há dados expostos de uma ou mais "coleções", cada um com zero ou mais "entradas", compostas por pares de valor nomeado digitados. O OData é publicado pela Microsoft em Padrões OASIS (Organização para o Avanço de Padrões em Informação Estruturadas) para que qualquer pessoa que quiser possa criar servidores, clientes ou ferramentas sem royalties ou restrições".*
 
 ### <a name="three-critical-pieces-that-have-to-be-defined-by-the-csdl-are"></a>As Três Partes Essenciais que precisam ser definidas pela CSDL são:
 * O **ponto de extremidade** do Provedor de Serviço, o URI (Endereço da Web) do Serviço
@@ -140,8 +140,7 @@ Veja a seguir um exemplo de CSDL: (copie e cole o exemplo de CSDL abaixo em um e
 * MyCompany na PPUI está relacionado ao **Nome de Exibição do Publicador** na interface do usuário do [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure)
 * A API está relacionado a um Serviço Web ou de Dados (um Plano na PPUI)
 
-**Hierarquia:**
- uma Empresa (Provedor de Conteúdo) tem Ofertas com Planos, ou seja, Serviços, que se alinham a uma API.
+**Hierarquia:** uma Empresa (Provedor de Conteúdo) tem Ofertas com Planos, ou seja, Serviços, que se alinham a uma API.
 
 ### <a name="webservice-csdl-example"></a>Exemplo de CSDL de Serviço Web
 Conecta-se a um serviço que expõe um ponto de extremidade de aplicativo Web (como um aplicativo C#)
@@ -317,10 +316,4 @@ Conecta-se a um serviço que expõe uma tabela ou modo de exibição de banco de
 * Se estiver interessado em aprender e em compreender os nós específicos e seus parâmetros, leia este artigo [Nós do mapeamento OData de Serviço de Dados](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) para obter definições, explicações, exemplos e contexto de casos de uso.
 * Se estiver interessado em examinar exemplos, leia este artigo [Exemplos de mapeamento OData de Serviço de Dados](marketplace-publishing-data-service-creation-odata-mapping-examples.md) para ver um código de exemplo e compreender a sintaxe do código e o contexto.
 * Para retornar ao caminho indicado para a publicação de um Serviço de Dados no Azure Marketplace, leia este artigo [Guia de publicação de Serviço de Dados](marketplace-publishing-data-service-creation.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

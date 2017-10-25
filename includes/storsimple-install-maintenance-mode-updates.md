@@ -17,8 +17,3 @@
 8. Quando a atualização estiver instalada no controlador atual e este tiver sido reiniciado, conecte-se ao outro controlador e execute as etapas de 1 a 6.
 9. Depois que ambos os controladores estiverem atualizados, saia do modo de Manutenção. Veja a [Etapa 4: Sair do modo de manutenção](../articles/storsimple/storsimple-update-device.md#step4) para obter instruções.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

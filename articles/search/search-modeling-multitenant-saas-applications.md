@@ -13,11 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2016
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: fd1b0c7cc8210d27fdc500bf4e5641bedfe93cff
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Padrões de design para aplicativos SaaS multilocatários e Azure Search
 Um aplicativo multilocatário é aquele que fornece os mesmos serviços e funcionalidades para qualquer número de locatários que não conseguem ver nem compartilhar os dados de qualquer outro locatário. Este documento discute estratégias de isolamento de locatário para aplicativos multilocatários criados com o Azure Search.
@@ -134,10 +134,4 @@ Esse método pode ser usado para obter uma funcionalidade de contas de usuário 
 O Azure Search é uma opção atraente para muitos aplicativos. [Leia mais sobre os recursos avançados do serviço](http://aka.ms/whatisazsearch). Ao avaliar os vários padrões de design para aplicativos multilocatários, considere os [vários tipos de preços](https://azure.microsoft.com/pricing/details/search/) e os respectivos [limites de serviço](search-limits-quotas-capacity.md) para melhor personalizar o Azure Search para ajustar cargas de trabalho do aplicativo e arquiteturas de todos os tamanhos.
 
 Perguntas sobre o Azure Search e cenários de multilocatários podem ser direcionadas para azuresearch_contact@microsoft.com.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

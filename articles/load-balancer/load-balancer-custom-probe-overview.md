@@ -3,7 +3,7 @@ title: "Investigações personalizadas do Balanceador de Carga e monitoramento d
 description: "Saiba como usar investigações personalizadas para o Balanceador de Carga do Azure a fim de monitorar instâncias por trás de um Balanceador de Carga"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,15 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: ce2550ca8301fd12d61cca143b2851b84f1a0f50
-ms.openlocfilehash: 01afa3a08bbb56d4c6b8b18c5eb07f49706c6482
-
+ms.openlocfilehash: 102c07ff0994b3b411f2a13d7a43c5398d5dfd42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="understand-load-balancer-probes"></a>Entender as investigações do balanceador de carga
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 O Balanceador de Carga do Azure oferece a capacidade de monitorar a integridade das instâncias do servidor usando investigações. Quando uma investigação não responde, o Balanceador de Carga interrompe o envio de novas conexões para as instâncias não íntegras. As conexões existentes não são afetadas e novas conexões são enviadas para instâncias íntegras.
 
@@ -94,9 +96,3 @@ As investigações de TCP e HTTP são consideradas íntegras e marcam a instânc
 ## <a name="use-log-analytics-for-load-balancer"></a>Usar análise de log para o Balanceador de Carga
 
 Você pode usar a [análise de logs para o Balanceador de Carga](load-balancer-monitor-log.md) para verificar o status da integridade da investigação e a contagem da investigação. O registro em log pode ser usado com o Power BI ou com o Azure Operational Insights para fornecer estatísticas sobre o status da integridade do Balanceador de Carga.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -11,14 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 07/12/2017
 ms.author: markvi;andkjell
-translationtype: Human Translation
-ms.sourcegitcommit: c5b54c80d9a74d72b242f8d7dd55e2dcadbfa48e
-ms.openlocfilehash: 96d568b6d264fa484e09ee81cdbc779a6f65eb0d
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 495e926a1975128707212ba571d47cfc7c9507b3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-users-and-contacts"></a>Azure AD Connect Sync: noções básicas sobre usuários e contatos
 Há vários motivos diferentes de por que existem várias florestas do Active Directory e várias topologias de implantação diferentes. Os modelos comuns incluem uma implantação do recurso em conta e florestas sincronizadas de GAL (Lista de Endereços Global) após uma fusão e aquisição. Mas mesmo que haja modelos puros, modelos híbridos são comuns também. A configuração padrão da sincronização do Azure AD Connect não assume nenhum modelo específico, mas dependendo de como a compatibilidade de usuário foi selecionada na guia de instalação, comportamentos diferentes podem ser observados.
@@ -54,5 +53,4 @@ Quando um objeto é exportado para o AD do Azure, não é mais permitido alterar
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
-
 

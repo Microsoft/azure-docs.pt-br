@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/28/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e74a04276810c52fef3ad62e7f2c56860ba4fbd1
-
-
+ms.openlocfilehash: 5ee9855e1428c7a2d871d9c215d302c5c3b7101a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-your-backup-catalog"></a>Usar o serviço StorSimple Manager para gerenciar o catálogo de backup
 ## <a name="overview"></a>Visão geral
@@ -52,7 +52,7 @@ Conclua as etapas a seguir para listar todos os backups de um volume.
    1. Selecione o dispositivo adequado.
    2. Na lista suspensa, escolha um volume para exibir os backups correspondentes.
    3. Especifique o intervalo de tempo.
-   4. Clique no ícone de verificação  ![Ícone de verificação](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png)  para executar esta consulta.
+   4. Clique no ícone de verificação  ![Ícone de verificação](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png) para executar esta consulta.
       
       Os backups associados ao volume selecionado devem aparecer na lista de conjuntos de backup.
 
@@ -66,7 +66,7 @@ Conclua as seguintes etapas para selecionar um conjunto de backup para uma polí
    1. Selecione o dispositivo adequado.
    2. Na lista suspensa, escolha o volume ou a política de backup para o backup que você deseja selecionar.
    3. Especifique o intervalo de tempo.
-   4. Clique no ícone de verificação  ![Ícone de verificação](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png)  para executar esta consulta.
+   4. Clique no ícone de verificação  ![Ícone de verificação](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png) para executar esta consulta.
       
       Os backups associados ao volume ou à política de backup selecionada devem aparecer na lista de conjuntos de backup.
 3. Selecione e expanda um conjunto de backups. As opções **Restaurar** e **Excluir** são exibidas na parte inferior da página. Você pode executar qualquer uma dessas ações no conjunto de backup selecionado.
@@ -81,7 +81,7 @@ Exclua um backup quando você não quiser mais manter os dados associados a ele.
    1. Selecione o dispositivo adequado.
    2. Na lista suspensa, escolha o volume ou a política de backup para o backup que você deseja selecionar.
    3. Especifique o intervalo de tempo.
-   4. Clique no ícone de verificação  ![Ícone de verificação](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png)  para executar esta consulta.
+   4. Clique no ícone de verificação  ![Ícone de verificação](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png) para executar esta consulta.
       
       Os backups associados ao volume ou à política de backup selecionada devem aparecer na lista de conjuntos de backup.
 3. Selecione e expanda um conjunto de backups. As opções **Restaurar** e **Excluir** são exibidas na parte inferior da página. Clique em **Excluir**.
@@ -90,10 +90,4 @@ Exclua um backup quando você não quiser mais manter os dados associados a ele.
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [usar o catálogo de backup para restaurar seu dispositivo de um conjunto de backup](storsimple-restore-from-backup-set.md).
 * Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

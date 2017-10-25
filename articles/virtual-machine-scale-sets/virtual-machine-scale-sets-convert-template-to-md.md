@@ -14,16 +14,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/25/2017
+ms.date: 5/18/2017
 ms.author: negat
-translationtype: Human Translation
-ms.sourcegitcommit: 01983ac7b60f7fdb237fba27f22cb31fcb3c1b7b
-ms.openlocfilehash: cd1e67ce89a856f325b66087f003b1a9a1ac6f6a
-
-
+ms.openlocfilehash: 2f5cb85703888c5056611d466f508547ee72e44b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Conversão de um modelo de conjunto de dimensionamento para um modelo de conjunto de dimensionamento de disco gerenciado
 
 Clientes com um modelo do Resource Manager para criar um conjunto de dimensionamento não usando disco gerenciado podem modificá-lo para usar um disco gerenciado. Este artigo mostra como fazer isso usando como exemplo uma solicitação pull dos [modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates), um repositório de amostras de modelos do Resource Manager orientado pela comunidade. A solicitação pull completa pode ser vista em: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), e as partes relevantes da comparação estão abaixo, junto com explicações:
@@ -148,10 +146,4 @@ Para saber mais sobre como usar discos de dados com conjuntos de dimensionamento
 Para modelos do Resource Manager de exemplo usando conjuntos de escala, procure por "vmss" no [repositório github de Modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
 
 Para obter informações gerais, confira a [página de aterrissagem principal para conjuntos de escala](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

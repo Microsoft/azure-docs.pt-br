@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: estfan
-translationtype: Human Translation
-ms.sourcegitcommit: 9369b90471ee775664b942b21ceb450b8852eafd
-ms.openlocfilehash: a8684769e73dd3f7a76cba9c78046abceb842918
-
-
+ms.author: LADocs; padmavc
+ms.openlocfilehash: fb6027769377b3527b11f7831dab3bb8d7061c84
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Integração corporativa com transformações XML
 ## <a name="overview"></a>Visão geral
@@ -71,10 +71,4 @@ Agora você pode testar a ação de transformação fazendo uma solicitação ao
 ## <a name="learn-more"></a>Saiba mais
 * [Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")  
 * [Saiba mais sobre mapas](../logic-apps/logic-apps-enterprise-integration-maps.md "Saiba mais sobre mapas da integração corporativa")  
-
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

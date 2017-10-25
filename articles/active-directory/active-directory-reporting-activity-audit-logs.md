@@ -1,6 +1,6 @@
 ---
-title: "Auditoria de relatórios de atividade no portal do Azure Active Directory – versão prévia | Microsoft Docs"
-description: "Introdução à auditoria de relatórios de atividade no portal do Azure Active Directory – versão prévia"
+title: "Auditoria de relatórios de atividade no portal do Azure Active Directory | Microsoft Docs"
+description: "Introdução à auditoria de relatórios de atividade no portal do Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 10/21/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 9f1fd20c77b085a66487c83d8dcd902e8cc83e6d
-ms.lasthandoff: 03/18/2017
-
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: f2d0332d815c82d7d47625e020de2e9c5099deeb
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/20/2017
 
 ---
-# <a name="audit-activity-reports-in-the-azure-active-directory-portal---preview"></a>Auditoria de relatórios de atividade no portal do Azure Active Directory – versão prévia
+# <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de auditoria no portal do Azure Active Directory 
 
-Com o relatório na [versão prévia](active-directory-preview-explainer.md) do Azure Active Directory, você obtém todas as informações de que precisa para determinar como seu ambiente está se comportando.
+Com os relatórios no Azure Active Directory (Azure AD) você obtém todas as informações de que precisa para determinar como seu ambiente está se comportando.
 
-A arquitetura de relatório no Azure Active Directory consiste nos seguintes componentes:
+A arquitetura de relatório no Azure AD consiste nos seguintes componentes:
 
 - **Atividade** 
     - **Atividades de entrada** – informações sobre o uso de aplicativos gerenciados e de atividades de entrada do usuário
@@ -36,35 +37,110 @@ A arquitetura de relatório no Azure Active Directory consiste nos seguintes com
 
 Este tópico fornece uma visão geral das atividades de auditoria.
  
+## <a name="who-can-access-the-data"></a>Quem pode acessar os dados?
+* Usuários na função de Administrador de segurança ou Leitor de segurança
+* Administradores globais
+* Os usuários individuais (não administradores) podem ver suas próprias atividades
+
+
 ## <a name="audit-logs"></a>Logs de auditoria
 
-Os logs de auditoria no Azure Active Directory fornecem registros de atividades do sistema para fins de conformidade.
-
-Há três categorias principais de auditoria de atividades relacionadas no portal do Azure:
-
-- Usuários e grupos   
-
-- aplicativos
-
-- Diretório   
-
-Para obter uma lista completa de atividades de relatório de auditoria, consulte o [lista de eventos de relatório de auditoria](active-directory-reporting-audit-events.md#list-of-audit-report-events).
-
-
-O ponto de entrada para todos os dados de auditoria é **Logs de auditoria**, na seção **Atividade** do **Azure Active Directory**.
+Os logs de auditoria no Azure Active Directory fornecem registros de atividades do sistema para fins de conformidade.  
+O primeiro ponto de entrada para todos os dados de auditoria é **Logs de auditoria**, na seção **Atividade** do **Azure Active Directory**.
 
 ![Logs de auditoria](./media/active-directory-reporting-activity-audit-logs/61.png "Logs de auditoria")
 
-Um log de auditoria tem um modo de exibição de lista que mostra os atores (*quem*), as atividades (*o que*) e os destinos.
+Um log de auditoria tem um modo de exibição de lista padrão que mostra:
 
-![Logs de auditoria](./media/active-directory-reporting-activity-audit-logs/345.png "Logs de auditoria")
+- a data e a hora da ocorrência
+- o iniciador/ator (*quem*) de uma atividade 
+- a atividade (*o quê*) 
+- o destino
 
-Ao clicar em um item na exibição de lista, você poderá obter mais detalhes sobre ele.
+![Logs de auditoria](./media/active-directory-reporting-activity-audit-logs/18.png "Logs de auditoria")
 
-![Logs de auditoria](./media/active-directory-reporting-activity-audit-logs/873.png "Logs de auditoria")
+Você pode personalizar o modo de exibição de lista clicando em **Colunas** na barra de ferramentas.
+
+![Logs de auditoria](./media/active-directory-reporting-activity-audit-logs/19.png "Logs de auditoria")
+
+Isso permite a você exibir campos adicionais ou remover campos que já estão exibidos.
+
+![Logs de auditoria](./media/active-directory-reporting-activity-audit-logs/21.png "Logs de auditoria")
 
 
-## <a name="users-and-groups-audit-logs"></a>Logs de auditoria de usuários e grupos
+Ao clicar em um item na exibição de lista, você obterá mais detalhes sobre ele.
+
+![Logs de auditoria](./media/active-directory-reporting-activity-audit-logs/22.png "Logs de auditoria")
+
+
+## <a name="filtering-audit-logs"></a>Filtragem de logs de auditoria
+
+Para restringir os dados relatados a um nível que funciona para você, filtre os dados de auditoria usando os seguintes campos:
+
+- Intervalo de datas
+- Iniciado por (ator)
+- Categoria
+- Tipo de recurso de atividade
+- Atividade
+
+![Logs de auditoria](./media/active-directory-reporting-activity-audit-logs/23.png "Logs de auditoria")
+
+
+O filtro **intervalo de datas** permite definir um período de tempo para os dados retornados.  
+Os valores possíveis são:
+
+- 1 mês
+- 7 dias
+- 24 horas
+- Personalizado
+
+Quando você seleciona um período de tempo personalizado, pode configurar uma hora de início e uma hora de término.
+
+O filtro **iniciado por** permite que você defina o nome do ator ou seu nome principal universal (UPN).
+
+O filtro **categoria** permite que você selecione um dos seguintes filtros:
+
+- Todos
+- Categoria principal
+- Diretório principal
+- Gerenciamento de senhas de autoatendimento
+- Gerenciamento de grupo de autoatendimento
+- Provisionamento de conta - Substituição de senha automática
+- Usuários convidados
+- Serviço MIM
+- Identity Protection
+- B2C
+
+O filtro **tipo de recurso de atividade** permite que você selecione um dos seguintes filtros:
+
+- Todos 
+- Agrupar
+- Diretório
+- Usuário
+- Aplicativo
+- Política
+- Dispositivo
+- outro
+
+Ao selecionar **Grupo** como **tipo de recurso de atividade**, você obtém uma categoria de filtro adicional que permite que você forneça também uma **Origem**:
+
+- AD do Azure
+- O365
+
+
+O filtro **atividade** se baseia na categoria e na seleção do tipo de recurso de atividade que você faz. Você pode selecionar uma atividade específica que deseja exibir ou escolher todas. 
+
+Você pode obter a lista de todas as Atividades de Auditoria usando a API do Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, onde $tenantdomain = seu nome de domínio ou consulte o artigo [eventos do relatório de auditoria](active-directory-reporting-audit-events.md).
+
+
+## <a name="audit-logs-shortcuts"></a>Atalhos de logs de auditoria
+
+Além do **Azure Active Directory**, o portal do Azure fornece dois pontos de entrada adicionais para dados de auditoria:
+
+- Usuários e grupos
+- Aplicativos empresariais
+
+### <a name="users-and-groups-audit-logs"></a>Logs de auditoria de usuários e grupos
 
 Com relatórios de auditoria baseados em grupos e usuários, você pode obter respostas a perguntas como:
 
@@ -84,11 +160,12 @@ Com relatórios de auditoria baseados em grupos e usuários, você pode obter re
 
 - Quais licenças foram atribuídas a um grupo ou a um usuário?
 
-Se você quiser examinar os dados de auditoria relacionados aos usuários e aos grupos, poderá encontrar uma exibição filtrada em **Logs de auditoria** na seção **Atividade** de **Usuários e Grupos**.
+Se quiser examinar os dados de auditoria relacionados aos usuários e aos grupos, você poderá encontrar uma exibição filtrada em **Logs de auditoria** na seção **Atividade** de **Usuários e Grupos**. Esse ponto de entrada tem **Usuários e grupos** como **Tipo de Recurso de Atividade** pré-selecionado.
 
 ![Logs de auditoria](./media/active-directory-reporting-activity-audit-logs/93.png "Logs de auditoria")
 
-## <a name="application-audit-logs"></a>Logs de auditoria de aplicativo
+### <a name="enterprise-applications-audit-logs"></a>Logs de auditoria de aplicativos empresariais
+
 Com relatórios de auditoria baseados em aplicativos, você pode obter respostas a perguntas como:
 
 * Quais aplicativos foram adicionados ou atualizados?
@@ -97,82 +174,17 @@ Com relatórios de auditoria baseados em aplicativos, você pode obter respostas
 * Os nomes de aplicativos foram alterados?
 * Quem deu permissão a um aplicativo?
 
-Se você quiser examinar os dados de auditoria relacionados aos aplicativos, poderá encontrar uma exibição filtrada em **Logs de auditoria** na seção **Atividade** de **Aplicativos empresariais**.
+Se quiser examinar os dados de auditoria relacionados aos aplicativos, você poderá encontrar uma exibição filtrada em **Logs de auditoria** na seção **Atividade** da folha **Aplicativos empresariais**. Esse ponto de entrada tem **aplicativos empresariais** como **tipo de recurso de atividade** pré-selecionado.
 
 ![Logs de auditoria](./media/active-directory-reporting-activity-audit-logs/134.png "Logs de auditoria")
 
-## <a name="filtering-audit-logs"></a>Filtragem de logs de auditoria
-Você pode filtrar entradas para limitar a quantidade de dados exibidos, usando os campos a seguir:
+Você pode filtrar essa exibição para apenas **grupos** ou apenas **usuários**.
 
-- Data e hora
-
-- Nome UPN do ator
-
-- Categoria
-
-- Tipo de recurso de atividade
-
-- Atividade
-
-![Logs de auditoria](./media/active-directory-reporting-activity-audit-logs/625.png "Logs de auditoria")
-
-
-O filtro **Categoria** permite restringir o escopo de seu relatório de auditoria com base nas seguintes categorias:
-
-- Diretório principal
-
-- Gerenciamento de senhas de auto-atendimento
-
-- Gerenciamento de grupos de autoatendimento
-
-- Substituição de senha automática 
-
-![Logs de auditoria](./media/active-directory-reporting-activity-audit-logs/626.png "Logs de auditoria")
-
-
-
-O conteúdo da lista **Tipo de recurso de atividade** está vinculado ao seu ponto de entrada para esta folha.  
-Se o ponto de entrada for o Azure Active Directory, essa lista conterá todos os tipos de atividade possíveis:
-
-- Diretório
-
-- Usuário
-
-- Agrupar 
-
-- Aplicativo 
-
-- Política
-
-- Dispositivo
-
-
-![Auditoria](./media/active-directory-reporting-activity-audit-logs/627.png "Auditoria")
-
-As atividades listadas são delimitadas por tipo de atividade.
-Por exemplo, se você tiver **Usuário** selecionado como **Tipo de Atividade**, a lista **Atividade** conterá apenas atividades relacionadas ao grupo.   
-
-![Auditoria](./media/active-directory-reporting-activity-audit-logs/628.png "Auditoria")
-
-Se você selecionar **Grupo** como **Tipo de recurso de atividade**, obterá outra opção de filtro que também permite filtrar com base nas seguintes **Fontes de Atividade**:
-
-- AD do Azure
-
-- O365
-
-
-![Auditoria](./media/active-directory-reporting-activity-audit-logs/629.png "Auditoria")
-
-
-
-Outro método para filtrar as entradas de um log de auditoria é procurar itens específicos.
-
-![Auditoria](./media/active-directory-reporting-activity-audit-logs/237.png "Auditoria")
-
-
+![Logs de auditoria](./media/active-directory-reporting-activity-audit-logs/25.png "Logs de auditoria")
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Veja o [Guia de relatórios do Azure Active Directory](active-directory-reporting-guide.md).
+
+Para obter uma visão geral dos relatórios, confira os [Relatórios do Azure Active Directory](active-directory-reporting-azure-portal.md).
 
 

@@ -2,7 +2,7 @@
 title: "Documentação do Gerenciamento de API do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como usar o Gerenciamento de APIs para publicar APIs com segurança e em grande escala. A documentação mostra como criar gateways de API modernos para serviços de back-end existentes."
 services: api-management
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 5710f0aeb9af0f5d829c30d4b3e604c0a62afdb5
-ms.openlocfilehash: 09eb558a4e4b32fa6e1094c55f321db8ce008d4d
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: de56e8b5fb7866183b0f06c4ac877d7b80a282f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-documentation"></a>Documentação do Gerenciamento de API
 
@@ -141,7 +141,6 @@ Saiba mais sobre como usar o Gerenciamento de APIs para publicar APIs para desen
         </div>
     </li>
 </ul>
-
 
 
 

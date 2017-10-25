@@ -2,11 +2,7 @@ A Análise Data Lake simplifica a difícil missão de gerenciar infraestruturas 
 
 | **Recurso** | **Limite padrão** | **Comentários** |
 | --- | --- | --- |
-| Número máximo de trabalhos simultâneos |3 | |
-| Paralelismo máximo por conta |60 |Use qualquer combinação de até 60 unidades de paralelismo em três trabalhos. |
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+| Número máximo de trabalhos simultâneos |20 | |
+| Número máximo de AUs (Unidades de Análise) por conta |250 | Use qualquer combinação até o máximo de 250 AUs em 20 trabalhos. |
+| Tamanho máximo de script para envio de trabalho | 3 MB | |
 

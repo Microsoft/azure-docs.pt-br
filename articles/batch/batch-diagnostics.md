@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 16a13909079306256ded06f2100815c46ff562a3
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: b7bc6fd9921ab0f2374ace33ea5c1ab93a78f860
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Eventos de log para avaliação de diagnóstico e monitoramento de soluções do Lote
 
@@ -33,7 +32,7 @@ Assim como acontece com muitos serviços do Azure, o serviço de Lote emite even
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Conta do Lote do Azure](batch-account-create-portal.md)
-* [Conta do Armazenamento do Azure](../storage/storage-create-storage-account.md#create-a-storage-account)
+* [Conta do Armazenamento do Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
   
   Para persistir os logs de diagnóstico do Lote, você deve criar uma conta de Armazenamento do Azure na qual o Azure armazenará os logs. Especifique a conta de Armazenamento quando você [Habilitar o registro em log de diagnóstico](#enable-diagnostic-logging) para sua conta do Lote. A conta de Armazenamento especificada quando você habilita a coleta de log não é a mesma que uma conta de armazenamento vinculada citada nos artigos [pacotes de aplicativos](batch-application-packages.md) e [persistência de saída da tarefa](batch-task-output.md).
   
@@ -45,7 +44,7 @@ Assim como acontece com muitos serviços do Azure, o serviço de Lote emite even
 ## <a name="enable-diagnostic-logging"></a>Habilitar registro em log de diagnóstico
 O registro em log de diagnóstico não está habilitado por padrão para sua conta do Lote. Você deve habilitar explicitamente o registro em log de diagnóstico para cada conta do Lote que você deseja monitorar:
 
-[Como habilitar a coleção de Logs de Diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs)
+[Como habilitar a coleção de Logs de Diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs)
 
 Recomendamos que você leia todo o artigo [Visão geral dos Logs de diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) para entender não apenas como habilitar o registro em log, mas também as categorias de log com suporte dos vários serviços do Azure. Por exemplo, atualmente o Lote do Azure oferece suporte a uma categoria de log: **Logs de Serviço**.
 
@@ -65,7 +64,7 @@ Os Logs de serviço do Lote do Azure contêm os eventos emitidos pelo serviço d
         "subnetId": " "
     },
     "resizeTimeout": "300000",
-    "targetDedicated": 2,
+    "targetDedicatedComputeNodes": 2,
     "maxTasksPerNode": 1,
     "vmFillType": "Spread",
     "enableAutoscale": false,
@@ -108,4 +107,3 @@ Além de armazenar os eventos do log de diagnóstico em uma conta de Armazenamen
 [task_start]: https://msdn.microsoft.com/library/azure/mt743616.aspx
 [task_complete]: https://msdn.microsoft.com/library/azure/mt743612.aspx
 [task_fail]: https://msdn.microsoft.com/library/azure/mt743607.aspx
-

@@ -1,79 +1,87 @@
 ---
-title: "Usar a instrução Switch em Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "A instrução switch permite que você execute com facilidade ações diferentes com base no valor de uma expressão em Aplicativos Lógicos"
+title: "Alternar instrução para diferentes ações no Aplicativo Lógico do Azure | Microsoft Docs"
+description: "Escolha diferentes ações a serem executadas nos aplicativos lógicos com base nos valores da expressão usando uma instrução switch"
 services: logic-apps
-documentationcenter: dev-center-name
-manager: erikre
+keywords: "Instrução switch"
+author: derek1ee
+manager: anneta
+editor: 
+documentationcenter: 
+ms.assetid: 
 ms.service: logic-apps
-ms.devlang: wdl
+ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: 3a028507f9bbf15c8fd52ccc7c22a5763a9b1b3e
-ms.openlocfilehash: 284cfca17b5abf785f7af9569c518c4400fe36fd
-
-
+ms.author: LADocs; deli
+ms.openlocfilehash: 338b6a5b549d7bf81186550295608438ac4aee32
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="use-switch-statement-in-logic-apps"></a>Usar a instrução switch em Aplicativos Lógicos
-Ao criar um fluxo de trabalho, você geralmente precisa executar ações diferentes com base no valor de um objeto ou uma expressão. Por exemplo, convém que seu Aplicativo Lógico se comporte de maneira diferente com base no código de status de uma solicitação HTTP, ou a opção selecionada de um email de aprovação.
+# <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Executar diferentes ações nos aplicativos lógicos com uma instrução switch
 
-Esses cenários podem ser obtidos usando uma instrução switch: o Aplicativo Lógico avalia um token ou uma expressão e escolhe o caso com o mesmo valor para executar ações. Apenas um caso deve corresponder à instrução switch.
+Ao criar um fluxo de trabalho, em geral, você precisa executar ações diferentes com base no valor de um objeto ou uma expressão. Por exemplo, talvez você deseje que o aplicativo lógico se comporte de maneira diferente de acordo com o código de status de uma solicitação HTTP ou com uma opção selecionada em um email.
 
- > [!TIP]
- > Como todas as linguagens de programação, a instrução switch só oferece suporte a operadores de igualdade. Se você precisar de outros operadores relacionais (por exemplo, maior que), use uma instrução de condição.
- >
- > Para garantir o comportamento de execução determinística, casos devem conter um valor exclusivo e estático em vez de tokens dinâmicos ou uma expressão.
+É possível usar uma instrução switch para implementar estes cenários. O aplicativo lógico pode avaliar um token ou uma expressão e escolher o caso com o mesmo valor para executar as ações especificadas. Apenas um caso deve corresponder à instrução switch.
+
+> [!TIP]
+> Assim como ocorre em todas as linguagens de programação, as instruções switch só dão suporte a operadores de igualdade. Se precisar de outros operadores relacionais, como “maior que”, use uma instrução de condição.
+> Para garantir o comportamento de execução determinística, casos devem conter um valor exclusivo e estático em vez de tokens dinâmicos ou uma expressão.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura ativa do Azure.
-    - Se você não tiver uma assinatura ativa do Azure, [criar uma conta gratuita](https://azure.microsoft.com/free/), ou tente [Aplicativos Lógicos gratuitamente](https://tryappservice.azure.com/).
-- [Conhecimento básico de Aplicativos Lógicos](logic-apps-what-are-logic-apps.md).
+- Uma assinatura ativa do Azure. Se você não tiver uma assinatura ativa do Azure, [criar uma conta gratuita](https://azure.microsoft.com/free/), ou tente [Aplicativos Lógicos gratuitamente](https://tryappservice.azure.com/).
+- [Conhecimento básico sobre aplicativos lógicos](logic-apps-what-are-logic-apps.md)
 
-## <a name="working-with-switch-statement-in-designer"></a>Trabalhando com a instrução switch no designer
-Para demonstrar o uso da instrução switch, vamos criar um aplicativo lógico que monitora os arquivos carregados para a pasta de recados. O aplicativo lógico enviará um email de aprovação para determinar se devem ser transferido para o SharePoint. Nós usaremos a instrução switch para executar ações diferentes dependendo do aprovador de valor selecionado.
+## <a name="add-a-switch-statement-to-your-workflow"></a>Adicionar uma instrução switch ao fluxo de trabalho
 
-1. Iniciar, crie um aplicativo lógico e selecione **Dropbox - quando um arquivo é criado** disparador.
+Para mostrar como funciona uma instrução switch, este exemplo cria um aplicativo lógico que monitora os arquivos carregados no Dropbox. Quando novos arquivos são carregados, o aplicativo lógico envia um email para um aprovador, que escolhe se deseja transferir os arquivos para o SharePoint. O aplicativo usa uma instrução switch que executa diferentes ações com base no valor selecionado pelo aprovador.
 
- ![Use Dropbox - quando um arquivo é criado um gatilho](./media/logic-apps-switch-case/dropbox-trigger.jpg)
+1. Crie um aplicativo lógico e selecione este gatilho: **Dropbox – Quando um arquivo é criado**.
 
-2. Acompanhar o disparador com um **Outlook.com - enviar email de aprovação** ação.
+   ![Use Dropbox - quando um arquivo é criado um gatilho](./media/logic-apps-switch-case/dropbox-trigger.jpg)
 
- > [!TIP]
- > O Aplicativos Lógicos também oferece suporte ao cenário de email de aprovação de uma conta do Outlook do Office 365.
+2. No gatilho, adicione esta ação: **Outlook.com – Enviar email de aprovação**
 
- - Caso não tenha uma conexão existente, será solicitado que você crie uma.
- - Preencher campos obrigatórios, nós enviaremos um email para approvers@contoso.com.
- - Em *User Options*, digite `Approve, Reject`.
+   > [!TIP]
+   > O aplicativos lógicos também dão suporte a cenários de envio de email de aprovação de uma conta do Outlook do Office 365.
 
- ![Configurar conexão](./media/logic-apps-switch-case/send-approval-email-action.jpg)
+   - Caso não tenha uma conexão existente, você deverá criar uma.
+   - Preencha os campos obrigatórios. Por exemplo, em **Para**, especifique o endereço de email para envio do email do aprovador.
+   - Em **User Options**, digite `Approve, Reject`.
+
+   ![Configurar conexão](./media/logic-apps-switch-case/send-approval-email-action.jpg)
 
 3. Adicione uma instrução switch.
- - Selecione **+ Nova Etapa**, **... Mais**, **adicionar uma instrução switch**.
- - Queremos selecionar o que deve ser executado com base em `SelectedOptions` de saída do *enviar email de aprovação* ação, você pode encontrar no **adicionar conteúdo dinâmico** seletor.
- - Use *caso 1* para controlar quando o usuário selecionou `Approve`.
-    - Se aprovada, copie o arquivo original no SharePoint Online com **SharePoint Online - criar arquivo** ação.
-    - Adicione outra ação dentro do gabinete para notificar os usuários que um novo arquivo está disponível no SharePoint.
- - Adicionar outro caso para controlar quando o usuário selecionou `Reject`.
-    - Se rejeitada, envie um email de notificação informando que o arquivo será rejeitado e nenhuma ação adicional é necessária a outros aprovadores.
- - Sabemos `SelectedOptions` somente duas forneceu opções, *padrão* caso pode ser deixado em branco.
 
- ![Instrução switch](./media/logic-apps-switch-case/switch.jpg)
+   - Selecione **+ Nova etapa** > **... Mais** > **Adicionar um caso de opção**. 
+   - Agora, queremos selecionar a ação a ser executada com base na saída `SelectedOptions` da ação *Enviar email de aprovação*. 
+   Você pode encontrar esse campo no seletor **Adicionar conteúdo dinâmico**.
+   - Use *Caso 1* para controlar quando o aprovador seleciona `Approve`.
+     - Se for aprovado, copie o arquivo original para o SharePoint Online com a ação [**SharePoint Online – Criar arquivo**](../connectors/connectors-create-api-sharepointonline.md).
+     - Adicione outra ação dentro do gabinete para notificar os usuários que um novo arquivo está disponível no SharePoint.
+   - Adicione outro caso para controlar quando o usuário seleciona `Reject`.
+     - Se rejeitada, envie um email de notificação informando que o arquivo será rejeitado e nenhuma ação adicional é necessária a outros aprovadores.
+   - `SelectedOptions` fornece apenas duas opções e, portanto, podemos deixar o caso **Padrão** vazio.
 
- > [!NOTE]
- > Instrução switch precisa de pelo menos um caso no adicional para o caso padrão.
+   ![Instrução switch](./media/logic-apps-switch-case/switch.jpg)
 
-4. Após a instrução switch, exclua o arquivo original carregado no recados com **Dropbox - excluir arquivo** ação.
+   > [!NOTE]
+   > Uma instrução switch precisa de, pelo menos, um caso além do caso padrão.
 
-5. Salve o Aplicativo Lógico e teste-o carregando um arquivo no Dropbox. Você deve receber um email de aprovação logo após, selecione uma opção e observar o comportamento.
- > [!TIP]
- > Confira como [monitorar seus Aplicativos Lógicos](logic-apps-monitor-your-logic-apps.md).
+4. Após a instrução switch, exclua o arquivo original carregado no Dropbox adicionando esta ação: **Dropbox – Excluir arquivo**
 
-## <a name="understanding-code-behind"></a>Compreender o código por trás
-Agora você criou com êxito um aplicativo lógico usando a instrução switch. Vamos examinar o código por trás da seguinte maneira.
+5. Salve seu aplicativo lógico. Teste o aplicativo carregando um arquivo no Dropbox. Em breve, você deverá receber um email de aprovação. Selecione uma opção e observe o comportamento.
+
+   > [!TIP]
+   > Confira como [monitorar os aplicativos lógicos](logic-apps-monitor-your-logic-apps.md).
+
+## <a name="understand-the-code-behind-switch-statements"></a>Noções básicas de instruções switch code-behind
+
+Agora que você criou um aplicativo lógico com êxito usando uma instrução switch, vamos examinar a definição de código por trás da instrução switch.
 
 ```json
 "Switch": {
@@ -100,17 +108,20 @@ Agora você criou com êxito um aplicativo lógico usando a instrução switch. 
 }
 ```
 
-`"Switch"`é o nome da instrução switch, ele pode ser renomeado para facilitar a leitura. `"type": "Switch"`indica que a ação é uma instrução switch. `"expression"`, nesse caso, a opção selecionada do usuário, é avaliado em cada caso declarado posteriormente na definição de. `"cases"`pode conter qualquer número de casos, e se nenhum dos casos corresponde à expressão de comutador, ações no `"default"` é executado.
+* `"Switch"` é o nome da instrução switch, que pode ser renomeada para facilitar a leitura. 
+* `"type": "Switch"` indica que a ação é uma instrução switch. 
+* Neste exemplo, `"expression"` é a opção selecionada pelo aprovador e é avaliada em cada caso declarado posteriormente na definição. 
+* `"cases"` pode conter qualquer quantidade de casos. Para cada caso, `"Case *"` é o nome padrão do caso, que pode ser renomeado para facilitar a leitura. 
+`"case"` especifica o rótulo do caso, que a expressão switch usa para comparação e deve ser uma constante e um valor exclusivo. Se nenhum dos casos corresponder à expressão switch, as ações em `"default"` serão executadas.
 
-Pode haver qualquer número de casos dentro de `"cases"`. Para cada caso, `"Case 1"` é o nome do caso, ele pode ser renomeado para facilitar a leitura. `"case"`Especifica o rótulo case, que compara a expressão de comutador com, que deve ser um valor constante e exclusivo.  
+## <a name="get-help"></a>Obter ajuda
+
+Para fazer perguntas, responder a perguntas e saber o que os outros usuários dos Aplicativos Lógicos do Azure estão fazendo, visite o [fórum de Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
+Para ajudar a melhorar os Aplicativos Lógicos do Azure e conectores, vote ou envie ideias no [site de comentários do usuário dos Aplicativos Lógicos do Azure](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Próximas etapas
-- Tente outros [recursos de Aplicativos Lógicos](logic-apps-use-logic-app-features.md).
-- Saiba mais sobre [tratamento de exceções e de erros](logic-apps-exception-handling.md).
-- Explore mais [os recursos de idioma do fluxo de trabalho](logic-apps-author-definitions.md).
-- Deixe um comentário com suas perguntas ou [Conte-nos como podemos aprimorar os Aplicativos Lógicos](https://feedback.azure.com/forums/287593-logic-apps).
 
-
-<!--HONumber=Feb17_HO2-->
-
-
+- Saiba como [adicionar condições](logic-apps-use-logic-app-features.md)
+- Saiba mais sobre [tratamento de erro e exceção](logic-apps-exception-handling.md)
+- Descubra mais [funcionalidades da linguagem do fluxo de trabalho](logic-apps-author-definitions.md)

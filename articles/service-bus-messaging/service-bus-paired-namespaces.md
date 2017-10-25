@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/16/2017
+ms.date: 08/30/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: d987aa22379ede44da1b791f034d713a49ad486a
-ms.openlocfilehash: 84e125dffcac3f3a54250587c5238b50d3a6cb95
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: bdd4c7948608c03447d1e040a746ed0eb7b0771b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Detalhes e implicações de custo da implementação do namespace emparelhado
 O método [PairNamespaceAsync][PairNamespaceAsync], que usa uma instância de [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions], realiza tarefas visíveis em seu nome. Como o uso do recurso envolve considerações sobre o custo, convém entender essas tarefas para que quando isso ocorrer você já saiba do que se trata. A API realiza o seguinte comportamento automático em seu nome:
@@ -96,7 +95,7 @@ Pelo menos um programa executável no aplicativo deve executar ativamente o sif�
 4. Recebimento do primário.
 
 ## <a name="closefault-behavior"></a>Comportamento de fechamento/falha
-Em um aplicativo que hospeda o sifão, quando a [MessagingFactory][MessagingFactory] primária ou secundária falha ou fecha sem que seu parceiro também apresente falha ou seja fechado, sendo que quando o sifão detecta esse estado, ele age. Se a outra [MessagingFactory][MessagingFactory] não for fechada dentro de cinco segundos, o sifão falhará na [MessagingFactory][MessagingFactory] ainda aberta.
+Em um aplicativo que hospeda o sifão, quando a [MessagingFactory][MessagingFactory] primária ou secundária falha ou fecha sem que seu parceiro também apresente falha ou seja fechado e o sifão detecta esse estado, ele age. Se a outra [MessagingFactory][MessagingFactory] não for fechada dentro de cinco segundos, o sifão falhará na [MessagingFactory][MessagingFactory] ainda aberta.
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte [Padrões de sistema de mensagens assíncronas e alta disponibilidade][Asynchronous messaging patterns and high availability] para obter uma discussão detalhada da mensagem assíncrona do Barramento de Serviço. 
@@ -120,4 +119,3 @@ Consulte [Padrões de sistema de mensagens assíncronas e alta disponibilidade][
 [0]: ./media/service-bus-paired-namespaces/IC673405.png
 [1]: ./media/service-bus-paired-namespaces/IC673406.png
 [2]: ./media/service-bus-paired-namespaces/IC673407.png
-

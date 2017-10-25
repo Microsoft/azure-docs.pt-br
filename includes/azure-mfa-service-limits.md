@@ -9,8 +9,3 @@
 | Bloquear a conta de usuário após **X** negações consecutivas do MFA |Não definido |99 |
 | Redefinir contador de bloqueios de conta após **X** minutos |Não definido |9999 |
 | Desbloquear conta após **X** minutos |Não definido |9999 |
-
-
-<!--HONumber=Feb17_HO1-->
-
-

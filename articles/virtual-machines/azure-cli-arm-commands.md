@@ -13,14 +13,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2017
+ms.date: 04/18/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: cdf9d576b6a7d3afcfb0839ce8bab2103fba14ed
-ms.lasthandoff: 03/21/2017
-
-
+ms.openlocfilehash: be957651af78519f678321aec511b71cb18a85f2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Comandos da CLI do Azure no modo do Gerenciador de Recursos
 Este artigo fornece a sintaxe e as opções de comandos da CLI (interface de linha de comando) do Azure que normalmente seriam usadas para criar e gerenciar recursos do Azure no modelo de implantação do Azure Resource Manager. É possível acessar esses comandos executando a CLI no modo ARM (Resource Manager). Essa não é uma referência completa, e sua versão da CLI poderá mostrar comandos ou parâmetros um pouco diferentes. Para obter uma visão geral dos recursos e dos grupos de recursos do Azure, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
@@ -946,86 +945,6 @@ Opções de parâmetro:
 
 <BR>
 
-    network lb address-pool add [options] <resource-group> <lb-name> <name>
-
-Um intervalo de pool de endereços de back-end é como um balanceador de carga sabe quais recursos deve rotear o tráfego de rede de entrada de seu ponto de extremidade usando o Gerenciador de Recursos do Azure. Depois de criar e nomear o intervalo de pool de endereços de back-end (Confira o comando "azure network lb address-pool create"), você precisa adicionar os pontos de extremidade que agora são definidos por um recurso chamado "interfaces de rede".
-
-Para configurar o intervalo de endereços de back-end, você precisa de pelo menos uma "interface de rede" (Confira a linha de comando de "azure network lb nic" para obter mais detalhes).
-
-No exemplo a seguir uma interface de rede "nic1" criada anteriormente foi usada para criar o intervalo de pool de endereços de back-end.
-
-    azure network lb address-pool add -g myresourcegroup -l mylb -n mybackendpool -a nic1
-
-    info:    Executing command network lb address-pool add
-    + Looking up the load balancer "mylb"
-    + Getting network interfaces
-    + Updating network interface "nic1"
-    + Looking up the load balancer "mylb"
-    data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/backendAddressPools/mybackendpool
-    data:    Name:                      mybackendpool
-    data:    Type:                      Microsoft.Network/loadBalancers/backendAddressPools
-    data:    Provisioning state:        Succeeded
-    data:    Backend IP configurations:
-    data:     id=/subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/networkInterfaces/nic1/ipConfigurations/NIC-config
-    data:    Load balancing rules:
-    data:
-    info:    network lb address-pool add command OK
-
-Opções de parâmetro:
-
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -n, --name <name>                      the name of the backend address pool
-    -i, --vm-id <vm-id>                    the virtual machine identifier.
-    e.g. "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines/<vm-name>,/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines/<vm-name>"
-    -m, --vm-name <vm-name>                the name of the virtual machine
-    -d, --nic-id <nic-id>                  the network interface identifier.
-    e.g. ""/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkInterfaces/<nic-name>"
-    -a, --nic-name <nic-name>              the name of the network interface
-    -s, --subscription <subscription>      the subscription identifier
-
-<BR>
-
-    network lb address-pool remove [options] <resource-group> <lb-name> <name>
-
-Remove uma interface de rede do intervalo de pool de endereços IP de back-end.
-
-    azure network lb address-pool remove -g myresourcegroup -l mylb -n mybackendpool -a nic1
-
-    info:    Executing command network lb address-pool remove
-    + Looking up the load balancer "mylb"
-    + Getting network interfaces
-    + Updating network interface "nic1"
-    + Looking up the load balancer "mylb"
-    data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/backendAddressPools/mybackendpool
-    data:    Name:                      mybackendpool
-    data:    Type:                      Microsoft.Network/loadBalancers/backendAddressPools
-    data:    Provisioning state:        Succeeded
-    data:    Backend IP configurations:
-    data:    Load balancing rules:
-    data:
-    info:    network lb address-pool remove command OK
-
-Opções de parâmetro:
-
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -n, --name <name>                      the name of the backend address pool
-    -i, --vm-id <vm-id>                    the virtual machine identifier.
-    e.g. "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines/<vm-name>,/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines/<vm-name>"
-    -m, --vm-name <vm-name>                the name of the virtual machine
-    -d, --nic-id <nic-id>                  the network interface identifier.
-    e.g. ""/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkInterfaces/<nic-name>"
-    -a, --nic-name <nic-name>              the name of the network interface
-    -s, --subscription <subscription>      the subscription identifier
-<BR>
-
     network lb address-pool list [options] <resource-group> <lb-name>
 
 Lista o intervalo de pool de endereços IP de back-end para um grupo de recursos específicos
@@ -1413,7 +1332,7 @@ Opções de parâmetro:
     -s, --subscription <subscription>            the subscription identifier
 
 <br>
-    network public-ip list [options] <resource-group> Lista todos os recursos de IP público em um grupo de recursos.
+    network public-ip list [options] &lt;resource-group&gt; Lista todos os recursos de IP público em um grupo de recursos.
 
     azure network public-ip list -g myresourcegroup
 
@@ -1864,4 +1783,3 @@ Opções de parâmetro:
     vm image list-offers [options] <location> <publisher>
     vm image list-skus [options] <location> <publisher> <offer>
     vm image list [options] <location> <publisher> [offer] [sku]
-

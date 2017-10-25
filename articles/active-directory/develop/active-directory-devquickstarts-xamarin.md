@@ -3,7 +3,7 @@ title: "Introdução ao Xamarin do Azure AD | Microsoft Docs"
 description: Crie aplicativos Xamarin que se integrem ao Azure AD para entrar e chame APIs protegidas do Azure AD usando OAuth.
 services: active-directory
 documentationcenter: xamarin
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 9c40d273f102339fac8ea633c870b869d10106a7
-ms.openlocfilehash: ccbc051f49220e824782ed4831a31ab1a716570a
-ms.lasthandoff: 02/17/2017
-
-
+ms.author: jmprieur
+ms.custom: aaddev
+ms.openlocfilehash: 54ee403f283bc5dc79911e2e813dd513ff595828
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-azure-ad-with-xamarin-apps"></a>Integrar o Azure AD com aplicativos Xamarin
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -189,9 +189,8 @@ Se você ainda não fez isso, agora é o momento de popular seu locatário com a
 
 A ADAL facilita a incorporação de recursos comuns de identidade no aplicativo. Ele se encarrega de todo o trabalho difícil para você, por exemplo, gerenciamento de cache, suporte a protocolo OAuth, apresentação de uma interface do usuário de logon ao usuário e atualização de tokens expirados. Você precisa conhecer apenas uma única chamada à API, `authContext.AcquireToken*(…)`.
 
-Para referência, baixe o [exemplo concluído](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip) (sem seus valores de configuração).
+Para referência, baixe a [amostra concluída](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip) (sem seus valores de configuração).
 
 Agora você pode passar para cenários de identidade adicionais. Por exemplo, experimente [Proteger uma API Web .NET com o Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

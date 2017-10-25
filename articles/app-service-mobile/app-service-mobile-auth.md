@@ -4,7 +4,7 @@ description: "Referência conceitual e visão geral do recurso Autenticação/Au
 services: app-service\mobile
 documentationcenter: 
 author: mattchenderson
-manager: adrianha
+manager: syntaxc4
 editor: 
 ms.assetid: a46dbf70-867d-48f6-8885-7f5207ad102e
 ms.service: app-service-mobile
@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8b676aee5353d0e5d85224950a537b3fe31f2f29
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 4105392f58eaf37e88c1d9ffb74f3f4133fa5482
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authentication-and-authorization-in-azure-mobile-apps"></a>Autenticação e Autorização nos Aplicativos Móveis do Azure
 ## <a name="what-is-app-service-authentication--authorization"></a>O que é a Autenticação/Autorização do Serviço de Aplicativo?
@@ -102,9 +101,8 @@ Se você deseja usar um sistema de identidade diferente daqueles fornecidos aqui
 [Adicione autenticação ao aplicativo Xamarin.Android]: app-service-mobile-xamarin-android-get-started-users.md
 [Adicionar autenticação ao seu aplicativo do Windows]: app-service-mobile-windows-store-dotnet-get-started-users.md
 
-[Como configurar seu aplicativo para usar o logon do Active Directory do Azure]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[Como configurar seu aplicativo para usar o logon do Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
-[Como configurar seu aplicativo para usar o logon do Google]: app-service-mobile-how-to-configure-google-authentication.md
-[Como configurar seu aplicativo para usar o logon da Conta da Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Como configurar seu aplicativo para usar o logon do Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
-
+[Como configurar seu aplicativo para usar o logon do Active Directory do Azure]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[Como configurar seu aplicativo para usar o logon do Facebook]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
+[Como configurar seu aplicativo para usar o logon do Google]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
+[Como configurar seu aplicativo para usar o logon da Conta da Microsoft]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[Como configurar seu aplicativo para usar o logon do Twitter]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md

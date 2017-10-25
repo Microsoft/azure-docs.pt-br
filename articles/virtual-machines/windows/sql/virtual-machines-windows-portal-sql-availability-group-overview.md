@@ -15,13 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: 3bf8cc49223e3e612a2343e8a3383bbbe02dcd82
-ms.openlocfilehash: 3d18551823abbb9beca4212aa8095b6757a080cb
-
-
+ms.openlocfilehash: 2cbb9ff3b2d13996b1b8dc64aa833807c264c877
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introdução aos grupos de disponibilidade do AlwaysOn do SQL Server em máquinas virtuais do Azure #
 
 Este artigo apresenta os grupos de disponibilidade do SQL Server em máquinas virtuais do Azure. 
@@ -51,9 +50,3 @@ Você também pode criar as máquinas virtuais sem o modelo. Primeiro, complete 
 ## <a name="next-steps"></a>Próximas etapas
 
 [Configurar um SQL Server sempre no grupo de disponibilidade em máquinas virtuais do Azure em diferentes regiões](virtual-machines-windows-portal-sql-availability-group-dr.md).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-

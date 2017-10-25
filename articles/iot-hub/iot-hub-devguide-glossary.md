@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 08/08/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 408dfd655db7a4a5fa33920e0c8bc8b7a065e886
-ms.lasthandoff: 03/21/2017
-
-
+ms.openlocfilehash: c2c95373912131445b584fa8518785b26caa9c02
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos do Hub IoT
 Este artigo lista alguns dos termos comuns usados nos artigos do Hub IoT.
@@ -37,17 +36,17 @@ A [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-az-cli2) é um
 ## <a name="azure-iot-device-sdks"></a>SDKs do dispositivo IoT do Azure
 Há _SDKs de dispositivo_ disponíveis para vários idiomas que permitem que você crie [aplicativos de dispositivo](#device-app) que interagem com um hub IoT. Os tutoriais do Hub IoT mostram como usar esses SDKs de dispositivo. Você pode encontrar o código-fonte e obter mais informações sobre os SDKs de dispositivo neste [repositório](https://github.com/Azure/azure-iot-sdks) GitHub.
 
-## <a name="azure-iot-gateway-sdk"></a>SDK de Gateway do Azure IoT
-Esse SDK permite que você escreva aplicativos que habilitam dispositivos conectados ao gateway para se comunicarem com o [Hub IoT](#iot-hub). Os tutoriais sobre o gateway do Hub IoT mostram como usar esse SDK. Você pode encontrar o código-fonte e mais informações sobre o SDK do Gateway IoT do Azure no [repositório](https://github.com/Azure/azure-iot-gateway-sdk) GitHub.
+## <a name="azure-iot-edge"></a>Azure IoT Edge
+O IoT Edge permite escrever aplicativos que habilitam dispositivos conectados ao gateway a se comunicarem com o [Hub IoT](#iot-hub). Os tutoriais do IoT Edge mostram como usar esse serviço. Você pode encontrar o código-fonte e obter mais informações sobre o Azure IoT Edge nesse [repositório](https://github.com/Azure/iot-edge) do GitHub.
 
 ## <a name="azure-iot-service-sdks"></a>SDKs do serviço IoT do Azure
 Há _SDKs de serviço_ disponíveis para vários idiomas que permitem que você crie [aplicativos de back-end](#back-end-app) que interagem com um hub IoT. Os tutoriais do Hub IoT mostram como usar esses SDKs de serviço. Você pode encontrar o código-fonte e obter mais informações sobre os SDKs de serviço neste [repositório](https://github.com/Azure/azure-iot-sdks) GitHub.
 
 ## <a name="azure-portal"></a>Portal do Azure
-O [portal do Microsoft Azure](https://portal.azure.com) é um local central no qual você pode provisionar e gerenciar os recursos do Azure. Ele organiza seu conteúdo usando _folhas_. Em alguns dos tutoriais do Hub IoT, poderá ser solicitado o uso do [portal clássico do Azure](https://manage.windowsazure.com).
+O [portal do Microsoft Azure](https://portal.azure.com) é um local central no qual você pode provisionar e gerenciar os recursos do Azure. Ele organiza seu conteúdo usando _folhas_.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-O [Azure PowerShell](/powershell/azureps-cmdlets-docs) é uma coleção de cmdlets que você pode usar para gerenciar o Azure com o Windows PowerShell. É possível usar os cmdlets para criar, testar, implantar e gerenciar soluções e serviços entregues pela plataforma Azure.
+O [Azure PowerShell](/powershell/azure/overview) é uma coleção de cmdlets que você pode usar para gerenciar o Azure com o Windows PowerShell. É possível usar os cmdlets para criar, testar, implantar e gerenciar soluções e serviços entregues pela plataforma Azure.
 
 ## <a name="azure-resource-manager"></a>Gerenciador de Recursos do Azure
 O [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) permite trabalhar com os recursos da sua solução como um grupo. Você pode implantar, atualizar ou excluir os recursos da sua solução em uma única operação coordenada.
@@ -56,7 +55,7 @@ O [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 O [Barramento de Serviço](../service-bus/index.md) fornece a comunicação habilitada para nuvem com mensagens corporativas e comunicações retransmitidas que o ajudam a conectar soluções locais com a nuvem. Alguns tutoriais do Hub IoT utilizam [filas](../service-bus-messaging/service-bus-messaging-overview.md) do Barramento de Serviço.
 
 ## <a name="azure-storage"></a>Armazenamento do Azure
-O [Armazenamento do Azure](../storage/storage-introduction.md) é uma solução de armazenamento de nuvem. Ele inclui o serviço Armazenamento de Blobs que você pode usar para armazenar dados de objetos não estruturados. Alguns tutoriais do Hub IoT usam o armazenamento de blobs.
+O [Armazenamento do Azure](../storage/common/storage-introduction.md) é uma solução de armazenamento de nuvem. Ele inclui o serviço Armazenamento de Blobs que você pode usar para armazenar dados de objetos não estruturados. Alguns tutoriais do Hub IoT usam o armazenamento de blobs.
 
 ## <a name="back-end-app"></a>Aplicativo de back-end
 No contexto do [Hub IoT](#iot-hub), um aplicativo de back-end é um aplicativo que se conecta a um dos pontos de extremidade voltados para o serviço em um hub IoT. Por exemplo, um aplicativo de back-end pode recuperar mensagens do [dispositivo para nuvem](#device-to-cloud) ou gerenciar o [registro de identidade](#identity-registry). Normalmente, um aplicativo de back-end é executado na nuvem, mas em muitos dos tutoriais dos aplicativos de back-end há aplicativos de console em execução no seu computador de desenvolvimento local.
@@ -79,7 +78,7 @@ Você pode usar cadeias de conexão no código do aplicativo para encapsular as 
 Você pode criar [pontos de extremidade](iot-hub-devguide-endpoints.md) em um hub IoT entregar as mensagens enviadas por uma [regra de roteamento](#routing-rules). Pontos de extremidade personalizados se conectar diretamente a um hub de eventos, uma fila do barramento de serviço ou um tópico do barramento de serviço.
 
 ## <a name="custom-gateway"></a>Gateway personalizado
-Um gateway permite a conectividade para os dispositivos que não podem se conectar diretamente ao [Hub IoT](#iot-hub). Você pode usar o [SDK Gateway IoT do Azure](#azure-iot-gateway-sdk) para criar gateways personalizados que implementem a lógica personalizada para lidar com mensagens e conversões de protocolo personalizado.
+Um gateway permite a conectividade para os dispositivos que não podem se conectar diretamente ao [Hub IoT](#iot-hub). Você pode usar o [Azure IoT Edge](#azure-iot-edge) para criar gateways personalizados que implementam a lógica personalizada para lidar com mensagens, conversões de protocolo personalizado e outros processamentos no Edge.
 
 ## <a name="data-point-message"></a>Mensagem de ponto de dados
 Uma mensagem de ponto de dados é uma mensagem do [dispositivo para nuvem](#device-to-cloud) que contém dados de [telemetria](#telemetry), como velocidade do vento ou temperatura.
@@ -106,7 +105,7 @@ Refere-se a informações de estado do dispositivo, como o método de conectivid
 Os dados do dispositivo referem-se aos dados por dispositivo armazenados no [registro de identidade](#identity-registry) do Hub IoT. É possível importar e exportar esses dados.
 
 ## <a name="device-explorer"></a>Gerenciador de dispositivos
-O [Gerenciador de Dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) é uma ferramenta executada no Windows e permite que você gerencie seus dispositivos no [registro de identidade](#identity-registry) e envie e receba mensagens para seus dispositivos.
+O [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) é uma ferramenta executada no Windows e permite que você gerencie seus dispositivos no [registro de identidade](#identity-registry). A ferramenta também pode enviar e receber mensagens para os seus dispositivos.
 
 ## <a name="device-identities-rest-api"></a>API REST de Identidades de Dispositivo
 A [API REST de identidades de dispositivo](https://docs.microsoft.com/rest/api/iothub/iothubresource) permite que você gerencie seus dispositivos registrados no [registro de identidade](#identity-registry) usando uma API REST. Normalmente, você deve usar um dos [SDKs de serviço](#azure-iot-service-sdks) de nível mais alto, como mostrado nos tutoriais de Hub IoT.
@@ -115,7 +114,7 @@ A [API REST de identidades de dispositivo](https://docs.microsoft.com/rest/api/i
 A identidade do dispositivo é o identificador exclusivo atribuído a cada dispositivo registrado no [registro de identidade](#identity-registry).
 
 ## <a name="device-management"></a>Gerenciamento de dispositivos
-O gerenciamento de dispositivos engloba o ciclo de vida completo associado ao gerenciamento dos dispositivos na sua solução de IoT incluindo planejamento, provisionamento, configuração, monitoramento e desativação
+O gerenciamento de dispositivos engloba o ciclo de vida completo associado ao gerenciamento dos dispositivos na sua solução de IoT incluindo planejamento, provisionamento, configuração, monitoramento e desativação.
 
 ## <a name="device-management-patterns"></a>Padrões de gerenciamento de dispositivos
 O [hub IoT](#iot-hub) permite que os padrões comuns de gerenciamento de dispositivos, incluindo reinicialização, execução de redefinições de fábrica e execução de atualizações de firmware nos seus dispositivos.
@@ -187,10 +186,10 @@ O [iothub explorer](https://github.com/azure/iothub-explorer) é uma ferramenta 
 O back-end de sua solução pode usar [trabalhos](iot-hub-devguide-jobs.md) para agendar e controlar atividades em um conjunto de dispositivos registrados no Hub IoT. As atividades incluem atualização de [propriedades desejadas](#desired-properties) do dispositivo gêmeo, atualização de [marcas](#tags) do dispositivo gêmeo e invocação de [métodos diretos](#direct-method). O [Hub IoT](#iot-hub) também usa trabalhos para [importar e exportar](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) do [registro de identidade](#identity-registry).
 
 ## <a name="jobs-rest-api"></a>API REST de Trabalhos
-A [API REST de Trabalhos](https://docs.microsoft.com/rest/api/iothub/jobapi) permite o gerenciamento de [trabalhos](#job) em execução em seu Hub IoT.
+A [API REST de Trabalhos](https://docs.microsoft.com/rest/api/iothub/jobapi) permite o gerenciamento de [trabalhos](#job) em execução no Hub IoT.
 
 ## <a name="module"></a>Módulo
-No [SDK do Gateway IoT do Azure](iot-hub-linux-gateway-sdk-get-started.md), um [módulo](iot-hub-linux-gateway-sdk-get-started.md#azure-iot-gateway-sdk-concepts) é um componente que executa uma tarefa específica. As tarefas podem incluir a ingestão de uma mensagem de um dispositivo, transformando uma mensagem, ou o envio de uma mensagem, para um hub IoT. Um agente é responsável pelo encaminhamento de mensagens entre os módulos. O SDK do Gateway IoT do Azure inclui um conjunto de módulos de exemplo. Você também pode criar seus próprios módulos personalizados.
+No [Azure IoT Edge](iot-hub-linux-iot-edge-get-started.md), um [módulo](iot-hub-linux-iot-edge-get-started.md) é um componente que executa uma tarefa específica. As tarefas podem incluir a ingestão de uma mensagem de um dispositivo, transformando uma mensagem, ou o envio de uma mensagem, para um hub IoT. Um agente é responsável pelo encaminhamento de mensagens entre os módulos. O Azure IoT Edge inclui um conjunto de módulos de exemplo. Você também pode criar seus próprios módulos personalizados.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) é um dos protocolos de mensagens com suporte do [Hub IoT](#iot-hub) para comunicação com dispositivos. Para saber mais sobre os protocolos de mensagens com suporte do Hub IoT, consulte [Enviar e receber mensagens com o Hub IoT](iot-hub-devguide-messaging.md).
@@ -223,7 +222,7 @@ O [Azure Resource Manager](#azure-resource-manager) usa grupos de recursos para 
 Use uma política de repetição para tratar [erros transitórios](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx) quando você se conectar a um serviço de nuvem.
 
 ## <a name="routing-rules"></a>Regras de roteamento
-Configurar [as regras de roteamento](iot-hub-devguide-messaging.md#routing-rules) em seu hub IoT para rotear mensagens de dispositivo para a nuvem para um [ponto de extremidade interno](#built-in-endpoints) ou [pontos de extremidade personalizados](#custom-endpoints) para processamento pelo back-end da sua solução.
+Configurar [as regras de roteamento](iot-hub-devguide-messages-read-custom.md) em seu hub IoT para rotear mensagens de dispositivo para a nuvem para um [ponto de extremidade interno](#built-in-endpoints) ou [pontos de extremidade personalizados](#custom-endpoints) para processamento pelo back-end da sua solução.
 
 ## <a name="sasl-plain"></a>SASL SIMPLES
 SASL SIMPLES é um protocolo que o protocolo [AMQP](#advanced-message-queue-protocol) usa para transferir tokens de segurança.

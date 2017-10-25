@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 782c73f42e3db9c8b9fa87da171ab0c946922041
-ms.openlocfilehash: 2ed04f9de3c1a0f7ef6346a41ee16fb2924a52b4
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: 43f8d338cf07999d7791cbd5d3e8ddcc0d6b2b59
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-storsimple-virtual-array-limits"></a>O que são os limites do StorSimple Virtual Array?
 
@@ -29,5 +28,4 @@ Considere esses limites, à medida que você planeja, implanta e opera o Microso
 
 ## <a name="storsimple-virtual-array-limits"></a>Limites de StorSimple Virtual Array
 [!INCLUDE [storsimple-virtual-array-limits](../../includes/storsimple-virtual-array-limits.md)]
-
 

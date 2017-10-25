@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 3d5ad974c01e0ee3954da4f990da87338b2d1756
-ms.openlocfilehash: 63b7e8bda46858d92dc128befdeb189cab53680f
-ms.lasthandoff: 02/23/2017
-
-
+ms.custom: aaddev
+ms.openlocfilehash: d63692f02b3dec50a1e7df034b8915bb450b4cfd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 e o protocolo OpenID Connect
+# Azure Active Directory v2.0 e o protocolo OpenID Connect
 O OpenID Connect é um protocolo de autenticação baseado no OAuth 2.0 que você pode usar para assinar com segurança em um usuário a um aplicativo Web. Quando você usa a implementação do ponto de extremidade v2.0 do OpenID Connect, você pode adicionar entrada e acesso à API aos seus aplicativos baseados na Web. Neste artigo, mostraremos como fazer isso independentemente do idioma. Descreveremos como enviar e receber mensagens HTTP sem usar qualquer uma das bibliotecas de software livre da Microsoft.
 
 > [!NOTE]
@@ -31,12 +31,12 @@ O OpenID Connect é um protocolo de autenticação baseado no OAuth 2.0 que voc�
 
 O [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) estende o protocolo de *autorização* do OAuth 2.0 para uso como um protocolo de *autenticação*, o que permite executar o logon único usando o OAuth. O OpenID Connect apresenta o conceito de um *token de ID*, que é um token de segurança que permite ao cliente verificar a identidade do usuário. O token de ID também obtém informações de perfil básico sobre o usuário. Como o OpenID Connect estende o OAuth 2.0, os aplicativos podem adquirir *access_tokens* com segurança, os quais podem ser usados para acessar os recursos protegidos por um [servidor de autorização](active-directory-v2-protocols.md#the-basics). É recomendável que você use o OpenID Connect se estiver criando um [aplicativo Web](active-directory-v2-flows.md#web-apps) que fica hospedado em um servidor e é acessado por meio de um navegador.
 
-## <a name="protocol-diagram-sign-in"></a>Diagrama de protocolo: Entrar
+## Diagrama de protocolo: Entrar
 O fluxo de entrada mais básico tem as etapas mostradas no diagrama seguinte. Descrevemos cada etapa detalhadamente neste artigo.
 
 ![Protocolo OpenID Connect: entrar](../../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
 
-## <a name="fetch-the-openid-connect-metadata-document"></a>Obter o documento de metadados do OpenID Connect
+## Obter o documento de metadados do OpenID Connect
 O OpenID Connect descreve um documento de metadados que contém a maioria das informações necessárias para que um aplicativo inicie uma sessão. Isso inclui informações como as URLs a serem usadas e o local das chaves de assinatura públicas do serviço. Para o ponto de extremidade v2.0, este é o documento de metadados do OpenID Connect que você deve usar:
 
 ```
@@ -71,7 +71,7 @@ Os metadados são um documento JSON (JavaScript Object Notation) simples. Veja o
 
 Normalmente, você usaria este documento de metadados para configurar uma biblioteca do OpenID Connect ou o SDK. A biblioteca usaria os metadados para fazer seu trabalho. No entanto, se você não estiver usando uma biblioteca de pré-compilação do OpenID Connect, é possível seguir as etapas no restante deste artigo para iniciar uma sessão em um aplicativo web usando o ponto de extremidade v2.0.
 
-## <a name="send-the-sign-in-request"></a>Enviar a solicitação de conexão
+## Enviar a solicitação de conexão
 Quando o aplicativo Web precisa autenticar o usuário, ele pode direcionar o usuário para o ponto de extremidade `/authorize` . Essa solicitação é semelhante ao primeiro segmento do [Fluxo de código de autorização do OAuth 2.0](active-directory-v2-protocols-oauth-code.md), com estas diferenças importantes:
 
 * A solicitação deve incluir o escopo `openid` no parâmetro `scope`.
@@ -117,7 +117,7 @@ Nesse ponto, será solicitado que o usuário insira suas credenciais e conclua a
 
 Depois que o usuário se autentica e dá consentimento, o ponto de extremidade v2.0 retorna uma resposta ao aplicativo no URI de redirecionamento indicado usando o método especificado no parâmetro `response_mode`.
 
-### <a name="successful-response"></a>Resposta bem-sucedida
+### Resposta bem-sucedida
 Uma resposta bem-sucedida ao usar `response_mode=form_post` tem esta aparência:
 
 ```
@@ -133,7 +133,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 | id_token |O token de ID que o aplicativo solicitou. Você pode usar o parâmetro `id_token` para verificar a identidade do usuário e iniciar uma sessão com o usuário. Para obter mais detalhes sobre tokens de ID e seu conteúdo, veja a [referência os tokens de ponto de extremidade v2.0](active-directory-v2-tokens.md). |
 | state |Se um parâmetro `state` estiver incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores de estado na solicitação e na resposta são idênticos. |
 
-### <a name="error-response"></a>Resposta de erro
+### Resposta de erro
 As respostas de erros também podem ser enviadas para o URI de redirecionamento para que o aplicativo possa lidar com elas. Uma resposta de erro tem esta aparência:
 
 ```
@@ -149,7 +149,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | error |Uma cadeia de caracteres de códigos de erro que você pode usar para classificar tipos de erro que ocorrem e para responder aos erros. |
 | error_description |Uma mensagem de erro específica que pode ajudar você a identificar a causa raiz de um erro de autenticação. |
 
-### <a name="error-codes-for-authorization-endpoint-errors"></a>Códigos de erro para erros de ponto de extremidade de autorização
+### Códigos de erro para erros de ponto de extremidade de autorização
 A tabela a seguir descreve os códigos de erro que podem ser retornados no parâmetro `error` da resposta de erro:
 
 | Código do erro | Descrição | Ação do cliente |
@@ -162,7 +162,7 @@ A tabela a seguir descreve os códigos de erro que podem ser retornados no parâ
 | temporarily_unavailable |O servidor está temporariamente muito ocupado para tratar da solicitação. |Tente novamente a solicitação. O aplicativo cliente pode explicar para o usuário que sua resposta está atrasada devido a uma condição temporária. |
 | invalid_resource |O recurso de destino é inválido porque não existe, o Azure AD não consegue encontrá-lo ou ele não está configurado corretamente. |Isso indica que o recurso, se ele existe, não foi configurado no locatário. O aplicativo pode solicitar que o usuário instale o aplicativo e o adicione ao Azure AD. |
 
-## <a name="validate-the-id-token"></a>Validar o token de ID
+## Validar o token de ID
 Receber um tokend e ID não é suficiente para autenticar o usuário. Você também deve validar a assinatura do token de ID e verificar as declarações no token de acordo com os requisitos do seu aplicativo. O ponto de extremidade v2.0 usa [JWTs (Tokens Web JSON)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar tokens e verificar se eles são válidos.
 
 Você pode escolher validar o token de ID no código do cliente, mas uma prática comum é enviar o token de ID para um servidor de back-end e executar a validação nele. Depois que tiver validado a assinatura do token de ID, você precisará verificar algumas declarações. Para saber mais, incluindo mais sobre [tokens de validação](active-directory-v2-tokens.md#validating-tokens) e [informações importantes sobre a substituição de chave de assinatura](active-directory-v2-tokens.md#validating-tokens), veja a [referência de tokens v2.0](active-directory-v2-tokens.md). É recomendável usar uma biblioteca para analisar e validar os tokens. Há pelo menos uma dessas bibliotecas disponível para a maioria das linguagens e plataformas.
@@ -178,7 +178,7 @@ Para saber mais sobre as declarações em um token de ID, veja a [referência de
 
 Após validar completamente o token de ID, você poderá iniciar uma sessão com o usuário. Use as declarações no token de ID para obter informações sobre o usuário em seu aplicativo. Você pode usar essas informações para exibição, registros, autorizações e assim por diante.
 
-## <a name="send-a-sign-out-request"></a>Enviar uma solicitação de saída
+## Enviar uma solicitação de saída
 Quando você deseja desconectar o usuário do aplicativo, não é suficiente limpar os cookies do aplicativo ou encerrar a sessão do usuário. Você também deve redirecionar o usuário para o ponto de extremidade v2.0 para desconexão. Se você não fizer isso, o usuário poderá se autenticar novamente no seu aplicativo sem inserir as credenciais novamente, pois continuará em uma sessão de logon único válida com o ponto de extremidade v2.0.
 
 Você pode redirecionar o usuário para o `end_session_endpoint` listado no documento de metadados do OpenID Connect:
@@ -192,17 +192,17 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 | ----------------------- | ------------------------------- | ------------ |
 | post_logout_redirect_uri | Recomendadas | A URL para a qual o usuário é redirecionado após o logout bem-sucedido. Se o parâmetro não for incluído, o usuário receberá uma mensagem genérica gerada pelo ponto de extremidade v2.0. Esta URL deve corresponder exatamente a um redirecionamento de URIs registrado para seu aplicativo no portal de registro de aplicativo.  |
 
-## <a name="single-sign-out"></a>Logout único
+## Logout único
 Quando você redireciona o usuário para o `end_session_endpoint`, o ponto de extremidade v2.0 limpa a sessão do usuário do navegador. No entanto, o usuário pode ainda entrar em outros aplicativos que usam contas da Microsoft para autenticação. Para permitir que esses aplicativos desconectem o usuário simultaneamente, o ponto de extremidade v2.0 envia uma solicitação HTTP GET para o `LogoutUrl` de todos os aplicativos aos quais o usuário está atualmente conectado. Os aplicativos devem responder a essa solicitação, limpando as sessões que identificam o usuário e retornando uma resposta `200`.  Se você deseja dar suporte um logout único em seu aplicativo, você deve implementar um `LogoutUrl` no código do aplicativo.  Você pode configurar a `LogoutUrl` no portal de registro do aplicativo.
 
-## <a name="protocol-diagram-token-acquisition"></a>Diagrama de Protocolos: aquisição de Token
+## Diagrama de Protocolos: aquisição de Token
 Muitos aplicativos Web precisam não apenas conectar o usuário, mas acessar um serviço Web em nome desse usuário usando o OAuth. Esse cenário combina o OpenID Connect para autenticação de usuário enquanto obtém simultaneamente um código de autorização que pode ser usado para obter tokens de acesso se você estiver usando o fluxo do código de autorização do OAuth.
 
 O fluxo total de entrada e de aquisição de token do OpenID Connect é similar ao próximo diagrama. Descrevemos cada etapa detalhadamente nas próximas seções do artigo.
 
 ![Protocolo OpenID Connect: aquisição de token](../../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
-## <a name="get-access-tokens"></a>Obter tokens de acesso
+## Obter tokens de acesso
 Para obter tokens de acesso, modifique a solicitação de entrada:
 
 ```
@@ -228,7 +228,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 
 Com a inclusão de escopos de permissão na solicitação e usando `response_type=id_token code`, o ponto de extremidade v2.0 garante que o usuário consentiu as permissões indicadas no parâmetro de consulta `scope`. Ele retorna um código de autorização para seu aplicativo para o exchange para um token de acesso.
 
-### <a name="successful-response"></a>Resposta bem-sucedida
+### Resposta bem-sucedida
 Uma resposta bem-sucedida do uso do `response_mode=form_post` tem a seguinte aparência:
 
 ```
@@ -245,7 +245,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 | código |O código de autorização que o aplicativo solicitou. O aplicativo pode usar o código de autorização para solicitar um token de acesso para o recurso de destino. Um código de autorização tem uma duração muito curta. Normalmente, um código de autorização expira em cerca de 10 minutos. |
 | state |Se um parâmetro de estado estiver incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores de estado na solicitação e na resposta são idênticos. |
 
-### <a name="error-response"></a>Resposta de erro
+### Resposta de erro
 As respostas de erro também podem ser enviadas ao URI de redirecionamento para que o aplicativo possa tratá-las adequadamente. Uma resposta de erro tem esta aparência:
 
 ```
@@ -264,4 +264,3 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 Para obter uma descrição dos possíveis códigos de erro e as respostas recomendadas do cliente, veja [Códigos de erro para erros de ponto de extremidade de autorização](#error-codes-for-authorization-endpoint-errors).
 
 Quando você tiver um código de autorização e um token de ID, poderá conectar o usuário e obter tokens de acesso em seu nome. Para conectar o usuário, você deve validar o token de ID [exatamente como descrito ](#validate-the-id-token). Para obter tokens de acesso, siga as etapas descritas em nossa [documentação do protocolo OAuth](active-directory-v2-protocols-oauth-code.md#request-an-access-token).
-

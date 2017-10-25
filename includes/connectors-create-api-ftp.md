@@ -12,8 +12,3 @@ Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua
 3. Observe que a conexão foi criada e agora você pode continuar com as outras etapas em seu aplicativo lógico:  
    ![etapa de criação de conexão com o FTP](./media/connectors-create-api-ftp/ftp-3.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

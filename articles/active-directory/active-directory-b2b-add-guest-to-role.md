@@ -1,5 +1,4 @@
 ---
-
 title: "Adicionar um usuário de colaboração B2B do Azure Active Directory a uma função | Microsoft Docs"
 description: "Adicionar um usuário convidado a uma função no Azure Active Directory"
 services: active-directory
@@ -17,14 +16,12 @@ ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
 ms.openlocfilehash: e816349ea971c997f655b4d51672dba666bc3e89
-ms.lasthandoff: 03/17/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Conceder permissões a usuários de organizações parceiras em seu locatário do Azure Active Directory
 
 Os usuários da colaboração B2B do Azure AD (Azure Active Directory) são adicionados como usuários convidados ao diretório e as permissões de convidado no diretório são restritas por padrão. Sua empresa pode precisar de alguns usuários convidados para preencher as funções de privilégio mais elevado na organização. Para dar suporte à definição de funções de privilégio mais elevado, os usuários convidados podem ser adicionados às funções desejadas, de acordo com as necessidades de sua organização.
@@ -55,4 +52,3 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Mapeamento de declarações de usuário de colaboração B2B](active-directory-b2b-claims-mapping.md)
 * [Compartilhamento externo do Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitações atuais da colaboração B2B](active-directory-b2b-current-limitations.md)
-

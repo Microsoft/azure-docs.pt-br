@@ -12,8 +12,3 @@ Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua
 3. Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico:   
    ![etapa de criação de conexão com o RSS](./media/connectors-create-api-rss/rss-3.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 07/05/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 377d3f28a9de868744d6e85767ede1bdf59a184e
-
-
+ms.openlocfilehash: c7a70e74f8b275ed9e10118b0ae9e81309f97ba3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-the-azure-redis-cache-premium-tier"></a>Introdução à camada Premium do Cache Redis do Azure
 O Cache Redis do Azure é um cache distribuído e gerenciado que ajuda você a criar aplicativos altamente escalonáveis e responsivos, fornecendo acesso extremamente rápido aos seus dados. 
@@ -26,9 +26,9 @@ O Cache Redis do Azure é um cache distribuído e gerenciado que ajuda você a c
 A nova camada Premium é uma camada pronta para Empresas, que inclui todos os recursos da camada Standard e muito mais, como melhor desempenho, cargas de trabalho maiores, recuperação de desastres, importação/exportação e segurança avançada. Continue lendo para saber mais sobre os recursos adicionais da camada de cache Premium.
 
 ## <a name="better-performance-compared-to-standard-or-basic-tier"></a>Melhor desempenho em relação às camadas Standard ou Basic.
-**Melhor desempenho em relação às camadas Standard ou Básica.**  Os caches na camada Premium são implantados no hardware que tem processadores mais rápidos e que oferece um melhor desempenho quando comparado às Camadas Standard ou Básica. Os Caches da camada Premium têm a taxa de transferência mais alta e as latências mais baixas. 
+**Melhor desempenho em relação às camadas Standard ou Básica.** Os caches na camada Premium são implantados no hardware que tem processadores mais rápidos e que oferece um melhor desempenho quando comparado às Camadas Standard ou Básica. Os Caches da camada Premium têm a taxa de transferência mais alta e as latências mais baixas. 
 
-**A taxa de transferência para o Cache do mesmo tamanho é maior na camada Premium quando comparada à camada Standard.**  Por exemplo, a taxa de transferência para um Cache de 53 GB P4 (Premium) é de 250 mil solicitações por segundo quando comparada a 150 mil do C6 (Standard).
+**A taxa de transferência para o Cache do mesmo tamanho é maior na camada Premium quando comparada à camada Standard.** Por exemplo, a taxa de transferência para um Cache de 53 GB P4 (Premium) é de 250 mil solicitações por segundo quando comparada a 150 mil do C6 (Standard).
 
 Para obter mais informações sobre tamanho, taxa de transferência e largura de banda com caches premium, veja [Perguntas frequentes sobre o Cache Redis do Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
@@ -68,6 +68,11 @@ A camada premium permite a reinicialização de um ou mais nós de seu cache sob
 
 Para obter mais informações, consulte [Reinicializar](cache-administration.md#reboot) e [Perguntas frequentes sobre reinicialização](cache-administration.md#reboot-faq).
 
+>[!NOTE]
+>A funcionalidade de reinicialização agora está habilitada para todas as camadas do Cache Redis do Azure.
+>
+>
+
 ## <a name="schedule-updates"></a>Agendar atualizações
 O recurso de atualizações agendadas permite designar uma janela de manutenção para seu cache. Quando a janela de manutenção é especificada, as atualizações do servidor Redis são feitas durante essa janela. Para designar uma janela de manutenção, selecione os dias desejados e especifique o horário de início da janela de manutenção para cada dia. Observe que o horário da janela de manutenção é em UTC. 
 
@@ -77,6 +82,13 @@ Para obter mais informações, consulte [Agendar atualizações](cache-administr
 > Apenas as atualizações do servidor Redis são realizadas durante a janela de manutenção agendada. A janela de manutenção se aplica a atualizações do Azure ou do sistema operacional da VM.
 > 
 > 
+
+## <a name="geo-replication"></a>Replicação geográfica
+
+A **Replicação geográfica** fornece um mecanismo para vincular duas instâncias de Cache Redis do Azure de camada Premium. Um cache é designado como o cache vinculado primário e o outro como o cache vinculado secundário. O cache vinculado secundário se torna somente leitura e os dados gravados no cache primário são replicados para o cache vinculado secundário. Essa funcionalidade pode ser usada para replicar um cache entre regiões do Azure.
+
+Para obter mais informações, consulte [How to configure Geo-replication for Azure Redis Cache](cache-how-to-geo-replication.md) (Como configurar a replicação geográfica para o Cache Redis do Azure).
+
 
 ## <a name="to-scale-to-the-premium-tier"></a>Para dimensionar para a camada premium
 Para dimensionar para a camada premium, basta escolher uma das camadas premium na folha **Alterar camada de preços** . Você também pode dimensionar seu cache para a camada premium usando o PowerShell e a CLI. Para obter instruções passo a passo, consulte [Como Dimensionar o Cache Redis do Azure](cache-how-to-scale.md) e [Como automatizar uma operação de dimensionamento](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
@@ -89,10 +101,4 @@ Crie um cache e explore os novos recursos da camada premium.
 * [Como configurar o clustering para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md)
 * [Como importar dados para e exportar dados do Cache Redis do Azure](cache-how-to-import-export-data.md)
 * [Como administrar o Cache Redis do Azure](cache-administration.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

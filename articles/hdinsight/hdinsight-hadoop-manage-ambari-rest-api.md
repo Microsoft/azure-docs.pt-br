@@ -1,6 +1,6 @@
 ---
-title: Monitorar e gerenciar o Azure HDInsight usando a API REST usando o Ambari | Microsoft Docs
-description: "Aprenda a usar o Ambari para monitorar e gerenciar clusters HDInsight baseados em Linux. Neste documento, você aprenderá a usar a API REST do Ambari incluída com clusters HDInsight."
+title: "Monitorar e gerenciar o Hadoop com a API REST do Ambari – Azure HDInsight | Microsoft Docs"
+description: "Aprenda a usar o Ambari para monitorar e gerenciar clusters Hadoop no Azure HDInsight. Neste documento, você aprenderá a usar a API REST do Ambari incluída com clusters HDInsight."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,24 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 08/07/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 2e26bd81c59fd53a0e8fc693dde30cb403995896
-ms.openlocfilehash: 38d37e45c34c8c0a3bd2ed94f72944208292f466
-ms.lasthandoff: 02/24/2017
-
-
+ms.openlocfilehash: 7960d83bce22d4f671d61e9aaf55561bc24308f8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>Gerenciar clusters HDInsight usando a API REST do Ambari
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-O Apache Ambari simplifica o gerenciamento e monitoramento de um cluster Hadoop, fornecendo uma forma fácil de usar a interface do usuário da Web e a API REST. O Ambari está incluído em clusters HDInsight que usam o sistema operacional Linux e é usado para monitorar o cluster e fazer alterações de configuração. Neste documento, você aprenderá os fundamentos de como trabalhar com a API REST do Ambari.
+Aprenda a usar a API REST do Ambari para gerenciar e monitorar clusters Hadoop no Azure HDInsight.
+
+O Apache Ambari simplifica o gerenciamento e monitoramento de um cluster Hadoop, fornecendo uma forma fácil de usar a interface do usuário da Web e a API REST. O Ambari é incluído em clusters HDInsight que usam o sistema operacional Linux. Você pode usar o Ambari para monitorar o cluster e fazer alterações de configuração.
 
 ## <a id="whatis"></a>O que é o Ambari
 
-O [Apache Ambari](http://ambari.apache.org) simplifica o gerenciamento do Hadoop, fornecendo uma IU da Web fácil de usar que pode ser utilizada para provisionar, gerenciar e monitorar clusters Hadoop. Os desenvolvedores podem integrar essas funcionalidades em seus aplicativos usando as [APIs REST do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+O [Apache Ambari](http://ambari.apache.org) fornece uma interface do usuário da Web que pode ser usada para provisionar, gerenciar e monitorar clusters Hadoop. Os desenvolvedores podem integrar essas funcionalidades em seus aplicativos usando as [APIs REST do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 Ambari é fornecido por padrão com os clusters HDInsight baseados em Linux.
 
@@ -67,7 +68,7 @@ A URI de base para a API REST em clusters HDInsight é https://CLUSTERNAME.azure
 
 ### <a name="authentication"></a>Autenticação
 
-Conectar-se ao Ambari no HDInsight requer HTTPS. Ao autenticar a conexão, use o nome da conta de administrador (o padrão é **admin**) e a senha fornecidos durante a criação do cluster.
+Conectar-se ao Ambari no HDInsight requer HTTPS. Use o nome da conta do administrador (o padrão é **admin**) e a senha fornecidos durante a criação do cluster.
 
 ## <a name="examples-authentication-and-parsing-json"></a>Exemplos: Autenticação e analisando o JSON
 
@@ -176,7 +177,7 @@ Ao trabalhar com o HDInsight, você precisará saber o nome de domínio totalmen
 * **Nós de trabalho**
 
     ```bash
-    curl -u admin:PASSWORD -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/DATANODE" \
+    curl -u admin:PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/DATANODE" \
     | jq '.host_components[].HostRoles.host_name'
     ```
 
@@ -190,7 +191,7 @@ Ao trabalhar com o HDInsight, você precisará saber o nome de domínio totalmen
 * **Nós do Zookeeper**
 
     ```bash
-    curl -u admin:PASSWORD -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" \
+    curl -u admin:PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" \
     | jq '.host_components[].HostRoles.host_name'
     ```
 
@@ -208,7 +209,7 @@ Ao trabalhar com o HDInsight, você precisará saber o nome de domínio totalmen
 >
 > Para saber mais sobre como trabalhar com o HDInsight e com as redes virtuais, veja [Estender os recursos do HDInsight usando a Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md).
 
-Você deve saber o FQDN do host antes de obter o endereço IP. Uma vez que o FQDN, em seguida, você pode obter o endereço IP do host. Os exemplos a seguir primeiro consultar o Ambari para o FQDN de todos os nós de host e consultar o Ambari para o endereço IP de cada host.
+Para localizar o endereço IP, você deve saber o FQDN (nome de domínio totalmente qualificado) interno dos nós de cluster. Uma vez que o FQDN, em seguida, você pode obter o endereço IP do host. Os exemplos a seguir primeiro consultar o Ambari para o FQDN de todos os nós de host e consultar o Ambari para o endereço IP de cada host.
 
 ```bash
 for HOSTNAME in $(curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts" | jq -r '.items[].Hosts.host_name')
@@ -255,7 +256,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
 O valor de retorno é semelhante a um dos exemplos a seguir:
 
-* `wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net`-Este valor indica que o cluster está usando uma conta de armazenamento do Azure para armazenamento padrão. O valor `ACCOUNTNAME` é o nome da conta de armazenamento. O `CONTAINER` parte é o nome do contêiner de blob na conta de armazenamento. O contêiner é a raiz de armazenamento compatível com HDFS para o cluster.
+* `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net`-Este valor indica que o cluster está usando uma conta de armazenamento do Azure para armazenamento padrão. O valor `ACCOUNTNAME` é o nome da conta de armazenamento. O `CONTAINER` parte é o nome do contêiner de blob na conta de armazenamento. O contêiner é a raiz de armazenamento compatível com HDFS para o cluster.
 
 * `adl://home`-Este valor indica que o cluster está usando um Azure Data Lake Store para armazenamento padrão.
 
@@ -292,7 +293,7 @@ O valor de retorno é semelhante a um dos exemplos a seguir:
     O valor de retorno é semelhante ao `/clusters/CLUSTERNAME/`. Esse valor é um caminho dentro da conta de Data Lake Store. Esse caminho é a raiz do sistema de arquivos compatível com HDFS para o cluster. 
 
 > [!NOTE]
-> O cmdlet `Get-AzureRmHDInsightCluster` fornecido pelo [Azure PowerShell](https://docs.microsoft.com/powershell/) também retorna as informações de armazenamento de cluster.
+> O cmdlet `Get-AzureRmHDInsightCluster` fornecido pelo [Azure PowerShell](/powershell/azure/overview) também retorna as informações de armazenamento de cluster.
 
 
 ## <a name="example-get-configuration"></a>Exemplo: obter configuração
@@ -304,8 +305,9 @@ O valor de retorno é semelhante a um dos exemplos a seguir:
     ```
 
     ```powershell
-    Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_configs" `
+    $respObj = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_configs" `
         -Credential $creds
+    $respObj.Content
     ```
 
     Esse exemplo retorna um documento JSON contendo a configuração atual (identificada pelo valor *tag* ) para os componentes instalados no cluster. O exemplo a seguir é um trecho dos dados retornados de um tipo de cluster Spark.
@@ -377,7 +379,7 @@ O valor de retorno é semelhante a um dos exemplos a seguir:
    
     Nesta lista, você precisa copiar o nome do componente (por exemplo, **spark\_thrift\_sparkconf** e o valor **tag**.
 
-2. Recupere a configuração do componente e da marca usando os comandos a seguir. Substitua **spark-thrift-sparkconf** e **INITIAL** pelo componente e pela marcação cuja configuração você deseja recuperar.
+2. Recupere a configuração do componente e da marca usando os comandos a seguir:
    
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" \
@@ -392,6 +394,9 @@ O valor de retorno é semelhante a um dos exemplos a seguir:
         -Credential $creds
     $resp.Content | jq --arg newtag "version$unixTimeStamp" '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
     ```
+
+    > [!NOTE]
+    > Substitua **spark-thrift-sparkconf** e **INITIAL** pelo componente e pela marcação cuja configuração você deseja recuperar.
    
     O jq é usado para transformar os dados recuperados do HDInsight em um novo modelo de configuração. Especificamente, esses exemplos executam as seguintes ações:
    
@@ -571,5 +576,4 @@ Neste ponto, se você examinar a interface do usuário da Web do Ambari, o servi
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter uma referência completa da API REST, consulte [Referência de API do Ambari, V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
-
 

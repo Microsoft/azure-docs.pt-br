@@ -12,7 +12,7 @@ A autenticação de Chave Compartilhada significa que o aplicativo usará seu no
 > 
 > 
 
-Ao usar a autenticação de Chave Compartilhada, você criará uma [cadeia de conexão](../articles/storage/storage-configure-connection-string.md). A cadeia de conexão é composta dos seguintes itens:  
+Ao usar a autenticação de Chave Compartilhada, você criará uma [cadeia de conexão](../articles/storage/common/storage-configure-connection-string.md). A cadeia de conexão é composta dos seguintes itens:  
 
 * O **DefaultEndpointsProtocol** -você pode escolher HTTP ou HTTPS. No entanto, é altamente recomendável usar HTTPS.
 * O **Nome da Conta** - o nome de sua conta de armazenamento
@@ -36,10 +36,5 @@ O exemplo a seguir mostra como usar o Gerenciador de Armazenamento do Microsoft 
    
    `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
 
-Como você pode ver, ao usar um SAS, você não expõe a chave de sua conta em seu aplicativo. Saiba mais sobre a SAS e as práticas recomendadas sobre o uso do SAS consultando [Assinaturas de Acesso Compartilhado: entendendo o modelo SAS](../articles/storage/storage-dotnet-shared-access-signature-part-1.md).
-
-
-
-<!--HONumber=Nov16_HO4-->
-
+Como você pode ver, ao usar um SAS, você não expõe a chave de sua conta em seu aplicativo. Saiba mais sobre a SAS e as práticas recomendadas sobre o uso do SAS consultando [Assinaturas de Acesso Compartilhado: entendendo o modelo SAS](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
 

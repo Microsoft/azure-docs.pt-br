@@ -1,11 +1,11 @@
 ---
-title: "Adicionar a ação HTTP nos aplicativos lógicos | Microsoft Docs"
-description: "Visão geral da ação HTTP com propriedades"
-services: 
-documentationcenter: 
+title: "Comunicar-se com qualquer ponto de extremidade por meio de HTTP – Aplicativo Lógico do Azure | Microsoft Docs"
+description: "Crie aplicativos lógicos que possam se comunicar com qualquer ponto de extremidade via HTTP"
+services: logic-apps
 author: jeffhollan
 manager: anneta
 editor: 
+documentationcenter: 
 tags: connectors
 ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.service: logic-apps
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
-ms.openlocfilehash: d3514dad84bea024ad6215711877a9784a8d8ffd
-ms.lasthandoff: 01/20/2017
-
-
+ms.author: jehollan; LADocs
+ms.openlocfilehash: d422a07a27ffa62a673bd2d471ae4fc837251dee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-http-action"></a>Introdução à ação HTTP
+
 Com a ação HTTP, você pode estender os fluxos de trabalho para a sua organização e se comunicar com qualquer ponto de extremidade por HTTP.
 
 Você pode:
@@ -40,12 +40,14 @@ Veja uma sequência de exemplo de como configurar um gatilho HTTP no Designer de
 1. Adicione o gatilho HTTP no seu aplicativo lógico.
 2. Preencha os parâmetros do ponto de extremidade HTTP que deseja sondar.
 3. Modifique o intervalo de recorrência quanto à frequência que ele deve ser sondado.
-4. Agora, o aplicativo lógico é disparado com qualquer conteúdo retornado durante cada verificação.
 
-![Gatilho HTTP](./media/connectors-native-http/using-trigger.png)
+   Agora, o aplicativo lógico é disparado com qualquer conteúdo retornado durante cada verificação.
+
+   ![Gatilho HTTP](./media/connectors-native-http/using-trigger.png)
 
 ### <a name="how-the-http-trigger-works"></a>Como o gatilho HTTP funciona
-O gatilho HTTP faz uma chamada para um ponto de extremidade HTTP em um intervalo recorrente. Por padrão, qualquer código de resposta HTTP inferior a 300 resultará em uma execução do aplicativo lógico. Você pode adicionar uma condição na exibição de código que será avaliada após a chamada HTTP para determinar se o aplicativo lógico deve ser disparado. Veja um exemplo de um gatilho HTTP que será disparado sempre que o código de status retornado for maior ou igual a `400`.
+
+O gatilho HTTP envia uma chamada para um ponto de extremidade HTTP em um intervalo recorrente. Por padrão, qualquer código de resposta HTTP menor do que 300 faz com que um aplicativo lógico seja executado. Para especificar se o aplicativo lógico deve ser disparado, você pode editar o aplicativo lógico no modo de exibição de código e adicionar uma condição que é avaliada após a chamada HTTP. Veja um exemplo de um gatilho HTTP que será disparado sempre que o código de status retornado for maior ou igual a `400`.
 
 ```javascript
 "Http":
@@ -73,17 +75,20 @@ O gatilho HTTP faz uma chamada para um ponto de extremidade HTTP em um intervalo
 Os detalhes completos sobre os parâmetros de gatilho HTTP estão disponíveis no [MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx#HTTP-trigger).
 
 ## <a name="use-the-http-action"></a>Usar a ação HTTP
-Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](connectors-overview.md).
 
-1. Selecione o botão **Nova Etapa** .
-2. Escolha **Adicionar uma ação**.
-3. Na caixa de pesquisa de ação, digite **http** para listar a ação HTTP.
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. 
+[Saiba mais sobre ações](connectors-overview.md).
+
+1. Escolha **Nova Etapa** > **Adicionar uma ação**.
+3. Na caixa de pesquisa de ação, digite **http** para listar as ações HTTP.
    
     ![Selecionar a ação HTTP](./media/connectors-native-http/using-action-1.png)
-4. Adicione todos os parâmetros necessários para a chamada HTTP.
+
+4. Adicione quaisquer parâmetros necessários para a chamada HTTP.
    
     ![Concluir a ação HTTP](./media/connectors-native-http/using-action-2.png)
-5. Clique no canto superior esquerdo da barra de ferramentas para salvar. Seu aplicativo lógico será salvo e publicado (ativado).
+
+5. Clique em **Salvar** na barra de ferramentas do designer. Seu aplicativo lógico é salvo e publicado (ativado) simultaneamente.
 
 ## <a name="http-trigger"></a>Gatilho HTTP
 Veja os detalhes do gatilho com suporte deste conector. O conector HTTP tem um gatilho.
@@ -133,6 +138,7 @@ O recurso de Aplicativos Lógicos permitem que você use diferentes tipos de aut
 * [Autenticação OAuth do Azure AD (Azure Active Directory)](#azure-active-directory-oauth-authentication)
 
 #### <a name="basic-authentication"></a>Autenticação básica
+
 O seguinte objeto de autenticação é necessário para a autenticação básica.
 Um * significa que é um campo obrigatório.
 
@@ -143,11 +149,10 @@ Um * significa que é um campo obrigatório.
 | Password* |Senha |Senha para autenticação |
 
 > [!TIP]
-> Se você quiser usar uma senha que não é possível recuperar na definição, use um parâmetro `securestring` e a `@parameters()` [função de definição do fluxo de trabalho](http://aka.ms/logicappdocs).
-> 
-> 
+> Se você quiser usar uma senha que não é possível recuperar na definição, use um parâmetro `securestring` e a `@parameters()` 
+> [função de definição do fluxo de trabalho](http://aka.ms/logicappdocs).
 
-Desse modo, você cria um objeto como este no campo de autenticação:
+Por exemplo:
 
 ```javascript
 {
@@ -158,6 +163,7 @@ Desse modo, você cria um objeto como este no campo de autenticação:
 ```
 
 #### <a name="client-certificate-authentication"></a>Autenticação de certificado de cliente
+
 O seguinte objeto de autenticação é necessário para a autenticação de certificado de cliente. Um * significa que é um campo obrigatório.
 
 | Nome da propriedade | Tipo de dados | Descrição |
@@ -167,9 +173,8 @@ O seguinte objeto de autenticação é necessário para a autenticação de cert
 | Password* |Senha |A senha para acessar o arquivo PFX |
 
 > [!TIP]
-> Você pode usar um parâmetro `securestring` e a função de definição do fluxo de trabalho `@parameters()`[](http://aka.ms/logicappdocs) para usar um parâmetro que não será legível na definição depois de salvar o aplicativo lógico.
-> 
-> 
+> Para usar um parâmetro que não será legível na definição após salvar o aplicativo lógico, você poderá usar um parâmetro `securestring` e a `@parameters()` 
+> [função de definição do fluxo de trabalho](http://aka.ms/logicappdocs).
 
 Por exemplo:
 
@@ -188,12 +193,12 @@ O seguinte objeto de autenticação é necessário para a autenticação OAuth d
 | --- | --- | --- |
 | Type* |type |O tipo de autenticação (deve ser `ActiveDirectoryOAuth` para a autenticação OAuth do Azure AD) |
 | Tenant* |locatário |O identificador do locatário para o locatário do Azure AD |
-| Audience* |audiência |Definida como `https://management.core.windows.net/` |
+| Audience* |audiência |O recurso para cujo uso você está solicitando autorização. Por exemplo: `https://management.core.windows.net/` |
 | Client ID* |clientId |O identificador de cliente para o aplicativo do Azure AD |
 | Secret* |segredo |O segredo do cliente que está solicitando o token |
 
 > [!TIP]
-> Você pode usar um parâmetro `securestring` e a função de definição do fluxo de trabalho `@parameters()` [](http://aka.ms/logicappdocs) para usar um parâmetro que não será legível na definição depois de salvar.
+> Você pode usar um parâmetro `securestring` e a `@parameters()` [função de definição do fluxo de trabalho](http://aka.ms/logicappdocs) para usar um parâmetro que não será legível na definição depois de salvar.
 > 
 > 
 
@@ -211,5 +216,4 @@ Por exemplo:
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora, experimente a plataforma e [crie um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
-
 

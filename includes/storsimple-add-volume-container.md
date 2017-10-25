@@ -18,8 +18,3 @@
 
 O contêiner de volume será salvo, e o contêiner de volume recém-criado será listado na página **Contêiner de volume** .
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -12,19 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 06/14/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: e5e793eeab46b31c728e7dbb493c6396d6daad08
-ms.lasthandoff: 03/24/2017
-
-
+ms.openlocfilehash: dc9b64062d7f68c83aa090eec96744819a5ca423
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager
 Este tópico descreve a estrutura de um modelo do Azure Resource Manager. Ele apresenta as diferentes seções de um modelo e as propriedades que estão disponíveis nessas seções. O modelo consiste em JSON e expressões que podem ser usados na criação de valores para sua implantação. Para ver um tutorial passo a passo sobre como criar um modelo, confira [Criar seu primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md).
-
-Limite o tamanho de seu modelo para 1 MB e cada arquivo de parâmetro para 64 KB. O limite de 1 MB se aplica para o estado final do modelo depois que ele foi expandido com definições de recurso iterativo e valores para variáveis e parâmetros. 
 
 ## <a name="template-format"></a>Formato de modelo
 Em sua estrutura mais simples, um modelo contém os seguintes elementos:
@@ -77,19 +74,34 @@ Cada elemento contém propriedades que você pode definir. O seguinte exemplo co
     },
     "resources": [
       {
+          "condition": "<boolean-value-whether-to-deploy>",
           "apiVersion": "<api-version-of-resource>",
           "type": "<resource-provider-namespace/resource-type-name>",
           "name": "<name-of-the-resource>",
           "location": "<location-of-resource>",
-          "tags": "<name-value-pairs-for-resource-tagging>",
+          "tags": {
+              "<tag-name1>": "<tag-value1>",
+              "<tag-name2>": "<tag-value2>"
+          },
           "comments": "<your-reference-notes>",
+          "copy": {
+              "name": "<name-of-copy-loop>",
+              "count": "<number-of-iterations>",
+              "mode": "<serial-or-parallel>",
+              "batchSize": "<number-to-deploy-serially>"
+          },
           "dependsOn": [
               "<array-of-related-resource-names>"
           ],
-          "properties": "<settings-for-the-resource>",
-          "copy": {
-              "name": "<name-of-copy-loop>",
-              "count": "<number-of-iterations>"
+          "properties": {
+              "<settings-for-the-resource>",
+              "copy": [
+                  {
+                      "name": ,
+                      "count": ,
+                      "input": {}
+                  }
+              ]
           },
           "resources": [
               "<array-of-child-resources>"
@@ -170,7 +182,7 @@ Os valores e tipos permitidos são:
 
 Para especificar um parâmetro como opcional, forneça um defaultValue (pode ser uma cadeia de caracteres vazia). 
 
-Se você especificar um nome de parâmetro em seu modelo que corresponda a um parâmetro no comando de implantação do modelo, haverá uma possível ambiguidade nos valores fornecidos. O Resource Manager resolve essa confusão adicionando o sufixo **FromTemplate** ao parâmetro do modelo. Por exemplo, se você incluir um parâmetro chamado **ResourceGroupName** em seu modelo, ele entrará em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzureRmResourceGroupDeployment][deployment2cmdlet]. Durante a implantação, você recebe uma solicitação para fornecer um valor para **ResourceGroupNameFromTemplate**. Em geral, você deve evitar essa confusão não dando aos parâmetros o mesmo nome dos parâmetros usados para operações de implantação.
+Se você especificar um nome de parâmetro em seu modelo que corresponda a um parâmetro no comando de implantação do modelo, haverá uma possível ambiguidade nos valores fornecidos. O Resource Manager resolve essa confusão adicionando o sufixo **FromTemplate** ao parâmetro do modelo. Por exemplo, se você incluir um parâmetro chamado **ResourceGroupName** em seu modelo, ele entrará em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). Durante a implantação, você recebe uma solicitação para fornecer um valor para **ResourceGroupNameFromTemplate**. Em geral, você deve evitar essa confusão não dando aos parâmetros o mesmo nome dos parâmetros usados para operações de implantação.
 
 > [!NOTE]
 > Todas as senhas, chaves e outros segredos devem usar o tipo **secureString** . Se você passar dados confidenciais em um objeto JSON, use o tipo **secureObject**. Os parâmetros de modelo com o tipo secureString ou secureObject não podem ser lidos após a implantação de recursos. 
@@ -279,19 +291,34 @@ Você define recursos com a seguinte estrutura:
 ```json
 "resources": [
   {
+      "condition": "<boolean-value-whether-to-deploy>",
       "apiVersion": "<api-version-of-resource>",
       "type": "<resource-provider-namespace/resource-type-name>",
       "name": "<name-of-the-resource>",
       "location": "<location-of-resource>",
-      "tags": "<name-value-pairs-for-resource-tagging>",
+      "tags": {
+          "<tag-name1>": "<tag-value1>",
+          "<tag-name2>": "<tag-value2>"
+      },
       "comments": "<your-reference-notes>",
+      "copy": {
+          "name": "<name-of-copy-loop>",
+          "count": "<number-of-iterations>",
+          "mode": "<serial-or-parallel>",
+          "batchSize": "<number-to-deploy-serially>"
+      },
       "dependsOn": [
           "<array-of-related-resource-names>"
       ],
-      "properties": "<settings-for-the-resource>",
-      "copy": {
-          "name": "<name-of-copy-loop>",
-          "count": "<number-of-iterations>"
+      "properties": {
+          "<settings-for-the-resource>",
+          "copy": [
+              {
+                  "name": ,
+                  "count": ,
+                  "input": {}
+              }
+          ]
       },
       "resources": [
           "<array-of-child-resources>"
@@ -302,15 +329,16 @@ Você define recursos com a seguinte estrutura:
 
 | Nome do elemento | Obrigatório | Descrição |
 |:--- |:--- |:--- |
+| condition | Não | Valor booliano que indica se o recurso está implantado. |
 | apiVersion |Sim |Versão da API REST a ser usada para criar o recurso. |
 | type |Sim |Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso (como **Microsoft.Storage/storageAccounts**). |
 | name |Sim |Nome do recurso. O nome deve seguir as restrições de componente URI definidas em RFC3986. Além disso, os serviços do Azure que expõem o nome do recurso a terceiros validam o nome para garantir que ele não é uma tentativa de falsificar outra identidade. |
 | location |Varia |Locais geográficos com suporte do recurso fornecido. Você pode selecionar qualquer uma das localizações disponíveis, mas geralmente faz sentido escolher um que esteja perto de seus usuários. Normalmente, também faz sentido colocar recursos que interagem entre si na mesma região. A maioria dos tipos de recursos exige um local, mas alguns deles (como uma atribuição de função) não. Confira [Configure os locais dos recursos de modelos do Azure Resource Manager](resource-manager-template-location.md). |
 | marcas |Não |Marcas que são associadas ao recurso. Confira [Marque recursos em modelos do Azure Resource Manager](resource-manager-template-tags.md). |
 | comentários |Não |Suas anotações para documentar os recursos em seu modelo |
+| cópia |Não |Se mais de uma instância for necessária, o número de recursos a serem criados. O modo padrão é paralelo. Especifica o modo serial, quando você não deseja que sejam todos ou os recursos para implantação ao mesmo tempo. Para obter mais informações, consulte [Criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |Não |Recursos que devem ser implantados antes deste recurso. O Gerenciador de Recursos avalia as dependências entre os recursos e os implanta na ordem correta. Quando os recursos não dependem uns dos outros, são implantados paralelamente. O valor pode ser uma lista separada por vírgulas de nomes de recursos ou identificadores exclusivos de recursos. Somente lista recursos que são implantados neste modelo. Recursos que não são definidos neste modelo já devem existir. Evite adicionar dependências desnecessárias, pois elas podem reduzir sua implantação e criar dependências circulares. Para obter orientação sobre como configurar as dependências, confira [Definir as dependências nos modelos do Azure Resource Manager](resource-group-define-dependencies.md). |
-| propriedades |Não |Definições de configuração específicas do recurso. Os valores para as propriedades são iguais aos valores que você fornece no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. |
-| cópia |Não |Se mais de uma instância for necessária, o número de recursos a serem criados. Para obter mais informações, consulte [Criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md). |
+| propriedades |Não |Definições de configuração específicas do recurso. Os valores para as propriedades são iguais aos valores que você fornece no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Você também pode especificar uma matriz de cópia para criar várias instâncias de uma propriedade. Para obter mais informações, consulte [Criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md). |
 | recursos |Não |Recursos filho que dependem do recurso que está sendo definido. Forneça apenas os tipos de recurso permitidos pelo esquema do recurso pai. O tipo totalmente qualificado do recurso filho inclui o tipo de recurso pai, como **Microsoft.Web/sites/extensions**. A dependência do recurso pai não é implícita. Você deve definir explicitamente essa dependência. |
 
 A seção de recursos contém uma matriz dos recursos a serem implantados. Em cada recurso, você também pode definir uma matriz de recursos filhos. Portanto, a seção de recursos pode ter uma estrutura como:
@@ -339,7 +367,71 @@ A seção de recursos contém uma matriz dos recursos a serem implantados. Em ca
 
 Para saber mais sobre como definir recursos filho, confira [Definir o nome e o tipo do recurso filho no modelo do Resource Manager](resource-manager-template-child-resource.md).
 
-## <a name="outputs"></a>outputs
+O elemento **condição** especifica se o recurso foi implantado. O valor desse elemento é resolvido como verdadeiro ou falso. Por exemplo, para especificar se uma nova conta de armazenamento é implantada, use:
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+Para obter um exemplo do uso de um recurso novo ou existente, consulte [Modelo de condição novo ou existente](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json).
+
+Para especificar se uma máquina virtual foi implantada com uma senha ou chave SSH, definir duas versões da máquina virtual em seu modelo e usar **condição** para diferenciar o uso. Passe um parâmetro que especifica qual cenário de implantação.
+
+```json
+{
+    "condition": "[equals(parameters('passwordOrSshKey'),'password')]",
+    "apiVersion": "2016-03-30",
+    "type": "Microsoft.Compute/virtualMachines",
+    "name": "[concat(variables('vmName'),'password')]",
+    "properties": {
+        "osProfile": {
+            "computerName": "[variables('vmName')]",
+            "adminUsername": "[parameters('adminUsername')]",
+            "adminPassword": "[parameters('adminPassword')]"
+        },
+        ...
+    },
+    ...
+},
+{
+    "condition": "[equals(parameters('passwordOrSshKey'),'sshKey')]",
+    "apiVersion": "2016-03-30",
+    "type": "Microsoft.Compute/virtualMachines",
+    "name": "[concat(variables('vmName'),'ssh')]",
+    "properties": {
+        "osProfile": {
+            "linuxConfiguration": {
+                "disablePasswordAuthentication": "true",
+                "ssh": {
+                    "publicKeys": [
+                        {
+                            "path": "[variables('sshKeyPath')]",
+                            "keyData": "[parameters('adminSshKey')]"
+                        }
+                    ]
+                }
+            }
+        },
+        ...
+    },
+    ...
+}
+``` 
+
+Para obter um exemplo do uso de uma senha ou chave SSH para implantar a máquina virtual, consulte [Modelo de condição de nome de usuário ou o SSH](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).
+
+## <a name="outputs"></a>Saídas
 Na seção de saídas, você especifica valores que são retornados da implantação. Por exemplo, é possível retornar o URI para acessar um recurso implantado.
 
 O exemplo a seguir mostra a estrutura de uma definição de saída:
@@ -372,11 +464,22 @@ O exemplo a seguir mostra um valor que é retornado na seção de saídas.
 
 Para obter mais informações sobre como trabalhar com a saída, consulte [Compartilhando o estado nos modelos do Azure Resource Manager](best-practices-resource-manager-state.md).
 
+## <a name="template-limits"></a>Limites de modelo
+
+Limite o tamanho de seu modelo em 1 MB e cada arquivo de parâmetro em 64 KB. O limite de 1 MB se aplica para o estado final do modelo depois que ele foi expandido com definições de recurso iterativo e valores para variáveis e parâmetros. 
+
+Você também está limitado a:
+
+* 256 parâmetros
+* 256 variáveis
+* 800 recursos (incluindo a contagem de cópias)
+* 64 valores de saída
+* 24.576 caracteres em uma expressão de modelo
+
+Você pode exceder alguns limites de modelo usando um modelo aninhado. Para saber mais, confira [Uso de modelos vinculados ao implantar recursos do Azure](resource-group-linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, você pode combinar vários valores em um objeto. Para saber mais, veja [Objetos como parâmetros](resource-manager-objects-as-parameters.md).
+
 ## <a name="next-steps"></a>Próximas etapas
 * Para exibir modelos completos para muitos tipos diferentes de soluções, consulte os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 * Para obter detalhes sobre as funções que podem ser usadas em um modelo, consulte [Funções do Modelo do Azure Resource Manager](resource-group-template-functions.md).
 * Para combinar vários modelos durante a implantação, consulte [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
-* Talvez seja necessário usar recursos que existam em um grupo de recursos diferente. Essa situação é comum ao trabalhar com contas de armazenamento ou redes virtuais compartilhadas com vários grupos de recursos. Para obter mais informações, consulte a [função resourceId](resource-group-template-functions.md#resourceid).
-
-[deployment2cmdlet]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/new-azurermresourcegroupdeployment
-
+* Talvez seja necessário usar recursos que existam em um grupo de recursos diferente. Essa situação é comum ao trabalhar com contas de armazenamento ou redes virtuais compartilhadas com vários grupos de recursos. Para obter mais informações, consulte a [função resourceId](resource-group-template-functions-resource.md#resourceid).

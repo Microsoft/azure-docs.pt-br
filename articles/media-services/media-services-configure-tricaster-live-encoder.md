@@ -4,7 +4,7 @@ description: "Este tópico mostra como configurar o codificador ativo TriCaster 
 services: media-services
 documentationcenter: 
 author: cenkdin
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 8973181a-3059-471a-a6bb-ccda7d3ff297
 ms.service: media-services
@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkd;anilmur
-translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 4c1a50e26e5cde606d0ef34889fb1c9db80e8ee0
-
-
+ms.openlocfilehash: 42b012fb98bd0504c931ce391d63aecca8c3d311
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador NewTek TriCaster para enviar uma transmissão ao vivo de taxa de bits única
 > [!div class="op_single_selector"]
@@ -74,7 +74,7 @@ Enquanto o canal é iniciado, você pode [configurar o codificador](media-servic
 >
 >
 
-## <a name="a-idconfiguretricasterrtmpaconfigure-the-newtek-tricaster-encoder"></a><a id=configure_tricaster_rtmp></a>Configurar o codificador do NewTek TriCaster
+## <a id=configure_tricaster_rtmp></a>Configurar o codificador do NewTek TriCaster
 Neste tutorial, são usadas as configurações de saída abaixo. O restante desta seção descreve as etapas de configuração mais detalhadamente.
 
 **Vídeo**:
@@ -164,9 +164,3 @@ Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-<!--HONumber=Jan17_HO2-->
-
-

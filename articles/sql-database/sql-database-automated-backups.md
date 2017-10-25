@@ -1,9 +1,9 @@
 ---
-title: "Backups do Banco de Dados SQL do Azure – automático, com redundância geográfica | Microsoft Docs"
+title: "Backups do Banco de Dados SQL do Azure automáticos e com redundância geográfica | Microsoft Docs"
 description: "O Banco de dados SQL cria automaticamente um backup de banco de dados local a cada poucos minutos e usa o armazenamento com redundância geográfica de acesso de leitura do Azure para redundância geográfica."
 services: sql-database
 documentationcenter: 
-author: anosov1960
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: 3ee3d49d-16fa-47cf-a3ab-7b22aa491a8d
@@ -13,16 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2016
-ms.author: sashan
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 8323aa27c93c1c460b31f7f7c822644f5eee929a
-ms.lasthandoff: 03/28/2017
-
-
+ms.date: 07/05/2017
+ms.author: carlrab
+ms.openlocfilehash: 5fbad8beebfaef370ea766e07932f1927f1d42e7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="learn-about-sql-database-backups"></a>Saiba mais sobre o Banco de Dados SQL
+# <a name="learn-about-automatic-sql-database-backups"></a>Saiba mais sobre backups automáticos de Banco de Dados SQL
 
 O Banco de Dados SQL cria automaticamente backups do banco de dados e usa o RA-GRS (armazenamento com redundância geográfica de acesso de leitura) do Azure para fornecer redundância geográfica. Esses backups são criados automaticamente e sem nenhum custo adicional. Você não precisa fazer nada para que isso ocorra. Os backups de banco de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios, porque eles protegem seus dados contra exclusão ou corrupção acidentais. Se você desejar manter backups em seu próprio contêiner de armazenamento, configure uma política de retenção de backup de longo prazo. Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
 
@@ -39,14 +38,8 @@ Use esses backups para:
 * Restaure um banco de dados de um backup específico armazenado no cofre dos Serviços de Recuperação do Azure. Isso permite restaurar uma versão antiga do banco de dados para atender a uma solicitação de conformidade ou para executar uma versão antiga do aplicativo. Consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
 * Para executar uma restauração, consulte [Restaurar um banco de dados de backups](sql-database-recovery-using-backups.md).
 
-> [!TIP]
-> Para ver um tutorial, consulte [Introdução ao backup e restauração para proteção e recuperação dos dados](sql-database-get-started-backup-recovery-portal.md)
->
-
-
 > [!NOTE]
 > No armazenamento do Azure, o termo *replicação* refere-se a copiar arquivos de uma localização para outra. A *replicação de banco de dados* do SQL refere-se a manter vários bancos de dados secundários sincronizados com o banco de dados primário. 
-> 
 > 
 
 ## <a name="how-much-backup-storage-is-included-at-no-cost"></a>Quanto armazenamento de backup é incluído sem custo adicional?
@@ -74,22 +67,24 @@ Se você excluir um banco de dados, o Banco de Dados SQL manterá os backups da 
 > [!IMPORTANT]
 > Se você excluir o SQL Server do Azure que hospeda Bancos de Dados SQL, todos os bancos de dados que pertencem a esse servidor também serão excluídos e não poderão ser recuperados. Você não pode restaurar um servidor excluído.
 > 
-> 
 
 ## <a name="how-to-extend-the-backup-retention-period"></a>Como estender o período de retenção de backup?
 Caso seu aplicativo precise que os backups estejam disponíveis por um período mais longo, é possível estender o período de retenção interno, configurando a política de retenção de backup de longo prazo em bancos de dados individuais (política LTR). Isso permite que você estenda o período de retenção interno de 35 dias para até 10 anos. Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
 
-Depois de adicionar a política LTR a um banco de dados usando o portal do Azure ou uma API, os backups de banco de dados completos semanais serão copiados automaticamente para seu próprio Cofre do Serviço de Backup do Azure. Caso seu banco de dados esteja criptografado com TDE, os backups serão criptografados automaticamente em repouso.  O Cofre de Serviços excluirá automaticamente os backups expirados com base em seu carimbo de data/hora e na política LTR.  Portanto, você não precisa gerenciar o agendamento de backup nem se preocupar com a limpeza dos arquivos antigos. A API de restauração dá suporte aos backups armazenados no cofre, contanto que o cofre esteja na mesma assinatura do banco de dados SQL. Use o portal do Azure ou o PowerShell para acessar esses backups.
+Depois de adicionar a política LTR a um banco de dados usando o portal do Azure ou uma API, os backups de banco de dados completos semanais serão copiados automaticamente para seu próprio Cofre do Serviço de Backup do Azure. Caso seu banco de dados esteja criptografado com TDE, os backups serão criptografados automaticamente em repouso.  O Cofre de Serviços excluirá automaticamente os backups expirados com base em seu carimbo de data/hora e na política LTR.  Portanto, você não precisa gerenciar o agendamento de backup nem se preocupar com a limpeza dos arquivos antigos. A API de restauração dá suporte aos backups armazenados no cofre, contanto que o cofre esteja na mesma assinatura do banco de dados SQL. Você pode usar o Portal do Azure ou o PowerShell para acessar esses backups.
 
 > [!TIP]
-> Para ver um tutorial, consulte [Introdução ao backup e restauração para proteção e recuperação dos dados](sql-database-get-started-backup-recovery-portal.md)
+> Para um guia de instruções, consulte [Configurar e restaurar de uma retenção de backup de longo prazo do Banco de Dados SQL do Azure](sql-database-long-term-backup-retention-configure.md)
 >
+
+## <a name="are-backups-encrypted"></a>Os backups são criptografados?
+
+Quando a TDE está habilitada para um banco de dados SQL do Azure, os backups também são criptografados. Todos os novos bancos de dados SQL do Azure são configurados com TDE habilitada por padrão. Para obter mais informações sobre a TDE, confira [Transparent Data Encryption com o Banco de Dados SQL do Azure](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Os backups de banco de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios, porque eles protegem seus dados contra exclusão ou corrupção acidentais. Para saber mais sobre as outras soluções de continuidade dos negócios do Banco de Dados SQL do Azure, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
-- Para restaurar para um determinado ponto no tempo usando o Portal do Azure, consulte [Restaurar um banco de dados para um ponto no tempo usando o Portal do Azure](sql-database-point-in-time-restore-portal.md).
+- Para restaurar para um determinado ponto no tempo usando o Portal do Azure, consulte [Restaurar um banco de dados para um ponto no tempo usando o Portal do Azure](sql-database-recovery-using-backups.md).
 - Para restaurar para um determinado ponto no tempo usando o PowerShell, consulte [Restaurar um banco de dados para um ponto no tempo usando o PowerShell](scripts/sql-database-restore-database-powershell.md).
-- Para configurar, gerenciar e restaurar de retenção de longo prazo de backups automatizados em um cofre dos Serviços de Recuperação do Azure usando o Portal do Azure, consulte [Gerenciar retenção de backup de longo prazo usando o Portal do Azure](sql-database-manage-long-term-backup-retention-portal.md).
-- Para configurar, gerenciar e restaurar de retenção de longo prazo de backups automatizados em um cofre dos Serviços de Recuperação do Azure usando o PowerShell, consulte [Gerenciar retenção de backup de longo prazo usando o PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
-
+- Para configurar, gerenciar e restaurar de retenção de longo prazo de backups automatizados em um cofre dos Serviços de Recuperação do Azure usando o Portal do Azure, consulte [Gerenciar retenção de backup de longo prazo usando o Portal do Azure](sql-database-long-term-backup-retention-configure.md).
+- Para configurar, gerenciar e restaurar de retenção de longo prazo de backups automatizados em um cofre dos Serviços de Recuperação do Azure usando o PowerShell, consulte [Gerenciar retenção de backup de longo prazo usando o PowerShell](sql-database-long-term-backup-retention-configure.md).

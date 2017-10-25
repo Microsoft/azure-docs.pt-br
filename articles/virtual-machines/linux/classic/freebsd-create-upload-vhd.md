@@ -3,7 +3,7 @@ title: Criar e carregar uma imagem de VM FreeBSD | Microsoft Docs
 description: "Saiba como criar e carregar um VHD (disco rígido virtual) que contenha um sistema operacional FreeBSD para criar uma máquina virtual do Azure"
 services: virtual-machines-linux
 documentationcenter: 
-author: KylieLiang
+author: thomas1206
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/29/2016
-ms.author: kyliel
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 6b0d90724f4b7cc065eb186b06816ba818cdaa18
-ms.lasthandoff: 03/27/2017
-
-
+ms.date: 05/08/2017
+ms.author: huishao
+ms.openlocfilehash: 0010e01d4333b96696680ec6fbbeee74b17f46a3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Criar e carregar um VHD FreeBSD para o Azure
 Este artigo mostra como criar e carregar um VHD (disco rígido virtual) que contenha um sistema operacional FreeBSD. Depois de carregá-lo, você pode usá-lo como sua própria imagem para criar uma VM (máquina virtual) no Azure.
 
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para obter informações sobre como carregar um VHD usando o modelo do Resource Manager, veja [aqui](../../virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para obter informações sobre como carregar um VHD usando o modelo do Resource Manager, veja [aqui](../upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que você tenha os seguintes itens:
@@ -40,7 +39,7 @@ Este artigo pressupõe que você tenha os seguintes itens:
 >
 >
 
-Esta tarefa inclui as cinco etapas a seguir.
+Esta tarefa inclui as cinco etapas a seguir:
 
 ## <a name="step-1-prepare-the-image-for-upload"></a>Etapa 1: preparar a imagem para upload
 Na máquina virtual na qual o sistema operacional FreeBSD foi instalado, conclua os procedimentos a seguir:
@@ -51,12 +50,7 @@ Na máquina virtual na qual o sistema operacional FreeBSD foi instalado, conclua
         # service netif restart
 2. Habilitar SSH.
 
-    O SSH é habilitado por padrão após a instalação do disco. Se por algum motivo ele não estiver habilitado, ou se você usar o VHD do FreeBSD diretamente, digite o seguinte:
-
-        # echo 'sshd_enable="YES"' >> /etc/rc.conf
-        # ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
-        # ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
-        # service sshd restart
+    Confira se o servidor SSH está instalado e configurado para iniciar no tempo de inicialização. Ele é habilitado por padrão após a instalação do disco FreeBSD. 
 3. Instalar um console serial.
 
         # echo 'console="comconsole vidconsole"' >> /boot/loader.conf
@@ -66,16 +60,16 @@ Na máquina virtual na qual o sistema operacional FreeBSD foi instalado, conclua
     A conta raiz está desabilitada no Azure. Isso significa que você precisa utilizar o sudo de um usuário sem privilégios para executar comandos com privilégios elevados.
 
         # pkg install sudo
-   ;
+   
 5. Pré-requisitos para agente do Azure.
 
         # pkg install python27  
-        # pkg install Py27-setuptools27   
+        # pkg install Py27-setuptools  
         # ln -s /usr/local/bin/python2.7 /usr/bin/python   
         # pkg install git
 6. Instalar o agente do Azure.
 
-    A versão mais recente do agente do Azure sempre pode ser encontrada no [github](https://github.com/Azure/WALinuxAgent/releases). A versão 2.0.10 + oficialmente dá suporte a FreeBSD 10 e 10.1 e a versão 2.1.4 oficialmente dá suporte a FreeBSD 10.2 e versões posteriores.
+    A versão mais recente do agente do Azure sempre pode ser encontrada no [github](https://github.com/Azure/WALinuxAgent/releases). A versão 2.0.10 + oficialmente dá suporte a FreeBSD 10 e 10.1 e a versão 2.1.4 + (incluindo 2.2.x) oficialmente dá suporte a FreeBSD 10.2 e versões posteriores.
 
         # git clone https://github.com/Azure/WALinuxAgent.git  
         # cd WALinuxAgent  
@@ -108,8 +102,8 @@ Na máquina virtual na qual o sistema operacional FreeBSD foi instalado, conclua
         # waagent -version
         WALinuxAgent-2.1.4 running on freebsd 10.3
         Python: 2.7.11
-        # service –e | grep waagent
-        /etc/rc.d/waagent
+        # ps auxw | grep waagent
+        root   639   0.0  0.5 104620 17520 u0- I    05:17    0:00.20 python /usr/local/sbin/waagent -daemon (python2.7)
         # cat /var/log/waagent.log
 7. Desprovisione o sistema.
 
@@ -132,7 +126,7 @@ Você precisa de uma conta de armazenamento no Azure para carregar um arquivo .v
 
    * No campo **URL** , digite um nome de subdomínio para usar na URL da conta de armazenamento. A entrada pode conter de três a 24 letras minúsculas e números. Esse nome se torna o nome do host na URL usada para tratar os recursos de armazenamento do Armazenamento de Blobs do Azure, do Armazenamento de Filas do Azure ou dos recursos do Armazenamento de Tabelas da assinatura.
    * No menu suspenso **Local/Grupo de Afinidades**, escolha o **local ou um grupo de afinidades** para a conta de armazenamento. Um grupo de afinidades permite colocar seus serviços de nuvem e armazenamento no mesmo data center.
-   * No campo **Replicação**, decida se quer usar a replicação com **Redundância Geográfica** para a conta de armazenamento. A replicação geográfica é ativada por padrão. Essa opção replica os dados para um local secundário, sem nenhum custo para você, para que o armazenamento efetue o failover para o local se ocorrer uma falha grave no local principal. O local secundário é atribuído automaticamente e não pode ser alterado. Se você precisar de mais controle sobre o local do armazenamento baseado em nuvem devido a requisitos legais ou política organizacional, você pode desligar a replicação geográfica. No entanto, saiba que ao ativar a replicação geográfica posteriormente, você deverá pagar uma taxa de transferência de uma única vez para replicar seus dados existentes para o local secundário. Serviços de armazenamento sem replicação geográfica são oferecidos com desconto. Encontre mais detalhes sobre como gerenciar a replicação geográfica de contas de armazenamento aqui: [Replicação do Armazenamento do Azure](../../../storage/storage-redundancy.md).
+   * No campo **Replicação**, decida se quer usar a replicação com **Redundância Geográfica** para a conta de armazenamento. A replicação geográfica é ativada por padrão. Essa opção replica os dados para um local secundário, sem nenhum custo para você, para que o armazenamento efetue o failover para o local se ocorrer uma falha grave no local principal. O local secundário é atribuído automaticamente e não pode ser alterado. Se você precisar de mais controle sobre o local do armazenamento baseado em nuvem devido a requisitos legais ou política organizacional, você pode desligar a replicação geográfica. No entanto, saiba que ao ativar a replicação geográfica posteriormente, você deverá pagar uma taxa de transferência de uma única vez para replicar seus dados existentes para o local secundário. Serviços de armazenamento sem replicação geográfica são oferecidos com desconto. Encontre mais detalhes sobre como gerenciar a replicação geográfica de contas de armazenamento aqui: [Replicação do Armazenamento do Azure](../../../storage/common/storage-redundancy.md).
 
      ![Insira os detalhes da conta de armazenamento](./media/freebsd-create-upload-vhd/Storage-create-account.png)
 5. Escolha **Criar Conta de Armazenamento**. A conta aparece agora em **armazenamento**.
@@ -168,16 +162,16 @@ Para poder carregar um arquivo .vhd, você precisa estabelecer uma conexão segu
 
 ### <a name="use-the-certificate-method-to-upload-a-vhd-file"></a>Usar o método de certificado para carregar um arquivo .vhd
 1. Abra o console do PowerShell do Azure.
-2. Digite:  `Get-AzurePublishSettingsFile`.
-3. Uma janela de navegador será aberta e baixará automaticamente um arquivo .publishsettings. Esse arquivo contém informações e um certificado para sua assinatura do Azure.
+2. Digite: `Get-AzurePublishSettingsFile`.
+3. Uma janela de navegador será aberta e baixará automaticamente o arquivo .publishsettings. Esse arquivo contém informações e um certificado para sua assinatura do Azure.
 
     ![Procurar página de download](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
 4. Salve o arquivo .publishsettings.
-5. Digite:  `Import-AzurePublishSettingsFile <PathToFile>`, em que `<PathToFile>` é o caminho completo para o arquivo .publishsettings.
+5. Digite: `Import-AzurePublishSettingsFile <PathToFile>`, em que `<PathToFile>` é o caminho completo para o arquivo .publishsettings.
 
    Para obter mais informações, consulte [Introdução aos cmdlets do Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
 
-   Para saber mais sobre como instalar e configurar o PowerShell, confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+   Para saber mais sobre como instalar e configurar o PowerShell, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="step-4-upload-the-vhd-file"></a>Etapa 4: carregar o arquivo .vhd
 Quando carrega o arquivo .vhd, você pode colocá-lo em qualquer lugar em seu Armazenamento de Blobs. Veja a seguir alguns termos que você usará ao carregar o arquivo:
@@ -212,4 +206,3 @@ Depois de carregar o arquivo .vhd, você pode adicioná-lo como uma imagem à li
 5. Após a conclusão do provisionamento, você verá sua VM do FreeBSD em execução no Azure.
 
     ![Imagem do FreeBSD no azure](./media/freebsd-create-upload-vhd/freebsdimageinazure.png)
-

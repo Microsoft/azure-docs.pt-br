@@ -12,15 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 488b16623300d80a53a61badee420de106c418b0
-ms.lasthandoff: 03/25/2017
-
+ms.openlocfilehash: 90d55bbac6e113d6add848ace67cf0749e26342b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-classic-portal"></a>Como configurar a colocação em escala automática em um Serviço de Nuvem no portal clássico
 > [!div class="op_single_selector"]
 > * [Portal do Azure](cloud-services-how-to-scale-portal.md)
@@ -37,14 +36,11 @@ Você deve considerar as seguintes informações antes de configurar a colocaç�
 
     As instâncias de função maiores usam mais núcleos. Você só pode dimensionar um aplicativo dentro do limite de núcleos para sua assinatura. Por exemplo, digamos que sua assinatura tenha um limite de 20 núcleos. Ao executar um aplicativo com dois serviços de nuvem de tamanho médio (um total de quatro núcleos), você poderá escalar verticalmente outras implantações de serviço de nuvem na sua assinatura pelos 16 núcleos restantes. Para saber mais sobre os tamanhos, confira [Tamanhos do Serviço de Nuvem](cloud-services-sizes-specs.md).
 
-* Você deve criar uma fila e associá-la a uma função antes de dimensionar um aplicativo com base em um limite de mensagens. Para obter mais informações, consulte [Como usar o serviço de armazenamento de fila](../storage/storage-dotnet-how-to-use-queues.md)(a página pode estar em inglês).
+* Você deve criar uma fila e associá-la a uma função antes de dimensionar um aplicativo com base em um limite de mensagens. Para obter mais informações, consulte [Como usar o serviço de armazenamento de fila](../storage/queues/storage-dotnet-how-to-use-queues.md)(a página pode estar em inglês).
 
 * Você pode dimensionar recursos vinculados ao seu serviço de nuvem. Para obter mais informações sobre a vinculação de recursos, consulte [Como vincular um recurso a um serviço de nuvem](cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service).
 
 * Para habilitar a alta disponibilidade do seu aplicativo, você deverá garantir que ele esteja implantado com duas ou mais instâncias de função. Para obter mais informações, consulte [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/).
-
-> [!WARNING]
-> A colocação em escala automática funciona apenas com Contas Clássicas de Armazenamento do Azure. Ela não funciona com Contas de Armazenamento do Azure Resource Manager.
 
 ## <a name="schedule-scaling"></a>Agendar o dimensionamento
 Por padrão, nenhuma função segue um agendamento específico. Portanto, qualquer configuração alterada será aplicada a todos os horários e a todos os dias durante o ano. Se desejar, você poderá configurar a colocação em escala manual ou automática para um dos modos a seguir:
@@ -143,4 +139,3 @@ Sempre que você dimensionar uma função, também é benéfico dimensionar o ba
 [scale_schedules]: ./media/cloud-services-how-to-scale/schedules.png
 [scale_popup]: ./media/cloud-services-how-to-scale/schedules-dialog.png
 [linked_resource]: ./media/cloud-services-how-to-scale/linked-resources.png
-

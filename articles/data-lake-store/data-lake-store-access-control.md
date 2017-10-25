@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/06/2017
+ms.date: 10/03/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 756d51e41c43be2e80f8fce1c3965e1723f7cec8
-ms.openlocfilehash: 7cd0c60b3eaaf6c2fd702d4e4b580299cb71c5fc
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 43582ae805d560e72fb8d03ab8e0abee4c4325b7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Controle de acesso no Azure Data Lake Store
 
@@ -330,13 +329,14 @@ Não.
 
 * [POSIX 1003.1 2008](http://standards.ieee.org/findstds/standard/1003.1-2008.html)
 
-* [POSIX 1003.1e 1997](http://users.suse.com/~agruen/acl/posix/Posix_1003.1e-990310.pdf)
+* [POSIX 1003.1 2013](http://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
 
-* [ACL POSIX no Linux](http://users.suse.com/~agruen/acl/linux-acls/online/)
+* [POSIX 1003.1 2016](http://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
+
+* [POSIX ACL no Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 
 * [ACL usando listas de controle de acesso no Linux](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## <a name="see-also"></a>Consulte também
 
 * [Visão geral do Repositório Azure Data Lake](data-lake-store-overview.md)
-

@@ -12,15 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 07/24/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7870e2aebf6c142b0f3103a500ca73d691e6d3e6
-
-
+ms.openlocfilehash: 271747e25f319c76195ec643025d24c6b7cdc9c5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="export-log-analytics-data-to-power-bi"></a>Exportar dados do Log Analytics para o Power BI
+
+>[!NOTE]
+> Se o espaço de trabalho foi atualizado para a [nova linguagem de consulta Log Analytics](log-analytics-log-search-upgrade.md), então, esse processo para exportar dados do Log Analytics para o Power BI não irá mais funcionar.  Todas as agendas existentes criadas antes da atualização serão desabilitadas. Você não verá mais a capacidade de ativar o recurso de exportação do Power BI em configurações em Recursos de versão prévia, pois esse recurso está completamente liberado em espaços de trabalho atualizados. 
+>
+> Após fazer upgrade, o Azure Log Analytics utiliza a mesma plataforma do Application Insights e você usará o mesmo processo para exportar consultas do Log Analytics para o Power BI como no [processo para exportar consultas do Application Insights para o Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).  É possível exportar a consulta utilizando o console do Analytics, conforme descrito nesse artigo ou selecionar o botão **Power BI** na parte superior da tela no portal de Pesquisa de Logs.
+>
+> Os usuários precisarão acessar o Recurso de espaço de trabalho no Azure para usar o recurso de exportação do Power BI em espaços de trabalho atualizados. Sem o acesso, os usuários verão uma mensagem de erro ao importar a consulta para o Power BI Desktop ao qual eles não têm acesso.
+
+
+
 O [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) é um serviço de análise de negócios baseado em nuvem da Microsoft que fornece relatórios e visualizações avançadas para análise de diferentes conjuntos de dados.  O Log Analytics pode exportar dados do repositório do OMS para o Power BI automaticamente para que você possa aproveitar suas visualizações e ferramentas de análise.
 
 Ao configurar o Power BI com o Log Analytics, você poderá criar consultas de log que exportam seus resultados para conjuntos de dados correspondentes no Power BI.  A consulta e a exportação continuarão a ser executadas automaticamente em uma agenda definida por você para manter o conjunto de dados atualizado com os últimos dados coletados pelo Log Analytics.
@@ -34,8 +44,8 @@ Os campos no conjunto de dados corresponderão às propriedades dos registros re
 
 > [!NOTE]
 > É uma melhor prática usar uma consulta de pesquisa de log que retorna dados brutos em vez de executar qualquer consolidação usando comandos como [Measure](log-analytics-search-reference.md#measure).  Você pode executar qualquer agregação e cálculo no Power BI por meio dos dados brutos.
-> 
-> 
+>
+>
 
 ## <a name="connecting-oms-workspace-to-power-bi"></a>Conectar o espaço de trabalho do OMS ao Power BI
 Antes de exportar do Log Analytics para o Power BI, você deve conectar o seu espaço de trabalho do OMS à conta do Power BI usando o procedimento a seguir.  
@@ -117,10 +127,3 @@ Salvamos o relatório clicando no botão Salvar na parte superior da tela e vali
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para criar consultas que podem ser exportadas para o Power BI.
 * Saiba mais sobre o [Power BI](http://powerbi.microsoft.com) para criar visualizações baseadas em exportações do Log Analytics.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

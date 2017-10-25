@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3a5f06b7e9600c34ef690e025a0a2079f71f843e
-
-
+ms.openlocfilehash: 18faa88641623e1248d6a33bc2d87099e1c9f624
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="routing-and-tag-expressions"></a>Expressões de marca e roteamento
 ## <a name="overview"></a>Visão geral
@@ -33,7 +33,7 @@ O back-end do aplicativo pode escolher os registros para direcionar uma notifica
 3. **Expressão de marca**: todos os registros cujos conjuntos de marcas correspondem à expressão especificada recebem a notificação.
 
 ## <a name="tags"></a>Marcas
-Uma marca pode ser qualquer sequência, com até 120 caracteres, que contenha caracteres alfanuméricos e os seguintes caracteres não alfanuméricos: ‘_’, ‘@’, ‘#’, ‘.’, ‘:’, ‘-’. O exemplo a seguir mostra um aplicativo do qual você pode receber notificações de aviso sobre grupos musicais específicos. Nesse cenário, uma maneira simples de direcionar as notificações é rotular os registros com marcas que representem as diferentes bandas, como na seguinte imagem.
+Uma marca pode ser qualquer cadeia de caracteres com até 120 caracteres que contenha caracteres alfanuméricos e os seguintes caracteres não alfanuméricos: ‘_’, ‘@’, ‘#’, ‘.’, ‘:’, ‘-’. O exemplo a seguir mostra um aplicativo do qual você pode receber notificações de aviso sobre grupos musicais específicos. Nesse cenário, uma maneira simples de direcionar as notificações é rotular os registros com marcas que representem as diferentes bandas, como na seguinte imagem.
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
 
@@ -102,9 +102,3 @@ Aqui está um exemplo de envio de notificações com expressões de marca usando
     toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
     "You want info on the Red Socks</text></binding></visual></toast>";
     outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

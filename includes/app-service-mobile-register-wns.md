@@ -14,8 +14,3 @@
    > O segredo do aplicativo e o SID do pacote são credenciais de segurança importantes. Não compartilhe esses valores com ninguém nem os distribua com seu aplicativo.
    >
    >
-
-
-<!--HONumber=Dec16_HO2-->
-
-

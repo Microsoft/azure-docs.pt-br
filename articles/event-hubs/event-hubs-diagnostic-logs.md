@@ -1,6 +1,6 @@
 ---
 title: "Logs de diagnóstico dos Hubs de Eventos do Azure | Microsoft Docs"
-description: "Saiba como configurar logs de diagnóstico para Hubs de Eventos no Azure."
+description: "Saiba como configurar logs de diagnóstico para hub de eventos no Azure."
 keywords: 
 documentationcenter: 
 services: event-hubs
@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/27/2017
-ms.author: sethm;babanisa
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 8b0484b2d4f6474be728531fbda65896f30eccc4
-ms.lasthandoff: 03/29/2017
-
-
+ms.date: 10/05/2017
+ms.author: sethm
+ms.openlocfilehash: bcc8427d57a001f73d321fbf35c5226a047b68d2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Logs de diagnóstico dos Hubs de Eventos
 
@@ -29,27 +28,26 @@ ms.lasthandoff: 03/29/2017
 * **[Logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. É possível configurar logs de diagnóstico para ter uma visão mais detalhada de tudo o que acontece com um trabalho. Os logs de diagnóstico abrangem atividades desde o momento em que o trabalho é criado até sua exclusão, incluindo atualizações e atividades que ocorrem durante a execução do trabalho.
 
 ## <a name="turn-on-diagnostic-logs"></a>Ativar logs de diagnóstico
-Os logs de diagnóstico estão **desativados** por padrão. Para habilitar logs de diagnóstico:
 
-1.    No portal do Azure, acesse a folha do trabalho de transmissão.
+Os logs de diagnóstico estão desabilitados por padrão. Para habilitar logs de diagnóstico:
 
-2.    Em **Monitoramento**, acesse a folha **Logs de diagnóstico**.
+1.  No [Portal do Azure](https://portal.azure.com), em **Monitoramento + Gerenciamento**, clique em **Logs de diagnóstico**.
 
-    ![Navegação de folha para os logs de diagnóstico](./media/event-hubs-diagnostic-logs/image1.png)  
+    ![Navegação de folha para os logs de diagnóstico](./media/event-hubs-diagnostic-logs/image1.png)
 
-3.    Selecione **Ativar diagnóstico**.
+2.  Clique no recurso que você deseja monitorar.
+
+3.  Clique em **Ativar diagnóstico**.
 
     ![Ativar logs de diagnóstico](./media/event-hubs-diagnostic-logs/image2.png)
 
-4.    Para **Status**, selecione **Ativado**.
+4.  Para **Status**, clique em **Ativar**.
 
     ![Alterar o status dos logs de diagnóstico](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.    Defina o destino de arquivamento desejado; por exemplo, uma conta de armazenamento, um Hub de Eventos ou o Azure Log Analytics.
+5.  Defina o destino de arquivamento desejado, por exemplo, uma conta de armazenamento, um hub de eventos ou o Log Analytics do Azure.
 
-6.    Selecione as categorias de logs que você deseja coletar, por exemplo, **Execução** ou **Criação**.
-
-7.    Salve as novas configurações de diagnóstico.
+6.  Salve as novas configurações de diagnóstico.
 
 As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecerão no destino de arquivamento configurado, na folha **Logs de diagnóstico**.
 
@@ -58,11 +56,11 @@ Para saber mais sobre como configurar um diagnóstico, confira a [visão geral d
 ## <a name="diagnostic-logs-categories"></a>Categorias dos logs de diagnóstico
 Os Hubs de Eventos capturam os logs de diagnóstico de duas categorias:
 
-* **ArchivalLogs**: logs relacionados aos arquivamentos de Hubs de Eventos, especificamente os logs relacionados a erros de arquivo morto.
-* **OperationalLogs**: informações sobre o que está acontecendo durante a operação dos Hubs de Eventos, especificamente o tipo de operação, incluindo a criação do Hub de Eventos, os recursos usados e o status da operação.
+* **ArchiveLogs**: logs relacionados aos arquivos mortos dos Hubs de Eventos, especificamente os logs relacionados a erros de arquivo morto.
+* **OperationalLogs**: informações sobre o que está acontecendo durante a operação dos Hubs de Eventos, especificamente o tipo de operação, incluindo a criação do hub de eventos, os recursos usados e o status da operação.
 
 ## <a name="diagnostic-logs-schema"></a>Esquema de logs de diagnóstico
-Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cada entrada tem campos de cadeia de caracteres que usam o formato descrito nos exemplos a seguir.
+Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cada entrada tem campos de cadeia de caracteres que usam o formato descrito nas seções a seguir.
 
 ### <a name="archive-logs-schema"></a>Esquema dos logs de arquivo morto
 
@@ -83,7 +81,7 @@ durationInSeconds | Duração da falha.
 Message | Mensagem de erro.
 categoria | ArchiveLogs
 
-Veja a seguir um exemplo de uma cadeia de caracteres JSON do log de arquivo morto:
+O código a seguir é um exemplo de uma cadeia de caracteres JSON do log de arquivo morto:
 
 ```json
 {
@@ -102,14 +100,14 @@ Veja a seguir um exemplo de uma cadeia de caracteres JSON do log de arquivo mort
 }
 ```
 
-### <a name="operation-logs-schema"></a>Esquema de logs de operação
+### <a name="operational-logs-schema"></a>Esquema de logs operacionais
 
-As cadeias de caracteres JSON do log de operação incluem os elementos listados na seguinte tabela:
+As cadeias de caracteres JSON do log operacional incluem os elementos listados na seguinte tabela:
 
 Nome | Descrição
 ------- | -------
 ActivityId | ID interna, usada para fins de rastreamento.
-EventName | Nome da operação.     
+EventName | Nome da operação.  
 resourceId | ID do Recurso do Azure Resource Manager.
 SubscriptionId | ID da assinatura.
 EventTimeString | Tempo da operação.
@@ -118,7 +116,7 @@ Status | Status da operação.
 Chamador | Chamador da operação (Portal do Azure ou cliente de gerenciamento).
 categoria | OperationalLogs
 
-Veja a seguir um exemplo de uma cadeia de caracteres JSON do log de operação:
+O código a seguir é um exemplo de uma cadeia de caracteres JSON do log operacional:
 
 ```json
 Example:
@@ -138,5 +136,4 @@ Example:
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução aos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 * [Visão geral de API de Hubs de Eventos](event-hubs-api-overview.md)
-* [Introdução aos Hubs de Evento](event-hubs-csharp-ephcs-getstarted.md)
-
+* [Introdução aos Hubs de Evento](event-hubs-dotnet-standard-getstarted-send.md)

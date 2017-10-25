@@ -3,7 +3,7 @@ title: Carregar dados no SQL Data Warehouse do Azure | Microsoft Docs
 description: "Aprenda sobre os cenários comuns para carregamento de dados no SQL Data Warehouse. Essas opções incluem usar PolyBase, armazenamento de blobs do Azure, arquivos simples e envio de disco. Você também pode usar ferramentas de terceiros."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: ckarst
 manager: jhubbard
 editor: 
 ms.assetid: 2253bf46-cf72-4de7-85ce-f267494d55fa
@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 9366bae67be7d1abf932d07971d2062c7bd29f3c
-ms.openlocfilehash: 49825cc7455ae082ef750a2a31abbd2d71693c79
-ms.lasthandoff: 02/27/2017
-
-
-
+ms.author: cakarst;barbkess
+ms.openlocfilehash: c4199a387f5cdbd477a5e348e48ba8e8b5900075
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-data-into-azure-sql-data-warehouse"></a>Carregar dados no SQL Data Warehouse do Azure
 Um resumo das opções de cenário e recomendações para carregar dados no SQL Data Warehouse.
@@ -143,4 +141,3 @@ Para obter mais dicas de desenvolvimento, confira a [visão geral sobre desenvol
 
 <!--Other Web references-->
 [Import/Export]: https://azure.microsoft.com/documentation/articles/storage-import-export-service/
-

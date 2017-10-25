@@ -1,6 +1,6 @@
 ---
-title: "Guia de solução de problemas do Mobile Engagement do Azure - APIs"
-description: "Guias de solução de problemas para o Mobile Engagement do Azure - APIs"
+title: "Guia de solução de problemas do Azure Mobile Engagement - APIs"
+description: "Guias de solução de problemas para o Azure Mobile Engagement - APIs"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a7ae0a83046f2d67b790f672dcd3ae261987357a
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-guide-for-api-issues"></a>Guia de solução de problemas de API
-Estes são os possíveis problemas que podem ser encontrados na maneira como administradores interagem com o Mobile Engagement do Azure por meio das APIs.
+Estes são os possíveis problemas que podem ser encontrados na maneira como administradores interagem com o Azure Mobile Engagement por meio das APIs.
 
 ## <a name="syntax-issues"></a>Problemas de sintaxe
 ### <a name="issue"></a>Problema
@@ -38,12 +38,12 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como adm
 * [Documentação da API][Link 4]
 * [Informações do protocolo XMPP](http://xmpp.org/extensions/xep-0199.html)
 
-## <a name="unable-to-use-the-api-to-perform-the-same-action-available-in-the-azure-mobile-engagement-ui"></a>Não é possível usar a API para executar a mesma ação disponível na interface de usuário do Mobile Engagement do Azure
+## <a name="unable-to-use-the-api-to-perform-the-same-action-available-in-the-azure-mobile-engagement-ui"></a>Não é possível usar a API para executar a mesma ação disponível na interface de usuário do Azure Mobile Engagement
 ### <a name="issue"></a>Problema
-* Uma ação que funciona da interface do usuário do Mobile Engagement do Azure não funciona da API do Mobile Engagement do Azure relacionada.
+* Uma ação que funciona da interface do usuário do Azure Mobile Engagement não funciona da API do Azure Mobile Engagement relacionada.
 
 ### <a name="causes"></a>Causas
-* A confirmação de que você pode executar a mesma ação da interface do usuário do Mobile Engagement do Azure mostra que esse recurso do Mobile Engagement do Azure foi corretamente integrado ao SDK.
+* A confirmação de que você pode executar a mesma ação da interface do usuário do Azure Mobile Engagement mostra que esse recurso do Azure Mobile Engagement foi corretamente integrado ao SDK.
 
 ### <a name="see-also"></a>Consulte também
 * [Documentação da Interface do Usuário][Link 1]
@@ -83,8 +83,8 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como adm
 * A ação da API falha sem nenhuma mensagem de erro exibida em tempo de execução ou nos logs.
 
 ### <a name="causes"></a>Causas
-* Muitos itens serão desabilitados na interface do usuário do Mobile Engagement do Azure caso não tenham sido integrados corretamente, mas falharão de forma silenciosa a partir da API; dessa forma, lembre-se de testar a mesma funcionalidade da interface do usuário para ver se ela funciona.
-* O Mobile Engagement do Azure e muitos recursos avançados do Mobile Engagement do Azure que você está tentando usar precisarão ser individualmente integrados ao seu aplicativo com o SDK em etapas distintas antes que você possa usá-los.
+* Muitos itens serão desabilitados na interface do usuário do Azure Mobile Engagement caso não tenham sido integrados corretamente, mas falharão de forma silenciosa a partir da API; dessa forma, lembre-se de testar a mesma funcionalidade da interface do usuário para ver se ela funciona.
+* O Azure Mobile Engagement e muitos recursos avançados do Azure Mobile Engagement que você está tentando usar precisarão ser individualmente integrados ao seu aplicativo com o SDK em etapas distintas antes que você possa usá-los.
 
 ### <a name="see-also"></a>Consulte também
 * [Guia de Solução de Problemas ‑ SDK][Link 25]
@@ -119,10 +119,4 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como adm
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

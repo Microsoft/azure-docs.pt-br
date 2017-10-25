@@ -1,10 +1,9 @@
 ---
-
 title: "Carregar dados no SQL Data Warehouse do Azure – Data Factory | Microsoft Docs"
 description: Este tutorial carrega dados no SQL Data Warehouse do Azure usando o Azure Data Factory e usa um banco de dados SQL Server como a fonte de dados.
 services: sql-data-warehouse
 documentationcenter: NA
-author: linda33wj
+author: ckarst
 manager: jhubbard
 editor: 
 tags: azure-sql-data-warehouse;azure-data-factory
@@ -15,19 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.custom: loading
 ms.date: 02/08/2017
-ms.author: jingwang;kevin;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 6474104846eefa1aa7e137e7914b7a7f1ee8a83a
-ms.openlocfilehash: aad76a633b127d23d59dae995d7a503023c5eac7
-ms.lasthandoff: 02/09/2017
-
-
-
+ms.author: cakarst;barbkess
+ms.openlocfilehash: 6399f1a3390119685c1c9fd7332937e0cdb6f9ea
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="load-data-into-sql-data-warehouse-with-data-factory"></a>Carregar dados no SQL Data Warehouse com o Data Factory
 
-Você pode usar o Azure Data Factory para carregar dados no SQL Data Warehouse do Azure de qualquer um dos [repositórios de dados de origem com suporte](../data-factory/data-factory-data-movement-activities.md#supported-data-stores-and-formats). Por exemplo, é possível carregar dados de um Banco de Dados SQL do Azure ou um Banco de Dados Oracle em um SQL Data Warehouse usando o Data Factory. O tutorial neste artigo mostra como carregar dados de um banco de dados local do SQL Server em um SQL Data Warehouse.
+Você pode usar o Azure Data Factory para carregar dados no SQL Data Warehouse do Azure de qualquer um dos [repositórios de dados de origem com suporte](../data-factory/copy-activity-overview.md). Por exemplo, é possível carregar dados de um Banco de Dados SQL do Azure ou um Banco de Dados Oracle em um SQL Data Warehouse usando o Data Factory. O tutorial neste artigo mostra como carregar dados de um banco de dados local do SQL Server em um SQL Data Warehouse.
 
 **Tempo estimado**: este tutorial levará cerca de 10 a 15 minutos para ser concluído depois que os pré-requisitos forem atendidos.
 
@@ -37,7 +33,7 @@ Você pode usar o Azure Data Factory para carregar dados no SQL Data Warehouse d
 
 - Você precisa de um **SQL Data Warehouse** online. Se você ainda não tiver um data warehouse, saiba como [Criar um SQL Data Warehouse do Azure](sql-data-warehouse-get-started-provision.md).
 
-- Você precisa de uma **Conta de Armazenamento do Azure**. Se você ainda não tem uma conta de armazenamento, aprenda como [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md). Para melhor desempenho, localize a conta de armazenamento e o data warehouse na mesma região do Azure.
+- Você precisa de uma **Conta de Armazenamento do Azure**. Se você ainda não tem uma conta de armazenamento, aprenda como [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md). Para melhor desempenho, localize a conta de armazenamento e o data warehouse na mesma região do Azure.
 
 ## <a name="configure-a-data-factory"></a>Configurar uma fábrica de dados
 1. Faça logon no [Portal do Azure][].
@@ -74,7 +70,7 @@ Agora você informa o Data Factory sobre o banco de dados SQL Server local do qu
     > [!NOTE]
     > Se o armazenamento de dados de origem for local ou estiver em uma máquina virtual do Azure IaaS, será necessário usar um gateway de gerenciamento de dados. Um gateway tem uma relação de 1-1 com uma fábrica de dados. Ele não pode ser usado de outra data factory, mas pode ser usado por várias tarefas de carregamento de dados na mesma fábrica de dados. Um gateway pode ser usado para se conectar a vários repositórios de dados durante a execução de tarefas de carregamento de dados.
     >
-    > Para obter informações detalhadas sobre o gateway, consulte o artigo [Gateway de Gerenciamento de Dados](../data-factory/data-factory-data-management-gateway.md).
+    > Para obter informações detalhadas sobre o gateway, consulte o artigo [Gateway de Gerenciamento de Dados](../data-factory/v1/data-factory-data-management-gateway.md).
 
 3. Uma caixa de diálogo **Criar Gateway** será exibida. Em Nome, insira **GatewayForDWLoading** e clique em **Criar**.
 
@@ -113,7 +109,7 @@ Agora você informa ao Data Factory sobre as informações de destino.
 
     ![Mapear esquema](media/sql-data-warehouse-load-with-data-factory/schema-mapping.png)
 
-4. Clique em **Próximo**.
+4. Clique em **Avançar**.
 
 ## <a name="configure-the-performance-settings"></a>Definir as configurações de desempenho
 Nas configurações de Desempenho, configure uma conta de armazenamento do Azure usada para preparar os dados antes de carregá-los no de forma definitiva no SQL Data Warehouse usando o [PolyBase](sql-data-warehouse-best-practices.md#use-polybase-to-load-and-export-data-quickly). Depois que a cópia for concluída, os dados provisórios no armazenamento serão limpos automaticamente.
@@ -156,9 +152,9 @@ Para migrar seu banco de dados para o SQL Data Warehouse, consulte [Visão geral
 
 Para saber mais sobre o Azure Data Factory e seus recursos de movimentação de dados, consulte os seguintes artigos:
 
-- [Introdução ao Azure Data Factory](../data-factory/data-factory-introduction.md)
-- [Mover dados usando a Atividade de Cópia](../data-factory/data-factory-data-movement-activities.md)
-- [Mover dados para e do SQL Data Warehouse do Azure usando o Azure Data Factory](../data-factory/data-factory-azure-sql-data-warehouse-connector.md)
+- [Introdução ao Azure Data Factory](../data-factory/introduction.md)
+- [Mover dados usando a Atividade de Cópia](../data-factory/copy-activity-overview.md)
+- [Mover dados para e do SQL Data Warehouse do Azure usando o Azure Data Factory](../data-factory/connector-azure-sql-data-warehouse.md)
 
 Para explorar seus dados no SQL Data Warehouse, consulte os seguintes artigos:
 
@@ -167,4 +163,3 @@ Para explorar seus dados no SQL Data Warehouse, consulte os seguintes artigos:
 
 <!-- Azure references -->
 [Portal do Azure]: https://portal.azure.com
-

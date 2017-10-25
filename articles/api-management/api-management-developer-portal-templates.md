@@ -3,7 +3,7 @@ title: Personalizar o portal do desenvolvedor do Gerenciamento de API usando mod
 description: Aprenda a personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos.
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: a195675b-f7d0-4fc9-90bf-860e6f17ccf7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2434762c2a1174a40d9c6daad6c317bc3ca8f374
 ms.openlocfilehash: 40d25726d31d2018785b77d169a8811c565316bf
+ms.contentlocale: pt-br
 ms.lasthandoff: 02/23/2017
-
 
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos

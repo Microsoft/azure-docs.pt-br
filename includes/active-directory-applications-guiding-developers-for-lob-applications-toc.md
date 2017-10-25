@@ -5,8 +5,3 @@
 * [Integrando aplicativos com o Active Directory do Azure](../articles/active-directory/active-directory-integrating-applications.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](../articles/active-directory/active-directory-apps-index.md)
 
-
-
-<!--HONumber=Dec16_HO5-->
-
-

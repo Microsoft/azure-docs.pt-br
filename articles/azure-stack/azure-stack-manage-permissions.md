@@ -12,16 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
+ms.date: 09/25/2017
 ms.author: helaw
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 80837ff9adb9b02b7a12ce1039e4c50be172bee8
-ms.lasthandoff: 03/24/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e558f9de9bc3182bbe20ceb9d8f3f96e47fa542c
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="manage-role-based-access-control"></a>Manage Role-Based Access Control
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 A user in Azure Stack can be a reader, owner, or contributor for each instance of a subscription, resource group, or service. For example, User A might have reader permissions to Subscription 1, but have owner permissions to Virtual Machine 7.
 
 * Reader: User can view everything, but can’t make any changes.

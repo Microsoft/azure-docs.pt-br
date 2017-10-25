@@ -1,5 +1,5 @@
 ---
-title: Usar o MapReduce e o PowerShell com Hadoop | Microsoft Docs
+title: "Usar o MapReduce e o PowerShell com Hadoop – Azure HDInsight | Microsoft Docs"
 description: Aprenda a usar o PowerShell para executar trabalhos MapReduce remotamente com Hadoop no HDInsight.
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
+ms.date: 09/06/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 9eafaca75bbf3db639a42c8206d2ac506c255273
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: bc4e1b04e8f90e5713468ce38f6f05174affb261
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>Executar trabalhos MapReduce com Hadoop no HDInsight usando o PowerShell
 
@@ -34,13 +33,13 @@ Esse documento fornece um exemplo de uso do PowerShell do Azure para executar um
 * **Um cluster Azure HDInsight (Hadoop no HDInsight)**
 
   > [!IMPORTANT]
-  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **Uma estação de trabalho com o PowerShell do Azure**.
 
 ## <a id="powershell"></a>Executar um trabalho MapReduce usando o PowerShell do Azure
 
-O PowerShell do Azure fornece *cmdlets* que permitem executar remotamente trabalhos MapReduce no HDInsight. Internamente, isso é feito por meio de chamadas REST para [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (anteriormente chamado de Templeton) em execução no cluster HDInsight.
+O PowerShell do Azure fornece *cmdlets* que permitem executar remotamente trabalhos MapReduce no HDInsight. Internamente, o PowerShell faz chamadas REST para [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (anteriormente chamado de Templeton) em execução no cluster HDInsight.
 
 Os cmdlets a seguir são usados ao executar trabalhos MapReduce em um cluster HDInsight remoto.
 
@@ -48,7 +47,7 @@ Os cmdlets a seguir são usados ao executar trabalhos MapReduce em um cluster HD
 
 * **New-AzureRmHDInsightMapReduceJobDefinition**: cria uma nova *definição de trabalho* usando as informações especificadas do MapReduce.
 
-* **Start-AzureRmHDInsightJob**: envia a definição do trabalho para o HDInsight, inicia o trabalho e retorna um objeto *job* que pode ser usado para verificar o status do trabalho.
+* **Start-AzureRmHDInsightJob**: envia a definição do trabalho para HDInsight e inicia o trabalho. Um objeto *job* é retornado.
 
 * **Wait-AzureRmHDInsightJob**: usa o objeto de trabalho para verificar o status do trabalho. Ele aguarda até que o trabalho seja concluído ou o tempo de espera seja excedido.
 
@@ -61,13 +60,13 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
     [!code-powershell[main](../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 
 2. Abra um novo prompt de comando do **PowerShell do Azure** . Altere os diretórios para o local do arquivo **mapreducejob.ps1** e use o seguinte comando para executar o script:
-   
+
         .\mapreducejob.ps1
-   
-    Quando você executa o script, o nome do cluster do HDInsight e o nome da conta de HTTPS/Admin e a senha para o cluster são solicitados. Você também poderá receber uma solicitação para autenticar a sua assinatura do Azure.
+
+    Quando você executa o script, o nome do cluster HDInsight e o logon do cluster são solicitados. Você também poderá receber uma solicitação para autenticar a sua assinatura do Azure.
 
 3. Quando o trabalho for concluído, você receberá uma saída semelhante ao seguinte texto:
-    
+
         Cluster         : CLUSTERNAME
         ExitCode        : 0
         Name            : wordcount
@@ -77,24 +76,24 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
         StatusDirectory : f1ed2028-afe8-402f-a24b-13cc17858097
         SubmissionTime  : 12/5/2014 8:34:09 PM
         JobId           : job_1415949758166_0071
-    
+
     Essa saída indica que o trabalho foi concluído com êxito.
-    
+
     > [!NOTE]
     > Se o **ExitCode** for um valor diferente de 0, consulte [Solução de problemas](#troubleshooting).
-    
+
     Este exemplo também armazena os arquivos baixados em um arquivo **output.txt** no diretório do qual você executa o script.
 
 ### <a name="view-output"></a>Exibir saída
 
-Abra o arquivo **output.txt** em um editor de texto para ver as palavras e contagens produzidas pelo trabalho.
+Para ver as palavras e contagens produzidas pelo trabalho, abra o arquivo **output.txt** em um editor de texto.
 
 > [!NOTE]
 > Os arquivos de saída de um trabalho MapReduce são imutáveis. Portanto, se você executar esse exemplo novamente, será necessário alterar o nome do arquivo de saída.
 
 ## <a id="troubleshooting"></a>Solucionar problemas
 
-Se nenhuma informação for retornada quando o trabalho for concluído, um erro pode ter ocorrido durante o processamento. Para exibir informações de erro para esse trabalho, adicione o seguinte comando ao final do arquivo **mapreducejob.ps1** , depois salve o arquivo e execute-o novamente.
+Se nenhuma informação for retornada quando o trabalho for concluído, exiba os erros para o trabalho. Para exibir informações de erro para esse trabalho, adicione o seguinte comando ao final do arquivo **mapreducejob.ps1** , depois salve o arquivo e execute-o novamente.
 
 ```powershell
 # Print the output of the WordCount job.
@@ -106,7 +105,7 @@ Get-AzureRmHDInsightJobOutput `
         -DisplayOutputType StandardError
 ```
 
-Esse cmdlet retorna as informações que foram gravadas em STDERR no servidor quando o trabalho foi executado e pode ajudar a determinar por que o trabalho está falhando.
+Esse cmdlet retorna as informações gravadas em STDERR conforme o trabalho é executado.
 
 ## <a id="summary"></a>Resumo
 
@@ -122,5 +121,3 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
-
-

@@ -1,6 +1,6 @@
 ---
-title: "Interface do Usuário do Mobile Engagement do Azure - Alcance - Conteúdo"
-description: "Saiba como gerenciar o conteúdo exclusivo dos diferentes tipos de campanhas de notificação por push no Mobile Engagement do Azure"
+title: "Interface do Usuário do Azure Mobile Engagement - Alcance - Conteúdo"
+description: "Saiba como gerenciar o conteúdo exclusivo dos diferentes tipos de campanhas de notificação por push no Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: 3741a43b74af5846e95e42d8a7b533621e780f2d
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-the-unique-content-of-the-different-types-of-push-notification-campaigns"></a>Como gerenciar o conteúdo exclusivo dos diferentes tipos de campanhas de notificação por push
 Você pode usar a seção de conteúdo de uma nova campanha de alcance para modificar o conteúdo de anúncios, pesquisas, envia dados e lado a lado (apenas no Windows Phone). A configuração de conteúdo de campanhas de Envio por Push é específica para o tipo de campanha. 
@@ -42,7 +41,7 @@ Você pode usar a seção de conteúdo de uma nova campanha de alcance para modi
 * [Alcance ‑ Instruções ‑ Anúncios][Link 3] 
 
 ### <a name="about-web-view-announcements"></a>Sobre os anúncios de exibição na Web:
-As ocorrências do padrão "{deviceid}" no código HTML ou no código JavaScript que você fornecer aqui serão substituídas automaticamente pelo identificador do dispositivo que estiver exibindo o anúncio. Essa é uma maneira fácil de recuperar identificadores de dispositivos do Mobile Engagement do Azure em um serviço Web externo hospedado no seu back office.
+As ocorrências do padrão "{deviceid}" no código HTML ou no código JavaScript que você fornecer aqui serão substituídas automaticamente pelo identificador do dispositivo que estiver exibindo o anúncio. Essa é uma maneira fácil de recuperar identificadores de dispositivos do Azure Mobile Engagement em um serviço Web externo hospedado no seu back office.
 Se você quiser criar uma exibição da Web em tela inteira (sem os botões Ação e Sair padrão que fornecemos), poderá usar as seguintes funções do código de JavaScript da exibição da Web do anúncio: 
 
 * executar a ação de anúncio: ReachContent.actionContent()
@@ -52,7 +51,7 @@ Se você quiser criar uma exibição da Web em tela inteira (sem os botões Aç�
 ### <a name="about-action-urls"></a>Sobre as URLs de ação:
 Qualquer URL que possa ser interpretada pelo sistema operacional de destino do dispositivo pode ser usada como uma URL de ação.
 Qualquer URL dedicada que possa dar suporte a seu aplicativo (por exemplo, para fazer com que os usuários mudem para uma determinada tela) também pode ser usada como uma URL de ação.
-Cada ocorrência do padrão {deviceid} é substituída automaticamente pelo identificador do dispositivo de execução da ação. Esta é uma maneira fácil de recuperar identificadores de dispositivos do Mobile Engagement do Azure por meio de um serviço Web externo hospedado no seu back office.
+Cada ocorrência do padrão {deviceid} é substituída automaticamente pelo identificador do dispositivo de execução da ação. Esta é uma maneira fácil de recuperar identificadores de dispositivos do Azure Mobile Engagement por meio de um serviço Web externo hospedado no seu back office.
 
 * **Ações do Android + iOS**
   * Abrir uma página Web
@@ -238,5 +237,4 @@ Um envio de lado a lado é a versão do serviço de Notificação por Push da Mi
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
-
 

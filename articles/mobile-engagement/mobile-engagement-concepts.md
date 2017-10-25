@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2db8af1badf908ec69e4d994755bad87e8653dee
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 8450651528007b4527366b89a6ad7615169f93c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement-concepts"></a>Conceitos do Azure Mobile Engagement
 O Mobile Engagement define alguns conceitos comuns a todas as plataformas com suporte. Este artigo descreve resumidamente os conceitos.
@@ -67,7 +66,7 @@ Um trabalho é identificado por um nome (limitado a 64 caracteres) e pode, opcio
 As Falhas são emitidas automaticamente pelo SDK do Mobile Engagement para falhas de aplicativo de relatório em que os problemas não detectados pelo aplicativo o fazem falhar.
 
 ## <a name="application-information"></a>Informações do aplicativo
-As informações do aplicativo (ou as informações do aplicativo) são usadas para marcar usuários, por exemplo, para associar alguns dados aos usuários de um aplicativo (semelhante aos cookies da web, exceto que as informações do aplicativo sejam armazenadas no lado do servidor na plataforma do Mobile Engagement do Azure).
+As informações do aplicativo (ou as informações do aplicativo) são usadas para marcar usuários, por exemplo, para associar alguns dados aos usuários de um aplicativo (semelhante aos cookies da web, exceto que as informações do aplicativo sejam armazenadas no lado do servidor na plataforma do Azure Mobile Engagement).
 
 As informações de um aplicativo podem ser registradas usando a API do SDK do Mobile Engagement ou usando a API do dispositivo da plataforma do Mobile Engagement.
 
@@ -83,9 +82,8 @@ Os extras são estruturados de forma semelhante aos objetos JSON: são feitos de
 A árvore inteira de pares chave/valor é armazenada como um objeto JSON. No entanto, somente o primeiro nível de chaves/valores é decomposto para estar diretamente acessível para algumas funções avançadas como Segmentos (por exemplo, você pode definir facilmente um segmento chamado “Fãs de ficção científica” composto por todos os usuários que enviaram pelo menos 10 vezes o evento chamado "content_viewed" com a chave extra "content_type" definida como o valor "scifi" no último mês). Ele, portanto, é altamente recomendável para enviar apenas extras feitos de listas simples de pares chave/valor usando valores escalares (por exemplo, cadeias de caracteres, datas, números inteiros ou booliano).
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Visão geral do SDK do Windows Universal para o Mobile Engagement do Azure](mobile-engagement-windows-store-sdk-overview.md)
-* [Visão geral do SDK do Windows Phone Silverlight para o Mobile Engagement do Azure](mobile-engagement-windows-phone-sdk-overview.md)
-* [SDK do iOS para o Mobile Engagement do Azure](mobile-engagement-ios-sdk-overview.md)
-* [SDK do Android do Mobile Engagement do Azure](mobile-engagement-android-sdk-overview.md)
-
+* [Visão geral do SDK do Windows Universal para o Azure Mobile Engagement](mobile-engagement-windows-store-sdk-overview.md)
+* [Visão geral do SDK do Windows Phone Silverlight para o Azure Mobile Engagement](mobile-engagement-windows-phone-sdk-overview.md)
+* [SDK do iOS para o Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md)
+* [SDK do Android do Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md)
 

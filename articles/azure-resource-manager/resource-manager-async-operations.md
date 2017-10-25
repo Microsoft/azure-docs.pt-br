@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 5590ced0e7d2a68fd525178ee21590b0897b58d7
 ms.openlocfilehash: 9fe3d98cd345aae45722295b6c1b7fc3e9036e95
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="track-asynchronous-azure-operations"></a>Rastrear operações assíncronas no Azure
 Algumas operações REST do Azure são executadas de forma assíncrona porque a operação não pode ser concluída com rapidez. Este tópico descreve como controlar o status das operações assíncronas por meio de valores retornados na resposta.  
@@ -196,8 +196,3 @@ Se a solicitação ainda estiver em execução, você receberá um código de st
 * Para ver a documentação sobre cada operação REST, consulte [Documentação da API REST](/rest/api/).
 * Para obter informações sobre como gerenciar recursos por meio da API REST do Resource Manager, consulte [Usando a API REST do Resource Manager](resource-manager-rest-api.md).
 * Para obter informações sobre a implantação de modelos por meio da API REST do Resource Manager, consulte [Deploy resources with Resource Manager templates and Resource Manager REST API (Implantar recursos com modelos do Resource Manager e a API REST do Resource Manager)](resource-group-template-deploy-rest.md).
-
-
-<!--HONumber=Jan17_HO2-->
-
-

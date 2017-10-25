@@ -1,6 +1,6 @@
 ---
 title: "Integração do SDK para iOS do Azure Mobile Engagement | Microsoft Docs"
-description: "Atualizações e procedimentos mais recentes para o SDK do iOS para Mobile Engagement do Azure"
+description: "Atualizações e procedimentos mais recentes para o SDK do iOS para Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 07/17/2017
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7c4e962527d0b4cd66f6ca4974851c5e5d523de7
-
-
+ms.openlocfilehash: 01fdbb43c21ac6932e8462f4a6507fc63e50542d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-integrate-engagement-on-ios"></a>Como integrar o Engagement no iOS
 > [!div class="op_single_selector"]
@@ -26,17 +26,17 @@ ms.openlocfilehash: 7c4e962527d0b4cd66f6ca4974851c5e5d523de7
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
 > * [iOS](mobile-engagement-ios-integrate-engagement.md)
 > * [Android](mobile-engagement-android-integrate-engagement.md)
-> 
-> 
+>
+>
 
 Este procedimento descreve a maneira mais simples de ativar as funções de Analítica e Monitoramento do Engagement em seu aplicativo iOS.
 
-O SDK do Engagement exige iOS6+ e Xcode 8: o destino da implantação do seu aplicativo deve ter pelo menos o iOS 6.
+O SDK do Engagement exige iOS7+ e Xcode 8+: o destino da implantação do seu aplicativo deve ter pelo menos o iOS 7.
 
 > [!NOTE]
 > Se você realmente depende do XCode 7, pode usar o [SDK do iOS Engagement v3.2.4](https://aka.ms/r6oouh). Há um bug conhecido no módulo de alcance desta versão anterior durante a execução em dispositivos com iOS 10. Consulte [a integração do módulo de alcance](mobile-engagement-ios-integrate-engagement-reach.md) para obter mais detalhes. Caso você opte por usar o SDK v3.2.4, basta ignorar a importação `UserNotifications.framework` na próxima etapa.
-> 
-> 
+>
+>
 
 As etapas a seguir são suficientes para ativar o relatório de logs necessários para calcular todas as estatísticas sobre usuários, sessões, atividades, falhas e técnicas. O relatório de logs necessários para calcular outras estatísticas, como Trabalhos, Erros e Eventos deve ser feito manualmente usando a API do Engagement (consulte [How to use the advanced Mobile Engagement tagging API in your iOS app (Como usar a marcação avançada de API do Mobile Engagement no seu aplicativo iOS)](mobile-engagement-ios-use-engagement-api.md) já que essas estatísticas dependem do aplicativo.
 
@@ -44,7 +44,7 @@ As etapas a seguir são suficientes para ativar o relatório de logs necessário
 * Baixe o SDK do iOS [daqui](http://aka.ms/qk2rnj).
 * Adicione o SDK do Engagement ao seu projeto do iOS: no Xcode, clique com o botão direito do mouse no seu projeto e selecione **"Adicionar arquivos a..."** e escolha a pasta `EngagementSDK`.
 * O Engagement exige estruturas adicionais para funcionar: no Explorador de projeto, abra o painel de projeto e selecione o destino correto. Em seguida, abra a guia **"Criar fases"** e no menu **"Vincular Binário com Bibliotecas"**, adicione estas estruturas:
-  
+
   * `UserNotifications.framework` -defina o link como opcional `Optional`
   * `AdSupport.framework` -defina o link como opcional `Optional`
   * `SystemConfiguration.framework`
@@ -55,18 +55,18 @@ As etapas a seguir são suficientes para ativar o relatório de logs necessário
 
 > [!NOTE]
 > A estrutura AdSupport pode ser removida. O Engagement precisa dessa estrutura para coletar o IDFA. No entanto, a coleção de IDFA pode ser desabilitada \<ios-sdk-engagement-idfa\> para cumprir a nova política Apple em relação a essa ID.
-> 
-> 
+>
+>
 
 ## <a name="initialize-the-engagement-sdk"></a>Inicialize o SDK do Engagement
 Você precisa modificar seu representante de Aplicativo:
 
 * Na parte superior do seu arquivo de implementação, importe o agente do Engagement:
-  
+
       [...]
       #import "EngagementAgent.h"
 * Inicialize o Engagement dentro do método '**applicationDidFinishLaunching:**' ou '**application:didFinishLaunchingWithOptions:**':
-  
+
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
       {
         [...]
@@ -108,13 +108,13 @@ Se você não pode ou não quer sobrecarregar as suas classes `UIViewController`
 
 > [!IMPORTANT]
 > O SDK do iOS chama automaticamente o `endActivity()` método quando o aplicativo é fechado. Desse modo, será *ALTAMENTE* recomendável chamar o método `startActivity` sempre que a atividade do usuário for alterada e *NUNCA* chamar o método `endActivity`, uma vez que chamar esse método faz com que a sessão atual seja encerrada.
-> 
-> 
+>
+>
 
 ## <a name="location-reporting"></a>Relatórios de local
 Os termos de serviço da Apple não permitem que os aplicativos usem o local apenas para fins de estatísticas de acompanhamento. Assim, é recomendável habilitar relatórios locais somente se o seu aplicativo também usar o acompanhamento de local por outro motivo.
 
-A partir do iOS 8, é necessário fornecer uma descrição de como o seu aplicativo usa os serviços de localização, definindo uma cadeia de caracteres para a chave [NSLocationWhenInUseUsageDescription] ou [NSLocationAlwaysUsageDescription] no arquivo Info.plist do seu aplicativo. Se você quiser o local do relatório em segundo plano com o Engagement, adicione a chave NSLocationAlwaysUsageDescription. Em outros casos, adicione a chave NSLocationWhenInUseUsageDescription.
+A partir do iOS 8, é necessário fornecer uma descrição de como o seu aplicativo usa os serviços de localização, definindo uma cadeia de caracteres para a chave [NSLocationWhenInUseUsageDescription] ou [NSLocationAlwaysUsageDescription] no arquivo Info.plist do seu aplicativo. Se você quiser o local do relatório em segundo plano com o Engagement, adicione a chave NSLocationAlwaysUsageDescription. Em outros casos, adicione a chave NSLocationWhenInUseUsageDescription. Observe que você precisa NSLocationAlwaysAndWhenInUseUsageDescription e NSLocationWhenInUseUsageDescription para relatar o local em segundo plano no iOS 11.
 
 ### <a name="lazy-area-location-reporting"></a>Relatórios de local de área lenta
 O relatório de local de área lenta permite relatar o país, a região e a localidade associados aos dispositivos. Esse tipo de relatório de local usa apenas os locais de rede (com base na ID da célula ou WIFI). A área de dispositivo é relatada no máximo uma vez por sessão. O GPS nunca é usado e, portanto, esse tipo de relatório de local tem pouco impacto (ou quase nenhum) sobre a bateria.
@@ -151,8 +151,8 @@ Por padrão, os relatórios de local em tempo real ficam ativos apenas quando o 
 
 > [!NOTE]
 > Quando o aplicativo é executado em segundo plano, somente locais baseados em rede são relatados, mesmo se você tiver habilitado o GPS.
-> 
-> 
+>
+>
 
 A implementação dessa função chamará [startMonitoringSignificantLocationChanges] quando o aplicativo entra em segundo plano. Lembre-se de que ele reinicia automaticamente o seu aplicativo em segundo plano caso chegue um novo evento local.
 
@@ -210,9 +210,3 @@ O exemplo a seguir de `Settings.bundle` mostra como implementá-lo:
 [NSLocationAlwaysUsageDescription]:https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW18
 [startMonitoringSignificantLocationChanges]:http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]:https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

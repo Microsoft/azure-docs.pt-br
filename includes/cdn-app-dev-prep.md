@@ -51,8 +51,3 @@ Se, em vez de uma entidade de serviço, você preferir a autenticação de usuá
 4. Em vez de atribuir uma entidade de serviço para a função **Colaborador do Perfil CDN** , vamos atribuir usuários individuais ou grupos.  Neste exemplo, é possível ver que atribui o *Usuário de Demonstração CDN* à função **Colaborador do Perfil CDN**.  
 
     ![Acesso de usuário individual](./media/cdn-app-dev-prep/cdn-aad-user-include.png)
-
-
-<!--HONumber=Dec16_HO1-->
-
-

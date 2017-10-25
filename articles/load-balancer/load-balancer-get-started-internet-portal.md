@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: annahar
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: db7c328b2ba7008b9d34275341fa4bad9522b028
-ms.lasthandoff: 01/24/2017
-
+ms.openlocfilehash: 922c33f712e160835256ad9ad040e523dfbf76db
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Criar um balanceador de carga para a Internet usando o Portal do Azure
 
 > [!div class="op_single_selector"]
@@ -30,11 +29,13 @@ ms.lasthandoff: 01/24/2017
 > * [CLI do Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Modelo](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Também é possível [Saber como criar um balanceador de carga para a Internet usando a implantação clássica](load-balancer-get-started-internet-classic-portal.md)
+Este artigo aborda o modelo de implantação do Gerenciador de Recursos.
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -82,7 +83,7 @@ Você precisa criar e configurar os objetos a seguir para implantar um balancead
     Em Configurações do balanceador de carga, selecione Investigações. Na parte superior da folha, clique em **Adicionar** .
 
     Há duas maneiras de configurar uma investigação: HTTP ou TCP. Este exemplo mostra HTTP, mas TCP pode ser configurado de maneira semelhante.
-    Atualize as informações necessárias. Conforme mencionado, **myLoadBalancer** balanceará a carga do tráfego na Porta 80. O caminho selecionado é HealthProbe.aspx, o Intervalo é de 15 segundos e o Limite não íntegro é 2. Quando terminar, clique em **OK** para criar a investigação.
+    Atualize as informações necessárias. Como mencionado, **myLoadBalancer** balanceará a carga do tráfego na Porta 80. O caminho selecionado é HealthProbe.aspx, o Intervalo é de 15 segundos e o Limite não íntegro é 2. Quando terminar, clique em **OK** para criar a investigação.
 
     Coloque o ponteiro sobre o ícone 'i' para saber mais sobre essas configurações individuais e como elas podem ser alteradas para atender às suas necessidades.
 
@@ -113,4 +114,3 @@ Para excluir um balanceador de carga, selecione o balanceador de carga que desej
 [Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
-

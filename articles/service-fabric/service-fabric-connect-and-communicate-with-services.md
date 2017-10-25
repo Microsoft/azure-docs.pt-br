@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 5/9/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 6f408d6e4a6a80f10a5116071efee7546c7febdf
-ms.lasthandoff: 03/08/2017
-
-
+ms.openlocfilehash: 3e61ad19df34c6a57da43e26bd2ab9d7ecdbf98e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Conectar e se comunicar com serviços no Service Fabric
 No Service Fabric, um serviço é executado em algum lugar em um cluster do Service Fabric, normalmente distribuído entre várias VMs. Ele pode ser movido de um local para outro, pelo proprietário do serviço ou automaticamente pelo Service Fabric. Os serviços não estão estaticamente vinculados a um determinado computador ou endereço.
@@ -50,8 +49,28 @@ Resolver e conectar-se aos serviços envolve as seguintes etapas executadas em u
 * **Conectar**: conectar-se ao serviço por meio de qualquer protocolo usado no ponto de extremidade em questão.
 * **Tentar Novamente**: uma tentativa de conexão pode falhar por vários motivos, por exemplo, se o serviço foi movido desde a última vez que o endereço do ponto de extremidade foi resolvido. Nesse caso, as etapas resolver e conectar anteriores precisam ser repetidas e esse ciclo é repetido até que a conexão seja bem-sucedida.
 
+## <a name="connecting-to-other-services"></a>Conectando a outros serviços
+Geralmente, os serviços que se conectam entre si em um cluster podem acessar diretamente os pontos de extremidade de outros serviços, pois os nós de um cluster estão na mesma rede local. Para facilitar a conexão entre serviços, o Service Fabric oferece serviços adicionais que usam o Serviço de Nomeação. Um serviço DNS e um serviço de proxy reverso.
+
+
+### <a name="dns-service"></a>Serviço DNS
+Como muitos serviços, especialmente serviços em contêineres, podem ter um nome de URL existente, ter a capacidade de resolvê-los usando o protocolo DNS padrão (em vez do protocolo do Serviço de Nomeação) é muito conveniente, especialmente em cenários que usam o método lift-and-shift para aplicativos. Isso é exatamente o que o serviço DNS faz. Ele permite mapear nomes DNS para um nome de serviço e, portanto, resolver endereços IP do ponto de extremidade. 
+
+Conforme mostrado no diagrama a seguir, o serviço DNS, em execução no cluster do Service Fabric, mapeia nomes DNS para nomes de serviço que são então resolvidos pelo Serviço de Nomeação para retornar os endereços de ponto de extremidade aos quais se conectar. O nome DNS do serviço é fornecido no momento da criação. 
+
+![pontos de extremidade de serviço][9]
+
+Para obter mais detalhes sobre como usar o serviço DNS, consulte o artigo [Serviço DNS no Azure Service Fabric](service-fabric-dnsservice.md).
+
+### <a name="reverse-proxy-service"></a>Serviço de proxy reverso
+O proxy reverso lida com os serviços no cluster que expõem pontos de extremidade HTTP, incluindo HTTPS. O proxy reverso simplifica grande parte da chamada a outros serviços e seus métodos tendo um formato de URI específico e manipula as etapas de resolução, conexão e repetição necessárias para que um serviço se comunique com outro usando o Serviço de Nomeação. Em outras palavras, ele oculta o Serviço de Nomeação de você ao chamar outros serviços, fazendo com que isso fique tão simples quanto chamar uma URL.
+
+![pontos de extremidade de serviço][10]
+
+Para obter mais detalhes sobre como usar o serviço de proxy reverso, consulte o artigo [Proxy reverso do Azure Service Fabric](service-fabric-reverseproxy.md).
+
 ## <a name="connections-from-external-clients"></a>Conexões de clientes externos
-Serviços que se conectam uns aos outros dentro de um cluster geralmente podem acessar diretamente os pontos de extremidade de outros serviços, pois os nós em um cluster geralmente estão na mesma rede local. Em alguns ambientes, entretanto, um cluster pode estar por trás de um balanceador de carga que encaminha o tráfego de entrada externo por meio de um conjunto limitado de portas. Nesses casos, os serviços ainda poderão se comunicar e resolver endereços usando o Serviço de Nomenclatura, porém, etapas adicionais deverão ser executadas para permitir que clientes externos se conectem aos serviços.
+Geralmente, os serviços que se conectam entre si em um cluster podem acessar diretamente os pontos de extremidade de outros serviços, pois os nós de um cluster estão na mesma rede local. Em alguns ambientes, entretanto, um cluster pode estar por trás de um balanceador de carga que encaminha o tráfego de entrada externo por meio de um conjunto limitado de portas. Nesses casos, os serviços ainda poderão se comunicar e resolver endereços usando o Serviço de Nomenclatura, porém, etapas adicionais deverão ser executadas para permitir que clientes externos se conectem aos serviços.
 
 ## <a name="service-fabric-in-azure"></a>Service Fabric no Azure
 Um cluster do Service Fabric no Azure é colocado atrás de um Balanceador de Carga do Azure. Todo o tráfego externo para o cluster deve passar pelo balanceador de carga. O balanceador de carga encaminhará automaticamente o tráfego de entrada em uma determinada porta para um *nó* aleatório que abriu a mesma porta. O Azure Load Balancer só conhece as portas abertas nos *nós*, ele não conhece portas abertas por *serviços* individuais.
@@ -60,7 +79,7 @@ Um cluster do Service Fabric no Azure é colocado atrás de um Balanceador de Ca
 
 Por exemplo, para aceitar o tráfego externo na porta **80**, configure os seguintes itens:
 
-1. Escreva um serviço de escuta a porta 80. Configure a porta 80 no ServiceManifest.xml do serviço e abra um ouvinte no serviço, por exemplo, um servidor Web auto-hospedado.
+1. Escreva um serviço que escute na porta 80. Configure a porta 80 no ServiceManifest.xml do serviço e abra um ouvinte no serviço, por exemplo, um servidor Web auto-hospedado.
 
     ```xml
     <Resources>
@@ -85,9 +104,8 @@ Por exemplo, para aceitar o tráfego externo na porta **80**, configure os segui
                 this.httpListener.Prefixes.Add(uriPrefix);
                 this.httpListener.Start();
 
-                string uriPublished = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
-
-                return Task.FromResult(this.publishUri);
+                string publishUri = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
+                return Task.FromResult(publishUri);
             }
 
             ...
@@ -99,7 +117,7 @@ Por exemplo, para aceitar o tráfego externo na porta **80**, configure os segui
 
             protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
             {
-                return new[] {new ServiceInstanceListener(context => new HttpCommunicationListener(context))};
+                return new[] { new ServiceInstanceListener(context => new HttpCommunicationListener(context))};
             }
 
             ...
@@ -135,7 +153,7 @@ Por exemplo, para aceitar o tráfego externo na porta **80**, configure os segui
             protected List<ServiceInstanceListener> createServiceInstanceListeners() {
                 <ServiceInstanceListener> listeners = new ArrayList<ServiceInstanceListener>();
                 listeners.add(new ServiceInstanceListener((context) -> new HttpCommunicationlistener(context)));
-                return listeners;        
+                return listeners;       
             }
 
             ...
@@ -153,7 +171,7 @@ Por exemplo, para aceitar o tráfego externo na porta **80**, configure os segui
 
 É importante lembrar que o Azure Load Balancer e a investigação só conhecem os *nós*, não os *serviços* em execução nos nós. O Balanceador de Carga do Azure sempre enviará tráfego para os nós que responderem à investigação, portanto tome cuidado para garantir que os serviços estão disponíveis em nós que podem responder à investigação.
 
-## <a name="built-in-communication-api-options"></a>Opções de API de comunicação interna
+## <a name="reliable-services-built-in-communication-api-options"></a>Reliable Services: Opções de API de comunicação interna
 A estrutura do Reliable Services vem com várias opções de comunicação predefinidas. A decisão sobre qual uma funcionará melhor para você depende da escolha do modelo de programação, da estrutura de comunicação e da linguagem de programação em que os serviços são escritos.
 
 * **Nenhum protocolo específico:** se você não tiver uma preferência específica de estrutura de comunicação, mas desejar colocar algo em funcionamento rapidamente, a opção ideal para você será a [comunicação remota do serviço](service-fabric-reliable-services-communication-remoting.md), que possibilita chamadas de procedimento remoto fortemente tipadas para os Reliable Services e Reliable Actors. Essa é a maneira mais fácil e rápida de começar a comunicação de serviço. A comunicação remota do serviço lida com a resolução de endereços de serviço, conexão, repetição e tratamento de erro. Isso está disponível para aplicativos Java e C#.
@@ -173,4 +191,5 @@ Saiba mais sobre os conceitos e as APIs disponíveis no [modelo de comunicação
 [5]: ./media/service-fabric-connect-and-communicate-with-services/loadbalancerport.png
 [7]: ./media/service-fabric-connect-and-communicate-with-services/distributedservices.png
 [8]: ./media/service-fabric-connect-and-communicate-with-services/loadbalancerprobe.png
-
+[9]: ./media/service-fabric-connect-and-communicate-with-services/dns.png
+[10]: ./media/service-fabric-reverseproxy/internal-communication.png

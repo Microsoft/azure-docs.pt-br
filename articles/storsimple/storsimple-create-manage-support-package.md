@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 42b245d4e205dffda7ec62199ced3834c278a466
-
-
+ms.openlocfilehash: 32d20e7a8adcfc646c592213fe7395b87a93c985
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-manage-a-storsimple-support-package"></a>Criar e gerenciar um pacote de suporte do StorSimple
 ## <a name="overview"></a>Visão geral
@@ -81,7 +81,7 @@ Você pode compartilhar seu pacote de suporte gerado manualmente com o Suporte d
      
        `Export-HcsSupportPackage –PackageTag "MySupportPackage" –Credential "Username" -Force`
      
-       Você será solicitado a fornecer uma senha, um caminho para a pasta compartilhada de rede e uma senha de criptografia (porque o pacote de suporte é criptografado). Um pacote de suporte é criado na pasta especificada.
+       Você será solicitado a fornecer uma senha, um caminho para a pasta compartilhada de rede e uma frase secreta de criptografia (porque o pacote de suporte é criptografado). Um pacote de suporte é criado na pasta especificada.
    * Para compartilhamentos que não são protegidos por senha, o parâmetro `-Credential` não é necessário. Insira o seguinte:
      
        `Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
@@ -94,9 +94,9 @@ Você pode usar os seguintes parâmetros com o cmdlet Export-HcsSupportPackage.
 | Parâmetro | Obrigatório/Opcional | Descrição |
 | --- | --- | --- |
 | `-Path` |Obrigatório |Use para fornecer o local da pasta compartilhada de rede na qual o pacote de suporte é colocado. |
-| `-EncryptionPassphrase` |Obrigatório |Use para fornecer uma senha para ajudar a criptografar o pacote de suporte. |
+| `-EncryptionPassphrase` |Obrigatório |Use para fornecer uma frase secreta para ajudar a criptografar o pacote de suporte. |
 | `-Credential` |Opcional |Use para fornecer credenciais de acesso para a pasta compartilhada de rede. |
-| `-Force` |Opcional |Use para ignorar a etapa de confirmação de senha de criptografia. |
+| `-Force` |Opcional |Use para ignorar a etapa de confirmação de frase secreta de criptografia. |
 | `-PackageTag` |Opcional |Use para especificar um diretório no *Caminho* no qual o pacote de suporte é colocado. O padrão é [nome do dispositivo]-[data e hora atuais:aaaa-MM-dd-HH-mm-ss]. |
 | `-Scope` |Opcional |Especifique como **Cluster** (padrão) para criar um pacote de suporte para ambos os controladores. Se você quiser criar um pacote somente para o controlador atual, especifique **Controlador**. |
 
@@ -123,7 +123,7 @@ Para editar um pacote de suporte antes de carregá-lo no site de Suporte da Micr
     Observe que as extensões de arquivo reais agora são exibidas para todos os arquivos.
    
     ![Editar pacote de suporte](./media/storsimple-create-manage-support-package/IC750706.png)
-5. Quando você for solicitado a fornecer a senha de criptografia, digite a senha usada quando o pacote de suporte foi criado.
+5. Quando você for solicitado a fornecer a senha de criptografia, digite a frase secreta usada quando o pacote de suporte foi criado.
    
         cmdlet Open-HcsSupportPackage at command pipeline position 1
    
@@ -134,7 +134,7 @@ Para editar um pacote de suporte antes de carregá-lo no site de Suporte da Micr
     `Close-HcsSupportPackage <Path to the folder that contains support package files>`
    
     ![Editar pacote de suporte](./media/storsimple-create-manage-support-package/IC750707.png)
-8. Quando solicitado, forneça uma senha de criptografia para o pacote de suporte modificado.
+8. Quando solicitado, forneça uma frase secreta de criptografia para o pacote de suporte modificado.
    
         cmdlet Close-HcsSupportPackage at command pipeline position 1
         Supply values for the following parameters:EncryptionPassphrase: ****
@@ -166,10 +166,4 @@ O exemplo a seguir mostra como descriptografar, editar e criptografar novamente 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [usar pacotes de suporte e logs de dispositivo para solucionar problemas de implantação do dispositivo](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 * Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

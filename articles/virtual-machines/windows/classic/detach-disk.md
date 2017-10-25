@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: b7b8f8cc34cea17fee4b7a39594dd22bdc536d57
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: 650c7e10150b95a6ad7cd455746f7c1d77b9b34c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-detach-a-disk-from-a-windows-virtual-machine"></a>Como desanexar um disco de uma máquina virtual Windows
 > [!IMPORTANT]
@@ -29,7 +28,6 @@ ms.lasthandoff: 03/27/2017
 [!INCLUDE [howto-detach-disk-windows-linux](../../../../includes/howto-detach-disk-windows-linux.md)]
 
 ## <a name="additional-resources"></a>Recursos adicionais
-[Sobre discos e VHDs para máquinas virtuais](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Sobre discos e VHDs para máquinas virtuais](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Como anexar um disco de dados a uma máquina virtual Windows](attach-disk.md)
-

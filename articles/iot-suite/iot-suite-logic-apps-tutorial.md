@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 09/15/2017
 ms.author: corywink
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 5e3221395082513f842863615d40f7d3ebf2562e
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: 7dbfef6d2bcac81d89ed0e3cf36d4c75a264cba7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>Tutorial: conectar um aplicativo lógico à solução pré-configurada de monitoramento remoto do Azure IoT Suite
 A solução pré-configurada de monitoramento remoto do [Microsoft Azure IoT Suite][lnk-internetofthings] é uma ótima maneira de começar rapidamente com um conjunto de recursos de ponta a ponta que é um exemplo de uma solução IoT. Este tutorial explica como adicionar um aplicativo lógico à sua solução pré-configurada de monitoramento remoto do Microsoft Azure IoT Suite. Essas etapas demonstram como é possível aproveitar ainda mais sua solução de IoT conectando-a a um processo empresarial.
@@ -53,7 +52,7 @@ Para começar, configure o aplicativo lógico a ser usado com a solução pré-c
 6. Escolha **Solicitar**. Essa ação especifica que uma solicitação HTTP de entrada com um carga no formato JSON específico atua como um gatilho.
 7. Cole o seguinte código no esquema JSON do corpo da solicitação:
    
-    ```
+    ```json
     {
       "$schema": "http://json-schema.org/draft-04/schema#",
       "id": "/",
@@ -109,14 +108,14 @@ Nesta seção, você conecta sua solução pré-configurada ao Aplicativo Lógic
 
 1. Use seu cliente git para clonar a versão mais recente do [repositório github azure-iot-remote-monitoring][lnk-rmgithub]. Por exemplo:
    
-    ```
+    ```cmd
     git clone https://github.com/Azure/azure-iot-remote-monitoring.git
     ```
 2. No Visual Studio, abra o **RemoteMonitoring.sln** da cópia local do repositório.
 3. Abra o arquivo **ActionRepository.cs** na pasta **Infrastructure\\Repository**.
 4. Atualize o dicionário **actionIds** com o **Http Post para esta URL** que você anotou do seu Aplicativo Lógico, como se segue:
    
-    ```
+    ```csharp
     private Dictionary<string,string> actionIds = new Dictionary<string, string>()
     {
         { "Send Message", "<Http Post to this URL>" },
@@ -132,9 +131,9 @@ Nesta seção, você implanta a versão atualizada da solução de monitoramento
 2. Para implantar localmente, siga as instruções de [implantação local][lnk-localdeploy].
 3. Para implantar na nuvem e atualizar sua implantação de nuvem existente, siga as instruções de [implantação de nuvem][lnk-clouddeploy]. Use o nome de sua implantação original como o nome da implantação. Por exemplo, se a implantação original foi chamada de **demologicapp**, use o seguinte comando:
    
-   ``
+   ```cmd
    build.cmd cloud release demologicapp
-   ``
+   ```
    
    Quando o script de compilação for executado, certifique-se de usar a mesma conta, assinatura e região do Azure e a mesma instância do Active Directory que você usou ao provisionar a solução.
 
@@ -172,4 +171,3 @@ Agora que você já usou um aplicativo lógico para conectar a solução pré-co
 [lnk-devsetup]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/dev-setup.md
 [lnk-localdeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/local-deployment.md
 [lnk-clouddeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
-

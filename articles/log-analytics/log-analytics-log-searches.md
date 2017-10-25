@@ -3,7 +3,7 @@ title: Localizar dados com as pesquisas de logs no Azure Log Analytics | Microso
 description: "As pesquisas de log permitem combinar e correlacionar quaisquer dados de computador de várias fontes em seu ambiente."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: bwren
 manager: carmonm
 editor: 
 ms.assetid: 0d7b6712-1722-423b-a60f-05389cde3625
@@ -12,17 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
-ms.author: banders
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: d4935af0647f0629cca327a7e87c29f1252af382
-ms.lasthandoff: 02/28/2017
-
-
+ms.date: 07/26/2017
+ms.author: bwren
+ms.openlocfilehash: bf237a837297cb8f1ab3a3340139133adcd2b244
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="find-data-using-log-searches"></a>Localizar dados usando pesquisas de logs
+# <a name="find-data-using-log-searches-in-log-analytics"></a>Localizar dados usando as pesquisas de logs no Log Analytics
+
+>[!NOTE]
+> Este artigo descreve pesquisas de logs usando a linguagem de consulta atual no Log Analytics.  Se o seu espaço de trabalho foi atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), você deverá consultar [Noções básicas sobre pesquisas de logs no Log Analytics (novo)](log-analytics-log-search-new.md).
+
 
 No núcleo do Log Analytics está o recurso de pesquisa de log que permite combinar e correlacionar quaisquer dados de computador de várias fontes em seu ambiente. As soluções também são alimentadas pela pesquisa de log para fornecer métricas que giram em torno de uma área de problema específica.
 
@@ -136,6 +138,24 @@ Da mesma forma, a consulta a seguir retorna **% CPU Time** somente para os dois 
 CounterName="% Processor Time"  AND InstanceName="_Total" AND (Computer=SERVER1.contoso.com OR Computer=SERVER2.contoso.com)
 ```
 
+### <a name="field-types"></a>Tipos de campo
+Ao criar filtros, você deve entender as diferenças de trabalhar com tipos diferentes de campos retornados pelas pesquisas de log.
+
+**Campos de pesquisa** aparecem em azul nos resultados da pesquisa.  Você pode usar campos de pesquisa em condições de pesquisa específicas do campo, como as seguintes:
+
+```
+Type: Event EventLevelName: "Error"
+Type: SecurityEvent Computer:Contains("contoso.com")
+Type: Event EventLevelName IN {"Error","Warning"}
+```
+
+**Campos de pesquisa de texto livre** são mostrados em cinza nos resultados da pesquisa.  Eles não podem ser usados com os critérios de pesquisa específicos para o campo, como campos pesquisáveis.  Eles apenas são pesquisados ao executar uma consulta em todos os campos, como a seguir.
+
+```
+"Error"
+Type: Event "Exception"
+```
+
 
 ### <a name="boolean-operators"></a>Operadores boolianos
 Com campos numéricos e de datetime, você pode procurar por valores usando *maior que*, *menor que* e *menor ou igual*. Você pode usar operadores simples como >, <, =, < =,! = na barra de pesquisa de consulta.
@@ -148,7 +168,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 
 #### <a name="to-search-using-a-boolean-operator"></a>Para pesquisar usando um operador booliano
-* No campo pesquisar consulta, digite `EventLog=System TimeGenerated>NOW-24HOURS"`  
+* No campo pesquisar consulta, digite `EventLog=System TimeGenerated>NOW-24HOURS`  
     ![pesquisar com booliano](./media/log-analytics-log-searches/oms-search-boolean.png)
 
 Embora você pode controlar o intervalo de tempo graficamente, e talvez queira fazer isso na maioria das vezes, há vantagens em incluir um filtro de tempo diretamente na consulta. Por exemplo, isso funciona muito bem com painéis em você pode substituir o tempo para cada bloco, independentemente do seletor de tempo *global* na página do painel. Para saber mais, confira [Assuntos de tempo no Painel](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/).
@@ -248,7 +268,7 @@ O comando SELECIONAR se comporta como Select-Object no PowerShell. Ele retorna r
 3. Selecione alguns deles explicitamente e a consulta muda para `Type=Event | Select Computer,EventID,RenderedDescription`.  
     ![pesquisar selecionar](./media/log-analytics-log-searches/oms-search-select.png)
 
-Esse comando é particularmente útil quando você deseja controlar a saída de pesquisa e escolher apenas as partes de dados que realmente importam para exploração, o que geralmente não é o registro completo. Isso também é útil quando os registros de tipos diferentes têm *algumas* propriedades em comum, mas não *todas*. Você pode gerar uma saída mais naturalmente parecida com uma tabela ou que funciona bem quando exportada para um arquivo CSV e processada no Excel.
+Esse comando é particularmente útil quando você deseja controlar a saída de pesquisa e escolher apenas as partes de dados que realmente importam para sua exploração, o que geralmente não é o registro completo. Isso também é útil quando os registros de tipos diferentes têm *algumas* propriedades em comum, mas não *todas*. Você pode gerar uma saída mais naturalmente parecida com uma tabela ou que funciona bem quando exportada para um arquivo CSV e processada no Excel.
 
 ## <a name="use-the-measure-command"></a>Usar o comando medir
 MEDIDA é um dos comandos mais versáteis em pesquisas do Log Analytics. Ele permite que você aplique *funções* estatísticas aos seus dados e agregue os resultados agrupados por um determinado campo. Há várias funções estatísticas que têm suporte de Medida.
@@ -577,4 +597,3 @@ Para obter outras informações sobre pesquisas de log, veja:
 
 * Use [Campos personalizados no Log Analytics](log-analytics-custom-fields.md) para estender as pesquisas de log.
 * Examine a [referência de pesquisa de log do Log Analytics](log-analytics-search-reference.md) para exibir todos os campos de pesquisa e as facetas disponíveis no Log Analytics.
-

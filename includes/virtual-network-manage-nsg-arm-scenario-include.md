@@ -16,8 +16,3 @@ A combinação dessas regras cria um cenário de DMZ, em que a sub-rede de back-
 
 Para implantar o cenário descrito acima, acesse [este link](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), clique em **Implantar no Azure**, substitua os valores de parâmetro padrão, se necessário, e siga as instruções no portal. Nas instruções de exemplo abaixo, o modelo foi usado para implantar nomes do grupo de recursos **RG-NSG**. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

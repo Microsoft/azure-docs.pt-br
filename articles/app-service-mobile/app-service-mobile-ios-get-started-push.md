@@ -3,9 +3,9 @@ title: "Adicionar notificações por push ao aplicativo iOS com aplicativos móv
 description: "Saiba como usar aplicativos móveis do Azure para enviar notificações por push para seu aplicativo iOS."
 services: app-service\mobile
 documentationcenter: ios
-manager: yochayk
+manager: syntaxc4
 editor: 
-author: ysxu
+author: ggailey777
 ms.assetid: fa503833-d23e-4925-8d93-341bb3fbab7d
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a21ae4b13479f66ada053153834a2b3cc5687e5a
-
-
+ms.author: glenga
+ms.openlocfilehash: 08a8c35b89386bd0dbe7bba406a6985a5a0d7eb8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-push-notifications-to-your-ios-app"></a>Adicionar as notificações por push ao seu aplicativo iOS
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -30,25 +30,25 @@ Se você não usar o projeto baixado do início rápido do servidor, deve adicio
 
 O [simulador do iOS não dá suporte a notificações por push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html). Você precisa de um dispositivo iOS físico e uma [Associação de programa para desenvolvedores da Apple](https://developer.apple.com/programs/ios/).
 
-## <a name="a-nameconfigure-hubaconfigure-notification-hub"></a><a name="configure-hub"></a>Configurar Hub de Notificações
+## <a name="configure-hub"></a>Configurar Hub de Notificações
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
-## <a name="a-idregisteraregister-app-for-push-notifications"></a><a id="register"></a>Registre o aplicativo para obter notificações por push
+## <a id="register"></a>Registre o aplicativo para obter notificações por push
 [!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
 ## <a name="configure-azure-to-send-push-notifications"></a>Configurar o Azure para enviar notificações por push
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
-## <a name="a-idupdate-serveraupdate-backend-to-send-push-notifications"></a><a id="update-server"></a>Atualizar back-end para enviar notificações por push
+## <a id="update-server"></a>Atualizar back-end para enviar notificações por push
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-apns](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
-## <a name="a-idadd-pushaadd-push-notifications-to-app"></a><a id="add-push"></a>Adicionar notificações por push ao aplicativo
+## <a id="add-push"></a>Adicionar notificações por push ao aplicativo
 [!INCLUDE [app-service-mobile-add-push-notifications-to-ios-app.md](../../includes/app-service-mobile-add-push-notifications-to-ios-app.md)]
 
-## <a name="a-idtestatest-push-notifications"></a><a id="test"></a>Testar notificações por push
+## <a id="test"></a>Testar notificações por push
 [!INCLUDE [Test Push Notifications in App](../../includes/test-push-notifications-in-app.md)]
 
-## <a name="a-idmoreamore"></a><a id="more"></a>Mais
+## <a id="more"></a>Mais
 * Os modelos fornecem a flexibilidade para enviar pushes de plataforma cruzada e pushes localizados. [Como usar a biblioteca de cliente do iOS para aplicativos móveis do Azure](app-service-mobile-ios-how-to-use-client-library.md#templates) mostra como registrar os modelos.
 
 <!-- Anchors.  -->
@@ -57,9 +57,3 @@ O [simulador do iOS não dá suporte a notificações por push](https://develope
 
 <!-- URLs. -->
 [Início rápido do iOS]: app-service-mobile-ios-get-started.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -12,11 +12,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
 ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-search-index"></a>Criar um índice de pesquisa do Azure
 > [!div class="op_single_selector"]
@@ -41,8 +41,8 @@ Quando você define o esquema, deve especificar o nome, tipo e atributos de cada
 | *Edm.String* |O texto que opcionalmente pode ser indexado para a pesquisa de texto completo (separação de palavras, derivação etc). |
 | *Collection(Edm.String)* |Uma lista de cadeias de caracteres que opcionalmente podem ser indexadas para a pesquisa de texto completo. Não há nenhum limite teórico superior no número de itens em uma coleção, mas o limite superior de 16 MB no tamanho da carga se aplica às coleções. |
 | *Edm.Boolean* |Contém valores true/false. |
-| *Edm.Int32* |Valores inteiros de&32; bits. |
-| *Edm.Int64* |Valores inteiros de&64; bits. |
+| *Edm.Int32* |Valores inteiros de 32 bits. |
+| *Edm.Int64* |Valores inteiros de 64 bits. |
 | *Edm.Double* |Dados numéricos de dupla precisão. |
 | *Edm.DateTimeOffset* |Valores de data e hora representados no formato OData V4 (por exemplo, `yyyy-MM-ddTHH:mm:ss.fffZ` ou `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |Um ponto que representa uma localização geográfica em todo o mundo. |
@@ -65,10 +65,4 @@ Você pode encontrar informações mais detalhadas sobre os [atributos de índic
 Ao projetar o índice, reserve algum tempo na fase de planejamento para pensar em cada decisão. É importante ter em mente suas necessidades de negócios e experiência de usuário de pesquisa ao projetar o índice, pois cada campo deve ter os [atributos apropriados](https://docs.microsoft.com/rest/api/searchservice/Create-Index). A alteração de um índice após sua implantação envolve a recriação e o recarregamento dos dados.
 
 Se os requisitos do armazenamento de dados mudarem com o tempo, você poderá aumentar ou diminuir a capacidade adicionando ou removendo as partições. Para obter detalhes, confira [Gerenciar o serviço Search no Azure](search-manage.md) ou [Limites de serviço](search-limits-quotas-capacity.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

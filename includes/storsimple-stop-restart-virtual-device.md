@@ -14,8 +14,3 @@ Use o seguinte cmdlet para parar e reiniciar um dispositivo virtual.
 
 `Restart-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

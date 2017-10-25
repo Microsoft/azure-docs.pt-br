@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/11/2017
+ms.date: 05/30/2017
 ms.author: asaxton
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 90e443fe69afdda8786dd00ffb32e9680a476cd4
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 65bada117e7d005362b0ac0ce7cc5336a92e0889
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Business Intelligence do SQL Server em máquinas virtuais do Azure
 > [!IMPORTANT] 
@@ -39,11 +38,12 @@ Para saber mais sobre licenciamento e taxas atuais, consulte [Perguntas frequent
 ## <a name="sql-server-images-available-in-azure-virtual-machine-gallery"></a>Imagens do SQL Server disponíveis na galeria de Máquinas Virtuais do Azure
 A galeria de Máquinas Virtuais do Microsoft Azure inclui várias imagens com o Microsoft SQL Server. O software instalado nas imagens da máquina virtual varia de acordo com a versão do sistema operacional e a versão do SQL Server. A lista de imagens disponíveis na galeria de Máquinas Virtuais do Azure é alterada com frequência.
 
-![Imagem do SQL na Galeria de VMs do azure](./media/virtual-machines-windows-classic-ps-sql-bi/IC741367.png)
+<!--![SQL image in azure VM gallery](./media/virtual-machines-windows-classic-ps-sql-bi/IC741367.png)-->
+![Imagem do SQL na Galeria da VM do Azure](./media/virtual-machines-windows-classic-ps-sql-bi/vm-sql-images.png)
 
 ![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) O script do PowerShell a seguir retorna a lista de imagens do Azure que contêm "SQL-Server" em ImageName:
 
-    # assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Azure classic portal.
+    # assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "Subscriptions" menu in Azure portal.
 
     $subscriptionID = ""    # REQUIRED: Provide your subscription ID.
     $subscriptionName = "" # REQUIRED: Provide your subscription name.
@@ -66,7 +66,7 @@ Para saber mais sobre edições e recursos com suporte do SQL Server, consulte o
 * [Recursos com suporte das edições do SQL Server 2016](https://msdn.microsoft.com/library/cc645993.aspx)
 
 ### <a name="bi-features-installed-on-the-sql-server-virtual-machine-gallery-images"></a>Recursos de BI instalados nas imagens da galeria de Máquinas Virtuais do SQL Server
-A tabela a seguir resume os recursos de Business Intelligence instalados nas imagens comuns da galeria de Máquinas Virtuais do Microsoft Azure para o SQL Server
+A tabela a seguir resume os recursos de Business Intelligence instalados nas imagens comuns da galeria da Máquina Virtual do Microsoft Azure para o SQL Server:
 
 * SQL Server 2016 SP1 Enterprise
 * SQL Server 2016 SP1 Standard
@@ -92,7 +92,7 @@ A tabela a seguir resume os recursos de Business Intelligence instalados nas ima
 ## <a name="general-recommendations-and-best-practices"></a>Recomendações gerais e práticas recomendadas
 * O tamanho mínimo recomendado para uma máquina virtual é **A3** ao usar o SQL Server Enterprise Edition. O tamanho de máquina virtual **A4** é recomendado para implantações de BI do SQL Server do Analysis Services e do Reporting Services.
   
-    Para saber mais sobre os tamanhos atuais de VM, consulte [Tamanhos de máquina virtual para o Azure](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+    Para saber mais sobre os tamanhos atuais de VM, consulte [Tamanhos de máquina virtual para o Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Uma das práticas recomendadas de gerenciamento de disco é armazenar arquivos de dados, log e backup em outras unidades diferentes de **C**: e **D**:. Por exemplo, crie discos de dados **E**: e **F**:.
   
   * A política de cache da unidade padrão **C**: não é ideal para o trabalho com dados.
@@ -133,7 +133,7 @@ Analysis Services, Reporting Services, Mecanismo de Banco de Dados SQL Server e 
 * Neste exemplo de implantação, o Analysis Services, o Reporting Services e o Mecanismo de Banco de Dados SQL Server são executados em uma única máquina virtual. A máquina virtual hospeda os bancos de dados do servidor de relatório. A máquina virtual é ingressada em um Domínio local por meio da Rede Virtual do Azure ou por alguma outra solução de túnel VPN.
 * A fonte de dados é local.
 
-![cenários bi iaas com vm e fonte de dados locais](./media/virtual-machines-windows-classic-ps-sql-bi/IC654384.gif)
+![fontes de dados locais e da vm de cenários iaas de bi](./media/virtual-machines-windows-classic-ps-sql-bi/IC654384.gif)
 
 ## <a name="reporting-services-native-mode-configuration"></a>Configuração do modo Nativo do Reporting Services
 A imagem da galeria de máquinas virtuais do SQL Server inclui a instalação do modo Nativo do Reporting Services. No entanto, o servidor de relatório não está configurado. As etapas desta seção configuram o servidor de relatório do Reporting Services. Para obter informações mais detalhadas sobre como configurar o modo Nativo do Reporting Services, consulte [Instalar o servidor de relatório no modo nativo do Reporting Services (SSRS)](https://msdn.microsoft.com/library/ms143711.aspx).
@@ -156,18 +156,22 @@ Há dois fluxos de trabalho comuns para se conectar a uma máquina virtual do Az
      
       Para obter mais informações, consulte [O que é um serviço de nuvem?](https://azure.microsoft.com/manage/services/cloud-services/what-is-a-cloud-service/).
 
-**Inicie o Gerenciador de Configuração do Reporting Services.**
 
-1. No **Windows Server 2012/2016**:
-2. Na tela **Iniciar**, digite **Reporting Services** para ver uma lista de aplicativos.
-3. Clique com o botão direito do mouse no **Gerenciador de Configuração do Reporting Services** e clique em **Executar como Administrador**.
-4. No **Windows Server 2008 R2**:
-5. Clique em **Iniciar** e em **TODOS os Programas**.
-6. Clique em **Microsoft SQL Server 2016**.
-7. Clique em **Ferramentas de Configuração**.
-8. Clique com o botão direito do mouse no **Gerenciador de Configuração do Reporting Services** e clique em **Executar como Administrador**.
+**Inicie o Gerenciador de Configurações do Reporting Services**
 
-ou o
+No **Windows Server 2012/2016**:
+
+1. Na tela **Iniciar**, digite **Reporting Services** para ver uma lista de aplicativos.
+2. Clique com o botão direito do mouse no **Gerenciador de Configuração do Reporting Services** e clique em **Executar como Administrador**.
+
+No **Windows Server 2008 R2**:
+
+1. Clique em **Iniciar** e em **TODOS os Programas**.
+2. Clique em **Microsoft SQL Server 2016**.
+3. Clique em **Ferramentas de Configuração**.
+4. Clique com o botão direito do mouse no **Gerenciador de Configuração do Reporting Services** e clique em **Executar como Administrador**.
+
+Ou:
 
 1. Clique em **Iniciar**.
 2. Na caixa de diálogo **Pesquisar programas e arquivos**, digite **reporting services**. Se a VM estiver executando o Windows Server 2012, digite **reporting services** na tela Iniciar do Windows Server 2012.
@@ -221,7 +225,7 @@ Se você quiser se conectar ao portal da Web ou ao Gerenciador de Relatórios pa
 2. Abra a porta 80 no firewall da máquina virtual.
 3. Navegue até o portal da Web ou até o gerenciador de relatórios usando o **Nome DNS** da Máquina Virtual do Azure como o nome do servidor na URL. Por exemplo:
    
-    **Servidor de relatório**: http://uebi.cloudapp.net/reportserver  **Portal da Web**: http://uebi.cloudapp.net/reports
+    **Servidor de relatório**: http://uebi.cloudapp.net/reportserver **Portal da Web**: http://uebi.cloudapp.net/reports
    
     [Configurar um firewall para acesso ao servidor de relatório](https://msdn.microsoft.com/library/bb934283.aspx)
 
@@ -347,5 +351,4 @@ O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de
 
 ### <a name="community-content"></a>Conteúdo da comunidade
 * [Gerenciamento de banco de dados SQL do Azure com o PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
-
 

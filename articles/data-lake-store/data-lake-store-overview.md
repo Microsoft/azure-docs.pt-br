@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 10/03/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
-
-
+ms.openlocfilehash: 956c7a4fb91c1b1a45e24128e92d6a6b1213eeb2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-azure-data-lake-store"></a>Visão geral do Repositório Azure Data Lake
 O Repositório Azure Data Lake é um repositório em hiper-escala corporativo para cargas de trabalho de análise de big data. O Azure Data Lake permite que você capture dados de qualquer tamanho, tipo e velocidade de ingestão em um único lugar para análises operacionais e exploratórias.
@@ -55,14 +55,14 @@ O Repositório Azure Data Lake pode armazenar quaisquer dados em formato nativo,
 
 Os contêineres para dados do Repositório Azure Data Lake são basicamente pastas e arquivos. Você opera nos dados armazenados usando SDKs, o Portal do Azure e o Azure PowerShell. Desde que você coloque os dados no repositório usando essas interfaces e os contêineres apropriados, é possível armazenar qualquer tipo de dados. O Repositório Data Lake não realiza qualquer manipulação especial de dados com base no tipo de dados que armazena.
 
-## <a name="a-namedatalakestoresecurityasecuring-data-in-azure-data-lake-store"></a><a name="DataLakeStoreSecurity"></a>Protegendo os dados no Repositório Azure Data Lake
+## <a name="DataLakeStoreSecurity"></a>Protegendo os dados no Repositório Azure Data Lake
 O Repositório Azure Data Lake usa o Active Directory do Azure para autenticação e listas de controle de acesso (ACLs) para gerenciar o acesso aos dados.
 
 | Recurso | Descrição |
 | --- | --- |
-| Autenticação |O Repositório Azure Data Lake integra-se ao Active Directory do Azure (AAD) para gerenciamento de identidades e de acesso a todos os dados armazenados no Repositório Azure Data Lake. Como resultado dessa integração, o Azure Data Lake se beneficia de todos os recursos do AAD, incluindo a autenticação multifator, acesso condicional, controle de acesso baseado em função, monitoramento de uso do aplicativo, monitoramento de segurança e alertas etc. O Repositório Azure Data Lake oferece suporte ao protocolo OAuth 2.0 para autenticação na interface REST. |
+| Autenticação |O Repositório Azure Data Lake integra-se ao Active Directory do Azure (AAD) para gerenciamento de identidades e de acesso a todos os dados armazenados no Repositório Azure Data Lake. Como resultado dessa integração, o Azure Data Lake se beneficia de todos os recursos do AAD, incluindo a autenticação multifator, acesso condicional, controle de acesso baseado em função, monitoramento de uso do aplicativo, monitoramento de segurança e alertas etc. O Repositório Azure Data Lake oferece suporte ao protocolo OAuth 2.0 para autenticação na interface REST. Veja [Autenticação do Data Lake Store](data-lakes-store-authentication-using-azure-active-directory.md)|
 | Controle de acesso |O Repositório Azure Data Lake fornece controle de acesso por meio do suporte a permissões no estilo POSIX expostas pelo protocolo WebHDFS. Na Visualização Pública do Data Lake Store (versão atual), as ACLs podem ser habilitadas na pasta raiz, nas subpastas e nos arquivos individuais. Para saber mais sobre como funcionam as ACLs no contexto do Data Lake Store, veja [Controle de acesso no Data Lake ](data-lake-store-access-control.md). |
-| Criptografia |O Data Lake Store também fornece criptografia para os dados armazenados na conta. Você pode especificar as configurações de criptografia ao criar uma conta do Data Lake Store. Você pode optar por ter seus dados criptografados ou optar por nenhuma criptografia. Para saber mais sobre como fornecer configuração relacionada à criptografia, veja [Introdução ao Azure Data Lake Store usando o Portal do Azure](data-lake-store-get-started-portal.md). |
+| Criptografia |O Data Lake Store também fornece criptografia para os dados armazenados na conta. Você pode especificar as configurações de criptografia ao criar uma conta do Data Lake Store. Você pode optar por ter seus dados criptografados ou optar por nenhuma criptografia. Para saber mais, veja [Criptografia no Data Lake Store](data-lake-store-encryption.md). Para obter instruções sobre como fornecer configuração relacionada à criptografia, veja [Introdução ao Azure Data Lake Store usando o Portal do Azure](data-lake-store-get-started-portal.md). |
 
 Quer saber mais sobre a proteção de dados no Repositório Data Lake? Siga os links abaixo.
 
@@ -101,10 +101,4 @@ Se você prefere aprender assistindo a vídeos, o Repositório Data Lake tem ví
 * [Usar o Apache Sqoop para mover dados entre fontes relacionais e o Repositório Azure Data Lake](https://mix.office.com/watch/1butcdjxmu114)
 * [Orquestração de dados usando o Azure Data Factory para o Repositório Azure Data Lake](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Protegendo dados no Repositório Azure Data Lake](https://mix.office.com/watch/1q2mgzh9nn5lx)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

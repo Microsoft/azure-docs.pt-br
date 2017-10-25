@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 6376faa50613288a797e2c0683a0890fa21879e1
-
-
+ms.openlocfilehash: 6e76d1ee08f804637999ef2ebf5d25becf6a0408
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-first-api-in-azure-api-management"></a>Gerenciar sua primeira API no Gerenciamento de API do Azure
 ## <a name="overview"> </a>Visão geral
@@ -71,7 +71,7 @@ Para **Nome**, especifique um nome de subdomínio exclusivo para usar na URL do 
 
 Selecione a **Assinatura**, **Grupo de recursos** e **Local** desejados para sua instância de serviço.
 
-Digite **Contoso Ltd.** como o **Nome da Organização** e insira seu endereço de email no campo de **Email do Administrador**.
+Insira **Contoso Ltd.** como o **Nome da Organização** e insira seu endereço de email no campo **Email do Administrador**.
 
 > [!NOTE]
 > Esse endereço de email é usado para notificações do sistema de Gerenciamento de API. Para obter mais informações, confira [Saiba como configurar notificações e modelos de email no Gerenciamento de API do Azure][How to configure notifications and email templates in Azure API Management].
@@ -254,9 +254,3 @@ A seção **Análise** possui as quatro guias a seguir.
 [api-management-analytics-usage]: ./media/api-management-get-started/api-management-analytics-usage.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-

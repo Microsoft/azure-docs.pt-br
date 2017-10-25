@@ -4,7 +4,7 @@ description: "O Indexador de Mídia do Azure permite que você torne o conteúdo
 services: media-services
 documentationcenter: 
 author: Asolanki
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 827a56b2-58a5-4044-8d5c-3e5356488271
 ms.service: media-services
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 07/20/2017
 ms.author: adsolank;juliako;johndeu
-translationtype: Human Translation
-ms.sourcegitcommit: dd0c9ce36fcb831b053b75b5fecd6f149b3bbb0e
-ms.openlocfilehash: 33e7cfdb4a2b4cd38e85b6f5e07c09a431a086c4
-ms.lasthandoff: 11/22/2016
-
-
+ms.openlocfilehash: f75be3280ffd869339972859c028a178ec728480
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexando arquivos de mídia com o Indexador de Mídia do Azure
 O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. É possível processar um arquivo de mídia ou vários arquivos de mídia em um lote.  
@@ -142,7 +141,7 @@ Observe que, se nenhum arquivo de configuração for especificado, o arquivo de 
         return processor;
     }  
 <!-- __ -->
-### <a name="a-idoutputfilesaoutput-files"></a><a id="output_files"></a>Arquivos de saída
+### <a id="output_files"></a>Arquivos de saída
 Por padrão, um trabalho de indexação gera os seguintes arquivos de saída. Os arquivos serão armazenados no primeiro ativo de saída.
 
 Quando houver mais de um arquivo de mídia de entrada, o Indexador gerará um arquivo de manifesto para as saídas do trabalho, chamado de “JobResult.txt”. Para cada arquivo de mídia de entrada, os arquivos AIB, SAMI, TTML, WebVTT e os arquivos de palavra-chave resultantes são numerados em sequência usando o “Alias”.
@@ -239,16 +238,16 @@ Se nem todos os arquivos de mídia de entrada são indexados com êxito, o traba
 
 As mesmas saídas (como trabalhos com êxito) são geradas. Você pode consultar o arquivo de manifesto de saída para descobrir quais arquivos de entrada estão com falha, de acordo com os valores da coluna de erro. Para arquivos de entrada com falha, os arquivos AIB, SAMI, TTML, WebVTT e arquivos de palavra-chave resultantes NÃO serão gerados.
 
-### <a name="a-idpreseta-task-preset-for-azure-media-indexer"></a><a id="preset"></a> Predefinição de tarefa para o Indexador de Mídia do Azure
+### <a id="preset"></a> Predefinição de tarefa para o Indexador de Mídia do Azure
 O processamento do Indexador de Mídia do Azure pode ser personalizado por meio do fornecimento de uma predefinição de tarefa opcional junto com a tarefa.  Veja a seguir uma descrição do formato deste xml de configuração.
 
 | Nome | Exigência | Descrição |
 | --- | --- | --- |
 | **input** |false |Arquivos do ativo que você deseja indexar.</p><p>O Azure Media Indexer dá suporte aos seguintes formatos de arquivo de mídia: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>Você pode especificar os nomes dos arquivos no atributo **name** ou **list** do elemento **input** (como mostrado abaixo). Se você não especificar qual arquivo de ativo será indexado, o arquivo primário será o escolhido. Se nenhum arquivo de ativo primário for definido, o primeiro arquivo no ativo de entrada será indexado.</p><p>Para especificar explicitamente o nome de arquivo do ativo, faça isto:<br/>`<input name="TestFile.wmv">`<br/><br/>Você também pode indexar vários arquivos de ativo ao mesmo tempo (até 10 arquivos). Para fazer isso:<br/><br/><ol class="ordered"><li><p>Crie um arquivo de texto (arquivo de manifesto) e dê a ele uma extensão .lst. </p></li><li><p>Adicione uma lista de todos os nomes de arquivo de ativo em seu ativo de entrada para esse arquivo de manifesto. </p></li><li><p>Adicione (carregue) o arquivo de manifesto no ativo.  </p></li><li><p>Especifique o nome do arquivo de manifesto no atributo list da entrada.<br/>`<input list="input.lst">`</li></ol><br/><br/>Observação: se você adicionar mais de 10 arquivos ao arquivo de manifesto, o trabalho de indexação falhará com o código de erro 2006. |
 | **metadados** |false |Metadados para os arquivos de ativo especificados usados para a Adaptação de Vocabulário.  É útil para preparar o Indexador a fim de reconhecer palavras de vocabulário que não são padrão, como nomes próprios.<br/>`<metadata key="..." value="..."/>` <br/><br/>Você pode fornecer **valores** para **chaves** predefinidas. No momento, as chaves a seguir têm suporte:<br/><br/>"title" e "description" - usadas para a adaptação do vocabulário a fim de ajustar o modelo de idioma para o seu trabalho e melhorar a precisão do reconhecimento de fala.  Os valores propagam pesquisas na Internet para encontrar documentos de texto contextualmente relevantes, usando o conteúdo para aumentar o dicionário interno durante sua tarefa de Indexação.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
-| **funcionalidades** <br/><br/>  Adicionado na versão 1.2. Atualmente, o único recurso com suporte é o reconhecimento de fala (“ASR”). |false |O recurso de Reconhecimento de Fala tem as seguintes chaves de configurações:<table><tr><th><p>Chave</p></th>        <th><p>Descrição</p></th><th><p>Valor de exemplo</p></th></tr><tr><td><p>Linguagem</p></td><td><p>O idioma natural a ser reconhecido no arquivo de multimídia.</p></td><td><p>Inglês, espanhol</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>uma lista separada por pontos-e-vírgulas dos formatos de legenda de saída desejados (se houver)</p></td><td><p>ttml;sami;webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>Um sinalizador booliano que especifica se um arquivo AIB é necessário ou não (para uso com o SQL Server e o IFilter do Indexador do cliente).  Para obter mais informações, consulte <a href="http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">Usando arquivos de AIB com o indexador de mídia do Azure e SQL Server</a>.</p></td><td><p>Verdadeiro, Falso</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Um sinalizador booliano que especifica se um arquivo XML de palavras-chave é necessário.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Um sinalizador booliano que especifica se deve ou não forçar legendas completas (independentemente do nível de confiança).  </p><p>O padrão é false, e nesse caso palavras e frases que têm um nível de confiança inferior a 50% são omitidas das saídas da legenda final e substituídas por reticências (“...”).  As reticências são úteis para controle de qualidade de legenda e auditoria.</p></td><td><p>True; False. </p></td></tr></table> |
+| **funcionalidades** <br/><br/> Adicionado na versão 1.2. Atualmente, o único recurso com suporte é o reconhecimento de fala (“ASR”). |false |O recurso de Reconhecimento de Fala tem as seguintes chaves de configurações:<table><tr><th><p>Chave</p></th>        <th><p>Descrição</p></th><th><p>Valor de exemplo</p></th></tr><tr><td><p>Linguagem</p></td><td><p>O idioma natural a ser reconhecido no arquivo de multimídia.</p></td><td><p>Inglês, espanhol</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>uma lista separada por pontos-e-vírgulas dos formatos de legenda de saída desejados (se houver)</p></td><td><p>ttml;sami;webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>Um sinalizador booliano que especifica se um arquivo AIB é necessário ou não (para uso com o SQL Server e o IFilter do Indexador do cliente).  Para obter mais informações, consulte <a href="http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">Usando arquivos de AIB com o indexador de mídia do Azure e SQL Server</a>.</p></td><td><p>Verdadeiro, Falso</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Um sinalizador booliano que especifica se um arquivo XML de palavras-chave é necessário.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Um sinalizador booliano que especifica se deve ou não forçar legendas completas (independentemente do nível de confiança).  </p><p>O padrão é false, e nesse caso palavras e frases que têm um nível de confiança inferior a 50% são omitidas das saídas da legenda final e substituídas por reticências (“...”).  As reticências são úteis para controle de qualidade de legenda e auditoria.</p></td><td><p>True; False. </p></td></tr></table> |
 
-### <a name="a-iderrorcodesaerror-codes"></a><a id="error_codes"></a>Códigos de erro
+### <a id="error_codes"></a>Códigos de erro
 Em caso de erros, o Indexador de Mídia do Azure deverá relatar um dos seguintes códigos de erro:
 
 | Código | Nome | Possíveis motivos |
@@ -264,7 +263,7 @@ Em caso de erros, o Indexador de Mídia do Azure deverá relatar um dos seguinte
 | 4000 |Indexação de lotes parcialmente bem-sucedida |Alguns dos arquivos de mídia de entrada estão com falha para serem indexados. Para obter mais informações, consulte <a href="#output_files">Arquivos de saída</a>. |
 | outros |Erros internos |Entre em contato com a equipe de suporte. indexer@microsoft.com |
 
-## <a name="a-idsupportedlanguagesasupported-languages"></a><a id="supported_languages"></a>Idiomas com suporte
+## <a id="supported_languages"></a>Idiomas com suporte
 Atualmente, há suporte para os idiomas inglês e espanhol. Para saber mais, consulte [a postagem no blog sobre a versão v1.2](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
@@ -279,5 +278,4 @@ Atualmente, há suporte para os idiomas inglês e espanhol. Para saber mais, con
 [Usando arquivos AIB com o indexador de mídia do Azure e SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
 [Indexando arquivos de mídia com a Preview do Indexador de Mídia do Azure 2](media-services-process-content-with-indexer2.md)
-
 

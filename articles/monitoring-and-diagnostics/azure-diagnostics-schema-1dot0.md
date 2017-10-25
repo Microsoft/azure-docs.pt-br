@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 05/15/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 66f733d7602a8d26627fcc205f357e7a4a266d11
-ms.openlocfilehash: c749a0929d292913e03fa7340bbbebad411fb44d
-ms.lasthandoff: 02/22/2017
-
-
+ms.openlocfilehash: a8fdfb52d5091d3fc9779657737c7430fcfada51
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Esquema de Configuração do Azure Diagnostics 1.0
 > [!NOTE]
@@ -275,4 +274,3 @@ Atributos:
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**name**|string|Obrigatório. Uma expressão XPath que especifica o log para coleta.|  
-

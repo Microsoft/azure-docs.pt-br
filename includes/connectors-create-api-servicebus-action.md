@@ -15,8 +15,3 @@ Siga estas etapas para criar a ação de enviar mensagem:
 8. Salve as alterações feitas no fluxo de trabalho.   
    ![Imagem de ação do Barramento de Serviço 4](./media/connectors-create-api-servicebus/action-4.png)     
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

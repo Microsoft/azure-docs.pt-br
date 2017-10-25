@@ -15,8 +15,3 @@
 5. Após aplicar o hotfix em um controlador, faça logon no outro controlador. Aplique o hotfix da mesma forma que você fez para o controlador anterior.
 6. Após a aplicação dos hotfixes, saia do modo de Manutenção. Veja a [Etapa 4: Sair do modo de manutenção](../articles/storsimple/storsimple-update-device.md#step4) para obter instruções.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

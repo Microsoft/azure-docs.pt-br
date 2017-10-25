@@ -15,8 +15,3 @@ Cria o plano de serviço para hospedar o aplicativo Web. Forneça o nome do plan
       }
     },
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

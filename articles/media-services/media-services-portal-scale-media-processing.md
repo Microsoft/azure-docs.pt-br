@@ -1,10 +1,10 @@
 ---
-title: " Dimensionar o processamento de mídia usando o Portal do Azure | Microsoft Docss"
-description: "Este tutorial orienta você pelas etapas de dimensionar o processamento de mídia usando o portal do Azure."
+title: "Dimensionar o processamento de mídia usando o portal do Azure | Microsoft Docs"
+description: "Este tutorial orienta você pelas etapas do dimensionamento do processamento de mídia usando o portal do Azure."
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: e500f733-68aa-450c-b212-cf717c0d15da
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 07/04/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 3f9134fdff56e0ee5146cb7ccf08d168ebf84281
-
-
+ms.openlocfilehash: 46ca29d3e66701f2abcb185791089e94761984e8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="change-the-reserved-unit-type"></a>Alterar o tipo de unidade reservada
 > [!div class="op_single_selector"]
@@ -31,6 +31,14 @@ ms.openlocfilehash: 3f9134fdff56e0ee5146cb7ccf08d168ebf84281
 > 
 
 ## <a name="overview"></a>Visão geral
+
+Uma conta dos Serviços de Mídia está associada a um Tipo de Unidade Reservada que determina a velocidade com que as suas tarefas de processamento de mídia são processadas. Você pode escolher entre os seguintes tipos de unidade reservada: **S1**, **S2** ou **S3**. Por exemplo, o mesmo trabalho de codificação é executado mais rapidamente quando você usa o tipo de unidade reservada **S2** em comparação ao tipo **S1**.
+
+Além de especificar o tipo de unidade reservada, você pode especificar o provisionamento de sua conta com as **URs** (Unidades Reservadas). O número de URs provisionadas determina o número de tarefas de mídia que podem ser processadas simultaneamente em determinada conta.
+
+>[!NOTE]
+>As URs trabalham para paralelizar todo o processamento de mídia, incluindo os trabalhos de indexação, usando o Azure Media Indexer. No entanto, ao contrário da codificação, a indexação de trabalhos não será processada mais rapidamente com unidades reservadas mais rápidas.
+
 > [!IMPORTANT]
 > Lembre-se de examinar o tópico [Visão geral](media-services-scale-media-processing-overview.md) para obter mais informações sobre o tópico de dimensionamento de processamento de mídia.
 > 
@@ -58,10 +66,4 @@ Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

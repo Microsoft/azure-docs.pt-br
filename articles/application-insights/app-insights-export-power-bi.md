@@ -4,7 +4,7 @@ description: As consultas do Analytics podem ser exibidas no Power BI.
 services: application-insights
 documentationcenter: 
 author: noamben
-manager: douge
+manager: carmonm
 ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 24ccafb4df95e0010416485199e19f81e1ae31aa
-ms.openlocfilehash: 11017c7c0a761569892aebcd085d5d3fb2d67a69
-
-
+ms.author: bwren
+ms.openlocfilehash: 350a65b1c6432baf258e014c9e63133d2b29e34f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentar o Power BI do Application Insights
 O [Power BI](http://www.powerbi.com/) é um conjunto de ferramentas de análise de negócios que ajudam a analisar dados e a compartilhar informações. Painéis avançados estão disponíveis em cada dispositivo. Você pode combinar dados de várias fontes, incluindo consultas do Analytics do [Azure Application Insights](app-insights-overview.md).
@@ -82,16 +82,40 @@ Instalar o [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
     ![Selecionar visualização](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. Atualize o relatório manualmente em intervalos ou configure uma atualização agendada na página de opções.
 
+## <a name="troubleshooting"></a>Solucionar problemas
+
+### <a name="401-or-403-unauthorized"></a>401 ou 403 Não Autorizado 
+Isso pode acontecer se o token de atualização não foi atualizado. Repita estas etapas para garantir que você ainda terá acesso. Se você tem acesso e a atualização das credenciais não funciona, abra um tíquete de suporte.
+
+1. Faça logon no Portal do Azure e certifique-se de que você pode acessar o recurso
+2. Tente atualizar as credenciais para o painel
+
+### <a name="502-bad-gateway"></a>502 Gateway Incorreto
+Isso geralmente é causado por uma Consulta de análise que retorna um número de dados excessivo. Você deve tentar usar um intervalo de tempo menor ou usar as funções [ago](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#ago) ou [startofweek/startofmonth](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#startofweek) apenas [projeto](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#project-operator) nos campos necessários.
+
+Se reduzir o conjunto de dados da consulta de análise não atender às suas necessidades, considere o uso da [API](https://dev.applicationinsights.io/documentation/overview) para efetuar pull de um conjunto de dados maior. Aqui estão as instruções sobre como converter a exportação de consulta M para usar a API.
+
+1. Criar uma [chave de API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)
+2. Atualiza o script M do Power BI que você exportou da análise, substituindo a URL do ARM pela API AI (consulte o exemplo abaixo)
+   * Substituir **https://management.azure.com/subscriptions/...**
+   * por **https://api.applicationinsights.io/beta/apps/...**
+3. Finalmente, atualizar as credenciais para as básicas e usar sua chave de API
+  
+
+**Script existente**
+ ```
+ Source = Json.Document(Web.Contents("https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups//providers/microsoft.insights/components//api/query?api-version=2014-12-01-preview",[Query=[#"csl"="requests",#"x-ms-app"="AAPBI"],Timeout=#duration(0,0,4,0)]))
+ ```
+**Script atualizado**
+ ```
+ Source = Json.Document(Web.Contents("https://api.applicationinsights.io/beta/apps/<APPLICATION_ID>/query?api-version=2014-12-01-preview",[Query=[#"csl"="requests",#"x-ms-app"="AAPBI"],Timeout=#duration(0,0,4,0)]))
+ ```
+
 ## <a name="about-sampling"></a>Sobre amostragem
 Se seu aplicativo enviar muitos dados, a funcionalidade de amostragem adaptável poderá operar e enviar apenas uma porcentagem da sua telemetria. Isso também será verdadeiro se você tiver definido manualmente a amostragem no SDK ou na ingestão. [Saiba mais sobre amostragem.](app-insights-sampling.md)
+
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Power BI - Saiba mais](http://www.powerbi.com/learning/)
 * [Tutorial do Analytics](app-insights-analytics-tour.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

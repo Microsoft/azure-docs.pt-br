@@ -4,9 +4,10 @@ description: "Página de solução de problemas de gateway NUC Intel"
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: problemas de iot, problemas internet das coisas
+ROBOTS: NOINDEX
 ms.assetid: 5f742c38-0e33-465a-9a0d-1e41e8d17187
 ms.service: iot-hub
 ms.devlang: c
@@ -15,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
-ms.openlocfilehash: f24a620a18d7756b24f8f5f63d8b31fca63ade25
-ms.lasthandoff: 01/25/2017
-
-
+ms.openlocfilehash: 7e80951de55ade6b5140608dcff8ebb064f942ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting"></a>Solucionar problemas
 
@@ -172,4 +172,3 @@ Uma experiência completa de CLI ajuda você a criar e gerenciar todos os recurs
 ## <a name="azure-storage-issues"></a>Problemas de Armazenamento do Azure
 
 [O Gerenciador de Armazenamento do Microsoft Azure (Preview)](http://storageexplorer.com/) é um aplicativo autônomo da Microsoft que pode ser usado para trabalhar com dados do Armazenamento do Azure no Windows, macOS e Linux. Com essa ferramenta você pode se conectar à sua tabela e ver os dados contidos nela. Você pode usar essa ferramenta para solucionar seus problemas de Armazenamento do Azure.
-

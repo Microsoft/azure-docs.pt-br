@@ -12,32 +12,38 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 02/23/2017
+ms.date: 08/08/2017
 ms.author: bharatn
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: a68855e0b6ba436849c4de13f1439f0e70009b6a
-ms.lasthandoff: 03/14/2017
-
-
+ms.openlocfilehash: 3168a8129e2e73d7ab1de547679aabd10d8f7112
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy reverso no Azure Service Fabric
-O proxy reverso que está incorporado ao Azure Service Fabric endereça microsserviços no cluster do Service Fabric que expõe pontos de extremidade HTTP.
+Proxy reverso incorporado no Azure Service Fabric ajuda microsserviços em execução em um cluster do Service Fabric a descobrir e comunicar-se com outros serviços que têm pontos de extremidade http.
 
 ## <a name="microservices-communication-model"></a>Modelo de comunicação de microsserviços
-Normalmente, os microsserviços no Service Fabric são executados em um subconjunto de máquinas virtuais no cluster e podem ser movidos de uma máquina virtual para outra por vários motivos. Assim, os pontos de extremidade para microsserviços podem ser alterados dinamicamente. O padrão típico para se comunicar com o microsserviço é o loop de resolução a seguir:
+Microsserviços no Service Fabric são executados em um subconjunto de nós no cluster e podem migrar entre os nós por vários motivos. Assim, os pontos de extremidade para microsserviços podem mudar dinamicamente. Para descobrir e se comunicar com outros serviços no cluster, o microsserviço deve percorrer as etapas a seguir:
 
-1. Resolva a localização do serviço inicialmente por meio do serviço de nomenclatura.
+1. Resolver a localização do serviço por meio do serviço de nomenclatura.
 2. Conecte-se ao serviço.
-3. Determine a causa de falhas de conexão e resolva novamente a localização do serviço quando necessário.
+3. Encapsular as etapas anteriores em um loop que implementa a resolução do serviço e tenta novamente as políticas a aplicar em caso de falhas de conexão
 
-Esse processo geralmente envolve a quebra automática de bibliotecas de comunicação de cliente em um loop de repetição que implementa as políticas de repetição e resolução de serviço.
 Para obter mais informações, consulte [Conectar-se a serviços e se comunicar com eles](service-fabric-connect-and-communicate-with-services.md).
 
 ### <a name="communicating-by-using-the-reverse-proxy"></a>Comunicar-se usando o proxy reverso
-O proxy reverso do Service Fabric é executado em todos os nós no cluster. Ele executa o processo de resolução de todo o serviço em nome do cliente e, em seguida, encaminha a solicitação do cliente. Portanto, clientes em execução no cluster podem simplesmente usar bibliotecas de comunicação HTTP do lado do cliente para se comunicar com o serviço de destino por meio do proxy reverso executado localmente no mesmo nó.
+Proxy reverso é um serviço executado em cada nó e manipula a resolução do ponto de extremidade, a repetição automática e outras falhas de conexão em nome de serviços de cliente. Proxy reverso pode ser configurado para aplicar várias políticas, uma vez que ele lida com solicitações de serviços do cliente. Usar um proxy reverso permite que o serviço de cliente use qualquer biblioteca de comunicação HTTP no lado do cliente e não exige resolução especial e lógica de repetição no serviço. 
+
+Proxy reverso expõe um ou mais pontos de extremidade no nó local para serviços de cliente a serem usados para enviar solicitações a outros serviços.
 
 ![Comunicação interna][1]
+
+> **Plataformas com suporte**
+>
+> Proxy reverso no Service Fabric atualmente dá suporte às seguintes plataformas
+> * *Cluster do Windows*: Windows 8 e posteriores ou Windows Server 2012 e posteriores
+> * *Cluster do Linux*: proxy reverso não está disponível no momento para clusters do Linux
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>Alcançar microsserviços de fora do cluster
 O modelo de comunicação externa padrão para microsserviços é um modelo de aceitação em que cada serviço não pode ser acessado diretamente de clientes externos. O [Azure Load Balancer](../load-balancer/load-balancer-overview.md), que é um limite de rede entre microsserviços e clientes externos, executa a conversão de endereços de rede e encaminha as solicitações externas para pontos de extremidade de IP:porta internos. Para tornar o ponto de extremidade do microsserviço diretamente acessível para clientes externos, você deve primeiro configurar o Load Balancer para encaminhar o tráfego para cada porta usada pelo serviço no cluster. Além disso, a maioria dos microsserviços, especialmente microsserviços com estado, não estão em todos os nós do cluster. Os microsserviços podem mover-se entre os nós no failover. Nesses casos, o Load Balancer não pode determinar efetivamente o local do nó de destino das réplicas para o qual encaminhar tráfego.
@@ -60,12 +66,12 @@ O proxy reverso usa um formato de URI (Uniform Resource Identifier) específico 
 http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&ListenerName=<listenerName>&TargetReplicaSelector=<targetReplicaSelector>&Timeout=<timeout_in_seconds>
 ```
 
-* **http (s):** o proxy inverso pode ser configurado para aceitar o tráfego HTTP ou HTTPS. Para tráfego HTTPS, a terminação de protocolo SSL ocorre no proxy reverso. O proxy reverso usa HTTP para encaminhar solicitações para serviços no cluster.
-
-    Observe que atualmente, não há suporte para serviços HTTPS.
+* **http (s):** o proxy inverso pode ser configurado para aceitar o tráfego HTTP ou HTTPS. Para o encaminhamento HTTPS, consulte [Conectar-se a um serviço seguro com o proxy reverso](service-fabric-reverseproxy-configure-secure-communication.md) após a configuração do proxy reverso para escutar o HTTPS.
 * **FQDN (nome de domínio totalmente qualificado) do cluster | IP interno:** para clientes externos, o proxy reverso pode ser configurado para que seja acessível por meio do domínio do cluster, por exemplo, mycluster.eastus.cloudapp.azure.com. Por padrão, o proxy reverso é executado em todos os nós. Para o tráfego interno, o proxy reverso pode ser alcançado no localhost ou em qualquer IP de nó interno (por exemplo, 10.0.0.1).
-* **Porta:** é a porta que foi especificada para o proxy inverso, por exemplo, 19008.
+* **Porta:** essa é a porta, como 19081, que foi especificada para o proxy reverso.
 * **ServiceInstanceName:** esse é o nome totalmente qualificado da instância de serviço implantado que você está tentando alcançar sem o esquema "fabric:/". Por exemplo, para alcançar o serviço *fabric:/myapp/myservice/*, você usaria *myapp/myservice*.
+
+    O nome da instância de serviço diferencia maiúsculas de minúsculas. O uso de maiúsculas e minúsculas diferentes no nome da instância de serviço da URL causa uma falha das solicitações com 404 (Não Encontrado).
 * **Caminho de sufixo:** esse é o caminho de URL real, por exemplo, *myapi/values/add/3*, para o serviço ao qual você deseja se conectar.
 * **PartitionKey:** para um serviço particionado, esta é a chave de partição computada da partição que você deseja alcançar. Observe que isso *não* é o GUID da ID da partição. Esse parâmetro não é necessário para serviços usando o esquema de partição de singleton.
 * **PartitionKind:** o esquema de partição de serviço. Isso pode ser 'Int64Range' ou 'Named'. Esse parâmetro não é necessário para serviços usando o esquema de partição de singleton.
@@ -89,18 +95,18 @@ A seguir estão os recursos para o serviço:
 
 Se o serviço usar o esquema de particionamento de singleton, os parâmetros de cadeia de consulta *PartitionKey* e *PartitionKind* não serão necessários e o serviço poderá ser acessado pelo uso do gateway da seguinte maneira:
 
-* Externamente: `http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService`
-* Internamente: `http://localhost:19008/MyApp/MyService`
+* Externamente: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService`
+* Internamente: `http://localhost:19081/MyApp/MyService`
 
 Se o serviço usar o esquema de particionamento Int64 Uniforme, os parâmetros de cadeia de caracteres de consulta *PartitionKey* e *PartitionKind* deverão ser usados para acessar uma partição do serviço:
 
-* Externamente: `http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
-* Internamente: `http://localhost:19008/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+* Externamente: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+* Internamente: `http://localhost:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
 
 Para acessar os recursos expostos pelo serviço, basta coloca o caminho do recurso após o nome do serviço na URL:
 
-* Externamente: `http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
-* Internamente: `http://localhost:19008/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
+* Externamente: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
+* Internamente: `http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
 
 O gateway, em seguida, encaminhará essas solicitações para a URL do serviço:
 
@@ -135,6 +141,15 @@ O Gateway de Aplicativo, portanto, precisa de uma maneira para distinguir entre 
 Esse cabeçalho de resposta HTTP indica uma situação de HTTP 404 normal em que o recurso solicitado não existir e o Gateway de Aplicativo não tentará resolver novamente o endereço do serviço.
 
 ## <a name="setup-and-configuration"></a>Instalação e configuração
+
+### <a name="enable-reverse-proxy-via-azure-portal"></a>Habilitar proxy reverso por meio do portal do Azure
+
+Portal do Azure fornece uma opção para habilitar o proxy inverso ao criar um novo cluster do Service Fabric.
+Em **cluster do Service Fabric criar**, etapa 2: configuração de Cluster, configuração do tipo de nó, selecione a caixa de seleção "Habilitar proxy reverso".
+Para configurar o proxy reverso seguro, o certificado SSL pode ser especificado na Etapa 3: Segurança, definir configurações de segurança de cluster, selecione a caixa de seleção "Incluir um certificado SSL para o proxy inverso" e insira os detalhes do certificado.
+
+### <a name="enable-reverse-proxy-via-azure-resource-manager-templates"></a>Habilitar proxy reverso, por meio de modelos do Azure Resource Manager
+
 O proxy reverso do Service Fabric pode ser habilitado para o cluster por meio do [modelo do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 Consulte [Configurar proxy reverso HTTPS em um cluster seguro](https://github.com/ChackDan/Service-Fabric/tree/master/ARM Templates/ReverseProxySecureSample#configure-https-reverse-proxy-in-a-secure-cluster) para amostras de modelo do Azure Resource Manager para configurar o proxy reverso de segurança com um certificado e o tratamento da substituição de certificados.
@@ -146,7 +161,7 @@ Primeiro, você obtém o modelo para o cluster que deseja implantar. Você pode 
     ```json
     "SFReverseProxyPort": {
         "type": "int",
-        "defaultValue": 19008,
+        "defaultValue": 19081,
         "metadata": {
             "description": "Endpoint for Service Fabric Reverse proxy"
         }
@@ -297,11 +312,12 @@ Primeiro, você obtém o modelo para o cluster que deseja implantar. Você pode 
 > Ao usar certificados que são diferentes do certificado do cluster para habilitar o proxy reverso em um cluster existente, instale o certificado de proxy reverso e atualize a ACL no cluster antes de habilitar o proxy reverso. Conclua a implantação do [modelo do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) usando as configurações mencionadas acima antes de iniciar uma implantação para habilitar o proxy reverso usando as etapas 1 a 4.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Confira um exemplo de comunicação HTTP entre serviços em um [projeto de exemplo no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount).
+* Confira um exemplo de comunicação HTTP entre serviços em um [projeto de exemplo no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
+* [Encaminhamento para o serviço HTTP seguro com um proxy reverso](service-fabric-reverseproxy-configure-secure-communication.md)
 * [Comunicação remota de serviço com os Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 * [API Web que usa o OWIN nos Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [Comunicação WCF usando os Reliable Services](service-fabric-reliable-services-communication-wcf.md)
+* Para obter outras opções de configuração de proxy reverso, consulte a seção ApplicationGateway/Http em [Personalizar as configurações de cluster do Service Fabric](service-fabric-cluster-fabric-settings.md).
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png
-

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 0b28c5e93dc8f53597b1d2fa6f4ae154acf16068
 ms.openlocfilehash: c8cb51093142146fc7d43b51a62d949f6cc38988
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Implantar o StorSimple Virtual Array para o programa Cloud Solution Provider
 
 ## <a name="overview"></a>Visão geral
@@ -88,7 +88,7 @@ Em alguns casos, você pode ter um cliente existente e você precisa adicionar u
 
     ![Adicionar nova assinatura](./media/storsimple-partner-csp-deploy/image11.png)
 
-6. Depois de uma nova assinatura for criada, clique em ** <-- Clientes** no painel esquerdo para voltar para a página de **Clientes**. Pesquisa do cliente para o qual você acabou de criar uma assinatura. Clique no **Nome da empresa** para fazer drill down nos detalhes.
+6. Depois de uma nova assinatura for criada, clique em  **<-- Clientes** no painel esquerdo para voltar para a página de **Clientes**. Pesquisa do cliente para o qual você acabou de criar uma assinatura. Clique no **Nome da empresa** para fazer drill down nos detalhes.
 
     ![Procurar o cliente](./media/storsimple-partner-csp-deploy/image6.png)  
 
@@ -104,9 +104,3 @@ Em alguns casos, você pode ter um cliente existente e você precisa adicionar u
 
 - Se tiver mais dúvidas relacionadas ao StorSimple no CSP, visite [StorSimple for CSP: Frequently asked questions](storsimple-partner-csp-faq.md) (StorSimple no CSP: perguntas frequentes).
 - Se você estiver pronto para implantar seu StorSimple, acesse [Implantar o StorSimple para CSP](storsimple-partner-csp-deploy.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

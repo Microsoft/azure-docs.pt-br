@@ -41,8 +41,3 @@
       | 5, 6 |Portas SAS no compartimento principal (rotuladas como EBOD) |
       | 7, 8 |Portas SAS no compartimento EBOD (Porta A) |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

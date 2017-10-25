@@ -12,133 +12,185 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
+ms.date: 07/25/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 23fb716997145152bd09d177b75973ad0b4ca9f3
-ms.openlocfilehash: 171cfe2a8750025914545701fa3423c7b9baa5f2
-
-
+ms.openlocfilehash: 1ca72599e67e79d42a3d430dbb13e89ea7265334
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Usar o Key Vault para passar um valor de parâmetro seguro durante a implantação
 
 Quando você precisa passar um valor seguro (como uma senha) como um parâmetro durante a implantação, é possível recuperar o valor de um [Azure Key Vault](../key-vault/key-vault-whatis.md). Você recupera o valor fazendo referência ao cofre de chaves e ao segredo no arquivo de parâmetros. O valor nunca é exposto porque você apenas fazer referência à sua ID de cofre de chaves. Você não precisa inserir manualmente o valor para o segredo toda vez que implanta os recursos. O cofre de chaves pode existir em uma assinatura diferente que o grupo de recursos que está sendo implantado. Ao fazer referência ao Key Vault, inclua a ID da assinatura.
 
-Este tópico mostra como criar um cofre de chaves e o segredo, configurar o acesso ao segredo para um modelo do Resource Manager e passar o segredo como um parâmetro. Se você já tiver um cofre de chaves e o segredo, mas precisar verificar o acesso ao modelo e ao usuário, acesse a seção [Habilitar o acesso ao segredo](#enable-access-to-the-secret). Se você já tiver o cofre de chaves e o segredo e tiver certeza de que ele está configurado para o acesso ao modelo e ao usuário, acesse a seção [Fazer referência a um segredo com uma ID estática](#reference-a-secret-with-static-id). 
+Ao criar o cofre de chaves, defina a propriedade *enabledForTemplateDeployment* para *true*. Ao definir esse valor como true, é possível permitir acesso de modelos do Gerenciador de Recursos durante a implantação.  
 
 ## <a name="deploy-a-key-vault-and-secret"></a>Implantar um cofre da chave e segredo
 
-É possível implantar um cofre de chaves e o segredo por meio de um modelo do Resource Manager. Para obter um exemplo, consulte [Modelo do cofre de chaves](resource-manager-template-keyvault.md) e [Modelo do segredo do cofre de chaves](resource-manager-template-keyvault-secret.md). Ao criar o cofre de chaves, defina a propriedade **enabledForTemplateDeployment** como **true** para que ela possa ser referenciada de outros modelos do Resource Manager. 
+Para criar um cofre de chaves e um segredo, use o CLI do Azure ou o PowerShell. Observe que o cofre de chaves está habilitado para implantação de modelo. 
 
-Se preferir, você pode criar o cofre de chaves e o segredo por meio do portal do Azure. 
+Para a CLI do Azure, use:
 
-1. Selecione **Novo** -> **Segurança + Identidade** -> **Key Vault**.
+```azurecli
+vaultname={your-unique-vault-name}
+password={password-value}
 
-   ![criar novo cofres de chaves](./media/resource-manager-keyvault-parameter/new-key-vault.png)
+az group create --name examplegroup --location 'South Central US'
+az keyvault create --name $vaultname --resource-group examplegroup --location 'South Central US' --enabled-for-template-deployment true
+az keyvault secret set --vault-name $vaultname --name examplesecret --value $password
+```
 
-2. Forneça valores para o cofre de chaves. Por enquanto, você pode ignorar as configurações **Políticas de acesso** e **Política de acesso avançada**. Essas configurações são abordadas na seção. Selecione **Criar**.
+Para o PowerShell, use:
 
-   ![definir cofre de chaves](./media/resource-manager-keyvault-parameter/create-key-vault.png)
+```powershell
+$vaultname = "{your-unique-vault-name}"
+$password = "{password-value}"
 
-3. Agora você tem um cofre de chaves. Selecione esse cofre de chaves.
-
-4. Na folha do cofre de chaves, selecione **Segredos**.
-
-   ![selecionar segredos](./media/resource-manager-keyvault-parameter/select-secret.png)
-
-5. Selecione **Adicionar**.
-
-   ![escolher adicionar](./media/resource-manager-keyvault-parameter/add-secret.png)
-
-6. Selecione **Manual** para obter as opções de upload. Forneça um nome e valor para o segredo. Selecione **Criar**.
-
-   ![fornecer o segredo](./media/resource-manager-keyvault-parameter/provide-secret.png)
-
-Você criou o cofre de chaves e o segredo.
+New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
+New-AzureRmKeyVault -VaultName $vaultname -ResourceGroupName examplegroup -Location "South Central US" -EnabledForTemplateDeployment
+$secretvalue = ConvertTo-SecureString $password -AsPlainText -Force
+Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue $secretvalue
+```
 
 ## <a name="enable-access-to-the-secret"></a>Habilitar o acesso ao segredo
 
-Se você estiver usando um cofre de chaves novo ou existente, verifique se o usuário que implanta o modelo pode acessar o segredo. O usuário que implanta um modelo que faz referência a um segredo deve ter a permissão `Microsoft.KeyVault/vaults/deploy/action` do cofre de chaves. Ambas as funções [Proprietário](../active-directory/role-based-access-built-in-roles.md#owner) e [Colaborador](../active-directory/role-based-access-built-in-roles.md#contributor) concedem esse acesso. Você também pode criar uma [função personalizada](../active-directory/role-based-access-control-custom-roles.md) que concede essa permissão e adicionar o usuário a essa função. Além disso, é necessário conceder ao Resource Manager a capacidade de acessar o cofre de chaves durante a implantação.
+Se você estiver usando um cofre de chaves novo ou existente, verifique se o usuário que implanta o modelo pode acessar o segredo. O usuário que implanta um modelo que faz referência a um segredo deve ter a permissão `Microsoft.KeyVault/vaults/deploy/action` do cofre de chaves. Ambas as funções [Proprietário](../active-directory/role-based-access-built-in-roles.md#owner) e [Colaborador](../active-directory/role-based-access-built-in-roles.md#contributor) concedem esse acesso. Você também pode criar uma [função personalizada](../active-directory/role-based-access-control-custom-roles.md) que concede essa permissão e adicionar o usuário a essa função. Para obter informações sobre como adicionar um usuário a uma função, consulte [Atribuir um usuário a funções de administrador no Azure Active Directory](../active-directory/active-directory-users-assign-role-azure-portal.md).
 
-É possível verificar ou realizar essas etapas por meio do portal.
-
-1. Selecione **IAM (Controle de acesso)**.
-
-   ![selecionar o controle de acesso](./media/resource-manager-keyvault-parameter/select-access-control.png)
-
-2. Se a conta que você pretende usar para a implantação de modelos ainda não for um Proprietário ou Colaborador (nem tiver sido adicionada a uma função personalizada que concede a permissão `Microsoft.KeyVault/vaults/deploy/action`), selecione **Adicionar**
-
-   ![adicionar usuário](./media/resource-manager-keyvault-parameter/add-user.png)
-
-3. Selecione a função Colaborador ou Proprietário e pesquise a identidade a ser atribuída a essa função. Selecione **OK** para concluir a adição da identidade à função.
-
-   ![adicionar usuário](./media/resource-manager-keyvault-parameter/search-user.png)
-
-4. Para habilitar o acesso de um modelo durante a implantação, selecione **Controle de acesso avançado**. Selecione a opção **Habilitar acesso ao Azure Resource Manager para implantação de modelos**.
-
-   ![habilitar acesso a modelos](./media/resource-manager-keyvault-parameter/select-template-access.png)
 
 ## <a name="reference-a-secret-with-static-id"></a>Fazer referência a um segredo com ID estática
 
-Você faz referência ao segredo em um **arquivo de parâmetros (não no modelo)** que passa valores para o modelo. Você faz referência ao segredo transmitindo o identificador de recurso do cofre de chave e o nome do segredo. No exemplo a seguir, o segredo do cofre de chaves já deve existir e você fornece um valor estático para sua ID de recurso.
+O modelo que recebe um segredo do cofre de chaves é como qualquer outro modelo. Isso ocorre porque **você faz referência ao Cofre de chaves no arquivo de parâmetro, não no modelo.** Por exemplo, o modelo a seguir implanta um banco de dados SQL que inclui uma senha de administrador. O parâmetro de senha é definido como uma cadeia de caracteres segura. Mas, o modelo não especifica de onde vem esse valor.
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "sqlsvrAdminLoginPassword": {
-        "reference": {
-          "keyVault": {
-            "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-          },
-          "secretName": "adminPassword"
-        }
-      },
-      "sqlsvrAdminLogin": {
-        "value": "exampleadmin"
-      }
-    }
-}
-```
-
-No modelo, o parâmetro que aceita o segredo deve ser uma **securestring**. O exemplo a seguir mostra as seções relevantes de um modelo que implanta um SQL Server que exige uma senha de administrador.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "sqlsvrAdminLogin": {
-            "type": "string",
-            "minLength": 4
+        "administratorLogin": {
+            "type": "string"
         },
-        "sqlsvrAdminLoginPassword": {
+        "administratorLoginPassword": {
             "type": "securestring"
         },
-        ...
+        "collation": {
+            "type": "string"
+        },
+        "databaseName": {
+            "type": "string"
+        },
+        "edition": {
+            "type": "string"
+        },
+        "requestedServiceObjectiveId": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "maxSizeBytes": {
+            "type": "string"
+        },
+        "serverName": {
+            "type": "string"
+        },
+        "sampleName": {
+            "type": "string",
+            "defaultValue": ""
+        }
     },
     "resources": [
         {
-          "name": "[variables('sqlsvrName')]",
-          "type": "Microsoft.Sql/servers",
-          "location": "[resourceGroup().location]",
-          "apiVersion": "2014-04-01-preview",
-          "properties": {
-              "administratorLogin": "[parameters('sqlsvrAdminLogin')]",
-              "administratorLoginPassword": "[parameters('sqlsvrAdminLoginPassword')]"
-          },
-          ...
+            "apiVersion": "2015-05-01-preview",
+            "location": "[parameters('location')]",
+            "name": "[parameters('serverName')]",
+            "properties": {
+                "administratorLogin": "[parameters('administratorLogin')]",
+                "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+                "version": "12.0"
+            },
+            "resources": [
+                {
+                    "apiVersion": "2014-04-01-preview",
+                    "dependsOn": [
+                        "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+                    ],
+                    "location": "[parameters('location')]",
+                    "name": "[parameters('databaseName')]",
+                    "properties": {
+                        "collation": "[parameters('collation')]",
+                        "edition": "[parameters('edition')]",
+                        "maxSizeBytes": "[parameters('maxSizeBytes')]",
+                        "requestedServiceObjectiveId": "[parameters('requestedServiceObjectiveId')]",
+                        "sampleName": "[parameters('sampleName')]"
+                    },
+                    "type": "databases"
+                },
+                {
+                    "apiVersion": "2014-04-01-preview",
+                    "dependsOn": [
+                        "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+                    ],
+                    "location": "[parameters('location')]",
+                    "name": "AllowAllWindowsAzureIps",
+                    "properties": {
+                        "endIpAddress": "0.0.0.0",
+                        "startIpAddress": "0.0.0.0"
+                    },
+                    "type": "firewallrules"
+                }
+            ],
+            "type": "Microsoft.Sql/servers"
         }
-    ],
-    "variables": {
-        "sqlsvrName": "[concat('sqlsvr', uniqueString(resourceGroup().id))]"
-    },
-    "outputs": { }
+    ]
 }
 ```
 
+Agora, crie um arquivo de parâmetro para o modelo anterior. No arquivo de parâmetro, especifique um parâmetro que corresponda ao nome do parâmetro no modelo. Para o valor do parâmetro, referenciar o segredo do cofre de chave. Você faz referência ao segredo transmitindo o identificador de recurso do cofre de chave e o nome do segredo. No exemplo a seguir, o segredo do cofre de chaves já deve existir e você fornece um valor estático para sua ID de recurso.
 
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "administratorLogin": {
+            "value": "exampleadmin"
+        },
+        "administratorLoginPassword": {
+            "reference": {
+              "keyVault": {
+                "id": "/subscriptions/{guid}/resourceGroups/examplegroup/providers/Microsoft.KeyVault/vaults/{vault-name}"
+              },
+              "secretName": "examplesecret"
+            }
+        },
+        "collation": {
+            "value": "SQL_Latin1_General_CP1_CI_AS"
+        },
+        "databaseName": {
+            "value": "exampledb"
+        },
+        "edition": {
+            "value": "Standard"
+        },
+        "location": {
+            "value": "southcentralus"
+        },
+        "maxSizeBytes": {
+            "value": "268435456000"
+        },
+        "requestedServiceObjectiveId": {
+            "value": "455330e1-00cd-488b-b5fa-177c226f28b7"
+        },
+        "sampleName": {
+            "value": ""
+        },
+        "serverName": {
+            "value": "exampleserver"
+        }
+    }
+}
+```
 
 ## <a name="reference-a-secret-with-dynamic-id"></a>Fazer referência a um segredo com ID dinâmica
 
@@ -187,12 +239,5 @@ Para gerar dinamicamente a ID de recurso para um segredo de cofre de chaves, voc
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter informações gerais sobre cofres de chaves, veja [Introdução ao Cofre de Chaves do Azure](../key-vault/key-vault-get-started.md).
-* Para obter informações sobre como usar um cofre de chave com uma máquina virtual, consulte [Considerações de segurança para o Azure Resource Manager](best-practices-resource-manager-security.md).
 * Para obter exemplos completos de referência de segredos de chave, veja [Exemplos do cofre da chave](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

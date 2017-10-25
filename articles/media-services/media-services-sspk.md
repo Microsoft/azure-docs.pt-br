@@ -4,7 +4,7 @@ description: "Saiba mais sobre como licenciar o Kit de Portabilidade de Cliente 
 services: media-services
 documentationcenter: 
 author: xpouyat
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: e3b488e7-8428-4c10-a072-eb3af46c82ad
 ms.service: media-services
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 08/09/2017
 ms.author: xpouyat
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 2a6122645f96e7a1a1286ef2d13c155b5b106056
-ms.lasthandoff: 03/30/2017
-
-
+ms.openlocfilehash: b5a36ac6771bef220afe29446cd56c1b65a498d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenciamento do kit de portabilidade de cliente do Microsoft® Smooth Streaming
 ## <a name="overview"></a>Visão geral
@@ -36,7 +35,7 @@ O SSPK é licenciado em termos que oferecem excelente valor comercial. A licenç
   * implementa a funcionalidade de Cliente do Smooth Streaming
   * adiciona a análise de formato, heurística, lógica de buffer etc.
 * APIs do aplicativo Player 
-  * interfaces de programação para interação com um aplicativo de media player
+  * interfaces de programação para interação com um aplicativo de player de mídia
 * Interface da Camada de Abstração de Plataforma (PAL) 
   * interfaces de programação para interação com o sistema operacional (threads, sockets)
 * Interface da Camada de Abstração de Hardware (HAL) 
@@ -84,6 +83,7 @@ Licenciados provisórios e finais do SSPK podem enviar perguntas técnicas para 
 * Albis Technologies Ltd.
 * Alticast Corporation
 * Amazon Digital Services, Inc.
+* Arion Technology, Inc.
 * AVC Multimedia Software Co., Ltd.
 * Cavium, Inc.
 * EchoStar Purchasing Corporation
@@ -104,6 +104,7 @@ Licenciados provisórios e finais do SSPK podem enviar perguntas técnicas para 
 * Sony Corporation
 * Tatung Technology Inc.
 * TCL Technoly Electronics (Huizhou) Co., Ltd.
+* Top Victory Investments, Ltd.
 * Vestel Elektronik Sanayi ve Ticaret A.S.
 * VisualOn, Inc.
 * ZTE Corporation
@@ -115,6 +116,7 @@ Licenciados provisórios e finais do SSPK podem enviar perguntas técnicas para 
 * Amazon Digital Services, Inc.
 * AmTRAN Technology Co., Ltd.
 * Arcadyan Technology Corporation
+* Arion Technology, Inc.
 * ATMACA ELEKTRONİK SAN. VE TİC. A.Ş
 * British Sky Broadcasting Limited
 * CastPal Technology Inc., Shenzhen
@@ -127,6 +129,7 @@ Licenciados provisórios e finais do SSPK podem enviar perguntas técnicas para 
 * Gibson Innovations Limited
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
+* Hisense International Co., Ltd. 
 * Homecast Co.,Ltd
 * Hon Hai Precision Industry Co., Ltd.
 * Infomir GMBH
@@ -148,16 +151,17 @@ Licenciados provisórios e finais do SSPK podem enviar perguntas técnicas para 
 * TCL Overseas Marketing (Macao Commercial Offshore) Limited
 * Technicolor Delivery Technologies, SAS
 * Tongfang Global Ltd.
+* Top Victory Investments, Ltd.
 * Toshiba Lifestyle Products & Services Corporation
 * Universal Media Corporation /Slovakia/ s.r.o.
 * VIZIO, Inc.
 * Wistron Corporation
 * ZTE Corporation
 
+
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

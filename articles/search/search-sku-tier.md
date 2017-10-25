@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/24/2016
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: 259c59133499a4a3beb0e5f6f3700944df5ab8a9
-
+ms.openlocfilehash: f9f3a7b2369818791ffac1c8eeccef45216c2ff0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Escolher um tipo de preço ou SKU para a Pesquisa do Azure
 No Azure Search, um [serviço é provisionado](search-create-service-portal.md) em um tipo de preço específico ou SKU. As opções incluem: **Gratuito**, **Básico** ou **Standard**, sendo que **Standard** está disponível em várias configurações e capacidades.
 
@@ -83,14 +83,14 @@ O gráfico a seguir é um subconjunto dos limites do [Limites de serviço na Pes
 | Máximo de réplicas |N/D |3 |12 |12 |12 |12 |
 | Consultas por segundo |N/D |~3 por réplica |~15 por réplica |~60 por réplica |>60 por réplica |>60 por réplica |
 
-<sup>1</sup> SKUs de visualização e gratuitos não vêm com SLAs. Os SLAs são aplicados depois que um SKU fica disponível para o público geral.
+<sup>1</sup> Os recursos de camada gratuita e de versão prévia não vêm com SLAs (contratos de nível de serviço). Para todas as camadas faturáveis, os SLAs entram em vigor quando você provisiona redundância suficiente para o serviço. Duas ou mais réplicas são necessárias para o SLA de consulta (leitura). Três ou mais réplicas são necessárias para consulta e indexação do SLA (leitura-gravação). O número de partições não é uma consideração de SLA. 
 
 <sup>2</sup> S3 e S3 HD contam com infraestrutura de alta capacidade idênticas, mas cada um deles atinge seu limite máximo de maneiras diferentes. O S3 tem como alvo um número menor de índices muito grandes. Como tal, seu limite máximo está vinculado a recursos (2,4 TB para cada serviço). O S3 HD destina-se um grande número de índices muito pequenos. Com 1.000 índices, o S3 HD atinge os limites na forma de restrições de índice. Se você for um cliente do S3 HD que requer mais de 1.000 índices, entre em contato com o Suporte da Microsoft para obter informações sobre como proceder.
 
 ## <a name="eliminate-skus-that-dont-meet-requirements"></a>Eliminar SKUs que não atendam aos requisitos
 As perguntas a seguir podem ajudar você a chegar a uma decisão certa sobre o SKU para sua carga de trabalho.
 
-1. Você tem requisitos de **SLA (Contrato de Nível de Serviço)** ? Restrinja a decisão sobre o SKU ao Básico ou ao Standard que não seja preview.
+1. Você tem requisitos de **SLA (Contrato de Nível de Serviço)** ? Você pode usar qualquer camada faturável (plano Básico em diante), mas você deve configurar seu serviço para redundância. Duas ou mais réplicas são necessárias para o SLA de consulta (leitura). Três ou mais réplicas são necessárias para consulta e indexação do SLA (leitura-gravação). O número de partições não é uma consideração de SLA.
 2. **De quantos índices** você precisa? Uma das maiores variáveis que influenciam uma decisão de SKU é o número de índices com suporte de cada SKU. O suporte aos índices está em níveis muito diferentes nos tipos de preços inferiores. Os requisitos do número de índices pode ser um determinante principal de uma decisão do SKU.
 3. **Quantos documentos** serão carregados em cada índice? O número e o tamanho dos documentos determinará o tamanho final do índice. Supondo que você possa fazer uma estimativa do tamanho projetado do índice, será possível comparar esse número com o tamanho da partição por SKU, além do número de partições necessárias para armazenar um índice desse tamanho.
 4. **Qual é a carga de consulta esperada**? Após definir os requisitos de armazenamento, considere as cargas de trabalho de consulta. O S2 e os dois SKUs S3 oferecem um rendimento quase equivalente, mas os requisitos de SLA descartarão quaisquer SKUs em fase preview.
@@ -113,9 +113,3 @@ Quando você souber qual SKU é adequado, prossiga com estas etapas:
 
 * [Criar um serviço de pesquisa no portal](search-create-service-portal.md)
 * [Alterar a alocação de partições e réplicas para dimensionar seu serviço](search-capacity-planning.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

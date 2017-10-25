@@ -24,8 +24,3 @@ Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua
 6. Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico:   
    ![](./media/connectors-create-api-twilio/twilio-5.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

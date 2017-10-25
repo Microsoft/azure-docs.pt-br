@@ -2,7 +2,7 @@
 title: "Códigos de erro dos Serviços de Mídia do Azure | Microsoft Docs"
 description: "Este tópico oferece uma visão geral dos códigos de erro dos Serviços de Mídia do Azure."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 07/31/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: eae360dd3e627a82986cef32ef39860f60ffe51f
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: 39886a955124429302609dd9d5a7c20ae7f498d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-media-services-error-codes"></a>Códigos de erro dos Serviços de Mídia do Azure
 Ao usar os Serviços de Mídia do Microsoft Azure, você pode receber códigos de erro HTTP do serviço dependendo dos problemas, como tokens de autenticação expirando a ações que não são compatíveis nos Serviços de Mídia. Veja a seguir uma lista de **códigos de erros HTTP** que podem ser retornados pelos Serviços de Mídia e suas possíveis causas.  
@@ -28,7 +27,7 @@ Ao usar os Serviços de Mídia do Microsoft Azure, você pode receber códigos d
 A solicitação contém informações inválidas e foi rejeitada devido a um dos seguintes motivos:
 
 * Uma versão de API incompatível foi especificada. Para obter a versão mais recente, confira [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
-* A versão da API dos Serviços de Mídia não foi especificada. Para obter informações sobre como especificar a versão da API, confira [Conectando-se aos Serviços de Mídia com a API REST dos Serviços de Mídia](media-services-rest-connect-programmatically.md).
+* A versão da API dos Serviços de Mídia não foi especificada. Para saber mais sobre como especificar a versão da API, confira [Referência de API REST do Media Services Operations](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
   
   > [!NOTE]
   > Se você estiver usando os SDKs do .NET ou Java para se conectar aos Serviços de Mídia, a versão da API será especificada sempre que você tentar e executar alguma ação nos Serviços de Mídia.
@@ -48,8 +47,8 @@ A solicitação não pôde ser autenticada (antes de poder ser autorizada) devid
 
 * Cabeçalho de autenticação ausente.
 * Valor do cabeçalho de autenticação inválido.
-  * O token expirou. Se estiver usando as APIs REST diretamente, confira [Conectando-se aos Serviços de Mídia com a API REST dos Serviços de Mídia](media-services-rest-connect-programmatically.md) para saber como gerar um novo token de autenticação. Se você estiver usando os SDKs do .NET ou Java, crie um objeto CloudMediaContext ou MediaContract para gerar o token. Para saber mais sobre como fazer isso, confira [Conectando-se aos Serviços de Mídia com o SDK dos Serviços de Mídia para .NET](media-services-dotnet-connect-programmatically.md).
-  * O token contém uma assinatura inválida.</li></ul></li></ul>
+  * O token expirou. 
+  * O token contém uma assinatura inválida.
 
 ## <a name="403-forbidden"></a>403 Proibido
 A solicitação não foi permitida devido a um dos seguintes motivos:
@@ -124,5 +123,4 @@ Para resolver esse erro, é recomendável usar a lógica de repetição de retir
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

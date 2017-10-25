@@ -4,8 +4,3 @@
 
    > [!NOTE]
    > Se você estiver adicionando o servidor VMware vCenter ou o host VMware vSphere com uma conta que não tem privilégios de administrador no vCenter ou no servidor host, verifique se a conta tem estes privilégios habilitados: Data center, Armazenamento de Dados, Pasta, Host, Rede, Recursos, Máquina virtual e Comutador Distribuído do vSphere. Além disso, o servidor VMware vCenter precisa do privilégio de exibição do Armazenamento habilitado.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

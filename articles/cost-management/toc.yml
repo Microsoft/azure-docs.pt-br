@@ -1,0 +1,35 @@
+- name: Documentação do Gerenciamento de Custo do Azure
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: O que é o Gerenciamento de Custo?
+      href: overview.md
+- name: Guia de início rápido
+  expanded: true
+  items:
+    - name: Exibir dados de custo
+      href: quick-register-azure-sub.md
+    - name: Exibir dados de custo – EA
+      href: quick-register-ea.md
+    - name: Exibir dados de custo – CSP
+      href: quick-register-csp.md
+- name: Tutoriais
+  items:
+    - name: 1 – Analisar uso e custos
+      href: tutorial-review-usage.md
+    - name: 2 – Controlar o acesso aos dados
+      href: tutorial-user-access.md
+    - name: 3 – Previsão de despesas
+      href: tutorial-forecast-spending.md
+- name: Recursos
+  items:
+    - name: Vídeos de Gerenciamento de Custo
+      href: ref-videos.md
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/cost-management'
+    - name: Disponibilidade regional
+      href: 'https://azure-staging.microsoft.com/en-us/regions/services/'
+    - name: Perguntas frequentes
+      href: cost-mgt-faq.md

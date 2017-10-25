@@ -3,7 +3,7 @@ title: Parceiros de Business Intelligence do SQL Data Warehouse | Microsoft Docs
 description: "Listas de parceiros terceirizados de business intelligence com soluções que dão suporte ao SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: kevinvngo
 manager: jhubbard
 editor: 
 ms.assetid: 1d9cdbd0-76c0-4b87-8a80-e792b73ffe10
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: partners
 ms.date: 10/31/2016
-ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 91b3f016497b268d9f7e9d305ec4f69f0a1cd856
-ms.lasthandoff: 12/08/2016
-
-
+ms.author: kevin;barbkess
+ms.openlocfilehash: 7c88e55b420d45f6d0cd4486377e3f2b1347bd9b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>Parceiros de business intelligence do SQL Data Warehouse
 Para criar uma solução completa de data warehouse, você pode escolher dentre uma ampla variedade de ferramentas líderes do setor.  Este artigo destaca empresas parceiras da Microsoft que têm soluções de BI (business intelligence) que dão suporte ao Azure SQL Data Warehouse.
@@ -152,4 +151,3 @@ Para saber mais sobre alguns de nossos outros parceiros, confira [Parceiros de I
 [tableau_twitter]:https://twitter.com/tableau
 [targit_twitter]:https://twitter.com/TARGIT
 [yellowfin_twitter]:https://twitter.com/YellowfinBI
-

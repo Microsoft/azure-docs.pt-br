@@ -12,12 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2016
 ms.author: joroja
-translationtype: Human Translation
-ms.sourcegitcommit: 43224628d5726ac2fb0e8c27c649421af7ceeee4
-ms.openlocfilehash: 6cf375fbfe265a53591b9987ebd32db6df73fcb4
-ms.lasthandoff: 02/21/2017
-
-
+ms.openlocfilehash: 5b9955b2af7f20a79981315fa33a0eb5380a5465
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-b2c-tenant-to-pay-for-usage-charges"></a>Vinculação de uma assinatura do Azure a um locatário do Azure B2C para pagar encargos de uso
 
@@ -29,16 +28,16 @@ Os encargos de uso em andamento para o Azure Active Directory B2C (ou Azure AD B
 https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 ## <a name="step-1---create-an-azure-ad-b2c-tenant"></a>Etapa 1 - Criar um locatário do Azure AD B2C
-
-A criação do locatário do B2C deve ser concluída primeiro. Ignore esta etapa se você já tiver criado seu Locatário do B2C de destino. [Introdução ao Azure AD B2C](https://azure.microsoft.com/documentation/articles/active-directory-b2c-get-started/)
+A criação do locatário do B2C deve ser concluída primeiro. Ignore esta etapa se você já tiver criado seu Locatário do B2C de destino. [Introdução ao Azure AD B2C](active-directory-b2c-get-started.md)
 
 ## <a name="step-2---open-azure-portal-in-the-azure-ad-tenant-that-shows-your-azure-subscription"></a>Etapa 2 - Abrir o portal do Azure no Locatário do Azure AD que mostra a sua assinatura do Azure
-Navegue até portal.azure.com. Alterne para o locatário do Azure AD que mostra a assinatura do Azure que você deseja usar. Este locatário do Azure AD é diferente do locatário do B2C. No portal do Azure, clique no nome de conta no canto superior direito do painel para selecionar o locatário do Azure AD. Uma assinatura do Azure é necessária para continuar. [Obter uma assinatura do Azure](https://account.windowsazure.com/signup?showCatalog=True)
+Navegue até o [Portal do Azure](https://portal.azure.com). Alterne para o locatário do Azure AD que mostra a assinatura do Azure que você deseja usar. Este locatário do Azure AD é diferente do locatário do B2C. No portal do Azure, clique no nome de conta no canto superior direito do painel para selecionar o locatário do Azure AD. Uma assinatura do Azure é necessária para continuar. [Obter uma assinatura do Azure](https://account.windowsazure.com/signup?showCatalog=True)
 
 ![Alternar para o Locatário do Azure AD](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
 
 ## <a name="step-3---create-a-b2c-tenant-resource-in-azure-marketplace"></a>Etapa 3 - Criar um recurso de locatário do B2C no Azure Marketplace
 Abra o Marketplace clicando no ícone Marketplace ou selecionando o "+" verde no canto superior esquerdo do painel.  Procurar e selecionar o Azure Active Directory B2C. Selecione Criar.
+
 ![Selecionar o Marketplace](./media/active-directory-b2c-how-to-enable-billing/marketplace.png)
 
 ![Pesquisar AD B2C](./media/active-directory-b2c-how-to-enable-billing/searchb2c.png)
@@ -75,12 +74,4 @@ Clicando no recurso de locatário do B2C, será possível
 ## <a name="next-steps"></a>Próximas etapas
 Quando essas etapas forem concluídas para cada um dos seus locatários do B2C, sua assinatura do Azure será cobrada de acordo com os detalhes do Azure Direct ou Enterprise Agreement.
 - Examinar o uso e a cobrança selecionados para a assinatura do Azure
-- Examine os relatórios de uso detalhado do dia a dia usando a [API de Relatórios de Uso](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
-
-
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-[gog]: http://google.com/        
-[yah]: http://search.yahoo.com/  
-[msn]: http://search.msn.com/    
-
+- Examine os relatórios de uso detalhado do dia a dia usando a [API de Relatórios de Uso](active-directory-b2c-reference-usage-reporting-api.md)

@@ -4,7 +4,7 @@ Ao criar um projeto de aplicativo Web para o Azure, você pode provisionar uma m
 
 Para criar uma máquina virtual ao criar um aplicativo Web, execute estas etapas:
 
-1. No Visual Studio, clique em **Arquivo** > ** Novo** > **Projeto** > **Web** e, em seguida, escolha **Aplicativo Web ASP.NET** (sob os nós **Visual C#** ou **Visual Basic**).
+1. No Visual Studio, clique em **Arquivo** >  **Novo** > **Projeto** > **Web** e, em seguida, escolha **Aplicativo Web ASP.NET** (sob os nós **Visual C#** ou **Visual Basic**).
 2. Na caixa de diálogo **Novo Projeto do ASP.NET**, selecione o tipo de aplicativo Web desejado e, na seção Azure da caixa de diálogo (no canto inferior direito), não se esqueça de marcar a caixa de seleção **Hospedar na nuvem** (ela é rotulada como **Criar recursos remotos** em algumas instalações).
    
     ![][0]
@@ -30,7 +30,7 @@ Para criar uma máquina virtual ao criar um aplicativo Web, execute estas etapas
     * Configura IIS e ASP.NET na máquina virtual.
     
     ![][4]
-13. (Opcional) Você pode se conectar à nova máquina virtual. Em **Gerenciador de Servidores**, expanda o nó **Máquinas Virtuais**, escolha o nó para a máquina virtual que você criou e, no menu de atalho, escolha **Conectar-se com a Área de Trabalho Remota.**. Como alternativa, no **Gerenciador de Nuvem**, escolha **Abrir no Portal** no menu de atalho e conecte-se à máquina virtual nesse local.
+13. (Opcional) Você pode se conectar à nova máquina virtual. Em **Gerenciador de Servidores**, expanda o nó **Máquinas Virtuais**, escolha o nó para a máquina virtual que você criou e, no menu de atalho, escolha **Conectar-se com a Área de Trabalho Remota**. Como alternativa, no **Gerenciador de Nuvem**, escolha **Abrir no Portal** no menu de atalho e conecte-se à máquina virtual nesse local.
     
     ![][5]
 
@@ -43,8 +43,3 @@ Se você quiser personalizar os scripts publicados que criou, leia informações
 [3]: ./media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_Provisioning.png
 [4]: ./media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_SolutionExplorer.png
 [5]: ./media/virtual-machines-common-classic-web-app-visual-studio/VS_Create_VM_Connect.png
-
-
-<!--HONumber=Nov16_HO3-->
-
-

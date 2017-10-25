@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
+ms.date: 06/29/2017
 ms.author: abhisram
-translationtype: Human Translation
-ms.sourcegitcommit: 3ed67788fbbe0c4fb820cfd1525d8c9ee5154446
-ms.openlocfilehash: 1a8a36d3b6f14c75965afca970be808015059dbb
-
-
+ms.openlocfilehash: 1c53a6bbe0152f6f2b9666e6059af7c6d02e481f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnóstico e monitoramento de desempenho para Reliable Actors
 O tempo de execução de Reliable Actors emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) e [contadores de desempenho](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Esses recursos fornecem informações sobre como o tempo de execução está operando e ajudam na solução de problemas e no monitoramento de desempenho.
@@ -116,7 +116,7 @@ O tempo de execução dos Reliable Actors publica os contadores de desempenho a 
 
 | Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
-| Ator da Malha do Serviço |# de chamadas do ator aguardando o bloqueio do ator |Número de chamadas pendentes do ator aguardando para adquirir o bloqueio por ator que aplica a simultaneidade baseada em turno |
+| Ator da Malha do Serviço |nº de chamadas do ator aguardando o bloqueio |Número de chamadas pendentes do ator aguardando para adquirir o bloqueio por ator que aplica a simultaneidade baseada em turno |
 | Ator da Malha do Serviço |Média de milissegundos por espera de bloqueio |Tempo (em milissegundos) para adquirir o bloqueio por ator que impõe a simultaneidade baseada em turno |
 | Ator da Malha do Serviço |Média de milissegundos de manutenção de bloqueio do ator |Tempo (em milissegundos) pelo qual o bloqueio por ator é mantido |
 
@@ -162,7 +162,7 @@ Quando um cliente chama um método por meio de um objeto de proxy do ator, isso 
 
 | Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
-| Ator da Malha do Serviço |# de solicitações pendentes |Número de solicitações sendo processadas no serviço |
+| Ator da Malha do Serviço |nº de solicitações pendentes |Número de solicitações sendo processadas no serviço |
 | Ator da Malha do Serviço |Média de milissegundos por solicitação |Tempo (em milissegundos) que o serviço leva para processar uma solicitação |
 | Ator da Malha do Serviço |Média de milissegundos para desserialização de solicitação |Tempo (em milissegundos) para desserializar a mensagem de solicitação do ator quando ela é recebida no serviço |
 | Ator da Malha do Serviço |Média de milissegundos para serialização de resposta |Tempo (em milissegundos) para serializar a mensagem de resposta do ator no serviço antes de a resposta ser enviada ao cliente |
@@ -172,9 +172,3 @@ Quando um cliente chama um método por meio de um objeto de proxy do ator, isso 
 * [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Exemplo de código](https://github.com/Azure/servicefabric-samples)
 * [Provedores de EventSource no PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-

@@ -3,26 +3,26 @@ title: "Application Insights para Serviços de Nuvem do Azure | Microsoft Docs"
 description: "Monitorar suas funções da Web e de trabalho com eficiência com o Application Insights"
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+keywords: "WAD2AI, Diagnóstico do Azure"
+author: CFreemanwa
 manager: carmonm
 editor: alancameronwills
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
 ms.service: application-insights
 ms.devlang: na
 ms.tgt_pltfrm: ibiza
-ms.topic: article
+ms.topic: get-started-article
 ms.workload: tbd
-ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 5ea258a8c790dd94e019243e77f2ff694c2515d7
-ms.lasthandoff: 03/16/2017
-
-
+ms.date: 05/05/2017
+ms.author: bwren
+ms.openlocfilehash: c12b225aa351d0c272243469550791a6840091e0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para Serviços de Nuvem do Azure
-Os [aplicativos de serviços de Nuvem do Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) podem ser monitorados pelo [Application Insights][start] quanto a disponibilidade, desempenho, falhas e uso. Com os comentários que você obtiver sobre o desempenho e a eficiência de seu aplicativo em uso, você pode fazer escolhas informadas sobre a direção do projeto em cada ciclo de vida de desenvolvimento.
+[Os aplicativos do serviço de nuvem do Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) podem ser monitorados pelo [Application Insights][start] para ver a disponibilidade, desempenho, falhas e uso combinando os dados dos SDKs do Application Insights com os dados de [Diagnóstico do Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) em seus Serviços de Nuvem. Com os comentários que você obtiver sobre o desempenho e a eficiência de seu aplicativo em uso, você pode fazer escolhas informadas sobre a direção do projeto em cada ciclo de vida de desenvolvimento.
 
 ![Exemplo](./media/app-insights-cloudservices/sample.png)
 
@@ -141,8 +141,8 @@ Adicione mais telemetria: confira as seções a seguir e publique seu aplicativo
 * Aguarde alguns segundos e clique em Atualizar.
 * Consulte [Solução de problemas][qna].
 
-## <a name="view-azure-diagnostic-events"></a>Exibir eventos de diagnóstico do Azure
-Onde encontrar o diagnóstico:
+## <a name="view-azure-diagnostic-events"></a>Exibir eventos de Diagnóstico do Azure
+Onde encontrar as informações de [Diagnóstico do Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) no Application Insights:
 
 * Os contadores de desempenho são exibidos como métricas personalizadas. 
 * Os logs de eventos do Windows são mostrados como eventos de rastreamentos e personalizados.
@@ -239,6 +239,7 @@ Você compilou para .NET 4.6? O 4.6 não tem suporte automático nas funções d
 * [Configurar o envio dos Diagnósticos do Azure ao Application Insights](app-insights-azure-diagnostics.md)
 * [Automatizar a criação de recursos do Application Insights](app-insights-powershell.md)
 * [Automatizar o diagnóstico do Azure](app-insights-powershell-azure-diagnostics.md)
+* [Funções do Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
 [api]: app-insights-api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md
@@ -250,4 +251,3 @@ Você compilou para .NET 4.6? O 4.6 não tem suporte automático nas funções d
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md 
-

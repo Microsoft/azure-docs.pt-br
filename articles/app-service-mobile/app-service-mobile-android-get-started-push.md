@@ -3,9 +3,9 @@ title: "Adicionar notificações por push ao aplicativo Android com os Aplicativ
 description: "Saiba como usar os Aplicativos Móveis para enviar notificações por push ao seu aplicativo Android."
 services: app-service\mobile
 documentationcenter: android
-manager: adrianha
+manager: syntaxc4
 editor: 
-author: ysxu
+author: ggailey777
 ms.assetid: 9058ed6d-e871-4179-86af-0092d0ca09d3
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 10/12/2016
-ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: ef43d1df2a64d85f256b28cd7db5a4f4356a7ec0
-ms.openlocfilehash: 055f55966de1e5c1bb41a6e0bf1c0da1758a3ed0
-ms.lasthandoff: 12/13/2016
-
-
+ms.author: glenga
+ms.openlocfilehash: b89e9af55342d5d7473d848956996f846250b4b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Adicionar notificações por push ao aplicativo Android
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -82,4 +81,3 @@ Agora que você concluiu este tutorial, considere continuar com um dos seguintes
 [início rápido do Android]: app-service-mobile-android-get-started.md
 
 [Set Up Google Play Services SDK]:https://developers.google.com/android/guides/setup
-

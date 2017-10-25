@@ -13,15 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 03/15/2017
+ms.date: 04/24/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: f635bbd8652b97c1067473e56565bf7c6520a2ba
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: eafde9258222a2ab09ade2e366f9cc595a303dec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Gerenciar contas e cotas do Lote com a biblioteca de clientes do Gerenciamento de Lotes para .NET
 
@@ -173,7 +172,7 @@ Para ver o .NET de Gerenciamento do Lote em ação, confira o projeto de exemplo
 
 Antes de excluir o grupo de recursos e a conta do Lote recém-criada, é possível vê-los no [portal do Azure][azure_portal]:
 
-Para executar o aplicativo de exemplo com êxito, primeiro é necessário registrá-lo no locatário do Azure AD no portal do Azure e conceder permissões à API do Azure Resource Manager. Siga as etapas fornecidas em [Autenticar aplicativos de gerenciamento de Lote com o Azure AD](batch-aad-auth.md#use-azure-ad-with-batch-service-solutions).
+Para executar o aplicativo de exemplo com êxito, primeiro é necessário registrá-lo no locatário do Azure AD no portal do Azure e conceder permissões à API do Azure Resource Manager. Siga as etapas fornecidas em [Autenticar soluções de gerenciamento do lote com o Active Directory](batch-aad-auth-management.md).
 
 
 [aad_about]: ../active-directory/active-directory-whatis.md "O que é o Azure Active Directory?"
@@ -204,4 +203,3 @@ Para executar o aplicativo de exemplo com êxito, primeiro é necessário regist
 [1]: ./media/batch-management-dotnet/portal-01.png
 [2]: ./media/batch-management-dotnet/portal-02.png
 [3]: ./media/batch-management-dotnet/portal-03.png
-

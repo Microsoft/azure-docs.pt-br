@@ -14,8 +14,3 @@ Nesse cenário, você criará um NSG para cada sub-rede na rede virtual **TestVN
 
 A combinação dessas regras cria um cenário de DMZ, em que a sub-rede de back-end só pode receber tráfego de entrada para SQL da sub-rede front-end e não tem acesso à Internet, enquanto a sub-rede de front-end pode se comunicar com a Internet e receber somente solicitações HTTP de entrada.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

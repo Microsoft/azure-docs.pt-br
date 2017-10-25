@@ -1,26 +1,28 @@
 
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com)e clique em **+NOVO** na parte superior esquerda da tela.
-2. Clique em **Novo** e em **Web + Móvel**. Role para baixo, se for necessário, e clique em **Hub de Notificação**.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+
+2. Selecione **Novo** > **Web + Móvel** > **Hub de Notificação**.
    
-      ![Portal do Azure - criar hubs de notificação](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
+      ![Portal do Azure - criar um hub de notificação](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
       
-3. Especifique um nome exclusivo no campo **Hub de Notificação** . Selecione sua **Região**, **Assinatura** e **Grupo de Recursos** desejados (se você já tiver um). 
+3. Na caixa **Hub de Notificação** , digite um nome exclusivo. Selecione sua **Região**, **Assinatura** e **Grupo de Recursos** (se você já tiver um). 
    
-    Se você já tiver um namespace de barramento de serviço no qual deseje criar o hub, selecione-o por meio da opção **Selecionar Existente** no campo **Namespace**.  Caso contrário, você poderá usar o nome padrão que será criado com base no nome do hub, desde que o nome do namespace esteja disponível. 
+    Se você já tiver um namespace de barramento de serviço que você deseja criar o hub, faça o seguinte:
+
+    a. Na área **Namespace**, selecione o link **Selecione Existente**. 
    
-    Quando estiver pronto, clique em **Criar**.
+    b. Selecione **Criar**.
+
+    Se você ainda não tiver um namespace de barramento de serviço, você pode usar o nome padrão, que é criado com base no nome do hub (se o nome do namespace estiver disponível).
    
       ![Portal do Azure - definir propriedades do hub de notificação](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
-4. Depois que o namespace e o hub de notificação forem criados, você será levado para a respectiva página do portal. 
+
+    Depois de criar o namespace e hub de notificação, abra o portal do Azure. 
    
       ![Portal do Azure - página do portal do hub de notificação](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-page.png)
-5. Clique em **Configurações** e em **Políticas de Acesso** – anote as duas cadeias de conexão disponibilizadas, pois você precisará delas para lidar com notificações por push mais tarde.
+
+4. Selecione **Configurações** > **Políticas de Acesso**. Observe as cadeias de caracteres de duas conexão que estão disponíveis para você. Você precisará delas para tratar notificações por push mais tarde.
    
       ![Portal do Azure - cadeias de conexão do hub de notificação](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

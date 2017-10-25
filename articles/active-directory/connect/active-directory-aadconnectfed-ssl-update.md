@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2016
+ms.date: 08/02/2017
 ms.author: anandy
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9bb29624324305f5295e0a50ef79d8f4c6d063c0
-ms.lasthandoff: 03/21/2017
-
-
----    
-
+ms.openlocfilehash: 87807a203d71b3abfe3e93132eb7d0b82b14b4ee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
+---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Atualizar o certificado SSL para um farm dos Serviços de Federação do Active Directory (AD FS)
 
 ## <a name="overview"></a>Visão geral
-Este artigo descreve como usar o Azure AD Connect para atualizar o certificado SSL para um farm do AD FS (Serviços de Federação do Active Directory). Se o método de entrada no Azure AD Connect é definido como o AD FS, use a ferramenta Azure AD Connect para atualizar o certificado SSL para o farm do AD FS. Faça isso em todos os servidores WAP (Proxy de aplicativo da Web) e de federação em três etapas simples:
+Este artigo descreve como usar o Azure AD Connect para atualizar o certificado SSL para um farm do AD FS (Serviços de Federação do Active Directory). Você pode usar a ferramenta Azure AD Connect para atualizar facilmente o certificado SSL para o farm do AD FS, mesmo que o método selecionado de conexão do usuário não seja o AD FS.
+
+Você pode realizar toda a operação de atualização do certificado SSL para o farm do AD FS em todos os servidores de federação e de WAP (Proxy de aplicativo Web) em três etapas simples:
 
 ![Três etapas](./media/active-directory-aadconnectfed-ssl-update/threesteps.png)
 
@@ -65,10 +65,10 @@ Depois de confirmar as informações sobre os servidores do farm do AD FS, o Azu
 
 Depois de fornecer o certificado, o Azure AD Connect passará por uma série de pré-requisitos. Verifique o certificado para garantir que esteja correto para o farm do AD FS:
 
--    O nome da entidade/nome alternativo da entidade do certificado é o mesmo que o nome do serviço de federação, ou é um certificado curinga.
--    O certificado é válido por mais de 30 dias.
--    A cadeia confiável de certificado é válida.
--    O certificado é protegido por senha.
+-   O nome da entidade/nome alternativo da entidade do certificado é o mesmo que o nome do serviço de federação, ou é um certificado curinga.
+-   O certificado é válido por mais de 30 dias.
+-   A cadeia confiável de certificado é válida.
+-   O certificado é protegido por senha.
 
 ## <a name="step-3-select-servers-for-the-update"></a>Etapa 3: Selecionar servidores para atualização
 
@@ -106,4 +106,3 @@ Após a conclusão da configuração, o Azure AD Connect exibirá a mensagem que
 
 - [Azure AD Connect e federação](active-directory-aadconnectfed-whatis.md)
 - [Gerenciamento e personalização dos Serviços de Federação do Active Directory (AD FS) com o Azure AD Connect](active-directory-aadconnect-federation-management.md)
-

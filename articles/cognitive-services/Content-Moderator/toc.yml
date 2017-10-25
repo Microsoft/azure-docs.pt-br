@@ -1,0 +1,84 @@
+- name: Documentação do Content Moderator
+  href: ../index.md
+- name: Visão geral
+  items:
+    - name: Sobre o Content Moderator
+      href: overview.md
+- name: Guia de início rápido
+  items:
+    - name: Ferramenta de análise
+      href: quick-start.md
+    - name: APIs de Moderação
+      items:
+        - name: API de Imagem
+          href: try-image-api.md
+        - name: API de Lista de imagens
+          href: try-image-list-api.md
+        - name: API de Texto
+          href: try-text-api.md
+        - name: API de Lista de termos
+          href: try-terms-list-api.md
+    - name: Analisar APIs
+      items:
+        - name: Trabalhos
+          href: try-review-api-job.md
+        - name: Análises
+          href: try-review-api-review.md
+        - name: Fluxos de trabalho
+          href: try-review-api-workflow.md
+- name: Conceitos
+  items:
+    - name: Moderação de imagem
+      href: image-moderation-api.md
+    - name: Moderação de texto
+      href: text-moderation-api.md
+    - name: Moderação de texto - idiomas
+      href: Text-Moderation-API-Languages.md
+    - name: Moderação de vídeo
+      href: video-moderation-api.md
+    - name: Analisar APIs
+      href: review-api.md
+- name: Guias de instruções
+  items:
+    - name: Ferramenta de análise
+      items:
+        - name: Humanos no loop
+          href: Review-Tool-User-Guide/human-in-the-loop.md
+        - name: Use as configurações
+          href: Review-Tool-User-Guide/Configure.md
+        - name: Gerenciar equipe
+          href: Review-Tool-User-Guide/SubTeams.md
+        - name: Usar marcações
+          href: Review-Tool-User-Guide/Tags.md
+        - name: Analisar imagens
+          href: Review-Tool-User-Guide/Review-Moderated-Images.md
+        - name: Analisar texto
+          href: Review-Tool-User-Guide/Text-Reviews.md
+        - name: Verifique as credenciais
+          href: Review-Tool-User-Guide/Credentials.md
+        - name: Usar conectores
+          href: Review-Tool-User-Guide/Connectors.md
+        - name: Usar os fluxos de trabalho
+          href: Review-Tool-User-Guide/Workflows.md
+        - name: Exibir painel
+          href: Review-Tool-User-Guide/View-Dashboard.md
+- name: Tutoriais
+  items:
+    - name: Moderação de postagem do Facebook
+      href: facebook-post-moderation.md
+    - name: Moderação de catálogo de comércio eletrônico
+      href: ecommerce-retail-catalog-moderation.md
+- name: Referências de API
+  items:
+    - name: Todas as APIs
+      href: api-reference.md
+- name: Recursos
+  items:
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: SDK do Windows
+      href: 'https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/'
+    - name: Exemplos
+      href: 'https://github.com/MicrosoftContentModerator'
+    - name: Perguntas frequentes
+      href: FAQs.md

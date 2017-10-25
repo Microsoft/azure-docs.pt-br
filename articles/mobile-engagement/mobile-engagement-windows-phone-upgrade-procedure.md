@@ -1,6 +1,6 @@
 ---
 title: "Procedimentos de atualização do SDK do Windows Phone Silverlight"
-description: "Procedimentos de atualização do SDK do Windows Phone Silverlight para o Mobile Engagement do Azure"
+description: "Procedimentos de atualização do SDK do Windows Phone Silverlight para o Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 06b2a8b5e12d33c3ade469491b2694dd4a342cf1
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: f87f65788075c7f4067e77946e1bcbc8f3709317
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-phone-silverlight-sdk-upgrade-procedures"></a>Procedimentos de atualização do SDK do Windows Phone Silverlight
 Se você já tiver integrado uma versão anterior do SDK no seu aplicativo, você deve considerar os seguintes pontos ao atualizar o SDK.
@@ -34,7 +33,7 @@ Agora, os logs do console produzidos pelo SDK podem ser habilitados/desabilitado
             EngagementAgent.Instance.Init();
 
 ## <a name="from-111-to-200"></a>De 1.1.1 a 2.0.0
-O seguinte descreve como migrar uma integração do SDK do serviço Capptain oferecido pelo Capptain SAS em um aplicativo acionado pelo Mobile Engagement do Azure. 
+O seguinte descreve como migrar uma integração do SDK do serviço Capptain oferecido pelo Capptain SAS em um aplicativo acionado pelo Azure Mobile Engagement. 
 
 > [!IMPORTANT]
 > O Capptain e o Mobile Engagement não são os mesmos serviços e o procedimento fornecido abaixo destaca apenas como migrar o aplicativo cliente. Migrar o SDK no aplicativo NÃO migrará os dados dos servidores Capptain para os servidores do Mobile Engagement
@@ -143,5 +142,4 @@ Exemplos de itens do Capptain usados normalmente :
 * GetCapptainPageName agora denominado GetEngagementPageName
 
 Observe que renomear também afeta métodos substituídos.
-
 

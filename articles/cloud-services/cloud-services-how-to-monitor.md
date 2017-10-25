@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2015
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: ab97962175f4498200db428736a1cbd124fac285
-ms.openlocfilehash: aab8f3233191c9b3f839e3358902f72499d93ee5
-
+ms.openlocfilehash: c369b22cf068a473343b006eb1b06fdd350d31db
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-monitor-cloud-services"></a>Como monitorar serviços de nuvem
 [!INCLUDE [disclaimer](../../includes/disclaimer.md)]
@@ -39,7 +40,7 @@ Habilitar o monitoramento detalhado aumentará os custos de armazenamento relaci
 Use os procedimentos a seguir para configurar o monitoramento mínimo ou detalhado no portal clássico do Azure. 
 
 ### <a name="before-you-begin"></a>Antes de começar
-* Crie uma conta de armazenamento *clássico* para armazenar os dados de monitoramento. Você pode usar contas de armazenamento diferentes para funções diferentes. Para obter mais informações, consulte [Como criar contas de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account).
+* Crie uma conta de armazenamento *clássico* para armazenar os dados de monitoramento. Você pode usar contas de armazenamento diferentes para funções diferentes. Para obter mais informações, consulte [Como criar contas de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 * Habilite o Diagnóstico do Azure para as funções do seu serviço de nuvem. Consulte [Configurando os diagnósticos para os Serviços de Nuvem](cloud-services-dotnet-diagnostics.md).
 
 Certifique-se de que a cadeia de conexão de diagnóstico esteja presente na configuração da Função. Você não pode ativar o monitoramento detalhado até que habilite o Diagnóstico do Azure e inclua uma cadeia de conexão de diagnóstico na configuração da Função.   
@@ -175,9 +176,3 @@ WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRTable (hourly aggregations for the role)
 
 WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
 ```
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

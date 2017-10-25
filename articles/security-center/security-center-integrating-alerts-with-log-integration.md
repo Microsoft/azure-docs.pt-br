@@ -14,23 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: fcd14b6b0afe08db82f2b8050beaf03ece7fd212
-ms.lasthandoff: 03/24/2017
-
-
+ms.openlocfilehash: d13e5b87c446e587091551b22d80fe568d5d8093
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrating-azure-security-center-alerts-with-azure-log-integration"></a>Integração de alertas da Central de Segurança do Azure com a integração de log do Azure
-Muitas operações de segurança e equipes de resposta a incidentes contam com uma solução SIEM (Gerenciamento de eventos e informações de segurança) como ponto de partida para separação e investigação de alertas de segurança. Com a integração de log do Azure, os clientes podem sincronizar alertas da Central de Segurança e eventos de segurança da máquina virtual, coletados pelo Diagnóstico do Azure e pelos Logs de Auditoria do Azure, com suas soluções de análise de log e SIEM quase em tempo real.
+Muitas operações de segurança e equipes de resposta a incidentes contam com uma solução SIEM (Gerenciamento de eventos e informações de segurança) como ponto de partida para separação e investigação de alertas de segurança. Com a Integração de Log do Azure, você pode integrar alertas da Central de Segurança do Azure com sua solução SIEM.
 
-A integração do log do Azure funciona com a HP ArcSight, Splunk, IBM Qradar e outros.
+A Integração de Log do Azure atualmente dá suporte a HP ArcSight, Splunk e QRadar da IBM.
 
 ## <a name="what-logs-can-i-integrate"></a>Quais logs posso integrar?
 Azure produz um log abrangente para cada serviço. Esses logs são categorizados como:
 
-* **Logs de Controle/Gerenciamento**, que fornecem visibilidade nas operações CREATE, UPDATE e DELETE do Azure Resource Manager.
-* **Logs de Plano de Dados** que fornecem visibilidade nos eventos gerados ao usar um recurso do Azure. Um exemplo é o Log de Eventos do Windows - os logs de segurança e do aplicativo em uma máquina virtual.
+* **Logs de Controle/Gerenciamento**, que fornecem visibilidade nas operações CREATE, UPDATE e DELETE do Azure Resource Manager. Esses eventos de plano de controle são exibidos nos Logs de Atividade do Azure
+* **Logs de Plano de Dados** que fornecem visibilidade nos eventos gerados ao usar um recurso do Azure. Um exemplo é o log de Eventos do Windows, em que você pode obter informações sobre eventos de segurança do Canal de Segurança do Visualizador de Eventos. Eventos de plano de dados (que são gerados por uma máquina virtual ou um serviço do Azure) são exibidos pelos Logs de Diagnóstico do Azure.
 
 A integração do log do Azure atualmente suporta a integração de:
 
@@ -78,19 +77,15 @@ O serviço de integração do log do Azure coleta os dados de telemetria do comp
 
    * **c:\Users\azlog\ AzureSecurityCenterJson**
    * **c:\Users\azlog\AzureSecurityCenterJsonLD**
-6. Aponte o conector de encaminhamento de arquivos SIEM padrão para a devida pasta para enviar os dados para a instância SIEM. Consulte [Configurações do SIEM](https://azsiempublicdrops.blob.core.windows.net/drops/ALL.htm) na configuração do SIEM.
-
-Se você tiver dúvidas sobre a Integração do Log do Azure, envie um email para [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com).
+6. Configure o conector de encaminhador de arquivo SIEM para a pasta apropriada. O procedimento variará com base no SIEM que você estiver usando.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre os Logs de Auditoria do Azure e as definições das propriedades, consulte:
+Para saber mais sobre os Logs de Atividade do Azure e as definições das propriedades, consulte:
 
 * [Operações de auditoria com o Gerenciador de Recursos](../azure-resource-manager/resource-group-audit.md)
-* [Lista os eventos de gerenciamento em uma assinatura](https://msdn.microsoft.com/library/azure/dn931934.aspx) : para recuperar os eventos do log de auditoria.
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 * [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e responder aos alertas de segurança.
 * [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) : obtenha as últimas notícias de segurança e informações do Azure.
-

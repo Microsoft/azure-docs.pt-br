@@ -3,7 +3,7 @@ title: Definir alertas no Azure Application Insights | Microsoft Docs
 description: "Seja notificado sobre os tempos de resposta lentos, as exceções e outras alterações de desempenho ou de uso em seu aplicativo Web."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: f8ebde72-f819-4ba5-afa2-31dbd49509a5
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 04965375fc94fc1aa8b1c48deb743bb1d0cf1c26
-ms.lasthandoff: 03/21/2017
-
-
+ms.author: bwren
+ms.openlocfilehash: c8386ffc5d68260eeb75edf7efb77db1163dcef8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-alerts-in-application-insights"></a>Definir alertas no Application Insights
 O [Azure Application Insights][start] pode alertá-lo sobre as alterações nas métricas de desempenho ou de uso do aplicativo Web. 
@@ -43,7 +42,7 @@ Abra a folha Regras de alerta e, em seguida, use o botão adicionar.
 * Observe as unidades quando você for solicitado para inserir o valor de limite.
 * Se você marcar a caixa “Proprietários de email...”, os alertas serão enviados por email para qualquer pessoa que tenha acesso a esse grupo de recursos. Para expandir esse grupo de pessoas, adicione-as à [assinatura ou grupo de recursos](app-insights-resources-roles-access-control.md) (não o recurso).
 * Se você especificar “Emails adicionais”, os alertas serão enviados aos indivíduos ou grupos (sem levar em conta se a caixa “proprietários de email...” foi marcada ou não). 
-* Defina um [endereço de webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) se tiver configurado um aplicativo Web que responda aos alertas. Ele será chamado quando o alerta for Ativado (isto é, disparado) e quando ele for Resolvido. (Mas observe que, no momento, os parâmetros de consulta não são passados como propriedades de webhook)
+* Defina um [endereço de webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) se tiver configurado um aplicativo Web que responda aos alertas. Ele é chamado quando o alerta é ativado e quando ele está resolvido. (Mas observe que, no momento, os parâmetros de consulta não são passados como propriedades de webhook)
 * É possível Desabilitar ou Habilitar o alerta: veja os botões na parte superior da folha.
 
 *Não vejo o botão Adicionar Alerta.* 
@@ -51,7 +50,7 @@ Abra a folha Regras de alerta e, em seguida, use o botão adicionar.
 * Você está usando uma conta organizacional? Você poderá definir alertas se tiver acesso de proprietário ou colaborador a esse recurso de aplicativo. Vejamos a folha Controle de Acesso. [Saiba mais sobre o controle de acesso][roles].
 
 > [!NOTE]
-> Na folha de alertas, você verá que já existe uma configuração de alerta: [Diagnóstico Proativo](app-insights-proactive-failure-diagnostics.md). Este é um alerta automático que monitora uma métrica específica, taxa de falha de solicitação. A menos que você opte por desabilitar o alerta proativo, não precisa definir seu próprio alerta na taxa de falha de solicitação. 
+> Na folha de alertas, você vê que já existe uma configuração de alerta: [Proactive Diagnostics](app-insights-proactive-failure-diagnostics.md). O alerta automático monitora uma métrica específica, taxa de falha de solicitação. A menos que você opte por desabilitar o alerta proativo, não precisa definir seu próprio alerta na taxa de falha de solicitação. 
 > 
 > 
 
@@ -81,12 +80,12 @@ O histórico das alterações de estado está no Log de Atividades:
 * Um alerta pode piscar frequentemente entre os estados de alerta e íntegro, mesmo que você defina um longo período. Isso pode acontecer se o valor da métrica estiver em torno do limite. Não há nenhuma histerese no limite: a transição para o alerta acontece com o mesmo valor que a transição para o estado íntegro.
 
 ## <a name="what-are-good-alerts-to-set"></a>Quais são alguns alertas que é recomendável definir?
-Depende de seu aplicativo. Para começar, é melhor não definir um número excessivo de métricas. Passe algum tempo examinando seus gráficos de métricas enquanto seu aplicativo está em execução para ter uma noção de como ele se comporta normalmente. Isso o ajuda a encontrar maneiras de melhorar seu desempenho. Em seguida, configure alertas para informá-lo quando as métricas estiverem fora da zona normal. 
+Depende de seu aplicativo. Para começar, é melhor não definir um número excessivo de métricas. Passe algum tempo examinando seus gráficos de métricas enquanto seu aplicativo está em execução para ter uma noção de como ele se comporta normalmente. Esta prática ajuda a encontrar maneiras de melhorar o desempenho. Em seguida, configure alertas para informá-lo quando as métricas estiverem fora da zona normal. 
 
 Alguns alertas populares são:
 
-* [Métricas de navegador][client], especificamente, **tempos de carregamento de página** do navegador, são adequados para aplicativos Web. Se sua página tem vários scripts, convém procurar **exceções de navegador**. Para obter essas métricas e esses alertas, você precisa configurar o [monitoramento de página da Web][client].
-* **Tempo de resposta do servidor** para o lado do servidor de aplicativos Web. Além de configurar alertas, confira essa métrica para ver se ela varia de forma desproporcional com altas taxas de solicitação: isso pode indicar que seu aplicativo está ficando sem recursos. 
+* [Métricas de navegador][client], especificamente, **tempos de carregamento de página** do navegador, são adequados para aplicativos Web. Se a página tem muitos scripts, você deve procurar **exceções de navegador**. Para obter essas métricas e esses alertas, você precisa configurar o [monitoramento de página da Web][client].
+* **Tempo de resposta do servidor** para o lado do servidor de aplicativos Web. Além de configurar alertas, confira essa métrica para ver se ela varia de forma desproporcional com altas taxas de solicitação: a variação pode indicar que seu aplicativo está ficando sem recursos. 
 * **Exceções de servidor** - para vê-las, você precisa fazer algumas [configurações adicionais](app-insights-asp-net-exceptions.md).
 
 Não se esqueça de que [diagnósticos de taxa de falha proativos](app-insights-proactive-failure-diagnostics.md) monitoram automaticamente a taxa em que seu aplicativo responde às solicitações com códigos de falha. 
@@ -111,5 +110,4 @@ Não se esqueça de que [diagnósticos de taxa de falha proativos](app-insights-
 [platforms]: app-insights-platforms.md
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
-
 

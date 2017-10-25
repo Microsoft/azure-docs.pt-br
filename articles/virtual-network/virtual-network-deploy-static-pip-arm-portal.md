@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 7740861cccfe0ba4e8ae0694f6d5c5fec3df47ef
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: 233e4eea8439320c1c7446e2c2b2e9d379351a3e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-portal"></a>Como criar uma VM com um endereço IP público estático usando o Portal do Azure
 
@@ -65,5 +64,4 @@ Para criar uma VM com um endereço IP público estático no Portal do Azure, sig
 10. Depois que a VM é criada, a folha **Configurações** será exibida conforme mostrado abaixo
     
     ![Portal do Azure - Criar endereço IP público](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
-
 

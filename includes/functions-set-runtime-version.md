@@ -1,0 +1,2 @@
+
+Para fazer seu aplicativo de função usar a versão prévia 2.0 do tempo de execução do Functions, defina a configuração do aplicativo `FUNCTIONS_EXTENSION_VERSION` em seu aplicativo de função para um valor de `beta`.

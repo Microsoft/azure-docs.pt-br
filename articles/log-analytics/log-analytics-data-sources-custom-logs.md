@@ -12,29 +12,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 08/15/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
-ms.openlocfilehash: a9c70810c4f731b2d8b395873fa6b94db78306aa
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: b7f28868e3ffdf95dbe39872f382e7c97eae692c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Logs personalizados no Log Analytics
-A fonte de dados de logs personalizados no Log Analytics permite que você colete eventos de arquivos de texto em computadores com Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registro standard, como o log de eventos do Windows ou Syslog.  Depois de coletados, você pode analisar cada registro no log em campos individuais usando a funcionalidade [Campos Personalizados](log-analytics-custom-fields.md) do Log Analytics.
+A fonte de dados de logs personalizados no Log Analytics permite que você colete eventos de arquivos de texto em computadores com Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registro standard, como o log de eventos do Windows ou Syslog.  Depois de coletados, você pode analisar cada registro no log em campos individuais usando o recurso [Campos Personalizados](log-analytics-custom-fields.md) do Log Analytics.
 
 ![Coleta de log personalizado](media/log-analytics-data-sources-custom-logs/overview.png)
 
 Os arquivos de log a serem coletados devem corresponder aos critérios a seguir.
 
-* O log deve ter uma única entrada por linha ou usar um carimbo de data/hora correspondente a um dos formatos a seguir no início de cada entrada.
-  
-    AAAA-MM-DD HH:MM:SS  <br>
-    M/D/AAAA HH: MM: SS AM/PM <br>
-   DD de M de AAAA HH:MM:SS
-* O arquivo de log não deve permitir atualizações circulares em que o arquivo é substituído por novas entradas. 
+- O log deve ter uma única entrada por linha ou usar um carimbo de data/hora correspondente a um dos formatos a seguir no início de cada entrada.
 
+    AAAA-MM-DD HH:MM:SS <br>M/D/AAAA HH:MM:SS AM/PM <br>Mês DD,AAAA HH:MM:SS
+
+- O arquivo de log não deve permitir atualizações circulares em que o arquivo é substituído por novas entradas.
+- O arquivo de log deve usar a codificação ASCII ou UTF-8.  Não há suporte para outros formatos, como UTF-16.
+
+>[!NOTE]
+>Se houver entradas duplicadas no arquivo de log, análise de Log coletará-los.  No entanto, os resultados da pesquisa será inconsistente onde os resultados do filtro mostram mais eventos do que a contagem de resultados.  É importante que você valide o log para determinar se o aplicativo que cria está causando o problema e resolvê-lo se possível, antes de criar a definição de coleção de log personalizado.  
+>
+  
 ## <a name="defining-a-custom-log"></a>Definindo um log personalizado
 Use o procedimento a seguir para definir um arquivo de log personalizado.  Role até o final deste artigo para encontrar um passo a passo de um exemplo de adição de um log personalizado.
 
@@ -49,27 +52,27 @@ O Custom Log Wizard (Assistente de Log Personalizado) é executado no portal do 
 ### <a name="step-2-upload-and-parse-a-sample-log"></a>Etapa 2. Carregar e analisar um log de exemplo
 Inicie carregando um exemplo de log personalizado.  O assistente analisará e exibirá as entradas nesse arquivo para validação.  O Log Analytics usará o delimitador que você especificar para identificar cada registro.
 
-**Nova Linha** é o delimitador padrão e é usado para arquivos de log que têm uma única entrada por linha.  Se a linha começar com uma data e hora em um dos formatos disponíveis, você poderá especificar um delimitador **Carimbo de data/hora** , que dá suporte a entradas que se estendem por mais de uma linha. 
+**Nova Linha** é o delimitador padrão e é usado para arquivos de log que têm uma única entrada por linha.  Se a linha começar com uma data e hora em um dos formatos disponíveis, você poderá especificar um delimitador **Carimbo de data/hora** , que dá suporte a entradas que se estendem por mais de uma linha.
 
-Se for usado um delimitador de carimbo de data/hora, a propriedade TimeGenerated de cada registro armazenado no OMS será populada com a data/hora especificada para a entrada no arquivo de log.  Se um delimitador de nova linha for usado, TimeGenerated será populada com a data e hora em que o Log Analytics coletou a entrada. 
+Se for usado um delimitador de carimbo de data/hora, a propriedade TimeGenerated de cada registro armazenado no OMS será populada com a data/hora especificada para a entrada no arquivo de log.  Se um delimitador de nova linha for usado, TimeGenerated será populada com a data e hora em que o Log Analytics coletou a entrada.
 
 > [!NOTE]
-> O Log Analytics atualmente trata a data/hora coletadas de um log usando um delimitador de carimbo de data/hora como UTC.  Isso em breve será alterado para usar o fuso horário no agente. 
-> 
-> 
+> O Log Analytics atualmente trata a data/hora coletadas de um log usando um delimitador de carimbo de data/hora como UTC.  Isso em breve será alterado para usar o fuso horário no agente.
+>
+>
 
 1. Clique em **Procurar** e navegue até um arquivo de exemplo.  Observe que esse botão pode ser rotulado como **Escolher Arquivo** em alguns navegadores.
-2. Clique em **Próximo**. 
+2. Clique em **Avançar**.
 3. O Custom Log Wizard (Assistente de Log Personalizado) carregará o arquivo e listará os registros que identificar.
 4. Altere o delimitador usado para identificar um novo registro e selecione o delimitador que melhor identifica os registros no arquivo de log.
-5. Clique em **Próximo**.
+5. Clique em **Avançar**.
 
 ### <a name="step-3-add-log-collection-paths"></a>Etapa 3. Adicionar caminhos de coleta de log
 Você deve definir um ou mais caminhos no agente no qual ele pode localizar o log personalizado.  Você pode fornecer um caminho e um nome específicos para o arquivo de log ou pode especificar um caminho com um caractere curinga para o nome.  Isso dá suporte a aplicativos que criam um novo arquivo por dia ou quando um arquivo atinge um determinado tamanho.  Você também pode fornecer vários caminhos para um único arquivo de log.
 
 Por exemplo, um aplicativo pode criar um arquivo de log por dia com a data incluída no nome, como log20100316.txt. Um padrão para tal log pode ser *log\*.txt*, que se aplica a qualquer arquivo de log após o esquema de nomenclatura do aplicativo.
 
-A tabela a seguir fornece exemplos de padrões válidos para especificar diferentes arquivos de log. 
+A tabela a seguir fornece exemplos de padrões válidos para especificar diferentes arquivos de log.
 
 | Descrição | Caminho |
 |:--- |:--- |
@@ -96,8 +99,8 @@ Depois que o Log Analytics iniciar a coleta de log personalizado, seus registros
 
 > [!NOTE]
 > Se a propriedade RawData estiver ausente da pesquisa, você precisará fechar e reabrir o navegador.
-> 
-> 
+>
+>
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>Etapa 6. Analisar as entradas do log personalizado
 A entrada de log inteira será armazenada em uma única propriedade chamada **RawData**.  Você provavelmente desejará separar as diferentes partes de informações em cada entrada em propriedades individuais armazenados no registro.  Você faz isso usando a funcionalidade [Campos Personalizados](log-analytics-custom-fields.md) do Log Analytics.
@@ -123,9 +126,9 @@ Os registros de log personalizado têm um tipo com o nome do log que você forne
 | Propriedade | Descrição |
 |:--- |:--- |
 | TimeGenerated |Data e hora em que o registro foi coletado pelo Log Analytics.  Se o log usar um delimitador baseado na hora, essa será a hora coletada da entrada. |
-| SourceSystem |Tipo de registro do qual os dados foram coletados. <br> OpsManager - agente do Windows: conexão direta ou SCOM <br> Linux: todos os agentes do Linux |
+| SourceSystem |Tipo de registro do qual os dados foram coletados. <br> OpsManager – agente do Windows, conexão direta ou System Center Operations Manager <br> Linux: todos os agentes do Linux |
 | RawData |Texto completo da entrada coletada. |
-| ManagementGroupName |Nome do grupo de gerenciamento de agentes do SCOM.  Para outros agentes, ele é AOI-\<ID do espaço de trabalho\> |
+| ManagementGroupName |Nome do grupo de gerenciamento para agentes do System Center Operations Manager.  Para outros agentes, ele é AOI-\<ID do espaço de trabalho\> |
 
 ## <a name="log-searches-with-custom-log-records"></a>Pesquisas de log com registros de log personalizados
 Os registros de logs personalizados são armazenados no repositório do OMS, exatamente como registros de qualquer outra fonte de dados.  Eles terão um tipo correspondente ao nome que você fornecer ao definir o log, então você pode usar a propriedade Type em sua pesquisa para recuperar registros coletados de um log específico.
@@ -137,6 +140,15 @@ A tabela a seguir fornece diferentes exemplos de pesquisas de log que recuperam 
 | Type=MyApp_CL |Todos os eventos de um log personalizado chamado MyApp_CL. |
 | Type=MyApp_CL Severity_CF=error |Todos os eventos de um log personalizado chamado MyApp_CL com um valor de *erro* em um campo personalizado chamado *Severity_CF*. |
 
+>[!NOTE]
+> Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), as consultas acima seriam alteradas para o demonstrado a seguir.
+
+> | Consultar | Descrição |
+|:--- |:--- |
+| MyApp_CL |Todos os eventos de um log personalizado chamado MyApp_CL. |
+| MyApp_CL &#124; where Severity_CF=="error" |Todos os eventos de um log personalizado chamado MyApp_CL com um valor de *erro* em um campo personalizado chamado *Severity_CF*. |
+
+
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Passo a passo do exemplo de adição de um log personalizado
 A seção a seguir explica passo a passo um exemplo de criação de um log personalizado.  O log de exemplo sendo coletado tem uma única entrada em cada linha que começa com uma data e hora e campos delimitados por vírgula para o código, status e mensagem.  Várias entradas de exemplo são mostradas abaixo.
 
@@ -147,7 +159,7 @@ A seção a seguir explica passo a passo um exemplo de criação de um log perso
     2016-03-10 01:31:34 303,Error,Application lost connection to database
 
 ### <a name="upload-and-parse-a-sample-log"></a>Carregar e analisar um log de exemplo
-Fornecemos um dos arquivos de log e podemos ver os eventos que ele coletará.  Nesse caso, Nova Linha é um delimitador suficiente.  Se uma única entrada no log pudesse abranger várias linhas, seria necessário usar um delimitador de carimbo de data/hora.
+Fornecemos um dos arquivos de log e podemos ver os eventos que ele coletará.  Nesse caso, Nova Linha é um delimitador suficiente.  Se uma única entrada de log pudesse abranger várias linhas, seria necessário usar um delimitador de carimbo de data/hora.
 
 ![Carregar e analisar um log de exemplo](media/log-analytics-data-sources-custom-logs/delimiter.png)
 
@@ -172,7 +184,5 @@ Usamos campos personalizados para definir os campos *EventTime*, *Code*, *Status
 ![Consulta de log com campos personalizados](media/log-analytics-data-sources-custom-logs/query-02.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Use [campos personalizados](log-analytics-custom-fields.md) para analisar as entradas no log personalizado em campos personalizados.
-* Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções. 
-
-
+* Use [Campos Personalizados](log-analytics-custom-fields.md) para analisar as entradas no log personalizado em campos personalizados.
+* Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções.

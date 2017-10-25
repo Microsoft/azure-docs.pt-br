@@ -19,14 +19,9 @@
    4. Selecione uma retenção. As opções de retenção dependem da frequência do backup.
    5. Selecione a hora e a data de início da política.
    6. Marque a caixa de seleção para habilitar a política.
-6. Clique no ícone de verificação  ![ícone de verificação](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png)  para concluir.
+6. Clique no ícone de verificação  ![ícone de verificação](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) para concluir.
 7. Você será retornado para os detalhes da política. Clique em **Salvar** para salvar as alterações feitas nessa política. Você será notificado quando a política tiver sido salva.
 8. Retorne para a página **Políticas de Backup** . A listagem tabular de políticas de backup será atualizada para exibir a política modificada.
    
     ![Política de backup personalizada](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -1,0 +1,77 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação do Log Analytics
+metadata:
+  title: 'Documentação do Log Analytics do Azure - Tutoriais, Referência de API | Microsoft Docs'
+  description: 'O Log Analytics faz parte da solução geral de monitoramento do Microsoft Azure.  O Log Analytics monitora ambientes na nuvem e locais para manter a disponibilidade e o desempenho. Aprofunde-se sobre as cargas de trabalho e sistemas para manter a disponibilidade e o desempenho. Aprenda a coletar, analisar e agir nos dados com nossos inícios rápidos, tutoriais e exemplos.'
+  services: log-analytics
+  author: czeumault
+  manager: carolz
+  ms.service: log-analytics
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/41/2017
+  ms.author: carolz
+abstract:
+  description: 'O Log Analytics faz parte da solução geral de monitoramento do Microsoft Azure. O Log Analytics monitora ambientes na nuvem e locais para manter a disponibilidade e o desempenho. Aprofunde-se sobre as cargas de trabalho e sistemas para manter a disponibilidade e o desempenho. Aprenda a coletar, analisar e agir nos dados com nossos inícios rápidos, tutoriais e exemplos.'
+sections:
+  - title: Guia de início rápido de 5 minutos
+    items:
+      - type: paragraph
+        text: 'Saiba como implantar o Log Analytics e configurar a coleta de dados do Azure, outros provedores de nuvem e recursos locais.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/media/index/virtualmachine.svg'
+            text: VMs do Azure
+            href: /azure/log-analytics/log-analytics-quick-collect-azurevm
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+            text: Computador Linux
+            href: /azure/log-analytics/log-analytics-quick-collect-linux-computer
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_Windows.svg'
+            text: Computador com Windows
+            href: /azure/log-analytics/log-analytics-quick-collect-windows-computer
+  - title: Tutoriais Passo a Passo
+    items:
+      - type: paragraph
+        text: 'Saiba como analisar, visualizar e agir nos dados coletados.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/log-analytics/log-analytics-tutorial-viewdata">Exibir ou analisar dados coletados</a>
+          - html: <a href="/azure/log-analytics/log-analytics-tutorial-dashboards">Criar e compartilhar painéis</a>
+          - html: <a href="/azure/log-analytics/log-analytics-tutorial-response">Responder a eventos com alertas do Log Analytics</a>
+  - title: Treinamento em vídeo PluralSight gratuito
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Introdução ao Monitoramento de IaaS
+            href: 'https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents'
+  - title: Exemplos
+    items:
+      - type: paragraph
+        text: Use os exemplos a seguir para configurar e gerenciar o Log Analytics.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/log-analytics/powershell-samples">PowerShell do Azure</a>
+  - title: Referência
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linha de comando
+            html: <p><a href="/powershell/module/azurerm.operationalinsights">PowerShell do Azure</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/loganalytics">referência da API REST (a página pode estar em inglês)</a></p>

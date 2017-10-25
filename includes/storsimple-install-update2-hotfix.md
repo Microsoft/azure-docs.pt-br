@@ -210,8 +210,3 @@ Para instalar as atualizações de firmware de disco, siga as instruções abaix
    `Exit-HcsMaintenanceMode`
 5. Os controladores são reiniciados quando você sai do modo de manutenção. Depois que as atualizações do firmware de disco forem aplicadas com êxito e o dispositivo tiver saído do modo de manutenção, retorne ao portal clássico do Azure. Observe que, por 24 horas, o portal poderá não mostrar que as atualizações do modo de manutenção foram instaladas.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

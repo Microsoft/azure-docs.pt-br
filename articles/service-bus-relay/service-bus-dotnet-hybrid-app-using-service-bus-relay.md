@@ -12,17 +12,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 02/16/2017
+ms.date: 06/14/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: 6c59c98a400da0616762b2bd0c4217d97e22ab86
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: d15c30dad9fb4bbe9082d6a3c72cd20ed42bbc3e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Aplicativo híbrido .NET local/na nuvem usando a Retransmissão do WCF do Azure
 ## <a name="introduction"></a>Introdução
+
 Este artigo mostra como criar um aplicativo de nuvem híbrida com o Microsoft Azure e o Visual Studio. Este tutorial pressupõe que você não tem uma experiência anterior com o Azure. Em menos de 30 minutos, você terá um aplicativo que usa vários recursos do Azure em funcionamento na nuvem.
 
 Você aprenderá:
@@ -33,6 +33,7 @@ Você aprenderá:
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## <a name="how-azure-relay-helps-with-hybrid-solutions"></a>Como a Retransmissão do Azure ajuda com soluções híbridas
+
 As soluções de negócios geralmente são compostas por uma combinação de código personalizado escrito para lidar com os requisitos de negócios novos e exclusivos e a funcionalidade existente fornecida pelas soluções e sistemas que já estão estabelecidos.
 
 Os arquitetos de solução estão começando a utilizar a nuvem para obter um manuseio mais fácil de requisitos de escala e custos operacionais mais baixos. Ao fazer isso, eles descobrem serviços ativos existentes que gostariam de aproveitar, como blocos de construção para suas soluções estão dentro do firewall corporativo e fora de alcance fácil para acesso pela solução de nuvem. Muitos serviços internos não são construídos ou hospedados de forma que possam ser facilmente expostos na borda da rede corporativa.
@@ -46,37 +47,38 @@ Neste tutorial, você criará um site ASP.NET que permitirá ver uma lista de pr
 
 O tutorial supõe que você tem informações sobre produtos em um sistema local existente e utiliza a Retransmissão do Azure para acessar esse sistema. Isso é simulado por um serviço Web executado em um aplicativo de console simples e com o suporte de um conjunto de produtos na memória. Você poderá executar esse aplicativo de console em seu próprio computador e implantar a função web no Azure. Fazendo isso, você verá como a função de web em execução no datacenter do Azure realmente será chamada em seu computador, embora seu computador certamente resida atrás de pelo menos um firewall e de uma camada de NAT (conversão de endereços de rede).
 
-A captura de tela da página inicial do aplicativo Web completo é mostrada abaixo.
-
-![][1]
-
 ## <a name="set-up-the-development-environment"></a>Configurar o ambiente de desenvolvimento
+
 Antes de começar a desenvolver aplicativos do Azure, baixe as ferramentas e configure seu ambiente de desenvolvimento:
 
 1. Instale o Azure SDK para .NET da [página de downloads](https://azure.microsoft.com/downloads/) do SDK.
-2. Na coluna **.NET**, clique na versão do [Visual Studio](http://www.visualstudio.com) que você está usando. As etapas neste tutorial usam o Visual Studio 2015.
+2. Na coluna **.NET**, clique na versão do [Visual Studio](http://www.visualstudio.com) que você está usando. As etapas neste tutorial usam o Visual Studio 2015, mas também funcionam com o Visual Studio 2017.
 3. Quando for solicitado a executar ou salvar o instalador, clique em **Executar**.
 4. No **Web Platform Installer**, clique em **Instalar** e prossiga com a instalação.
 5. Quando a instalação estiver concluída, você terá tudo o que é necessário para iniciar o desenvolvimento do aplicativo. O SDK inclui ferramentas que permitem que você desenvolva facilmente aplicativos do Azure no Visual Studio.
 
 ## <a name="create-a-namespace"></a>Criar um namespace
+
 Para começar a usar os recursos de retransmissão no Azure, você deve primeiro criar um namespace de serviço. Um namespace fornece um contêiner de escopo para endereçar recursos do Azure dentro de seu aplicativo. Siga as [instruções aqui](relay-create-namespace-portal.md) para criar um namespace de Retransmissão.
 
 ## <a name="create-an-on-premises-server"></a>Criar um servidor local
+
 Primeiro você irá criar um sistema de catálogo de produtos (fictício) local. Será muito simples, você pode ver isso como uma representação de um sistema de catálogo de produtos real local com uma superfície de serviço completa que estamos tentando integrar.
 
 Este projeto é um aplicativo de console do Visual Studio e usa o [pacote NuGet do Barramento de Serviço do Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) para incluir as bibliotecas do Barramento de Serviço e as definições da configuração.
 
 ### <a name="create-the-project"></a>Criar o projeto
+
 1. Utilizando privilégios do administrador, inicie o Microsoft Visual Studio. Para fazer isso, clique com o botão direito do mouse no ícone do programa do Visual Studio e, em seguida, clique em **Executar como administrador**.
 2. No Visual Studio, no menu **Arquivo**, clique em **Novo** e clique em **Projeto**.
-3. Em **Modelos Instalados**, em **Visual C#**, clique em **Aplicativo de Console**. Na caixa **Nome**, digite o nome **ServidorDeProdutos**:
+3. Em **Modelos Instalados**, em **Visual C#**, clique em **Aplicativo de Console (.NET Framework)**. Na caixa **Nome**, digite o nome **ServidorDeProdutos**:
 
    ![][11]
 4. Clique em **OK** para criar o projeto **ServidorDeProdutos**.
 5. Se você já tiver instalado o Gerenciador de Pacotes NuGet para Visual Studio, vá para a próxima etapa. Caso contrário, visite [NuGet][NuGet] e clique em [Instalar NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Siga os prompts para instalar o Gerenciador de Pacotes NuGet e, em seguida, reinicie o Visual Studio.
 6. No Gerenciador de Soluções, clique com o botão direito no projeto **ServidorDeProdutos** e clique em **Gerenciar Pacotes NuGet**.
-7. Clique na guia **Procurar** e procure `Microsoft Azure Service Bus`. Clique em **Instalar**e aceite os termos de uso.
+7. Clique na guia **Procurar** e procure `Microsoft Azure Service Bus`. Selecione o pacote **WindowsAzure.ServiceBus**.
+8. Clique em **Instalar**e aceite os termos de uso.
 
    ![][13]
 
@@ -208,31 +210,33 @@ Este projeto é um aplicativo de console do Visual Studio e usa o [pacote NuGet 
 14. Pressione **Ctrl+Shift+B** ou no menu **Compilar**, clique em **Compilar Solução** para compilar o aplicativo e verificar a precisão de seu trabalho até o momento.
 
 ## <a name="create-an-aspnet-application"></a>Criar um aplicativo ASP.NET
+
 Nesta seção você criará um aplicativo ASP.NET simples que exibe os dados recuperados do seu serviço de produto.
 
 ### <a name="create-the-project"></a>Criar o projeto
+
 1. Certifique-se de que o Visual Studio está sendo executado com os privilégios de administrador.
 2. No Visual Studio, no menu **Arquivo**, clique em **Novo** e clique em **Projeto**.
-3. Em **Modelos Instalados**, em **Visual C#**, clique em **Aplicativo Web ASP.NET**. Nomeie o projeto como **PortalDeProdutos**. Em seguida, clique em **OK**.
+3. Em **Modelos Instalados**, em **Visual C#**, clique em **Aplicativo Web ASP.NET (.NET Framework)**. Nomeie o projeto como **PortalDeProdutos**. Em seguida, clique em **OK**.
 
    ![][15]
-4. Na lista **Selecionar um modelo**, clique em **MVC**.
-5. Marque a caixa **Host na nuvem**.
+
+4. Na lista **Modelos ASP.NET** do diálogo **Novo Aplicativo Web ASP.NET**, clique em **MVC**.
 
    ![][16]
-6. Clique no botão **Alterar Autenticação**. Na caixa de diálogo **Alterar Autenticação**, clique em **Sem Autenticação** e clique em **OK**. Para este tutorial, você está implantando um aplicativo que não precisa de um logon de usuário.
+
+6. Clique no botão **Alterar Autenticação**. Na caixa de diálogo **Alterar Autenticação**, garanta que **Sem Autenticação** esteja selecionado e clique em **OK**. Para este tutorial, você está implantando um aplicativo que não precisa de um logon de usuário.
 
     ![][18]
-7. Na seção **Microsoft Azure** da caixa de diálogo **Novo Projeto ASP.NET**, certifique-se de que **Host na nuvem** está selecionado e que **Serviço de Aplicativo** está selecionado na lista suspensa.
 
-   ![][19]
-8. Clique em **OK**.
-9. Agora você deve configurar os recursos do Azure para um novo aplicativo Web. Siga todas as etapas em [Criar um aplicativo Web](../app-service-web/web-sites-dotnet-get-started.md#create-a-web-application) e [Criar recursos do Azure](../app-service-web/web-sites-dotnet-get-started.md#create-the-azure-resources). Em seguida, retorne a este tutorial e prossiga para a próxima etapa.
+7. De volta ao diálogo **Novo aplicativo Web ASP.NET**, clique em **OK** para criar o aplicativo MVC.
+8. Agora você deve configurar os recursos do Azure para um novo aplicativo Web. Siga as etapas da [seção Publicar no Azure deste artigo](../app-service/app-service-web-get-started-dotnet.md). Em seguida, retorne a este tutorial e prossiga para a próxima etapa.
 10. No Gerenciador de Soluções, clique com o botão direito do mouse em **Modelos**, clique em **Adicionar** e em **Classe**. Na caixa **Nome**, digite o nome **Product.cs**. Clique em **Adicionar**.
 
     ![][17]
 
 ### <a name="modify-the-web-application"></a>Modificar o aplicativo web
+
 1. No arquivo Product.cs, no Visual Studio, substitua a definição de namespace existente pelo código a seguir.
 
    ```csharp
@@ -274,8 +278,8 @@ Nesta seção você criará um aplicativo ASP.NET simples que exibe os dados rec
 6. Remova os links **Página Inicial**, **Sobre** e **Contato**. No exemplo a seguir, exclua o código destacado.
 
     ![][41]
-7. No Gerenciador de Soluções, expanda a pasta Views\Home e clique duas vezes em **Index.cshtml** para abri-lo no editor do Visual Studio.
-   Substitua todo o conteúdo do arquivo pelo código a seguir.
+
+7. No Gerenciador de Soluções, expanda a pasta Views\Home e clique duas vezes em **Index.cshtml** para abri-lo no editor do Visual Studio. Substitua todo o conteúdo do arquivo pelo código a seguir.
 
    ```html
    @model IEnumerable<ProductsWeb.Models.Product>
@@ -313,24 +317,27 @@ Nesta seção você criará um aplicativo ASP.NET simples que exibe os dados rec
 8. Para verificar a precisão de seu trabalho até o momento, você pode pressionar **Ctrl+Shift+B** para compilar o projeto.
 
 ### <a name="run-the-app-locally"></a>Executar o aplicativo localmente
+
 Execute o aplicativo para verificar se ele funciona.
 
 1. Verifique se o **PortalDeProdutos** é o projeto ativo. No Gerenciador de Soluções, clique com o botão direito do mouse no nome do projeto e selecione **Definir como Projeto de Inicialização**.
-2. No Visual Studio, pressione F5.
+2. No Visual Studio, pressione **F5**.
 3. Seu aplicativo deve aparecer em execução em um navegador.
 
    ![][21]
 
 ## <a name="put-the-pieces-together"></a>Juntar as peças
+
 A próxima etapa é vincular o servidor de produtos local com o aplicativo ASP.NET.
 
 1. Se ele ainda não estiver aberto, no Visual Studio, reabra o projeto **PortalDeProdutos** criado na seção [Criar um Aplicativo ASP.NET](#create-an-aspnet-application).
 2. Assim como na etapa da seção "Criar um servidor local", adicione o pacote NuGet às referências do projeto. No Gerenciador de Soluções, clique com o botão direito no projeto **PortalDeProdutos** e clique em **Gerenciar Pacotes NuGet**.
-3. Procure "Barramento de Serviço" e selecione o item **Barramento de Serviço do Microsoft Azure** . Então conclua a instalação e feche esta caixa de diálogo.
+3. Procure "Barramento de Serviço" e selecione o item **WindowsAzure.ServiceBus** . Então conclua a instalação e feche esta caixa de diálogo.
 4. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **PortalDeProdutos**, clique em **Adicionar** e em **Item Existente**.
 5. Navegue até o arquivo **ProductsContract.cs** do projeto de console **ServidorDeProdutos**. Clique para realçar ProductsContract.cs. Clique na seta para baixo ao lado de **Adiciona**r e clique em **Adicionar como Link**.
 
    ![][24]
+
 6. Agora abra o arquivo **HomeController.cs** no editor do Visual Studio e substitua a definição de namespace pelo código a seguir. Substitua *seuNamespaceDeServiço* pelo nome do seu namespace de serviço e *suaChave* pela sua chave SAS. Isso permitirá que o cliente chame o serviço local, retornando o resultado da chamada.
 
    ```csharp
@@ -378,14 +385,17 @@ A próxima etapa é vincular o servidor de produtos local com o aplicativo ASP.N
 10. No lado esquerdo, clique em **Projeto de Inicialização**. No lado direito, clique em **Vários projeto de Inicialização**. Verifique se **ServidorDeProdutos** e **PortalDeProdutos** aparecem, nessa ordem, com **Iniciar** definido como a ação para ambos.
 
       ![][25]
+
 11. Ainda na caixa de diálogo **Propriedades**, clique em **Dependências do Projeto** no lado esquerdo.
-12. Na lista **Projetos**, clique em **ServidorDeProdutos**. Confirme se **PortalDeProdutos** **não** está selecionado.
+12. Na lista **Projetos**, clique em **ServidorDeProdutos**. Confirme se **ProductsPortal** não está selecionado.
 13. Na lista **Projetos**, clique em **PortalDeProdutos**. Verifique se **ServidorDeProdutos** está selecionado.
 
     ![][26]
+
 14. Clique em **OK** na caixa de diálogo **Páginas da Propriedade**.
 
 ## <a name="run-the-project-locally"></a>Executar o projeto localmente
+
 Para testar o aplicativo localmente, no Visual Studio, pressione **F5**. O servidor local (**ServidorDeProdutos**) deve iniciar primeiro e, então, o aplicativo **PortalDeProdutos** deve iniciar em uma janela do navegador. Desta vez, você verá que o inventário de produtos lista dados recuperados do sistema local de serviço de produto.
 
 ![][10]
@@ -395,29 +405,37 @@ Pressione **Atualizar** na página **PortalDeProdutos**. Sempre que você atuali
 Feche os aplicativos antes de prosseguir para a próxima etapa.
 
 ## <a name="deploy-the-productsportal-project-to-an-azure-web-app"></a>Implantar o projeto ProductsPortal em um aplicativo Web do Azure
-A próxima etapa é converter o front-end **PortalDeProdutos** em um aplicativo Web do Azure. Primeiro, implante o projeto **PortalDeProdutos**, seguindo todas as etapas na seção [Implantar o projeto Web no Azure](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-azure). Após a implantação ser concluída, retorne a este tutorial e prossiga para a próxima etapa.
 
-> [!NOTE]
-> Você verá uma mensagem de erro na janela do navegador quando o projeto Web **PortalDeProdutos** for iniciado automaticamente após a implantação. Isso é esperado e ocorre porque o aplicativo **ServidorDeProdutos** não está sendo executado ainda.
+A próxima etapa é publicar novamente o front-end **ProductsPortal** do aplicativo Web do Azure. Faça o seguinte:
+
+1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ProductsPortal** e clique em **Publicar**. Em seguida, clique em **Publicar** na página **Publicar**.
+
+  > [!NOTE]
+  > Você verá uma mensagem de erro na janela do navegador quando o projeto Web **PortalDeProdutos** for iniciado automaticamente após a implantação. Isso é esperado e ocorre porque o aplicativo **ServidorDeProdutos** não está sendo executado ainda.
 >
 >
 
-Copie a URL do aplicativo Web implantado, pois você precisará dela na próxima etapa. Você também pode obter essa URL na janela Atividade do Serviço de Aplicativo do Azure no Visual Studio:
+2. Copie a URL do aplicativo Web implantado, pois você precisará dela na próxima etapa. Você também pode obter essa URL na janela Atividade do Serviço de Aplicativo do Azure no Visual Studio:
 
-![][9]
+  ![][9]
+
+3. Feche a janela do navegador para interromper o aplicativo em execução.
 
 ### <a name="set-productsportal-as-web-app"></a>Defina ProductsPortal como o aplicativo Web
+
 Antes de executar o aplicativo na nuvem, você deve garantir que **PortalDeProdutos** seja inicializado de dentro do Visual Studio como um aplicativo Web.
 
-1. No Visual Studio, clique com o botão direito no projeto **PortalDeProjetos** e em **Propriedades**.
+1. No Visual Studio, clique com o botão direito no projeto **ProductsPortal** e em **Propriedades**.
 2. Na coluna à esquerda, clique em **Web**.
 3. Na seção **Iniciar Ação**, clique no botão **Iniciar URL** e na caixa de texto, insira a URL de seu aplicativo Web implantado anteriormente; por exemplo, `http://productsportal1234567890.azurewebsites.net/`.
 
     ![][27]
+
 4. No menu **Arquivo** no Visual Studio, clique em **Salvar Tudo**.
 5. No menu Compilar no Visual Studio, clique em **Recompilar Solução**.
 
 ## <a name="run-the-application"></a>Executar o aplicativo
+
 1. Pressione F5 para compilar e executar o aplicativo. O servidor local (o aplicativo de console **ServidorDeProdutos**) deve iniciar primeiro, em seguida, o aplicativo **PortalDeProdutos** deve iniciar em uma janela do navegador, como mostrado na captura de tela a seguir. Observe novamente que o inventário de produtos lista os dados recuperados no sistema local do serviço de produto e exibe os dados em um aplicativo Web. Verifique a URL para saber se **PortalDeProdutos** está em execução na nuvem, como um aplicativo Web do Azure.
 
    ![][1]
@@ -433,6 +451,7 @@ Antes de executar o aplicativo na nuvem, você deve garantir que **PortalDeProdu
     ![][38]
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Para saber mais sobre a Retransmissão do Azure, consulte os seguintes recursos:  
 
 * [O que é Retransmissão do Azure?](relay-what-is-it.md)  
@@ -448,7 +467,6 @@ Para saber mais sobre a Retransmissão do Azure, consulte os seguintes recursos:
 [16]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-4.png
 [17]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-7.png
 [18]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-5.png
-[19]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-6.png
 [9]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-9.png
 [10]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App3.png
 
@@ -463,4 +481,3 @@ Para saber mais sobre a Retransmissão do Azure, consulte os seguintes recursos:
 [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
 [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
 [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-

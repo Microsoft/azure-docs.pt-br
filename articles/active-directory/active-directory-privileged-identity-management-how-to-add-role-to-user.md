@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 06/06/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5dde6b98f72306d6fe78f3c12377d3ce2ec5ddea
-ms.lasthandoff: 12/29/2016
-
-
+ms.custom: pim;oldportal;it-pro;
+ms.openlocfilehash: 3ac07bb7b070f44595c099a454b3d0dbc66126c9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Privileged Identity Management do Azure AD: como adicionar ou remover uma função de usuário
 Com o Azure AD (Active Directory), um administrador global (ou o administrador da empresa) pode atualizar os usuários que estão **permanentemente** atribuídos a funções no Azure AD. Isso é feito com os cmdlets do PowerShell como `Add-MsolRoleMember` e `Remove-MsolRoleMember`. Ou eles podem usar o portal clássico do Azure conforme descrito em [atribuindo funções de administrador no Azure Active Directory](active-directory-assign-admin-roles.md).
@@ -47,7 +47,7 @@ Se você desejar conceder acesso ao próprio PIM a outro usuário, as funções 
 
 > [!NOTE]
 > Novos usuários em uma função só são elegíveis para a função por padrão. Se você quiser tornar a função permanente, clique no usuário na lista. As informações do usuário serão exibidas em uma nova folha. Selecione **Tornar perm.** no menu de informações do usuário.  
-> Se um usuário não puder se registrar para o MFA (Autenticação Multifator) ou estiver usando uma conta da Microsoft (geralmente @outlook.com),), você precisará torná-lo permanente em todas as suas funções. Os administradores qualificados são solicitados a se registrar no MFA durante a ativação.
+> Se um usuário não puder se registrar para a MFA (Autenticação Multifator do Azure) ou estiver usando uma conta da Microsoft (geralmente, @outlook.com), será preciso torná-lo permanente em todas as suas funções. Os administradores qualificados são solicitados a se registrar no MFA durante a ativação.
 
 Agora que o usuário está qualificado para uma função, avise-o que ele pode ativá-la de acordo com as instruções em [Como ativar ou desativar uma função](active-directory-privileged-identity-management-how-to-activate-role.md).
 
@@ -65,5 +65,4 @@ Se não tiver certeza de quais os usuários ainda precisam de suas atribuições
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
 

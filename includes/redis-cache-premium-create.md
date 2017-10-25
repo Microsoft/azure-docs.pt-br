@@ -7,12 +7,7 @@ Para criar um cache premium, entre no [portal do Azure](https://portal.azure.com
 > 
 > 
 
-Para configurar recursos premium, primeiro selecione um dos tipos de preço premium na folha **Escolha o tipo de preço** .
+Para configurar recursos premium, primeiro selecione um dos tipos de preço premium na lista suspensa **Tipo de preço**. Para saber mais sobre cada tipo de preço, clique em **Exibir detalhes completos de preços** e selecione um tipo de preço na folha **Escolher tipo de preços**.
 
 ![Escolha o tipo de preço](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -2,7 +2,7 @@
 title: "Documentação dos Serviços de Nuvem do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Os tutoriais, as referências de API e outras documentações mostram como usar os Serviços de Nuvem para hospedar e executar aplicativos de nuvem e APIs altamente disponíveis e escalonáveis."
 services: cloud-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: c8e0cec964b7c72e45564ff776c55be1b06bfbc1
-ms.openlocfilehash: 16bbb9953db91bfe031e5e87e14aac84d32799b3
-
+ms.openlocfilehash: 566daede7e0b32110ceae2afa473e427992bc3a8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cloud-services-documentation"></a>Documentação dos Serviços de Nuvem
 
@@ -106,8 +107,14 @@ Saiba como usar os Serviços de Nuvem para hospedar e executar aplicativos de nu
                 <div class="card">
                     <div class="cardText">
                         <h3>Linguagens</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/ee758711">XMLSchema .csdef</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/ee758710">XMLSchema .cscfg</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-file">Esquema XML .csdef</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-loadbalancerprobe">Esquema LoadBalancerProbe</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-webrole">Esquema WebRole</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-workerrole">Esquema WorkerRole</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-networktrafficrules">Esquema NetworkTrafficRules</a></p>
+                        <p><a href="/azure/cloud-services/schema-cscfg-file">Esquema XML .cscfg</a></p>
+                        <p><a href="/azure/cloud-services/schema-cscfg-role">Esquema de Função</a></p>
+                        <p><a href="/azure/cloud-services/schema-cscfg-networkconfiguration">Esquema NetworkConfiguration</a></p>
                     </div>
                 </div>
             </div>
@@ -126,11 +133,3 @@ Saiba como usar os Serviços de Nuvem para hospedar e executar aplicativos de nu
         </div>
     </li>
 </ul>
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

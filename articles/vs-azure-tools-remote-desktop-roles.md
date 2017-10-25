@@ -3,8 +3,8 @@ title: "Usando a Área de Trabalho Remota com funções do Azure | Microsoft Doc
 description: "Usando a Área de Trabalho Remota com as funções do Azure"
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
 ms.service: multiple
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 99c8067cf08b8ae7650c240c9d69d2fe1c18f9c8
-
-
+ms.author: kraigb
+ms.openlocfilehash: eab135d10c0d6df8ca72ac47d6804017a998a3d2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-remote-desktop-with-azure-roles"></a>Usando a Área de Trabalho Remota com as funções do Azure
-Usando o SDK do Azure e os Serviços de Área de Trabalho Remota, você pode acessar as funções do Azure e máquinas virtuais que são hospedadas pelo Azure. No Visual Studio, você pode configurar os Serviços de Área de Trabalho Remota por meio de um projeto do Azure. Para habilitar os Serviços de Área de Trabalho Remota, você deve criar um projeto de trabalho contendo uma ou mais funções e, em seguida, publicá-lo no Azure.
+Usando o SDK do Azure e os Serviços de Área de Trabalho Remota, você pode acessar as funções do Azure e máquinas virtuais que são hospedadas pelo Azure. No Visual Studio, você pode configurar os Serviços de Área de Trabalho Remota por meio de um projeto de serviço de nuvem do Azure. Para habilitar os Serviços de Área de Trabalho Remota, você deve criar um projeto de trabalho contendo uma ou mais funções e, em seguida, publicá-lo no Azure.
 
 > [!IMPORTANT]
 > Você deve acessar uma função do Azure apenas para desenvolvimento ou solução de problemas. A finalidade de cada máquina virtual é executar uma função específica em seu aplicativo Azure; a finalidade não é, portanto, executar outros aplicativos cliente. Se desejar usar o Azure para hospedar uma máquina virtual que você possa usar para qualquer finalidade, consulte Acessando máquinas virtuais do Azure por meio do Gerenciador de Servidores.
@@ -29,7 +29,7 @@ Usando o SDK do Azure e os Serviços de Área de Trabalho Remota, você pode ace
 > 
 
 ## <a name="to-enable-and-use-remote-desktop-for-an-azure-role"></a>Para habilitar e usar a Área de Trabalho Remota para uma Função do Azure
-1. No Gerenciador de Soluções, abra o menu de atalho para o seu projeto e escolha **Publicar**.
+1. No Gerenciador de Soluções, abra o menu de atalho para o seu projeto do serviço de nuvem e escolha **Publicar**.
    
     O assistente **Publicar Aplicativo do Azure** é exibido.
    
@@ -76,10 +76,4 @@ Depois de publicar o serviço de nuvem no Azure, você pode usar o Gerenciador d
    
     ![Conectando-se via área de trabalho remota](./media/vs-azure-tools-remote-desktop-roles/IC799162.png)
 3. Insira o nome de usuário e a senha que você criou anteriormente. Agora você está conectado na sessão remota.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -4,7 +4,7 @@ description: "Use o Power BI para visualizar dados de temperatura e umidade que 
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "visualização de dados em tempo real, visualização de dados dinâmicos, visualização de dados de sensor"
 ms.assetid: e67c9c09-6219-4f0f-ad42-58edaaa74f61
@@ -13,19 +13,20 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 08/24/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: bf685e4c59117497e27ff7e2ef7b3b39caac6d4a
-ms.lasthandoff: 03/30/2017
-
-
+ms.openlocfilehash: b190fea06ffc2406d781c7edad091f097cca9c2d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualizar dados de sensor em tempo real do Hub IoT usando o Power BI
 
-> [!NOTE]
-> Antes de iniciar este tutorial, conclua [Conectar a ESP8266 ao Hub IoT do Azure](/iot-hub-arduino-huzzah-esp8266-get-started.md). Em [Conectar a ESP8266 ao Hub IoT do Azure](/iot-hub-arduino-huzzah-esp8266-get-started.md), você configura seu dispositivo IoT e Hub IoT e implanta um aplicativo de exemplo a ser executado no seu dispositivo. O aplicativo envia dados de sensor coletados para o hub IoT.
+![Diagrama de ponta a ponta](media/iot-hub-get-started-e2e-diagram/4.png)
+
+
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## <a name="what-you-learn"></a>O que você aprenderá
 
@@ -39,22 +40,13 @@ Você aprenderá a visualizar dados do sensor em tempo real que recebe o hub IoT
 
 ## <a name="what-you-need"></a>O que você precisa
 
-- O tutorial [Conectar a ESP8266 ao Hub IoT do Azure](iot-hub-arduino-huzzah-esp8266-get-started.md) foi concluído e abordou os seguintes requisitos:
+- Tutorial [Configurar seu dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) concluído que aborda os seguintes requisitos:
   - Uma assinatura ativa do Azure.
   - Um hub IoT do Azure em sua assinatura.
   - O aplicativo cliente que envia mensagens para o hub IoT do Azure.
 - Uma conta do Power BI. ([Experimente gratuitamente o Power BI](https://powerbi.microsoft.com/))
 
-## <a name="add-a-consumer-group-to-your-iot-hub"></a>Adicionar um grupo de consumidores ao hub IoT
-
-Os grupos de consumidores são utilizados pelas aplicações para obter dados do Hub IoT do Azure. Nesta lição, você criará um grupo de consumidores a ser usado por um trabalho do Stream Analytics para ler dados de seu hub IoT.
-
-Para adicionar um grupo de consumidores ao hub IoT, siga estas etapas:
-
-1. No [portal do Azure](https://ms.portal.azure.com/), abra o hub IoT.
-1. Clique em **Pontos de extremidade** no painel esquerdo, selecione **Eventos** no painel do meio, insira um nome de **Grupos de consumidores** no painel direito e clique em **Salvar**.
-
-   ![Criar grupo de consumidores no Hub IoT do Azure](media/iot-hub-live-data-visualization-in-power-bi/1_iot-hub-create-consumer-group-azure.png)
+[!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
 ## <a name="create-configure-and-run-a-stream-analytics-job"></a>Criar, configurar e executar um trabalho do Stream Analytics
 
@@ -127,11 +119,7 @@ No trabalho do Stream Analytics, clique em **Iniciar** > **Agora** > **Iniciar**
 
 ## <a name="create-and-publish-a-power-bi-report-to-visualize-the-data"></a>Criar e publicar um relatório do Power BI para visualizar os dados
 
-1. Garantir que o aplicativo de exemplo esteja em execução. Caso contrário, execute o seguinte comando para executar o aplicativo no Pi:
-
-   ```bash
-   gulp run
-   ```
+1. Verifique se o aplicativo de exemplo está em execução em seu dispositivo. Se não, você pode consultar os tutoriais em [Configure seu dispositivo](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started).
 1. Entre na sua conta do [Power BI](https://powerbi.microsoft.com/en-us/).
 1. Vá para o espaço de trabalho de grupo que você definiu quando criou a saída para o trabalho do Stream Analytics.
 1. Clique em **Conjuntos de dados de streaming**.
@@ -147,7 +135,7 @@ No trabalho do Stream Analytics, clique em **Iniciar** > **Agora** > **Iniciar**
    1. Arraste **EventEnqueuedUtcTime** para **eixo** sobre o **visualizações** painel.
    1. Arraste **temperatura** para **Valores**.
 
-      Agora, um gráfico de linhas é criado. O eixo x do gráfico exibe a data e hora no fuso horário UTC. O eixo y mostra a temperatura do sensor.
+      Agora, um gráfico de linhas é criado. O eixo x exibe a data e a hora no fuso horário UTC. O eixo y mostra a temperatura do sensor.
 
       ![Adicionar um gráfico de linhas para a temperatura a um relatório do Microsoft Power BI](media/iot-hub-live-data-visualization-in-power-bi/8_add-line-chart-for-temperature-to-power-bi-report-microsoft.png)
 
@@ -170,8 +158,4 @@ A Microsoft também oferece o [aplicativos móveis do Power BI](https://powerbi.
 Você usou com êxito o Power BI para visualizar dados do sensor em tempo real do seu Hub IoT do Azure.
 Há uma maneira alternativa para visualizar dados do Hub IoT do Azure. Veja [Usar Aplicativos Web do Azure para visualizar dados de sensor em tempo real do Hub IoT do Azure](iot-hub-live-data-visualization-in-web-apps.md).
 
-Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, confira:
-
-- [Gerenciar mensagens do dispositivos de nuvem com o iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-- [Salvar mensagens do Hub IoT para o armazenamento de dados do Azure](iot-hub-store-data-in-azure-table-storage.md)
-
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

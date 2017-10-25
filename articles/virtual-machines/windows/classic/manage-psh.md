@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2016
 ms.author: kasing
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 44235e32b7cf5b2be90f6d460ac22d7c0350f894
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: fd2df7e1029ced11974d0b832258bed2cf3bbb27
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-virtual-machines-by-using-azure-powershell"></a>Gerenciar suas máquinas virtuais usando o Azure PowerShell
 > [!IMPORTANT] 
@@ -29,7 +28,7 @@ ms.lasthandoff: 03/27/2017
 Muitas tarefas realizadas diariamente para gerenciar suas VMs podem ser automatizadas usando cmdlets do Azure PowerShell. Este artigo fornece comandos de exemplo para tarefas mais simples e links para artigos que mostram os comandos para tarefas mais complexas.
 
 > [!NOTE]
-> Se você ainda não instalou e configurou o Azure PowerShell, você pode obter instruções no artigo [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+> Se você ainda não instalou e configurou o Azure PowerShell, você pode obter instruções no artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 > 
 > 
 
@@ -99,5 +98,4 @@ Para criar no Azure uma nova máquina virtual baseada no Windows, use as instru�
 * Com discos adicionais.
 * Como membro de um conjunto de balanceamento de carga existente.
 * Com um endereço IP estático.
-
 

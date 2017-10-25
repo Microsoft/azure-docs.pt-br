@@ -3,7 +3,7 @@ title: Windows Server Active Directory nas VMs do Azure | Microsoft Docs
 description: "Você pode executar os serviços de domínio do Windows Server Active Directory (AD DS) ou os serviços de federação do Active Directory (AD FS) em máquinas virtuais do Azure."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: femila
 tags: azure-classic-portal
 ms.assetid: 683f6bbb-61d0-423e-9aeb-66f0b0001d67
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
-ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 0baf2d396ee84a56b938a16e46b3752d59e4509d
-
-
+ms.date: 04/06/2017
+ms.author: joflore
+ms.openlocfilehash: 928de285e126a7f62ee075d1c02688bf8f388cb7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-server-active-directory-on-azure-vms"></a>Windows Server Active Directory nas VMs do Azure
 Este tópico de navegação contém links para outros tópicos sobre como implantar os serviços de domínio do Windows Server Active Directory (AD DS) ou os serviços de federação do Active Directory (AD FS) em uma máquina virtual do Azure (VM).
@@ -32,15 +32,8 @@ Este tópico de navegação contém links para outros tópicos sobre como implan
 ## <a name="how-to-articles"></a>Como criar artigos
 * [Instalar uma nova floresta do Active Directory em uma rede virtual do Azure](active-directory-new-forest-virtual-machine.md)
 * [Instalar um controlador de domínio de réplica do Active Directory em Redes Virtuais do Azure](active-directory-install-replica-active-directory-domain-controller.md)
-* [Configurar um ambiente de nuvem híbrida para teste](../virtual-machines/virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Inscrever-se no Azure como uma organização](sign-up-organization.md)
 * [Identidade do Azure](fundamentals-identity.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

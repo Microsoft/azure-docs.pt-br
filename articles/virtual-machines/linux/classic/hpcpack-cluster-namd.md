@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 1e1e3b405d752c459ecfc7f74fbdafc148c147b5
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: 0c0b9875b4153edcc0ec0096577d041d394a842f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>Executar o NAMD com o Microsoft HPC Pack em nós de computação do Linux no Azure
 Este artigo mostra uma maneira de executar uma carga de trabalho de computação de alto desempenho (HPC) do Linux em máquinas virtuais do Azure. Aqui, você configura um cluster do [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) no Azure com nós de computação Linux e executa uma simulação do [NAMD](http://www.ks.uiuc.edu/Research/namd/) para calcular e visualizar a estrutura de um sistema biomolecular grande.  
@@ -29,8 +28,6 @@ Este artigo mostra uma maneira de executar uma carga de trabalho de computação
 
 * O **NAMD** (para o programa Nanoscale Molecular Dynamics) é um pacote de dinâmica molecular paralela criado para a simulação de alto desempenho de sistemas biomoleculares grandes que contêm milhões de átomos. Vírus, estruturas de célula e grande proteínas são exemplos desses sistemas. O NAMD é dimensionado para centenas de núcleos de simulações típicas e para mais de 500.000 núcleos para as simulações maiores.
 * O **Microsoft HPC Pack** fornece recursos para executar aplicativos de HPC e paralelos em larga escala em clusters de computadores locais ou nas máquinas virtuais do Azure. Originalmente desenvolvido como uma solução para cargas de trabalho HPC, o HPC Pack agora permite a execução de aplicativos HPC Linux em VMs do nó de computação do Linux implantadas em um cluster do HPC Pack. Consulte [Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](hpcpack-cluster.md) para ver uma introdução.
-
-Para obter outras opções para executar cargas de trabalho HPC Linux no Azure, consulte [Recursos técnicos para computação em lote e de alto desempenho](../../../batch/batch-hpc-solutions.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Cluster HPC Pack com nós de computação do Linux**: implante um cluster HPC Pack com nós de computação do Linux no Azure usando um [modelo do Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) ou um [script do Azure PowerShell](hpcpack-cluster-powershell-script.md). Consulte [Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](hpcpack-cluster.md) para encontrar os pré-requisitos e etapas de cada opção. Se você escolher a opção de implantação de script do PowerShell, consulte o arquivo de configuração de exemplo nos arquivos de exemplo no final deste artigo. Este arquivo configura um cluster de HPC Pack com base no Azure, que consiste em um nó principal do Windows Server 2012 R2 e quatro nós de computação grandes do CentOS 6.6. Personalize este arquivo conforme a necessidade para seu ambiente.
@@ -51,7 +48,7 @@ Executar um trabalho de nós cruzados em vários nós do Linux requer que os nó
    ```
    
    > [!NOTE]
-   > Pressione **Enter** para usar as configurações padrão até que o comando seja concluído. Não insira uma senha aqui. Quando for solicitada uma senha, basta pressionar **Enter**.
+   > Pressione **Enter** para usar as configurações padrão até que o comando seja concluído. Não insira uma frase secreta aqui. Quando for solicitada uma senha, basta pressionar **Enter**.
    > 
    > 
    
@@ -61,7 +58,7 @@ Executar um trabalho de nós cruzados em vários nós do Linux requer que os nó
    ![Chaves públicas e privadas][keys]
 
 ### <a name="add-the-key-pair-to-the-hpc-pack-cluster"></a>Adicionar o par de chaves ao cluster do HPC Pack
-1. [Conecte-se por meio da Área de Trabalho Remota](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) à VM do nó principal usando as credenciais de domínio fornecidas quando você implantou o cluster (por exemplo, hpc\clusteradmin). Você gerencia o cluster do nó principal.
+1. [Conecte-se por meio da Área de Trabalho Remota](../../windows/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) à VM do nó principal usando as credenciais de domínio fornecidas quando você implantou o cluster (por exemplo, hpc\clusteradmin). Você gerencia o cluster do nó principal.
 2. Use os procedimentos padrão do Windows Server para criar uma conta de usuário de domínio no domínio do Active Directory do cluster. Por exemplo, use o Usuário do Active Directory e a ferramenta Computers no nó principal. Com os exemplos neste artigo, supomos que você criará um usuário de domínio chamado hpcuser no domínio hpclab (hpclab\hpcuser).
 3. Adicione o usuário do domínio ao cluster HPC Pack como um usuário do cluster. Para obter instruções, consulte [Adicionar ou remover usuários de cluster](https://technet.microsoft.com/library/ff919330.aspx).
 4. Crie um arquivo chamado C:\cred.xml e copie os dados da chave RSA nele. Você pode encontrar um exemplo nos arquivos de exemplo ao final deste artigo.
@@ -87,7 +84,7 @@ Executar um trabalho de nós cruzados em vários nós do Linux requer que os nó
 > 
 
 ## <a name="set-up-a-file-share-for-linux-nodes"></a>Configurar um compartilhamento de arquivos para nós do Linux
-Agora, configure um compartilhamento de arquivo SMB e monte a pasta compartilhada em todos os nós do Linux para permitir que os nós do Linux acessem os arquivos NAMD com um caminho comum. A seguir, as etapas para montar uma pasta compartilhada no nó principal. Um compartilhamento é recomendado para distribuições, como CentOS 6.6, que atualmente não têm suporte para o serviço de Arquivos do Azure. Se os nós do Linux permitirem um compartilhamento de arquivo do Azure, confira [Como usar o armazenamento de arquivos do Azure com o Linux](../../../storage/storage-how-to-use-files-linux.md). Para opções de compartilhamento de arquivos adicionais com o HPC Pack, e as etapas em [Introdução aos nós de computação do Linux em um cluster do HPC Pack no Azure](hpcpack-cluster.md).
+Agora, configure um compartilhamento de arquivo SMB e monte a pasta compartilhada em todos os nós do Linux para permitir que os nós do Linux acessem os arquivos NAMD com um caminho comum. A seguir, as etapas para montar uma pasta compartilhada no nó principal. Um compartilhamento é recomendado para distribuições, como CentOS 6.6, que atualmente não têm suporte para o serviço de Arquivos do Azure. Se os nós do Linux derem suporte a compartilhamento de Arquivo do Azure, confira [Como usar o armazenamento de Arquivos do Azure com Linux](../../../storage/files/storage-how-to-use-files-linux.md). Para opções de compartilhamento de arquivos adicionais com o HPC Pack, e as etapas em [Introdução aos nós de computação do Linux em um cluster do HPC Pack no Azure](hpcpack-cluster.md).
 
 1. Crie uma pasta no nó principal e compartilhe-a com todos, configurando privilégios de leitura/gravação. Neste exemplo, \\\\CentOS66HN\Namd é o nome da pasta, em que CentOS66HN é o nome de host do nó principal.
 2. Crie uma subpasta chamada namd2 na pasta compartilhada. No namd2, crie outra subpasta chamada namdsample.
@@ -399,4 +396,3 @@ exit ${RTNSTS}
 [creds]:media/hpcpack-cluster-namd/creds.png
 [task_details]:media/hpcpack-cluster-namd/task_details.png
 [vmd_view]:media/hpcpack-cluster-namd/vmd_view.png
-

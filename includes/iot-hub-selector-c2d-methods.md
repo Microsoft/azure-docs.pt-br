@@ -1,11 +1,10 @@
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-direct-methods.md)
-> * [C#](../articles/iot-hub/iot-hub-csharp-node-direct-methods.md)
-> 
-> 
+> * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-direct-methods.md)
+> * [C#](../articles/iot-hub/iot-hub-csharp-csharp-direct-methods.md)
+> * [Java](../articles/iot-hub/iot-hub-java-java-direct-methods.md)
 
-## <a name="introduction"></a>Introdução
-O Hub IoT do Azure é um serviço totalmente gerenciado que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos e um back-end da solução. Os tutoriais anteriores ([Introdução ao Hub IoT] e [Como enviar mensagens da nuvem para o dispositivo com o Hub IoT]) ilustram a funcionalidade básica de mensagem do dispositivo para a nuvem e da nuvem para o dispositivo do Hub IoT. O Hub IoT também oferece a capacidade de invocar métodos não duráveis em dispositivos da nuvem. Os métodos representam uma interação de solicitação-resposta com um dispositivo semelhante a uma chamada HTTP no sentido de que é bem sucedida ou falha imediatamente (após um tempo limite especificado pelo usuário) para permitir que o usuário saiba o status da chamada. [Invocar um método direto em um dispositivo][lnk-devguide-methods] descreve métodos em mais detalhes e oferece diretrizes sobre quando usar métodos em vez de mensagens da nuvem para o dispositivo.
+O Hub IoT do Azure é um serviço totalmente gerenciado que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos e um back-end da solução. Os tutoriais anteriores ([Introdução ao Hub IoT] e [Como enviar mensagens da nuvem para o dispositivo com o Hub IoT]) ilustram a funcionalidade básica de mensagem do dispositivo para a nuvem e da nuvem para o dispositivo do Hub IoT. O Hub IoT também oferece a capacidade de invocar métodos não duráveis em dispositivos da nuvem. Métodos diretos representam uma interação de solicitação-resposta com um dispositivo semelhante a uma chamada HTTPS no sentido de que é bem sucedida ou falha imediatamente (após um tempo limite especificado pelo usuário) para permitir que o usuário saiba o status da chamada. [Invocar um método direto em um dispositivo][lnk-devguide-methods] descreve métodos diretos em mais detalhes e oferece diretrizes sobre quando usar métodos diretos em vez de mensagens da nuvem para o dispositivo ou propriedades desejadas.
 
 Este tutorial mostra como:
 
@@ -13,20 +12,9 @@ Este tutorial mostra como:
 * Criar um aplicativo de dispositivo simulado que tem um método direto que pode ser chamado pela nuvem.
 * Criar um aplicativo de console que chama um método direto no dispositivo simulado por meio do Hub IoT.
 
-> [!NOTE]
-> Neste momento, os métodos diretos estão acessíveis somente de dispositivos que se conectam ao Hub IoT usando o protocolo MQTT. Confira o artigo do [suporte a MQTT][lnk-devguide-mqtt] para obter instruções sobre como converter o aplicativo de dispositivo existente para usar MQTT.
-> 
-> 
-
-
-
 
 [lnk-devguide-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md
 
 [Como enviar mensagens da nuvem para o dispositivo com o Hub IoT]: ../articles/iot-hub/iot-hub-csharp-csharp-c2d.md
 [Introdução ao Hub IoT]: ../articles/iot-hub/iot-hub-node-node-getstarted.md
-
-<!--HONumber=Dec16_HO1-->
-
-

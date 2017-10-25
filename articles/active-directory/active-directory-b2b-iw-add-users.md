@@ -1,12 +1,11 @@
 ---
-
 title: "Como os operadores de informação adicionam usuários de colaboração B2B ao Azure Active Directory? | Microsoft Docs"
-description: "A colaboração B2B do Azure Active Directory permite que os operadores de informações adicionem usuários de sua organização ao Azure AD para acessar seus aplicativos corporativos"
+description: "A colaboração B2B permite que os operadores de informações adicionem usuários de sua organização ao Azure AD para acesso | Microsoft Docs"
 services: active-directory
 documentationcenter: 
 author: sasubram
 manager: femila
-editor: 
+editor: curtand
 tags: 
 ms.assetid: 
 ms.service: active-directory
@@ -14,16 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/16/2017
+ms.date: 05/23/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
-ms.openlocfilehash: 02a1b163c77f3f7f6853762f442bffa617bd9f52
-ms.lasthandoff: 02/17/2017
-
-
+ms.openlocfilehash: c6ca561d1a02e283c7932f08f53b8dd590208835
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-do-information-workers-add-b2b-collaboration-users-to-azure-active-directory"></a>Como os operadores de informação adicionam usuários de colaboração B2B ao Azure Active Directory?
 
 Os operadores de informações podem usar o [Painel de Acesso do Aplicativo](http://myapps.microsoft.com) para adicionar usuários de colaboração B2B a aplicativos e grupos os quais administram.
@@ -55,4 +52,3 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Autenticação multifator para usuários de colaboração B2B](active-directory-b2b-mfa-instructions.md)
 * [Adicionar usuários de colaboração B2B sem um convite](active-directory-b2b-add-user-without-invite.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-

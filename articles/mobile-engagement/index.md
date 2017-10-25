@@ -2,7 +2,7 @@
 title: "Documentação do Azure Mobile Engagement - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como obter informações sobre o uso do aplicativo móvel e sobre a segmentação de usuários em tempo real e como habilitar notificações por push cientes de contexto e mensagens no aplicativo."
 services: mobile-engagement
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,13 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 3de3024e93aee7ace0e243eef0beb4008dc50db5
-ms.openlocfilehash: 738cc1fc5b5cca411c08fda4229950f481cd0aa6
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: 5f682ba16b52b9a084505b8212c4b6f043bb94c9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="mobile-engagement-documentation"></a>Documentação do Mobile Engagement
 
 Saiba como aumentar o uso, a retenção e a monetização de aplicativos móveis com o Engajamento Móvel. Os tutoriais, os SDKs e outras documentações mostram como obter informações sobre o uso do aplicativo móvel e sobre a segmentação de usuários em tempo real e como habilitar notificações por push cientes de contexto e mensagens no aplicativo.
@@ -53,7 +52,7 @@ Saiba como aumentar o uso, a retenção e a monetização de aplicativos móveis
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Biblioteca de vídeos do Engajamento Móvel</h3>
+                        <h3>Biblioteca de vídeos do Mobile Engagement</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +70,7 @@ Saiba como aumentar o uso, a retenção e a monetização de aplicativos móveis
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução ao Mobile Engagement do Azure para Aplicativos Android</h3>
+                        <h3>Introdução ao Azure Mobile Engagement para Aplicativos Android</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +88,7 @@ Saiba como aumentar o uso, a retenção e a monetização de aplicativos móveis
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução ao Engajamento Móvel do Azure para Cordova/Phonegap</h3>
+                        <h3>Introdução ao Azure Mobile Engagement para Cordova/Phonegap</h3>
                     </div>
                 </div>
             </div>
@@ -107,7 +106,7 @@ Saiba como aumentar o uso, a retenção e a monetização de aplicativos móveis
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução ao Engajamento Móvel do Azure para aplicativos iOS em Objective C</h3>
+                        <h3>Introdução ao Azure Mobile Engagement para aplicativos iOS em Objective C</h3>
                     </div>
                 </div>
             </div>
@@ -125,7 +124,7 @@ Saiba como aumentar o uso, a retenção e a monetização de aplicativos móveis
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução ao Engajamento Móvel do Azure para Aplicativos iOS em Swift</h3>
+                        <h3>Introdução ao Azure Mobile Engagement para Aplicativos iOS em Swift</h3>
                     </div>
                 </div>
             </div>
@@ -143,7 +142,7 @@ Saiba como aumentar o uso, a retenção e a monetização de aplicativos móveis
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução ao Engajamento Móvel do Azure para implantação do Unity para Android</h3>
+                        <h3>Introdução ao Azure Mobile Engagement para implantação do Unity para Android</h3>
                     </div>
                 </div>
             </div>
@@ -161,7 +160,7 @@ Saiba como aumentar o uso, a retenção e a monetização de aplicativos móveis
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução ao Engajamento Móvel do Azure para implantação do Unity para iOS</h3>
+                        <h3>Introdução ao Azure Mobile Engagement para implantação do Unity para iOS</h3>
                     </div>
                 </div>
             </div>
@@ -179,7 +178,7 @@ Saiba como aumentar o uso, a retenção e a monetização de aplicativos móveis
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução ao Engajamento Móvel do Azure para aplicativos universais do Windows</h3>
+                        <h3>Introdução ao Azure Mobile Engagement para aplicativos universais do Windows</h3>
                     </div>
                 </div>
             </div>
@@ -207,6 +206,5 @@ Saiba como aumentar o uso, a retenção e a monetização de aplicativos móveis
 </ul>
 
 ---
-
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Visão Geral da Análise dos Serviços de Mídia do Azure | Microsoft Docs"
-description: "Os Serviços de Mídia do Azure oferecem a visualização pública da Análise de Mídia do Azure, uma coleção de serviços de fala e de pesquisa visual computacional empresarial, conformidade, segurança e alcance global. Os serviços de Análise de Mídia do Azure são criados usando os componentes principais da plataforma Serviços de Mídia do Azure e, portanto, estão prontos para lidar com o processamento de mídia em grande escala logo no primeiro dia. "
+title: "Análise de mídia na plataforma de Serviços de Mídia | Microsoft Docs"
+description: "Visão geral da versão prévia pública da Análise de Mídia, uma coleção de serviços de fala e de pesquisa visual computacional de nível empresarial, de conformidade, segurança e alcance global"
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: c56e3781-8510-4f7f-b5ff-a218c1bb6f4c
 ms.service: media-services
@@ -12,47 +12,54 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 06/29/2017
 ms.author: milanga;juliako;johndeu
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: fb8ec19434d4e8cc54b831bb4abf049c057da8df
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: c0bbe6f80370515fa783b12757434897fe2221b6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-media-services-analytics-overview"></a>Visão Geral da Análise dos Serviços de Mídia do Azure
+# <a name="media-analytics-on-the-media-services-platform"></a>Análise de Mídia na plataforma de Serviços de Mídia
 ## <a name="overview"></a>Visão geral
-Mais organizações e empresas estão adotando o vídeo como o meio preferido para treinar seus funcionários,contatar seus clientes e documentar suas funções comerciais. A computação em nuvem faz com que seja mais eficiente armazenar, transmitir e acessar esses arquivos de mídia grandes, mas conforme as empresas expandem suas bibliotecas de conteúdo de vídeo, elas devem ter um meio igualmente eficaz de extrair novas informações de vídeo para criar interações mais significativas e personalizadas com seu público e levar seus negócios para o próximo nível.
+Mais organizações estão usando vídeos como o meio preferido de treinar seus funcionários, contatar seus clientes e documentar suas funções comerciais. A computação em nuvem fornece uma maneira de armazenar, transmitir e acessar esses grandes arquivos de mídia. Contudo, à medida que a biblioteca de uma empresa de conteúdo de vídeo cresce, ela precisa de uma forma igualmente eficaz de extrair de informações do conteúdo. 
 
-Para resolver essa necessidade cada vez maior no Marketplace, os Serviços de Mídia do Azure oferecem a Análise de Mídia, uma coleção de componentes de fala e visão (em escala empresarial, conformidade, segurança e alcance global) que facilitam a obtenção de análises acionáveis para as organizações e empresas de seus arquivos de vídeo. Os serviços de Análise de Mídia do Azure são criados usando os componentes principais da plataforma Serviços de Mídia do Azure e, portanto, estão prontos para lidar com o processamento de mídia em grande escala logo no primeiro dia.
+Para atender a essa necessidade cada vez maior, os Serviços de Mídia do Azure oferecem a Análise de Mídia do Azure. A Análise de Mídia é uma coleção de componentes de fala e pesquisa visual que facilitam a obtenção de análises acionáveis dos arquivos de vídeo de organizações e de empresas. Criado usando os componentes da plataforma principal dos Serviços de Mídia, a Análise de Mídia pode lidar com processamento de mídia em grande escala desde o primeiro dia.
 
-A Análise de Mídia do Azure permite que os desenvolvedores aprendam a usar rapidamente os recursos de pesquisa visual para vídeo em escala limitada e implementar essa funcionalidade avançada em aplicativos. A Análise de Mídia do Azure foi criada para ser usada por ambientes empresariais com toda a escala, conformidade, segurança e alcance global necessários para grandes organizações.
+Com a Análise de Mídia, os desenvolvedores podem trazer rapidamente funcionalidades de vídeo avançadas para aplicativos. Ela fornece aos ambientes empresariais toda a escala, conformidade, segurança e alcance global necessários para grandes organizações.
 
-O diagrama a seguir mostra a **Análise de Mídia** e outras partes importantes da plataforma Serviços de Mídia. 
+O diagrama a seguir mostra a Análise de Mídia e outras partes importantes da plataforma de Serviços de Mídia. 
 
 ![Fluxo de trabalho VoD](./media/media-services-analytics-overview/media-services-analytics-overview01.png)
 
 O processador de mídia da Análise de Mídia produz arquivos MP4 ou arquivos JSON. Se um processador de mídia produzir um arquivo MP4, você poderá baixar o arquivo progressivamente. Se um processador de mídia produzir um arquivo JSON, você poderá baixar o arquivo do Armazenamento de Blobs do Azure. 
 
-## <a name="azure-media-analytics-services"></a>Serviços de Análise de Mídia do Azure
-* **Indexador** – o Indexador de Mídia do Azure permite tornar o conteúdo pesquisável, além de gerar faixas de legendagem oculta. Os Serviços de Mídia do Azure lançaram a **Preview do Indexador de Mídia do Azure 2** , com indexação mais rápida e suporte a mais idiomas. Dentre os idiomas com suporte estão: inglês, espanhol, francês, alemão, italiano, chinês, português e árabe. Para obter informações detalhadas e exemplos, confira [Processar vídeos com o Indexador de Mídia do Azure 2](media-services-process-content-with-indexer2.md)
-* **Hyperlapse** – o Microsoft Hyperlapse é o resultado de mais de 20 anos de pesquisa visual computacional no MSR (Microsoft Research), combinando estabilização de vídeo e criação de lapsos de tempo para criar vídeos belos, rápidos e consumíveis de seu conteúdo de longa duração. Além de lapsos de tempo, você também pode usar o Hyperlapse para criar vídeos estáveis a partir de vídeos tremidos capturados com telefones celulares e câmeras de vídeo. Para obter informações detalhadas e exemplos, confira [Arquivos de Mídia do Hyperlapse com o Hyperlapse da Mídia do Azure](media-services-hyperlapse-content.md)
-* **Detecção de movimento** – É possível usar esse serviço para detectar movimento em um vídeo com telas de fundo fixas. Isso é ideal para clientes que desejam verificar a existência de falsos positivos em eventos de movimento detectados por câmeras de vigilância em transmissões de vídeo de vigilância. Para obter informações detalhadas e exemplos, confira [Detecção de movimento da Análise de Mídia do Azure](media-services-motion-detection.md).
-* **Detecção facial e emoções faciais** – Ao usar este serviço, é possível detectar a face das pessoas e suas emoções, incluindo felicidade, tristeza, surpresa, irritação, desprezo, medo, aversão e indiferença/neutralidade. Isso tem várias aplicações úteis no setor, descritas abaixo, incluindo agregar e analisar reações de pessoas participando de um evento. Para obter informações detalhadas e exemplos, confira [Detecção facial e de emoções da Análise de Mídia do Azure](media-services-face-and-emotion-detection.md).
-* **Resumo de vídeo** – O resumo de vídeo pode ajudá-lo a criar resumos de vídeos de longa duração com a seleção automática de trechos interessantes do vídeo de origem. Isso será útil quando você desejar fornecer uma visão geral rápida do que esperar de um vídeo de longa duração. Para obter informações detalhadas e exemplos, confira [Usar miniaturas de vídeo da Mídia do Azure para criar um resumo de vídeo](media-services-video-summarization.md)
-* **Reconhecimento óptico de caracteres** - o OCR (reconhecimento óptico de caracteres) da Análise de Mídia do Azure permite que você converta o conteúdo de texto de arquivos de vídeo em texto digital editável e pesquisável. Isso permite que você automatize a extração de metadados significativos do sinal de vídeo de sua mídia.
-* **Edição facial escalonável** - **o Azure Media Redactor** é um MP da Análise de Mídia do Azure que oferece edição facial escalonável na nuvem. A edição facial permite que você modifique seu vídeo para desfocar rostos de pessoas selecionadas. Você pode querer usar o serviço de edição facial em cenários de segurança pública e de notícias veiculadas. Alguns minutos de vídeo com vários rostos podem levar horas para serem editados manualmente, mas, com esse serviço, o processo de edição facial exigirá apenas algumas etapas simples. Para obter mais informações, consulte [este artigo](media-services-face-redaction.md).
+## <a name="media-analytics-services"></a>Serviços de Análise de Mídia
+
+### <a name="indexer"></a>Indexador
+Com o Azure Media Indexer, você pode tornar o conteúdo pesquisável e gerar faixas de legendagem. Comparada à versão anterior, a Versão Prévia do Azure Media Indexer 2 oferece indexação mais rápida e suporte mais amplo a idiomas. Dentre os idiomas com suporte estão: inglês, espanhol, francês, alemão, italiano, chinês, português e árabe. Para obter informações detalhadas e exemplos, consulte [Processar vídeos com o Azure Media Indexer 2](media-services-process-content-with-indexer2.md).
+### <a name="hyperlapse"></a>Hyperlapse
+O Microsoft Hyperlapse combina estabilização do vídeo e funcionalidades de lapso de tempo para criar vídeos rápidos e consumíveis do seu conteúdo longo. Além de criar vídeos de lapso de tempo, você também pode usar o Hyperlapse para criar vídeos estáveis de vídeos tremidos capturados com telefones celulares e câmeras de vídeo. Para ver informações detalhadas e exemplos, consulte [Arquivos de Mídia do Hyperlapse com o Azure Media Hyperlapse](media-services-hyperlapse-content.md).
+### <a name="motion-detector"></a>Detector de Movimento
+É possível usar o Motion Detector para detectar movimento em um vídeo com segundo plano fixo. Isso torna possível verificar se há falsos positivos em eventos de movimento detectados por câmeras de vigilância. Para obter informações detalhadas e exemplos, consulte [Detecção de movimento para Análise de Mídia do Azure](media-services-motion-detection.md).
+### <a name="face-detector"></a>Detector Facial
+Usando o Face Detector, é possível detectar as faces das pessoas e suas emoções, incluindo felicidade, tristeza e surpresa. Isso tem várias aplicações úteis na indústria, descritas abaixo, incluindo agregar e analisar reações de pessoas participando de um evento. Para obter informações detalhadas e exemplos, consulte [Detecção facial e de emoções da Análise de Mídia do Azure](media-services-face-and-emotion-detection.md).
+### <a name="video-summarization"></a>Resumo de vídeo
+O resumo de vídeo pode ajudá-lo a criar resumos de vídeos de longa duração com a seleção automática de trechos interessantes do vídeo de origem. Essa habilidade é útil quando você desejar fornecer uma visão geral rápida do que esperar de um vídeo de longa duração. Para obter informações detalhadas e exemplos, consulte [Usar Azure Media Video Thumbnails para criar um resumo de vídeo](media-services-video-summarization.md).
+### <a name="optical-character-recognition"></a>Reconhecimento de caractere óptico
+O OCR (reconhecimento óptico de caracteres) de Mídia do Azure permite que você converta o conteúdo de texto de arquivos de vídeo em texto digital editável e pesquisável. Você poderá então automatizar a extração de metadados significativos do sinal de vídeo de sua mídia.
+### <a name="scalable-face-redaction"></a>Edição facial escalonável
+O Azure Media Redactor é um processador de mídia da Análise de Mídia do Azure que oferece edição facial escalonável na nuvem. Usar a edição facial permite modificar seu vídeo para desfocar rostos de pessoas selecionadas. Pode ser útil usar o serviço de edição facial em cenários jornalísticos ou de segurança pública. Alguns minutos de vídeo que contém vários rostos podem levar horas para serem editados manualmente, contudo, com esse serviço, o processo de edição facial exigirá apenas algumas etapas simples. Para obter mais informações, consulte o artigo [Edição facial com a Análise de Mídia do Azure](media-services-face-redaction.md).
 
 ## <a name="common-scenarios"></a>Cenários comuns
-Veja abaixo alguns cenários em que a Análise de Mídia do Azure pode ajudar as organizações e empresas em vários setores a obter novas percepções de vídeo para criar envolvimentos mais personalizados dos funcionários com o público, além de gerenciar grandes volumes de conteúdo de vídeo com mais eficácia:
+A Análise de Mídia pode ajudar as organizações e empresas a obter novas informações de vídeos e gerenciar grandes volumes de conteúdo de vídeo com mais eficácia. Veja os diversos cenários a seguir:
 
-* **Call centers** – mesmo com o advento da mídia social, os call centers de clientes ainda facilitam um grande percentual de transações de serviço de atendimento ao cliente. Há uma grande quantidade de informações sobre clientes codificada nesses dados de áudio que podem ser analisadas para melhorar planos de produtos e treinar funcionários de call center para obter maior satisfação do cliente. Usando o Indexador de Mídia do Azure, os clientes conseguem extrair texto e criar um índice de pesquisa e painéis para extrair a inteligência dos problemas mais comuns, fontes de reclamações e outros dados relevantes.
-* **Moderação de conteúdo gerado pelo usuário** – dos meios de comunicação às delegacias de polícia, muitas organizações têm portais voltados ao público em que aceitam mídia UGC, como vídeos e imagens. O volume de conteúdo pode ter picos devido a eventos inesperados. Nesses cenários, é quase impossível conduzir uma revisão manual eficaz do conteúdo em relação à adequação. Os clientes podem contar com o serviço de moderação de conteúdo para se concentrar no conteúdo apropriado.
-* **Vigilância** – com a expansão das câmeras IP, houve um aumento explosivo de vídeos de vigilância. Revisar manualmente o vídeo de vigilância consome muito tempo e está sujeito a erros humanos. A Análise de Mídia do Azure fornece vários componentes, como detecção de movimento, detecção de face e Hyperlapse para facilitar o processo de revisão, gerenciamento e criação de derivados.
+* **Call centers**. Mesmo com o advento da mídia social, os call centers de clientes ainda recebem um grande percentual de transações de serviço de atendimento ao cliente. Codificado nesses dados de áudio há uma grande quantidade de informações do cliente que podem ser analisadas para alcançar uma satisfação do cliente ainda maior. Usando o Indexador de Mídia, as organizações podem extrair texto e criar índices de pesquisa e painéis. Em seguida, elas podem extrair inteligência sobre reclamações comuns, fontes de reclamações e outros dados relevantes.
+* **Moderação de conteúdo gerado pelo usuário**. Desde os meios de comunicação até as delegacias de polícia, muitas organizações têm portais voltados ao público que aceitam mídia gerada pelo usuário, como vídeos e imagens. O volume de conteúdo pode ter picos devido a eventos inesperados. Nesses cenários, fica difícil conduzir uma revisão manual eficaz do conteúdo em relação à adequação. Os clientes podem contar com o serviço de moderação de conteúdo para se concentrar no conteúdo apropriado.
+* **Vigilância**. Com o crescimento do uso de câmeras IP surgiu um inventário crescente de vídeos de vigilância. Revisar manualmente o vídeo de vigilância consome muito tempo e está sujeito a erros humanos. A Análise de Mídia fornece serviços como detecção de movimento, detecção facial e Hyperlapse para facilitar o processo de revisão, gerenciamento e criação de derivados.
 
-## <a name="media-services-analytics-media-processors"></a>Processadores de Mídia da Análise dos Serviços de Mídia
-Esta seção lista todos os Processadores de Mídia (MP) da Análise dos Serviços de Mídia e mostra como usar .NET ou REST para obter um objeto de MP.
+## <a name="media-analytics-media-processors"></a>Processadores de mídia da Análise de Mídia
+Esta seção lista todos os processadores de mídia da Análise de Mídia e mostra como usar .NET ou REST para obter um objeto de processador de mídia (MP).
 
 ### <a name="mp-names"></a>Nomes dos MP
 * Preview do Indexador de Mídia do Azure 2
@@ -64,7 +71,7 @@ Esta seção lista todos os Processadores de Mídia (MP) da Análise dos Serviç
 * OCR de Mídia do Azure
 
 ### <a name="net"></a>.NET
-A função a seguir usa um dos nomes MP especificados e retorna um objeto MP.
+A função a seguir usa um dos nomes de MP especificados e retorna um objeto MP.
 
     static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {
@@ -82,7 +89,7 @@ A função a seguir usa um dos nomes MP especificados e retorna um objeto MP.
     }
 
 
-## <a name="rest"></a>REST
+### <a name="rest"></a>REST
 Solicitação:
 
     GET https://media.windows.net/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20OCR' HTTP/1.1
@@ -114,7 +121,7 @@ Resposta:
     }
 
 ## <a name="demos"></a>Demonstrações
-[Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+Consulte [Demonstrações da Análise de Mídia do Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
 ## <a name="next-steps"></a>Próximas etapas
 Examine os roteiros de aprendizagem dos Serviços de Mídia.
@@ -125,9 +132,8 @@ Examine os roteiros de aprendizagem dos Serviços de Mídia.
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>Artigos relacionados
-[Lançamento das Análises dos Serviços de Mídia](https://azure.microsoft.com/blog/introducing-azure-media-analytics/)
+Consulte o [Comunicado da análise dos Serviços de Mídia](https://azure.microsoft.com/blog/introducing-azure-media-analytics/).
 
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
-

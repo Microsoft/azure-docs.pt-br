@@ -1,6 +1,6 @@
 ---
 title: "Integração do SDK do Reach do Windows Universal"
-description: Como integrar o Mobile Engagement Reach do Azure com aplicativos do Windows Universal
+description: Como integrar o Azure Mobile Engagement Reach com aplicativos do Windows Universal
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8fc1faac88cab0e3d3755fdf16fe3d7188169961
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 9311e998e67d8d0d56da68fc9460df32ce7ce5a9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-universal-apps-reach-sdk-integration"></a>Integração do SDK do Reach do Windows Universal
 Você deve seguir o procedimento de integração descrito na [Integração do SDK do Engagement do Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) , antes de seguir este guia.
@@ -280,7 +279,7 @@ Você pode definir o retorno de chamada em seu método "Public App() {}" de seu 
 > 
 > 
 
-## <a name="a-idpush-channel-sharinga-push-channel-sharing"></a><a id="push-channel-sharing"></a> Enviar o compartilhamento de canal por push
+## <a id="push-channel-sharing"></a> Enviar o compartilhamento de canal por push
 Se estiver usando notificações por push para outra finalidade em seu aplicativo, você terá que usar o recurso de compartilhamento de canal de push do SDK do Engagement. Isso é para evitar notificações por push perdidas.
 
 * Você pode oferecer seu próprio canal de push para inicializar o Engagement Reach. O SDK usará seu canal em vez de solicitar um novo.
@@ -338,5 +337,4 @@ Agora, para usar esses protocolo edite seu `App.xaml.cs` método com o método `
                 }
               }
               #endregion
-
 

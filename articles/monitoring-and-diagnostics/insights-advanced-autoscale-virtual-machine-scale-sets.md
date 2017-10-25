@@ -1,8 +1,8 @@
 ---
 title: "Autoescala avançada usando máquinas virtuais do Azure | Microsoft Docs"
 description: "Usa o Resource Manager e Conjuntos de Dimensionamento de VMs com várias regras e perfis que enviam email e chamam URLs de webhook com ações de escala."
-author: kamathashwin
-manager: carmonm
+author: anirudhcavale
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,20 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2016
-ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: b521c3bb99c9a6980df46eacec4e1ebe72fb01a1
-ms.openlocfilehash: 00f6a7af021029d1795071c930e05f200578fa14
-ms.lasthandoff: 02/23/2017
-
-
+ms.author: ancav
+ms.openlocfilehash: 80955535c8d863cd3d8d1b77e2ab8bc016b6d9f3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuração avançada de autoescala usando modelos do Resource Manager para Conjuntos de Dimensionamento de VMs
 Você pode escalar e reduzir horizontalmente Conjuntos de Dimensionamento de Máquina Virtual com base nos limites de métrica de desempenho, em uma agenda recorrente ou em determinada data. Você também pode configurar notificações por email e webhook para ações de escala. Este passo a passo mostra um exemplo de configuração de todos esses objetos usando um modelo do Resource Manager em um Conjunto de Dimensionamento de VMs.
 
 > [!NOTE]
-> Este passo a passo explica as etapas para Conjuntos de Dimensionamento de VMs, as mesmas informações se aplicam ao dimensionamento automático de Serviços de Nuvem e Aplicativos Web.
+> Este passo a passo explica as etapas para Conjuntos de Dimensionamento de VMs, as mesmas informações se aplicam ao dimensionamento automático de [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/) e [Serviço de Aplicativo - Aplicativos Web](https://azure.microsoft.com/services/app-service/web/).
 > Para uma configuração simples de redução/escala horizontal em um Conjunto de Dimensionamento de VM com base em um métrica de desempenho simples, como CPU, consulte os documentos [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) e [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)
 >
 >
@@ -255,4 +253,3 @@ Use estes links para saber mais sobre o dimensionamento automático.
 [Gerenciar o dimensionamento automático usando a CLI](insights-cli-samples.md#autoscale)
 
 [Configurar webhooks e notificações por email para dimensionamento automático](insights-autoscale-to-webhook-email.md)
-

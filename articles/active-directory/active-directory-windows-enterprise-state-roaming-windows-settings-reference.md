@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 9b88b18e32e6a5ef6c0a0195e649fe2862583a0b
-ms.openlocfilehash: c2c50ff6e92cf42a7d309afafb01210c4edabbe0
-ms.lasthandoff: 01/05/2017
-
-
+ms.openlocfilehash: 5082ed8d2f41e72fa979b978e2ac0b0840fdcdac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência de configurações de roaming do Windows 10
 A seguir, uma lista completa de todas as configurações que serão ser movidas ou armazenadas em backup no Windows 10. 
@@ -89,7 +88,19 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Dispositivos**: impressoras compartilhadas às quais você se conectou |X |X |Outros |
 | **Navegador Edge**: lista de leitura |sync |sync |interno |
 | **Navegador Edge**: favoritos |sync |sync |interno |
-| **Navegador Edge**: todas as outras configurações do Edge |X |X | |
+| **Navegador Edge**: principais sites <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: URLs digitadas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: configurações da barra de favoritos <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: mostrar o botão home <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: bloquear pop-ups <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: perguntar-me o que fazer com cada download <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: oferecer para salvar senhas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: enviar solicitações para não rastrear <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: salvar entradas de formulário <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: mostrar sugestões de pesquisa e de site conforme eu digitar <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: preferência de cookies <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: permitir que sites salvem licenças de mídia protegida em meu dispositivo <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Edge**: configuração de leitor de tela <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Alto Contraste**: ativado ou desativado |sync |X |facilidade de acesso |
 | **Alto Contraste**: configurações do Tema |sync |X |facilidade de acesso |
 | **Internet Explorer**: abrir guias (URL e título) |sync |sync |Internet Explorer |
@@ -159,10 +170,12 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Digitação**: dados de personalização para teclado de toque |sync |backup |idioma |
 | **Wi-Fi**: perfis de Wi-Fi (somente WPA) |sync |sync |Senhas |
 
+###### <a name="footnote-1"></a>Nota de rodapé 1
+Versão mínima do SO com suporte da Atualização do Windows para Criadores (Build 15063). 
+
 ## <a name="related-topics"></a>Tópicos relacionados
 * [Visão geral do enterprise state roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 * [Habilitar o enterprise state roaming no Active Directory do Azure](active-directory-windows-enterprise-state-roaming-enable.md)
 * [Perguntas frequentes sobre configurações e roaming de dados](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Política de grupo e as configurações do MDM para a sincronização de configurações](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Solução de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-

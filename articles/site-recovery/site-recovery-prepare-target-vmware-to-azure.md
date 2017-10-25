@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 2/11/2017
+ms.date: 5/31/2017
 ms.author: bsiva
-translationtype: Human Translation
-ms.sourcegitcommit: b7f26df96ddedb579cf5d9d20fee6b2599e762e0
-ms.openlocfilehash: 555ea8eed17e42019513029f7b3ac2167f002578
-
+ms.openlocfilehash: c84a775564769ddc796aa9d75add019ef1003175
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="prepare-target-vmware-to-azure"></a>Preparar destino (VMware para Azure)
 > [!div class="op_single_selector"]
-> * [Máquinas Virtuais VMware](./site-recovery-prepare-target-vmware-to-azure.md)
-> * [Servidores físicos](./site-recovery-prepare-target-physical-to-azure.md)
+> * [VMware no Azure](./site-recovery-prepare-target-vmware-to-azure.md)
+> * [Físico para Azure](./site-recovery-prepare-target-physical-to-azure.md)
 
 Este artigo descreve como configurar seu ambiente do Azure para iniciar a replicação de máquinas virtuais VMware no Azure.
 
@@ -50,9 +50,3 @@ Caso não tenha uma rede virtual ou conta de armazenamento do Resource Manager c
 
 ## <a name="next-steps"></a>Próximas etapas
 [Definir configurações de replicação](./site-recovery-setup-replication-settings-vmware.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

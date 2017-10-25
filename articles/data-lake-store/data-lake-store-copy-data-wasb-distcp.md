@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/06/2017
+ms.date: 10/03/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 12aea210308636677ba2905887ddd24dc5c35238
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 1c9e100b4a0e7781f0782a49835d50492895ded1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-store"></a>Use Distcp para copiar dados entre o Repositório do Data Lake e os Blobs de Armazenamento do Azure
 > [!div class="op_single_selector"]
@@ -28,10 +27,9 @@ ms.lasthandoff: 03/25/2017
 >
 >
 
-Depois de criar um cluster do HDInsight que tem acesso a uma conta de Repositório do Data Lake, você pode usar ferramentas do ecossistema Hadoop, como Distcp, para copiar dados **do e para** um armazenamento de cluster do HDInsight (WASB) em uma conta do Repositório do Data Lake. Esse artigo fornece instruções sobre como fazer isso.
+Se você tem um cluster HDInsight com acesso ao Data Lake Store, você pode usar as ferramentas do ecossistema Hadoop, como Distcp, para copiar dados **de e para** um armazenamento de cluster do HDInsight (WASB) em uma conta do Data Lake Store. Este artigo fornece instruções de como usar a ferramenta Distcp.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar este artigo, você deve ter o seguinte:
 
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta do repositório Azure Data Lake**. Para obter instruções sobre como criar uma, consulte [Introdução ao repositório Azure Data Lake](data-lake-store-get-started-portal.md)
@@ -42,7 +40,7 @@ Antes de começar este artigo, você deve ter o seguinte:
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Usar Distcp de um cluster HDInsight do Linux
 
-Um cluster do HDInsight é fornecido com o utilitário Distcp, que pode ser usado para copiar dados de fontes diferentes em um cluster do HDInsight. Se você tiver configurado o cluster do HDInsight para usar o Repositório do Data Lake como um armazenamento adicional, o utilitário Distcp pode ser usado prontamente para copiar dados de e para uma conta do Repositório do Data Lake. Nesta seção, vamos examinar como usar o utilitário Distcp.
+Um cluster do HDInsight é fornecido com o utilitário Distcp, que pode ser usado para copiar dados de fontes diferentes em um cluster do HDInsight. Se você tiver configurado o cluster HDInsight para usar o Data Lake Store como um armazenamento adicional, o utilitário Distcp poderá ser usado prontamente para copiar dados de e para uma conta do Data Lake Store. Nesta seção, vamos examinar como usar o utilitário Distcp.
 
 1. Da sua área de trabalho, use o SSH para se conectar ao cluster. Confira [Conectar-se a um cluster HDInsight baseado em Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md). Execute os comandos do prompt de SSH.
 
@@ -50,26 +48,29 @@ Um cluster do HDInsight é fornecido com o utilitário Distcp, que pode ser usad
 
         hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
 
-    Isso deve fornecer uma lista de conteúdo no blob de armazenamento.
+    A saída deve fornecer uma lista de conteúdo no blob de armazenamento.
+
 3. Da mesma forma, verifique se você pode acessar a conta de Repositório do Data Lake do cluster. Execute o comando a seguir:
 
         hdfs dfs -ls adl://<data_lake_store_account>.azuredatalakestore.net:443/
 
-    Isso deve fornecer uma lista de arquivos/pastas na conta de Repositório do Data Lake.
+    A saída deve fornecer uma lista de arquivos/pastas na conta do Data Lake Store.
+
 4. Use Distcp para copiar dados do WASB para uma conta de Repositório do Data Lake.
 
         hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder
 
-    Isso copiará o conteúdo da pasta **/example/data/gutenberg/** do WASB em **/myfolder** na conta do Data Lake Store.
+    O comando copia o conteúdo da pasta **/example/data/gutenberg/** do WASB em **/myfolder** na conta do Data Lake Store.
+
 5. De modo semelhante, use Distcp para copiar dados da conta de Repositório do Data Lake para o WASB.
 
         hadoop distcp adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg
 
-    Isso copiará o conteúdo de **/myfolder** da conta do Data Lake Store na pasta **/example/data/gutenberg/** no WASB.
+    O comando copia o conteúdo de **/myfolder** da conta do Data Lake Store na pasta **/example/data/gutenberg/** no WASB.
 
 ## <a name="performance-considerations-while-using-distcp"></a>Considerações de desempenho ao usar o DistCp
 
-Como a granularidade mais baixa do DistCp é um único arquivo, definir o número máximo de cópias simultâneas é o parâmetro mais importante para otimizá-lo em relação ao Data Lake Store. Isso é controlado pela configuração do parâmetro de número de mapeadores (“m”) na linha de comando. Esse parâmetro especifica o número máximo de mapeadores que será usado para copiar dados. O valor padrão é 20.
+Como a granularidade mais baixa do DistCp é um único arquivo, definir o número máximo de cópias simultâneas é o parâmetro mais importante para otimizá-lo em relação ao Data Lake Store. O número de cópias simultâneas é controlado pela configuração do parâmetro de número de mapeadores (“m”) na linha de comando. Esse parâmetro especifica o número máximo de mapeadores que são usados para copiar dados. O valor padrão é 20.
 
 **Exemplo**
 
@@ -89,7 +90,7 @@ Aqui estão algumas diretrizes que podem ser usadas.
 
 Suponhamos que você tenha 4 nós D14v2s no cluster e está tentando transferir 10 TB de dados de 10 pastas diferentes. Cada uma das pastas contêm volumes diversos de dados e os tamanhos dos arquivos em cada pasta também são diferentes.
 
-* Total de memória YARN ‑ Do portal Ambari você determina que a memória YARN é 96 GB para um nó D14. Portanto, o total de memória YARN para um cluster de 4 nós é: 
+* Total de memória YARN – No portal do Ambari você determina que a memória YARN é 96 GB para um nó D14. Portanto, o total de memória YARN para um cluster de quatro nós é: 
 
         YARN memory = 4 * 96GB = 384GB
 
@@ -101,7 +102,7 @@ Se outros aplicativos estiverem usando memória, então você poderá usar somen
 
 ### <a name="copying-large-datasets"></a>Copiando grandes conjuntos de dados
 
-Quando o tamanho do conjunto de dados a ser movido será muito grande (por exemplo, maior que 1 TB) ou se você tiver muitas pastas diferentes, considere usar vários trabalhos DistCp. Provavelmente, não haverá nenhum ganho de desempenho, porém isso espalhará os trabalhos para que, se algum trabalho falhar, seja necessário reiniciar somente esse trabalho específico em vez de todo o trabalho.
+Quando o tamanho do conjunto de dados a ser movido for grande (por exemplo, maior que 1 TB) ou se você tiver muitas pastas diferentes, considere usar vários trabalhos DistCp. Provavelmente, não haverá nenhum ganho de desempenho, porém isso espalhará os trabalhos para que, se algum deles falhar, você só precise reiniciar esse trabalho específico em vez de todo o trabalho.
 
 ### <a name="limitations"></a>Limitações
 
@@ -109,13 +110,12 @@ Quando o tamanho do conjunto de dados a ser movido será muito grande (por exemp
 
 * O DistCp é limitado a apenas um mapeador por arquivo. Portanto, você não deve ter mais mapeadores do que arquivos. Como DistCp só pode atribuir um mapeador para um arquivo, isso limita a quantidade de simultaneidade que pode ser usada para copiar grandes arquivos.
 
-* Se você tiver um pequeno número de grandes arquivos, divida-os em partes do arquivo de 256 MB para proporcionar um maior potencial de simultaneidade. 
+* Se você tiver um pequeno número de grandes arquivos, divida-os em partes de arquivo de 256 MB para proporcionar um maior potencial de simultaneidade. 
  
-* Se você estiver copiando de uma conta de Armazenamento de Blobs do Azure, seu trabalho de cópia poderá ficar limitado do lado do Armazenamento de Blobs. Isso poderá degradar o desempenho do seu trabalho de cópia. Para saber mais sobre os limites do Armazenamento de Blobs do Azure, confira Limites de Armazenamento do Azure em [Limites de serviço e assinatura do Azure](../azure-subscription-service-limits.md).
+* Se você estiver copiando de uma conta de Armazenamento de Blobs do Azure, seu trabalho de cópia poderá ficar limitado do lado do Armazenamento de Blobs. Isso pode degradar o desempenho do seu trabalho de cópia. Para saber mais sobre os limites do Armazenamento de Blobs do Azure, confira Limites de Armazenamento do Azure em [Limites de serviço e assinatura do Azure](../azure-subscription-service-limits.md).
 
 ## <a name="see-also"></a>Consulte também
 * [Copiar dados de Blobs do Armazenamento do Azure para o Repositório Data Lake](data-lake-store-copy-data-azure-storage-blob.md)
 * [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
 * [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
-

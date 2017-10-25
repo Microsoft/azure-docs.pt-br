@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 07/19/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6d88b7c5ad96a1c7cfb60bde3c9d952b654adb9f
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: f539931e0704f904f4b942f185f086a790caf4da
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-resource-manager-overview"></a>Visão geral do Azure Resource Manager
 A infraestrutura do seu aplicativo geralmente é composta de vários componentes; talvez uma máquina virtual, uma conta de armazenamento e uma rede virtual, ou aplicativo Web, banco de dados, servidor de banco de dados e serviços de terceiros. Tais componentes não são vistos como entidades separadas, em vez disso, eles são mostrados como partes relacionadas e interdependentes de uma única entidade. Você deseja implantar, gerenciar e monitorá-los como um grupo. O Azure Resource Manager permite trabalhar com os recursos da sua solução como um grupo. Você pode implantar, atualizar ou excluir todos os recursos da sua solução em uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. O Gerenciador de Recursos fornece recursos de segurança, auditoria e marcação para ajudá-lo a gerenciar seus recursos após a implantação. 
@@ -81,39 +80,9 @@ Ao criar um grupo de recursos, você precisará fornecer um local para ele. Voc�
 ## <a name="resource-providers"></a>Provedores de recursos
 Cada provedor de recursos oferece um conjunto de recursos e operações para trabalhar com um serviço do Azure. Por exemplo, se você quer armazenar chaves e segredos, trabalhe com o provedor de recursos **Microsoft.KeyVault** . Este provedor de recursos oferece um tipo de recurso denominado **cofres** para criar o cofre da chave. 
 
-Antes de começar a implantação de recursos, você deve ter uma compreensão dos provedores de recursos disponíveis. Conhecer os nomes dos provedores de recursos e dos recursos ajuda a definir os recursos que você deseja implantar no Azure.
+O nome de um tipo de recurso está no formato: **{provedor-de-recursos}/{tipo-de-recurso}**. Por exemplo, o tipo de cofre de chaves é **Microsoft.KeyVault\vaults**.
 
-Você pode ver todos os provedores de recursos por meio do portal. Na folha de sua assinatura, selecione **Provedores de recursos**:
-
-![exibir provedores de recursos](./media/resource-group-overview/view-resource-providers.png)
-
-Você recupera todos os provedores de recursos com o seguinte cmdlet do PowerShell:
-
-```powershell
-Get-AzureRmResourceProvider -ListAvailable
-```
-
-Ou, com o Azure CLI 2.0, você recupera todos os provedores de recursos com o seguinte comando:
-
-```azurecli
-az provider list
-```
-
-Você pode verificar a lista retornada para encontrar os provedores de recursos que precisa usar.
-
-Para obter detalhes sobre um provedor de recursos, adicione o namespace do provedor ao comando. O comando retorna os tipos de recursos com suporte para o provedor de recursos e os locais e as versões de API com suporte para cada tipo de recurso. O seguinte cmdlet do PowerShell obtém os detalhes sobre Microsoft.Compute:
-
-```powershell
-(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
-```
-
-Ou, com o Azure CLI 2.0, recupere os tipos de recursos, locais e versões de API com suporte para Microsoft.Compute, com o seguinte comando:
-
-```azurecli
-az provider show --namespace Microsoft.Compute
-```
-
-Para obter mais informações, confira [Provedores do Gerenciador de Recursos, regiões, versões de API e esquemas](resource-manager-supported-services.md).
+Antes de começar a implantação de recursos, você deve ter uma compreensão dos provedores de recursos disponíveis. Conhecer os nomes dos provedores de recursos e dos recursos ajuda a definir os recursos que você deseja implantar no Azure. Além disso, você precisa conhecer os locais e as versões de API válidos para cada tipo de recurso. Para saber mais, veja [Provedores e tipos de recursos](resource-manager-supported-services.md).
 
 ## <a name="template-deployment"></a>Implantação de modelo
 Com o Gerenciador de Recursos, você pode criar um modelo (no formato JSON) que define a infraestrutura e a configuração de sua solução do Azure. Usando um modelo, você pode implantar a solução repetidamente em todo seu ciclo de vida e com a confiança de que seus recursos serão implantados em um estado consistente. Quando você cria uma solução no Portal, ela inclui automaticamente um modelo de implantação. Você não precisa criar seu modelo do zero, pois é possível iniciar com o modelo da sua solução e personalizá-lo para atender às suas necessidades específicas. Você pode recuperar um modelo de um grupo de recursos existente exportando o estado atual do grupo de recursos ou exibindo o modelo usado para determinada implantação. A exibição do [modelo exportado](resource-manager-export-template.md) é uma maneira útil de saber mais sobre a sintaxe do modelo.
@@ -169,8 +138,6 @@ Ao prever suas camadas com ciclos de vida separados, você pode implantar os tr�
 ![modelo de camada](./media/resource-group-overview/tier-templates.png)
 
 Para obter mais sugestões sobre a criação de modelos, confira [Padrões para a criação de modelos do Azure Resource Manager](best-practices-resource-manager-design-templates.md). Para obter informações sobre modelos aninhados, confira [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
-
-Para uma série de quatro partes sobre como automatizar a implantação, consulte [automatizar implantações de aplicativo para máquinas virtuais do Azure](../virtual-machines/windows/dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Esta série aborda a arquitetura do aplicativo, acesso e segurança, disponibilidade e escala e implantação de aplicativos.
 
 O Azure Resource Manager analisa as dependências para garantir que os recursos sejam criados na ordem correta. Se um recurso depende de um valor de outro recurso (como uma máquina virtual que precisa de uma conta de armazenamento para discos), você pode definir uma dependência. Para saber mais, confira [Definindo as dependências nos modelos do Gerenciador de Recursos do Azure](resource-group-define-dependencies.md).
 
@@ -256,7 +223,7 @@ Em alguns casos, você deseja executar código ou script que acessa recursos, ma
 
 * [Usar o Azure PowerShell para criar uma entidade de serviço a fim de acessar recursos](resource-group-authenticate-service-principal.md)
 * [Usar a CLI do Azure para criar uma entidade de serviço a fim de acessar recursos](resource-group-authenticate-service-principal-cli.md)
-* [Usar o portal para criar um aplicativo e entidade de serviço do Active Directory que pode acessar recursos](resource-group-create-service-principal-portal.md)
+* [Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory que possa acessar recursos](resource-group-create-service-principal-portal.md)
 
 Você pode bloquear explicitamente recursos essenciais para impedir que os usuários possam excluí-los ou modificá-los. Para saber mais, confira [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
 
@@ -287,49 +254,28 @@ O exemplo a seguir mostra uma política que garante a consistência de marca, es
 Há muito mais tipos de políticas que você pode criar. Para saber mais, confira [Usar a Política para gerenciar recursos e controlar o acesso](resource-manager-policy.md).
 
 ## <a name="sdks"></a>SDKs
-Os SDKs do Azure estão disponíveis em várias linguagens e plataformas.
-Cada uma dessas implementações da linguagem está disponível por meio do gerenciador de pacotes do ecossistema e do GitHub.
-
-O código em cada um desses SDKs é gerado a partir de especificações da API RESTful do Azure.
-Essas especificações têm o código-fonte aberto e baseiam-se na especificação Swagger 2.0.
-O código do SDK é gerado por um projeto de fonte-aberta denominado AutoRest.
-O AutoRest transforma essas especificações da API RESTful em bibliotecas de cliente em várias linguagens.
-Se você quiser melhorar algum aspecto do código gerado nos SDKs, todo o conjunto de ferramentas para criar os SDKs é aberto, está disponível gratuitamente e baseado em um formato de especificação API amplamente adotado.
+Os SDKs do Azure estão disponíveis em várias linguagens e plataformas. Cada uma dessas implementações da linguagem está disponível por meio do gerenciador de pacotes do ecossistema e do GitHub.
 
 Aqui estão nossos repositórios do SDK de software livre. Comentários, problemas e solicitações pull são bem-vindos.
 
-[.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Node.js](https://github.com/Azure/azure-sdk-for-node) | [PHP](https://github.com/Azure/azure-sdk-for-php) | [Python](https://github.com/Azure/azure-sdk-for-python) | [Ruby](https://github.com/Azure/azure-sdk-ruby)
+* [SDK do Azure para .NET](https://github.com/Azure/azure-sdk-for-net)
+* [Bibliotecas de Gerenciamento do Azure para Java](https://github.com/Azure/azure-sdk-for-java)
+* [SDK do Azure para Node.js](https://github.com/Azure/azure-sdk-for-node)
+* [SDK do Azure para PHP](https://github.com/Azure/azure-sdk-for-php)
+* [SDK do Azure para Python](https://github.com/Azure/azure-sdk-for-python)
+* [SDK do Azure para Ruby](https://github.com/Azure/azure-sdk-for-ruby)
+
+Para obter informações sobre como usar esses idiomas com seus recursos, confira:
+
+* [Azure para desenvolvedores .NET](/dotnet/azure/?view=azure-dotnet)
+* [Azure para desenvolvedores Java](/java/azure/)
+* [Azure para desenvolvedores Node.js](/nodejs/azure/)
+* [Azure para desenvolvedores do Python](/python/azure/)
 
 > [!NOTE]
 > Se o SDK não fornecer a funcionalidade necessária, você também poderá chamar a [API REST do Azure](https://docs.microsoft.com/rest/api/resources/) diretamente.
 > 
 > 
-
-## <a name="samples"></a>Exemplos
-### <a name="net"></a>.NET
-* [Gerenciar recursos e grupos de recursos do Azure](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-* [Implantar uma VM habilitada para SSH com um modelo](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-
-### <a name="java"></a>Java
-* [Gerenciar recursos do Azure](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource/)
-* [Gerenciar grupos de recursos do Azure](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
-* [Implantar uma VM habilitada para SSH com um modelo](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-
-### <a name="nodejs"></a>Node.js
-* [Gerenciar recursos e grupos de recursos do Azure](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-* [Implantar uma VM habilitada para SSH com um modelo](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-
-### <a name="python"></a>Python
-* [Gerenciar recursos e grupos de recursos do Azure](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-* [Implantar uma VM habilitada para SSH com um modelo](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-
-### <a name="ruby"></a>Ruby
-* [Gerenciar recursos e grupos de recursos do Azure](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
-* [Implantar uma VM habilitada para SSH com um modelo](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-
-Além desses exemplos, você pode pesquisar os exemplos da galeria.
-
-[.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) | [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) | [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs) | [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python) | [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter uma introdução simples do trabalho com modelos, confira [Exportar um modelo Azure Resource Manager a partir dos recursos existentes](resource-manager-export-template.md).
@@ -343,4 +289,3 @@ Veja uma demonstração em vídeo desta visão geral:
 
 
 [powershellref]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources
-

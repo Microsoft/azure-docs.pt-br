@@ -6,15 +6,15 @@ Se o problema do Azure não for resolvido neste artigo, visite os [Fóruns do Az
 Essas etapas podem ajudar a resolver diversas falhas de alocação em máquinas virtuais:
 
 * Redimensione a VM para um tamanho de VM diferente.<br>
-  Clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > sua máquina virtual > **Configurações** > **Tamanho**. Para obter as etapas detalhadas, consulte [Redimensionar a máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
+    Clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > sua máquina virtual > **Configurações** > **Tamanho**. Para obter as etapas detalhadas, consulte [Redimensionar a máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
 * Exclua todas as VMs do serviço de nuvem e recrie-as.<br>
-   Clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > sua máquina virtual > **Excluir**. Em seguida, clique em **Novo** > **Computação** > [imagem de máquina virtual].
+    Clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > sua máquina virtual > **Excluir**. Em seguida, clique em **Novo** > **Computação** > [imagem de máquina virtual].
 
 ### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>Solução de problemas de falhas de alocação comuns no modelo de implantação do Gerenciador de Recursos do Azure
 Essas etapas podem ajudar a resolver diversas falhas de alocação em máquinas virtuais:
 
 * Pare (desaloque) todas as VMs no mesmo conjunto de disponibilidade e reinicie cada uma delas.<br>
-   Para parar: clique em **Grupos de recursos** > seu grupo de recursos > **Recursos** > seu conjunto de disponibilidade > **Máquinas Virtuais** > sua máquina virtual > **Parar**.
+    Para parar: clique em **Grupos de recursos** > seu grupo de recursos > **Recursos** > seu conjunto de disponibilidade > **Máquinas Virtuais** > sua máquina virtual > **Parar**.
   
     Depois de parar todas as VMs, selecione a primeira VM e clique em **Iniciar**.
 
@@ -189,6 +189,8 @@ A desalocação total significa que você parou (desalocou) todas as VMs em um c
 
 Selecione um novo tamanho de VM para alocar. Se isso não funcionar, tente novamente mais tarde.
 
+<a name="Error string lookup"></a>
+
 ## <a name="error-string-lookup"></a>Pesquisa de cadeia de caracteres de erro
 **New_VMSizeNotSupported***
 
@@ -205,9 +207,4 @@ Selecione um novo tamanho de VM para alocar. Se isso não funcionar, tente novam
 **GeneralError***
 
 "O servidor encontrou um erro interno. Repita a solicitação." Ou "Falha na produção de uma alocação para o serviço."
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

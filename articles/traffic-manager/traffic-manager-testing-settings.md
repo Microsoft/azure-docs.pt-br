@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
 ms.openlocfilehash: aadff1806a7cb22347283143563467366e857569
-ms.lasthandoff: 03/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="verify-traffic-manager-settings"></a>Verificar as configurações do Gerenciador de Tráfego
 
 Para testar as configurações do Gerenciador de Tráfego, você precisa ter vários clientes, em diversos locais a partir dos quais você pode executar os testes. Em seguida, coloque os pontos de extremidade no perfil do Gerenciador de Tráfego, um de cada vez.
@@ -75,4 +74,3 @@ Como alternativa, há serviços gratuitos e disponíveis de dig e pesquisa de DN
 * [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md)
 * [Considerações sobre desempenho do Gerenciador de Tráfego](traffic-manager-performance-considerations.md)
 * [Solucionando problemas de estado degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
-

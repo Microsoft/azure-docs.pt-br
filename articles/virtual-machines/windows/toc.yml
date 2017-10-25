@@ -1,0 +1,384 @@
+- name: Documentação de VMs Windows
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: Sobre Máquinas Virtuais
+      href: overview.md
+- name: Guia de início rápido
+  expanded: true
+  items:
+    - name: Criar VM - Portal
+      href: quick-create-portal.md
+    - name: Criar VM - PowerShell
+      href: quick-create-powershell.md
+    - name: Criar VM - CLI do Azure
+      href: quick-create-cli.md
+- name: Tutoriais
+  items:
+    - name: 1 - Criar / gerenciar uma VM
+      href: tutorial-manage-vm.md
+    - name: 1 - Criar / gerenciar discos
+      href: tutorial-manage-data-disk.md
+    - name: 3 - Automatizar a configuração
+      href: tutorial-automate-vm-deployment.md
+    - name: 4 - Criar imagens da VM
+      href: tutorial-custom-images.md
+    - name: 5 - VMs altamente disponíveis
+      href: tutorial-availability-sets.md
+    - name: 6 - Criar um conjunto de dimensionamento de VM
+      href: tutorial-create-vmss.md
+    - name: 7 - VMs de balanceamento de carga
+      href: tutorial-load-balancer.md
+    - name: 8 - Gerenciar a rede
+      href: tutorial-virtual-network.md
+    - name: 9 - Fazer o backup de máquinas virtuais
+      href: tutorial-backup-vms.md
+    - name: 10 – Monitorar e atualizar VMs
+      href: tutorial-monitoring.md
+    - name: 11 - Gerenciar a segurança da VM
+      href: tutorial-azure-security.md
+    - name: 12 - CI/CD do Team Services
+      href: tutorial-vsts-iis-cicd.md
+    - name: 13 - Proteger o servidor Web com SSL
+      href: tutorial-secure-web-server.md
+- name: Exemplos
+  items:
+    - name: PowerShell
+      href: powershell-samples.md
+    - name: CLI do Azure
+      href: cli-samples.md
+- name: Conceitos
+  items:
+    - name: Gerenciador de Recursos do Azure
+      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Regiões e disponibilidade
+      href: regions-and-availability.md
+    - name: Tamanhos e tipos de VM
+      href: sizes.md
+    - name: Manutenção e atualizações
+      href: maintenance-and-updates.md
+    - name: Armazenamento
+      href: about-disks-and-vhds.md
+    - name: Rede
+      href: network-overview.md
+    - name: Aplicativos de dimensionamento automático
+      href: autoscale.md
+    - name: Automação de infraestrutura
+      href: infrastructure-automation.md
+    - name: Segurança e política
+      href: security-policy.md
+    - name: Monitoramento
+      href: monitor.md
+    - name: Backup e recuperação
+      href: backup-recovery.md
+    - name: Computação de alto desempenho
+      href: high-performance-computing.md
+    - name: Considerações de implantação
+      items:
+        - name: Diretrizes de infraestrutura
+          href: infrastructure-example.md
+- name: Guias de instruções
+  items:
+    - name: Criar VMs
+      items:
+        - name: 'Como usar C#'
+          href: csharp.md
+        - name: 'Como usar um modelo com C#'
+          href: csharp-template.md
+        - name: Criar VM com Chef
+          href: chef-automation.md
+        - name: Usar Java
+          href: java.md
+        - name: Como usar o Python
+          href: python.md
+        - name: Como usar um modelo
+          href: ps-template.md
+        - name: Como conectar-se a uma VM
+          href: connect-logon.md
+        - name: Como usar o licenciamento do AHUB
+          href: hybrid-use-benefit-licensing.md
+        - name: Usar Direitos de Hospedagem de Multilocatários para Windows 10
+          href: windows-desktop-multitenant-hosting-deployment.md
+    - name: Como proteger VMs
+      items:
+        - name: Criptografar
+          href: encrypt-disks.md
+        - name: Como usar o WinRM
+          href: winrm.md
+        - name: Como usar controles de acesso
+          href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Como usar políticas
+          href: policy.md
+        - name: Criar um cofre de chaves
+          href: key-vault-setup.md
+    - name: Gerenciar VMs
+      items:
+        - name: Tarefas comuns do PowerShell
+          href: ps-common-ref.md
+        - name: Como mover uma VM
+          href: move-vm.md
+        - name: Como alterar o tamanho da VM
+          href: resize-vm.md
+        - name: Marcar uma VM
+          href: tag.md
+        - name: Como executar scripts em uma VM
+          href: extensions-customscript.md
+        - name: Como alterar a letra da unidade temporária
+          href: change-drive-letter.md
+        - name: Como alterar o conjunto de disponibilidade
+          href: change-availability-set.md
+        - name: Baixar o modelo
+          href: download-template.md
+        - name: Agente de VM do Azure
+          href: agent-user-guide.md
+        - name: Manutenção planejada
+          href: maintenance-notifications.md
+        - name: Eventos agendados
+          href: scheduled-events.md
+        - name: Monitorizar metadados
+          href: instance-metadata-service.md
+    - name: Como usar imagens
+      items:
+        - name: Como localizar e usar imagens
+          href: cli-ps-findimage.md
+        - name: Como preparar a VM para carregamento
+          href: prepare-for-upload-vhd-image.md
+        - name: Como usar imagem generalizada
+          href: create-vm-generalized-managed.md
+        - name: Usar disco especializado
+          href: create-vm-specialized.md
+        - name: Como capturar uma VM para imagem
+          href: capture-image-resource.md
+        - name: Como criar uma imagem com o Packer
+          href: build-image-with-packer.md
+        - name: Uso de imagens do cliente Windows
+          href: client-images.md
+        - name: Como baixar o disco existente
+          href: download-vhd.md
+    - name: Disponibilidade e escala
+      items:
+        - name: Conjuntos de Escala de Máquina Virtual
+          href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Alta disponibilidade
+          href: manage-availability.md
+        - name: Como dimensionar verticalmente
+          href: vertical-scaling-automation.md
+        - name: Criar VM em zona de disponibilidade
+          items:
+            - name: PowerShell
+              href: create-powershell-availability-zone.md
+            - name: Portal
+              href: create-portal-availability-zone.md
+    - name: Como usar as ferramentas de automação
+      items:
+        - name: Chef
+          href: chef-automation.md
+    - name: Executar aplicativos
+      items:
+        - name: SQL Server
+          href: sql/virtual-machines-windows-sql-server-iaas-overview.md
+        - name: MongoDB
+          href: install-mongodb.md
+        - name: SAP no Azure
+          href: ../workloads/sap/get-started.md
+        - name: Cluster do MATLAB
+          href: matlab-mdcs-cluster.md
+        - name: HPC (Computação de Alto Desempenho)
+          href: hpcpack-cluster-options.md
+          items:
+            - name: Cluster de HPC Pack 2016
+              href: hpcpack-2016-cluster.md
+            - name: Integração do HPC Pack 2016 do Azure Active Directory
+              href: hpcpack-cluster-active-directory.md
+            - name: Nó principal do HPC Pack 2012 R2
+              href: hpcpack-cluster-headnode.md
+            - name: Como enviar trabalhos locais para o HPC Pack 2012 R2
+              href: hpcpack-cluster-submit-jobs.md
+            - name: Excel no HPC Pack
+              href: excel-cluster-hpcpack.md
+    - name: Gerenciamento do armazenamento
+      items:
+        - name: Saiba mais sobre Managed Disks
+          href: managed-disks-overview.md
+        - name: Perguntas frequentes de discos
+          href: faq-for-disks.md
+        - name: Adicionar um disco
+          items:
+            - name: Azure PowerShell
+              href: attach-disk-ps.md
+            - name: Portal do Azure
+              href: attach-managed-disk-portal.md
+        - name: Desanexar um disco
+          href: detach-disk.md
+        - name: Redimensionar um disco
+          href: expand-os-disk.md
+        - name: Instantâneo de um disco
+          href: snapshot-copy-managed-disk.md
+        - name: Backup de discos não gerenciados
+          href: incremental-snapshots.md
+        - name: Como converter disco entre Standard e Premium
+          href: convert-disk-storage.md
+        - name: Como usar o armazenamento de arquivos
+          href: mount-azure-file-storage.md
+        - name: Implantar discos com modelo
+          href: using-managed-disks-template-deployments.md
+        - name: Como migrar para Managed Disks
+          href: migrate-to-managed-disks.md
+          items:
+            - name: VM não gerenciada para Managed Disks
+              href: convert-unmanaged-to-managed-disks.md
+            - name: VM clássica única para Resource Manager
+              href: migrate-single-classic-to-resource-manager.md
+    - name: Como gerenciar a rede
+      href: ps-common-network-ref.md
+      items:
+        - name: Criar rede virtual
+          href: ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Como abrir as portas para uma VM
+          items:
+            - name: Portal do Azure
+              href: nsg-quickstart-portal.md
+            - name: Azure PowerShell
+              href: nsg-quickstart-powershell.md
+        - name: Como atribuir um endereço IP público
+          href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Como usar várias NICs
+          href: multiple-nics.md
+        - name: Como atribuir o nome DNS público
+          href: portal-create-fqdn.md
+        - name: Resolução DNS
+          href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Usar extensões de VM
+      items:
+        - name: Visão geral de extensões de VM
+          href: extensions-features.md
+        - name: Extensão de Script personalizado
+          href: extensions-customscript.md
+        - name: Extensão do agente do OMS
+          href: extensions-oms.md
+        - name: Extensão de DSC do PowerShell
+          href: extensions-dsc-overview.md
+          items:
+            - name: Processamento de Credencial de extensão de DSC do PowerShell
+              href: extensions-dsc-credentials.md
+            - name: DSC e VMSS com modelos
+              href: extensions-dsc-template.md
+        - name: Extensão do coletor de Log do Azure
+          href: log-collector-extension.md
+        - name: Extensão de diagnóstico do Azure
+          href: ps-extensions-diagnostics.md
+        - name: Exportando extensões de VM
+          href: extensions-export-templates.md
+        - name: Solucionar problemas de extensões
+          href: extensions-troubleshoot.md
+        - name: Monitoramento e extensão de diagnósticos
+          href: extensions-diagnostics-template.md
+        - name: Agente do observador de rede
+          href: extensions-nwa.md
+    - name: Migrar VMs
+      items:
+        - name: Como migrar AWS e VMs locais
+          href: on-prem-to-azure.md
+          items:
+            - name: Como carregar uma VM local
+              href: upload-generalized-managed.md
+            - name: Da Amazon Web Services (AWS)
+              href: aws-to-azure.md
+            - name: Como usar o Azure Site Recovery
+              href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Migrar do Clássico para o Azure Resource Manager
+          href: migration-classic-resource-manager-overview.md
+          items:
+            - name: Aprofunde-se na migração
+              href: migration-classic-resource-manager-deep-dive.md
+            - name: Planejar a migração
+              href: migration-classic-resource-manager-plan.md
+            - name: Migrar usando o PowerShell
+              href: migration-classic-resource-manager-ps.md
+            - name: Erros comuns de migração
+              href: migration-classic-resource-manager-errors.md
+            - name: Ferramentas da comunidade para a migração
+              href: migration-classic-resource-manager-community-tools.md
+            - name: Perguntas frequentes
+              href: migration-classic-resource-manager-faq.md
+    - name: Solucionar problemas
+      items:
+        - name: Conexões de Área de Trabalho Remota
+          href: troubleshoot-rdp-connection.md
+          items:
+            - name: Etapas detalhadas
+              href: detailed-troubleshoot-rdp.md
+            - name: Mensagens de erro
+              href: troubleshoot-specific-rdp-errors.md
+        - name: Redefinir a senha RDP
+          href: reset-rdp.md
+        - name: Como redefinir a senha local sem agente do Azure
+          href: reset-local-password-without-agent.md
+        - name: Entender a reinicialização do sistema
+          href: understand-vm-reboot.md
+        - name: Redefinir NIC
+          href: reset-network-interface.md
+        - name: Diagnóstico de inicialização
+          href: boot-diagnostics.md
+        - name: Criar uma VM
+          href: troubleshoot-deployment-new-vm.md
+        - name: Problemas de implantação
+          href: troubleshoot-deploy-vm.md
+        - name: Reinicializar ou redimensionar uma VM
+          href: restart-resize-error-troubleshooting.md
+        - name: Acesso a aplicativos
+          href: troubleshoot-app-connection.md
+        - name: Problemas de ativação
+          href: troubleshoot-activation-problems.md
+        - name: Falhas na alocação
+          href: allocation-failure.md
+        - name: Reimplantar uma VM
+          href: redeploy-to-new-node.md
+        - name: Mensagens de erro comuns
+          href: error-messages.md
+        - name: Acesso de recuperação da VM
+          items:
+            - name: Azure PowerShell
+              href: troubleshoot-recovery-disks.md
+            - name: Portal do Azure
+              href: troubleshoot-recovery-disks-portal.md
+        - name: Como usar PerfInsights
+          href: how-to-use-perfInsights.md
+        - name: Extensão de VM de Diagnóstico de Desempenho
+          href: performance-diagnostics-vm-extension.md
+- name: Referência
+  items:
+    - name: CLI do Azure
+      href: /cli/azure/vm
+    - name: Azure PowerShell
+      href: /powershell/azureps-cmdlets-docs
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.compute
+    - name: Java
+      href: /java/api
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST de computação
+      href: /rest/api/compute
+    - name: Managed Disks REST
+      href: /rest/api/manageddisks
+- name: Recursos
+  items:
+    - name: Modelos de autor
+      href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Modelos da comunidade
+      href: 'https://azure.microsoft.com/documentation/templates'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/#Linux'
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
+    - name: Perguntas frequentes
+      href: faq.md

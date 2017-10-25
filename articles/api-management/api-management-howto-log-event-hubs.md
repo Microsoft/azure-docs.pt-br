@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 2969e6063d7bc59a6c8ca733912904abeeb7e7e8
-ms.openlocfilehash: afecb15f36525c53a66f30047dffe8a3e8f36107
-ms.lasthandoff: 02/03/2017
-
-
+ms.openlocfilehash: a310236179677046ec49930b07cfdffdadc37974
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API do Azure
 Hub de Eventos do Azure é um serviço de entrada de dados altamente escalonável que pode incluir milhões de eventos por segundo, para que você possa processar e analisar grandes quantidades de dados produzidos por seus aplicativos e dispositivos conectados. Hub de Eventos age como a "porta de entrada” para um pipeline de eventos e depois que os dados são coletados em um hub de eventos, ele pode ser transformado e armazenado usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Hub de Eventos separa a produção de um fluxo de eventos do consumo desses eventos, para que os consumidores de eventos possam acessar os eventos em seu próprio cronograma.
@@ -48,9 +47,9 @@ A cadeia de conexão de **Envio** é usada ao registrar eventos em log e a cadei
 ![Cadeia de conexão][event-hub-connection-string]
 
 ## <a name="create-an-api-management-logger"></a>Criar um agente de Gerenciamento de API
-Agora que você tem um Hub de Eventos, a próxima etapa será configurar um [Agente](https://msdn.microsoft.com/library/azure/mt592020.aspx) no seu serviço de Gerenciamento de API para que ele possa registrar eventos em log para o Hub de Eventos.
+Agora que você tem um Hub de Eventos, a próxima etapa será configurar um [Agente](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) no seu serviço de Gerenciamento de API para que ele possa registrar eventos em log para o Hub de Eventos.
 
-Os agentes do Gerenciamento de API são configurados usando a [API REST do Gerenciamento de API](http://aka.ms/smapi). Antes de usar a API REST pela primeira vez, examine os [pré-requisitos](https://msdn.microsoft.com/library/azure/dn776326.aspx#Prerequisites) e verifique se você [habilitou o acesso à API REST](https://msdn.microsoft.com/library/azure/dn776326.aspx#EnableRESTAPI).
+Os agentes do Gerenciamento de API são configurados usando a [API REST do Gerenciamento de API](http://aka.ms/smapi). Antes de usar a API REST pela primeira vez, examine os [pré-requisitos](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#Prerequisites) e verifique se você [habilitou o acesso à API REST](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#EnableRESTAPI).
 
 Para criar um agente de log, faça uma solicitação HTTP PUT usando o modelo de URL a seguir.
 
@@ -62,8 +61,8 @@ Para criar um agente de log, faça uma solicitação HTTP PUT usando o modelo de
 Adicione os cabeçalhos a seguir à solicitação.
 
 * Content-Type : application/json
-* Authorization : SharedAccessSignature uid=...
-  * Para saber mais sobre como gerar a `SharedAccessSignature` , confira [Autenticação da API REST do Gerenciamento de API do Azure](https://msdn.microsoft.com/library/azure/dn798668.aspx).
+* Authorization : SharedAccessSignature 58...
+  * Para saber mais sobre como gerar a `SharedAccessSignature` , confira [Autenticação da API REST do Gerenciamento de API do Azure](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication).
 
 Especifique o corpo da solicitação usando o modelo a seguir.
 
@@ -85,7 +84,7 @@ Especifique o corpo da solicitação usando o modelo a seguir.
 Quando você fizer a solicitação, se o agente for criado, um código de status `201 Created` será retornado
 
 > [!NOTE]
-> Para outros códigos de retorno possíveis e seus motivos, confira [Criar um agente](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Para saber como executar outras operações, por exemplo, listar, atualizar e excluir, confira a documentação da entidade [Agente](https://msdn.microsoft.com/library/azure/mt592020.aspx) .
+> Para outros códigos de retorno possíveis e seus motivos, confira [Criar um agente](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity#PUT). Para saber como executar outras operações, por exemplo, listar, atualizar e excluir, confira a documentação da entidade [Agente](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) .
 >
 >
 
@@ -122,8 +121,8 @@ Clique em **Salvar** para salvar a configuração da política atualizada. Assim
   * [Receber mensagens com EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Guia de programação dos Hubs de Eventos](../event-hubs/event-hubs-programming-guide.md)
 * Saiba mais sobre a integração do Gerenciamento de API e Hubs de eventos
-  * [Referência de entidade do agente](https://msdn.microsoft.com/library/azure/mt592020.aspx)
-  * [referência de política de log ao hub de eventos](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+  * [Referência de entidade do agente](https://docs.microsoft.com/rest/api/apimanagement/loggers)
+  * [referência de política de log ao hub de eventos](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
   * [Monitorar suas APIs com o Gerenciamento de API do Azure, Hubs de Eventos e Runscope](api-management-log-to-eventhub-sample.md)    
 
 ## <a name="watch-a-video-walkthrough"></a>Assista a um passo a passo em vídeo
@@ -139,4 +138,3 @@ Clique em **Salvar** para salvar a configuração da política atualizada. Assim
 [sending-policy]: ./media/api-management-howto-log-event-hubs/sending-policy.png
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
-

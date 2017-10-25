@@ -4,7 +4,7 @@ description: "Saiba como usar o plug-in Smooth Streaming dos Serviços de Mídia
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 6068151f-b6b0-4507-9346-f03416d3d572
 ms.service: media-services
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 32b530e5234610363b1a160e22921f1b0ce8bdc0
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 9c764f176ae75085320882de3fb26d8e7d52daaf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Como usar o plug-in do Microsoft Smooth Streaming para o Adobe Open Source Media Framework
 ## <a name="overview"></a>Visão geral
@@ -393,5 +392,4 @@ Para obter mais informações sobre o desenvolvimento de OSMF geral, consulte a 
 
 ## <a name="see-also"></a>Consulte também
 [plug-in Microsoft Adaptive Streaming para atualização OSMF](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/) 
-
 

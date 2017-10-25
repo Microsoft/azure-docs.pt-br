@@ -3,7 +3,7 @@ title: Parceiros de gerenciamento de dados do SQL Data Warehouse | Microsoft Doc
 description: "Lista de parceiros terceirizados de gerenciamento de dados com soluções que oferecem suporte ao SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: kevinvngo
 manager: jhubbard
 editor: 
 ms.assetid: c3d96b41-f049-49e8-af32-408f4a893477
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: partners
 ms.date: 12/27/2016
-ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 70bc2363172199455785e90753560cc2281432b1
-ms.openlocfilehash: eeb858514af80d1e6074b7c86ead5955f0d22ad2
-ms.lasthandoff: 01/05/2017
-
-
+ms.author: kevin;barbkess
+ms.openlocfilehash: 2fc8d1876e8a26252e83928857f5e7e9bf6ad47f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>Parceiros de gerenciamento de dados do SQL Data Warehouse
 Para criar uma solução completa de data warehouse, você pode escolher dentre uma ampla variedade de ferramentas líderes do setor. Este artigo destaca as empresas parceiras da Microsoft com ferramentas e soluções de gerenciamento de dados com suporte ao Azure SQL Data Warehouse.
@@ -99,4 +98,3 @@ Para saber mais sobre alguns de nossos outros parceiros, confira [Parceiros de B
 [sql_sentry_twitter]:https://twitter.com/SQLSentry
 
 <!--Video links-->
-

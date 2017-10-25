@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 07/12/2017
 ms.author: markvi;andkjell
-translationtype: Human Translation
-ms.sourcegitcommit: 9bf2e87353901a043f01ff7d634e1b174cd6a52a
-ms.openlocfilehash: 3623537c80bd0e4190d1e51f289a4b194c13878d
-
-
+ms.openlocfilehash: 6cf8debc6443bb60fc5f601ea4aa392eb2f13a8f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Sincronização do Azure AD Connect: conceitos técnicos
 Este artigo é um resumo do tópico [Entender a arquitetura](active-directory-aadconnectsync-technical-concepts.md).
@@ -40,8 +40,7 @@ As seções a seguir fornecem mais detalhes sobre os seguintes aspectos do Servi
 ## <a name="connector"></a>Conector
 Os módulos de código que são usados para comunicação com um diretório conectado são chamados de conectores (anteriormente conhecidos como MAs [agentes de gerenciamento]).
 
-Eles são instalados no computador que executa a sincronização do Azure AD Connect.
-Os conectores fornecem a capacidade de conversar sem agentes usando protocolos de sistema remoto, em vez de depender da implantação de agentes especializados. Isso significa que o risco e tempos de implantação reduzidos, especialmente ao lidar com sistemas e aplicativos críticos.
+Eles são instalados no computador que executa a sincronização do Azure AD Connect. Os conectores fornecem a capacidade de conversar sem agentes usando protocolos de sistema remoto, em vez de depender da implantação de agentes especializados. Isso significa que o risco e tempos de implantação reduzidos, especialmente ao lidar com sistemas e aplicativos críticos.
 
 Na figura acima, o conector é sinônimo de espaço conector, mas abrange toda a comunicação com o sistema externo.
 
@@ -90,9 +89,3 @@ Sempre que uma regra determina que um novo objeto de espaço conector precisa se
 
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

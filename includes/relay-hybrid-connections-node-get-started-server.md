@@ -1,21 +1,25 @@
 ### <a name="create-a-nodejs-application"></a>Criar um aplicativo do Node.js
-* Crie um novo arquivo JavaScript chamado `listener.js`.
+
+Crie um novo arquivo JavaScript chamado `listener.js`.
 
 ### <a name="add-the-relay-npm-package"></a>Adicionar o pacote NPM de retransmissão
-* Execute `npm install hyco-ws` em um prompt de comando do Node na pasta do projeto.
+
+Execute `npm install hyco-ws` em um prompt de comando do Node na pasta do projeto.
 
 ### <a name="write-some-code-to-receive-messages"></a>Escrever código para receber mensagens
-1. Adicione a `constant` a seguir à parte superior do arquivo `listener.js`.
+
+1. Adicione a seguinte constante ao início do arquivo `listener.js`.
    
     ```js
     const WebSocket = require('hyco-ws');
     ```
-2. Adicione a retransmissão `constants` a seguir a `listener.js` para os detalhes da Conexão Híbrida. Substitua os espaços reservados nos colchetes pelos valores adequados que foram obtidos na criação da Conexão Híbrida.
+2. Adicione as seguintes constantes ao arquivo `listener.js` para obter os detalhes de conexão híbrida. Substitua os espaços reservados entre colchetes pelos valores obtidos quando você criou a conexão híbrida.
    
-   1. `const ns` - o namespace de retransmissão
-   2. `const path` - o nome da Conexão Híbrida
-   3. `const keyrule` - o nome da chave SAS
-   4. `const key` - o valor da chave SAS
+   1. `const ns` - o namespace de retransmissão. Use o nome totalmente qualificado do namespace, por exemplo, `{namespace}.servicebus.windows.net`.
+   2. `const path` - o nome da conexão híbrida.
+   3. `const keyrule` - o nome da chave SAS.
+   4. `const key` - o valor da chave SAS.
+
 3. Adicione o seguinte código ao arquivo `listener.js`:
    
     ```js
@@ -40,7 +44,7 @@
         console.log('error' + err);
     });
     ```
-    É assim que deve ser o seu listener.js:
+    Veja como o arquivo listener.js deve se parecer:
    
     ```js
     const WebSocket = require('hyco-ws');
@@ -71,9 +75,4 @@
         console.log('error' + err);
     });
     ```
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

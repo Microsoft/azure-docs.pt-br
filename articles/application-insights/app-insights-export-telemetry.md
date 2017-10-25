@@ -3,8 +3,8 @@ title: "Exportação contínua de telemetria do Application Insights | Microsoft
 description: "Exportar dados de uso e diagnóstico para armazenamento no Microsoft Azure e baixá-los de lá."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
 ms.service: application-insights
 ms.workload: tbd
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: a06d97216373ddc6a35160e6226b8eee8df52d27
-ms.lasthandoff: 03/18/2017
-
-
+ms.author: bwren
+ms.openlocfilehash: 6ac3bda5101593b5ca66b4c9035e2fdac9d1e833
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria do Application Insights
 Deseja manter a telemetria por mais tempo que o período de retenção padrão? Ou processá-la de alguma forma especializada? Exportação contínua é ideal para isso. Os eventos que você vê no portal do Application Insights podem ser exportados para armazenamento no Microsoft Azure no formato JSON. Ali, você pode baixar os dados e gravar qualquer código de que você precisa para processá-los.  
@@ -42,7 +41,7 @@ Depois que a exportação contínua copia os dados para o armazenamento (onde el
 
 2. Escolha a telemetria de tipos de dados que você deseja exportar.
 
-3. Crie ou selecione uma [Conta de armazenamento do Azure](../storage/storage-introduction.md) onde você deseja armazenar os dados.
+3. Crie ou selecione uma [Conta de armazenamento do Azure](../storage/common/storage-introduction.md) onde você deseja armazenar os dados.
 
     > [!Warning]
     > Por padrão, o local de armazenamento será definido como a mesma região geográfica que seu recurso Application Insights. Armazenar em uma região diferente poderá incorrer em encargos de transferência.
@@ -156,7 +155,7 @@ Abrir a folha Exportação Contínua e edite sua exportação. Edite o destino d
 A exportação contínua será reiniciada.
 
 ## <a name="export-samples"></a>Exemplos de exportação
-* [Exportar para SQL usando uma função de trabalho][exportcode]
+
 * [Exportar para o SQL usando o Stream Analytics][exportasa]
 * [Exemplo do Stream Analytics 2](app-insights-export-stream-analytics.md)
 
@@ -190,14 +189,12 @@ Em escalas maiores, considere usar o [HDInsight](https://azure.microsoft.com/ser
     Sim. Clique em Desabilitar.
 
 ## <a name="code-samples"></a>Exemplos de código
-* [Analisar o JSON exportado usando uma função de trabalho][exportcode]
+
 * [Exemplo do Stream Analytics](app-insights-export-stream-analytics.md)
 * [Exportar para o SQL usando o Stream Analytics][exportasa]
 * [Referência de modelo de dados detalhados para os tipos de propriedades e valores.](app-insights-export-data-model.md)
 
 <!--Link references-->
 
-[exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
 [exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md
-

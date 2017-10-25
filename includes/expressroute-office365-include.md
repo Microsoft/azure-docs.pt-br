@@ -7,8 +7,3 @@ Ofertas de software como um serviço, como o Office 365 e o Dynamics 365, foram 
 > 
 > 
 
-
-
-<!--HONumber=Feb17_HO1-->
-
-

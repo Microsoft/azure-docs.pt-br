@@ -1,6 +1,6 @@
 ---
-title: "Habilitar registro em log e alertas, verificar o histórico de execuções, rastrear entradas e saídas – Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Monitorar o status dos fluxos de trabalho do seu aplicativo lógico usando registro em log, rastreamento e exibição do histórico e do diagnóstico"
+title: "Verificar o status, configurar o log e receber alertas – Aplicativo Lógico do Azure | Microsoft Docs"
+description: "Monitorar o status e o desempenho de aplicativos lógicos, registrar dados de diagnóstico e configurar alertas"
 author: jeffhollan
 manager: anneta
 editor: 
@@ -12,132 +12,275 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: jehollan
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
-ms.openlocfilehash: d6840be7afc05d8d563215e370c59cf41a206e4f
-ms.lasthandoff: 03/01/2017
-
-
+ms.date: 07/21/2017
+ms.author: LADocs; jehollan
+ms.openlocfilehash: 4795f5728d4ce6ff21b97bc3fefd6a53e0c6a11b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="check-the-performance-and-start-diagnostic-logging-and-alerts-of-your-workflows-in-logic-apps"></a>Verificar o desempenho e iniciar o registro em log e alertas de diagnóstico dos fluxos de trabalho em aplicativos lógicos
-Depois de [criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md), é possível ver o histórico completo de sua execução no portal do Azure.  Você também pode configurar serviços como o Diagnóstico do Azure e os Alertas do Azure para monitorar eventos em tempo real, e alertas para eventos como "quando mais do que cinco execuções falharem em uma hora."
+# <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorar o status, configurar o log de diagnósticos e ativar alertas para os Aplicativo Lógico do Azure
 
-## <a name="monitor-in-the-azure-portal"></a>Monitorar no Portal do Azure
-Para exibir o histórico, selecione **Procurar** e **Aplicativos Lógicos**. É exibida uma lista com todos os aplicativos lógicos em sua assinatura.  Selecione o aplicativo lógico que você deseja monitorar.  Você verá uma lista de todas as ações e disparadores que ocorreram para esse aplicativo lógico.
+Depois de [criar e executar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md), verifique seu histórico de execuções, histórico de gatilhos, status e desempenho. Para monitoramento de eventos em tempo real e depuração mais avançada, configure o [log de diagnósticos](#azure-diagnostics) do aplicativo lógico. Dessa forma, você poderá [encontrar e exibir eventos](#find-events), como eventos de gatilho, eventos de execução e eventos de ação. Use também esses [dados de diagnóstico com outros serviços](#extend-diagnostic-data), como o Armazenamento do Azure e os Hubs de Eventos do Azure. 
 
-![Visão geral](media/logic-apps-monitor-your-logic-apps/overview.png)
+Para obter notificações sobre falhas ou outros possíveis problemas, configure [alertas](#add-azure-alerts). Por exemplo, você pode criar um alerta que detecta “quando mais de cinco execuções falham em uma hora”. Você também pode configurar o monitoramento, o acompanhamento e o log de forma programática usando as [propriedades e configurações de evento do Diagnóstico do Azure](#diagnostic-event-properties).
 
-Há algumas seções nessa folha que são úteis:
+## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>Exibir execuções e disparar o histórico do aplicativo lógico
 
-* **Resumo** lista **Todas as execuções** e o **Histórico de Gatilho**
-  * **Todas as execuções** executa o aplicativo lógico mais recente da lista.  Você pode clique em qualquer linha para obter detalhes sobre a execução ou clicar no bloco para listar mais execuções.
-  * **Histórico de Gatilho** lista todas as atividades de gatilho para esse aplicativo lógico.  A atividade de gatilho pode ser uma verificação "Ignorada" para novos dados (por exemplo, verificando se um novo arquivo foi adicionado ao FTP), "Êxito", que significa que os dados foram retornados para disparar um aplicativo lógico ou "Falha" corresponde a um erro na configuração.
-* **Diagnóstico** permite que você exiba os detalhes de tempo de execução e eventos, e assine [Alertas do Azure](#adding-azure-alerts)
+1. Para encontrar o aplicativo lógico no [portal do Azure](https://portal.azure.com), no menu principal do Azure, escolha **Mais serviços**. Na caixa de pesquisa, encontre “aplicativos lógicos” e escolha **Aplicativos lógicos**.
+
+   ![Encontrar o aplicativo lógico](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
+
+   O portal do Azure mostra todos os aplicativos lógicos associados à sua assinatura do Azure. 
+
+2. Selecione o aplicativo lógico e, em seguida, escolha **Visão geral**.
+
+   O portal do Azure mostra o histórico de execuções e o histórico de gatilhos do aplicativo lógico. Por exemplo:
+
+   ![Histórico de execuções e histórico de gatilhos do aplicativo lógico](media/logic-apps-monitor-your-logic-apps/overview.png)
+
+   * O **histórico de execuções** mostra todas as execuções do aplicativo lógico. 
+   * O **histórico de gatilhos** mostra todas as atividades de gatilho do aplicativo lógico.
+
+   Para obter descrições de status, consulte [Solução de problemas do aplicativo lógico](../logic-apps/logic-apps-diagnosing-failures.md).
+
+   > [!TIP]
+   > Se você não encontrar os dados esperados, na barra de ferramentas, escolha **Atualizar**.
+
+3. Para exibir as etapas de uma execução específica, em **Histórico de execuções**, selecione essa execução. 
+
+   A exibição de monitor mostra cada etapa dessa execução. Por exemplo:
+
+   ![Ações de uma execução específica](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
+
+4. Para obter mais detalhes sobre a execução, escolha **Detalhes da Execução**. Essas informações resumem as etapas, o status, as entradas e as saídas da execução. 
+
+   ![Escolher “Detalhes da Execução”](media/logic-apps-monitor-your-logic-apps/run-details.png)
+
+   Por exemplo, você pode obter a **ID de Correlação** da execução, que pode ser útil ao usar a [API REST dos Aplicativos Lógicos](https://docs.microsoft.com/rest/api/logic).
+
+5. Para obter detalhes sobre uma etapa específica, escolha essa etapa. Agora você pode examinar detalhes como entradas, saídas e todos os erros que ocorreram nessa etapa. Por exemplo:
+
+   ![Detalhes da etapa](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
+   
+   > [!NOTE]
+   > Todos os eventos e detalhes de tempo de execução são criptografados no serviço Aplicativos Lógicos. Eles são descriptografados apenas quando um usuário solicita a exibição desses dados. Controle também o acesso a esses eventos com o [RBAC (Controle de Acesso Baseado em Função) do Azure](../active-directory/role-based-access-control-what-is.md).
+
+6. Para obter detalhes sobre um evento de gatilho específico, volte para o painel **Visão geral**. Em **Histórico de gatilhos**, selecione o evento de gatilho. Agora você pode examinar detalhes como entradas e saídas, por exemplo:
+
+   ![Detalhes de saída do evento de gatilho](media/logic-apps-monitor-your-logic-apps/trigger-details.png)
+
+<a name="azure-diagnostics"></a>
+
+## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>Ativar o log de diagnósticos do aplicativo lógico
+
+Para uma depuração mais avançada com eventos e detalhes de tempo de execução, configure o log de diagnósticos com o [Azure Log Analytics](../log-analytics/log-analytics-overview.md). O Log Analytics é um serviço do [OMS (Operations Management Suite)](../operations-management-suite/operations-management-suite-overview.md) que monitora os ambientes locais e de nuvem para ajudá-lo a manter a disponibilidade e o desempenho deles. 
+
+Antes de começar, você precisa ter um espaço de trabalho do OMS. Saiba [como criar um espaço de trabalho do OMS](../log-analytics/log-analytics-get-started.md).
+
+1. No [portal do Azure](https://portal.azure.com), encontre e selecione o aplicativo lógico. 
+
+2. No menu da folha do aplicativo lógico, em **Monitoramento**, escolha **Diagnóstico** > **Configurações de Diagnóstico**.
+
+   ![Acesse Monitoramento, Diagnóstico, Configurações de Diagnóstico](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
+
+3. Em **Configurações de diagnóstico**, escolha **Ativado**.
+
+   ![Ativar logs de diagnóstico](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
+
+4. Agora, selecione o espaço de trabalho do OMS e a categoria de evento para o log, conforme mostrado:
+
+   1. Selecione **Enviar para o Log Analytics**. 
+   2. Em **Log Analytics**, escolha **Configurar**. 
+   3. Em **Espaços de Trabalho do OMS**, selecione o espaço de trabalho do OMS a ser usado para o log.
+   4. Em **Log**, selecione a categoria **WorkflowRuntime**.
+   5. Escolha o intervalo de métrica.
+   6. Quando terminar, escolha **Salvar**.
+
+   ![Selecionar o espaço de trabalho do OMS e os dados para log](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
+
+Agora, você pode encontrar eventos e outros dados para eventos de gatilho, eventos de execução e eventos de ação.
+
+<a name="find-events"></a>
+
+## <a name="find-events-and-data-for-your-logic-app"></a>Encontrar eventos e dados do aplicativo lógico
+
+Para localizar e exibir eventos no aplicativo lógico, como eventos de gatilho, eventos de execução e eventos de ação, siga estas etapas.
+
+1. No [portal do Azure](https://portal.azure.com), escolha **Mais serviços**. Pesquise “log analytics” e, em seguida, escolha **Log Analytics**, conforme mostrado aqui:
+
+   ![Escolher “Log Analytics”](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
+
+2. Em **Log Analytics**, encontre e selecione o espaço de trabalho do OMS. 
+
+   ![Selecionar o espaço de trabalho do OMS](media/logic-apps-monitor-your-logic-apps/selectla.png)
+
+3. Em **Gerenciamento**, escolha **Portal do OMS**.
+
+   ![Escolher “Portal do OMS”](media/logic-apps-monitor-your-logic-apps/omsportalpage.png)
+
+4. Na home page do OMS, escolha **Pesquisa de Logs**.
+
+   ![Na home page do OMS, escolha “Pesquisa de Logs”](media/logic-apps-monitor-your-logic-apps/logsearch.png)
+
+   -ou-
+
+   ![No menu do OMS, escolha “Pesquisa de Logs”](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
+
+5. Na caixa de pesquisa, especifique um campo que você deseja encontrar e, em seguida, pressione **Enter**. Quando você começa a digitar, o OMS mostra as possíveis correspondências e operações que podem ser usadas. 
+
+   Por exemplo, para encontrar os 10 primeiros eventos que ocorreram, insira e selecione esta consulta de pesquisa: **Category=WorkflowRuntime |top 10**
+
+   ![Inserir a cadeia de pesquisa](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
+
+   Saiba mais sobre [como encontrar dados no Log Analytics](../log-analytics/log-analytics-log-searches.md).
+
+6. Na página de resultados, na barra à esquerda, escolha o período de tempo que você deseja exibir.
+Para refinar a consulta adicionando um filtro, escolha **+Adicionar**.
+
+   ![Escolher período de tempo para os resultados da consulta](media/logic-apps-monitor-your-logic-apps/query-results.png)
+
+7. Em **Adicionar Filtros**, insira o nome do filtro para encontrar o filtro desejado. Selecione o filtro e escolha **+Adicionar**.
+
+   Este exemplo usa a palavra “status” para encontrar eventos com falha em **AzureDiagnostics**.
+   Aqui, o filtro de **status_s** já está selecionado.
+
+   ![Selecionar filtro](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
+
+8. Na barra à esquerda, selecione o valor de filtro que você deseja usar e escolha **Aplicar**.
+
+   ![Selecionar valor de filtro e escolher “Aplicar”](media/logic-apps-monitor-your-logic-apps/log-search-apply-filter.png)
+
+9. Agora, retorne à consulta que está sendo criada. A consulta é atualizada com o filtro e o valor selecionados. Os resultados anteriores agora são filtrados também.
+
+   ![Retornar à consulta com os resultados filtrados](media/logic-apps-monitor-your-logic-apps/log-search-query-filtered-results.png)
+
+10. Para salvar a consulta para uso futuro, escolha **Salvar**. Saiba [como salvar a consulta](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query).
+
+<a name="extend-diagnostic-data"></a>
+
+## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>Estender como e onde usar os dados de diagnóstico com outros serviços
+
+Junto com o Azure Log Analytics, você pode estender a maneira de usar os dados de diagnóstico do aplicativo lógico com outros serviços do Azure, por exemplo: 
+
+* [Arquivar logs do Diagnóstico do Azure no Armazenamento do Azure](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
+* [Transmitir logs do Diagnóstico do Azure para os Hubs de Eventos do Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
+
+Depois, obtenha o monitoramento em tempo real usando a telemetria e a análise de outros serviços, como o [Stream Analytics do Azure](../stream-analytics/stream-analytics-introduction.md) e o [Power BI](../log-analytics/log-analytics-powerbi.md). Por exemplo:
+
+* [Transmitir dados dos Hubs de Eventos para o Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
+* [Analisar dados de streaming com o Stream Analytics e criar um painel de análise em tempo real no Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
+
+De acordo com as opções que você deseja configurar, primeiro [crie uma conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md) ou [crie um hub de eventos do Azure](../event-hubs/event-hubs-create.md). Em seguida, selecione as opções do local para o qual deseja enviar os dados de diagnóstico:
+
+![Enviar dados para uma conta de armazenamento do Azure ou um hub de eventos](./media/logic-apps-monitor-your-logic-apps/storage-account-event-hubs.png)
 
 > [!NOTE]
-> Todos os eventos e os detalhes de tempo de execução são criptografados em repouso no serviço Aplicativo Lógico. Eles só serão descriptografados após uma solicitação de exibição de um usuário. O acesso a esses eventos também pode ser controlado pelo RBAC (Controle de Acesso Baseado em Função do Azure).
+> Os períodos de retenção se aplicam somente quando você opta por usar uma conta de armazenamento.
+
+<a name="add-azure-alerts"></a>
+
+## <a name="set-up-alerts-for-your-logic-app"></a>Configurar alertas para o aplicativo lógico
+
+Para monitorar métricas específicas ou limites excedidos do aplicativo lógico, configure [alertas no Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md). Saiba mais sobre as [métricas no Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
+
+Para configurar alertas sem o [Azure Log Analytics](../log-analytics/log-analytics-overview.md), siga estas etapas. Para obter critérios mais avançados de alertas e de ações, [configure o Log Analytics](#azure-diagnostics) também.
+
+1. No menu da folha do aplicativo lógico, em **Monitoramento**, escolha **Diagnóstico** > **Regras de alerta** > **Adicionar alerta**, conforme mostrado aqui:
+
+   ![Adicionar um alerta ao aplicativo lógico](media/logic-apps-monitor-your-logic-apps/set-up-alerts.png)
+
+2. Na folha **Adicionar uma regra de alerta**, crie o alerta, conforme mostrado:
+
+   1. Em **Recurso**, selecione o aplicativo lógico, caso ainda não esteja selecionado. 
+   2. Dê um nome e uma descrição para o alerta.
+   3. Selecione uma **Métrica** ou um evento que você deseja acompanhar.
+   4. Selecione uma **Condição**, especifique um **Limite** para a métrica e selecione o **Período** de monitoramento dessa métrica.
+   5. Selecione se deseja enviar email para o alerta. 
+   6. Especifique outro endereço de email para enviar o alerta. 
+   Especifique também uma URL de webhook para a qual você deseja enviar o alerta.
+
+   Por exemplo, essa regra envia um alerta quando cinco ou mais execuções falham em uma hora:
+
+   ![Criar uma regra de alerta de métrica](media/logic-apps-monitor-your-logic-apps/create-alert-rule.png)
+
+> [!TIP]
+> Para executar um aplicativo lógico em um alerta, você pode incluir o [gatilho de solicitação](../connectors/connectors-native-reqres.md) no fluxo de trabalho, o que permite realizar tarefas como estes exemplos:
 > 
-> 
+> * [Postar no Slack](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
+> * [Enviar um texto](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
+> * [Adicionar uma mensagem a uma fila](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-### <a name="view-the-run-details"></a>Exibir os detalhes de execução
-Esta lista de execuções mostra o **Status**, a **Hora de Início** e a **Duração** da execução específica. Clique em qualquer linha para ver os detalhes da execução.
+<a name="diagnostic-event-properties"></a>
 
-A exibição de monitoramento mostra cada etapa da execução, as entradas e saídas e qualquer mensagem de erro que possa ter ocorrido.
+## <a name="azure-diagnostics-event-settings-and-details"></a>Configurações e detalhes de eventos do Diagnóstico do Azure
 
-![Execução e ações](media/logic-apps-monitor-your-logic-apps/monitor-view.png)
+Cada evento de diagnóstico contém detalhes sobre o aplicativo lógico e o evento, por exemplo, o status, a hora de início, a hora de término e assim por diante. Para configurar o monitoramento, o acompanhamento e o log de forma programática, use esses detalhes com a [API REST do Aplicativo Lógico do Azure](https://docs.microsoft.com/rest/api/logic) e a [API REST do Diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
 
-Se você precisar de outros detalhes como a **ID de Correlação** da execução (que pode ser usada para a API REST), clique no botão **Detalhes da Execução**.  Isso inclui todas as etapas, status e entradas/saídas da execução.
+Por exemplo, o evento `ActionCompleted` tem as propriedades `clientTrackingId` e `trackedProperties`, que podem ser usadas para acompanhamento e monitoramento:
 
-## <a name="azure-diagnostics-and-alerts"></a>Diagnósticos e alertas do Azure
-Além dos detalhes fornecidos pelo Portal do Azure e pela API REST acima, você pode configurar seu aplicativo lógico para usar o Diagnóstico do Azure para obter detalhes mais avançados e depuração.
-
-1. Clique na seção **Diagnóstico** da folha do aplicativo lógico
-2. Clique para definir as **Configurações de Diagnóstico**
-3. Configurar um Hub de Eventos ou a Conta de Armazenamento à qual emitir dados
-   
-    ![Configurações de Diagnóstico do Azure](media/logic-apps-monitor-your-logic-apps/diagnostics.png)
-
-### <a name="adding-azure-alerts"></a>Adicionar Alertas do Azure
-Após a configuração do diagnóstico, você pode adicionar Alertas do Azure a serem disparados quando determinados limites forem atingidos.  Na folha **Diagnóstico**, selecione o bloco **Alertas** e **Adicionar alerta**.  Isso explicará como configurar um alerta com base em um número de limites e métricas.
-
-![Métricas de Alerta do Azure](media/logic-apps-monitor-your-logic-apps/alerts.png)
-
-Você pode configurar a **Condição**, **Limite** e **Período** conforme desejado.  Por fim, você pode configurar um endereço de email para enviar uma notificação ou configurar um webhook.  Você pode usar o [gatilho de solicitação](../connectors/connectors-native-reqres.md) em um aplicativo lógico para executar em um alerta também (fazer coisas como [publicar no Slack](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app), [enviar um texto](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app) ou [adicionar uma mensagem a uma fila](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)).
-
-### <a name="azure-diagnostics-settings"></a>Configurações de Diagnóstico do Azure
-Cada um desses eventos contém detalhes sobre o aplicativo lógico e status como evento.  Veja um exemplo de um evento *ActionCompleted* :
-
-```javascript
+``` json
 {
-            "time": "2016-07-09T17:09:54.4773148Z",
-            "workflowId": "/SUBSCRIPTIONS/80D4FE69-ABCD-EFGH-A938-9250F1C8AB03/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.LOGIC/WORKFLOWS/MYLOGICAPP",
-            "resourceId": "/SUBSCRIPTIONS/80D4FE69-ABCD-EFGH-A938-9250F1C8AB03/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.LOGIC/WORKFLOWS/MYLOGICAPP/RUNS/08587361146922712057/ACTIONS/HTTP",
-            "category": "WorkflowRuntime",
-            "level": "Information",
-            "operationName": "Microsoft.Logic/workflows/workflowActionCompleted",
-            "properties": {
-                "$schema": "2016-06-01",
-                "startTime": "2016-07-09T17:09:53.4336305Z",
-                "endTime": "2016-07-09T17:09:53.5430281Z",
-                "status": "Succeeded",
-                "code": "OK",
-                "resource": {
-                    "subscriptionId": "80d4fe69-ABCD-EFGH-a938-9250f1c8ab03",
-                    "resourceGroupName": "MyResourceGroup",
-                    "workflowId": "cff00d5458f944d5a766f2f9ad142553",
-                    "workflowName": "MyLogicApp",
-                    "runId": "08587361146922712057",
-                    "location": "eastus",
-                    "actionName": "Http"
-                },
-                "correlation": {
-                    "actionTrackingId": "e1931543-906d-4d1d-baed-dee72ddf1047",
-                    "clientTrackingId": "my-custom-tracking-id"
-                },
-                "trackedProperties": {
-                    "myProperty": "<value>"
-                }
-            }
-        }
-```
-
-As duas propriedades especialmente úteis para controlar e monitorar são *clientTrackingId* e *trackedProperties*.  
-
-#### <a name="client-tracking-id"></a>ID de rastreamento do cliente
-A ID de rastreamento do cliente é um valor que correlacionará eventos em uma execução de aplicativo lógico, incluindo quaisquer fluxos de trabalho aninhados chamados como parte de um aplicativo lógico.  Essa ID será gerada automaticamente se não for fornecida, mas você pode especificar manualmente a ID de rastreamento do cliente de um gatilho passando um cabeçalho `x-ms-client-tracking-id` com o valor da ID na solicitação do gatilho (gatilho de solicitação, gatilho HTTP ou gatilho de webhook).
-
-#### <a name="tracked-properties"></a>Propriedades rastreadas
-É possível adicionar propriedades rastreadas às ações na definição do fluxo de trabalho a fim de rastrear entradas ou saídas em dados de diagnóstico.  Isso pode ser útil se você quiser controlar dados como uma "ID de pedido" em sua telemetria.  Para adicionar uma propriedade rastreada, inclua a propriedade `trackedProperties` em uma ação.  As propriedades rastreadas só podem rastrear entradas e saídas de uma única ação, mas você pode usar as propriedades `correlation` dos eventos para correlacionar entre as ações em uma execução.
-
-```javascript
-{
-    "myAction": {
-        "type": "http",
-        "inputs": {
-            "uri": "http://uri",
-            "headers": {
-                "Content-Type": "application/json"
-            },
-            "body": "@triggerBody()"
+    "time": "2016-07-09T17:09:54.4773148Z",
+    "workflowId": "/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.LOGIC/WORKFLOWS/MYLOGICAPP",
+    "resourceId": "/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.LOGIC/WORKFLOWS/MYLOGICAPP/RUNS/08587361146922712057/ACTIONS/HTTP",
+    "category": "WorkflowRuntime",
+    "level": "Information",
+    "operationName": "Microsoft.Logic/workflows/workflowActionCompleted",
+    "properties": {
+        "$schema": "2016-06-01",
+        "startTime": "2016-07-09T17:09:53.4336305Z",
+        "endTime": "2016-07-09T17:09:53.5430281Z",
+        "status": "Succeeded",
+        "code": "OK",
+        "resource": {
+            "subscriptionId": "<subscription-ID>",
+            "resourceGroupName": "MyResourceGroup",
+            "workflowId": "cff00d5458f944d5a766f2f9ad142553",
+            "workflowName": "MyLogicApp",
+            "runId": "08587361146922712057",
+            "location": "westus",
+            "actionName": "Http"
         },
-        "trackedProperties":{
-            "myActionHTTPStatusCode": "@action()['outputs']['statusCode']",
-            "myActionHTTPValue": "@action()['outputs']['body']['foo']",
-            "transactionId": "@action()['inputs']['body']['bar']"
+        "correlation": {
+            "actionTrackingId": "e1931543-906d-4d1d-baed-dee72ddf1047",
+            "clientTrackingId": "<my-custom-tracking-ID>"
+        },
+        "trackedProperties": {
+            "myTrackedProperty": "<value>"
         }
     }
 }
 ```
 
-### <a name="extending-your-solutions"></a>Estendendo as soluções
-Você pode aproveitar essa telemetria do Hub de Eventos ou Armazenamento em outros serviços, como o [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite), o [Stream Analytics do Azure](https://azure.microsoft.com/services/stream-analytics/) e o [Power BI](https://powerbi.com), para monitorar em tempo real seus fluxos de trabalho de integração.
+* `clientTrackingId`: se não for fornecido, o Azure gerará essa ID automaticamente e correlacionará eventos em uma execução do aplicativo lógico, incluindo os fluxos de trabalho aninhados que são chamados no aplicativo lógico. Especifique essa ID manualmente em um gatilho, passando um cabeçalho `x-ms-client-tracking-id` com o valor de ID personalizado na solicitação de gatilho. Use um gatilho de solicitação, gatilho HTTP ou gatilho de webhook.
+
+* `trackedProperties`: para acompanhar entradas ou saídas em dados de diagnóstico, adicione as propriedades acompanhadas às ações na definição de JSON do aplicativo lógico. As propriedades acompanhadas só podem acompanhar entradas e saídas de uma única ação, mas você pode usar as propriedades `correlation` dos eventos para correlacionar entre as ações em uma execução.
+
+  Para acompanhar uma ou mais propriedades, adicione a seção `trackedProperties` e as propriedades desejadas à definição de ação. Por exemplo, suponha que você deseje acompanhar dados, como uma “ID de pedido” na telemetria:
+
+  ``` json
+  "myAction": {
+    "type": "http",
+    "inputs": {
+        "uri": "http://uri",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": "@triggerBody()"
+    },
+    "trackedProperties": {
+        "myActionHTTPStatusCode": "@action()['outputs']['statusCode']",
+        "myActionHTTPValue": "@action()['outputs']['body']['<content>']",
+        "transactionId": "@action()['inputs']['body']['<content>']"
+    }
+  }
+  ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Exemplos comuns e cenários de aplicativos lógicos](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Criando um Modelo de Implantação do Aplicativo Lógico](../logic-apps/logic-apps-create-deploy-template.md)
-* [Recursos de integração corporativa](../logic-apps/logic-apps-enterprise-integration-overview.md)
 
-
+* [Criar modelos para implantação de aplicativos lógicos e gerenciamento de versão](../logic-apps/logic-apps-create-deploy-template.md)
+* [Cenários B2B com o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* [Monitorar mensagens do B2B](../logic-apps/logic-apps-monitor-b2b-message.md)

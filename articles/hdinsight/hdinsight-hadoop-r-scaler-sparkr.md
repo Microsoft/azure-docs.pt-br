@@ -1,9 +1,9 @@
 ---
-title: Combinando ScaleR e SparkR com o Azure HDInsight | Microsoft Docs
+title: Usar o ScaleR e o SparkR com o Azure HDInsight | Microsoft Docs
 description: Usar ScaleR e SparkR com R Server e HDInsight
 services: hdinsight
 documentationcenter: 
-author: jeffstokes72
+author: bradsev
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -14,33 +14,33 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 5e8fb7642dca815c64b9aed8184672259d3facf8
-ms.lasthandoff: 03/10/2017
-
-
+ms.date: 06/19/2017
+ms.author: bradsev
+ms.openlocfilehash: 29733f6f6b725dd4735219ed221431805558a5e2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combinar o ScaleR e o SparkR no HDInsight
 
-# <a name="mixing-use-of-scaler-and-sparkr-in-hdinsight"></a>Combinando o uso de ScaleR e SparkR no HDInsight
+Este artigo mostra como prever os atrasos de chegada de voo usando um modelo de regressão logística do **ScaleR** de dados de atrasos de voo e de clima em união com o **SparkR**. Este cenário demonstra as funcionalidades do ScaleR para a manipulação de dados no Spark com o Microsoft R Server para análise. A combinação dessas tecnologias permite que você aplique os recursos mais recentes no processamento distribuído.
 
-Aprenda a combinar o uso de SparkR para manipulação de dados no Spark ao Microsoft R Server para análise. Embora ambos os pacotes sejam executados sobre o mecanismo de execução do Spark do Hadoop para aproveitar os recursos mais recentes no processamento distribuído, eles são impedidos de compartilhar dados na memória, exigindo suas próprias sessões do Spark. Até que isso seja corrigido em uma versão futura do R Server, a solução alternativa é manter sessões sem sobreposição do Spark e trocar dados por meio de arquivos intermediários. Como você verá, esses dois requisitos são bastante simples de cumprir.
+Embora ambos os pacotes são executados no mecanismo de execução do Hadoop Spark, eles são bloqueados do compartilhamento de dados na memória já que cada um deles exige suas próprias respectivas sessões Spark. Até que esse problema seja corrigido em uma versão futura do R Server, a solução alternativa é manter sessões sem sobreposição do Spark e trocar dados por meio de arquivos intermediários. As instruções aqui mostram que esses requisitos são simples de obter.
 
-Para demonstração, usaremos um exemplo compartilhado inicialmente em uma apresentação na Strata 2016 por Mario Inchiosa e Roni Burd, também disponível por meio do webinar [Criando uma plataforma escalonável de ciência de dados com R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio). O exemplo usa SparkR para unir o conjunto de dados de atraso conhecido de chegada de linhas aéreas aos dados de clima nos aeroportos de partida e chegada e o utiliza como entrada para um modelo de regressão logística de ScaleR para previsão de atraso de chegada de voos.
+Nós usamos aqui um exemplo compartilhado inicialmente em uma apresentação na Strata 2016 por Mario Inchiosa e Roni Burd, também disponível por meio do webinar [Criando uma plataforma escalonável de ciência de dados com R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio). O exemplo usa SparkR para unir o conjunto de dados de atraso na chegada de linhas aéreas conhecidas com os dados meteorológicos em aeroportos de partida e de chegada. Os dados unidos são usados como entrada para um modelo de regressão logística ScaleR para previsão de atraso de chegada de voo.
 
-O código que veremos passo a passo foi escrito originalmente para R Server em execução no Spark em um cluster HDInsight no Azure, mas o conceito de mesclar o uso de SparkR e ScaleR em um script aplica-se igualmente a ambientes locais. A seguir, presumimos um nível intermediário de conhecimento de R e da biblioteca [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) do R Server e apresentamos o uso de [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) ao longo do caminho.
+O código que percorremos passo a passo foi gravado originalmente para R Server em execução no Spark em um cluster HDInsight no Azure. Mas o conceito de misturar o uso de SparkR e ScaleR em um script também é válido no contexto de ambientes locais. A seguir, presumimos um nível intermediário de conhecimento de R e R da biblioteca [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) do R Server. Também apresentamos o uso de [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) ao percorrer esse cenário.
 
 ## <a name="the-airline-and-weather-datasets"></a>Os conjuntos de dados de linhas aéreas e clima
 
-O conjunto de dados público de linhas aéreas AirOnTime08to12CSV contém informações sobre a chegada de voos e detalhes de partida para todos os voos comerciais nos EUA, de outubro de 1987 a dezembro de 2012. Esse é um conjunto de dados grande: há quase 150 milhões de registros no total. Tem pouco menos de 4 GB quando descompactado. Está disponível nos [arquivos mortos do governo dos EUA](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236) e, mais convenientemente, como um arquivo zip (AirOnTimeCSV.zip) que contém um conjunto de 303 arquivos CSV separados mensais dos [repositório de conjunto de dados de Revolution Analytics](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/)
+O conjunto de dados público de linhas aéreas **AirOnTime08to12CSV** contém informações sobre a chegada de voos e detalhes de partida para todos os voos comerciais nos EUA, de outubro de 1987 a dezembro de 2012. Esse é um conjunto de dados grande: há quase 150 milhões de registros no total. Tem pouco menos de 4 GB quando descompactado. Ele está disponível nos [arquivos mortos do Governo dos EUA](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Mais convenientemente, ele está disponível como um arquivo zip (AirOnTimeCSV.zip) que contém um conjunto de 303 arquivos CSV separados mensais dos [repositórios de conjunto de dados do Revolution Analytics](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/)
 
-Para ver os efeitos de clima em relação a atrasos de voos, também precisaremos dos dados de clima de cada aeroporto. Isso pode ser baixado como arquivos zip em formato bruto por mês do [repositório National Oceanic and Atmospheric Administration](http://www.ncdc.noaa.gov/orders/qclcd/). Para os fins deste exemplo, obtivemos dados de clima de maio de 2007 a dezembro de 2012 e usado os arquivos de dados horários em cada um dos 68 zips mensais. Os arquivos zip mensais também contêm um mapeamento (YYYYMMstation.txt) entre a ID da estação meteorológica (WBAN), o aeroporto ao qual ela está associada (CallSign) e o deslocamento de fuso horário do aeroporto de UTC (TimeZone). Precisaremos de todos eles ao associar aos dados de atraso de linhas aéreas.
+Para ver os efeitos de clima em relação a atrasos de voos, também precisamos dos dados meteorológicos de cada aeroporto. Esses dados podem ser baixados como arquivos zip em formato bruto, por mês, do [repositório National Oceanic and Atmospheric Administration](http://www.ncdc.noaa.gov/orders/qclcd/). Para os fins deste exemplo, efetuamos o pull de dados meteorológicos de maio de 2007 a dezembro de 2012 e usamos os arquivos de dados horários em cada um dos 68 zips mensais. Os arquivos zip mensais também contêm um mapeamento (YYYYMMstation.txt) entre a ID da estação meteorológica (WBAN), o aeroporto ao qual ela está associada (CallSign) e o deslocamento de fuso horário do aeroporto de UTC (TimeZone). Todas essas informações são necessárias ao ingressar com os dados de atraso e meteorológicos.
 
 ## <a name="setting-up-the-spark-environment"></a>Configurando o ambiente do Spark
 
-Configuramos o ambiente Spark como a primeira etapa antes de preparar os dados de clima e mesclá-los aos dados de linhas aéreas antes da modelagem. Começamos apontando para o diretório que contém os diretórios de dados de entrada, criando um contexto de computação do Spark e criando uma função de log para logs informativos no console:
+A primeira etapa é configurar o ambiente do Spark. Começamos apontando para o diretório que contém os diretórios de dados de entrada, criando um contexto de computação do Spark e criando uma função de log para logs informativos no console:
 
 ```
 workDir        <- '~'  
@@ -85,7 +85,7 @@ logmsg('Start')
 logmsg(paste('Number of task nodes=',length(trackers)))
 ```
 
-Em seguida, adicionaremos "Spark_Home" ao caminho de pesquisa para pacotes R, para que possamos usar SparkR e inicializar uma sessão SparkR.
+Em seguida, adicionamos "Spark_Home" ao caminho de pesquisa para pacotes R, para que possamos usar o SparkR e inicializar uma sessão do SparkR:
 
 ```
 #..setup for use of SparkR  
@@ -108,9 +108,18 @@ sqlContext <- sparkRSQL.init(sc)
 
 ## <a name="preparing-the-weather-data"></a>Preparando os dados meteorológicos
 
-Para preparar os dados de clima, criamos subconjuntos para as colunas necessárias para a modelagem: "Visibilidade", "DryBulbCelsius", "DewPointCelsius", "RelativeHumidity", "WindSpeed" e "Altímetro", adicionaremos um código de aeroporto associado à estação meteorológica e converteremos as medidas de hora local em UTC.
+Para preparar os dados meteorológicos, nós criamos um subconjunto com eles nas colunas necessárias para modelagem: 
 
-Começamos criando um arquivo para mapear as informações de estação meteorológica (WBAN) para um código de aeroporto. Poderíamos obter isso do arquivo de mapeamento incluído com os dados de clima mapeando o campo CallSign (por exemplo, LAX) no arquivo de dados de clima para Origem nos dados de linhas aéreas. Porém, temos outro mapeamento que mapeia WBAN para AirportID (por exemplo, 12892 para LAX) e inclui TimeZone que foi salvo em um arquivo CSV chamado "wban-to-airport-id-tz.CSV", o qual usaremos, por exemplo,
+- "Visibilidade"
+- "DryBulbCelsius"
+- "DewPointCelsius"
+- "RelativeHumidity"
+- "WindSpeed"
+- "Altímetro"
+
+Em seguida, adicionamos um código do aeroporto associado a estação meteorológica e convertemos as medidas de hora local em UTC.
+
+Começamos criando um arquivo para mapear as informações de estação meteorológica (WBAN) para um código de aeroporto. Poderíamos obter essa correlação do arquivo de mapeamento incluído com os dados meteorológicos. Mapeando o campo *CallSign* (por exemplo, LAX) no arquivo de dados meteorológicos para *Origem* nos dados da linha aérea. No entanto, ocorre que temos outro mapeamento disponível que mapeia *WBAN* para *AirportID* (por exemplo, 12892 para LAX) e inclui o *TimeZone* (fuso horário) que foi salvo em um arquivo CSV chamado “wban-to-airport-id-tz.CSV” que podemos usar. Por exemplo:
 
 | AirportID | WBAN | timeZone
 |-----------|------|---------
@@ -118,7 +127,7 @@ Começamos criando um arquivo para mapear as informações de estação meteorol
 | 14871 | 24232 | -8
 | .. | .. | ..
 
-O código a seguir lê todos os arquivos de dados brutos de clima por hora, cria subconjuntos para as colunas das quais precisaremos, mescla o arquivo de mapeamento da estação meteorológica, ajusta as datas e horas das medidas para UTC e grava uma nova versão do arquivo.
+O código a seguir lê todos os arquivos de dados brutos de clima por hora, cria subconjuntos para as colunas das quais precisamos, mescla o arquivo de mapeamento da estação meteorológica, ajusta as datas e horas das medidas para UTC e grava uma nova versão do arquivo:
 
 ```
 # Look up AirportID and Timezone for WBAN (weather station ID) and adjust time
@@ -198,7 +207,7 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
 
 ## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>Importando os dados de linhas aéreas e clima para Spark DataFrames
 
-Agora, usaremos a função [read.df()](https://docs.databricks.com/spark/latest/sparkr/functions/read.df.html) do SparkR para importar os dados de clima e de linhas aéreas para Spark DataFrames. Observe que essa função, como muitos outros métodos do Spark, é executada lentamente, o que significa que eles são enfileirados para execução, mas não executados realmente até que isso seja necessário.
+Agora, usamos a função [read.df()](https://docs.databricks.com/spark/latest/sparkr/functions/read.df.html) do SparkR para importar os dados meteorológicos e de linhas aéreas para o Spark DataFrames. Essa função, assim como muitos outros métodos do Spark, é executada lentamente, o que significa que eles são enfileirados para execução, mas não executados até que isso seja necessário.
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -222,7 +231,7 @@ weatherDF <- read.df(sqlContext, weatherPath, source = "com.databricks.spark.csv
 
 ## <a name="data-cleansing-and-transformation"></a>Limpeza de dados e transformação
 
-Em seguida, faremos uma limpeza nos dados de linhas aéreas que importamos para renomear colunas, só manter as variáveis necessárias e arredondar os horários de partida agendados para baixo até a hora mais próxima para habilitar a mesclagem com os dados de clima mais recentes antes da partida.
+Em seguida, fazemos uma limpeza nos dados de linhas áreas que você importou para renomear colunas. Mantemos apenas as variáveis necessárias e arrendondamos os horários de partida agendados para a hora mais próxima para habilitar a mesclagem com os dados meteorológicos mais recentes na partida:
 
 ```
 logmsg('clean the airline data') 
@@ -250,7 +259,7 @@ coltypes(airDF) <- c("character", "integer", "integer", "integer", "integer", "c
 airDF$CRSDepTime <- floor(airDF$CRSDepTime / 100)
 ```
 
-Agora executaremos operações semelhantes nos dados de clima:
+Agora, executamos operações semelhantes nos dados meteorológicos:
 
 ```
 # Average weather readings by hour
@@ -271,7 +280,7 @@ weatherDF <- rename(weatherDF,
 
 ## <a name="joining-the-weather-and-airline-data"></a>Reunindo os dados de clima e linhas aéreas
 
-Agora, usaremos a função [join()](https://docs.databricks.com/spark/latest/sparkr/functions/join.html) do SparkR para fazer uma junção externa esquerda dos dados de linhas aéreas e clima por AirportID e datetime de partida. A associação externa permite manter todos os registros de dados de linhas aéreas, mesmo que não haja dados de clima correspondentes. Após a associação, removeremos algumas colunas redundantes e renomearemos as colunas mantidas para remover o prefixo DataFrame de entrada introduzido pela associação.
+Agora, usamos a função [join()](https://docs.databricks.com/spark/latest/sparkr/functions/join.html) do SparkR para fazer uma junção externa esquerda dos dados de linhas aéreas e meteorológicos por AirportID e datetime de partida. A associação externa permite manter todos os registros de dados de linhas aéreas, mesmo que não haja dados de clima correspondentes. Após a união, removemos algumas colunas redundantes e renomeamos as colunas mantidas para remover o prefixo DataFrame de entrada introduzido pela união.
 
 ```
 logmsg('Join airline data with weather at Origin Airport')
@@ -302,7 +311,7 @@ joinedDF2 <- rename(joinedDF1,
 )
 ```
 
-De maneira semelhante, reuniremos os dados de clima e linhas aérea com base no AirportID de chegada e datetime.
+De maneira semelhante, reuniremos os dados meteorológicos e de linhas aéreas com base em AirportID e datetime de chegada:
 
 ```
 logmsg('Join airline data with weather at Destination Airport')
@@ -335,7 +344,7 @@ joinedDF5 <- rename(joinedDF4,
 
 ## <a name="save-results-to-csv-for-exchange-with-scaler"></a>Salvar os resultados em CSV para permuta com ScaleR
 
-Isso conclui as associações que precisamos executar para terminar de usar SparkR. Salvaremos os dados do Spark DataFrame final "joinedDF5" em um CSV para entrada em ScaleR e fecharemos a sessão do SparkR. Instruímos explicitamente o SparkR a salvar o CSV resultante em 80 partições separadas para habilitar paralelismo suficiente no processamento de ScaleR.
+Isso conclui as junções que precisamos executar com o SparkR. Salvamos os dados do Spark DataFrame final "joinedDF5" em um CSV para entrada em ScaleR e então fechamos a sessão do SparkR. Instruímos explicitamente o SparkR a salvar o CSV resultante em 80 partições separadas para habilitar paralelismo suficiente no processamento de ScaleR:
 
 ```
 logmsg('output the joined data from Spark to CSV') 
@@ -353,7 +362,7 @@ rxHadoopRemove(file.path(dataDir, "joined5Csv/_SUCCESS"))
 
 ## <a name="import-to-xdf-for-use-by-scaler"></a>Importar para XDF para uso por ScaleR
 
-Poderíamos usar o arquivo CSV de linhas aéreas e dados de clima combinados como está para modelagem por meio de uma fonte de dados de texto ScaleR. Porém, vamos importá-lo para XDF, pois é mais eficiente ao executar várias operações no conjunto de dados.
+Poderíamos usar o arquivo CSV dos dados de linha aérea e meteorológicos como estão para modelagem por meio de uma fonte de dados de texto do ScaleR. Mas nós o importamos para o XDF primeiro, pois ele é mais eficiente ao executar várias operações no conjunto de dados:
 
 ```
 logmsg('Import the CSV to compressed, binary XDF format') 
@@ -438,7 +447,7 @@ finalData <- RxXdfData(file.path(dataDir, "joined5XDF"), fileSystem = hdfsFS)
 
 ## <a name="splitting-data-for-training-and-test"></a>Dividindo dados para treinamento e teste
 
-Usamos rxDataStep para dividir os dados de 2012 para testes e manter o restante para treinamento.
+Usamos rxDataStep para dividir os dados de 2012 para testes e manter o restante para treinamento:
 
 ```
 # split out the training data
@@ -463,7 +472,7 @@ rxGetInfo(testDS)
 
 ## <a name="train-and-test-a-logistic-regression-model"></a>Treinar e testar um modelo de regressão logística
 
-OK, estamos prontos para criar um modelo! Para ver a influência dos dados de clima em relação a atrasos no horário de chegada, usaremos a rotina de regressão logística de ScaleR para modelar se um atraso de chegada de mais de 15 minutos é influenciado por data relativa, aeroportos de partida e chegada e clima nos aeroportos de partida e chegada etc.
+Agora, estamos prontos para criar um modelo. Para ver a influência de dados meteorológicos sobre o atraso no horário de chegada, usamos a rotina de regressão logística do ScaleR. Nós a usamos para modelar se um atraso de chegada de mais de 15 minutos é influenciado pelas condições meteorológicas nos aeroportos de partida e de e chegada:
 
 ```
 logmsg('train a logistic regression model for Arrival Delay > 15 minutes') 
@@ -510,7 +519,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>Pontuação em outro lugar
 
-Também podemos usar o modelo para pontuar dados em outra plataforma, salvando-os em um arquivo RDS e transferindo e importar esse RDS para o ambiente de pontuação de destino, como SQL Server R Services. Ao fazer isso, é importante garantir que os níveis de fator dos dados a serem pontuados correspondam às informações em que o modelo foi baseado. Isso pode ser obtido extraindo e salvando as informações de coluna associadas aos dados de modelagem por meio da função rxCreateColInfo() de ScaleR e aplicando essas informações de coluna à fonte de dados de entrada para previsão. A seguir, salvamos apenas algumas linhas do conjunto de dados de teste e extrairemos e usaremos as informações da coluna deste exemplo no script de previsão.
+Também podemos usar o modelo para pontuação de dados em outra plataforma. Fazemos isso salvando-os em um arquivo RDS e transferindo e importando esse RDS para o ambiente de pontuação de destino, tal como SQL Server R Services. É importante garantir que os níveis de fator dos dados a serem pontuados correspondam às informações em que o modelo foi baseado. Essa correspondência pode ser obtida extraindo e salvando as informações de coluna associadas aos dados de modelagem por meio da função `rxCreateColInfo()` de ScaleR e aplicando essas informações de coluna à fonte de dados de entrada para previsão. A seguir, salvaremos algumas linhas do conjunto de dados de teste e extrairemos e usaremos as informações da coluna deste exemplo no script de previsão:
 
 ```
 # save the model and a sample of the test dataset 
@@ -535,19 +544,18 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 ## <a name="summary"></a>Resumo
 
-É isso! Neste artigo, mostramos como é possível combinar o uso de SparkR para manipulação de dados com ScaleR para o desenvolvimento de modelos no Hadoop Spark, contanto que você se lembre de manter sessões separadas do Spark, só execute uma sessão de cada vez e troque dados por meio de arquivos CSV. Embora seja simples, esse processo ficará muito mais fácil em uma versão futura do R Server quando SparkR e ScaleR puderem compartilhar uma sessão do Spark e, assim, Spark DataFrames.
+Neste artigo, mostramos como é possível combinar o uso de SparkR para manipulação de dados com ScaleR para o desenvolvimento de modelos no Spark do Hadoop. Esse cenário requer que você mantenha sessões do Spark separadas, executando somente uma sessão por vez e que troque dados por meio de arquivos CSV. Embora seja simples, esse processo deve ser mais fácil em uma versão futura do R Server, quando SparkR e ScaleR puderem compartilhar uma sessão do Spark e, assim, compartilhar Spark DataFrames.
 
 ## <a name="next-steps-and-more-information"></a>Próximas etapas e mais informações
 
-- Para obter mais informações sobre o uso do R Server no Spark, confira o [Guia de Introdução no MSDN](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
+- Para obter mais informações sobre o uso do R Server no Spark, confira o [Guia de introdução no MSDN](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
 
-- Para obter informações sobre o R Server, confira o artigo [Introdução a R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node).
+- Para obter informações sobre o R Server, confira o artigo [Introdução ao R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node).
 
-- Outros artigos de interesse são [R Server no Azure HDInsight](hdinsight-hadoop-r-server-get-started.md) e [Visão geral do R Server no Azure HDInsight](hdinsight-hadoop-r-server-overview.md).
+- Para obter informações sobre o R Server no HDInsight, consulte [Visão geral do R Server no Azure HDInsight](hdinsight-hadoop-r-server-overview.md) e [R Server no Azure HDInsight](hdinsight-hadoop-r-server-get-started.md).
 
-Para obter mais informações sobre o uso de SparkR, confira o seguinte:
+Para obter mais informações sobre o uso de SparkR, veja:
 
 - [Documento Apache SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html)
 
 - [Visão geral do SparkR](https://docs.databricks.com/spark/latest/sparkr/overview.html) da Databricks
-

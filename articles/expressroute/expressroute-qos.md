@@ -1,6 +1,6 @@
 ---
 title: Requisitos de QoS para ExpressRoute | Microsoft Docs
-description: "Esta página fornece requisitos detalhados para a configuração e gerenciamento de QoS para circuitos da Rota Expressa."
+description: "Esta página fornece requisitos detalhados para a configuração e gerenciamento de QoS para circuitos do ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 07/25/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9e74127e3140ec9973753fb5f29151c406326c36
-
-
+ms.openlocfilehash: c097a9ccba91f59b323215d42d37e6d85e0981ce
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="expressroute-qos-requirements"></a>Requisitos de QoS para Rota Expressa
-Skype for Business tem várias cargas de trabalho que exigem tratamento de QoS diferenciado. Se você planeja utilizar serviços de voz por meio de Rota Expressa, siga os requisitos descritos abaixo.
+# <a name="expressroute-qos-requirements"></a>Requisitos de QoS para o ExpressRoute
+Skype for Business tem várias cargas de trabalho que exigem tratamento de QoS diferenciado. Se você planeja utilizar serviços de voz por meio de ExpressRoute, siga os requisitos descritos abaixo.
 
 ![](./media/expressroute-qos/expressroute-qos.png)
 
@@ -35,7 +35,7 @@ A tabela a seguir fornece uma lista de marcações DSCP usadas pelo Skype for Bu
 | **Classe de Tráfego** | **Tratamento (Marcação DSCP)** | **Cargas de Trabalho do Skype for Business** |
 | --- | --- | --- |
 | **Voz** |EF (46) |Voz do Skype / Lync |
-| **Interativo** |AF41 (34) |Vídeo |
+| **Interativo** |AF41 (34) |Vídeo, VBSS |
 | AF21 (18) |Compartilhamento de aplicativo | |
 | **Padrão** |AF11 (10) |Transferência de arquivo |
 | CS0 (0) |Qualquer outra coisa | |
@@ -46,15 +46,9 @@ A tabela a seguir fornece uma lista de marcações DSCP usadas pelo Skype for Bu
 
 ## <a name="next-steps"></a>Próximas etapas
 * Consulte os requisitos para [Roteamento](expressroute-routing.md) e [NAT](expressroute-nat.md).
-* Consulte os links a seguir para configurar a conexão da Rota Expressa.
+* Consulte os links a seguir para configurar a conexão do ExpressRoute.
   
-  * [Criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md)
+  * [Criar um circuito do ExpressRoute](expressroute-howto-circuit-classic.md)
   * [Configurar o roteamento](expressroute-howto-routing-classic.md)
-  * [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
-
+  * [Vincular uma rede virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-classic.md)
 

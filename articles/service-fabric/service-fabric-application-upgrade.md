@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 8/9/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: b4637922e7b280b0e9954c9e51788202e784b4f9
-ms.openlocfilehash: 743223f78f279fedf33f73ff52b56f4a7358cd51
-ms.lasthandoff: 02/13/2017
-
-
+ms.openlocfilehash: 43e1a66c3aca882f8f572d2bf71976d6b65a9c68
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-application-upgrade"></a>Atualização de aplicativos do Service Fabric
 Um aplicativo do Azure Service Fabric é uma coleção de serviços. Durante uma atualização, a Malha do Serviço compara o novo [manifesto do aplicativo](service-fabric-application-model.md#describe-an-application) com a versão anterior e determina quais serviços as atualizações do aplicativo exigem. O Service Fabric compara os números de versão nos manifestos de serviço com os números de versão na versão anterior. Se um serviço não foi alterado, ele não foi atualizado.
@@ -32,6 +31,8 @@ Por esse motivo, as duas versões devem ser compatíveis uma com a outra. Se nã
 Os domínios de atualização ficam especificados no manifesto do cluster quando este é configurado. Os domínios de atualização não recebem atualizações em uma ordem específica. Um domínio de atualização é uma unidade lógica de implantação para um aplicativo. Os domínios de atualização permitem que os serviços permaneçam com alta disponibilidade durante uma atualização.
 
 Atualizações com interrupção são possíveis se a atualização for aplicada a todos os nós no cluster, que é o caso quando o aplicativo tem somente um domínio de atualização. Essa abordagem não é recomendável porque o serviço ficaria paralisado e não estaria disponível no momento da atualização. Além disso, o Azure não fornece qualquer garantia quando um cluster é configurado com apenas um domínio de atualização.
+
+Após a conclusão da atualização, todos os serviços e réplicas (instâncias) permanecerão na mesma versão-ou seja, se a atualização for bem-sucedida, eles serão atualizados para a nova versão; se a atualização falhar e for revertida, eles serão revertidos para a versão antiga.
 
 ## <a name="health-checks-during-upgrades"></a>Verificações de integridade durante atualizações
 Para uma atualização, as políticas de integridade precisam ser configuradas (ou valores padrão podem ser usados). Uma atualização é considerada bem-sucedida quando todos os domínios de atualização são atualizados dentro do tempo limite especificado e quando todos os domínios de atualização são considerados íntegros.  Um domínio de atualização íntegro significa que o domínio de atualização foi aprovado em todas as verificações de integridade especificadas na política de integridade. Por exemplo, uma política de integridade pode obrigar que todos os serviços em uma instância do aplicativo estejam *íntegros*, de acordo com a definição de integridade do Service Fabric.
@@ -50,7 +51,7 @@ Os serviços padrão no aplicativo Service Fabric podem ser atualizados durante 
 
 1. Os serviços padrão no novo [manifesto do aplicativo](service-fabric-application-model.md#describe-an-application) que não existem no cluster são criados.
 > [!TIP]
-> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md#fabric-settings-that-you-can-customize) precisa ser definido como true para habilitar as regras a seguir. Esse recurso é compatível com a v5.5.
+> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) precisa ser definido como true para habilitar as regras a seguir. Esse recurso é compatível com a v5.5.
 
 2. Os serviços padrão existentes no [manifesto do aplicativo](service-fabric-application-model.md#describe-an-application) anterior e na nova versão são atualizados. As descrições de serviço na nova versão substituem aquelas que já estão no cluster. A atualização do aplicativo é revertida automaticamente na falha de atualização do serviço padrão.
 3. Os serviços padrão no [manifesto do aplicativo](service-fabric-application-model.md#describe-an-application) anterior, mas não na nova versão, são excluídos. **Observe que essa exclusão de serviços padrão não pode ser revertida.**
@@ -76,4 +77,3 @@ Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultan
 Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solução de problemas de atualizações de aplicativo](service-fabric-application-upgrade-troubleshooting.md).
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
-

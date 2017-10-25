@@ -4,7 +4,7 @@ description: Resume os sistemas operacionais e componentes com suporte para o Az
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 
 ms.service: site-recovery
@@ -12,29 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/08/2017
+ms.date: 05/24/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 2541236d84100ed7889d06f9b0580fcbc55ecfdb
-ms.openlocfilehash: f9443b633601272c79739c92995d53ba1a7d2b4e
-
-
+ms.openlocfilehash: 69c5d09b6608484210870e1a69c51b112b497810
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Suporte a matriz para replicação em um site secundário com o Azure Site Recovery
-
-> [!div class="op_single_selector"]
-> * [Replicar para o Azure](site-recovery-support-matrix-to-azure.md)
-> * [Replicar para um lugar local](site-recovery-support-matrix-to-sec-site.md)
 
 Este artigo resume o que tem suporte quando você usa o Azure Site Recovery para replicar em um site local secundário.
 
 ## <a name="deployment-options"></a>Opções de implantação
 
-**Implantação** | **Servidor VMware/físico** | **Hyper-V (sem VMM)** | **Hyper-V (com o VMM)**
+**Implantação** | **Servidor VMware/físico** | **Hyper-V (com/sem o SCVMM)**
 --- | --- | --- | ---
-**Portal do Azure** | VMs do VMware locais para o site secundário do VMware.<br/><br/> Baixe o [guia do usuário do InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (não disponível no Portal do Azure). | Sem suporte | VMs do Hyper-V locais em nuvens de VMM para uma nuvem de VMM secundária.<br/><br/> Somente Replicação do Hyper-V padrão. Sem suporte para SAN.
-**Portal clássico** | Somente modo de manutenção. Não é possível criar novos cofres. | Sem suporte | Somente no modo de manutenção
-**PowerShell** | Sem suporte | Sem suporte | Suportado
+**Portal do Azure** | VMs do VMware locais para o site secundário do VMware.<br/><br/> Baixe o [guia do usuário do InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (não disponível no Portal do Azure). | VMs do Hyper-V locais em nuvens de VMM para uma nuvem de VMM secundária.<br></br> Sem suporte sem o SCVMM  <br/><br/> Somente Replicação do Hyper-V padrão. Sem suporte para SAN.
+**Portal clássico** | Somente modo de manutenção. Não é possível criar novos cofres. | Somente no modo de manutenção<br></br> Sem suporte sem o SCVMM
+**PowerShell** | Sem suporte | Suportado<br></br> Sem suporte sem o SCVMM
 
 ## <a name="on-premises-servers"></a>Servidores locais
 
@@ -47,7 +43,7 @@ Este artigo resume o que tem suporte quando você usa o Azure Site Recovery para
 
   >[!Note]
   > No momento, não há suporte para nuvens VMM 2016 com uma combinação de hosts do Windows Server 2016 e 2012 R2.
-
+  > As configurações que incluem o upgrade de um SCVMM 2012 R2 existente para 2016 não são suportadas atualmente.
 ### <a name="host-servers"></a>Servidores de host
 
 **Implantação** | **Suporte**
@@ -119,7 +115,7 @@ Disco > 1 TB | Não | Sim
 Volume com discos distribuídos > 1 TB<br/><br/> LVM | Sim | Sim
 Espaços de Armazenamento | Não | Sim
 Adição/remoção de disco a quente | Não | Não
-Exclusão de disco | Não | Não
+Exclusão de disco | Não | Sim
 Múltiplos caminhos (MPIO) | N/D | Sim
 
 ## <a name="vaults"></a>Cofres
@@ -139,10 +135,5 @@ Mover armazenamento, rede, VMs do Azure entre grupos de recursos (dentro de uma 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre [pré-requisitos de implantação](site-recovery-prereq.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+- [Replicar as VMs do Hyper-V em nuvens de VMM para um site secundário](site-recovery-vmm-to-vmm.md)
+- [Replicar VMs VMware e servidores físicos para um site secundário](site-recovery-vmware-to-vmware.md)

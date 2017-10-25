@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: c4ccde9635b3874864baa9d4d262ff5ddcf2a425
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>Notas de versão as Atualizações 0.1 e 0.2 do StorSimple Virtual Array
 ## <a name="overview"></a>Visão geral
@@ -83,10 +83,4 @@ A tabela a seguir fornece um resumo dos problemas conhecidos para a StorSimple V
 
 ## <a name="next-step"></a>Próxima etapa
 [Instale as Atualizações](storsimple-ova-install-update-01.md) em seu StorSimple Virtual Array.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -1,11 +1,22 @@
 ---
-layout: LandingPage
+title: "Documentação do Observador de Rede do Azure - Tutoriais, Referência da API | Microsoft Docs"
 description: "Saiba como usar o Observador de Rede para monitorar e diagnosticar as condições a um nível de rede."
-translationtype: Human Translation
-ms.sourcegitcommit: 7b51e3df9aa449bb3fdabd28ce80ac9d4fd7a951
-ms.openlocfilehash: 3c390494f5e86eb82a3011b962217798feff5ca2
-ms.lasthandoff: 02/22/2017
-
+services: network-watcher
+author: czeumault
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: network-watcher
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
+ms.openlocfilehash: 897f526801dc94f6f370dfa253f321f7b8f765e9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-network-watcher-documentation"></a>Documentação do Observador de Rede do Azure
 
@@ -183,6 +194,5 @@ Aprenda a usar o Observador de Rede, um serviço que permite o monitoramento e d
         </div>
     </li>
 </ul>
-
 
 

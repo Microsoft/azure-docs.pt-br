@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 08/16/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 025e8c9e575123a3ad9863a35061ebd0af212486
-ms.lasthandoff: 03/30/2017
-
-
+ms.openlocfilehash: 8d4460b3059558de2253c6f6a2d2fc8e7564d6d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-faq"></a>Perguntas frequentes sobre o Azure Active Directory
 O Azure AD (Azure Active Directory) é uma solução abrangente de IDaaS (identidade como um serviço) que inclui todos os aspectos de identidade, gerenciamento de acesso e segurança.
@@ -28,7 +27,7 @@ Para obter mais informações, confira [O que é Azure Active Directory?](active
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Acessar o Azure e o Azure Active Directory
-**P: por que é mostrado "Nenhuma assinatura encontrada" quando tento acessar o Azure AD no Portal Clássico do Azure (https://manage.windowsazure.com)?**
+**P: por que é mostrado "Nenhuma assinatura encontrada" quando tento acessar o Azure AD no Portal Clássico do Azure?**
 
 **R:** para acessar o portal clássico do Azure, cada usuário precisa de permissões com uma assinatura do Azure. Se tiver uma assinatura paga do Office 365 ou Azure AD, acesse [http://aka.ms/accessAAD](http://aka.ms/accessAAD) para obter uma etapa de ativação única. Caso contrário, você precisará ativar uma [conta do Azure](https://azure.microsoft.com/pricing/free-trial/) grátis ou uma assinatura paga.
 
@@ -126,7 +125,7 @@ Para obter mais respostas a perguntas relacionadas a senhas, confira [Perguntas 
 - - -
 **P: o que fazer se eu não lembrar de minha senha existente do Office 365/Azure AD ao tentar alterar a senha?**
 
-**R:** para esse tipo de situação, há algumas opções.  Use SSPR (redefinição de senha de autoatendimento), se estiver disponível.  O funcionamento de SSPR dependerá de como está configurado.  Para saber mais, veja [Como funciona o portal de redefinição de senhas](active-directory-passwords-learn-more.md#how-does-the-password-reset-portal-work).
+**R:** para esse tipo de situação, há algumas opções.  Use SSPR (redefinição de senha de autoatendimento), se estiver disponível.  O funcionamento de SSPR dependerá de como está configurado.  Para saber mais, veja [Como funciona o portal de redefinição de senhas](active-directory-passwords-best-practices.md).
 
 Para usuários do Office 365, o administrador pode redefinir a senha usando as etapas descritas em [Redefinir senhas de usuário](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
 
@@ -134,7 +133,7 @@ Para contas do Azure AD, os administradores podem redefinir senhas usando uma da
 
 - [Redefinir contas no portal do Azure](active-directory-users-reset-password-azure-portal.md)
 - [Redefinir contas no portal clássico](active-directory-create-users-reset-password.md)
-- [Usando o PowerShell](https://docs.microsoft.com/en-us/powershell/msonline/v1/Set-MsolUserPassword?redirectedfrom=msdn)
+- [Usando o PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
 - - -
@@ -146,7 +145,7 @@ Usamos uma estratégia mais sofisticada para bloquear contas.  Ela se baseia no 
 Isso se refere a senhas comuns no mundo todo, como qualquer variante de "Senha" e "123456".
 
 **P: Uma solicitação de entrada de fontes questionáveis (botnets, ponto de extremidade tor) será bloqueada em um locatário B2C, ou isso exige um locatário de edição Basic ou Premium?**</br>
-Temos um gateway que filtra solicitações e fornece alguma proteção contra botnets, e ele é aplicado a todos os locatários B2C. 
+Temos um gateway que filtra solicitações e fornece alguma proteção contra botnets, e ele é aplicado a todos os locatários B2C.
 
 ## <a name="application-access"></a>Acesso a aplicativos
 **P: onde obter uma lista de aplicativos que estão pré-integrados ao Azure AD e seus recursos?**
@@ -212,5 +211,4 @@ Para saber mais, confira [Automatizar o provisionamento e o desprovisionamento d
 - - -
 **P: posso configurar uma conexão LDAP segura com o Azure AD?**
 
-**R:**  Não.  O Azure AD não dá suporte ao protocolo LDAP.
-
+**R:**  Não. O Azure AD não dá suporte ao protocolo LDAP.

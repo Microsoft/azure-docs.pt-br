@@ -3,7 +3,7 @@ title: "Introdução ao AngularJS do AD do Azure | Microsoft Docs"
 description: "Como criar um aplicativo de página única AngularJS que se integre ao Azure AD para entrar e que chame as APIs protegidas do Azure AD usando OAuth."
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: a9997b6a6d30fbd2d21dee5d9c1e3ea92dfa97ab
-ms.openlocfilehash: 0ace1ee96d9266db9310ba73c36788a787a9dd15
-
-
+ms.author: jmprieur
+ms.custom: aaddev
+ms.openlocfilehash: 4153910bc03f112f84c26cda6f9c78f11028b934
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="help-secure-angularjs-single-page-apps-by-using-azure-ad"></a>Ajudar a proteger aplicativos de página única AngularJS usando o AD do Azure
 
@@ -29,6 +30,7 @@ O Azure AD (Azure Active Directory) faz com que seja simples e direto adicionar 
 Para aplicativos JavaScript em execução em um navegador, o Azure AD fornece a Biblioteca de Autenticação do Active Directory (ADAL) ou adal.js. A única finalidade da adal.js é facilitar para seu aplicativo a obtenção de tokens de acesso. Para demonstrar como é fácil, vamos compilar aqui um aplicativo de lista de tarefas AngularJS que:
 
 * Conecta o usuário ao aplicativo usando o Azure AD como o provedor de identidade.
+
 * Exibe informações sobre o usuário.
 * Chama com segurança a API de lista de tarefas do aplicativo usando tokens de portador do Azure AD.
 * Desconecta o usuário do aplicativo.
@@ -45,7 +47,7 @@ Para começar, [baixe o esqueleto do aplicativo](https://github.com/AzureADQuick
 Para permitir que seu aplicativo autentique usuários e obtenha tokens, primeiro você precisará registrá-lo em seu locatário do Azure AD:
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Na barra superior, clique em sua conta. Sob o **diretório** lista, escolha o locatário do AD do Azure onde você deseja registrar seu aplicativo.
+2. Se você entrar em vários diretórios, precisará garantir que está exibindo o diretório correto. Para fazer isso, na barra superior, clique em sua conta. Sob o **diretório** lista, escolha o locatário do AD do Azure onde você deseja registrar seu aplicativo.
 3. Clique em **Mais Serviços** no painel esquerdo e selecione **Azure Active Directory**.
 4. Clique em **Registros do aplicativo**e, em seguida, selecione **Adicionar**.
 5. Siga os prompts e crie um novo aplicativo Web e/ou API Web:
@@ -61,6 +63,7 @@ Para permitir que seu aplicativo autentique usuários e obtenha tokens, primeiro
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Etapa 2: Instalar o ADAL e configurar o aplicativo de página única
 Agora que você tem um aplicativo no AD do Azure, você pode instalar a adal.js e escrever seu código relacionado à identidade.
 
+### <a name="configure-the-javascript-client"></a>Configurar o cliente JavaScript
 Comece adicionando a adal.js ao projeto TodoSPA usando o Console do Gerenciador de Pacotes:
   1. Baixe [adal.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal.js) e adicione-a ao diretório do projeto `App/Scripts/`.
   2. Baixe [adal-angular.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal-angular.js) e adicione-a ao diretório do projeto `App/Scripts/`.
@@ -73,6 +76,7 @@ Comece adicionando a adal.js ao projeto TodoSPA usando o Console do Gerenciador 
     ...
     ```
 
+### <a name="configure-the-back-end-server"></a>Configurar o servidor de back-end
 Para que a API de lista de tarefas do back-end do aplicativo de página única aceite tokens do navegador, o back-end precisa de informações de configuração sobre o registro do aplicativo. No projeto TodoSPA, abra `web.config`. Substitua os valores dos elementos na seção `<appSettings>` para refletir os valores que você usou no portal do Azure. Seu código fará referência a esses valores sempre que ele usar a ADAL.
   * O `ida:Tenant` é o domínio do seu locatário do Azure AD, por exemplo, contoso.onmicrosoft.com.
   * O `ida:Audience` é a ID do cliente do seu aplicativo que você copiou do portal.
@@ -156,9 +160,3 @@ Para referência, o exemplo concluído (sem seus valores de configuração) est�
 Agora você pode passar para cenários de adicionais. Você talvez queira: [chamar uma API da web CORS de um aplicativo de página única](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

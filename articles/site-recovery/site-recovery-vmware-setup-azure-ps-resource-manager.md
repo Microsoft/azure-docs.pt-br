@@ -1,5 +1,5 @@
 ---
-title: " Gerenciar um servidor de processo em execução no Azure (Gerenciador de recursos) | Doc da Microsofts"
+title: " Gerenciar um servidor de processo em execução no Azure (Gerenciador de Recursos) | Microsoft Docs"
 description: Este artigo descreve como configurar um servidor de processo de failback (Resource Manager) no Azure.
 services: site-recovery
 documentationcenter: 
@@ -11,16 +11,15 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 2/2/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/29/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: edf190031e87cc5a433eaa8fb86187b41fc1dd4e
-ms.openlocfilehash: 61db9c89ff84db89323b55990dc1049d636958f7
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: 2b9b31abd5d11d02935a74e47d26be9803cdc920
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-a-process-server-running-in-azure-resource-manager"></a>Gerenciar um servidor de processo em execução no Azure (Gerenciador de recursos)
 > [!div class="op_single_selector"]
 > * [Gerenciador de Recursos](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
@@ -78,4 +77,3 @@ Durante o failback, é recomendável implantar o servidor de processo no Azure s
 ## <a name="unregistering-the-process-server-running-in-azure-from-a-configuration-server-running-on-premises"></a>Cancelando o registro de servidor de processo (em execução no Azure) de um servidor de configuração (em execução local)
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
-

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 43ba592b6294a9a75a20dacd81953a77c241b89f
-ms.lasthandoff: 03/18/2017
-
-
+ms.custom: aaddev
+ms.openlocfilehash: 3c1e558c9d41e385f80939203a3457b74e30973b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="aspnet-web-app-sign-in-and-sign-out-with-azure-ad"></a>Entrada e saída do aplicativo Web ASP.NET com o Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -73,7 +73,7 @@ Nesta etapa, você configurará o middleware OWIN para usar o protocolo de auten
      }
      ```
 
-4. Abra o arquivo App_Start\Startup.Auth.cs e implemente o método **ConfigureAuth(...)**. Os parâmetros que você fornece em *OpenIDConnectAuthenticationOptions* servirão como coordenadas para seu aplicativo se comunicar com o Azure AD. Você também precisa configurar a autenticação de Cookies – o middleware OpenID Connect usa cookies em segundo plano.
+4. Abra o arquivo App_Start\Startup.Auth.cs e implemente o método **ConfigureAuth(...)** . Os parâmetros que você fornece em *OpenIDConnectAuthenticationOptions* servirão como coordenadas para seu aplicativo se comunicar com o Azure AD. Você também precisa configurar a autenticação de Cookies – o middleware OpenID Connect usa cookies em segundo plano.
 
      ```C#
      public void ConfigureAuth(IAppBuilder app)
@@ -88,6 +88,15 @@ Nesta etapa, você configurará o middleware OWIN para usar o protocolo de auten
                  ClientId = clientId,
                  Authority = authority,
                  PostLogoutRedirectUri = postLogoutRedirectUri,
+                 Notifications = new OpenIdConnectAuthenticationNotifications
+                    {
+                        AuthenticationFailed = context =>
+                        {
+                            context.HandleResponse();
+                            context.Response.Redirect("/Error?message=" + context.Exception.Message);
+                            return Task.FromResult(0);
+                        }
+                    }
              });
      }
      ```
@@ -100,7 +109,7 @@ Nesta etapa, você configurará o middleware OWIN para usar o protocolo de auten
 ## <a name="step-3-use-owin-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Etapa 3: usar o OWIN para emitir solicitações de entrada e saída ao Azure AD
 O aplicativo agora está configurado corretamente para se comunicar com o Azure AD usando o protocolo de autenticação OpenID Connect. O OWIN cuidou de todos os detalhes da criação de mensagens de autenticação, validação de tokens do Azure AD e manutenção da sessão do usuário. Tudo o que falta é oferecer aos usuários uma maneira de entrar e sair.
 
-1. Você pode usar autorizar marcas em seus controladores para exigir que os usuários entrem antes de acessarem uma determinada página. Para fazer isso, abra Controllers\HomeController.cs e, em seguida, adicione a marcação `[Authorize]` ao controlador About.
+1. Você pode usar autorizar marcas em seus controladores para exigir que os usuários entrem antes de acessarem uma determinada página. Para fazer isso, abra Controllers\HomeController.cs e, em seguida, adicione a marcação `[Authorize]` à ação About.
 
      ```C#
      [Authorize]
@@ -184,4 +193,3 @@ Para referência, veja [a amostra concluída](https://github.com/AzureADQuickSta
 Agora você pode passar para tópicos mais avançados. Por exemplo, experimento [Proteger uma API Web com o Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

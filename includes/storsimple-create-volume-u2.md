@@ -24,7 +24,7 @@
       
         ![Adicionar volume local](./media/storsimple-create-volume-u2/add-tiered-volume-include.png)
    
-   1. Clique no ícone de seta  ![ícone-de-seta](./media/storsimple-create-volume-u2/HCS_ArrowIcon-include.png)  para ir para a próxima página.
+   1. Clique no ícone de seta  ![ícone-de-seta](./media/storsimple-create-volume-u2/HCS_ArrowIcon-include.png) para ir para a próxima página.
 3. Na caixa de diálogo **Configurações Adicionais** , adicione um novo registro de controle de acesso (ACR):
    
    1. Dê um **Nome** para o seu ACR.
@@ -38,9 +38,4 @@
       
       ![Adicionar volume](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
 4. Clique no ícone de verificação  ![ícone de verificação](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Será criado um volume com as configurações especificadas.
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

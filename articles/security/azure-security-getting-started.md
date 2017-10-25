@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
 ms.openlocfilehash: eb53ed852b6175fbc7faea44a243e8c7d5ce1753
-ms.lasthandoff: 03/25/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Introdução à segurança do Microsoft Azure
 Ao criar ou migrar ativos de TI para um provedor de nuvem, você está confiando na capacidade dessa organização de proteger seus aplicativos e dados com os serviços e mecanismos de controle que ela oferece para gerenciar a segurança de seus ativos baseados em nuvem.
@@ -155,7 +154,7 @@ Para estender com segurança seu datacenter local para a nuvem, o Azure fornece 
 ### <a name="how-azure-implements-secure-remote-access"></a>Como o Azure implementa o acesso remoto seguro
 As conexões com o portal do Azure sempre devem ser autenticadas e exigem SSL/TLS. Você pode configurar certificados de gerenciamento para habilitar o gerenciamento seguro. Os protocolos de segurança padrão do setor, como [SSTP](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) e [IPsec](https://en.wikipedia.org/wiki/IPsec), têm suporte completo.
 
-O [Azure ExpressRoute](../expressroute/expressroute-introduction.md) permite criar conexões privadas entre os datacenters do Azure e a infraestrutura no seu local ou em um ambiente de colocalização. As conexões da Rota Expressa não passam pela Internet pública. Eles oferecem mais confiabilidade, velocidades mais rápidas, latências menores e maior segurança que os links típicos baseados na Internet. Em alguns casos, transferir dados entre armazenamentos locais e o Azure usando conexões do ExpressRoute pode proporcionar um custo/benefício significativo.
+O [Azure ExpressRoute](../expressroute/expressroute-introduction.md) permite criar conexões privadas entre os datacenters do Azure e a infraestrutura no seu local ou em um ambiente de colocalização. As conexões do ExpressRoute não passam pela Internet pública. Eles oferecem mais confiabilidade, velocidades mais rápidas, latências menores e maior segurança que os links típicos baseados na Internet. Em alguns casos, transferir dados entre armazenamentos locais e o Azure usando conexões do ExpressRoute pode proporcionar um custo/benefício significativo.
 
 ## <a name="logging-and-monitoring"></a>Log e monitoramento
 O Azure fornece logs autenticados de eventos de segurança relevantes que geram uma trilha de auditoria e foram criados para serem resistentes à falsificação. inclui informações do sistema, como logs de eventos de segurança em VMs de infraestrutura do Azure e o AD do Azure. O monitoramento de eventos de segurança inclui a coleta de eventos, como alterações em endereços IP de servidor do DHCP ou do DNS, tentativas de acesso a portas, protocolos ou endereços IP que são bloqueados por design, alterações em configurações de firewall ou política de segurança, criação de conta ou grupo e instalação de driver ou processos inesperados.
@@ -195,4 +194,3 @@ O Azure tem controles de segurança para implementar a redução de ameaças e t
 [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
 
 [Blog do Active Directory](http://blogs.technet.com/b/ad/)
-

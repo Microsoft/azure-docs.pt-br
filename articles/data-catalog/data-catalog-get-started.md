@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/19/2017
+ms.date: 08/03/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 2b128e2771ea89d1c0d6b8d52357d1bcc993115a
-ms.openlocfilehash: a9629d0a4bfc44f5d035a29f8e97d76922cc0060
-ms.lasthandoff: 01/20/2017
-
-
+ms.openlocfilehash: 5a3445aee7722579405b67830ca49ef8c0b29d0e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Introdução ao Catálogo de Dados do Azure
 O Catálogo de Dados do Azure é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em ativos de dados da empresa. Para obter uma visão detalhada, confira [O que é o Catálogo de Dados do Azure](data-catalog-what-is-data-catalog.md).
@@ -363,5 +362,4 @@ Neste tutorial, você explorou recursos essenciais do Catálogo de Dados do Azur
 * [Como documentar ativos de dados](data-catalog-how-to-documentation.md)
 * [Como se conectar a ativos de dados](data-catalog-how-to-connect.md)
 * [Como gerenciar ativos de dados](data-catalog-how-to-manage.md)
-
 

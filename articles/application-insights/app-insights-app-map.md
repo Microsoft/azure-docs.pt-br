@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 9fc7a41dcca3d9e51b8c67b86ef61443945b6bad
-ms.lasthandoff: 03/16/2017
-
-
+ms.author: bwren
+ms.openlocfilehash: 207526b7a675f92134d045ebefb9a372749bce92
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-map-in-application-insights"></a>Mapa de Aplicativos no Application Insights
 No [Azure Application Insights](app-insights-overview.md), o Mapa de Aplicativos é um layout visual das relações de dependência dos componentes de seu aplicativo. Cada componente mostra KPIs, como carga, desempenho, falhas e alertas, para ajudá-lo a descobrir possíveis componentes que estejam causando uma falha ou um problema de desempenho. Você pode clicar em qualquer componente para obter diagnóstico mais detalhado, como eventos do Application Insights. Se seu aplicativo usar os serviços do Azure, você também poderá clicar no diagnóstico do Azure, como nas recomendações do Assistente do Banco de Dados SQL.
@@ -86,26 +85,42 @@ Para salvar os filtros que você aplicou, fixe na exibição filtrada em um [pai
 
 ![Fixar no painel](./media/app-insights-app-map/12.png)
 
+## <a name="error-pane"></a>Painel de erros
+Quando você clica em um nó no mapa, é exibido no lado direito um painel de erros resumindo as falhas do nó. As falhas são agrupadas primeiro segundo a ID da operação e, em seguida, segundo a ID do problema.
+
+![Painel de erros](./media/app-insights-app-map/error-pane.png)
+
+Clicar em uma falha leva você até a instância mais recente dessa falha.
+
+## <a name="resource-health"></a>Integridade de recursos
+Para alguns tipos de recursos, sua integridade é exibida na parte superior do painel de erros. Por exemplo, clicar em um nó do SQL mostrará a integridade do banco de dados e todos os alertas que tiverem sido disparados.
+
+![Integridade de recursos](./media/app-insights-app-map/resource-health.png)
+
+Você pode clicar no nome do recurso para exibir as métricas de visão geral padrão para esse recurso.
+
 ## <a name="end-to-end-system-app-maps"></a>Mapas de aplicativos do sistema de ponta a ponta
+
+*Requer o SDK versão 2.3 ou superior*
 
 Se seu aplicativo tiver vários componentes (por exemplo, um serviço de back-end além do aplicativo Web), você poderá mostrá-los em um mapa de aplicativos integrado.
 
 ![Definir filtros](./media/app-insights-app-map/multi-component-app-map.png)
 
-O mapa de aplicativos localiza os nós do servidor procurando todos os recursos do Application Insights no grupo de recursos atual. Ele também detecta nós do servidor seguindo todas as chamadas de dependência rastreadas pelos recursos do Application Insights no grupo de recursos atual.
+O mapa do aplicativo localiza os nós do servidor seguindo qualquer chamada de dependência HTTP feita entre os servidores com o SDK do Application Insights instalado. Presume-se que cada recurso do Application Insights contenha um servidor.
 
+### <a name="multi-role-app-map-preview"></a>Mapa do aplicativo com várias funções (versão prévia)
 
-### <a name="setting-up"></a>Configurando
+O recurso de mapa do aplicativo com várias funções, em fase de versão prévia, permite usar o mapa do aplicativo com vários servidores enviando dados à mesma chave de instrumentação/recurso do Application Insights. Os servidores no mapa são segmentados segundo a propriedade cloud_RoleName nos itens de telemetria. Defina *Mapa do Aplicativo com Várias Funções* como *Ativado* na folha Versões prévias para habilitar essa configuração.
 
-> [!NOTE] 
-> O mapa de aplicativos do sistema de ponta a ponta está no modo de visualização. Você precisa instrumentar seus componentes com uma versão especial do SDK e usar uma URL especial para ver o mapa de aplicativos. [Saiba como configurar mapas de aplicativos do sistema de ponta a ponta](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-app-map-preview.md).
+Essa abordagem pode ser desejável em um aplicativo de microsserviço ou em outros cenários em que você deseja correlacionar eventos entre vários servidores dentro de um único recurso do Application Insights.
 
 ## <a name="video"></a>Vídeo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
 ## <a name="feedback"></a>Comentários
-Por favor, [faça comentários por meio da opção Comentários no portal](app-insights-get-dev-support.md).
+Por favor, faça comentários por meio da opção Comentários no portal.
 
 ![Imagem de MapLink-1](./media/app-insights-app-map/13.png)
 

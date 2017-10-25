@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/20/2017
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: bae6cf7f5025936deba301dc4fd05f6fd5fd8fa6
 ms.openlocfilehash: 1d9bb681a864bdc3e5a2f9c9a531d9566b16ada4
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-dns-troubleshooting-guide"></a>Guia de solução de problemas do DNS do Azure
 
 Esta página fornece informações sobre solução de questões de DNS do Azure.
@@ -49,7 +49,7 @@ Para resolver problemas comuns, tente uma ou mais das etapas a seguir:
 
 1.  Examine os logs de auditoria do DNS do Azure para determinar o motivo da falha.
 2.  O conjunto de registros já existe?  O DNS do Azure gerencia registros usando *conjuntos* de registros, que são a coleção de registros com o mesmo nome e o mesmo tipo. Se já existe um registro com o mesmo nome e o mesmo tipo, para adicionar outro registro desse você deve editar o conjunto de registros existente.
-3.  Você está tentando criar um registro no ápice da zona DNS (na 'raiz' da zona)? Se sim, a convenção DNS é usar o caractere ‘@’ como o nome do registro. Observe também que os padrões de DNS não permitem registros CNAME no ápice da zona.
+3.  Você está tentando criar um registro no ápice da zona DNS (na 'raiz' da zona)? Se sim, a convenção DNS é usar o caractere “@” como o nome do registro. Observe também que os padrões de DNS não permitem registros CNAME no ápice da zona.
 4.  Existe um conflito de CNAME?  Os padrões de DNS não permitem um registro CNAME com o mesmo nome que um registro de qualquer outro tipo. Se já houver um CNAME existente, a criação de um registro com o mesmo nome de um tipo diferente falhará.  Da mesma forma, a criação de um CNAME falhará se o nome corresponder a um registro existente de um tipo diferente. Remova o conflito removendo o outro registro ou escolha um nome de registro diferente.
 5.  Você atingiu o limite do número de conjuntos de registros permitidos em uma zona DNS? O número atual de conjuntos de registros e o número máximo de conjuntos de registros são mostrados no Portal do Azure, nas 'Propriedades' da zona. Se você atingiu esse limite, exclua alguns conjuntos de registros ou contate o Suporte do Azure para aumentar seu limite de conjuntos de registros para esta zona. Em seguida, tente novamente. 
 
@@ -104,10 +104,4 @@ Exemplo de nomes de registro SRV (nome de serviço 'sip', protocolo 'tcp'):
 * Saiba mais sobre [registros e zonas DNS do Azure](dns-zones-records.md)
 * Para começar a usar o DNS do Azure, aprenda a [criar uma zona DNS](dns-getstarted-create-dnszone-portal.md) e a [criar registros DNS](dns-getstarted-create-recordset-portal.md).
 * Para migrar uma zona DNS existente, saiba como [importar e exportar um arquivo de zona DNS](dns-import-export.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

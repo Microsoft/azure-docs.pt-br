@@ -3,7 +3,7 @@ title: Criar um balanceador de carga interno - Portal do Azure | Microsoft Docs
 description: Saiba como criar um balanceador de carga interno no Resource Manager usando o portal do Azure
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
-
+ms.openlocfilehash: 3be595b03f667cf9700d2f17eb2080aa74f41dd9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Criar um Balanceador de carga interno no portal do Azure
 
 > [!div class="op_single_selector"]
@@ -28,6 +28,9 @@ ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [CLI do Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modelo](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -38,7 +41,7 @@ ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
 
 ## <a name="get-started-creating-an-internal-load-balancer-using-azure-portal"></a>Introdução à criação de um balanceador de carga interno usando o portal do Azure
 
-Use as etapas a seguir para criar um balanceador de carga interno no Portal do Azure.
+Use as etapas a seguir para criar um balanceador de carga interno no portal do Azure.
 
 1. Abra um navegador, navegue até o [portal do Azure](http://portal.azure.com) e entre com sua conta do Azure.
 2. No canto superior esquerdo da tela, clique em **Novo** > **Rede** > **Balanceador de carga**.
@@ -61,22 +64,22 @@ Use as etapas a seguir para criar um balanceador de carga interno no Portal do A
 ## <a name="configure-load-balancing-rules"></a>Configuração de regras de balanceamento de carga
 
 Após a criação do balanceador de carga, navegue até o recurso do balanceador de carga para configurá-lo.
-Primeiro, você precisa configurar um pool de endereços back-end e uma investigação antes de configurar uma regra de balanceamento de carga.
+Configure um pool de endereços back-end e uma investigação antes de configurar uma regra de balanceamento de carga.
 
-### <a name="step-1-configure-a-back-end-pool"></a>Etapa 1: Configurar um pool de back-end
+### <a name="step-1-configure-a-backend-pool"></a>Etapa 1: Configurar um pool de back-end
 
-1. No portal do Azure, clique em **Procurar** > **Balanceadores de carga**, em seguida, clique no balanceador de carga que você criou acima.
+1. No portal do Azure, clique em **Procurar** > **Balanceadores de carga** e então clique no balanceador de carga que você criou anteriormente.
 2. Na folha **Configurações**, clique nos **Pools de back-end**.
 3. Na folha **Pools de endereços de back-end**, clique em **Adicionar**.
 4. Na folha **Adicionar pool de back-end**, insira um **Nome** para o pool de back-end e clique em **OK**.
 
 ### <a name="step-2-configure-a-probe"></a>Etapa 2: Configurar uma investigação
 
-1. No portal do Azure, clique em **Procurar** > **Balanceadores de carga**, em seguida, clique no balanceador de carga que você criou acima.
+1. No portal do Azure, clique em **Procurar** > **Balanceadores de carga** e então clique no balanceador de carga que você criou anteriormente.
 2. Na folha **Configurações**, clique em **Investigações**.
 3. Na folha **Investigações**, clique em **Adicionar**.
 4. Na folha **Adicionar investigação**, insira um **Nome** para a investigação.
-5. Em **Protocolo**, selecione **HTTP** (para os sites da Web) ou **TCP** (para outros aplicativos baseados no TCP).
+5. Em **Protocolo**, selecione **HTTP** (para sites) ou **TCP** (para outros aplicativos baseados em TCP).
 6. Em **Porta**, especifique a porta a ser usada ao acessar a investigação.
 7. Em **Caminho** (apenas para investigações HTTP), especifique o caminho a ser usado como uma investigação.
 8. Em **Intervalo** , especifique a frequência de investigação do aplicativo.
@@ -85,14 +88,14 @@ Primeiro, você precisa configurar um pool de endereços back-end e uma investig
 
 ### <a name="step-3-configure-load-balancing-rules"></a>Etapa 3: Configurar regras de balanceamento de carga
 
-1. No portal do Azure, clique em **Procurar** > **Balanceadores de carga**, em seguida, clique no balanceador de carga que você criou acima.
+1. No portal do Azure, clique em **Procurar** > **Balanceadores de carga** e então clique no balanceador de carga que você criou anteriormente.
 2. Na folha **Configurações**, clique em **Regras de balanceamento da carga**.
 3. Na folha **Regras de balanceamento da carga**, clique em **Adicionar**.
 4. Na folha **Adicionar regra balanceamento da carga**, insira um **Nome** para a regra.
-5. Em **Protocolo**, selecione **HTTP** (para os sites da Web) ou **TCP** (para outros aplicativos baseados no TCP).
+5. Em **Protocolo**, selecione **HTTP** (para sites) ou **TCP** (para outros aplicativos baseados em TCP).
 6. Em **Porta**, especifique a porta que os clientes conectam no balanceador de carga.
 7. Em **Porta back-end**, especifique a porta a ser usada no pool de back-end (normalmente, a porta do balanceador de carga e a porta de back-end são iguais).
-8. Em **Pool de back-end**, selecione o pool de back-end criado acima.
+8. Em **Pool de back-end**, selecione o pool de back-end criado anteriormente.
 9. Em **Persistência da sessão**, selecione como você deseja que as sessões persistam.
 10. Em **Tempo limite de ociosidade (minutos)**, especifique o tempo limite de ociosidade.
 11. Em **IP flutuante (retorno de servidor direto)**, clique em **Desabilitado** ou **Habilitado**.
@@ -103,10 +106,4 @@ Primeiro, você precisa configurar um pool de endereços back-end e uma investig
 [Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

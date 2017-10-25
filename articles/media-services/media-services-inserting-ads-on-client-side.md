@@ -4,7 +4,7 @@ description: "Este tópico mostra como inserir anúncios no lado do cliente."
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 65c9c747-128e-497e-afe0-3f92d2bf7972
 ms.service: media-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: aaa0e2757875d8f9ac6a19f218bfb19bf9870b0d
-ms.openlocfilehash: 54cf700463ff0a08f5f28a3d2b66c8814ab0a764
-
-
+ms.openlocfilehash: 52ba731f88c630830560e3cf8406ba2e9613c8a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserção de anúncios no lado do cliente
 Este tópico contém informações sobre como inserir vários tipos de anúncios no lado do cliente.
@@ -30,7 +30,7 @@ Para obter informações sobre o suporte a legendagem oculta e anúncios em víd
 > 
 > 
 
-## <a name="a-idinsertadsintomediaainserting-ads-into-your-media"></a><a id="insert_ads_into_media"></a>Inserir anúncios em sua mídia
+## <a id="insert_ads_into_media"></a>Inserir anúncios em sua mídia
 Os Serviços de Mídia do Azure dão suporte à inserção de anúncios por meio da Plataforma de Mídia do Windows: Player Frameworks. As estruturas de player com suporte a anúncios estão disponíveis para dispositivos com Windows 8, Silverlight, Windows Phone 8 e iOS. Cada estrutura de player contém um código de exemplo que mostra como implementar um aplicativo de player. Há três tipos diferentes de anúncios que podem ser inseridos em sua media:list.
 
 * **Lineares** – anúncios em tela cheia que pausam o vídeo principal.
@@ -791,10 +791,4 @@ O exemplo a seguir mostra como agendar um anúncio com sobreposição mid-roll.
 
 ## <a name="see-also"></a>Consulte também
 [Desenvolver aplicativos de player de vídeo](media-services-develop-video-players.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

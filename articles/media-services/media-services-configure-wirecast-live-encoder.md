@@ -4,7 +4,7 @@ description: "Este tópico mostra como configurar o codificador ativo Wirecast p
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services
@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 93be5aa26cc66d7cfc89b88f9273cb40acaa1b17
-
-
+ms.openlocfilehash: c4df14f24650ce431dfb31cc774cab6d3cf3aef0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador Wirecast para enviar uma transmissão ao vivo de taxa de bits única
 > [!div class="op_single_selector"]
@@ -69,7 +69,7 @@ Enquanto o canal é iniciado, você pode [configurar o codificador](media-servic
 >
 >
 
-## <a name="a-idconfigurewirecastrtmpaconfigure-the-telestream-wirecast-encoder"></a><a id=configure_wirecast_rtmp></a>Configurar o codificador do Telestream Wirecast
+## <a id=configure_wirecast_rtmp></a>Configurar o codificador do Telestream Wirecast
 Neste tutorial, são usadas as configurações de saída abaixo. O restante desta seção descreve as etapas de configuração mais detalhadamente.
 
 **Vídeo**:
@@ -176,9 +176,3 @@ Veja o tópico [solução de problemas](media-services-troubleshooting-live-stre
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-<!--HONumber=Jan17_HO2-->
-
-

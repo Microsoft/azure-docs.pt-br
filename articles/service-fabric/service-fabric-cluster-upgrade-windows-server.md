@@ -3,7 +3,7 @@ title: "Atualizar um cluster autônomo do Azure Service Fabric no Windows Server
 description: "Atualize o código do Azure Service Fabric e/ou a configuração que executa um cluster do Service Fabric autônomo, incluindo a configuração de modo de atualização de cluster."
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
-ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 6196cb7fa13cf664faa72b7f5f5e0645e4402739
-ms.lasthandoff: 03/29/2017
-
+ms.date: 10/15/2017
+ms.author: dekapur
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f141c3d22275ff04d7161415e9c9f879d85dbc08
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Atualizar seu cluster do Azure Service Fabric autônomo no Windows Server
+# <a name="upgrade-your-standalone-azure-service-fabric-on-windows-server-cluster"></a>Atualize seu cluster autônomo do Azure Service Fabric no Windows Server
 > [!div class="op_single_selector"]
 > * [Cluster do Azure](service-fabric-cluster-upgrade.md)
 > * [Cluster Independente](service-fabric-cluster-upgrade-windows-server.md)
@@ -113,6 +113,10 @@ Use estas etapas para atualizar seu cluster para uma versão com suporte se os n
 >
 >
 
+#### <a name="auto-provisioning-vs-manual-provisioning"></a>Provisionamento automático vs provisionamento manual
+Para permitir o download automático e o registro para a versão mais recente do código, configure o Serviço de Atualização do Service Fabric. Consulte Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt dentro do [Pacote Autônomo](service-fabric-cluster-standalone-package-contents.md) para obter instruções.
+Para o processo manual, siga as instruções abaixo.
+
 Modifique a configuração do cluster para definir a propriedade a seguir como false antes de iniciar uma atualização de configuração.
 
         "fabricClusterAutoupgradeEnabled": false,
@@ -183,6 +187,23 @@ Depois de corrigir os problemas que resultaram na reversão, você precisará in
 
 
 ## <a name="upgrade-the-cluster-configuration"></a>Atualizar a configuração do cluster
+Antes de iniciar a atualização de configuração, você pode testar seu novo json de configuração de cluster executando o script do powershell no pacote autônomo.
+
+```powershell
+
+    TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File>
+
+```
+ou
+
+```powershell
+
+    TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File> -FabricRuntimePackagePath <Path to the .cab file which you want to test the configuration against>
+
+```
+
+Algumas configurações não podem ser atualizadas, como pontos de extremidade, nome do cluster, nó IP, etc. Isso testará o json de configuração do cluster novo contra antigo e gerar erros na janela do Powershell, se houver qualquer problema.
+
 Para atualizar a configuração do cluster, execute o comando **Start-ServiceFabricClusterConfigurationUpgrade**. A atualização de configuração é processada domínio de atualização por domínio de atualização.
 
 ```powershell
@@ -193,10 +214,12 @@ Para atualizar a configuração do cluster, execute o comando **Start-ServiceFab
 
 ### <a name="cluster-certificate-config-upgrade"></a>Atualização da configuração do certificado do cluster  
 O certificado do cluster é usado para autenticação entre nós de cluster, para que a distribuição do certificado seja executada com muito cuidado, pois a falha bloqueará a comunicação entre nós de cluster.  
-Tecnicamente, há duas opções com suporte:  
+Tecnicamente, há três opções com suporte:  
 
 1. Atualização de um certificado: o caminho de atualização é 'Certificado A (Primário)-> Certificado B (Primário)-> Certificado C (Primário)->...'.   
 2. Atualização de dois certificados: o caminho de atualização é 'Certificado A (Primário) - > Certificado A (Primário) e B (Secundário) -> Certificado B (Primário) -> Certificado B (Primário) e C (Secundário) -> Certificado C (Primário)->...'.
+3. Atualização do tipo de certificado: configuração de certificados com base em CommonName configuração <-> com base em impressão digital do certificado. Por exemplo, impressão digital do certificado (primária) e a impressão digital B (secundários) -> certificado CommonName C.
+4. Atualização da impressão digital do emissor do certificado: o caminho de atualização é 'Certificado CN=A,IssuerThumbprint=IT1 (Principal) -> Certificado CN=A,IssuerThumbprint=IT1,IT2 (Principal) -> Certificado CN=A,IssuerThumbprint=IT2 (Principal)'
 
 
 ## <a name="next-steps"></a>Próximas etapas

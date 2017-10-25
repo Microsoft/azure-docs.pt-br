@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: narayan;aglick
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dbb749b056c36f16e921933fb8345211e3eaa697
-
-
+ms.openlocfilehash: 4e125406d2e798138c45e3fbbf61a610afab69fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="virtual-network--business-continuity"></a>Rede Virtual – Continuidade de Negócios
 ## <a name="overview"></a>Visão geral
-Uma Rede Virtual (VNet) é uma representação da sua rede na nuvem. Ela permite que você defina seu próprio espaço de endereço IP privado e segmente a rede em sub-redes. As VNets servem como um limite de confiança para hospedar seus recursos de computação, como as Máquinas Virtuais e os Serviços de Nuvem do Azure (funções web/de trabalho). Uma VNet permite a comunicação de IP privada direta entre os recursos hospedados nela. Uma Rede Virtual também pode ser vinculada a uma rede local por meio de uma das opções híbridas, como um Gateway de VPN ou Rota Expressa.
+Uma Rede Virtual (VNet) é uma representação da sua rede na nuvem. Ela permite que você defina seu próprio espaço de endereço IP privado e segmente a rede em sub-redes. As VNets servem como um limite de confiança para hospedar seus recursos de computação, como as Máquinas Virtuais e os Serviços de Nuvem do Azure (funções web/de trabalho). Uma VNet permite a comunicação de IP privada direta entre os recursos hospedados nela. Uma Rede Virtual também pode ser vinculada a uma rede local por meio de uma das opções híbridas, como um Gateway de VPN ou ExpressRoute.
 
 Uma VNet é criada dentro do escopo de uma região. Você pode criar VNets com o mesmo espaço de endereço em duas regiões diferentes (ou seja, Leste dos EUA e Oeste dos EUA, mas não é possível conectá-las entre si diretamente). 
 
@@ -46,10 +46,4 @@ As instruções para criar uma VNet são encontradas [aqui](virtual-networks-cre
 R: Sim, você pode criar duas VNets usando o mesmo espaço de endereço IP privado e os recursos em duas regiões diferentes antecipadamente. Se o cliente estivesse hospedando serviços voltados para a Internet na VNet, ele poderia ter configurado o Gerenciador de Tráfego para distribuir o tráfego geograficamente para a região que está ativa. No entanto, um cliente não pode conectar duas VNets com o mesmo espaço de endereço de rede local, uma vez que isso causaria problemas de roteamento. No momento de um desastre e da perda de uma VNet em uma região, o cliente pode se conectar a outra VNet na região disponível com espaço de endereço correspondente a rede local.
 
 As instruções para criar uma VNet são encontradas [aqui](virtual-networks-create-vnet-arm-pportal.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

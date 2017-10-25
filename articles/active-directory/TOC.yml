@@ -1,0 +1,92 @@
+- name: Gerenciar visão geral do acesso
+  href: manage-access-to-azure-resources.md
+- name: Acesso a recursos no Azure
+  href: active-directory-understanding-resource-access.md
+- name: RBAC (Controle de Acesso Baseado em Função)
+  href: role-based-access-control-what-is.md
+  items:
+    - name: Gerenciar atribuições de acesso
+      items:
+        - name: Por usuário
+          href: role-based-access-control-manage-assignments.md
+        - name: Por recurso
+          href: role-based-access-control-configure.md
+    - name: Funções internas
+      href: role-based-access-built-in-roles.md
+    - name: Funções personalizadas
+      href: role-based-access-control-custom-roles.md
+    - name: Atribuir funções personalizadas para usuários internos e externos
+      href: role-based-access-control-create-custom-roles-for-internal-external-users.md
+    - name: Relatórios
+      href: role-based-access-control-access-change-history-report.md
+    - name: Mais maneiras de gerenciar funções
+      items:
+        - name: Com a CLI do Azure
+          href: role-based-access-control-manage-access-azure-cli.md
+        - name: Com o PowerShell
+          href: role-based-access-control-manage-access-powershell.md
+        - name: Com REST
+          href: role-based-access-control-manage-access-rest.md
+    - name: Elevar o acesso de administrador de locatário
+      href: role-based-access-control-tenant-admin-access.md
+    - name: Solucionar problemas
+      href: role-based-access-control-troubleshooting.md
+    - name: Operações de provedor de recursos
+      href: role-based-access-control-resource-provider-operations.md
+- name: PIM (Privileged Identity Management) para RBAC
+  href: pim-azure-resource.md
+- name: Acesso condicional para o gerenciamento do Azure
+  href: conditional-access-azure-management.md
+- name: Managed Service Identity
+  href: msi-overview.md
+  items:
+    - name: Como entrar ou adquirir um token
+      href: msi-how-to-get-access-token-using-msi.md
+    - name: Configurar o MSI para uma VM do Azure
+      items:
+        - name: Usando o Portal do Azure
+          href: msi-qs-configure-portal-windows-vm.md
+        - name: Usando o PowerShell
+          href: msi-qs-configure-powershell-windows-vm.md
+        - name: Usando a CLI do Azure
+          href: msi-qs-configure-cli-windows-vm.md
+        - name: Usar o modelo do Azure Resource Manager
+          href: msi-qs-configure-template-windows-vm.md
+        - name: Usando o Azure SDK
+          href: msi-qs-configure-sdk-windows-vm.md
+    - name: Conceder um acesso VM MSI para o Gerenciador de Recursos
+      items:
+        - name: Usando o Portal do Azure
+          href: msi-howto-assign-access-portal.md
+        - name: Usando o PowerShell
+          href: msi-howto-assign-access-powershell.md
+        - name: Usando a CLI do Azure
+          href: msi-howto-assign-access-cli.md
+    - name: Usar uma VM MSI para acessar o Azure Resource Manager
+      items:
+        - name: De uma VM do Windows
+          href: msi-tutorial-windows-vm-access-arm.md
+        - name: De uma VM do Linux
+          href: msi-tutorial-linux-vm-access-arm.md
+    - name: Usar uma VM MSI para acessar o SQL do Azure
+      items:
+        - name: De uma VM do Windows
+          href: msi-tutorial-windows-vm-access-sql.md
+    - name: Usar uma VM MSI para acessar o armazenamento do Azure
+      items:
+        - name: De uma VM do Windows usando a chave de acesso
+          href: msi-tutorial-windows-vm-access-storage.md
+        - name: De uma VM do Windows usando SAS
+          href: msi-tutorial-windows-vm-access-storage-sas.md
+        - name: De uma VM do Linux usando a chave de acesso
+          href: msi-tutorial-linux-vm-access-storage.md
+        - name: De uma VM do Linux usando SAS
+          href: msi-tutorial-linux-vm-access-storage-sas.md
+    - name: Usar um VM MSI para acessar o Azure Key Vault
+      items:
+        - name: De uma VM do Windows
+          href: msi-tutorial-windows-vm-access-nonaad.md
+        - name: De uma VM do Linux
+          href: msi-tutorial-linux-vm-access-nonaad.md
+    - name: Perguntas frequentes e problemas conhecidos
+      href: msi-known-issues.md

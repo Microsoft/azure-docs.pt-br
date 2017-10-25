@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 08/02/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
-ms.openlocfilehash: b89e7b0538ae428b5057ea1d69b7371a4a261589
-ms.lasthandoff: 03/02/2017
-
-
+ms.openlocfilehash: e1da8bce96078a43c656f84005cefc8bbe81c9e3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-azure-virtual-machines-classic-portal"></a>Fazer backup de máquinas virtuais do Azure (portal clássico)
 > [!div class="op_single_selector"]
@@ -45,6 +44,11 @@ Fazer o backup de máquinas virtuais do Azure envolve três etapas principais:
 > [!NOTE]
 > O backup de máquinas virtuais é um processo local. Não é possível fazer backup de máquinas virtuais de uma região em um cofre de backup em outra região. Portanto, você deve criar um cofre de backup em cada região do Azure na qual existam VMs das quais serão feitos backups.
 >
+> [!IMPORTANT]
+> A partir de março de 2017, você não poderá mais usar o portal clássico para criar os cofres de Backup.
+> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> Após 15 de outubro de 2017, você não poderá usar o PowerShell para criar os Cofres do Backup. **Em 1º de novembro de 2017**:
+>- Todos os Cofres do Backup restantes serão atualizados automaticamente para os cofres dos Serviços de Recuperação.
+>- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
 >
 
 ## <a name="step-1---discover-azure-virtual-machines"></a>Etapa 1 - Descobrir máquinas virtuais do Azure
@@ -195,4 +199,3 @@ Se você enfrentar problemas durante o backup da sua máquina virtual, examine o
 ## <a name="next-steps"></a>Próximas etapas
 * [Gerenciar e monitorar suas máquinas virtuais](backup-azure-manage-vms.md)
 * [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
-

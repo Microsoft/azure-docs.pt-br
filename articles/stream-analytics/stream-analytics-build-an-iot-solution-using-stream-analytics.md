@@ -4,7 +4,7 @@ description: "Tutorial de introdução da solução de IoT Stream Analytics de u
 keywords: "solução de iot, funções da janela"
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 01850cbf8967fd5f79db64103fb18c6ec01babea
-ms.lasthandoff: 03/06/2017
-
-
+ms.author: samacha
+ms.openlocfilehash: a93693ef7d40025fa96846594a8eb525a50b6885
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilar uma solução de IoT usando o Stream Analytics
 ## <a name="introduction"></a>Introdução
@@ -37,7 +36,7 @@ Depois de concluir este tutorial, você poderá:
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 
-* A versão mais recente do [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* A versão mais recente do [Azure PowerShell](/powershell/azure/overview)
 * Visual Studio 2017, 2015 ou o [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) gratuito
 * Uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Privilégios administrativos no computador
@@ -129,7 +128,7 @@ Se não tiver uma conta do Azure, [solicite uma versão de avaliação gratuita]
 > 
 > 
 
-Siga as etapas na seção “Limpar sua conta do Azure” no final deste artigo para que você possa fazer o melhor uso de seu crédito Azure gratuito de US$&200;.
+Siga as etapas na seção “Limpar sua conta do Azure” no final deste artigo para que você possa fazer o melhor uso de seu crédito do Azure.
 
 ## <a name="provision-azure-resources-required-for-the-tutorial"></a>Provisionar os recursos do Azure necessários para o tutorial
 Este tutorial requer dois hubs de eventos para receber transmissões de dados de *entrada* e de *saída*. O Banco de Dados SQL do Azure gera os resultados dos trabalhos do Stream Analytics. O Armazenamento do Azure armazena dados de referência sobre o registro do veículo.
@@ -138,7 +137,7 @@ Você pode usar o script Setup.ps1 na pasta TollApp no GitHub para criar todos o
 
 Baixe e salve os arquivos e pastas [TollApp](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) de suporte.
 
-Abra uma janela do **Microsoft Azure PowerShell***como administrador*. Se ainda não tiver o Azure PowerShell, siga as instruções em [Instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para instalá-lo.
+Abra uma janela do **Microsoft Azure PowerShell***como administrador*. Se ainda não tiver o Azure PowerShell, siga as instruções em [Instalar e configurar o Azure PowerShell](/powershell/azure/overview) para instalá-lo.
 
 Como o Windows bloqueia automaticamente arquivos .ps1, .dll e .exe, você precisa definir a política de execução antes de executar o script. Verifique se a janela do Azure PowerShell está em execução *como administrador*. Execute **Set-ExecutionPolicy unrestricted**. Quando solicitado, digite **Y**.
 
@@ -255,7 +254,7 @@ No entanto, se estiver interessado nos detalhes da implementação, você encont
 6. A Fonte é **Hub de eventos**.
 7. O **Namespace do barramento de serviço** deve ser o TollData no menu suspenso.
 8. O **Nome do hub de eventos** deve ser definido como **entrada**.
-9. O **Nome da política do hub de eventos* é **RootManageSharedAccessKey** (o valor padrão).
+9. **Nome da política do hub de eventos*é **RootManageSharedAccessKey**  (o valor padrão).
 10. Selecione **JSON** como **FORMATO DE SERIALIZAÇÃO DO EVENTO** e **UTF8** como **CODIFICAÇÃO**.
    
     As configurações ficarão semelhantes:
@@ -441,6 +440,5 @@ Consulte a [documentação online](https://azure.microsoft.com/documentation/ser
    > Os recursos são identificados pelo nome. Certifique-se de examinar cuidadosamente cada item antes de confirmar a remoção.
    > 
    > 
-
 
 

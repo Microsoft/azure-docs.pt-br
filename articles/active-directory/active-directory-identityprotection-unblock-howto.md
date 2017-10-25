@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 07/05/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
-ms.openlocfilehash: d17fa0ffb0c55d49487804cd28d8903107069f06
-ms.lasthandoff: 11/17/2016
-
-
+ms.reviewer: nigu
+ms.openlocfilehash: ce6b2805e7281dff7752a73ada86be11d7e01fc3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-identity-protection---how-to-unblock-users"></a>Azure Active Directory Identity Protection - como desbloquear usuários
 Com o Azure Active Directory Identity Protection, você pode configurar políticas para bloquear os usuários se as condições configuradas forem satisfeitas. Normalmente, um usuário bloqueado entra em contato com o suporte técnico para ser desbloqueado. Este tópico explica as etapas que você pode executar para desbloquear um usuário bloqueado.
@@ -57,4 +57,3 @@ Para desbloquear uma conta em risco, você tem as seguintes opções:
 
 ## <a name="next-steps"></a>Próximas etapas
  Você deseja saber mais sobre o Azure AD Identity Protection? Confira [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
-

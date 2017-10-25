@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-translationtype: Human Translation
-ms.sourcegitcommit: b2e005d707717a8f6db90b24438527304823a6a8
-ms.openlocfilehash: a0867e97805bbb905d5defa89d13bbb0d4c4aa49
-
-
+ms.openlocfilehash: dad415936280b4af916b8c46df46f6c51ac0bca4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Solucionar problemas de rotas usando o Portal do Azure
 > [!div class="op_single_selector"]
@@ -150,9 +150,3 @@ Algumas coisas para ter em mente ao examinar a lista de rotas retornadas:
 * Para que o tráfego do emparelhamento de VNet funcione corretamente, deve haver uma rota do sistema com **nextHopType** *VNetPeering* para o intervalo de prefixo da VNet emparelhada. Se tal rota não existir e o link de emparelhamento da VNet parecer correto:
   * Aguarde alguns segundos e tente novamente se for um link de emparelhamento recém-estabelecido. Ela ocasionalmente demora mais para propagar rotas para todos os adaptadores de rede em uma sub-rede.
   * As regras do NSG (grupo de segurança de rede) podem afetar os fluxos de tráfego. Para obter mais informações, consulte o artigo [Solucionar problemas dos grupos de segurança de rede](virtual-network-nsg-troubleshoot-portal.md) .
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

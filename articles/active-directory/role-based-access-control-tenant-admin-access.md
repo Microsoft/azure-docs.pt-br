@@ -3,7 +3,7 @@ title: "Acesso elevado de administrador de locatários — Azure AD | Microsoft 
 description: "Este tópico descreve as funções internas para o RBAC (controle de acesso baseado em função)."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: andredm7
 manager: femila
 editor: rqureshi
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
@@ -12,21 +12,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2017
-ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: b9eb9c7f59d0936364bad788ed3b6635b2453739
-ms.openlocfilehash: 9bcad7aaf7f1bd8c51dbfa88381276a70a4def5c
-
-
+ms.date: 05/09/2017
+ms.author: andredm
+ms.openlocfilehash: 22b62be1773c5042ecf6ee078e68a4ffdf791d53
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Elevar o acesso como um administrador de locatários com Controle de Acesso Baseado em Função
 
 O Controle de Acesso Baseado em Função ajuda os administradores de locatários a obter elevações temporárias no acesso para que eles possam conceder permissões mais elevadas que o normal. Um administrador de locatários pode elevar a si mesmo para a função de Administrador de Acesso do Usuário quando necessário. Essa função fornece ao administrador de locatários permissões para conceder a si mesmo ou a outras funções no escopo "/".
 
-Esse recurso é importante porque permite que o administrador de locatários veja todas as assinaturas que existem em uma organização. Ele também permite aos aplicativos de automação (como faturamento e auditoria) acessar todas as assinaturas e fornecer uma visão precisa do estado da organização de uma perspectiva de gerenciamento de ativos ou de cobrança.  
+Esse recurso é importante porque permite que o administrador de locatários veja todas as assinaturas que existem em uma organização. Também permite aos aplicativos de automação (como faturamento e auditoria) acessar todas as assinaturas e fornecer uma exibição precisa do estado da organização em termos de gerenciamento de ativos ou cobrança.  
 
-## <a name="how-to-use-elevateaccess-to-give-tenant-access"></a>Como usar elevateAccess para fornecer acesso de locatário
+## <a name="how-to-use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>Como usar elevateAccess para acesso de locatário com o centro de administração do Azure AD
+
+No [Centro de administração do Azure Active Directory](https://aad.portal.azure.com), você pode invocar esse recurso de **Propriedades**.
+O recurso é chamado de **Administrador global pode gerenciar assinaturas do Azure**. A impressão é que essa é uma Propriedade Global para o Azure Active Directory, no entanto, ela funciona por usuário para o usuário conectado no momento. Quando você tiver direitos de Administrador Global no Azure Active Directory, poderá invocar o recurso elevateAccess para o usuário com o qual você está conectado no momento no Centro de Administração do Azure Active Directory.
+
+Selecionar **Sim** e então **Salvar**: isso **Atribui** a função **Administrador de Acesso do Usuário** na Raiz "/" (Escopo Raiz) ao usuário com o qual você está conectado no momento no Portal.
+
+Selecionar **Não** e então **Salvar**: isso **Remove** a função **Administrador de Acesso do Usuário** na Raiz "/" (Escopo Raiz) ao usuário com o qual você está conectado no momento no Portal.
+
+![Centro de administração do Azure AD – Propriedades – Globaladmin pode gerenciar a Assinatura do Azure – captura de tela](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
+
+## <a name="how-to-use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>Como usar elevateAccess para fornecer acesso de locatário com a API REST
 
 O processo básico funciona com as seguintes etapas:
 
@@ -55,7 +66,7 @@ O processo básico funciona com as seguintes etapas:
 4. Revogue seus privilégios de Administrador de Acesso do Usuário até que sejam necessários novamente.
 
 
-## <a name="how-to-undo-the-elevateaccess-action"></a>Como desfazer a ação de elevateAccess
+## <a name="how-to-undo-the-elevateaccess-action-with-the-rest-api"></a>Como desfazer a ação elevateAccess com a API REST
 
 Ao chamar *elevateAccess*, você cria uma atribuição de função para si mesmo, de modo que para revogar esses privilégios é preciso excluir a atribuição.
 
@@ -106,9 +117,3 @@ Ao chamar *elevateAccess*, você cria uma atribuição de função para si mesmo
 - Saiba mais sobre [como gerenciar o Controle de Acesso Baseado em Função com REST](role-based-access-control-manage-access-rest.md)
 
 - [Gerenciar atribuições de acesso](role-based-access-control-manage-assignments.md) no Portal do Azure
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

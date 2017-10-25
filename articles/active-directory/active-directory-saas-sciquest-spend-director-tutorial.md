@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: b2eb87a88721a3fd1ecdfa573c6a6d49ed02d344
 ms.openlocfilehash: 84b707668dc45e92e6151f422f1c919f638533b1
-ms.lasthandoff: 02/16/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>Tutorial: Integração do Active Directory do Azure com o SciQuest Spend Director
 O objetivo desse tutorial é mostrar como integrar o SciQuest Spend Director ao Azure AD (Azure Active Directory).  
@@ -120,7 +119,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no Portal Clás
    
      b. Na caixa de texto **URL de Resposta**, digite o mesmo valor que você digitou na caixa de texto **URL de Logon**. 
    
-     c. Clique em **Próximo**.
+     c. Clique em **Avançar**.
 
 4. Na página **Configurar logon único no SciQuest Spend Director**, clique em **Baixar metadados** e salve o arquivo de metadados localmente em seu computador.
    
@@ -161,7 +160,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
    
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
 6. Na página da caixa de diálogo **Perfil do Usuário** , execute as seguintes etapas: 
    
@@ -175,7 +174,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    
     d. Na lista **Função**, selecione **Usuário**.
    
-    e. Clique em **Próximo**.
+    e. Clique em **Avançar**.
 
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
@@ -260,5 +259,4 @@ Quando clica no bloco SciQuest Spend Director no Painel de Acesso, você deve fa
 [203]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_18.png
 [204]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_20.png
-
 

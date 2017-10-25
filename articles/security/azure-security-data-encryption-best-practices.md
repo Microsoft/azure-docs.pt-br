@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 06c308f41444e7fa7b227911ff8542149790710a
-
-
+ms.openlocfilehash: 81136e53756adfdba2f07c103b042499fe2967db
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Práticas Recomendadas de Segurança de Dados e Criptografia do Azure
 Uma das chaves de proteção de dados na nuvem é responsável por possíveis estados em que os dados podem ocorrer e quais controles estão disponíveis para esse estado. Em relação às práticas recomendadas de segurança de dados e criptografia do Azure, as recomendações serão feitas para os seguintes estados de dados:
 
 * Em repouso: isso inclui todos os objetos de armazenamento, contêineres e tipos de informações que existem estaticamente em mídia física, seja ela magnética ou disco óptico.
-* Em trânsito: quando dados estão sendo transferidos entre componentes, locais ou programas, como através da rede, através de um barramento de serviço (do local para a nuvem e vice-versa, incluindo conexões híbridas, como a Rota Expressa) ou durante um processo de entrada/saída, ele é considerado como estando em trânsito.
+* Em trânsito: quando dados estão sendo transferidos entre componentes, locais ou programas, como através da rede, através de um barramento de serviço (do local para a nuvem e vice-versa, incluindo conexões híbridas, como o ExpressRoute) ou durante um processo de entrada/saída, ele é considerado como estando em trânsito.
 
 Neste artigo, veremos uma coleção de práticas de recomendadas de segurança de dados e criptografia do Azure. Essas práticas recomendadas derivam da nossa experiência com segurança de dados e criptografia do Azure e da experiência de clientes como você.
 
@@ -157,9 +157,3 @@ Ao planejar a adoção do Azure RMS, recomendamos o seguinte:
 As organizações que não priorizam a [classificação de dados](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) e a proteção de arquivos podem estar mais vulneráveis à perda de dados. Sem a devida proteção de arquivos, as organizações não conseguirão obter percepções sobre os negócios, monitorar o abuso e impedir o acesso mal-intencionado a arquivos.
 
 Você pode aprender mais sobre o Azure RMS lendo o artigo [Introdução ao Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

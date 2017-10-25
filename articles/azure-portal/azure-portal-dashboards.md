@@ -1,5 +1,5 @@
 ---
-title: "Painéis do portal do Azure | Microsoft Docs"
+title: "Criar e compartilhar painéis do Portal do Azure | Microsoft Docs"
 description: "Este artigo explica como criar e editar painéis no portal do Azure."
 services: azure-portal
 documentationcenter: 
@@ -14,19 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
-translationtype: Human Translation
-ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
-ms.openlocfilehash: dc5b6f194a7e34d5061b9fa2e4a6123f54f6c14a
-
-
+ms.openlocfilehash: 5429e68723448ff5db6ef0ed8da1b927e97e6dd9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="creating-and-sharing-dashboards-in-the-azure-portal"></a>Criar e compartilhar painéis no portal do Azure
-Você pode criar vários painéis e compartilhá-los com outras pessoas que tenham acesso às suas assinaturas do Azure.  Esta postagem percorre as noções básicas da criação/edição, publicação e gerenciamento de acesso aos painéis.
-
-## <a name="customizing-dashboards-versus-blades"></a>Personalizar painéis versus folhas
-Desde a inicialização de painéis, há alguns meses, houve um declínio constante em personalizações de folha e um rápido aumento em personalizações no painel. Essa forte tendência de uso mostra que você prefere personalizar painéis em vez de folhas. Para oferecer suporte a essa tendência, removeremos a capacidade de personalizar folhas e dedicar nossos esforços em aprimorar a funcionalidade do painel. Se você tiver personalizado uma folha, sua personalização será removida em breve. Para preservar essa personalização, fixe os blocos personalizados a um painel. Simplesmente clique com botão direito do mouse no bloco e selecione **Fixar no painel** conforme mostrado na imagem a seguir.
-
-![salvar bloco personalizado](./media/azure-portal-dashboards/save-customization.png)
+# <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e compartilhar painéis no Portal do Azure
+Você pode criar vários painéis e compartilhá-los com outras pessoas que tenham acesso às suas assinaturas do Azure.  Este artigo percorre as noções básicas da criação/edição, publicação e gerenciamento de acesso aos painéis.
 
 ## <a name="create-a-dashboard"></a>Criar um painel
 Para criar um painel, selecione o botão **Novo painel** ao lado do nome do painel atual.  
@@ -99,10 +94,4 @@ Depois que o painel é publicado, o painel de controle **Compartilhamento + aces
 ## <a name="next-steps"></a>Próximas etapas
 * Para gerenciar recursos, veja [Gerenciar recursos do Azure pelo portal](../azure-resource-manager/resource-group-portal.md).
 * Para implantar recursos, confira [Implantar recursos com modelos do Resource Manager e o Portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

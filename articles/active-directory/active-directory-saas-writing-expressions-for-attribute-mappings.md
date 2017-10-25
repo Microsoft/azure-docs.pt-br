@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 07/06/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d49236c634be8260cb0fb24a0ee08cd71353f6ba
-
-
+ms.openlocfilehash: c944a355c07b96c27dcdd477f625638284eabdf3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrevendo expressões para mapeamentos de atributo no Active Directory do Azure
 Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. Nesses casos, você deve escrever uma expressão semelhante a script que permite transformar os dados de usuários em formatos que são mais aceitáveis para o aplicativo SaaS.
@@ -40,9 +40,9 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 - - -
 ### <a name="append"></a>Acrescentar
-**Função:**<br>  Append(source, suffix)
+**Função:**<br> Append(source, suffix)
 
-**Descrição:**<br>  seleciona um valor da cadeia de caracteres de source e acrescenta o sufixo ao final dela.
+**Descrição:**<br> seleciona um valor da cadeia de caracteres de source e acrescenta o sufixo ao final dela.
 
 **Parâmetros:**<br> 
 
@@ -53,9 +53,9 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
-**Função:**<br>  FormatDateTime(source, inputFormat, outputFormat)
+**Função:**<br> FormatDateTime(source, inputFormat, outputFormat)
 
-**Descrição:**<br>  obtém uma cadeia de caracteres de data de um formato e a converte em um formato diferente.
+**Descrição:**<br> obtém uma cadeia de caracteres de data de um formato e a converte em um formato diferente.
 
 **Parâmetros:**<br> 
 
@@ -67,7 +67,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 - - -
 ### <a name="join"></a>Join
-**Função:**<br>  Join(separator, source1, source2, …)
+**Função:**<br> Join(separator, source1, source2, …)
 
 **Descrição:**<br> Join() é semelhante a Append(), exceto por poder combinar diversos valores de cadeia de caracteres **source** em uma única cadeia de caracteres, e cada valor será separado por uma cadeia de caracteres de **separator**.
 
@@ -82,9 +82,9 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 - - -
 ### <a name="mid"></a>Mid
-**Função:**<br>  Mid(source, start, length)
+**Função:**<br> Mid(source, start, length)
 
-**Descrição:**<br>  retorna uma subcadeia de caracteres do valor de source. Uma subcadeia de caracteres é uma cadeia de caracteres que contém apenas alguns dos caracteres da cadeia de caracteres de source.
+**Descrição:**<br> retorna uma subcadeia de caracteres do valor de source. Uma subcadeia de caracteres é uma cadeia de caracteres que contém apenas alguns dos caracteres da cadeia de caracteres de source.
 
 **Parâmetros:**<br> 
 
@@ -96,7 +96,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 - - -
 ### <a name="not"></a>não
-**Função:**<br>  Not(source)
+**Função:**<br> Not(source)
 
 **Descrição:**<br> Inverte o valor booliano de **source**. Se o valor de **source** for "*True*", retorna "*False*". Caso contrário, retorna "*True*".
 
@@ -108,10 +108,10 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 - - -
 ### <a name="replace"></a>Substitua
-**Função:**<br>  ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
+**Função:**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Descrição:**<br>
- substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira diferente dependendo dos parâmetros fornecidos:
+substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira diferente dependendo dos parâmetros fornecidos:
 
 * Quando **oldValue** e **replacementValue** são fornecidos:
   
@@ -141,9 +141,9 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
-**Função:**<br>  StripSpaces(source)
+**Função:**<br> StripSpaces(source)
 
-**Descrição:**<br>  remove todos os caracteres de espaço (" ") da caracteres da cadeia de source.
+**Descrição:**<br> remove todos os caracteres de espaço (" ") da caracteres da cadeia de source.
 
 **Parâmetros:**<br> 
 
@@ -153,7 +153,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 - - -
 ### <a name="switch"></a>Switch
-**Função:**<br>  Switch(source, defaultValue, key1, value1, key2, value2, …)
+**Função:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Descrição:**<br> Quando o valor de **source** corresponde a um parâmetro **key**, retorna **value** para esse parâmetro **key**. Se o valor de **source** não corresponder a nenhum parâmetro key, **defaultValue** será retornado.  Os parâmetros **key** e **value** devem sempre ocorrer em pares. A função sempre espera um número par de parâmetros.
 
@@ -169,14 +169,14 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 ## <a name="examples"></a>Exemplos
 ### <a name="strip-known-domain-name"></a>Retirar o nome de domínio conhecido
 Você precisa retirar um nome de domínio conhecido do email de um usuário para obter um nome de usuário. <br>
- Por exemplo, se o domínio for "contoso.com", você pode usar a seguinte expressão:
+Por exemplo, se o domínio for "contoso.com", você pode usar a seguinte expressão:
 
 **Expressão:** <br>
 `Replace([mail], "@contoso.com", , ,"", ,)`
 
-**Entrada/saída de exemplo: ** <br>
+**Entrada/saída de exemplo:**  <br>
 
-* **ENTRADA** (email): "john.doe@contoso.com"
+* **INPUT** (mail): "john.doe@contoso.com"
 * **SAÍDA**: "davi.barros"
 
 ### <a name="append-constant-suffix-to-user-name"></a>Acrescentar sufixo constante ao nome de usuário
@@ -187,8 +187,8 @@ Se você estiver usando um Salesforce Sandbox, talvez seja necessário acrescent
 
 **Entrada/saída de exemplo:** <br>
 
-* **ENTRADA**: (userPrincipalName): "John.Doe@contoso.com"
-* **SAÍDA**:  "John.Doe@contoso.com.test"
+* **INPUT**: (userPrincipalName): "John.Doe@contoso.com"
+* **OUTPUT**:  "John.Doe@contoso.com.test"
 
 ### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Gerar o alias de usuário concatenando partes do nome e do sobrenome
 Você precisa gerar um alias de usuário selecionando as três primeiras letras do nome do usuário e as cinco primeiras letras do sobrenome do usuário.
@@ -204,7 +204,7 @@ Você precisa gerar um alias de usuário selecionando as três primeiras letras 
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Gerar data como uma cadeia de caracteres em um determinado formato
 Você deseja enviar datas para um aplicativo SaaS em um determinado formato. <br>
- Por exemplo, você deseja formatar datas para o ServiceNow.
+Por exemplo, você deseja formatar datas para o ServiceNow.
 
 **Expressão:** <br>
 
@@ -217,7 +217,7 @@ Você deseja enviar datas para um aplicativo SaaS em um determinado formato. <br
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Substituir um valor com base em um conjunto predefinido de opções
 Você precisa definir o fuso horário do usuário com base no código de estado armazenado no AD do Azure. <br>
- Se o código de estado não corresponder a nenhuma das opções predefinidas, use o valor padrão de "Australia/Sydney".
+Se o código de estado não corresponder a nenhuma das opções predefinidas, use o valor padrão de "Australia/Sydney".
 
 **Expressão:** <br>
 
@@ -236,10 +236,4 @@ Você precisa definir o fuso horário do usuário com base no código de estado 
 * [Usando o SCIM para habilitar o provisionamento automático de usuários e grupos do Active Directory do Azure para aplicativos](active-directory-scim-provisioning.md)
 * [Notificações de provisionamento de conta](active-directory-saas-account-provisioning-notifications.md)
 * [Lista de tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

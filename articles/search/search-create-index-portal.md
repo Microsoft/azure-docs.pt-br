@@ -1,25 +1,25 @@
 ---
-title: "Criar um índice do Azure Search usando o Portal do Azure | Microsoft Docs"
+title: "Criar um índice (portal – Azure Search) | Microsoft Docs"
 description: "Criar um índice usando o Portal do Azure."
 services: search
 manager: jhubbard
-author: ashmaka
+author: heidisteen
 documentationcenter: 
-ms.assetid: c54d8787-6dae-4943-85ed-c8928d2a5caf
+ms.assetid: 
 ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/13/2017
-ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
-ms.openlocfilehash: cc439b5da8753b41f8d65781c567b4808f385078
-
-
+ms.date: 06/20/2017
+ms.author: heidist
+ms.openlocfilehash: a7d98ab0937a7d3f932d5df34c19ae091129804e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-an-azure-search-index-using-the-azure-portal"></a>Criar um índice de Pesquisa do Azure usando o portal do Azure
+# <a name="create-an-azure-search-index-using-the-azure-portal"></a>Criar um índice do Azure Search usando o portal do Azure
 > [!div class="op_single_selector"]
 > * [Visão geral](search-what-is-an-index.md)
 > * [Portal](search-create-index-portal.md)
@@ -28,46 +28,86 @@ ms.openlocfilehash: cc439b5da8753b41f8d65781c567b4808f385078
 > 
 > 
 
-Este artigo o orientará ao longo do processo de criação de um [índice](search-what-is-an-index.md) de Pesquisa do Azure usando o Portal do Azure.
+Use o designer de índices interno no portal do Azure para criar um protótipo ou criar um [índice de pesquisa](search-what-is-an-index.md) para ser executado no serviço do Azure Search. 
 
-Antes de seguir este guia e criar um índice, você já deverá ter [criado um serviço de Pesquisa do Azure](search-create-service-portal.md).
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="go-to-your-azure-search-blade"></a>Vá para a folha de Pesquisa do Azure
-1. Clique em "Todos os recursos" no menu à esquerda do [Portal do Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
-2. Selecione o serviço de Pesquisa do Azure
+Este artigo pressupõe que você tenha uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) e um [serviço do Azure Search](search-create-service-portal.md).  
 
-## <a name="add-and-name-your-index"></a>Adicione e nomeie seu índice
-1. Clique no botão "Adicionar índice"
-2. Dê um nome ao seu índice de Pesquisa do Azure Como estamos criando um índice para procurar hotéis neste guia, chamamos o nosso índice de "hotels".
-   * O nome do índice deve começar com uma letra e conter somente letras minúsculas, dígitos ou traços ("-").
-   * Assim como o nome do serviço, o nome do índice que você escolher também fará parte da URL do ponto de extremidade para onde você enviará suas solicitações HTTP para a API de Pesquisa do Azure
-3. Clique na entrada "Campos" para abrir uma nova folha
+## <a name="find-your-search-service"></a>Encontrar o serviço de pesquisa
+1. Entre na página do portal do Azure e examine os [serviços de pesquisa para sua assinatura](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
+2. Selecione o serviço Azure Search.
 
-![](./media/search-create-index-portal/add-index.png)
+## <a name="name-the-index"></a>Nomear o índice
 
-## <a name="create-and-define-the-fields-of-your-index"></a>Crie e defina os campos do índice
-1. Ao selecionar a entrada "Campos", uma nova folha será aberta com um formulário para inserir a definição de seu índice.
-2. Adicione campos ao índice usando o formulário.
-   
-   * Um campo *chave* do tipo Edm.String é obrigatório para todo índice de Pesquisa do Azure. Esse campo chave é criado por padrão com o nome de campo "id". Nós o mudamos para "hotelId" em nosso índice.
-   * Determinadas propriedades de seu esquema de índice podem ser definidas apenas uma vez, sem possibilidade de atualização no futuro. Por isso, não há suporte às atualizações de esquema que exigem reindexação, como a alteração de tipos de campo, após a configuração inicial.
-   * Escolhemos cuidadosamente os valores de propriedade para cada campo com base em como achamos que serão usados em um aplicativo. Tenha em mente as necessidades do negócio e a experiência do usuário de pesquisa ao projetar o índice, uma vez que você deve atribuir as [propriedades apropriadas](https://msdn.microsoft.com/library/azure/dn798941.aspx) a cada campo. Essas propriedades controlam quais recursos de pesquisa (filtragem, facetas, classificação, pesquisa de texto completo etc.) se aplicam a quais campos. Por exemplo, é provável que ao pesquisarem hotéis, as pessoas estejam interessadas em correspondências de palavra-chave no campo de descrição, por isso habilitamos a pesquisa de texto completo para esse campo definindo a propriedade "Searchable".
-     * Você também pode definir o [analisador de linguagem](https://msdn.microsoft.com/en-us/library/azure/dn879793.aspx) para cada campo clicando na guia "Analisador" na parte superior da folha. Você pode ver abaixo que selecionamos um analisador de francês para um campo em nosso índice destinado a um texto em francês.
-3. Clique em **OK** na folha "Campos" para confirmar as definições do campo
-4. Clique em **OK** na folha "Adicionar índice" para salvar e criar o índice que você acabou de definir.
+1. Clique no botão **Adicionar índice** na barra de comandos na parte superior da página.
+2. Dê um nome ao seu índice do Azure Search 
+   * Comece com uma letra.
+   * Use apenas letras minúsculas, dígitos ou traços (“-”).
+   * Limite o nome a 60 caracteres.
 
-Nas capturas de tela abaixo, você verá como nomeamos e definimos os campos para nosso índice "hotels".
+  O nome do índice se torna parte da URL do ponto de extremidade usada nas conexões com o índice e para enviar solicitações HTTP na API REST do Azure Search.
+
+## <a name="define-the-fields-of-your-index"></a>Definir os campos do índice
+
+A composição de índice inclui uma *coleção Campos* que define os dados pesquisáveis no índice. Mais especificamente, ela especifica a estrutura de documentos carregada separadamente. A coleção Campos inclui campos obrigatórios e opcionais, nomeados e digitados, com os atributos de índice para determinar como o campo pode ser usado.
+
+1. Na folha **Adicionar Índice**, clique em **Campos >** para abrir a folha de definição de campo. 
+
+2. Aceite o campo de *chave* gerado do tipo Edm.String. Por padrão, o campo é chamado *ID*, mas você pode renomeá-lo, desde que a cadeia de caracteres atenda às [regras de nomenclatura](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). Um campo de chave é obrigatório para cada índice do Azure Search e deve ser uma cadeia de caracteres.
+
+3. Adicione campos para especificar totalmente os documentos que serão carregados. Se os documentos consistirem em uma *ID*, um *nome do hotel*, um *endereço*, uma *cidade* e uma *região*, crie um campo correspondente para cada um no índice. Examine as [diretrizes de design na seção abaixo](#design) para obter ajuda na configuração de atributos.
+
+4. Opcionalmente, adicione campos que são usados internamente em expressões de filtro. Os atributos no campo podem ser definidos para excluir campos das operações de pesquisa.
+
+5. Quando terminar, clique em **OK** para salvar e criar o índice.
+
+## <a name="tips-for-adding-fields"></a>Dicas para adicionar campos
+
+A criação de um índice no portal faz uso intensivo do teclado. Minimize as etapas seguindo este fluxo de trabalho:
+
+1. Primeiro, crie a lista de campo inserindo nomes e definindo tipos de dados.
+
+2. Em seguida, use as caixas de seleção na parte superior de cada atributo para habilitar em massa a configuração de todos os campos e, depois, desmarque as caixas seletivamente para os poucos campos que não precisarão dela. Por exemplo, os campos de cadeia de caracteres normalmente são pesquisáveis. Dessa forma, você poderá clicar em **Recuperável** e **Pesquisável** para retornar os valores do campo nos resultados da pesquisa, bem como para permitir a pesquisa de texto completo no campo. 
+
+<a name="design"></a>
+## <a name="design-guidance-for-setting-attributes"></a>Diretrizes de design para configuração de atributos
+
+Embora seja possível adicionar novos campos a qualquer momento, as definições de campo existentes são bloqueadas durante o tempo de vida do índice. Por esse motivo, os desenvolvedores geralmente usam o portal para criar índices simples, testar ideias ou usar as páginas do portal para pesquisar uma configuração. A iteração frequente em um design de índice será mais eficiente se você seguir uma abordagem baseada em código, de modo que você possa recriar o índice com facilidade.
+
+Analisadores e sugestores são associados aos campos antes que o índice seja salvo. Lembre-se de clicar em cada página com guias para adicionar os analisadores ou sugestores de idioma à definição de índice.
+
+Geralmente, os campos de cadeia de caracteres são marcados como **Pesquisáveis** e **Recuperáveis**.
+
+Os campos usados para restringir os resultados da pesquisa incluem **Classificável**, **Filtrável** e **Com Faceta**.
+
+Os atributos de campo determinam como um campo é usado, por exemplo, se ele é usado na pesquisa de texto completo, na navegação facetada, nas operações de classificação e assim por diante. A tabela a seguir descreve cada atributo.
+
+|Atributo|Descrição|  
+|---------------|-----------------|  
+|**searchable**|Pesquisável com texto completo, sujeito à análise lexical como separação de palavras durante a indexação. Se você definir um campo pesquisável com um valor como “dia ensolarado”, internamente, ele será dividido nos tokens individuais “dia” e “ensolarado”. Para obter detalhes, consulte [Como funciona a pesquisa de texto completo](search-lucene-query-architecture.md).|  
+|**filterable**|Referenciado nas consultas **$filter**. Campos filtráveis dos tipos `Edm.String` ou `Collection(Edm.String)` não são submetidos à separação de palavras. Portanto, as comparações são apenas para correspondências exatas. Por exemplo, se você definir um campo f como “dia ensolarado”, `$filter=f eq 'sunny'` não encontrará correspondências, mas `$filter=f eq 'sunny day'` as encontrará. |  
+|**sortable**|Por padrão, o sistema classifica os resultados pela pontuação, mas você pode configurar a classificação com base nos campos dos documentos. Campos do tipo `Collection(Edm.String)` não podem ser **sortable**. |  
+|**facetable**|Normalmente, usado em uma apresentação dos resultados da pesquisa que inclui uma contagem de ocorrências por categoria (por exemplo, hotéis em uma cidade específica). Essa opção não pode ser usada com campos do tipo `Edm.GeographyPoint`. Campos do tipo `Edm.String` que são **filterable**, **sortable** ou **facetable** podem ter um tamanho de, no máximo, 32 quilobytes. Para obter detalhes, consulte [Criar índice (API REST)](https://docs.microsoft.com/rest/api/searchservice/create-index).|  
+|**chave**|Identificador exclusivo para documentos no índice. Exatamente um campo deve ser escolhido como o campo chave e deve ser do tipo `Edm.String`.|  
+|**retrievable**|Determina se o campo pode ser retornado em um resultado da pesquisa. Isso é útil quando você deseja usar um campo (por exemplo, *margem de lucro*) como mecanismo de filtro, classificação ou pontuação, mas não deseja que o campo seja visível para o usuário final. Esse atributo deve ser `true` for `key` .|  
+
+## <a name="create-the-hotels-index-used-in-example-api-sections"></a>Criar o índice de hotéis usado nas seções de API de exemplo
+
+A documentação da API do Azure Search inclui exemplos de código que apresentam um índice de *hotéis* simples. Nas capturas de tela abaixo, você pode ver a definição de índice, incluindo o analisador de idioma francês especificado durante a definição de índice, que pode ser recriado como um exercício no portal.
 
 ![](./media/search-create-index-portal/field-definitions.png)
 
 ![](./media/search-create-index-portal/set-analyzer.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Após criar um índice de Pesquisa do Azure, você estará pronto para [carregar o conteúdo no índice](search-what-is-data-import.md) para que possa começar a pesquisar os dados.
 
+Depois de criar um índice do Azure Search, vá para a próxima etapa: [Carregar dados pesquisáveis no índice](search-what-is-data-import.md).
 
+Como alternativa, você também poderá examinar os índices mais detalhadamente. Além da coleção Campos, um índice também especifica analisadores, sugestores, perfis de pontuação e configurações do CORS. O portal fornece páginas com guias para definir os elementos mais comuns: Campos, analisadores e sugestores. Para criar ou modificar outros elementos, use a API REST ou o SDK do .NET.
 
+## <a name="see-also"></a>Consulte também
 
-<!--HONumber=Jan17_HO2-->
-
+ [Como funciona a pesquisa de texto completo](search-lucene-query-architecture.md)  
+ [API REST do serviço Search](https://docs.microsoft.com/rest/api/searchservice/) [SDK do .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)
 

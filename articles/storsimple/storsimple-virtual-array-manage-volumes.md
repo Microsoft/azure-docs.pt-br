@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: a507bf1866952cb79fa6334fed80c88cd207cd0a
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Usar o Gerenciador de Dispositivos StorSimple para gerenciar volumes na Matriz Virtual StorSimple
 
@@ -138,10 +139,4 @@ Conclua as seguintes etapas para excluir um volume.
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba como [Clonar um volume StorSimple](storsimple-virtual-array-clone.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

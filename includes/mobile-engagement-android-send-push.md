@@ -92,8 +92,3 @@ Para os aplicativos reais, você poderá usar um ícone adequado para notificaç
         <uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
         <permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

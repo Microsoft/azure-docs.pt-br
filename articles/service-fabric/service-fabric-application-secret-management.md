@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: cc6ef8f3ef5371ac3092686afddc9198516916fd
-ms.lasthandoff: 12/09/2016
-
-
+ms.openlocfilehash: d71924cda8bb3bffbe221946d80dba150359e38e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-secrets-in-service-fabric-applications"></a>Gerenciamento de segredos em aplicativos do Service Fabric
 Este guia explica as etapas do gerenciamento de segredos em um aplicativo do Service Fabric. Os segredos podem ser informações confidenciais, como cadeias de conexão de armazenamento, senhas ou outros valores que não devem ser tratados como texto sem formatação.
@@ -67,7 +66,7 @@ O comando do PowerShell a seguir é usado para criptografar um segredo. Esse com
 Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text "mysecret" -StoreLocation CurrentUser -StoreName My
 ```
 
-A cadeia de caracteres de base&64; resultante contém tanto o texto cifrado secreto como informações sobre o certificado usado para criptografá-lo.  A cadeia de caracteres codificada em base&64; pode ser inserida em um parâmetro no arquivo de configuração Settings.xml do seu serviço com o atributo `IsEncrypted` definido como `true`:
+A cadeia de caracteres de base 64 resultante contém tanto o texto cifrado secreto como informações sobre o certificado usado para criptografá-lo.  A cadeia de caracteres codificada em base 64 pode ser inserida em um parâmetro no arquivo de configuração Settings.xml do seu serviço com o atributo `IsEncrypted` definido como `true`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -186,4 +185,3 @@ Saiba mais sobre [executar aplicativos com permissões de segurança diferentes]
 
 <!-- Images -->
 [overview]:./media/service-fabric-application-secret-management/overview.png
-

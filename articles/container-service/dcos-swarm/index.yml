@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Serviço de Contêiner do Azure com controlador de domínio/sistema operacional e Documentação do Swarm
+metadata:
+  document_id: null
+  title: 'Serviço de Contêiner do Azure com controlador de domínio/sistema operacional e Documentação do Swarm - Tutoriais, Referência de API | Microsoft Docs'
+  meta.description: 'Azure Container Service allows you to quickly deploy a production ready DC/OS or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.'
+  services: container-service
+  author: carolz
+  manager: carolz
+  ms.service: container-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07-21-2017
+  ms.author: carolz
+abstract:
+  description: 'O Serviço de Contêiner do Azure permite implantar rapidamente um controlador de domínio/sistema operacional ou cluster do Docker Swarm pronto para produção. Saiba como usar o Serviço de Contêiner do Azure com esses guias de início rápido, tutoriais e exemplos.'
+sections:
+  - title: Guia de início rápido de 5 minutos
+    items:
+      - type: paragraph
+        text: 'Saiba como implantar clusters de controlador de domínio/sistema operacional usando o Serviço de Contêiner do Azure:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+            text: Criar um Cluster de DC/SO
+            href: /azure/container-service/container-service-dcos-quickstart
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_docker.svg'
+            text: Criar um cluster do Docker Swarm
+            href: /azure/container-service/dcos-swarm/container-service-swarm-walkthrough
+  - title: Tutoriais Passo a Passo
+    items:
+      - type: paragraph
+        text: 'Saiba como implantar, gerenciar e atualizar aplicativos em um cluster de controlador de domínio/sistema operacional do Serviço de Contêiner do Azure.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/container-service/container-service-dcos-manage-tutorial">Criar e gerenciar um cluster de controlador de domínio/sistema operacional do Serviço de Contêiner do Azure</a>
+          - html: <a href="/azure/container-service/container-service-load-balancing">Balancear a carga de contêineres em um cluster de controlador de domínio/sistema operacional do Serviço de Contêiner do Azure</a>
+          - html: <a href="/azure/container-service/container-service-dcos-fileshare">Criar e montar um compartilhamento de arquivos em um cluster de controlador de domínio/sistema operacional</a>
+          - html: <a href="/azure/container-service/container-service-dcos-acr">Usar o Registro de Contêiner do Azure com um cluster de controlador de domínio/sistema operacional para implantar seu aplicativo</a>
+  - title: Exemplos
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/container-service/cli-samples">CLI do Azure</a>
+  - title: Referência
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linha de comando
+            html: <p><a href="/cli/azure/acs">CLI do Azure</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/container-service">API REST</a></p>

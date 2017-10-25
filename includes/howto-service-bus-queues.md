@@ -12,8 +12,3 @@ Filas do Barramento de Serviço são uma tecnologia de uso geral que pode ser us
 O uso de filas permite que você dimensione seus aplicativos com mais facilidade e concede mais resiliência à sua arquitetura.
 
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

@@ -2,7 +2,7 @@
 title: "Documentação do Azure Devtest Labs - Tutoriais | Microsoft Docs"
 description: "Saiba como criar rapidamente ambientes de teste de aplicativos usando artefatos reutilizáveis. Tutoriais, vídeos e muito mais mostram como criar, gerenciar e proteger laboratórios."
 services: devtest-lab
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 78ae030b07f8f96ab3e4e0cb506fa8495d16543c
-ms.openlocfilehash: 19536533ad795ceab7e6223a36575a774d0cfc27
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: 92aab190dfba196d48feacbfcc81a0097102b810
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="devtest-labs-documentation"></a>Documentação do DevTest Labs
 
@@ -115,5 +115,46 @@ Saiba como usar o Devtest Labs para criar rapidamente ambientes de teste de apli
     </li>
 </ul>
 
+---
 
-
+<h2>Referência</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Linha de comando</h3>
+                        <p><a href="/cli/azure/lab">CLI 2.0</a></p>
+                        <p><a href="/powershell/module/azurerm.devtestlabs/#devtest_labs">PowerShell</a></p>
+                        <p><a href="/azure/devtest-lab/devtest-lab-use-arm-and-powershell-for-lab-resources">PowerShell: criar ou modificar laboratórios automaticamente</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="https://docs.microsoft.com/rest/api/dtl/">API REST</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Outros</h3>
+                        <p><a href="https://github.com/Azure/azure-devtestlab/tree/master/Samples">Modelos do Gerenciador de Recursos</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>

@@ -1,6 +1,6 @@
 ---
 title: "Introdução ao Azure Mobile Engagement para Aplicativos Android"
-description: "Aprenda a usar o Mobile Engagement do Azure com análises e notificações por push para aplicativos Android."
+description: "Aprenda a usar o Azure Mobile Engagement com análises e notificações por push para aplicativos Android."
 services: mobile-engagement
 documentationcenter: android
 author: piyushjo
@@ -14,13 +14,13 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
 ms.openlocfilehash: dc255a930bf71e6ef6d964bc5e3472a38ce4e467
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>Introdução ao Mobile Engagement do Azure para Aplicativos Android
+# <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>Introdução ao Azure Mobile Engagement para Aplicativos Android
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Este tópico mostra como usar o Azure Mobile Engagement para entender o uso do aplicativo e como enviar notificações por push para usuários segmentados de um aplicativo Android.
@@ -170,9 +170,3 @@ Vá para [SDK do Android](mobile-engagement-android-sdk-overview.md) para ter um
 [9]: ./media/mobile-engagement-android-get-started/app-connection-info-page.png
 [10]: ./media/mobile-engagement-android-get-started/copy-resources.png
 [11]: ./media/mobile-engagement-android-get-started/paste-resources.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

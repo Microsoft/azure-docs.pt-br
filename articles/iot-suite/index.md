@@ -2,7 +2,7 @@
 title: "Documentação do Azure IoT Suite - Tutoriais, Referência de API | Microsoft Docs"
 description: 
 services: iot-suite
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,13 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 29fb247771d662d3abcbf35e95ff0f7a8cf95af1
-ms.openlocfilehash: 461542095d9ef357460e93d65bb9f4dd8fe17c86
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: 9726304918cbbc85e32e2095d2f1d4701fb8a71e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="iot-suite-documentation"></a>Documentação do IoT Suite
 
 Introdução rápida ao Microsoft Azure IoT Suite. Use soluções pré-configuradas e acelere o desenvolvimento da sua solução de IoT (Internet das Coisas). Inclua novos dispositivos e conecte os existentes usando SDKs de dispositivos para diversas plataformas, incluindo Linux, Windows e sistemas operacionais em tempo real. Dimensione com facilidade, de apenas alguns sensores a milhões de dispositivos conectados simultaneamente, e conte com a disponibilidade global do Azure &mdash; independentemente do tamanho do seu projeto.
@@ -100,6 +99,5 @@ Introdução rápida ao Microsoft Azure IoT Suite. Use soluções pré-configura
         </div>
     </li>
 </ul>
-
 
 

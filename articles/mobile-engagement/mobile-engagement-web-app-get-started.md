@@ -14,21 +14,24 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
-
-
+ms.openlocfilehash: abcb04e4e0a3ae4fdba3a4ded20b3846ac3b21e6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Introdução ao Azure Mobile Engagement para Aplicativos Web
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Este tópico mostra como usar o Azure Mobile Engagement para entender o uso do aplicativo Web.
 
+> [!NOTE]
+> O serviço Azure Mobile Engagement será desativado em março de 2018 e, no momento, está disponível somente para os clientes existentes. Para saber mais, confira [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+
 Este tutorial exige o seguinte:
 
 * Visual Studio 2015 ou qualquer outro editor de sua escolha
-* [SDK da Web](http://aka.ms/P7b453) 
+* [SDK da Web](http://aka.ms/P7b453)
 
 Esse SDK da Web está na Visualização, só dá suporte à Análise no momento e ainda não suporta enviar notificações por push no aplicativo ou no navegador. 
 
@@ -40,7 +43,7 @@ Esse SDK da Web está na Visualização, só dá suporte à Análise no momento 
 ## <a name="setup-mobile-engagement-for-your-web-app"></a>Configurar o Mobile Engagement para seu aplicativo Web
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Conecte o seu aplicativo ao back-end do Mobile Engagement
+## <a id="connecting-app"></a>Conecte o seu aplicativo ao back-end do Mobile Engagement
 Este tutorial apresenta uma "integração básica", que é o conjunto mínimo exigido para coletar dados.
 
 Criaremos um aplicativo Web básico com o Visual Studio para demonstrar a integração, embora você possa seguir as etapas com qualquer aplicativo Web criado fora do Visual Studio também. 
@@ -114,10 +117,4 @@ Aqui estão todos os métodos disponíveis no momento com o SDK da Web que você
 <!-- Images. -->
 [1]: ./media/mobile-engagement-web-app-get-started/visual-studio-solution-js.png
 [2]: ./media/mobile-engagement-web-app-get-started/session.png
-
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

@@ -2,7 +2,7 @@
 title: "Exemplos de início rápido do PowerShell do Azure Monitor. | Microsoft Docs"
 description: "Use o PowerShell para acessar os recursos do Azure Monitor, como o dimensionamento automático, alertas, webhooks e pesquisa de logs de atividade."
 author: kamathashwin
-manager: carolz
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,37 +12,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 08/09/2017
 ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 66848eee215732803a1070e13d56f35b17e54975
-ms.lasthandoff: 03/07/2017
-
-
+ms.openlocfilehash: 48f064884c2a6d0a55cc58a44169ed03c62de46d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemplos de início rápido do PowerShell do Azure Monitor
 Este artigo mostra exemplos de comandos do PowerShell que ajudarão você a acessar os recursos do Azure Monitor. O Azure Monitor permite que você dimensione automaticamente Serviços de Nuvem, Máquinas Virtuais e Aplicativos Web e envie notificações de alerta ou chame URLs da Web com base em valores de dados de telemetria configurados.
 
 > [!NOTE]
-> O Azure Monitor é o novo nome do que era chamado "Azure Insights" até 25 de setembro de 2016. No entanto, os namespaces e, portanto, os comandos a seguir ainda contêm os “insights”.
+> O Azure Monitor é o novo nome do que era chamado "Azure Insights" até 25 de setembro de 2016. No entanto, os namespaces e, portanto, os comandos a seguir, ainda contêm os “insights”.
 > 
 > 
 
 ## <a name="set-up-powershell"></a>Configurar o PowerShell
-Se ainda não tiver feito isso, configure o PowerShell para ser executado no seu computador. Para saber mais, consulte [Como instalar e configurar o PowerShell](/powershell/azureps-cmdlets-docs) .
+Se ainda não tiver feito isso, configure o PowerShell para ser executado no seu computador. Para saber mais, consulte [Como instalar e configurar o PowerShell](/powershell/azure/overview).
 
 ## <a name="examples-in-this-article"></a>Exemplos neste artigo
 Os exemplos neste artigo ilustram como você pode usar os cmdlets do Azure Monitor. Você também pode ver a lista completa de cmdlets do PowerShell do Azure Monitor em [Cmdlets do Azure Monitor (Insights)](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx).
 
 ## <a name="sign-in-and-use-subscriptions"></a>Conectar-se e usar assinaturas
-Primeiro, faça logon na sua assinatura do Azure.
+Primeiro, entre em sua assinatura do Azure.
 
 ```PowerShell
 Login-AzureRmAccount
 ```
 
-Isso exige que você se conecte. Quando fizer isso, você verá sua Conta, sua TenantId e ID da Assinatura padrão. Todos os cmdlets do Azure funcionam no contexto de sua assinatura padrão. Para ver a lista de assinaturas a que você tem acesso, use o seguinte comando.
+Isso exige que você se conecte. Quando fizer isso, você verá sua Conta, sua TenantID e ID da Assinatura padrão. Todos os cmdlets do Azure funcionam no contexto de sua assinatura padrão. Para ver a lista de assinaturas a que você tem acesso, use o seguinte comando.
 
 ```PowerShell
 Get-AzureRmSubscription
@@ -139,14 +138,11 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 
 `Get-AzureRmAlertRule` dá suporte a outros parâmetros. Consulte [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) para obter mais informações.
 
-## <a name="create-alert-rules"></a>Criar regras de alerta
+## <a name="create-metric-alerts"></a>Criar alertas de métricas
 Você pode usar o cmdlet `Add-AlertRule` para criar, atualizar ou desabilitar uma regra de alerta.
 
 Você pode criar propriedades de email e webhook usando `New-AzureRmAlertRuleEmail` e `New-AzureRmAlertRuleWebhook`, respectivamente. No cmdlet da regra de alerta, atribua como ações para a propriedade **Actions** da regra de alerta.
 
-A próxima seção contém um exemplo que mostra como criar uma regra de alerta com vários parâmetros.
-
-### <a name="alert-rule-on-a-metric"></a>Regra de alerta com uma métrica
 A tabela a seguir descreve os parâmetros e valores usados para criar um alerta usando uma métrica.
 
 | parâmetro | value |
@@ -155,7 +151,7 @@ A tabela a seguir descreve os parâmetros e valores usados para criar um alerta 
 | Local desta regra de alerta |Leste dos EUA |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| MetricName do alerta que é criado |\PhysicalDisk(_Total)\Gravações de Disco/s. Consulte o cmdlet `Get-MetricDefinitions` abaixo sobre como recuperar os nomes de métrica exatos |
+| MetricName do alerta que é criado |\PhysicalDisk(_Total)\Disk Writes/sec. Consulte o cmdlet `Get-MetricDefinitions` sobre como recuperar os nomes de métrica exatos |
 | operator |GreaterThan |
 | Valor de limite (contagem/s para esta métrica) |1 |
 | WindowSize (formato hh:mm:ss) |00:05:00 |
@@ -189,40 +185,6 @@ Get-AzureRmAlertRule -Name vmcpu_gt_1 -ResourceGroup myrg1 -DetailedOutput
 
 O cmdlet de alerta Add também atualizará a regra se já existir uma regra de alerta para as propriedades determinadas. Para desabilitar uma regra de alerta, inclua o parâmetro **- DisableRule**.
 
-### <a name="alert-on-activity-log-event"></a>Alerta sobre eventos do log de atividade
-> [!NOTE]
-> Esse recurso está em visualização e será removido em algum momento no futuro (ele está sendo substituído).
-> 
-> 
-
-Nesse cenário, você vai enviar um email quando um site for iniciado com êxito em minha assinatura no grupo de recursos *abhingrgtest123*.
-
-Configurar uma regra de email
-
-```PowerShell
-$actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
-```
-
-Configurar uma regra de webhook
-
-```PowerShell
-$actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com?token=mytoken
-```
-
-Criar a regra no evento
-
-```PowerShell
-Add-AzureRmLogAlertRule -Name superalert1 -Location "East US" -ResourceGroup myrg1 -OperationName microsoft.web/sites/start/action -Status Succeeded -TargetResourceGroup abhingrgtest123 -Actions $actionEmail, $actionWebhook
-```
-
-Recuperar a regra de alerta
-
-```PowerShell
-Get-AzureRmAlertRule -Name superalert1 -ResourceGroup myrg1 -DetailedOutput
-```
-
-O cmdlet `Add-AlertRule` permite vários outros parâmetros. Para obter mais informações, consulte [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx).
-
 ## <a name="get-a-list-of-available-metrics-for-alerts"></a>Obter uma lista das métricas disponíveis para alertas
 Você pode usar o cmdlet `Get-AzureRmMetricDefinition` para exibir a lista de todas as métricas para um recurso específico.
 
@@ -239,7 +201,7 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 Uma lista completa das opções disponíveis para `Get-AzureRmMetricDefinition` está disponível em [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
 
 ## <a name="create-and-manage-autoscale-settings"></a>Criar e gerenciar configurações de Autoescala
-Um recurso, como um aplicativo Web, VM, serviço de nuvem ou conjunto de escalas de VM pode ter apenas uma configuração de autoescala definida.
+Um recurso, assim como um aplicativo Web, VM, serviço de nuvem ou conjunto de dimensionamento de máquinas virtuais, pode ter apenas uma configuração de autoescala definida para ele.
 No entanto, cada configuração de autoescala pode ter vários perfis. Por exemplo, um para um perfil de escala baseada em desempenho e outro para um perfil baseado em agendamento. Cada perfil pode ter várias regras configuradas nele. Para obter mais informações sobre Dimensionamento Automático, confira [Como fazer o dimensionamento automático de um aplicativo](../cloud-services/cloud-services-how-to-scale.md).
 
 Estas são as etapas que usaremos:
@@ -249,7 +211,7 @@ Estas são as etapas que usaremos:
 3. Opcional: criar notificações de autoescala configurando propriedades de webhook e email.
 4. Crie uma configuração de autoescala com um nome do recurso de destino mapeando os perfis e notificações que você criou nas etapas anteriores.
 
-Os exemplos a seguir mostram como você pode criar uma configuração de Autoescala para um conjunto de escalas de VM definido para um sistema operacional Windows usando a métrica de utilização da CPU.
+Os exemplos a seguir mostram como você pode criar uma configuração de autoescala para um conjunto de dimensionamento de máquinas virtuais definido para um sistema operacional Windows usando a métrica de uso da CPU.
 
 Primeiro, crie uma regra para expansão, com um aumento de contagem de instâncias.
 
@@ -400,4 +362,3 @@ Habilitar configuração de diagnóstico para OMS
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId 76d785fd-d1ce-4f50-8ca3-858fc819ca0f -Enabled $true
 
 ```
-

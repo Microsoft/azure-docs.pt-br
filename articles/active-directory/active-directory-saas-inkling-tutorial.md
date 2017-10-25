@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: a2beec313c0dfcd9cf7f7c1ad716223dcaf453b7
 ms.openlocfilehash: 7b0639c6515298731f88346c2e4ca82664653a2b
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-inkling"></a>Tutorial: Integração do Azure Active Directory ao Inkling
 
@@ -124,7 +124,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
 
 4. Na seção **Certificado de Autenticação SAML**, clique em **Criar novo certificado**.
 
-    ![Configurar o logon único](./media/active-directory-saas-inkling-tutorial/tutorial_general_400.png)     
+    ![Configurar o logon único](./media/active-directory-saas-inkling-tutorial/tutorial_general_400.png)    
 
 5. Na caixa de diálogo **Criar um Novo Certificado**, clique no ícone de calendário e selecione uma **data de expiração**. Em seguida, clique no botão **Salvar**.
 
@@ -160,7 +160,7 @@ O objetivo desta seção é criar um usuário de teste no Portal de Gerenciament
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-inkling-tutorial/create_aaduser_02.png) 
 
-3. Na parte superior da caixa de diálogo, clique em **adicionar** para abrir o **usuário** caixa de diálogo.
+3. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-inkling-tutorial/create_aaduser_03.png) 
 
@@ -168,11 +168,11 @@ O objetivo desta seção é criar um usuário de teste no Portal de Gerenciament
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-inkling-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Britta Simon**.
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** de Britta Simon.
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
-    c. Selecione **Mostrar Senha** e anote o valor de **Senha**.
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
 
     d. Clique em **Criar**. 
 
@@ -203,15 +203,15 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Na caixa de diálogo **Usuários e grupos**, selecione **Britta Simon** na lista de usuários.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique no botão **Selecionar** na caixa de diálogo **Usuários e grupos**.
+6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique no botão **Atribuir** na caixa de diálogo **Adicionar Atribuição**.
+7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 
 
@@ -242,8 +242,3 @@ Ao clicar no bloco Inkling no Painel de Acesso, você deverá ser conectado auto
 [201]: ./media/active-directory-saas-inkling-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-inkling-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-inkling-tutorial/tutorial_general_203.png
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -4,7 +4,7 @@ description: "Este tutorial orienta você nas etapas de criação de um Canal qu
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 6f4acd95-cc64-4dd9-9e2d-8734707de326
 ms.service: media-services
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 08/09/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
-ms.openlocfilehash: 0818c3124815b53119a5b2d43f16e3154afbc225
-
-
+ms.openlocfilehash: 6939e3b31c3c1b514df4c559c2d9408fce122a4e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Como executar uma transmissão ao vivo com codificadores locais usando o portal do Azure
+# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Como executar uma transmissão ao vivo com codificadores locais usando o portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -41,9 +41,9 @@ Os itens a seguir são necessários para concluir o tutorial:
 
 * [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores Ativos.](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 * [Visão geral da transmissão ao vivo usando os Serviços de Mídia do Azure](media-services-manage-channels-overview.md)
-* [Transmissão ao vivo com codificadores locais, que criam fluxos de múltiplas taxas de bits](media-services-live-streaming-with-onprem-encoders.md)
+* [Transmissão ao vivo com codificadores locais que criam fluxos com múltiplas taxas de bits](media-services-live-streaming-with-onprem-encoders.md)
 
-## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Cenário comum de streaming ao vivo
+## <a id="scenario"></a>Cenário comum de streaming ao vivo
 As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos comuns de transmissão ao vivo que usam canais configurados para entrega de passagem. Este tutorial mostra como criar e gerenciar um canal de passagem e eventos ao vivo.
 
 >[!NOTE]
@@ -100,7 +100,7 @@ Se desejar manter o conteúdo arquivado mas ele não está disponível para stre
 ### <a name="to-use-the-portal-to-create-a-channel"></a>Para usar o portal para criar um canal
 Esta seção mostra como usar a opção **Criação Rápida** para criar um canal de passagem.
 
-Para obter mais detalhes sobre os canais de passagem, consulte [Transmissão ao vivo com codificadores locais que criam fluxos de múltiplas taxas de bits](media-services-live-streaming-with-onprem-encoders.md).
+Para obter mais detalhes sobre os canais de passagem, veja [Transmissão ao vivo com codificadores locais que criam fluxos de múltiplas taxas de bits](media-services-live-streaming-with-onprem-encoders.md).
 
 1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
 2. Na janela **Configurações**, clique em **Transmissão ao vivo**. 
@@ -134,7 +134,7 @@ Para assistir o evento, clique em **Assistir** no portal do Azure ou copie a URL
 O evento ao vivo é convertido automaticamente no conteúdo sob demanda quando estiver parado.
 
 ## <a name="clean-up"></a>Limpar
-Para obter mais detalhes sobre os canais de passagem, consulte [Transmissão ao vivo com codificadores locais que criam fluxos de múltiplas taxas de bits](media-services-live-streaming-with-onprem-encoders.md).
+Para obter mais detalhes sobre os canais de passagem, veja [Transmissão ao vivo com codificadores locais que criam fluxos de múltiplas taxas de bits](media-services-live-streaming-with-onprem-encoders.md).
 
 * Um canal pode ser interrompido somente quando todos os eventos/programas nele foram interrompidos.  Depois que o canal estiver parado, ele não incorrerá em nenhum encargo. Quando for necessário iniciá-lo novamente ele terá a mesma URL de ingestão, portanto, você não precisará reconfigurar seu codificador.
 * Um canal pode ser excluído somente quando todos os eventos ao vivo nele foram excluídos.
@@ -153,10 +153,4 @@ Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

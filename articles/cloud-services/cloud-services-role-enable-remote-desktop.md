@@ -12,15 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 07/05/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f64c41733f8fa7e34a0b0dfbbff2b565af7cf7db
-ms.lasthandoff: 03/25/2017
-
+ms.openlocfilehash: 413e72e9a39fcde84f56bfc61a6bc72dbadf1c97
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Habilitar a conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure
 
 > [!div class="op_single_selector"]
@@ -135,5 +134,4 @@ O arquivo [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg
 
 ## <a name="additional-resources"></a>Recursos adicionais
 [Como configurar os Serviços de Nuvem](cloud-services-how-to-configure.md)
-[Perguntas frequentes sobre os serviços de nuvem — Área de Trabalho Remota](cloud-services-faq.md#remote-desktop)
-
+[Perguntas frequentes sobre os serviços de nuvem — Área de Trabalho Remota](cloud-services-faq.md)

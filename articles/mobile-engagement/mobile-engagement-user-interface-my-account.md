@@ -1,6 +1,6 @@
 ---
-title: "Interface de usuário do Mobile Engagement do Azure - Minha conta"
-description: Como gerenciar os dispositivos de teste e o perfil de conta usando o Mobile Engagement do Azure
+title: "Interface de usuário do Azure Mobile Engagement - Minha conta"
+description: Como gerenciar os dispositivos de teste e o perfil de conta usando o Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,15 +14,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: 4e463e973dcfa1faa7b08e4738192161980b3aa2
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-your-account-profile-and-test-devices"></a>Como gerenciar os dispositivos de teste e o perfil de conta
-Este artigo descreve a página **Início** do portal do **Engajamento Móvel**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis. 
+Este artigo descreve a página **Início** do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis. 
 
 Para ir para a página **Minha conta** , clique em sua conta na parte superior da página.
 
@@ -155,7 +154,6 @@ Para usar a API de envio ou a API do dispositivo, você precisa saber o identifi
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
 
 
 

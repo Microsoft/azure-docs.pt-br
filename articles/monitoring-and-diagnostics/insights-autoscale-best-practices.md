@@ -1,8 +1,8 @@
 ---
 title: "Práticas recomendadas para dimensionamento automático | Microsoft Docs"
-description: "Aprenda os princípios para dimensionar efetivamente as máquinas virtuais, conjunto de dimensionamento de máquinas virtuais e serviços de nuvem."
-author: kamathashwin
-manager: carmonm
+description: "Padrões de dimensionamento automático no Azure para Aplicativos Web, conjuntos de Dimensionamento de Máquina Virtual e Serviços de Nuvem"
+author: anirudhcavale
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2016
-ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: cc557c7139561345a201fa0cd45c803af3751acd
-ms.openlocfilehash: 25fa8749d4b23d3619829fa179a7c91da311bbd0
-
-
+ms.date: 07/07/2017
+ms.author: ancav
+ms.openlocfilehash: df5059b5509ca4989369cf3bcba8cb89f1c25db4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="best-practices-autoscaling-virtual"></a>Práticas recomendadas do dimensionamento automático virtual
-Este artigo ensina práticas recomendadas para o dimensionamento automático no Azure. Ela serve para máquinas virtuais, conjunto de dimensionamento de máquinas virtuais e serviços de nuvem.  Outros serviços do Azure usam métodos de dimensionamento diferentes.
+# <a name="best-practices-for-autoscale"></a>Práticas recomendadas para Dimensionamento Automático
+Este artigo ensina práticas recomendadas para o dimensionamento automático no Azure. O dimensionamento automático do Azure Monitor aplica-se somente aos [Conjuntos de Dimensionamento da Máquina Virtual](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/) e [Serviço de Aplicativo - Aplicativos Web](https://azure.microsoft.com/services/app-service/web/). Outros serviços do Azure usam métodos de dimensionamento diferentes.
 
 ## <a name="autoscale-concepts"></a>Conceitos de dimensionamento automático
 * Um recurso pode ter apenas *uma* configuração de Dimensionamento Automático
@@ -117,7 +117,7 @@ Além disso, há um perfil recorrente para segunda-feira. Ele é definido para i
 
 Da mesma forma, quando o dimensionamento automático alternar de volta para o perfil padrão, ele primeiro verifica se as condições de mínimas e máxima são atendidas. Se o número de instâncias no momento é 12, ele é dimensionado em 10, o máximo permitido para o perfil padrão.
 
-![configurações de dimensionamento automático](./media/insights-autoscale-best-practices/insights-autoscale-best-practices.png)
+![configurações de dimensionamento automático](./media/insights-autoscale-best-practices/insights-autoscale-best-practices-2.png)
 
 ### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Considerações sobre dimensionamento quando várias regras são configuradas em um perfil
 Há casos em que talvez você precise definir várias regras em um perfil. O seguinte conjunto de regras de dimensionamento automático é usado por serviços quando várias regras são definidas.
@@ -149,9 +149,9 @@ O dimensionamento automático notificará os administradores e os colaboradores 
 * As métricas não estão disponíveis para o serviço de dimensionamento automático tomar uma decisão de escala.
 * As métricas estão disponíveis (recuperação) novamente para tomar uma decisão de escala.
   Além das condições acima, você pode configurar notificações por email ou webhook para obter notificações de ações de dimensionamento bem-sucedido.
+  
+Você também pode usar um alerta do Log de Atividades para monitorar a integridade do mecanismo de dimensionamento automático. Aqui estão exemplos para [criar um Alerta de Log de Atividades para monitorar todas as operações do mecanismo de dimensionamento automático em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) ou [criar um Alerta de Log de Atividades para monitorar todas as operações de escalar horizontalmente/reduzir horizontalmente com falha na sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
 
-
-
-<!--HONumber=Jan17_HO5-->
-
-
+## <a name="next-steps"></a>Próximas etapas
+- [Crie um Alerta de Log de Atividades para monitorar todas as operações de mecanismo de dimensionamento automático em sua assinatura.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
+- [Crie um Alerta de Log de Atividades para monitorar todas as operações de escalar horizontalmente/reduzir horizontalmente com falha na sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 5bff7fa34fd8ce14a35018dfd3c13b9ca2019f2e
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: b0fad1d151799f88c72cfe1359978d69cc1421c2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Perguntas frequentes sobre bancos de dados MySql do ClearDB com o Serviço de Aplicativo do Azure
 Estas perguntas frequentes respondem a dúvidas comuns sobre como usar e adquirir os bancos de dados MySQL do ClearDB para aplicativos Web do Azure.
@@ -81,7 +80,10 @@ Não. Não é possível criar usuários adicionais, mas você pode criar bancos 
 Sim, a série de bancos de dados Basic pode ser atualizada no local (Basic 60 à Basic 500). A série Pro pode ser atualizada in-loco (Pro 125 à Pro 1000), com exceção da Pro 60. Não damos suporte para atualizar o banco de dados Pro 60 atualmente. 
 
 ## <a name="when-i-migrate-my-resources-from-one-subscription-to-another-does-my-cleardb-mysql-database-get-migrated-as-well"></a>Quando migrar meus recursos de uma assinatura para outra, meu banco de dados MySQL ClearDB será migrado também?
-Quando você executar recursos de migração entre assinaturas, serão aplicadas algumas [limitações](app-service-web/app-service-move-resources.md) . O banco de dados MySQL ClearDB é um serviço de terceiros e, portanto, não será migrado durante a migração da assinatura do Azure. Se você não gerenciar a migração do banco de dados MySQL antes da migração de recursos do Azure, seus bancos de dados MySQL ClearDB poderão ser desabilitados. Primeiro, migre manualmente os bancos de dados e, em seguida, realize a migração da assinatura do Azure para seu aplicativo Web. 
+Quando você executar recursos de migração entre assinaturas, serão aplicadas algumas [limitações](app-service/app-service-move-resources.md) . O banco de dados MySQL ClearDB é um serviço de terceiros e, portanto, não será migrado durante a migração da assinatura do Azure. Se você não gerenciar a migração do banco de dados MySQL antes da migração de recursos do Azure, seus bancos de dados MySQL ClearDB poderão ser desabilitados. Primeiro, migre manualmente os bancos de dados e, em seguida, realize a migração da assinatura do Azure para seu aplicativo Web. 
+
+## <a name="i-hit-the-spending-limit-on-my-subscription-i-removed-the-limit-and-my-app-service-is-online-however-the-database-is-not-accessible-how-do-i-re-enable-the-cleardb-database"></a>Eu atingir o limite de gastos em minha assinatura. Eu removi o limite e o meu Serviço de Aplicativo está online, no entanto, o banco de dados não está acessível. Como habilitar novamente o banco de dados ClearDB?
+Contate o [Suporte do ClearDB](https://www.cleardb.com/developers/help/support) para habilitar novamente o banco de dados. Forneça suas informações de assinatura do Azure e nome do banco de dados.
 
 ## <a name="can-i-transfer-a-cleardb-database-from-a-credit-card-subscription-to-an-ea-subscription"></a>Posso transferir um banco de dados ClearDB de uma assinatura de cartão de crédito para uma assinatura de EA?
 Os bancos de dados ClearDB existentes usam o cartão de crédito associado às assinaturas existentes. Para usar uma assinatura de EA, você precisará migrar seus dados para um novo banco de dados:
@@ -105,5 +107,4 @@ Entre em contato com o [Atendimento ao Cliente Corporativo](http://aka.ms/AzureE
 
 ## <a name="more-information"></a>Mais informações
 [Perguntas frequentes sobre o Azure Marketplace](/marketplace/faq/)
-
 

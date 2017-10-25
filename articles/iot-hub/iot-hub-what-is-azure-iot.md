@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 09/15/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: e95d02e706b87eaa355951a34bbaa3abf2ac2370
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 417ca4b6ecc39cbdafd8e12b5360b370d0ce79fa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
@@ -34,7 +33,7 @@ O Hub IoT do Azure é um serviço do Azure que permite comunicações bidirecion
 
 Você pode usar o Hub IoT para implementar seu próprio back-end de solução. Além disso, o Hub IoT inclui um Registro de identidade usado para provisionar dispositivos, suas credenciais de segurança e os direitos de conexão ao Hub IoT. Para saber mais sobre o Hub IoT, confira [O que é o Hub IoT?][lnk-iot-hub].
 
-Para saber como o Hub IoT do Azure permite o gerenciamento de dispositivos baseado em padrões para gerenciar, configurar e atualizar os dispositivos remotamente, consulte [Visão geral do gerenciamento de dispositivos com o Hub IoT][lnk-device-management].
+Para saber como o Hub IoT do Azure permite o gerenciamento de dispositivos baseado em padrões para gerenciar os dispositivos remotamente, veja [Visão geral do gerenciamento de dispositivos com o Hub IoT][lnk-device-management].
 
 Para implementar aplicativos cliente em uma grande variedade de sistemas operacionais e plataformas de hardware do dispositivo, você pode usar os SDKs do dispositivo IoT do Azure. Os SDKs do dispositivo incluem bibliotecas que facilitam o envio de telemetria para um hub IoT e o recebimento de mensagens da nuvem para o dispositivo. Ao usar os SDKs de dispositivo, você poderá escolher entre vários protocolos de rede para comunicar-se com o Hub IoT. Para saber mais, confira as [informações sobre SDKs de dispositivo][lnk-device-sdks].
 
@@ -48,4 +47,3 @@ Você também pode se interessar pelo [Azure IoT Suite][lnk-iot-suite], que é u
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-device-management-overview.md
-

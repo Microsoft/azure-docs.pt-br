@@ -3,8 +3,8 @@ title: "Habilitar a depuração remota com entrega contínua | Microsoft Docs"
 description: "Saiba como habilitar a depuração remota ao utilizar a entrega contínua para implantar no Azure."
 services: cloud-services
 documentationcenter: .net
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 7d423639-3b2f-4ca5-ac5a-9ac19a217c29
 ms.service: cloud-services
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/18/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: d011223dbb1ad7b5752875e94a4822be1b6cbe6e
-ms.lasthandoff: 03/25/2017
-
-
+ms.author: kraigb
+ms.openlocfilehash: 7a8a853a93e3e9915f687a20c871444e6a0de50d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-remote-debugging-when-using-continuous-delivery-to-publish-to-azure"></a>Habilitar a depuração remota ao utilizar a entrega contínua para publicar no Azure
 Você pode habilitar a depuração remota no Azure, para os serviços de nuvem ou máquinas virtuais, ao utilizar a [entrega contínua](cloud-services-dotnet-continuous-delivery.md) para publicar no Azure seguindo as etapas abaixo.
@@ -48,7 +47,7 @@ Você pode habilitar a depuração remota no Azure, para os serviços de nuvem o
 1. Crie uma máquina virtual do Azure. Consulte [Criar uma Máquina Virtual Executando o Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Criar e Gerenciar Máquinas Virtuais do Azure no Visual Studio](../virtual-machines/windows/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 2. Na [página do portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=269851), exiba o painel da máquina virtual para conferir a **IMPRESSÃO DIGITAL DO CERTIFICADO RDP**da máquina virtual. Esse valor é usado como o valor de `ServerThumbprint` na configuração da extensão.
 3. Crie um certificado cliente conforme descrito em [Visão geral sobre certificados para os Serviços de Nuvem do Azure](cloud-services-certs-create.md) (mantenha o .pfx e a impressão digital do certificado RDP).
-4. Instale e configure o Azure PowerShell (versão 0.7.4 ou posterior) conforme descrito em [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs)
+4. Instale e configure o Azure PowerShell (versão 0.7.4 ou posterior) conforme descrito em [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview)
 5. Execute o script a seguir para habilitar a extensão RemoteDebug. Substitua os caminhos e os dados pessoais por seus dados, como seu nome da assinatura, nome do serviço e impressão digital.
    
    > [!NOTE]
@@ -95,5 +94,4 @@ Você pode habilitar a depuração remota no Azure, para os serviços de nuvem o
     ```
 
 6. Importe o certificado (.pfx) para a máquina que tem o Visual Studio com o SDK do Azure para .NET instalado.
-
 

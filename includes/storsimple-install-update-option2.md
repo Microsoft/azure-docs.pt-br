@@ -7,8 +7,3 @@
 4. Desabilite a interface de rede que contém um gateway atribuído e salve a configuração modificada. Lembre-se de que as configurações de interface de rede são mantidas e, portanto, quando você reabilitar essa interface de rede mais tarde, o portal será revertido para as configurações originais.
 5. Agora você pode [usar o portal clássico do Azure para instalar a Atualização 1.2](#install-update-12-via-the-azure-classic-portal). Siga as instruções a partir da etapa 3 deste procedimento. Depois de instalar todas as atualizações, você pode reabilitar a interface de rede que você desabilitou.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

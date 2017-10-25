@@ -20,8 +20,3 @@ As etapas para cancelar o registro de um servidor de processo difere dependendo 
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
 4. Isso descartará os detalhes do servidor de processo do sistema.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 3a6a69bf555c7267d3fbeb03ff6c03054991960f
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Usar hubs de notificação para enviar notícias recentes
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -293,10 +293,10 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 -->
 
 <!-- Anchors. -->
-[Adicionar a seleção de categorias ao aplicativo]: #adding-categories
-[Registrar-se para receber notificações]: #register
-[Enviar notificações de seu back-end]: #send
-[Executar o aplicativo e gerar notificações]: #test-app
+[Add category selection to the app]: #adding-categories
+[Register for notifications]: #register
+[Send notifications from your back-end]: #send
+[Run the app and generate notifications]: #test-app
 [Next Steps]: #next-steps
 
 <!-- Images. -->
@@ -308,15 +308,9 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
 <!-- URLs.-->
 [Introdução aos Hubs de Notificação]: /manage/services/notification-hubs/get-started-notification-hubs-wp8/
-[Usar os Hubs de Notificação para transmitir as últimas notícias localizadas]: ../breakingnews-localized-wp8.md
-[Notificar usuários com Hubs de Notificação]: /manage/services/notification-hubs/notify-users/
-[Serviço Móvel]: /develop/mobile/tutorials/get-started
-[Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
-[Instruções sobre Hubs de notificação do Windows Phone]: ??
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Use Notification Hubs to broadcast localized breaking news]: ../breakingnews-localized-wp8.md
+[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users/
+[Mobile Service]: /develop/mobile/tutorials/get-started
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for Windows Phone]: ??
 

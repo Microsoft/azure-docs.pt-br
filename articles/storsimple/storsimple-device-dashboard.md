@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 182d7b2bd4d9f663b545684f2bc2a02d06952b61
 ms.openlocfilehash: 0d8035b9608ca3bac3d4822c7c755b81c96d481e
-ms.lasthandoff: 02/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-device-dashboard-in-storsimple-manager-service"></a>Usar o painel de dispositivo no serviço StorSimple Manager  
 
@@ -84,5 +83,4 @@ Talvez você precise do IQN de destino do dispositivo ao configurar o protocolo 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre o [painel de serviços do StorSimple Manager](storsimple-service-dashboard.md).
 * Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

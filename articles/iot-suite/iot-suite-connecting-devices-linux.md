@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 08/24/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: c844f9a84878f12fbdf7a5b4eaf7bbf19f4ce666
-ms.openlocfilehash: 4a1615c4bea8c54d506c3252e2de42642bb55e46
-ms.lasthandoff: 02/27/2017
-
-
+ms.openlocfilehash: 9adbc9cc13f0b4cafa3a3a7703c46f8085b15232
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-linux"></a>Conectar seu dispositivo à solução pré-configurada de monitoramento remoto (Linux)
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
@@ -122,7 +121,7 @@ As etapas a seguir descrevem como usar *CMake* para compilar o aplicativo client
     cmake_minimum_required(VERSION 2.8.11)
     compileAsC99()
 
-    set(AZUREIOT_INC_FOLDER ".." "../parson" "/usr/include/azureiot" "/usr/include/azureiot/inc")
+    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}/parson" "/usr/include/azureiot" "/usr/include/azureiot/inc")
 
     include_directories(${AZUREIOT_INC_FOLDER})
 
@@ -137,8 +136,7 @@ As etapas a seguir descrevem como usar *CMake* para compilar o aplicativo client
         ./remote_monitoring.h
     )
 
-    add_executable(sample_app ${sample_application_c_files} ${sample_application_h
-    _files})
+    add_executable(sample_app ${sample_application_c_files} ${sample_application_h_files})
 
     target_link_libraries(sample_app
         serializer
@@ -169,5 +167,4 @@ As etapas a seguir descrevem como usar *CMake* para compilar o aplicativo client
     ```
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
-
 

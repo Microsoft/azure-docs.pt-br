@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 08/15/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: f09aa6cffbbaa2a3df7f84edee2d3e03aa23a719
-ms.lasthandoff: 03/18/2017
-
-
+ms.reviewer: nigu
+ms.openlocfilehash: 0c7a8d68c0df729441e3f7faa5cd06066db1261d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
@@ -71,6 +71,25 @@ O Azure Active Directory Identity Protection é mais do que apenas uma ferrament
 * Política para bloquear ou proteger contas de usuário arriscadas
 * Política para exigir o registro para autenticação multifator
 
+
+
+## <a name="identity-protection-roles"></a>Funções da proteção de identidade
+
+Para equilibrar as atividades de gerenciamento em torno de sua implementação da proteção de identidade, você pode atribuir várias funções. O Azure AD Identity Protection dá suporte a três funções do diretório:
+
+| Função                         | O que ele pode fazer                          | O que não pode fazer
+| :--                          | ---                                |  ---   |
+| Administrador global         | Acesso completo à Proteção de Identidade, Proteção de Identidade integrada| |
+| Administrador de segurança       | Acesso total à proteção de identidade | Proteção de Identidade integrada, redefinir senhas para um usuário |
+| Leitor de segurança              | Acesso somente de leitura para a Proteção de Identidade | Integrar Proteção de Identidade, corrigir usuários, configurar políticas, redefinir senhas |
+
+
+
+
+Para saber mais detalhes, consulte [Atribuindo funções de administrador no Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
+
+
+
 ## <a name="detection"></a>Detecção
 
 ### <a name="vulnerabilities"></a>Vulnerabilidades
@@ -102,7 +121,8 @@ As seções a seguir fornecerão mais detalhes e as etapas que estão relacionad
 
 ## <a name="risky-sign-ins"></a>Entradas de risco
 
-O Azure Active Directory detecta alguns [tipos de evento de risco](active-directory-reporting-risk-events.md#risk-event-types) em tempo real. Todos os eventos de risco em tempo real que foram detectados durante a entrada de um usuário contribuem para um conceito lógico chamado *entrada de risco*. Uma entrada de risco é um indicador de uma tentativa de logon que pode não ter sido realizada pelo proprietário legítimo de uma conta de usuário. O ciclo de vida de uma entrada de risco termina quando um usuário sai.
+O Azure Active Directory detecta [tipos de evento de risco](active-directory-reporting-risk-events.md#risk-event-types) em tempo real e offline. Cada evento de risco que tiver sido detectado para a entrada de um usuário contribui para um conceito lógico chamado entrada de risco. Uma entrada de risco é um indicador de uma tentativa de logon que pode não ter sido realizada pelo proprietário legítimo de uma conta de usuário.
+
 
 ### <a name="sign-in-risk-level"></a>Nível de risco de entrada
 
@@ -192,7 +212,7 @@ Para obter uma visão geral da experiência do usuário relacionada, confira:
 
 ## <a name="users-flagged-for-risk"></a>Usuários sinalizados por risco
 
-Todos os [eventos de risco](active-directory-identity-protection-risk-events.md) que foram detectados pelo Azure Active Directory para um usuário contribuem para um conceito lógico chamado *usuários sinalizados como de risco*. Um *usuário sinalizado como de risco* ou um *usuário arriscado* é um indicador de uma conta de usuário que pode ter sido comprometida.   
+Todos os [eventos de risco](active-directory-identity-protection-risk-events.md) ativos que foram detectados pelo Azure Active Directory para um usuário contribuem para um conceito lógico chamado risco de usuário. Um usuários sinalizado como de risco é um indicador de que uma conta de usuário pode ter sido comprometida.
 
 ![Usuários sinalizados por risco](./media/active-directory-identityprotection/1200.png)
 
@@ -396,4 +416,3 @@ Para obter uma visão geral da experiência do usuário relacionada, confira:
 * [Azure Active Directory Identity Protection - como desbloquear usuários](active-directory-identityprotection-unblock-howto.md)
 
 * [Introdução ao Azure Active Directory Identity Protection e ao Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-

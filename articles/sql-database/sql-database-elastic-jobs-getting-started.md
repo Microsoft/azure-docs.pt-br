@@ -7,18 +7,18 @@ manager: jhubbard
 author: ddove
 ms.assetid: 2540de0e-2235-4cdd-9b6a-b841adba00e5
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-translationtype: Human Translation
-ms.sourcegitcommit: 77b8b8960fb0e5e5340b65dae03f95b456832a07
-ms.openlocfilehash: 1765e009438684373c89dc8364efd20dd1b7c84b
-
-
+ms.openlocfilehash: 05c20e880d4eb1eacdecc0c4c7e7491dfe1e6a89
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introdução a trabalhos de Banco de Dados Elástico
 Trabalhos de Banco de Dados Elástico (visualização) para o Banco de Dados SQL do Azure permite que você execute, de modo confiável, scripts T-SQL que abrangem vários bancos de dados, repetindo tentativas automaticamente e fornecendo eventuais garantias de conclusão. Para obter mais informações sobre o recurso de trabalho de Banco de Dados Elástico, consulte a [página de visão geral do recurso](sql-database-elastic-jobs-overview.md).
@@ -36,7 +36,7 @@ Aqui você vai criar um gerenciador de mapa de fragmentos juntamente com vários
    ![prompt de comando](./media/sql-database-elastic-query-getting-started/cmd-prompt.png)
 
 2. Na janela Comando, digite "1" e pressione **Enter**. Isso cria o gerenciador de mapa de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, digite "3" e pressione **Enter**. Repita essa ação quatro vezes. Isso insere linhas de dados de exemplo no seus fragmentos.
-3. O [portal do Azure](https://portal.azure.com) deve mostrar três novos bancos de dados em seu servidor v12:
+3. O [Portal do Azure](https://portal.azure.com) deve mostrar três novos bancos de dados:
 
    ![Confirmação do Visual Studio](./media/sql-database-elastic-query-getting-started/portal.png)
 
@@ -478,9 +478,3 @@ Para obter informações sobre os preços, consulte [Detalhes de preços do Banc
 [4]: ./media/sql-database-elastic-query-getting-started/details.png
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
-
-
-
-<!--HONumber=Jan17_HO2-->
-
-

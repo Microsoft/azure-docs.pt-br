@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 07/21/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: c1e28c5ad7fd3236899ac0ffe9f3d43241061897
-ms.openlocfilehash: 5f253c3a10e5bfdfa9fe36912b5ebcbc9abae3eb
-ms.lasthandoff: 02/15/2017
-
-
+ms.reviewer: jeedes
+ms.openlocfilehash: a91fab90a94b655b93c8ae9064ea4836b80d7678
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Tutorial: Integração do Active Directory do Azure com o ServiceNow
 Neste tutorial, você aprenderá a integrar o ServiceNow e o ServiceNow Express ao Azure AD (Azure Active Directory).
@@ -162,11 +162,11 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
     
      ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_05.png "Configurar logon único")
 
-11. No diálogo **Certificados x.&509;**, clique em **Novo**.
+11. No diálogo **Certificados x. 509**, clique em **Novo**.
     
      ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694974.png "Configurar logon único")
 
-12. No diálogo **Certificados x.&509;** , execute as seguintes etapas:
+12. No diálogo **Certificados x. 509** , execute as seguintes etapas:
     
      ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "Configurar logon único")
     
@@ -180,7 +180,7 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
     
      e. Como **Tipo**, selecione **Confiar nos Certificados do Repositório**.
     
-     f. Abra seu certificado codificado base&64; no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado PEM**.
+     f. Abra seu certificado codificado base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado PEM**.
     
      g. Clique em **Atualizar**.
 
@@ -228,7 +228,7 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 
     k. Desmarque **Criar um AuthnContextClass**.
 
-    l. No **Método AuthnContextClassRef**, digite `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`. Isso só será necessário se você for uma organização que esteja somente na nuvem. Se você estiver usando o ADFS ou o MFA local para autenticação, então não deverá configurar esse valor. 
+    l. No **Método AuthnContextClassRef**, digite `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`. Isso só será necessário se você for uma organização que esteja somente na nuvem. Se você estiver usando o ADFS ou o MFA local para autenticação, não deverá configurar esse valor. 
 
     m. Na caixa de texto **Distorção do Relógio**, digite **60**.
 
@@ -263,7 +263,7 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
    
     b. Na caixa de texto **URL do Emissor**, digite a URL usada pelos usuários para entrar no seu aplicativo ServiceNow seguindo o padrão `https://<instance-name>.service-now.com`.
    
-    c. Clique em **Próximo**
+    c. Clique em **Avançar**
 
 4. Clique em **Configurar manualmente o aplicativo para logon único**, então clique em **Avançar** e conclua as etapas a seguir.
    
@@ -291,7 +291,7 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 9. No diálogo **Logon Único**, clique em **Adicionar Novo Certificado**.
    
     ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/ic7694973ex.png "Configurar logon único")
-10. No diálogo **Certificados x.&509;** , execute as seguintes etapas:
+10. No diálogo **Certificados x. 509** , execute as seguintes etapas:
     
     ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "Configurar logon único")
     
@@ -310,7 +310,7 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
     > 
     > 
     
-    f. Abra seu certificado codificado base&64; no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado PEM**.
+    f. Abra seu certificado codificado base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado PEM**.
     
     g. Clique em **Atualizar**.
 11. No diálogo **Logon Único**, clique em **Adicionar novo IdP**.
@@ -432,7 +432,7 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
    
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
    
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
    
@@ -446,7 +446,7 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
    
    d. Na lista **Função**, selecione **Usuário**.
    
-   e. Clique em **Próximo**.
+   e. Clique em **Avançar**.
 
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
@@ -517,4 +517,3 @@ Ao clicar no bloco do ServiceNow no Painel de Acesso, você deverá ser conectad
 [203]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_205.png
-

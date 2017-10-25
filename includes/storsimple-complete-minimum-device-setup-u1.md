@@ -24,7 +24,7 @@
    Você será retornado para a página **Início Rápido** do dispositivo.
    
    > [!NOTE]
-   > Você pode modificar todas as outras configurações do dispositivo a qualquer momento acessando a página **Configurar** .
+   > Você pode modificar todas as outras configurações do dispositivo a qualquer momento acessando a página **Configurar** do dispositivo.
    > 
    > 
 

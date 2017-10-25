@@ -3,7 +3,7 @@ title: Indexando tabelas no SQL Data Warehouse | Microsoft Azure
 description: "Introdução à indexação de tabela no Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: shivaniguptamsft
 manager: barbkess
 editor: 
 ms.assetid: 3e617674-7b62-43ab-9ca2-3f40c41d5a88
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
 ms.date: 07/12/2016
-ms.author: jrj;barbkess;sonyama
-translationtype: Human Translation
-ms.sourcegitcommit: f1a24e4ee10593514f44d83ad5e9a46047dafdee
-ms.openlocfilehash: f132af2966e2ac59e77dc0fa8113eb83089c68dd
-ms.lasthandoff: 12/14/2016
-
-
+ms.author: shigu;barbkess
+ms.openlocfilehash: b205ed47833f675286539705e2754d2ea3821b8e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexando tabelas no SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -53,7 +52,6 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 
 Há alguns cenários em que columnstore clusterizado pode não ser uma boa opção:
 
-* As tabelas ColumnStore não dão suporte a índices não clusterizados secundários.  Considere tabelas de índice clusterizado ou heap.
 * Tabelas ColumnStore não dão suporte a varchar (max), nvarchar (max) e varbinary (max).  Considere o heap ou índice clusterizado.
 * As tabelas ColumnStore podem ser menos eficientes para dados transitórios.  Considere a possibilidade de tabelas heap ou até mesmo temporárias.
 * Tabelas pequenas com menos de cem milhões de linhas.  Considere as tabelas de heap.
@@ -323,4 +321,3 @@ Para saber mais, consulte os artigos [Table Overview][Overview] (Visão Geral da
 [clustered columnstore indexes]: https://msdn.microsoft.com/library/gg492088.aspx
 
 <!--Other Web references-->
-

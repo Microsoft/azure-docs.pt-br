@@ -15,12 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 5760c4a381a10fd1619b0239dd38e41d88f495e5
 ms.openlocfilehash: b916173e127394d3ea06eded36285bdbbf884b12
-ms.lasthandoff: 02/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Conectar remotamente ao seu dispositivo StorSimple série 8000
 
@@ -236,5 +235,4 @@ Execute o procedimento a seguir no computador do qual você deseja fazer a conex
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre como [usar o Windows PowerShell para administrar seu dispositivo StorSimple](storsimple-windows-powershell-administration.md).
 * Saiba mais sobre como [usar o serviço do StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

@@ -1,93 +1,104 @@
 ---
 title: "Detecção Inteligente - anomalias de desempenho | Microsoft Docs"
-description: "O Application Insights executa uma análise proativa de telemetria do seu aplicativo e o avisará sobre possíveis problemas de desempenho. Esse recurso não precisa de nenhuma configuração."
+description: "O Application Insights executa uma análise inteligente da telemetria do seu aplicativo e o avisa de possíveis problemas. Esse recurso não precisa de nenhuma configuração."
 services: application-insights
 documentationcenter: windows
 author: antonfrMSFT
-manager: douge
+manager: carmonm
 ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 63c901529b81c75f46f1b21219054817c148063a
-ms.openlocfilehash: 1c46c40b09ca1923190d3c7109d25bd7525cb577
-
-
+ms.date: 05/04/2017
+ms.author: bwren
+ms.openlocfilehash: 9a72e0b16db8e0bfe11398e7402c757ca50ff1ff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detecção Inteligente - anomalias de desempenho
 
+O [Application Insights](app-insights-overview.md) analisa automaticamente o desempenho do seu aplicativo Web e pode alertá-lo sobre problemas potenciais. Talvez você esteja lendo este artigo porque recebeu uma de nossas notificações de detecção inteligente.
 
-O [Application Insights](app-insights-overview.md) executa uma análise profunda de telemetria do seu aplicativo e o avisará sobre possíveis problemas de desempenho. Provavelmente você está lendo este artigo porque recebeu um dos nossas alertas inteligentes por email.
+Esse recurso não exige nenhuma configuração especial além de configurar seu aplicativo para o Application Insights (no [ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md) ou [Node.js](app-insights-nodejs.md) e no [código da página da Web](app-insights-javascript.md)). Ele fica ativo quando seu aplicativo gera telemetria suficiente.
 
-Esse recurso não exige configuração e fica ativo automaticamente quando seu aplicativo gera dados de telemetria suficientes.
+## <a name="when-would-i-get-a-smart-detection-notification"></a>Quando eu receberia uma notificação de detecção inteligente?
 
-## <a name="what-is-smart-detection-of-performance-anomalies"></a>O que é a Detecção Inteligente de anomalias de desempenho?
-A Detecção Inteligente detecta padrões incomuns de desempenho em seu aplicativo analisando a telemetria que seu aplicativo envia ao Application Insights.
+O Application Insights detectou que o desempenho do seu aplicativo apresentou uma degradação de uma das seguintes maneiras:
 
-Em particular, ele encontra problemas de desempenho que afetam apenas alguns dos seus usuários, ou só afetam os usuários em alguns casos.
+* **Degradação do tempo de resposta** – seu aplicativo começou a responder solicitações mais lentamente. A mudança pode ter sido rápida, por exemplo, porque havia uma regressão em sua implantação mais recente. Ou pode ter sido gradual, talvez causada por uma perda de memória. 
+* **Degradação de duração da dependência** – seu aplicativo faz chamadas para uma API REST, banco de dados ou outra dependência. A dependência está respondendo mais lentamente do que antes.
+* **Padrão de desempenho lento** – seu aplicativo parece ter um problema de desempenho que está afetando somente algumas solicitações. Por exemplo, as páginas estão sendo carregadas mais lentamente em um tipo de navegador do que em outros ou solicitações estão sendo atendidas de modo mais lento de um servidor específico. Atualmente, nossos algoritmos examinam os tempos de carregamento da página, os tempos de resposta de solicitação e os tempos de resposta de dependência.  
 
-Por exemplo, ele pode notificá-lo se suas páginas do aplicativo carregarem muito mais lentamente em um tipo de navegador do que em outros, ou se solicitações forem atendidas de modo mais lento de um servidor específico. Ela também pode descobrir problemas associados com combinações de propriedades, como carregamentos de página lentos em uma área geográfica em determinados horários do dia.
+A Detecção Inteligente precisa de pelo menos oito dias de telemetria com um volume viável para estabelecer uma linha de base de desempenho normal. Portanto, após o aplicativo ser executado por esse período, qualquer problema significativo resultará em uma notificação.
 
-Anomalias como essas são muito difíceis de detectar apenas inspecionando os dados, mas são mais comuns do que você imagina. Elas geralmente só surgem quando seus clientes reclamam. Nesse momento, é tarde demais: os usuários afetados já estão mudando para a concorrência!
 
-Atualmente, nossos algoritmos Examinam os tempos de carregamento de página, tempos de resposta de solicitação no servidor e os tempos de resposta de dependência.  
+## <a name="does-my-app-definitely-have-a-problem"></a>Meu aplicativo definitivamente tem um problema?
 
-Você não precisa definir nenhum limite nem configurar regras. Aprendizado de máquina e algoritmos de mineração de dados são usados para detectar padrões anormais.
+Não, uma notificação não significa que seu aplicativo definitivamente tem um problema. É simplesmente uma sugestão sobre algo que talvez você queira examinar mais detalhadamente.
 
-## <a name="about-the-smart-detection-alert"></a>Sobre o alerta de Detecção Inteligente
-* *Por que eu recebei esse email?*
-  * A Detecção Inteligente analisou a telemetria que seu aplicativo enviou ao Application Insights e detectou um problema de desempenho em seu aplicativo.
-* *A notificação significa que, definitivamente, tenho um problema?*
-  * Não. É simplesmente uma sugestão sobre algo que talvez você queira examinar mais detalhadamente.
-* *O que devo fazer?*
-  * [Examine os dados apresentados](#responding-to-an-alert). Use o Metrics Explorer para examinar o desempenho ao longo do tempo e analisar as métricas adicionais. Use a Pesquisa para filtrar eventos específicos que ajudam você a identificar a causa raiz.
+## <a name="how-do-i-fix-it"></a>Como corrigi-la?
+
+As notificações incluem informações de diagnóstico. Aqui está um exemplo:
+
+
+![Veja um exemplo de detecção de Degradação do tempo de resposta do servidor](./media/app-insights-proactive-diagnostics/server_response_time_degradation.png)
+
+1. **Triagem**. A notificação mostra quantos usuários ou quantas operações foram afetadas. Isso pode ajudá-lo a atribuir uma prioridade ao problema.
+2. **Escopo**. O problema está afetando todo o tráfego ou apenas algumas páginas? Ele é restrito a navegadores ou locais específicos? Essas informações podem ser obtidas na notificação.
+3. **Diagnosticar**. Com frequência, as informações de diagnóstico na notificação sugerem a natureza do problema. Por exemplo, se o tempo de resposta fica mais lento quando a taxa de solicitação está alta, o que sugere que seu servidor ou suas dependências estão sobrecarregadas. 
+
+    Caso contrário, abra a folha Desempenho no Application Insights. Nela, você encontrará dados do [Criador de Perfil](app-insights-profiler.md). Se forem geradas exceções, você também poderá tentar usar o [depurador instantâneo](app-insights-snapshot-debugger.md).
+
+
+
+## <a name="configure-email-notifications"></a>Configurar notificações por email
+
+As notificações de Detecção Inteligente ficam habilitadas por padrão e são enviadas para aqueles que têm [acesso de proprietário, colaborador e leitor ao recurso do Application Insights](app-insights-resources-roles-access-control.md). Para alterar isso, clique em **Configurar** na notificação por email ou abra as configurações de Detecção Inteligente no Application Insights. 
+  
+  ![Configurações de Detecção Inteligente](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
+  
+  * Use o link **cancelar assinatura** no email de Detecção Inteligente para parar de receber as notificações por email.
+
+Emails sobre anomalias de desempenho de Detecção Inteligente são limitados a um email por dia por recurso do Application Insights. O email será enviado somente se houver pelo menos um novo problema que foi detectado no dia em questão. Você não receberá nenhuma mensagem repetida. 
+
+## <a name="faq"></a>Perguntas frequentes
+
 * *Então, vocês examinam os meus dados?*
   * Não. O serviço é totalmente automático. Somente você recebe as notificações. Os dados são [privados](app-insights-data-retention-privacy.md).
-
-## <a name="the-detection-process"></a>O processo de detecção
-* *Quais tipos de anomalias de desempenho são detectadas?*
-  * Padrões que você acharia demorado verificar por conta própria. Por exemplo, um baixo desempenho em uma combinação específica de local, hora do dia e plataforma.
 * *Todos os dados coletados pelo Application Insights são analisados?*
-  * Não no momento. Atualmente, analisamos o tempo de resposta de solicitação, o tempo de resposta da dependência e o tempo de carregamento da página. As análises de métricas adicionais estarão disponíveis em breve.
-* *Posso criar minhas próprias regras de detecção de anomalias?*
+  * Não no momento. Atualmente, analisamos o tempo de resposta de solicitação, o tempo de resposta da dependência e o tempo de carregamento da página. A análise de métricas adicionais está em nossa lista de pendências para o futuro.
 
-  * Ainda não. Mas você pode:
-  * [Configurar alertas](app-insights-alerts.md) que informam quando uma métrica excede um limite.
-  * [Exporte telemetria](app-insights-export-telemetry.md) para um [banco de dados](app-insights-code-sample-export-sql-stream-analytics.md) ou para o [PowerBI](app-insights-export-power-bi.md) ou para [outras](app-insights-code-sample-export-telemetry-sql-database.md) ferramentas, em que será possível analisá-la por conta própria.
+* Com que tipos de aplicativo ele funciona?
+  * Esses degradações são detectadas em qualquer aplicativo que gera a telemetria apropriada. Se você tiver instalado o Application Insights em seu aplicativo Web, as solicitações e as dependências serão monitoradas automaticamente. Mas em serviços de back-end ou outros aplicativos, se você tiver inserido chamadas para [TrackRequest()](app-insights-api-custom-events-metrics.md#trackrequest) ou [TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency), a Detecção Inteligente funcionará da mesma maneira.
+
+* *Posso criar minhas próprias regras de detecção de anomalias ou personalizar regras existentes?*
+
+  * Ainda não, mas você pode:
+    * [Configurar alertas](app-insights-alerts.md) que informam quando uma métrica excede um limite.
+    * [Exporte a telemetria](app-insights-export-telemetry.md) para um [banco de dados](app-insights-code-sample-export-sql-stream-analytics.md) ou para o [PowerBI](app-insights-export-power-bi.md), em que você mesmo poderá analisá-la.
 * *Com que frequência a análise é executada?*
 
-  * As análises são executadas todos os dias a partir da telemetria do dia anterior.
+  * Executamos diariamente a análise da telemetria do dia anterior (dia inteiro no fuso-horário UTC).
 * *Então isso substitui os [alertas de métrica](app-insights-alerts.md)?*
-  * Não.  Nosso compromisso não é detectar todos os comportamentos que você pode considerar como anormais.
+  * Não.  Nosso compromisso não é detectar todos os comportamentos que você pode considerar anormais.
 
-## <a name="how-to-investigate-the-issues-raised"></a>Como investigar os problemas levantados
-Abra o relatório de diagnóstico no email ou na lista de anomalias.
 
-![No alerta de email, clique no link para abrir o relatório de diagnóstico no Azure](./media/app-insights-proactive-performance-diagnostics/03.png)
-
-* **Quando** mostra a hora em que o problema foi detectado.
-* **O que** descreve:
-
-  * O problema que foi detectado;
-  * As características do conjunto de eventos que encontramos que apresentaram o comportamento do problema.
-* A tabela compara o conjunto com desempenho insatisfatório com o comportamento médio de todos os outros eventos.
-
-Clique nos links para abrir o Metrics Explorer e a Pesquisa de relatórios relevantes, filtrados com base na hora e propriedades do conjunto de desempenho lento.
-
-Modifique o intervalo de tempo e os filtros para explorar a telemetria.
+* *Se não fizer nada em resposta a uma notificação, eu posso receber um lembrete?*
+  * Não, você receberá uma mensagem sobre cada problema apenas uma vez. Se o problema persistir, ele será atualizado na folha de feed da Detecção Inteligente.
+* *Perdi o email. Onde posso encontrar as notificações no portal?*
+  * Na visão geral do Application Insights do seu aplicativo, clique no bloco **Detecção Inteligente**. Nele, você poderá encontrar todas as notificações de até 90 dias anteriores.
 
 ## <a name="how-can-i-improve-performance"></a>Como posso melhorar o desempenho?
-As respostas lentas e com falha são uma das maiores frustrações para os usuários do site, como você já deve saber por experiência própria. Então é importante resolver os problemas.
+As respostas lentas e com falha são uma das maiores frustrações para os usuários do site, como você já deve saber por experiência própria. Dessa forma, é importante resolver os problemas.
 
 ### <a name="triage"></a>Triagem
 Primeiro, isto é importante? Se uma página sempre for carregada lentamente, mas apenas 1% dos usuários do site tiverem de vê-la, talvez haja coisas mais importantes a considerar. Por outro lado, se apenas 1% dos usuários abrir essa página, mas ela lançar exceções todas as vezes, talvez valha a pena investigar.
 
-Use a instrução de impacto no email como um guia geral, mas lembre-se de que isso não é tudo. Obtenha outras evidências para confirmar.
+Use a declaração de impacto (usuários afetados ou % de tráfego) como uma orientação geral, mas lembre-se de que isso não é tudo. Obtenha outras evidências para confirmar.
 
 Considere os parâmetros do problema. Se for dependente da geografia, configure os [testes de disponibilidade](app-insights-monitor-web-app-availability.md) incluindo a região; talvez a área esteja simplesmente enfrentando problemas de rede.
 
@@ -108,37 +119,74 @@ Há muitos conselhos na Web sobre como melhorar os tempos de resposta de seu ser
 * Diminuir as dependências do servidor: considere os locais geográficos de seus componentes. Por exemplo, se você estiver usando o Azure, verifique se o servidor Web e o banco de dados estão na mesma região. As consultas recuperam mais informações do que o necessário? O armazenamento em cache ou o envio em lote ajudaria?
 * Problemas de capacidade: examine as métricas do servidor relacionadas aos tempos de resposta e contagens de solicitação. Se os tempos de resposta apresentarem picos desproporcionais, com picos nas contagens de solicitação, é provável que seus servidores estejam alongados.
 
-## <a name="notification-emails"></a>Emails de notificação
-* *É necessário assinar este serviço para receber notificações?*
-  * Não. Nosso bot periodicamente pesquisa os dados de todos os usuários do Application Insights e envia notificações se detectar problemas.
-* *Posso cancelar a assinatura ou ter as notificações enviadas para meus colegas em vez disso?*
 
-  * Clique no link de cancelar assinatura que está no alerta ou no email.
+## <a name="server-response-time-degradation"></a>Degradação do tempo de resposta do servidor
 
-    No momento, elas são enviadas para aqueles com [acesso de gravação ao recurso Application Insights](app-insights-resources-roles-access-control.md).
+A notificação de degradação do tempo de resposta lhe informa:
 
-    Você também pode editar as configurações da lista de destinatários na folha Detecção Inteligente.
-* *Não quero ser inundado com essas mensagens.*
-  * Elas são limitadas a uma por dia com o problema mais relevante que ainda não relatamos. Você não receberá nenhuma mensagem repetida.
-* *Se eu não fizer nada, posso receber um lembrete?*
-  * Não, você receberá uma mensagem sobre cada problema apenas uma vez.
-* *Perdi o email. Onde posso encontrar as notificações no portal?*
-  * Na visão geral do Application Insights do seu aplicativo, clique no bloco **Detecção Inteligente**. Lá, você poderá encontrar todas as notificações de backup de até sete dias anteriores.
+* O tempo de resposta em comparação ao tempo de resposta normal para essa operação.
+* Quantos usuários são afetados.
+* O tempo médio de resposta e o tempo de resposta do 90º percentil para essa operação, no dia da detecção e sete dias antes. 
+* Contagem de solicitações dessa operação no dia da detecção e sete dias antes.
+* A correlação entre a degradação nessa operação e degradações em dependências relacionadas. 
+* Links para ajudá-lo a diagnosticar o problema.
+  * Rastreamentos do Criador de Perfil para ajudá-lo a exibir onde o tempo de operação é gasto (o link fica disponível se exemplos de rastreamento do Criador de Perfil tiverem sido coletados para essa operação durante o período de detecção). 
+  * Relatórios de desempenho no Gerenciador de Métricas, nos quais você pode dividir e os filtros/intervalos de tempo para a operação.
+  * Pesquise por essas chamadas para exibir propriedades de chamadas específicas.
+  * Relatórios de falha – se a contagem for maior que um, houve falhas nessa operação que podem ter contribuído para a degradação do desempenho.
+
+## <a name="dependency-duration-degradation"></a>Degradação da duração da dependência
+
+Aplicativos modernos adotam cada vez mais a abordagem de design de microsserviços, que, em muitos casos, leva a uma grande dependência de serviços externos. Por exemplo, se seu aplicativo depender de uma plataforma de dados ou mesmo se você criar seu próprio serviço de bot, provavelmente você usará algum provedor de serviços cognitivos para habilitar seus bots a interagirem de maneiras mais humanas, além de um serviço de armazenamento de dados do qual o bot obterá as respostas.  
+
+Exemplo de notificação de degradação de dependência:
+
+![Veja um exemplo de detecção de Degradação da duração da dependência](./media/app-insights-proactive-diagnostics/dependency_duration_degradation.png)
+
+Observe o que ele diz:
+
+* A duração em comparação ao tempo de resposta normal para essa operação
+* Quantos usuários são afetados
+* A duração média e a duração do 90º percentil para a dependência no dia da detecção e sete dias antes
+* Número de chamadas de dependência no dia da detecção e sete dias antes
+* Links para ajudá-lo a diagnosticar o problema
+  * Relatórios de desempenho no Explorador de Métricas para essa dependência
+  * Pesquise por chamadas dessa dependência para exibir propriedades das chamadas
+  * Relatórios de falha – se a contagem for maior que um, houve chamadas de dependência com falha durante o período de detecção que podem ter contribuído para a degradação da duração. 
+  * Abra o Analytics com consultas que calculam a contagem e a duração dessa dependência  
+
+## <a name="smart-detection-of-slow-performing-patterns"></a>Detecção Inteligente de padrões de desempenho lentos 
+
+O Application Insights encontra problemas de desempenho que afetam apenas alguns dos seus usuários ou só afetam os usuários em alguns casos. Por exemplo, pode haver uma notificação de que o carregamento de páginas é mais lento em um tipo de navegador do que em outros ou de que solicitações forem atendidas de modo mais lento de um servidor específico. Ele também pode descobrir problemas associados com combinações de propriedades, como carregamentos de página lentos em uma área geográfica para clientes que usam um sistema operacional específico.  
+
+Anomalias como essas são muito difíceis de detectar apenas inspecionando os dados, mas são mais comuns do que você imagina. Elas geralmente só surgem quando seus clientes reclamam. Nesse momento, é tarde demais: os usuários afetados já estão mudando para a concorrência!
+
+Atualmente, nossos algoritmos Examinam os tempos de carregamento de página, tempos de resposta de solicitação no servidor e os tempos de resposta de dependência.  
+
+Você não precisa definir nenhum limite nem configurar regras. Machine learning e algoritmos de mineração de dados são usados para detectar padrões anormais.
+
+![No alerta de email, clique no link para abrir o relatório de diagnóstico no Azure](./media/app-insights-proactive-performance-diagnostics/03.png)
+
+* **Quando** mostra a hora em que o problema foi detectado.
+* **O que** descreve:
+
+  * O problema que foi detectado;
+  * As características do conjunto de eventos que encontramos que apresentaram o comportamento do problema.
+* A tabela compara o conjunto com desempenho insatisfatório com o comportamento médio de todos os outros eventos.
+
+Clique nos links para abrir o Metrics Explorer e a Pesquisa de relatórios relevantes, filtrados com base na hora e propriedades do conjunto de desempenho lento.
+
+Modifique o intervalo de tempo e os filtros para explorar a telemetria.
 
 ## <a name="next-steps"></a>Próximas etapas
 Essas ferramentas de diagnóstico ajudam você a inspecionar a telemetria do seu aplicativo:
 
-* [Metrics explorer](app-insights-metrics-explorer.md)
-* [Gerenciador de pesquisas](app-insights-diagnostic-search.md)
-* [Analytics - linguagem de consulta poderosa](app-insights-analytics-tour.md)
+* [Criador de perfil](app-insights-profiler.md) 
+* [Depurador instantâneo](app-insights-snapshot-debugger.md)
+* [Analytics](app-insights-analytics-tour.md)
+* [Diagnóstico inteligente do Analytics](app-insights-analytics-diagnostics.md)
 
 As detecções inteligentes são totalmente automáticas. Mas talvez você queira configurar alguns outros alertas?
 
 * [Alertas de métrica configurados manualmente](app-insights-alerts.md)
 * [Testes de disponibilidade na Web](app-insights-monitor-web-app-availability.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2017
+ms.date: 08/28/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: c4d95068b5e6472dbb809e675a47cb9eada7ca66
-ms.openlocfilehash: 112f28517196b3b656611a03ed12a40f2e049174
-ms.lasthandoff: 02/16/2017
-
-
+ms.reviewer: nigu
+ms.openlocfilehash: 239d2e1724f2759a52cccdac11fc781d57393125
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Autenticação baseada em certificado do Azure Active Directory no Android
 
@@ -30,7 +30,9 @@ A CBA (autenticação baseada em certificado) permite que você seja autenticado
 
 Configurar esse recurso elimina a necessidade de digitar uma combinação de nome de usuário e senha em determinados emails e aplicativos do Microsoft Office no seu dispositivo móvel. 
 
-Este tópico fornece os requisitos e os cenários com suporte para configurar a CBA em um dispositivo Android para os usuários de locatários nos planos do Office 365 Enterprise, Business, Education e Governamental dos EUA. 
+Este tópico fornece os requisitos e os cenários com suporte para configurar a CBA em um dispositivo iOS(Android) para usuários de locatários nos planos do Office 365 Enterprise, Business, Education, US Government, China e Germany.
+
+
 
 Esse recurso está disponível na visualização em planos do governo federal e para defesa governamental dos EUA do Office 365.
 
@@ -38,12 +40,16 @@ Esse recurso está disponível na visualização em planos do governo federal e 
 ## <a name="office-mobile-applications-support"></a>Suporte a aplicativos móveis do Office
 | Aplicativos | Suporte |
 | --- | --- |
-| Word/Excel/PowerPoint |![Verificação][1] |
+| Aplicativo de Proteção de Informações do Azure |![Verificação][1] |
+| Equipes da Microsoft |![Verificação][1] |
 | OneNote |![Verificação][1] |
 | OneDrive |![Verificação][1] |
 | Outlook |![Verificação][1] |
-| Yammer |![Verificação][1] |
+| Power BI |![Verificação][1] |
 | Skype for Business |![Verificação][1] |
+| Word/Excel/PowerPoint |![Verificação][1] |
+| Yammer |![Verificação][1] |
+
 
 ### <a name="implementation-requirements"></a>Requisitos de implementação
 
@@ -63,7 +69,7 @@ O Azure Active Directory adiciona essas declarações ao token de atualização 
 Como prática recomendada, você deve atualizar as páginas de erro do ADFS com instruções sobre como obter um certificado de usuário.  
 Para obter mais detalhes, confira [Personalizando as páginas de entrada do AD FS](https://technet.microsoft.com/library/dn280950.aspx).  
 
-Alguns aplicativos do Office (com autenticação moderna habilitada) enviam '*prompt=login*' ao Azure AD na solicitação. Por padrão, o Azure AD converte isso na solicitação ao ADFS para '*wauth=usernamepassworduri*' (solicita que o ADFS faça a autenticação U/P) e '*wfresh=0*' (solicita que o ADFS ignore o estado do SSO e faça uma nova autenticação). Se você quiser habilitar a autenticação baseada em certificado para esses aplicativos, precisará modificar o comportamento padrão do Azure AD. Basta definir o '*PromptLoginBehavior*' em suas configurações de domínio federado como '*Disabled*'. Você pode usar o cmdlet [MSOLDomainFederationSettings](https://docs.microsoft.com/en-us/powershell/msonline/v1/set-msoldomainfederationsettings) para executar essa tarefa:
+Alguns aplicativos do Office (com autenticação moderna habilitada) enviam '*prompt=login*' ao Azure AD na solicitação. Por padrão, o Azure AD converte isso na solicitação ao ADFS para '*wauth=usernamepassworduri*' (solicita que o ADFS faça a autenticação U/P) e '*wfresh=0*' (solicita que o ADFS ignore o estado do SSO e faça uma nova autenticação). Se você quiser habilitar a autenticação baseada em certificado para esses aplicativos, precisará modificar o comportamento padrão do Azure AD. Basta definir o '*PromptLoginBehavior*' em suas configurações de domínio federado como '*Disabled*'. Você pode usar o cmdlet [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) para executar essa tarefa:
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
 
@@ -79,4 +85,3 @@ Se você quiser configurar a autenticação baseada em certificado em seu ambien
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-android/ic195031.png
-

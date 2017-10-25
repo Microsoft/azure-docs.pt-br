@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 8/9/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: aa26d72524f035cca92cd39062873ceb15bffac1
-ms.lasthandoff: 03/11/2017
-
-
+ms.openlocfilehash: f09dad590f32c10f75484bba9afb7ea60f29d81e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-upgrade-parameters"></a>Parâmetros de atualização de aplicativo
 Este artigo descreve os vários parâmetros que se aplicam durante a atualização de um aplicativo do Service Fabric do Azure. Os parâmetros incluem o nome e a versão do aplicativo. Eles são botões que controlam o tempo limite e as verificações de integridade que são aplicadas durante a atualização, e especificam as políticas que devem ser aplicadas quando uma atualização falha.
@@ -65,7 +64,7 @@ Os critérios MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerServi
 
 [Atualização do aplicativo usando o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você uma atualização de aplicativo usando o PowerShell.
 
-A [Atualização do aplicativo usando a CLI do Azure no Linux](service-fabric-azure-cli.md#upgrading-your-application) orienta você durante uma atualização de aplicativo usando a CLI do Azure.
+A [Atualização do aplicativo usando a CLI do Service Fabric no Linux](service-fabric-application-lifecycle-sfctl.md#upgrade-application) orienta você ao longo de uma atualização de aplicativo usando a CLI do Service Fabric.
 
 [Atualizar seu aplicativo usando o plug-in Eclipse do Service Fabric](service-fabric-get-started-eclipse.md#upgrade-your-service-fabric-java-application)
 
@@ -74,4 +73,3 @@ Torne suas atualizações de aplicativo compatíveis aprendendo a usar a [Serial
 Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultando os [Tópicos avançados](service-fabric-application-upgrade-advanced.md).
 
 Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solução de problemas de atualizações de aplicativo](service-fabric-application-upgrade-troubleshooting.md).
-

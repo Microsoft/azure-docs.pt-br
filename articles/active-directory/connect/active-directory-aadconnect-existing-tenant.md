@@ -12,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: f59028a2f909914222236f3b3575afd0949b4277
-ms.openlocfilehash: c89e206462856d25a81729e7028065ac1cd13ef3
-ms.lasthandoff: 02/23/2017
-
+ms.openlocfilehash: a62a3954d10e718f5d180ddb725c6a9c7cda56c2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: quando você tem um locatário existente
 A maioria dos tópicos sobre como usar o Azure AD Connect pressupõe que você inicie com um novo locatário do Azure AD e que não exista nenhum usuário nem outros objetos. Mas, se você tiver começado com um locatário do Azure AD, o preencheu com usuários e outros objetos, e agora deseja usar o Connect, este tópico é para você.
 
@@ -52,7 +51,7 @@ Se você correspondeu os objetos com uma correspondência flexível, o **sourceA
 Para uma nova instalação do Connect, não há nenhuma diferença prática entre uma correspondência rígida e uma correspondência flexível. A diferença está em uma situação de recuperação de desastre. Se você tiver perdido o seu servidor com o Azure AD Connect, reinstale uma nova instância para não perder os dados. Um objeto com um sourceAnchor é enviado para o Connect durante a instalação inicial. Então a correspondência poderá ser avaliada pelo cliente (Azure AD Connect), que é muito mais rápido do que fazer o mesmo no Azure AD. Uma correspondência rígida é avaliada pelo Connect e pelo Azure AD. Uma correspondência flexível é avaliada apenas pelo Azure AD.
 
 ### <a name="other-objects-than-users"></a>Outros objetos que não são usuários
-Os usuários geralmente têm userPrincipalName e proxyAddresses, facilitando a correspondência. Mas outros objetos, como grupos de segurança, não. Nesse caso, você só pode corresponder com uma correspondência rígida usando o sourceAnchor. O sourceAnchor é sempre o **objectGUID** local convertido de Base64, portanto você deve atualizar o valor no Azure AD quando precisar de dois objetos para corresponder. O sourceAnchor/immutableID só pode ser atualizado com o PowerShell e não pelos portais.
+Para grupos habilitados para email e contatos, você pode fazer uma correspondência dinâmica com base no proxyAddresses. Correspondência fixa não se aplica, já que só é possível atualizar o sourceAnchor/immutableID (usando o PowerShell) em Usuários. Para grupos que não estão habilitados para email, no momento não há suporte para correspondência dinâmica nem fixa.
 
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Criação de um Active Directory local novo a partir dos dados no Azure AD
 Alguns clientes começam com uma solução somente em nuvem com o Azure AD e não têm um AD local. Mais tarde, eles desejam consumir recursos locais e criar um AD local com base nos dados do Azure AD. O Azure AD Connect não pode ajudá-lo nesse cenário. Ele não cria os usuários locais e não tem capacidade de definir a senha local igual à do Azure AD.
@@ -61,4 +60,3 @@ Se oferecer suporte a LOBs (aplicativos de linha de negócios) é o único motiv
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-

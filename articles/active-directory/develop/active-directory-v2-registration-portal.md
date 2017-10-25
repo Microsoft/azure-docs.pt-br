@@ -3,7 +3,7 @@ title: "Tópicos de ajuda do Portal de Registro de Aplicativos | Microsoft Docs"
 description: "Uma descrição de vários recursos no Portal de Registro de Aplicativos da Microsoft."
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: lnalepa
 manager: mbaldwin
 editor: 
 ms.assetid: f0507c28-9464-4d3e-bd53-de9053fd5278
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2016
-ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 19d8d860e39139d3003c216659b7203e2482154e
-
-
+ms.author: lenalepa
+ms.custom: aaddev
+ms.openlocfilehash: c60499c425a7fd800f7ca9a5bac1fed5af73b801
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="app-registration-reference"></a>Referência de registro de aplicativo
 Este documento fornece contexto e descrições de vários recursos encontrados no Portal de Registro de Aplicativos da Microsoft [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).
@@ -45,10 +46,4 @@ Quando você habilita o "Suporte ao Live SDK", qualquer segredo do aplicativo cr
 Desativar o suporte do Live SDK garantirá que o segredo do aplicativo seja gravado apenas nos armazenamentos de dados do Azure AD.  Os armazenamentos de dados do Azure AD incorporam regulamentos de nível empresarial que lhes permitem atender a determinados padrões, como a conformidade FISMA.  Se você habilitar o suporte ao Live SDK, talvez seu aplicativo não fique em conformidade com alguns desses padrões.
 
 Se você planeja usar o ponto de extremidade v2.0 do Azure AD, desabilite com segurança o suporte ao Live SDK.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

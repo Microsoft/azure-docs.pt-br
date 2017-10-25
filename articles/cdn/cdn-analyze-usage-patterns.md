@@ -1,6 +1,6 @@
 ---
-title: "Analisar padrões de uso da CDN do Azure | Microsoft Docs"
-description: "Você pode exibir os padrões de uso do CDN usando os seguintes relatórios: Largura de Banda, Dados Transferidos, Acertos, Status do Cache, Taxa de Acertos de Cache, Dados IPV4/IPV6 Transferidos."
+title: "Relatórios de núcleo da Verizon | Microsoft Docs"
+description: "É possível exibir os padrões de uso da CDN usando os seguintes relatórios: largura de banda, dados transferidos, ocorrências, status do cache, taxa de ocorrências no cache, dados IPV4/IPV6 transferidos."
 services: cdn
 documentationcenter: 
 author: zhangmanling
@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ec6a021e087d9218856370e8bf067359de54bdb9
-
-
+ms.openlocfilehash: e9ee0041061296e313b3372dce13b5b86b2369c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="analyze-azure-cdn-usage-patterns"></a>Analisar os padrões de uso da CDN do Azure
-[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+# <a name="core-reports-from-verizon"></a>Relatórios de núcleo da Verizon
 
-Você pode exibir os padrões de uso para o CDN usando os seguintes relatórios:
+[!INCLUDE[cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+
+Usando os Relatórios de núcleo da Verizon por meio do portal Gerenciar para perfis Verizon, é possível exibir os padrões de uso para sua CDN com os seguintes relatórios:
 
 * Largura de banda
 * Dados Transferidos
@@ -32,7 +33,7 @@ Você pode exibir os padrões de uso para o CDN usando os seguintes relatórios:
 * Taxa de Acertos do Cache
 * Dados IPv4/IPV6 Transferidos
 
-## <a name="accessing-advanced-http-reports"></a>Acessando relatórios HTTP avançados
+## <a name="accessing-verizon-core-reports"></a>Acessando Relatórios de núcleo da Verizon
 1. Na folha do perfil do CDN, clique no botão **Gerenciar** .
    
     ![botão gerenciar da folha Perfil CDN](./media/cdn-reports/cdn-manage-btn.png)
@@ -43,66 +44,66 @@ Você pode exibir os padrões de uso para o CDN usando os seguintes relatórios:
     ![Portal de gerenciamento da CDN - menu Relatórios Principais](./media/cdn-reports/cdn-core-reports.png)
 
 ## <a name="bandwidth"></a>Largura de banda
-O relatório de largura de banda consiste em uma tabela e de um gráfico de dados que indicam o uso de largura de banda para HTTP e HTTPS em um período específico. Você pode exibir o uso de largura de banda entre todos os POPs do CDN ou em um POP específico. Isso permite exibir os picos de tráfego e a distribuição entre os POPs do CDN em Mbps.
+O relatório de largura de banda consiste em um grafo e em uma tabela de dados que indicam o uso de largura de banda para HTTP e HTTPS em um período específico. É possível exibir o uso de largura de banda entre todos os POPs da CDN ou em um POP da CDN específica. Esse relatório permite exibir os picos de tráfego e a distribuição entre os POPs da CDN em Mbps.
 
 * Selecione Todos os Nós de Borda para ver o tráfego de todos os nós ou escolha uma região/nó específica na lista suspensa.
-* Selecione Intervalo de datas para exibir dados de hoje/esta semana/este mês etc. ou insira datas personalizadas, clique em "ir" para garantir que sua seleção seja atualizada.
-* Você pode exportar e baixar os dados clicando no ícone de planilha do excel localizado ao lado de "ir".
+* Selecione Intervalo de datas para exibir dados de hoje/esta semana/este mês etc. ou insira datas personalizadas e, em seguida, clique em **ir** para garantir que sua seleção seja atualizada.
+* É possível exportar e baixar os dados clicando no ícone de planilha do excel localizado ao lado de **ir**.
 
 O relatório é atualizado a cada cinco minutos.
 
 ![Relatório Largura de banda](./media/cdn-reports/cdn-bandwidth.png)
 
 ## <a name="data-transferred"></a>Dados Transferidos
-Esse relatório consiste em uma tabela e um gráfico de dados que indicam o uso de largura de banda para HTTP e HTTPS em um período específico. Você pode exibir o uso de tráfego em todos os POPs do CDN ou em um POP específico. Isso permite exibir os picos de tráfego e a distribuição entre os POPs do CDN em GB.
+Esse relatório consiste em um grafo e em uma tabela de dados que indicavam o uso do tráfego para HTTP e HTTPS em um período específico. Você pode exibir o uso de tráfego em todos os POPs do CDN ou em um POP específico. Esse relatório permite exibir os picos de tráfego e a distribuição entre os POPs da CDN em GB.
 
 * Selecione Todos os Nós de Borda para ver o tráfego de todos os nós ou escolha uma região/nó específica na lista suspensa.
-* Selecione Intervalo de datas para exibir dados de hoje/esta semana/este mês etc. ou insira datas personalizadas, clique em "ir" para garantir que sua seleção seja atualizada.
-* Você pode exportar e baixar os dados clicando no ícone de planilha do excel localizado ao lado de "ir".
+* Selecione Intervalo de datas para exibir dados de hoje/esta semana/este mês etc. ou insira datas personalizadas e, em seguida, clique em **ir** para garantir que sua seleção seja atualizada.
+* É possível exportar e baixar os dados clicando no ícone de planilha do excel localizado ao lado de **ir**.
 
 O relatório é atualizado a cada cinco minutos.
 
 ![Relatório Dados transferidos](./media/cdn-reports/cdn-data-transferred.png)
 
 ## <a name="hits-status-codes"></a>Acertos (códigos de status)
-Este relatório descreve a distribuição dos códigos de status de solicitação para o seu conteúdo. Todas as solicitações de conteúdo gerarão um código de status HTTP. O código de status descreve como os POPs de borda lidaram com a solicitação. Por exemplo, os códigos de status 2xx indicam que a solicitação foi servida com êxito para um cliente, enquanto um código de status 4xx indica que ocorreu um erro. Para obter mais detalhes sobre o código de status HTTP, consulte [códigos de status](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes).
+Este relatório descreve a distribuição dos códigos de status de solicitação para o seu conteúdo. Todas as solicitações de conteúdo geram um código de status HTTP. O código de status descreve como os POPs de borda lidaram com a solicitação. Por exemplo, um código de status 2xx indica que a solicitação foi servida com êxito a um cliente, enquanto um código de status 4xx indica que ocorreu um erro. Para obter mais informações sobre os códigos de status HTTP, consulte [códigos de status](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes).
 
-* Selecione Intervalo de datas para exibir dados de hoje/esta semana/este mês etc. ou insira datas personalizadas, clique em "ir" para garantir que sua seleção seja atualizada.
-* Você pode exportar e baixar os dados clicando na planilha do excel localizado ao lado de "ir".
+* Selecione Intervalo de datas para exibir dados de hoje/esta semana/este mês etc. ou insira datas personalizadas e, em seguida, clique em **ir** para garantir que sua seleção seja atualizada.
+* É possível exportar e baixar os dados clicando na planilha do excel localizada ao lado de **ir**.
 
 ![Relatório Acertos](./media/cdn-reports/cdn-hits.png)
 
 ## <a name="cache-statuses"></a>Status do Cache
-Este relatório descreve a distribuição de acertos do cache e de erros de cache para a solicitação do cliente. Uma vez que o desempenho mais rápido provêm de acertos do cache, você pode otimizar velocidades de entrega de dados minimizando erros de cache e acertos de cache expirados. Os erros de cache podem ser reduzidos por meio da configuração do seu servidor de origem para evitar a atribuição de cabeçalhos de resposta "no-cache", evitando o cache de cadeia de caracteres de consulta exceto onde estritamente necessário e evitando códigos de resposta não armazenáveis em cache. Os acertos de cache expirados podem ser evitados tornando uma idade máxima do ativo a maior possível para minimizar o número de solicitações para o servidor de origem.
+Este relatório descreve a distribuição de acertos do cache e de erros de cache para a solicitação do cliente. Como o desempenho mais rápido provém de ocorrências no cache, é possível otimizar velocidades de entrega de dados minimizando perdas no cache e ocorrências no cache expiradas. É possível reduzir as perdas no cache configurando seu servidor de origem para evitar a atribuição de cabeçalhos de resposta “no-cache”, evitando o cache da cadeia de caracteres de consulta, exceto onde estritamente necessário e evitando códigos de resposta não armazenáveis em cache. É possível evitar ocorrências no cache expiradas tornando uma idade máxima do ativo a maior possível para minimizar o número de solicitações para o servidor de origem.
 
 ![Relatório Status do cache](./media/cdn-reports/cdn-cache-statuses.png)
 
 ### <a name="main-cache-statuses-include"></a>Os status do cache principal incluem:
 * TCP_HIT: servido da Borda. O objeto estava no cache e não excedeu sua idade máxima.
 * TCP_MISS: servido da Origem. O objeto não estava no cache e a resposta voltou para a origem.
-* TCP_EXPIRED _MISS: Servido da origem após revalidação com a origem. O objeto estava no cache mas excedeu sua idade máxima. A revalidação com a origem resultou na substituição do objeto por uma nova resposta da origem.
+* TCP_EXPIRED _MISS: Servido da origem após revalidação com a origem. O objeto estava no cache, mas tinha excedido sua idade máxima. A revalidação com a origem resultou na substituição do objeto por uma nova resposta da origem.
 * TCP_EXPIRED _HIT: servido do Edge após revalidação com a origem. O objeto estava no cache mas excedeu sua idade máxima. Uma revalidação com o servidor de origem resultou na não modificação do objeto do cache.
-* Selecione Intervalo de datas para exibir dados de hoje/esta semana/este mês etc. ou insira datas personalizadas, clique em "ir" para garantir que sua seleção seja atualizada.
-* Você pode exportar e baixar os dados clicando no ícone de planilha do excel localizado ao lado de "ir".
+* Selecione Intervalo de datas para exibir dados de hoje/esta semana/este mês etc. ou insira datas personalizadas e, em seguida, clique em **ir** para garantir que sua seleção seja atualizada.
+* É possível exportar e baixar os dados clicando no ícone de planilha do excel localizado ao lado de **ir**.
 
 ### <a name="full-list-of-cache-statuses"></a>Lista completa de status do cache
-* TCP_HIT - esse status é relatado quando uma solicitação é servida diretamente do POP para o cliente. Um ativo é servido imediatamente de um POP quando é armazenado em cache no POP mais próximo ao cliente e tem uma TTL, ou vida útil, válida. O TTL é determinado pelos seguintes cabeçalhos de resposta:
+* TCP_HIT - esse status é relatado quando uma solicitação é servida diretamente do POP para o cliente. Um ativo é servido imediatamente de um POP quando é armazenado em cache no POP mais próximo ao cliente e tem uma TTL (vida útil) válida. O TTL é determinado pelos seguintes cabeçalhos de resposta:
   
   * Cache-Control: período máximo s
   * Cache-Control: período máximo
   * Expira
-* TCP_MISS - esse status indica que uma versão armazenada em cache do ativo solicitado não foi encontrada no POP mais próximo ao cliente. O ativo será solicitado de um servidor de origem ou de um servidor de escudo de origem. Se o servidor de origem ou o servidor de escudo de origem retornar um ativo, ele será servido ao cliente e armazenado em cache no cliente e no servidor de borda. Caso contrário, um código de status diferente de 200 (por exemplo, 403 Proibido, 404 Não Encontrado etc.) será retornado.
-* TCP_EXPIRED _HIT - esse status é relatado quando uma solicitação destinada a um ativo com TTL expirado, como quando a idade máxima do ativo expirou, foi atendida diretamente do POP para o cliente.
+* TCP_MISS - esse status indica que uma versão armazenada em cache do ativo solicitado não foi encontrada no POP mais próximo ao cliente. O ativo é solicitado de um servidor de origem ou de um servidor de escudo de origem. Se o servidor de origem ou o servidor de escudo de origem retornar um ativo, ele será servido ao cliente e armazenado em cache no cliente e no servidor de borda. Caso contrário, será retornado um código de status diferente de 200 (por exemplo, 403 Proibido ou 404 Não encontrado).
+* TCP_EXPIRED _HIT – Esse status é relatado quando uma solicitação que direciona um ativo com uma TTL expirada foi servida diretamente do POP ao cliente. Por exemplo, quando a idade máxima do ativo tiver expirado. 
   
-    Normalmente, uma solicitação expirada resulta em uma solicitação de revalidação para o servidor de origem. Para que um TCP_EXPIRED _HIT ocorra, o servidor de origem deverá indicar que não há uma versão mais recente do ativo. Esse tipo de situação normalmente atualizará os cabeçalhos Cache-Control e Expires do ativo.
-* TCP_EXPIRED _MISS - esse status é relatado quando uma versão mais recente de um ativo em cache expirado é servida do POP ao cliente. Isso ocorre quando o TTL para um ativo em cache tiver expirado (por exemplo, idade máxima expirada) e o servidor de origem retorna uma versão mais recente desse ativo. Essa nova versão do ativo será servida para o cliente em vez da versão armazenada em cache. Além disso, ele será ser armazenado em cache no servidor de borda e no cliente.
+    Normalmente, uma solicitação expirada resulta em uma solicitação de revalidação para o servidor de origem. Para que um TCP_EXPIRED _HIT ocorra, o servidor de origem deverá indicar que não há uma versão mais recente do ativo. Normalmente, essa situação resulta em uma atualização dos cabeçalhos Cache-Control e Expires do ativo.
+* TCP_EXPIRED _MISS - esse status é relatado quando uma versão mais recente de um ativo em cache expirado é servida do POP ao cliente. Esse status ocorrerá quando a TTL de um ativo armazenado em cache tiver expirado (por exemplo, idade máxima expirada) e o servidor de origem retornar uma versão mais recente desse ativo. Essa nova versão do ativo é servida para o cliente em vez da versão armazenada em cache. Além disso, ela é armazenada em cache no servidor de borda e no cliente.
 * CONFIG_NOCACHE - este status indica que uma configuração específica do cliente no nosso POP de borda impediu que o ativo fosse armazenado em cache.
 * NONE - esse status indica que uma verificação de atualização de conteúdo do cache não foi executada.
-* TCP_ CLIENT_REFRESH _MISS - esse status é relatado quando um cliente HTTP (por exemplo, o navegador) força um POP de borda a recuperar uma nova versão de um ativo obsoleto do servidor de origem.
+* TCP_ CLIENT_REFRESH _MISS – esse status é relatado quando um cliente HTTP, por exemplo, o navegador, força um POP de borda a recuperar uma nova versão de um ativo obsoleto do servidor de origem.
   
     Por padrão, nossos servidores impedem que um cliente HTTP force nossos servidores de borda a recuperar uma nova versão do ativo do servidor de origem.
 * TCP_ PARTIAL_HIT - esse status é relatado quando uma solicitação de intervalo de bytes resulta em um acerto de um ativo parcialmente armazenado em cache. O intervalo de bytes solicitado é servido imediatamente do POP ao cliente.
-* UNCACHEABLE - esse status é relatado quando os cabeçalhos Cache-Control e Expires de um ativo indicam que ele não deve ser armazenado em cache em um POP ou pelo cliente HTTP. Esses tipos de solicitações são servidos do servidor de origem
+* UNCACHEABLE - esse status é relatado quando os cabeçalhos Cache-Control e Expires de um ativo indicam que ele não deve ser armazenado em cache em um POP ou pelo cliente HTTP. Esses tipos de solicitações são servidos do servidor de origem.
 
 ## <a name="cache-hit-ratio"></a>Taxa de Acertos do Cache
 Este relatório indica a porcentagem de solicitações em cache que foram servidas diretamente do cache.
@@ -116,13 +117,13 @@ O relatório fornece os seguintes detalhes:
 O relatório não inclui:
 
 * Solicitações negadas devido às opções de filtragem de país.
-* Solicitações de ativos cujos cabeçalhos indicam que eles não devem ser armazenado em cache. Por exemplo, os cabeçalhos Cache-Control: private, Cache-Control: no-cache ou Pragma: no-cache impedirão que um arquivo seja armazenado em cache.
+* Solicitações de ativos cujos cabeçalhos indicam que eles não devem ser armazenado em cache. Por exemplo, os cabeçalhos Cache-Control: private, Cache-Control: no-cache ou Pragma: no-cache impedem que um arquivo seja armazenado em cache.
 * Solicitações de intervalo de bytes para conteúdo parcialmente armazenado em cache.
 
 A fórmula é: (TCP_ HIT/(TCP_ HIT+TCP_MISS))*100
 
-* Selecione Intervalo de datas para exibir dados de hoje/esta semana/este mês etc. ou insira datas personalizadas, clique em "ir" para garantir que sua seleção seja atualizada.
-* Você pode exportar e baixar os dados clicando no ícone de planilha do excel localizado ao lado de "ir".
+* Selecione Intervalo de datas para exibir dados de hoje/esta semana/este mês etc. ou insira datas personalizadas e, em seguida, clique em **ir** para garantir que sua seleção seja atualizada.
+* É possível exportar e baixar os dados clicando no ícone de planilha do excel localizado ao lado de **ir**.
 
 ![Relatório Taxa de acertos do cache](./media/cdn-reports/cdn-cache-hit-ratio.png)
 
@@ -132,14 +133,8 @@ Esse relatório mostra a distribuição de uso de tráfego em IPV4 versus IPV6.
 ![Dados IPv4/IPV6 Transferidos](./media/cdn-reports/cdn-ipv4-ipv6.png)
 
 * Selecione Intervalo de datas para exibir dados de hoje/esta semana/este mês etc. ou insira datas personalizadas.
-* Em seguida, clique em "ir" para garantir que a seleção seja atualizada.
+* Em seguida, clique em **ir** para garantir que a seleção seja atualizada.
 
 ## <a name="considerations"></a>Considerações
 Os relatórios só podem ser gerados com informações dos últimos 18 meses.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

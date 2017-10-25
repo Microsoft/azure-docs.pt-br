@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5452a42cff5204fce780af41368b9515f9652d91
-
-
+ms.openlocfilehash: f0662230c5d1663e37ee2be58f234934ec3d55dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plans-and-billing-in-azure-scheduler"></a>Planos e Cobrança no Agendador do Azure
 ## <a name="job-collection-plans"></a>Planos de Coleção de Trabalho
@@ -85,10 +85,4 @@ Para obter detalhes sobre preços, confira [Preços do Agendador](https://azure.
  [Limites, padrões e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -3,7 +3,7 @@ title: Monitorar a disponibilidade e a capacidade de resposta de qualquer site d
 description: "Configure testes da web no Application Insights. Obtenha alertas se um site fica indisponível ou responde lentamente."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: SoubhagyaDash
 manager: carmonm
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
@@ -11,46 +11,46 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/13/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 153a97154faf65598141f321bcd33c4503fa30b0
-ms.lasthandoff: 03/21/2017
-
-
+ms.date: 05/25/2017
+ms.author: bwren
+ms.openlocfilehash: 6c7f52fc3998b0b29301206ffbc6a5a0c4134f6a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorar a disponibilidade e a capacidade de resposta de qualquer site
-Após implantar o aplicativo Web ou site em qualquer servidor, você pode configurar testes na Web para monitorar sua disponibilidade e capacidade de resposta. [Application Insights do Azure](app-insights-overview.md) envia solicitações da Web ao aplicativo em intervalos regulares de pontos no mundo todo. Ele o alertará se o aplicativo não responder ou responder lentamente.
+Após implantar o aplicativo Web ou site em qualquer servidor, você pode configurar testes para monitorar sua disponibilidade e capacidade de resposta. [Application Insights do Azure](app-insights-overview.md) envia solicitações da Web ao aplicativo em intervalos regulares de pontos no mundo todo. Ele o alertará se o aplicativo não responder ou responder lentamente.
 
-![Exemplo de teste da Web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
+Você pode configurar testes de disponibilidade para qualquer ponto de extremidade HTTP ou HTTPS que for acessível da Internet pública. Não é necessário adicionar qualquer coisa ao site que você está testando. Ele nem precisa ser o seu site: você pode testar um serviço de API REST do qual você depende.
 
-Você pode configurar testes na Web para qualquer ponto de extremidade HTTP ou HTTPS que for acessível da Internet pública. Não é necessário adicionar qualquer coisa ao site que você está testando. Ele nem precisa ser o seu site: você pode testar um serviço de API REST do qual você depende.
-
-Há dois tipos de teste da Web:
+Há dois tipos de testes de disponibilidade:
 
 * [Teste de ping de URL](#create): um teste simples que você pode criar no Portal do Azure.
 * [Teste na Web de várias etapas](#multi-step-web-tests): criado no Visual Studio Enterprise e carregado no portal.
 
-Você pode criar até 10 testes na Web por recurso de aplicativo.
+Você pode criar até 25 testes de disponibilidade por recurso de aplicativo.
 
-## <a name="create"></a>1. Criar um recurso para os relatórios de teste
-Pule esta etapa se você já [configurou um recurso do Application Insights][start] para este aplicativo e deseja ver os relatórios de disponibilidade no mesmo local.
+## <a name="create"></a>1. Abrir um recurso para os seus relatórios de teste de disponibilidade
 
-Inscreva-se no [Microsoft Azure](http://azure.com), vá para o [portal do Azure](https://portal.azure.com) e crie um recurso do Application Insights.
+**Se você já configurou o Application Insights** para seu aplicativo web, abra o recurso Application Insights no [portal do Azure](https://portal.azure.com).
+
+**Ou, se preferir ver os relatórios em um novo recurso,** Inscreva-se no [Microsoft Azure](http://azure.com), vá ao [portal do Azure](https://portal.azure.com)e crie um recurso Application Insights.
 
 ![Novo > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
 Clique em **Todos os recursos** para abrir a folha de Visão geral do novo recurso.
 
 ## <a name="setup"></a>2. Criar um teste de ping de URL
-Em seu recurso do Application Insights, procure o bloco de Disponibilidade. Clique para abrir a folha de testes da Web para seu aplicativo e adicione um teste da Web.
+Abra a folha Disponibilidade e adicione um teste.
 
 ![Preencha pelo menos o URL do seu site](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-* **A URL** deve estar visível na Internet pública. Ela pode incluir uma cadeia de caracteres de consulta&#151. Por exemplo, você pode utilizar um pouco seu banco de dados. Se a URL for resolvida para um redirecionamento, nós a seguiremos, até um máximo de 10 redirecionamentos.
-* **Analisar solicitações dependentes**: imagens, scripts, arquivos de estilo e outros recursos da página são solicitados como parte do teste, e o tempo de resposta gravado inclui esses tempos. O teste falhará se todos esses recursos não puderem ser baixados com êxito dentro do tempo limite para o teste inteiro.
-* **Habilitar tentativas**: quando o teste falha, ele é repetido após um breve intervalo. Uma falha só será relatada se três tentativas sucessivas falharem. Testes subsequentes são então executados com a frequência de teste normal. A repetição é suspensa temporariamente até o próximo sucesso. Essa regra é aplicada independentemente em cada local de teste. (Recomendamos essa configuração. Em média, aproximadamente 80% das falhas desaparecem na repetição.)
+* **A URL** pode ser qualquer página da web que você deseja testar, mas ela deve estar visível na Internet pública. A URL pode incluir uma cadeia de consulta. Por exemplo, você pode utilizar um pouco seu banco de dados. Se a URL for resolvida para um redirecionamento, nós a seguiremos, até um máximo de 10 redirecionamentos.
+* **Analisar as solicitações dependentes**: se esta opção estiver marcada, o teste solicitará imagens, scripts, arquivos de estilo e outros arquivos que fazem parte da página da Web em teste. O tempo de resposta gravado inclui o tempo necessário para obter esses arquivos. O teste falhará se todos esses recursos não puderem ser baixados com êxito dentro do tempo limite para o teste inteiro. 
+
+    Se a opção não estiver marcada, o teste solicitará apenas o arquivo na URL especificada.
+* **Habilitar tentativas novas**: se esta opção estiver marcada, quando o teste falhar, ele será repetido após um breve intervalo. Uma falha só será relatada se três tentativas sucessivas falharem. Testes subsequentes são então executados com a frequência de teste normal. A repetição é suspensa temporariamente até o próximo sucesso. Essa regra é aplicada independentemente em cada local de teste. Recomendamos essa opção. Em média, aproximadamente 80% das falhas desaparecem na repetição.
 * **Frequência de teste**: define a frequência com que o teste é executado em cada local de teste. Com uma frequência de cinco minutos e cinco locais de teste, seu site é testado em média a cada minuto.
 * **locais de teste** são os locais por meio dos quais nossos servidores enviam solicitações da Web para sua URL. Escolha dois ou três para que você possa diferenciar problemas no site de problemas da rede. Você pode selecionar até 16 locais.
 * **Critérios de sucesso**:
@@ -67,22 +67,39 @@ Em seu recurso do Application Insights, procure o bloco de Disponibilidade. Cliq
 ### <a name="test-more-urls"></a>Testar mais URLs
 Adicione mais testes. Por exemplo, além de testar a página inicial, você pode verificar se o banco de dados está sendo executado testando a URL para uma pesquisa.
 
-## <a name="monitor"></a>3. Ver seus resultados de teste na Web
-Depois de 1 a 2 minutos, os resultados aparecem na folha de Teste na Web.
 
-![Resumo dos resultados na lâmina inicial](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
+## <a name="monitor"></a>3. Ver os resultados de teste de disponibilidade
 
-Clique em qualquer barra no gráfico de resumo para obter uma exibição mais detalhada do período de tempo.
+Após alguns minutos, clique em **Atualizar** para ver os resultados de teste. 
 
-Esses gráficos combinam os resultados de todos os testes da Web desse aplicativo.
+![Resumo dos resultados na lâmina inicial](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
+
+O gráfico de dispersão mostra exemplos dos resultados de teste que têm detalhes de etapas do teste de diagnóstico. O mecanismo de teste armazena detalhes de diagnóstico para testes com falhas. Para testes bem-sucedidos, detalhes de diagnóstico são armazenados para um subconjunto das execuções. Passe o mouse sobre qualquer um dos pontos verde/vermelho para ver o carimbo de data/hora, duração, localização e nome do teste. Clique em qualquer ponto no gráfico de dispersão para ver os detalhes do resultado do teste.  
+
+Selecione um teste específico e uma localização, ou reduza o período de tempo para ver mais resultados em todo o período de tempo de interesse. Use o Search Explorer para ver os resultados de todas as execuções ou usar consultas de análise para executar relatórios personalizados sobre esses dados.
+
+Além dos resultados brutos, existem duas métricas de disponibilidade no Metrics Explorer: 
+
+1. Disponibilidade: percentual dos testes que foram bem-sucedidos, em todas as execuções de teste. 
+2. Duração do teste: duração média em todas as execuções de teste.
+
+Você pode aplicar filtros de localização e nome de teste para analisar tendências de um teste e/ou localização específica.
+
+## <a name="edit"></a>Como inspecionar e editar testes
+
+Na página Resumo, selecione um teste específico. Lá, você pode ver seus resultados específicos e editar ou desabilitá-los temporariamente.
+
+![Editar ou desabilitar um teste na Web](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
+
+Você talvez queira desabilitar testes de disponibilidade ou as regras de alerta associadas a eles, enquanto você estiver fazendo a manutenção de seu serviço. 
 
 ## <a name="failures"></a>Se você encontrar falhas
 Clique em um ponto vermelho.
 
-![Clique em um ponto vermelho](./media/app-insights-monitor-web-app-availability/open-instance.png)
+![Clique em um ponto vermelho](./media/app-insights-monitor-web-app-availability/open-instance-3.png)
 
 
-Em um resultado do teste na Web, você pode:
+De um resultado do teste de disponibilidade, você pode:
 
 * Inspecionar a resposta recebida do servidor.
 * Abrir a telemetria enviada pelo seu aplicativo de servidor ao processar a instância de solicitação com falha.
@@ -92,7 +109,7 @@ Em um resultado do teste na Web, você pode:
 
 *Parece correto, mas é relatado como uma falha?* Verifique todas as imagens, scripts, folhas de estilos e outros arquivos carregados pela página. Se qualquer um deles falhar, o teste será relatado como falha, mesmo se a página html principal carregar com êxito.
 
-*Não há itens relacionados?* Isso pode ocorrer porque a [amostragem](app-insights-sampling.md) está em operação.
+*Não há itens relacionados?* Se você o Application Insights está configurado para seu aplicativo do lado do servidor, talvez seja porque a [amostragem](app-insights-sampling.md) está em operação. 
 
 ## <a name="multi-step-web-tests"></a>Testes na Web com diversas etapas
 Você pode monitorar um cenário que envolve uma sequência de URLs. Por exemplo, se estiver monitorando um site de vendas, você poderá testar se adicionar itens ao carrinho de compras funciona corretamente.
@@ -103,7 +120,9 @@ Você pode monitorar um cenário que envolve uma sequência de URLs. Por exemplo
 
 Para criar um teste com várias etapas, grave o cenário usando o Visual Studio Enterprise e carregue a gravação no Application Insights. O Application Insights reproduz o cenário em intervalos e verifica as respostas.
 
-Observe que você não pode usar funções codificadas em seus testes: as etapas do cenário devem estar contidas como um script no arquivo .webtest.
+> [!NOTE]
+> Não é possível usar funções codificadas nem loops nos seus testes. O teste deve estar completamente incluso no script. webtest. No entanto, você pode usar plug-ins-padrão.
+>
 
 #### <a name="1-record-a-scenario"></a>1. Registrar um cenário
 Use o Visual Studio Enterprise para registrar uma sessão da Web.
@@ -135,7 +154,7 @@ Use o Visual Studio Enterprise para registrar uma sessão da Web.
     ![No Visual Studio, abra o arquivo .webtest e clique em Executar.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 #### <a name="2-upload-the-web-test-to-application-insights"></a>2. Carregar o teste na Web para o Application Insights
-1. No portal do Application Insights, crie um novo teste na Web.
+1. No portal do Application Insights, crie um teste na Web.
 
     ![Na folha de testes na Web, selecione Adicionar.](./media/app-insights-monitor-web-app-availability/16-another-test.png)
 2. Selecione o teste com várias etapas e carregue o arquivo .webtest.
@@ -144,13 +163,19 @@ Use o Visual Studio Enterprise para registrar uma sessão da Web.
 
     Defina os locais de teste, a frequência e os parâmetros de alerta da mesma forma que para testes de ping.
 
-Exiba seus resultados de teste quaisquer eventuais falhas do mesmo modo que faria para testes de url única.
+#### <a name="3-see-the-results"></a>3. Confira os resultados
 
-Uma razão comum para falha é executar o teste por um período excessivamente longo. Ele não deve ser executado por mais de dois minutos.
+Exiba seus resultados de testes e falhas da mesma maneira que exibiria testes de url únicas.
 
-Não se esqueça de que todos os recursos de uma página devem carregar corretamente para o teste ter êxito, incluindo scripts, folhas de estilos, imagens e assim por diante.
+Além disso, você pode baixar os resultados do teste para exibi-los no Visual Studio.
 
-Observe que o teste na Web deve estar totalmente contido no arquivo .webtest: não é possível usar funções codificadas no teste.
+#### <a name="too-many-failures"></a>Muitas falhas?
+
+* Uma razão comum para falha é executar o teste por um período excessivamente longo. Ele não deve ser executado por mais de dois minutos.
+
+* Não se esqueça de que todos os recursos de uma página devem carregar corretamente para o teste ter êxito, incluindo scripts, folhas de estilos, imagens e assim por diante.
+
+* O teste na Web deve estar totalmente incluso no script .webtest: não use funções codificadas.
 
 ### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Conectando a hora e números aleatórios em seu teste de várias etapas
 Suponha que você está testando uma ferramenta que obtém dados dependentes de tempo, como estoques de um feed externo. Quando grava seu teste na Web você deve usar horários específicos, definindo-os, todavia, como parâmetros do teste, StartTime e EndTime.
@@ -211,12 +236,6 @@ Se o teste tiver de entrar usando OAuth, a abordagem geral será:
 * Parametrize os tokens, definindo o parâmetro quando o token for retornado do autenticador e usando-o na consulta ao site.
   (O Visual Studio tenta parametrizar o teste, mas não parametriza os tokens corretamente.)
 
-## <a name="edit"></a> Editar ou desabilitar um teste
-Abra um teste individual para editá-lo ou desabilitá-lo.
-
-![Editar ou desabilitar um teste na Web](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
-
-Talvez você deseje desabilitar testes na Web quando estiver fazendo a manutenção de seu serviço.
 
 ## <a name="performance-tests"></a>Testes de desempenho
 Você pode executar um teste de carga em seu site. Como o teste de disponibilidade, você pode enviar solicitações simples ou solicitações de várias etapas de nossos pontos em todo o mundo. Diferentemente de um teste de disponibilidade, muitas solicitações são enviadas, simulando vários usuários simultâneos.
@@ -225,11 +244,18 @@ Na folha de Visão geral, abra **Configurações**, **Testes de Desempenho**. Ao
 
 Quando o teste for concluído, você verá os tempos de resposta e as taxas de êxito.
 
+
+![Teste de desempenho](./media/app-insights-monitor-web-app-availability/perf-test.png)
+
+> [!TIP]
+> Para observar os efeitos de um teste de desempenho, use [Fluxo ao vivo](app-insights-live-stream.md) e [Criador de perfil](app-insights-profiler.md).
+>
+
 ## <a name="automation"></a>Automação
-* [Use os scripts do PowerShell para configurar um teste na Web](app-insights-powershell.md#add-an-availability-test) automaticamente.
+* [Use os scripts do PowerShell para configurar um teste de disponibilidade](app-insights-powershell.md#add-an-availability-test) automaticamente.
 * Configure um [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) , que é chamado quando um alerta é gerado.
 
-## <a name="questions-problems"></a>Perguntas? Problemas?
+## <a name="qna"></a>Dúvidas? Problemas?
 * *Posso chamar o código através do meu teste na Web?*
 
     Não. As etapas do teste devem estar no arquivo .webtest. E não é possível chamar outros testes da Web nem usar loops. Porém, há vários plug-ins que podem ser úteis.
@@ -238,10 +264,13 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
     Damos suporte a TLS 1.1 e TLS 1.2.
 * *Há diferença entre "testes na Web" e "testes de disponibilidade"?*
 
-    Usamos os dois termos de forma intercambiável.
+    Os dois termos podem ser consultados de modo intercambiável. Testes de disponibilidade é um termo mais genérico que inclui os testes de ping de URL individuais, além dos testes na Web de várias etapas.
 * *Eu gostaria de usar testes de disponibilidade em nosso servidor interno que é executado por trás de um firewall.*
 
-    Configure o firewall para permitir solicitações dos [endereços IP de agentes de teste Web](app-insights-ip-addresses.md).
+    Há duas soluções possíveis:
+    
+    * Configure o firewall para permitir as solicitações de entrada dos [endereços IP de nossos agentes de teste da Web](app-insights-ip-addresses.md).
+    * Escreva seu próprio código para testar periodicamente o servidor interno. Execute o código como um processo em segundo plano em um servidor de teste por trás do firewall. O processo de teste pode enviar seus resultados para o Application Insights usando a API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) no pacote SDK principal. Isso requer que o servidor de teste tenha acesso de saída para o ponto de extremidade de ingestão do Application Insights, mas é um risco de segurança muito menor do que a alternativa de permitir as solicitações de entrada. Os resultados não serão exibidos nas folhas de testes na Web de disponibilidade, mas aparecerão como resultados de disponibilidade no Gerenciador de Análise, Pesquisa e Métrica.
 * *Falha de carregamento de um teste na Web de várias etapas*
 
     Há um limite de tamanho de 300 K.
@@ -260,10 +289,6 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 
     Não há suporte para isso, infelizmente.
 
-## <a name="video"></a>Vídeo
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
->
->
 
 ## <a name="next"></a>Próximas etapas
 [Pesquisar logs de diagnóstico][diagnostic]
@@ -278,4 +303,3 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-

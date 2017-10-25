@@ -4,8 +4,3 @@ Na Atividade de Cópia quando a fonte for do tipo **FileSystemSource** , as prop
 | --- | --- | --- | --- |
 | recursiva |Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada. |True, False (padrão) |Não |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

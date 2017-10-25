@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/27/2016
+ms.date: 07/05/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: c2a9a14891f197ae442c41668229d4a7610ba248
-ms.openlocfilehash: 75c2c51e6ed55c0f8bb152aa09b11c95b5dd8025
-
-
+ms.openlocfilehash: 4650cebe18153e3b10bbec685a66a590348c99e9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>Como gerenciar serviços de nuvem
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.openlocfilehash: 75c2c51e6ed55c0f8bb152aa09b11c95b5dd8025
 >
 >
 
-O serviço de nuvem é gerenciado na área **Serviços de Nuvem (clássico)** do portal do Azure. Este artigo descreve algumas ações comuns necessárias ao gerenciamento dos serviços de nuvem. Que inclui a atualização, a exclusão, o dimensionamento e a promoção de uma implantação de teste para produção.
+Na área **Serviços de Nuvem (clássico)** do Portal do Azure, você pode atualizar uma função de serviço ou uma implantação, promover uma implantação de preparo para produção, vincular recursos ao Serviço de Nuvem para que você possa ver as dependências de recursos e dimensionar os recursos em conjunto, além de excluir um Serviço de Nuvem ou uma implantação.
 
 Obtenha mais informações sobre como dimensionar seu serviço de nuvem [aqui](cloud-services-how-to-scale-portal.md).
 
@@ -46,7 +46,7 @@ Se você precisar atualizar o código do aplicativo para o seu serviço de nuvem
 4. **Como opção** , atualize o rótulo de implantação e a conta de armazenamento.
 5. Se alguma das funções tiver uma instância de função, selecione **Implantar mesmo se uma ou mais funções contiverem uma única instância** para permitir que a atualização continue.
 
-    O Azure pode garantir apenas 99,95 por cento de disponibilidade do Serviço de Nuvem durante uma atualização do Serviço de Nuvem se cada função tiver pelo menos duas instâncias de função (máquinas virtuais). Com duas instâncias de função, uma máquina virtual processará as solicitações do cliente enquanto a outra é atualizada.
+    O Azure pode garantir apenas 99,95 por cento de disponibilidade do Serviço de Nuvem durante uma atualização do Serviço de Nuvem se cada função tiver pelo menos duas instâncias de função (máquinas virtuais). Com duas instâncias de função, uma máquina virtual processa as solicitações do cliente enquanto a outra é atualizada.
 
 6. Marque a opção **Iniciar implantação** para que a atualização seja aplicada após terminar o upload do pacote.
 7. Clique em **OK** para iniciar a atualização do serviço.
@@ -79,13 +79,13 @@ Existem dois pré-requisitos essenciais para uma troca de implantação bem-suce
 
 - Se quiser usar um endereço IP estático para o slot de produção, você também deverá reservar um para o slot de preparo. Caso contrário, a troca falhará.
 
-- Todas as instâncias de suas funções devem estar em execução para que você possa executar a troca. Você pode verificar o status de suas instâncias na folha de visão geral do Portal do Azure ou usando [o comando Get-AzureRole no Windows PowerShell](https://docs.microsoft.com/en-us/powershell/servicemanagement/azure.service/v3.1.0/get-azurerole).
+- Todas as instâncias de suas funções devem estar em execução para que você possa executar a troca. Você pode verificar o status de suas instâncias na folha Visão geral do Portal do Azure. Como alternativa, use o comando [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) no Windows PowerShell.
 
-Observe que as atualizações do SO convidado e as operações de recuperação de serviço também podem fazer com que as trocas de implantação falhem. Confira [Solucionar problemas de implantação do serviço de nuvem](cloud-services-troubleshoot-deployment-problems.md) para obter mais detalhes.
+Observe que as atualizações do SO convidado e as operações de recuperação de serviço também podem fazer com que as trocas de implantação falhem. Para saber mais, confira [Solucionar problemas de implantação do serviço de nuvem](cloud-services-troubleshoot-deployment-problems.md).
 
 **Uma troca incorre em tempo de inatividade para meu aplicativo? Como devo lidar com isso?**
 
-Conforme descrito na última seção, uma troca de implantação normalmente é muito rápida, pois é apenas uma alteração de configuração no Azure Load Balancer. Entretanto, em alguns casos, ela pode levar dez segundos ou mais e resultar em falhas de conexão transitórias. Para limitar o impacto sobre os clientes, considere a implementação da [lógica de repetição do cliente](../best-practices-retry-general.md).
+Conforme descrito na última seção, uma troca de implantação normalmente é rápida, pois é apenas uma alteração de configuração no Azure Load Balancer. Entretanto, em alguns casos, ela pode levar dez segundos ou mais e resultar em falhas de conexão transitórias. Para limitar o impacto sobre os clientes, considere a implementação da [lógica de repetição do cliente](../best-practices-retry-general.md).
 
 ## <a name="how-to-link-a-resource-to-a-cloud-service"></a>Como vincular um recurso a um Serviço de Nuvem
 O portal do Azure não vinculada recursos como o portal clássico do Azure atual. Em vez disso, implante recursos adicionais para o mesmo grupo de recursos que está sendo usado pelo Serviço de Nuvem.
@@ -111,8 +111,14 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 
 > [!NOTE]
 > Quando um serviço de nuvem for excluído, e o monitoramento detalhado estiver configurado, você deverá excluir manualmente os dados de sua conta de armazenamento. Para obter informações sobre onde encontrar as tabelas de métricas, consulte [este](cloud-services-how-to-monitor.md) artigo.
->
->
+
+
+## <a name="how-to-find-more-information-about-failed-deployments"></a>Como localizar mais informações sobre implantações com falha
+A folha **Visão geral** tem uma barra de status na parte superior. Quando você clica na barra, uma nova folha é aberta e exibe informações de erro. Se a implantação não contiver erros, a folha de informações ficará em branco.
+
+![Permutação dos Serviços de Nuvem](./media/cloud-services-how-to-manage-portal/status-info.png)
+
+
 
 [Azure portal]: https://portal.azure.com
 
@@ -121,9 +127,3 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 * Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy-portal.md).
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-

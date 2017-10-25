@@ -15,8 +15,3 @@ Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua
 4. Forneça suas credenciais para o Outlook e entre: ![](./media/connectors-create-api-outlook/office365-outlook-2.png)  
    É isso. Agora você criou uma conexão com o Outlook. Esta conexão estará disponível para uso em qualquer outro aplicativo lógico que você criar.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

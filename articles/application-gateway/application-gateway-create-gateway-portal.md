@@ -1,9 +1,9 @@
 ---
-title: Criar um gateway de aplicativo usando o portal | Microsoft Docs
-description: Saiba como criar um Application Gateway usando o portal
+title: Criar um Gateway de Aplicativo - Portal do Azure | Microsoft Docs
+description: Saiba como criar um Gateway de Aplicativo usando o portal
 services: application-gateway
 documentationcenter: na
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,193 +13,106 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
-ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 9edaa7a101ae0e1a395491999854ee7009fb69cd
-ms.lasthandoff: 03/30/2017
-
-
+ms.date: 07/31/2017
+ms.author: davidmu
+ms.openlocfilehash: 17d09ce98c40717d1db0927f791a7c97ea7835e0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-an-application-gateway-by-using-the-portal"></a>Criar um Application Gateway usando o portal
+# <a name="create-an-application-gateway-with-the-portal"></a>Criar um gateway de aplicativo com o portal
 
-> [!div class="op_single_selector"]
-> * [Portal do Azure](application-gateway-create-gateway-portal.md)
-> * [PowerShell do Azure Resource Manager](application-gateway-create-gateway-arm.md)
-> * [Azure Classic PowerShell](application-gateway-create-gateway.md)
-> * [Modelo do Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
-> * [CLI do Azure](application-gateway-create-gateway-cli.md)
+O [Gateway de Aplicativo](application-gateway-introduction.md) é uma solução de virtualização dedicada que fornece o ADC (controlador de entrega de aplicativos) como serviço, oferecendo várias funcionalidades de balanceamento de carga de camada 7 para o aplicativo. Este artigo o orienta durante as etapas para criar um Gateway de Aplicativo usando o portal do Azure e adicionar um servidor existente como um membro de back-end.
 
-O Azure Application Gateway é um balanceador de carga de camada 7. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local.
-O Gateway de Aplicativo fornece muitos recursos do ADC (Controlador de Entrega de Aplicativos), incluindo o balanceamento de carga de HTTP, a afinidade de sessão baseada em cookies, o descarregamento de SSL (Secure Sockets Layer), as sondas de integridade personalizadas, suporte para vários sites e muitos outros.
+## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-Para localizar uma lista completa dos recursos com suporte, visite [Visão geral do Gateway de Aplicativo](application-gateway-introduction.md)
+Faça logon no portal do Azure em [http://portal.azure.com](http://portal.azure.com)
 
-## <a name="scenario"></a>Cenário
+## <a name="create-application-gateway"></a>Criar um gateway de aplicativo
 
-Nesse cenário, você aprenderá como criar um Application Gateway usando o portal do Azure.
+Para criar um gateway de aplicativo, conclua as etapas a seguir. O gateway de aplicativo exige sua própria sub-rede. Ao criar uma rede virtual, certifique-se de deixar espaço de endereço suficiente para ter várias sub-redes. Depois que o gateway de aplicativo for implantado em uma sub-rede, apenas outros gateways de aplicativo poderão ser adicionados a ele.
 
-Este cenário:
+1. No painel Favoritos do portal, clique em **Novo**
+1. Na folha **Novo**, clique em **Rede**. Na folha **Rede**, clique em **Gateway de Aplicativo**, conforme mostrado na seguinte imagem:
 
-* Criará um Application Gateway com duas instâncias.
-* Criará uma rede virtual chamada AdatumAppGatewayVNET, com um bloco CIDR 10.0.0.0/16 reservado.
-* Criará uma sub-rede chamada Appgatewaysubnet que usa 10.0.0.0/28 como seu bloco CIDR.
-* Configurará um certificado para descarregamento SSL.
+    ![Criação de um gateway de aplicativo][1]
 
-![Cenário de exemplo][scenario]
+1. Na folha **Informações Básicas** exibida, insira os seguintes valores e clique em **OK**:
 
-> [!IMPORTANT]
-> A configuração adicional do Application Gateway, incluindo investigações de integridade personalizadas, endereços de pool de back-end e regras adicionais são configuradas após o Application Gateway ser configurado e não durante a implantação inicial.
+   | **Configuração** | **Valor** | **Detalhes**|
+   |---|---|---|
+   |**Nome**|AdatumAppGateway|O nome do gateway de aplicativo|
+   |**Camada**|Standard|Os valores disponíveis são Standard e WAF. Visite a página [Firewall do aplicativo Web](application-gateway-web-application-firewall-overview.md) para saber mais sobre o WAF.|
+   |**Tamanho do SKU**|Média|As opções ao escolher a camada Standard são Pequeno, Médio e Grande. Ao escolher a camada do WAF, as opções são apenas Médio e Grande.|
+   |**Contagem de instâncias**|2|Número de instâncias do gateway de aplicativo para alta disponibilidade. Contagens de instância iguais a 1 devem ser usadas apenas para fins de teste.|
+   |**Assinatura**|[Sua assinatura]|Selecione uma assinatura na qual o gateway de aplicativo será criado.|
+   |**Grupo de recursos**|**Criar novo:** AdatumAppGatewayRG|Crie um grupos de recursos. O nome do grupo de recursos deve ser exclusivo na assinatura selecionada. Para saber mais sobre grupos de recursos, leia o artigo [Visão geral do Gerenciador de Recursos](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups).|
+   |**Localidade**|Oeste dos EUA||
 
-## <a name="before-you-begin"></a>Antes de começar
+1. Na folha **Configurações** exibida em **Rede virtual**, clique em **Escolher uma rede virtual**. A folha **Escolher rede virtual** é aberta.  Clique em **Criar nova** para abrir a folha **Criar rede virtual**.
 
-O Azure Application Gateway requer sua própria sub-rede. Ao criar uma rede virtual, certifique-se de deixar espaço de endereço suficiente para ter várias sub-redes. Depois de implantar um gateway de aplicativo a uma sub-rede, apenas gateway de aplicativos adicionais poderão ser adicionados à sub-rede.
+   ![escolher uma rede virtual][2]
 
-## <a name="create-the-application-gateway"></a>Criar o Application Gateway
+1. Na folha **Criar rede virtual**, insira os valores a seguir e clique em **OK**. As folhas **Criar rede virtual** e **Escolher rede virtual** são fechadas. Esta etapa popula o campo **Sub-rede** na folha **Configurações** com a sub-rede escolhida.
 
-### <a name="step-1"></a>Etapa 1
+   | **Configuração** | **Valor** | **Detalhes**|
+   |---|---|---|
+   |**Nome**|AdatumAppGatewayVNET|Nome do gateway de aplicativo|
+   |**Espaço de Endereço**|10.0.0.0/16|Esse é o espaço de endereço da rede virtual|
+   |**Nome da sub-rede**|AppGatewaySubnet|Nome da sub-rede do gateway de aplicativo|
+   |**Intervalo de endereços da sub-rede**|10.0.0.0/28|Essa sub-rede permite sub-redes adicionais na rede virtual para membros do pool de back-end|
 
-Navegue até o portal do Azure, clique em **Novo** > **Rede** > **Gateway de Aplicativo**
+1. Na folha **Configurações** em **Configuração de IP de front-end**, escolha **Público** como o **Tipo de endereço IP**
 
-![Criação de um gateway de aplicativo][1]
+1. Na folha **Configurações** em **Endereço IP público**, clique em **Escolher um endereço IP público**; a folha **Escolher o endereço IP público** abrirá, clique em **Criar novo**.
 
-### <a name="step-2"></a>Etapa 2
+   ![escolher o IP público][3]
 
-Em seguida, preencha as informações básicas sobre o Application Gateway. Ao concluir, clique em **OK**
+1. Na folha **Criar endereço IP público**, aceite o valor padrão e clique em **OK**. A folha fecha e popula o **Endereço IP público** com o endereço IP público escolhido.
 
-As informações necessárias para as configurações básicas são:
+1. Na folha **Configurações** em **Configuração do ouvinte**, clique em **HTTP** sob **Protocolo**. Insira a porta a ser usada no campo **Porta**.
 
-* **Name** - o nome para o Application Gateway.
-* **Camada** – esta configuração é a camada do gateway de aplicativo. Duas camadas estão disponíveis, **WAF** e **Standard**. A WAF habilita o recurso de firewall de aplicativo Web.
-* **Tamanho do SKU** - essa configuração é o tamanho do gateway de aplicativo, as opções disponíveis são (**Pequeno**, **Médio** e **Grande**). Pequeno não estará disponível quando a camada WAF for escolhida.
-* **Contagem de instâncias** - o número de instâncias; esse valor deve ser um número entre 2 e 10.
-* **Grupo de recursos** - o grupo de recursos para manter o gateway de aplicativo; ele pode ser um grupo de recursos existente ou um novo.
-* **Localização** - a região do gateway de aplicativo; essa é a mesma localização no grupo de recursos. A localização é importante porque a rede virtual e o IP público devem estar no mesmo local que o gateway.
+2. Clique em **OK** na folha **Configurações** para continuar.
 
-![folha mostrando configurações básicas][2]
-
-> [!NOTE]
-> É possível escolher uma contagem de instâncias de 1 para fins de teste. É importante saber que qualquer contagem de instâncias em duas instâncias não é coberta por um SLA e, portanto, não são recomendadas. Gateways pequenos devem ser usados para teste de desenvolvimento e não para fins de produção.
-> 
-> 
-
-### <a name="step-3"></a>Etapa 3
-
-Quando as configurações básicas forem definidas, a próxima etapa será definir a rede virtual a ser usada. A rede virtual contém o aplicativo para o qual o gateway de aplicativo faz balanceamento de carga.
-
-Clique em **Escolher uma rede virtual** para configurar a rede virtual.
-
-![folha mostrando configurações básicas do Application Gateway][3]
-
-### <a name="step-4"></a>Etapa 4
-
-Na folha **Escolher Rede Virtual** , clique em **Criar Novo**
-
-Enquanto não é explicada neste cenário, uma Rede Virtual existente pode ser selecionada neste momento.  Se uma rede virtual existente for usada, é importante saber que a rede virtual precisa usar uma sub-rede vazia ou uma sub-rede somente com recursos de gateway de aplicativo.
-
-![escolher folha da rede virtual][4]
-
-### <a name="step-5"></a>Etapa 5
-
-Preencha as informações de rede na folha **Criar Rede Virtual** conforme descrito anteriormente na descrição de [Cenário](#scenario) .
-
-![Criar folha de rede virtual com as informações inseridas][5]
-
-### <a name="step-6"></a>Etapa 6
-
-Depois de criar a rede virtual, a próxima etapa será definir o IP de front-end para o Application Gateway. Neste ponto, a escolha é entre um endereço IP público ou privado para o front-end. A escolha depende se o aplicativo estiver voltado para a Internet ou somente para fins internos. Este cenário pressupõe o uso de um endereço IP público. Para escolher um endereço IP privado, o botão **Particular** pode ser clicado. Um endereço IP atribuído automaticamente é escolhido e você pode clicar na caixa de seleção **Escolher um endereço IP privado específico** para inserir um manualmente.
-
-### <a name="step-7"></a>Etapa 7
-
-Clique em **Escolher um endereço IP público**. Se houver um endereço IP público existente disponível, ele poderá ser escolhido nesse momento; nesse cenário, você criará um novo endereço IP público. Clique em **Criar Novo**
-
-![Escolher uma folha de endereço IP público][6]
-
-### <a name="step-8"></a>Etapa 8
-
-Em seguida, dê ao endereço IP público um nome amigável e clique em **OK**
-
-![Criar uma folha de endereço IP público][7]
-
-### <a name="step-9"></a>Etapa 9
-
-A última configuração para definir ao criar um Application Gateway é a configuração de ouvinte.  Se **http** for usado, nada mais precisará ser configurado, e você poderá clicar em **OK**. Para utilizar **https** , será necessária configuração adicional.
-
-Um certificado é necessário para usar **https**. A chave privada do certificado é necessária, é necessário fornecer uma exportação .pfx do certificado e uma senha.
-
-### <a name="step-10"></a>Etapa 10
-
-Clique em **HTTPS**, clique no ícone de **pasta** ao lado da caixa de texto **Carregar certificado PFX**.
-Navegue até o arquivo de certificado .pfx no sistema de arquivos. Quando ele for selecionado, dê um nome amigável de certificado e digite a senha para o arquivo. pfx.
-
-Clique uma vez concluído **OK** para examinar as configurações do Application Gateway.
-
-![Seção de Configuração de ouvinte na folha Configurações][9]
-
-### <a name="step-11"></a>Etapa 11
-
-Examine a página Resumo e clique em **OK**.  Agora o Application Gateway está na fila e será criado.
-
-### <a name="step-12"></a>Etapa 12
-
-Quando o Application Gateway tiver sido criado, navegue até ele no portal para continuar a configuração do Application Gateway.
-
-![Modo de exibição de recursos do Application Gateway][10]
-
-Estas etapas criam um gateway de aplicativo básico com configurações padrão para o ouvinte, pool de back-end, configurações de http de back-end e regras. Você pode modificar essas configurações de acordo com sua implantação quando o provisionamento for bem-sucedido.
+1. Examine as configurações na folha **Resumo** e clique em **OK** para iniciar a criação do gateway de aplicativo. A criação de um gateway de aplicativo é uma tarefa de execução longa e levará muito tempo para ser concluída.
 
 ## <a name="add-servers-to-backend-pools"></a>Adicionar servidores aos pools de back-end
 
-Depois que o gateway de aplicativo é criado, os sistemas que hospedam o aplicativo que terá a carga balanceada ainda precisará ser adicionado ao gateway de aplicativo. Os endereços IP ou valores FQDN desses servidores são adicionados aos pools de endereços de back-end.
+Depois que você criar o gateway de aplicativo, os sistemas que hospedam o aplicativo que terá a carga balanceada ainda precisará ser adicionado ao gateway de aplicativo. Os endereços IP, o FQDN ou as NICs desses servidores são adicionados aos pools de endereços de back-end.
 
 ### <a name="ip-address-or-fqdn"></a>Endereço IP ou FQDN
 
-#### <a name="step-1"></a>Etapa 1
+1. Com o gateway de aplicativo criado, no painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique no gateway de aplicativo **AdatumAppGateway** na folha Todos os recursos. Se a assinatura selecionada já contiver vários recursos, você poderá inserir **AdatumAppGateway** na caixa **Filtrar por nome...** para acessar facilmente o gateway de aplicativo.
 
-Clique no gateway de aplicativo que você criou, clique em **Pools de back-end** e selecione o pool de back-end atual.
+1. O gateway de aplicativo criado é exibido. Clique em **Pools de back-end** e selecione o pool de back-end atual **appGatewayBackendPool**. Isso abrirá a folha **appGatewayBackendPool**.
 
-![Pools de back-end do Gateway de Aplicativo][11]
+   ![Pools de back-end do Gateway de Aplicativo][4]
 
-#### <a name="step-2"></a>Etapa 2
-
-Clique em **Adicionar Destino** para adicionar endereços IP de valores de FQDN
-
-![Pools de back-end do Gateway de Aplicativo][11-1]
-
-#### <a name="step-3"></a>Etapa 3
-
-Após inserir todos os valores de back-end, clique em **Salvar**
-
-![adicionar valores aos pools de back-end do gateway de aplicativo][12]
-
-Essa ação salva os valores no pool de back-end. Depois que o gateway de aplicativo tiver sido atualizado, o tráfego que entrar no gateway de aplicativo será roteado para os endereços de back-end adicionados nessa etapa.
+1. Clique em **Adicionar Destino** para adicionar endereços IP de valores de FQDN. Escolha **Endereço IP ou FQDN** como o **Tipo** e insira o endereço IP ou o FQDN no campo. Repita esta etapa para outros membros do pool de back-end. Quando terminar, clique em **Salvar**.
 
 ### <a name="virtual-machine-and-nic"></a>Máquina virtual e NIC
 
 Também é possível adicionar NICs de máquina virtual como membros do pool de back-end. Somente as máquinas virtuais que estão dentro da mesma rede virtual que o Gateway de Aplicativo ficarão disponíveis na lista suspensa.
 
-#### <a name="step-1"></a>Etapa 1
+1. Com o gateway de aplicativo criado, no painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique no gateway de aplicativo **AdatumAppGateway** na folha Todos os recursos. Se a assinatura selecionada já contiver vários recursos, você poderá inserir **AdatumAppGateway** na caixa **Filtrar por nome...** para acessar facilmente o gateway de aplicativo.
 
-Clique no gateway de aplicativo que você criou, clique em **Pools de back-end** e selecione o pool de back-end atual.
+1. O gateway de aplicativo criado é exibido. Clique em **Pools de back-end** e selecione o pool de back-end atual **appGatewayBackendPool**. Isso abrirá a folha **appGatewayBackendPool**.
 
-![Pools de back-end do Gateway de Aplicativo][11]
+   ![Pools de back-end do Gateway de Aplicativo][5]
 
-#### <a name="step-2"></a>Etapa 2
+1. Clique em **Adicionar Destino** para adicionar endereços IP de valores de FQDN. Escolha **Máquina Virtual** como o **Tipo** e selecione a máquina virtual e a NIC a serem usadas. Quando terminar, clique em **Salvar**
 
-Clique em **Adicionar Destino** para adicionar um novo membro do pool de back-end. Escolha uma máquina virtual e uma NIC nas caixas suspensas.
+   > [!NOTE]
+   > Somente as máquinas virtuais que estão na mesma rede virtual do gateway de aplicativo ficarão disponíveis na caixa suspensa.
 
-![adicionar nics aos pools de back-end do gateway de aplicativo][13]
+## <a name="clean-up-resources"></a>Limpar recursos
 
-#### <a name="step-3"></a>Etapa 3
-
-Quando terminar, clique em **Salvar** para salvar as NICs como membros de back-end.
-
-![salvar nic dos pools de back-end do gateway de aplicativo][14]
+Quando não for mais necessário, exclua o grupo de recursos, o gateway de aplicativo e todos os recursos relacionados. Para fazer isso, selecione o grupo de recursos na folha do gateway de aplicativo e clique em **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este cenário cria um gateway de aplicativo padrão. A próxima etapa é configurar o gateway de aplicativo modificando as configurações e ajustando as regras no gateway. Essas etapas podem ser encontradas nos artigos a seguir:
+Nesse cenário, você implantou um gateway de aplicativo e adicionou um servidor ao back-end. A próxima etapa é configurar o gateway de aplicativo modificando as configurações e ajustando as regras no gateway. Essas etapas podem ser encontradas nos artigos a seguir:
 
 Saiba como criar investigações de integridade personalizados visitando [Criar uma investigação de integridade personalizada](application-gateway-create-probe-portal.md)
 
@@ -213,15 +126,4 @@ Saiba como proteger seus aplicativos com o [Firewall do Aplicativo Web](applicat
 [3]: ./media/application-gateway-create-gateway-portal/figure3.png
 [4]: ./media/application-gateway-create-gateway-portal/figure4.png
 [5]: ./media/application-gateway-create-gateway-portal/figure5.png
-[6]: ./media/application-gateway-create-gateway-portal/figure6.png
-[7]: ./media/application-gateway-create-gateway-portal/figure7.png
-[8]: ./media/application-gateway-create-gateway-portal/figure8.png
-[9]: ./media/application-gateway-create-gateway-portal/figure9.png
-[10]: ./media/application-gateway-create-gateway-portal/figure10.png
-[11]: ./media/application-gateway-create-gateway-portal/figure11.png
-[11-1]: ./media/application-gateway-create-gateway-portal/figure11-1.png
-[12]: ./media/application-gateway-create-gateway-portal/figure12.png
-[13]: ./media/application-gateway-create-gateway-portal/figure13.png
-[14]: ./media/application-gateway-create-gateway-portal/figure14.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
-

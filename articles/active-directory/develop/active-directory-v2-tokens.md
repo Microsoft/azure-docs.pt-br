@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 3d5ad974c01e0ee3954da4f990da87338b2d1756
-ms.openlocfilehash: 3a3d5c8bf4da9255015fab64f2b59637c4c030ea
-ms.lasthandoff: 02/23/2017
-
-
+ms.custom: aaddev
+ms.openlocfilehash: ec25d4375647a2c8983d7573b9912e544fc3e7b2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Referência de tokens do Azure Active Directory v2.0
-O ponto de extremidade do Azure AD (Azure Active Directory) v&2;.0 emite vários tipos de tokens de segurança em cada [fluxo de autenticação](active-directory-v2-flows.md). Esta referência descreve o formato, as características de segurança e o conteúdo de cada tipo de token.
+O ponto de extremidade do Azure AD (Azure Active Directory) v 2.0 emite vários tipos de tokens de segurança em cada [fluxo de autenticação](active-directory-v2-flows.md). Esta referência descreve o formato, as características de segurança e o conteúdo de cada tipo de token.
 
 > [!NOTE]
 > O ponto de extremidade v2.0 não dá suporte a todos os cenários e recursos do Azure Active Directory. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
@@ -30,7 +30,7 @@ O ponto de extremidade do Azure AD (Azure Active Directory) v&2;.0 emite vários
 >
 
 ## <a name="types-of-tokens"></a>Tipos de tokens
-O ponto de extremidade v2.0 dá suporte ao [protocolo de autorização do OAuth 2.0](active-directory-v2-protocols.md), que usa tokens de acesso e de atualização. O ponto de extremidade v&2;.0 também dá suporte à autenticação e à entrada via [OpenID Connect](active-directory-v2-protocols.md). O OpenID Connect introduz um terceiro tipo de token, o token de ID. Cada um desses tokens é representado como um token de *portador*.
+O ponto de extremidade v2.0 dá suporte ao [protocolo de autorização do OAuth 2.0](active-directory-v2-protocols.md), que usa tokens de acesso e de atualização. O ponto de extremidade v 2.0 também dá suporte à autenticação e à entrada via [OpenID Connect](active-directory-v2-protocols.md). O OpenID Connect introduz um terceiro tipo de token, o token de ID. Cada um desses tokens é representado como um token de *portador*.
 
 Um token de portador é um token de segurança leve que concede ao portador acesso a um recurso protegido. O portador é qualquer parte que possa apresentar o token. Embora uma parte deva se autenticar no Azure AD para receber o token de portador, se não forem tomadas medidas para proteger o token durante a transmissão e o armazenamento, ele poderá ser interceptado e usado por uma parte não planejada. Alguns tokens de segurança têm um mecanismo interno para evitar que partes não autorizadas os utilizem, mas os tokens de portador não têm isso. Os tokens de portador devem ser transportados em um canal seguro, como segurança da camada de transporte (HTTPS). Se um token de portador for transmitido sem esse tipo de segurança, um terceiro mal-intencionado poderá usar um ataque"man-in-the-middle" para adquirir o token e usá-lo para acesso não autorizado a um recurso protegido. Os mesmos princípios de segurança se aplicam ao armazenar ou manter em cache tokens de portador para uso posterior. Sempre verifique se o aplicativo transmite e armazena tokens de portador com segurança. Para obter mais considerações de segurança sobre tokens de portador, confira [RFC 6750 seção 5](http://tools.ietf.org/html/rfc6750).
 
@@ -68,12 +68,12 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | nonce |`nonce` |`12345` |O nonce é uma estratégia para migrar ataques de reprodução de token. O aplicativo pode especificar um nonce em uma solicitação de autorização usando o parâmetro de consulta `nonce` . O valor que você fornece na solicitação é emitido na declaração `nonce` do token de ID, sem modificação. O aplicativo pode verificar o valor em relação ao valor especificado por ele na solicitação, o que associa a sessão do aplicativo a um token de ID específico. O aplicativo deve executar essa validação durante o processo de validação do token de ID. |
 | name |`name` |`Babe Ruth` |A declaração de nome fornece um valor legível por humanos que identifica o assunto do token. Não há garantia de que o valor seja exclusivo. Ele é mutável e foi projetado para ser usado apenas para fins de exibição. O escopo `profile` é necessário para receber essa declaração. |
 | email |`email` |`thegreatbambino@nyy.onmicrosoft.com` |O endereço de email principal associado à conta de usuário, se houver um. Seu valor é mutável e pode ser alterado ao longo do tempo. O escopo `email` é necessário para receber essa declaração. |
-| nome de usuário preferencial |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |O nome de usuário principal que representa o usuário no ponto de extremidade v&2;.0. Ele pode ser um endereço de email, número de telefone ou nome de usuário genérico sem um formato especificado. Seu valor é mutável e pode ser alterado ao longo do tempo. O escopo `profile` é necessário para receber essa declaração. |
+| nome de usuário preferencial |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |O nome de usuário principal que representa o usuário no ponto de extremidade v 2.0. Ele pode ser um endereço de email, número de telefone ou nome de usuário genérico sem um formato especificado. Seu valor é mutável e pode ser alterado ao longo do tempo. Uma vez que é mutável, esse valor não deve ser usado para tomar decisões de autorização. O escopo `profile` é necessário para receber essa declaração. |
 | subject |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | O item mais importante sobre o qual o token declara informações, como o usuário de um aplicativo. Esse valor é imutável e não pode ser reatribuído nem reutilizado. Pode ser usado para executar verificações de autorização de forma segura, por exemplo, quando o token é usado para acessar um recurso, e pode ser usado como uma chave nas tabelas de banco de dados. Como a entidade está sempre presente nos tokens emitidos pelo Azure AD, é recomendável usar esse valor em um sistema de autorização de uso geral. O assunto é, no entanto, um identificador de paridade - é exclusivo a uma ID de aplicativo específica.  Portanto, se um único usuário entra em dois aplicativos diferentes usando duas IDs de cliente diferentes, esses aplicativos receberão dois valores diferentes para a declaração do assunto.  Isso pode ou não ser desejável, dependendo dos requisitos de arquitetura e de privacidade. |
 | ID do objeto |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | O identificador imutável de um objeto do sistema de identidade da Microsoft, nesse caso, uma conta de usuário.  Também pode ser usada para realizar verificações de autorização com segurança e como uma chave em tabelas de banco de dados. Essa ID identifica exclusivamente o usuário entre os aplicativos - dois aplicativos diferentes autenticando o mesmo usuário receberão o mesmo valor na declaração `oid`.  Isso significa que pode ser usada ao fazer consultas nos serviços online da Microsoft, como o Microsoft Graph.  O Microsoft Graph retornará essa ID como a propriedade `id` para uma determinada conta de usuário.  Como o `oid` permite que vários aplicativos correlacionem usuários, o escopo `profile` é necessário a fim de receber essa declaração. Observe que, se um único usuário existir em vários locatários, o usuário conterá uma ID de objeto diferentes em cada locatário - são consideradas contas diferentes, mesmo que o usuário faça logon em cada conta com as mesmas credenciais. |
 
 ### <a name="access-tokens"></a>Tokens de acesso
-Atualmente, os tokens de acesso emitidos pelo ponto de extremidade v&2;.0 só podem ser consumidos por Microsoft Services. Os aplicativos não precisam executar nenhuma validação ou inspeção de tokens de acesso para qualquer um dos cenários que atualmente têm suporte. Você pode tratar os tokens de acesso como completamente opacos. São apenas cadeias de caracteres que o aplicativo pode passar para a Microsoft em solicitações HTTP.
+Atualmente, os tokens de acesso emitidos pelo ponto de extremidade v 2.0 só podem ser consumidos por Microsoft Services. Os aplicativos não precisam executar nenhuma validação ou inspeção de tokens de acesso para qualquer um dos cenários que atualmente têm suporte. Você pode tratar os tokens de acesso como completamente opacos. São apenas cadeias de caracteres que o aplicativo pode passar para a Microsoft em solicitações HTTP.
 
 Em breve, o ponto de extremidade v2.0 apresentará no seu aplicativo a capacidade de receber tokens de acesso de outros clientes. Nesse momento, as informações neste tópico de referência serão atualizadas com as informações de que você precisa para que o aplicativo execute a validação de token de acesso e outras tarefas semelhantes.
 
@@ -111,7 +111,7 @@ Os tokens de ID são assinados usando algoritmos de criptografia assimétrica pa
 
 A declaração `alg` indica o algoritmo que foi usado para assinar o token. A declaração `kid` indica a chave pública que foi usada para assinar o token.
 
-A qualquer momento, o ponto de extremidade v&2;.0 pode assinar um token de ID, usando qualquer conjunto específico de pares de chaves públicas-privadas. O ponto de extremidade v2.0 gira periodicamente o possível conjunto de chaves. Assim, o aplicativo deve ser escrito para tratar essas mudanças de chave automaticamente. Uma frequência razoável para verificar se há atualizações para as chaves públicas usadas pelo ponto de extremidade v2.0 é a cada 24 horas.
+A qualquer momento, o ponto de extremidade v 2.0 pode assinar um token de ID, usando qualquer conjunto específico de pares de chaves públicas-privadas. O ponto de extremidade v2.0 gira periodicamente o possível conjunto de chaves. Assim, o aplicativo deve ser escrito para tratar essas mudanças de chave automaticamente. Uma frequência razoável para verificar se há atualizações para as chaves públicas usadas pelo ponto de extremidade v2.0 é a cada 24 horas.
 
 Você pode adquirir os dados de chave de assinatura necessários para validar a assinatura usando o documento de metadados do OpenID Connect localizado em:
 
@@ -153,4 +153,3 @@ Fornecemos os tempos de vida de token a seguir para fins informativos. As inform
 | Tokens de atualização (contas pessoais) |Até 1 ano |Um único token de atualização é válido para um máximo de 1 ano. No entanto, o token de atualização pode se tornar inválido a qualquer momento por vários motivos. Portanto, o aplicativo deve continuar a tentar usar um token de atualização até falhar. |
 | Códigos de autorização (contas corporativas ou de estudante) |10 minutos |Os códigos de autorização são propositadamente de curta duração e devem ser resgatados imediatamente para tokens de acesso e tokens de atualização quando os tokens são recebidos. |
 | Códigos de autorização (contas pessoais) |5 minutos |Os códigos de autorização são propositadamente de curta duração e devem ser resgatados imediatamente para tokens de acesso e tokens de atualização quando os tokens são recebidos. Códigos de autorização que são emitidos em nome de contas pessoais são para uso ocasional. |
-

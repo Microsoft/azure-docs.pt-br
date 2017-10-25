@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
-ms.openlocfilehash: 104986e88ededf2137725fe258b6ce51f608b37d
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: ea42b7135d0695b66d569095e70bb3d9f8b9594b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-data-warehouse-restore"></a>Restauração do SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -58,10 +57,15 @@ Yes, you can restore the last available restore point.
 Yes, for the next seven calendar days. When you delete a data warehouse, SQL Data Warehouse actually keeps the data warehouse and its snapshots for seven days just in case you need the data. After seven days, you won't be able to restore to any of the restore points. -->
 
 ## <a name="geo-redundant-restore"></a>Restauração com redundância geográfica
-Caso você esteja usando o armazenamento com redundância geográfica, é possível restaurar o data warehouse para o seu [data center emparelhado](../best-practices-availability-paired-regions.md) em uma região geográfica diferente. O data warehouse é restaurado a partir do último backup diário. 
+Você pode restaurar seu data warehouse para qualquer região com suporte do SQL Data Warehouse do Azure com o nível de desempenho escolhido. Observe que DWU 9000 e 18000 não têm suporte em todas as regiões durante a versão prévia.
+
+> [!NOTE]
+> Para executar uma restauração com redundância geográfica, você não deve ter recusado esse recurso.
+> 
+> 
 
 ## <a name="restore-timeline"></a>Restaurar linha do tempo
-É possível restaurar um banco de dados para qualquer ponto de restauração disponível nos últimos sete dias. Os instantâneos iniciam a cada&4;-8 horas e permanecem disponíveis por sete dias. Quando um instantâneo possui mais de sete dias, ele expira e seu ponto de restauração fica indisponível.
+É possível restaurar um banco de dados para qualquer ponto de restauração disponível nos últimos sete dias. Os instantâneos iniciam a cada 4-8 horas e permanecem disponíveis por sete dias. Quando um instantâneo possui mais de sete dias, ele expira e seu ponto de restauração fica indisponível.
 
 ## <a name="restore-costs"></a>Restaurar custos
 O custo de armazenamento para o data warehouse restaurado é cobrado na taxa de Armazenamento Premium do Azure. 
@@ -102,4 +106,3 @@ Para executar uma restauração de data warehouse, restaure usando:
 
 
 <!--Other Web references-->
-

@@ -3,7 +3,7 @@ title: "Migrar seu código SQL para o SQL Data Warehouse | Microsoft Docs"
 description: "Dicas para migrar seu código SQL para o SQL Data Warehouse do Azure para desenvolvimento de soluções."
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: sqlmojo
 manager: jhubbard
 editor: 
 ms.assetid: 19c252a3-0e41-4eec-9d3e-09a68c7e7add
@@ -12,19 +12,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 01/30/2017
-ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: d9436796373af55a18c0b6fbfc036bd6616bbe4f
-ms.openlocfilehash: 0c9a7792331b4662a93a78fe5dd08ab037b466db
-
-
+ms.custom: migrate
+ms.date: 06/23/2017
+ms.author: joeyong;barbkess
+ms.openlocfilehash: c6e6b890f5e2d0e31b10bbb6803adad02bf60248
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migrar seu código SQL para o SQL Data Warehouse
-Durante a migração de seu código de outro banco de dados para o SQL Data Warehouse, provavelmente você precisará fazer alterações à sua base de código. Alguns recursos do SQL Data Warehouse podem melhorar consideravelmente o desempenho, pois foram criados para funcionar diretamente de uma maneira distribuída. No entanto, para manter o desempenho e a escala, alguns recursos também não estão disponíveis.
+Este artigo explica as alterações de código que você provavelmente terá que fazer ao migrar seu código de outro banco de dados para o SQL Data Warehouse. Alguns recursos do SQL Data Warehouse podem melhorar consideravelmente o desempenho, pois foram criados para funcionar diretamente de uma maneira distribuída. No entanto, para manter o desempenho e a escala, alguns recursos também não estão disponíveis.
 
 ## <a name="common-t-sql-limitations"></a>Limitações comuns do T-SQL
-A lista a seguir resume os recursos mais comuns que não têm suporte no SQL Data Warehouse do Azure. Os links levam a soluções alternativas para o recurso sem suporte:
+A lista a seguir resume os recursos mais comuns aos quais o SQL Data Warehouse não oferece suporte. Os links levam a soluções alternativas para os recursos sem suporte:
 
 * [Junções ANSI em atualizações][ANSI joins on updates]
 * [Junções ANSI em exclusões][ANSI joins on deletes]
@@ -76,7 +77,7 @@ As expressões de tabela comum têm algumas limitações no SQL Data Warehouse, 
 * Quando usado em instruções preparadas por sp_prepare, as CTEs se comportarão da mesma forma que outras instruções SELECT em PDW. No entanto, se as CTEs forem usadas como parte das CETAS preparadas por sp_prepare, o comportamento poderá ser diferente do SQL Server e de outras instruções de PDW, devido ao modo como a associação é implementada por sp_prepare. Se a instrução SELECT que faz referência à CTE estiver usando uma coluna incorreta que não existe na CTE, o sp_prepare passará sem detectar o erro, mas o erro será gerado durante sp_execute.
 
 ## <a name="recursive-ctes"></a>CTEs recursivas
-As CTEs recursivas não têm suporte no SQL Data Warehouse.  A migração de CTEs recursivas pode ser praticamente completa e o melhor processo é dividi-la o em várias etapas. Normalmente, você pode usar um loop e preencher uma tabela temporária à medida que você itera sobre as consultas recursivas provisórias. Depois que a tabela temporária for preenchida, você pode retornar os dados como um único conjunto de resultados. Uma abordagem semelhante foi usada para resolver o `GROUP BY WITH CUBE` no artigo [Agrupar por cláusula com opções de conjuntos de rollup/cubo/agrupamento][group by clause with rollup / cube / grouping sets options].
+As CTEs recursivas não têm suporte no SQL Data Warehouse.  A migração de CTEs recursivas pode ser um pouco complexa e o melhor processo é dividi-la em várias etapas. Normalmente, você pode usar um loop e preencher uma tabela temporária à medida que você itera sobre as consultas recursivas provisórias. Depois que a tabela temporária for preenchida, você pode retornar os dados como um único conjunto de resultados. Uma abordagem semelhante foi usada para resolver o `GROUP BY WITH CUBE` no artigo [Agrupar por cláusula com opções de conjuntos de rollup/cubo/agrupamento][group by clause with rollup / cube / grouping sets options].
 
 ## <a name="unsupported-system-functions"></a>Funções do sistema sem suporte
 Também há algumas funções do sistema que não têm suporte. Estas são algumas das principais e que normalmente são usadas em data warehouse:
@@ -91,7 +92,7 @@ Também há algumas funções do sistema que não têm suporte. Estas são algum
 Alguns desses problemas podem ser solucionados.
 
 ## <a name="rowcount-workaround"></a>Solução alternativa @@ROWCOUNT
-Para solucionar a falta de suporte para @@ROWCOUNT,, crie um procedimento armazenado que recuperará a última contagem de linhas de sys.dm_pdw_request_steps e, em seguida, execute `EXEC LastRowCount` após uma instrução DML.
+Para solucionar a falta de suporte para @@ROWCOUNT, crie um procedimento armazenado que recuperará a última contagem de linhas de sys.dm_pdw_request_steps e, em seguida, execute `EXEC LastRowCount` após uma instrução DML.
 
 ```sql
 CREATE PROCEDURE LastRowCount AS
@@ -135,9 +136,3 @@ Para obter uma lista completa de todas as instruções T-SQL com suporte, confir
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Jan17_HO5-->
-
-

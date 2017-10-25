@@ -15,8 +15,3 @@ Se um deles for exibido, a versão do SDK do Android instalado no Android Studio
 3. No Explorador de Projeto do Android Studio, clique com o botão direito do mouse no nó do projeto, escolha **Propriedades** e, na coluna esquerda, escolha **Android**. Verifique se a opção **Destino da Compilação do Projeto** está definida como a mesma versão do SDK que o **targetSdkVersion**.
 
 No Android Studio, o arquivo de manifesto não é usado para especificar o SDK de destino e a versão mínima do SDK, ao contrário do que ocorre com o Eclipse.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

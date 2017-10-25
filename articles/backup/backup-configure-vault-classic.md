@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/10/2017
+ms.date: 08/11/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: a7b55e3949cf8406f7c62e9dfd6cc1567d3a5996
-ms.lasthandoff: 03/14/2017
-
-
+ms.openlocfilehash: a8daa6a4655b72936b6299c0fa5b80459ffa5da3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-a-windows-server-or-workstation-to-azure-using-the-classic-portal"></a>Fazer backup de um servidor ou estação de trabalho do Windows no Azure usando o portal clássico
 > [!div class="op_single_selector"]
@@ -31,11 +30,7 @@ ms.lasthandoff: 03/14/2017
 
 Este artigo aborda os procedimentos que você precisa realizar para preparar seu ambiente e fazer backup de um servidor (ou estação de trabalho) do Windows no Azure. Ele também aborda considerações para a implantação de sua solução de backup. Se você estiver interessado em experimentar o Backup do Azure pela primeira vez, este artigo orientará você rapidamente pelo processo.
 
-
-> [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: Gerenciador de Recursos e Clássico. Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
->
->
+O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: Gerenciador de Recursos e Clássico. Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 ## <a name="before-you-start"></a>Antes de começar
 Para fazer backup de um servidor ou cliente no Azure, você precisará de uma conta do Azure. Se não tiver uma, você poderá criar uma [conta gratuita](https://azure.microsoft.com/free/) em apenas alguns minutos.
@@ -44,13 +39,16 @@ Para fazer backup de um servidor ou cliente no Azure, você precisará de uma co
 Para fazer o backup de arquivos e pastas de um servidor ou cliente, você deverá criar um cofre de backup na região geográfica em que deseja armazenar os dados.
 
 > [!IMPORTANT]
-> A partir de março de 2017, você não poderá mais usar o portal clássico para criar os cofres de Backup. Ainda há suporte para os cofres de Backup existentes, e é possível [usar o Azure PowerShell para criar os Cofres de Backup](./backup-client-automation-classic.md#create-a-backup-vault). No entanto, a Microsoft recomenda a criação de cofres dos Serviços de Recuperação para todas as implantações, pois aperfeiçoamentos futuros só se aplicam aos cofres dos Serviços de Recuperação.
+> A partir de março de 2017, você não poderá mais usar o portal clássico para criar os cofres de Backup.
+>
+> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> **15 de outubro de 2017**, você não poderá mais usar o PowerShell para criar cofres de Backup. <br/> **A partir de 1º de novembro de 2017**:
+>- Nenhum cofre de Backup restante será atualizado automaticamente para os cofres dos Serviços de Recuperação.
+>- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
+>
 
 
 ## <a name="download-the-vault-credential-file"></a>Baixe o arquivo de credencial do cofre
 O computador local precisa ser autenticado em um cofre de backup antes de poder fazer backup de dados no Azure. A autenticação é obtida por meio das *credenciais do cofre*. O arquivo de credencial do cofre é baixado por meio de um canal seguro no portal clássico. A chave privada do certificado não persiste no portal ou serviço.
-
-Saiba mais sobre como [usar as credenciais do cofre para autenticação no serviço do Backup](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file).
 
 ### <a name="to-download-the-vault-credential-file-to-a-local-machine"></a>Para baixar o arquivo de credenciais do cofre para um computador local
 1. Clique em **Serviços de Recuperação**no painel de navegação à esquerda e selecione o cofre de backup criado.
@@ -116,7 +114,7 @@ Após a política de backup concluir o backup inicial, ela criará pontos de bac
 3. Na página de Introdução do Assistente de Agendamento de Backup, clique em **Avançar**.
 4. Na tela Selecionar Itens para Backup, clique em **Adicionar Itens**.
 5. Selecione os arquivos e pastas dos quais você deseja fazer backup e clique em **Ok**.
-6. Clique em **Próximo**.
+6. Clique em **Avançar**.
 7. Na tela **Especificar Agendamento de Backup**, especifique o **agendamento de backup** e clique em **Avançar**.
 
     Você pode agendar backups diários (com uma taxa máxima de três vezes por dia) ou backups semanais.
@@ -172,4 +170,3 @@ Para saber mais sobre como fazer backup de VMs ou de outras cargas de trabalho, 
 * [Fazer backup de VMs IaaS](backup-azure-vms-prepare.md)
 * [Backup de cargas de trabalho no Azure com o Servidor de Backup do Microsoft Azure](backup-azure-microsoft-azure-backup.md)
 * [Fazer backup de cargas de trabalho no Azure com o DPM](backup-azure-dpm-introduction.md)
-

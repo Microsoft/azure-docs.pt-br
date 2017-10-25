@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9d3029817cae6570ff8871fbcb068250544595d7
-ms.lasthandoff: 03/21/2017
-
-
+ms.openlocfilehash: 39efa954fa1eb3d7d93dbeceac48b96d865349ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>Introdução ao SQL Data Warehouse
 
@@ -62,8 +61,7 @@ Um SQL Data Warehouse é um tipo especial de banco de dados que foi projetado pa
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
 2. Clique em **Novo** > **Bancos de dados** > **SQL Data Warehouse**.
 
-    ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png)
-    ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
+    ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png) ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
 
 3. Preencher os detalhes da implantação
 
@@ -83,8 +81,7 @@ Um SQL Data Warehouse é um tipo especial de banco de dados que foi projetado pa
 
     **Selecionar desempenho**: é recomendável iniciar com o 400DWU padrão.
 
-4. Escolha **Fixar no painel**
-    ![Fixar no painel](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
+4. Escolha **Fixar no painel** ![Fixar no painel](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
 
 5. Relaxe e aguarde o data warehouse implantar! É normal que esse processo leve vários minutos. O portal notifica você quando seu data warehouse está pronto para o uso. 
 
@@ -144,7 +141,6 @@ Como você está atualmente conectado como o administrador do servidor, tem perm
 
     ```sql
     CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 3. Agora, consulte o *banco de dados do SQL Data Warehouse*, crie um usuário do banco de dados com base no logon criado para acessar e executar operações no banco de dados.
@@ -507,7 +503,7 @@ O SQL Data Warehouse oferece suporte a uma instrução de chave chamada CREATE T
         s.request_id,
         r.status,
         count(distinct input_name) as nbr_files,
-        sum(s.bytes_processed)/1024/1024 as gb_processed
+        sum(s.bytes_processed)/1024/1024/1024 as gb_processed
     FROM 
         sys.dm_pdw_exec_requests r
         INNER JOIN sys.dm_pdw_dms_external_work s
@@ -576,6 +572,9 @@ Primeiro, vamos reduzir para 100 DWUs para lhe dar uma ideia de como a computaç
 6. Dimensione seu data warehouse de volta para 400 DWUs. Lembre-se de que cada 100 DWU adicionam outro nó de computação ao Azure SQL Data Warehouse.
 
 7. Execute a consulta novamente! Você deve notar uma diferença significativa. 
+
+    > [!NOTE]
+    > Como a consulta retorna muitos dados, a disponibilidade de largura de banda do computador executando o SSMS pode ser um afunilamento de desempenho. Isso pode resultar em nenhuma melhoria de desempenho!
 
 > [!NOTE]
 > Como o SQL Data Warehouse usa processamento paralelo massivo. As consultas que examinam ou executam funções de análise em milhões de linhas experimentam o verdadeira poder do Azure SQL Data Warehouse.
@@ -653,7 +652,7 @@ Se tiver terminado de explorar por hoje, pause a instância! Em produção, voc�
 
 [Migrando dados para o Azure SQL Data Warehouse][]
 
-[Gerenciamento de simultaneidade e carga de trabalho]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
+[Gerenciamento de simultaneidade e carga de trabalho]: sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example
 [Práticas recomendadas para o Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
 [Consultar monitoramento]: sql-data-warehouse-manage-monitor.md
 [Dez principais práticas recomendadas para a criação de um Data Warehouse relacional em grande escala]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/
@@ -669,4 +668,3 @@ Se tiver terminado de explorar por hoje, pause a instância! Em produção, voc�
 <!--Other Web references-->
 [Visual Studio]: https://www.visualstudio.com/
 [SQL Server Management Studio]: https://msdn.microsoft.com/en-us/library/mt238290.aspx
-

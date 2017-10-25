@@ -27,8 +27,3 @@ Vamos começar adicionando a ação para extrair os arquivos se a condição def
    ![Imagem de condição de ação de SFTP 13](./media/connectors-create-api-sftp/condition-13.png)   
 9. Salve as alterações no fluxo de trabalho  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

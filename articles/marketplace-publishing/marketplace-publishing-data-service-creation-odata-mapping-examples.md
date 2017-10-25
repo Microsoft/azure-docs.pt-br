@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f479602647d67e7048371df76b128e33b27c1014
-
-
+ms.openlocfilehash: 2ab624941fc385f14b62bb5d743927f157955845
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="examples-of-mapping-an-existing-web-service-to-odata-through-csdls"></a>Exemplos de mapeamento de um serviço Web existente para OData por meio de CSDL
 > [!IMPORTANT]
@@ -27,7 +27,7 @@ ms.openlocfilehash: f479602647d67e7048371df76b128e33b27c1014
 > 
 
 ## <a name="example-functionimport-for-raw-data-returned-using-post"></a>Exemplo: FunctionImport para dados “Brutos” retornados usando "POST"
-Use Dados brutos de POST para criar uma nova subordinada e retornar sua URL(local) definida de servidor ou atualizar parte da subordinada na URL definida do servidor.  Onde a subordinada é uma transmissão, por exemplo, não estruturada, por exemplo, um arquivo de texto.  Esteja ciente de que POST não é idempotente sem um local.
+Use Dados brutos de POST para criar uma nova subordinada e retornar sua URL(local) definida de servidor ou atualizar parte da subordinada na URL definida do servidor.  No qual a subordinada é um stream, ou seja, não estruturada, por exemplo, um arquivo de texto.  Esteja ciente de que POST não é idempotente sem um local.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="AddUsageEvent" ReturnType="Raw(text/plain)" d:EncodeParameterValues="true" d:AllowedHttpMethods="POST" d:BaseUri="http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -106,7 +106,7 @@ Use PUT para criar uma nova subordinada ou atualizar a subordinada por completo 
 
 
 ## <a name="example-functionimport-for-raw-data-returned-using-put"></a>Exemplo: FunctionImport para dados “Brutos” retornados usando "PUT"
-Use Dados brutos PUT para criar uma nova subordinada ou atualizar a subordinada por completo em uma URL definida do servidor.  Onde a subordinada é uma transmissão, por exemplo, não estruturada, por exemplo, um arquivo de texto.  PUT é idempotente para várias ocorrências resultando no mesmo estado, ou seja, x = 5.  PUT deve ser usado com o conteúdo completo do recurso especificado.
+Use Dados brutos PUT para criar uma nova subordinada ou atualizar a subordinada por completo em uma URL definida do servidor.  No qual a subordinada é um stream, ou seja, não estruturada, por exemplo, um arquivo de texto.  PUT é idempotente para várias ocorrências resultando no mesmo estado, ou seja, x = 5.  PUT deve ser usado com o conteúdo completo do recurso especificado.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="CancelBuild” ReturnType="Raw(text/plain)" d:AllowedHttpMethods="PUT" d:EncodeParameterValues="true" d:BaseUri=” http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -144,7 +144,7 @@ Use Dados brutos GET para retornar uma subordinada não estruturada, ou seja, te
         </FunctionImport>
 
 ## <a name="example-functionimport-for-paging-through-returned-data"></a>Exemplo: FunctionImport para "Paginação" através de dados retornados
-Use implementar paginação RESTful atrav[es de seus dados com GET.  Paginação padrão é definida como 100 linhas por página de dados.
+Use implementar paginação RESTful atraves de seus dados com GET.  Paginação padrão é definida como 100 linhas por página de dados.
 
         <EntitySet Name=”CropEntitySet" EntityType="MyOffer.CropEntity" />
         <FunctionImport    Name="GetCropReport" EntitySet="CropEntitySet” ReturnType="Collection(MyOffer.CropEntity)" d:EmitSelfLink="false" d:EncodeParameterValues="true" d:Paging="SkipTake" d:MaxPageSize="100" d:BaseUri="http://api.mydata.org/Crop? report={report}&amp;series={series}&amp;start={$skip}&amp;size=100">
@@ -162,10 +162,4 @@ Use implementar paginação RESTful atrav[es de seus dados com GET.  Paginação
 * Se estiver interessado em entender o processo e a finalidade geral do mapeamento de OData, leia este artigo [Mapeamento OData de Serviço de Dados](marketplace-publishing-data-service-creation-odata-mapping.md) para examinar as definições, as estruturas e as instruções.
 * Se estiver interessado em aprender e em compreender os nós específicos e seus parâmetros, leia este artigo [Nós do mapeamento OData de Serviço de Dados](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) para obter definições, explicações, exemplos e contexto de casos de uso.
 * Para retornar ao caminho indicado para a publicação de um Serviço de Dados no Azure Marketplace, leia este artigo [Guia de publicação de Serviço de Dados](marketplace-publishing-data-service-creation.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

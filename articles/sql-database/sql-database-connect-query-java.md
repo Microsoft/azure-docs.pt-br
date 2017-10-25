@@ -1,6 +1,6 @@
 ---
-title: Conectar-se ao Banco de Dados SQL do Azure usando Java | Microsoft Docs
-description: "Apresenta um exemplo de código Java que pode ser usado para se conectar ao Banco de Dados SQL do Azure."
+title: Como usar o Java para consultar o banco de dados SQL do Azure| Microsoft Docs
+description: "Este tópico mostra como usar o Java para criar um programa que se conecta a um banco de dados SQL do Azure e consultá-los usando instruções do Transact-SQL."
 services: sql-database
 documentationcenter: 
 author: ajlam
@@ -8,295 +8,156 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: article
-ms.date: 03/27/2017
-ms.author: andrela;carlrab;sstein
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: a047d4cdf869fff0d2afaf11f124370c0eae98e4
-ms.lasthandoff: 03/30/2017
-
-
+ms.topic: quickstart
+ms.date: 07/10/2017
+ms.author: andrela
+ms.openlocfilehash: 943e355ffcc6c0670585936ec2e559b7fb592ff5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-sql-database-use-java-to-connect-and-query-data"></a>Banco de Dados SQL do Azure: Usar Java para conectar e consultar dados
+# <a name="use-java-to-query-an-azure-sql-database"></a>Como usar o Java para consultar um banco de dados SQL do Azure
 
-Use o [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) para conectar e consultar um banco de dados SQL do Azure. Este guia detalha o uso do Java para se conectar a um banco de dados SQL do Azure e, depois, executar instruções de consulta, inserção, atualização e exclusão.
+Este guia de início rápido mostra como usar o [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) para se conectar a um banco de dados SQL do Azure e, em seguida, usar instruções Transact-SQL para consultar dados.
 
-Este início rápido usa como ponto de partida os recursos criados em um destes inícios rápidos:
+## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar Banco de dados - Portal](sql-database-get-started-portal.md)
-- [Criar Banco de dados - CLI](sql-database-get-started-cli.md)
+Para concluir este tutorial de início rápido, certifique-se de que tenha os seguintes pré-requisitos:
 
-## <a name="configure-development-environment"></a>Configurar o ambiente de desenvolvimento
+- Um banco de dados SQL do Azure. Este início rápido usa os recursos criados em um destes inícios rápidos: 
 
-A seções a seguir detalham como configurar os ambientes de desenvolvimento existentes do Mac OS, Linux (Ubuntu) e Windows para trabalhar com o Banco de Dados SQL do Azure.
+   - [Criar Banco de dados - Portal](sql-database-get-started-portal.md)
+   - [Criar Banco de dados - CLI](sql-database-get-started-cli.md)
+   - [Criar Banco de dados - PowerShell](sql-database-get-started-powershell.md)
 
-### <a name="mac-os"></a>**Mac OS**
-Abra seu terminal e navegue até um diretório no qual você planeja criar o projeto Java. Digite os comandos a seguir para instalar **brew** e **Maven**. 
+- Uma [regra de firewall no nível de servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para o endereço IP público do computador usado neste tutorial de início rápido.
 
-```
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew install maven
-```
+- Você instalou o Java e o software relacionado para seu sistema operacional.
 
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
-Abra seu terminal e navegue até um diretório no qual você planeja criar o projeto Java. Digite os comandos a seguir para instalar o **Maven**. 
+    - **MacOS**: instale o Homebrew e o Java e, em seguida, instale o Maven. Confira as [etapas 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
+    - **Ubuntu**: instale o Kit de desenvolvimento Java e instale o Maven. Confira as [etapas 1.2, 1.3 e 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
+    - **Windows**: instale o Kit de desenvolvimento Java e o Maven. Confira as [etapas 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).    
 
-```
-sudo apt-get install maven
-```
+## <a name="sql-server-connection-information"></a>Informações de conexão do servidor SQL
 
-### <a name="windows"></a>**Windows**
-Instale o [Maven](https://maven.apache.org/download.cgi) usando o instalador oficial.  
-
-## <a name="get-connection-information"></a>Obter informações de conexão
-
-Obtenha a cadeia de conexão no Portal do Azure. Use a cadeia de conexão para se conectar ao Banco de Dados SQL do Azure.
+Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados SQL do Azure. Você precisará do nome totalmente qualificado do servidor, nome do banco de dados e informações de logon nos próximos procedimentos.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Selecione **Bancos de Dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de Dados SQL**. 
-3. No painel **Essentials** de seu banco de dados, examine o nome do servidor totalmente qualificado. 
+3. Na página **Visão geral** do seu banco de dados, examine o nome do servidor totalmente qualificado, conforme mostrado na imagem a seguir: você pode passar o mouse por cima do nome do servidor para exibir a opção **Clique para copiar**.  
 
-    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="server name" style="width: 780px;" />
+   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Clique em **Mostrar cadeias de conexão de banco de dados**.
+4. Se você esquecer as suas informações de logon do servidor, navegue até a página do servidor do Banco de Dados SQL para exibir o nome de administrador do servidor.  Se necessário, redefina a senha.     
 
-5. Examine a cadeia de conexão completa do **JDBC**.
+## <a name="create-maven-project-and-dependencies"></a>**Como criar dependências e projeto Maven**
+1. A partir do terminal, crie um novo projeto Maven chamado **sqltest**. 
 
-    <img src="./media/sql-database-connect-query-jdbc/jdbc-connection-string.png" alt="JDBC connection string" style="width: 780px;" />
+   ```bash
+   mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
+   ```
 
-### <a name="create-maven-project"></a>**Criar projeto Maven**
-No terminal, crie um novo projeto Maven. 
-```
-mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
-```
+2. Digite **Y** quando solicitado.
+3. Altere o diretório para **sqltest** e abra ***pom.xml*** com seu editor de texto preferido.  Adicione o **Microsoft JDBC Driver para SQL Server** às suas dependências do projeto usando o seguinte código:
 
-Adicione o **Microsoft JDBC Driver para SQL Server** às dependências em ***pom.xml***. 
+   ```xml
+   <dependency>
+       <groupId>com.microsoft.sqlserver</groupId>
+       <artifactId>mssql-jdbc</artifactId>
+       <version>6.2.1.jre8</version>
+   </dependency>
+   ```
 
-```xml
-<dependency>
-    <groupId>com.microsoft.sqlserver</groupId>
-    <artifactId>mssql-jdbc</artifactId>
-    <version>6.1.0.jre8</version>
-</dependency>
-```
+4. Também no ***pom.xml***, adicione as seguintes propriedades ao seu projeto.  Se não tiver uma seção de propriedades, você pode adicioná-lo depois das dependências.
 
-## <a name="select-data"></a>Selecionar dados
+   ```xml
+   <properties>
+       <maven.compiler.source>1.8</maven.compiler.source>
+       <maven.compiler.target>1.8</maven.compiler.target>
+   </properties>
+   ```
 
-Use a função [connection](https://docs.microsoft.com/sql/connect/jdbc/working-with-a-connection) com uma instrução [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) de Transact-SQL para consultar dados no banco de dados SQL do Azure usando java.
+5. Salve e feche o ***pom.xml***.
 
-```java
-package com.sqldbsamples;
+## <a name="insert-code-to-query-sql-database"></a>Inserir código para consultar o banco de dados SQL
 
-import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.DriverManager;
+1. Você já deve ter um arquivo chamado ***App.java*** no seu projeto Maven localizado em:  ..\sqltest\src\main\java\com\sqlsamples\App.java
 
-public class App {
+2. Abra o arquivo e substitua o conteúdo dele pelo código a seguir e adicione os valores apropriados para seu servidor, banco de dados, usuário e senha.
 
-    public static void main(String[] args) {
-    
-        // Connect to database
-        String hostName = "yourserver";
-        String dbName = "yourdatabase";
-        String user = "yourusername";
-        String password = "yourpassword";
-        String url = String.format("jdbc:sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
-        Connection connection = null;
+   ```java
+   package com.sqldbsamples;
 
-        try {
-                connection = DriverManager.getConnection(url);
-                String schema = connection.getSchema();
-                System.out.println("Successful connection - Schema: " + schema);
+   import java.sql.Connection;
+   import java.sql.Statement;
+   import java.sql.PreparedStatement;
+   import java.sql.ResultSet;
+   import java.sql.DriverManager;
 
-                System.out.println("Query data example:");
-                System.out.println("=========================================");
-
-                // Create and execute a SELECT SQL statement.
-                String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName " 
-                    + "FROM [SalesLT].[ProductCategory] pc "  
-                    + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
-                Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(selectSql);
-
-                // Print results from select statement
-                System.out.println("Top 20 categories:");
-                while (resultSet.next())
-                {
-                    System.out.println(resultSet.getString(1) + " "
-                        + resultSet.getString(2));
-                }
-            }
-        catch (Exception e) {
-                e.printStackTrace();
-        }
-    }
-}
-```
-
-## <a name="insert-data"></a>Inserir dados
-
-Use [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) com uma instrução [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) de Transact-SQL para inserir dados no banco de dados SQL do Azure.
-
-```java
-package com.sqldbsamples;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.DriverManager;
-
-public class App {
+   public class App {
 
     public static void main(String[] args) {
     
         // Connect to database
-        String hostName = "yourserver";
-        String dbName = "yourdatabase";
-        String user = "yourusername";
-        String password = "yourpassword";
-        String url = String.format("jdbc:sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
-        Connection connection = null;
+           String hostName = "your_server.database.windows.net";
+           String dbName = "your_database";
+           String user = "your_username";
+           String password = "your_password";
+           String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
+           Connection connection = null;
 
-        try {
-                connection = DriverManager.getConnection(url);
-                String schema = connection.getSchema();
-                System.out.println("Successful connection - Schema: " + schema);
+           try {
+                   connection = DriverManager.getConnection(url);
+                   String schema = connection.getSchema();
+                   System.out.println("Successful connection - Schema: " + schema);
 
-                System.out.println("Insert data example:");
-                System.out.println("=========================================");
+                   System.out.println("Query data example:");
+                   System.out.println("=========================================");
 
-                // Prepared statement to insert data
-                String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, )" 
-                    + " StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
+                   // Create and execute a SELECT SQL statement.
+                   String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName " 
+                       + "FROM [SalesLT].[ProductCategory] pc "  
+                       + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
+                
+                   try (Statement statement = connection.createStatement();
+                       ResultSet resultSet = statement.executeQuery(selectSql)) {
 
-                java.util.Date date = new java.util.Date();
-                java.sql.Timestamp sqlTimeStamp = new java.sql.Timestamp(date.getTime());
+                           // Print results from select statement
+                           System.out.println("Top 20 categories:");
+                           while (resultSet.next())
+                           {
+                               System.out.println(resultSet.getString(1) + " "
+                                   + resultSet.getString(2));
+                           }
+                    connection.close();
+                   }                   
+           }
+           catch (Exception e) {
+                   e.printStackTrace();
+           }
+       }
+   }
+   ```
 
-                PreparedStatement prep = connection.prepareStatement(insertSql);
-                prep.setString(1, "BrandNewProduct");
-                prep.setInt(2, 200989);
-                prep.setString(3, "Blue");
-                prep.setDouble(4, 75);
-                prep.setDouble(5, 80);
-                prep.setTimestamp(6, sqlTimeStamp);
+## <a name="run-the-code"></a>Executar o código
 
-                int count = prep.executeUpdate();
-                System.out.println("Inserted: " + count + " row(s)");
-        }
-        catch (Exception e) {
-                e.printStackTrace();
-        }
-    }
-}
-```
-## <a name="update-data"></a>Atualizar dados
+1. No prompt de comando, execute estes comandos:
 
-Use [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) com uma instrução [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) de Transact-SQL para atualizar dados no banco de dados SQL do Azure.
+   ```bash
+   mvn package
+   mvn -q exec:java "-Dexec.mainClass=com.sqldbsamples.App"
+   ```
 
-```java
-package com.sqldbsamples;
+2. Verifique se as 20 linhas superiores são retornadas e, em seguida, feche a janela do aplicativo.
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.DriverManager;
-
-public class App {
-
-    public static void main(String[] args) {
-    
-        // Connect to database
-        String hostName = "yourserver";
-        String dbName = "yourdatabase";
-        String user = "yourusername";
-        String password = "yourpassword";
-        String url = String.format("jdbc:sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
-        Connection connection = null;
-
-        try {
-                connection = DriverManager.getConnection(url);
-                String schema = connection.getSchema();
-                System.out.println("Successful connection - Schema: " + schema);
-
-                System.out.println("Update data example:");
-                System.out.println("=========================================");
-
-                // Prepared statement to update data
-                String updateSql = "UPDATE SalesLT.Product SET ListPrice = ? WHERE Name = ?";
-
-                PreparedStatement prep = connection.prepareStatement(updateSql);
-                prep.setString(1, "500");
-                prep.setString(2, "BrandNewProduct");
-
-                int count = prep.executeUpdate();
-                System.out.println("Updated: " + count + " row(s)")
-        }
-        catch (Exception e) {
-                e.printStackTrace();
-        }
-    }
-}
-```
-
-
-
-## <a name="delete-data"></a>Excluir dados
-
-Use [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) com uma instrução [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) de Transact-SQL para excluir dados do banco de dados SQL do Azure.
-
-```java
-package com.sqldbsamples;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.DriverManager;
-
-public class App {
-
-    public static void main(String[] args) {
-    
-        // Connect to database
-        String hostName = "yourserver";
-        String dbName = "yourdatabase";
-        String user = "yourusername";
-        String password = "yourpassword";
-        String url = String.format("jdbc:sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
-        Connection connection = null;
-
-        try {
-                connection = DriverManager.getConnection(url);
-                String schema = connection.getSchema();
-                System.out.println("Successful connection - Schema: " + schema);
-
-                System.out.println("Delete data example:");
-                System.out.println("=========================================");
-
-                // Prepared statement to delete data
-                String deleteSql = "DELETE SalesLT.Product WHERE Name = ?";
-
-                PreparedStatement prep = connection.prepareStatement(deleteSql);
-                prep.setString(1, "BrandNewProduct");
-
-                int count = prep.executeUpdate();
-                System.out.println("Deleted: " + count + " row(s)");
-            }        
-        catch (Exception e) {
-                e.printStackTrace();
-        }
-    }
-}
-```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Leia a [Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md).
-* Repositório Github para [Microsoft JDBC Driver para SQL Server](https://github.com/microsoft/mssql-jdbc).
-* [Registre problemas/faça perguntas](https://github.com/microsoft/mssql-jdbc/issues).
-* Explore todas as [funcionalidades do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/).
-
+- [Projetar seu primeiro banco de dados SQL do Azure](sql-database-design-first-database.md)
+- [Microsoft JDBC Driver para SQL Server](https://github.com/microsoft/mssql-jdbc)
+- [Relatar problemas/fazer perguntas](https://github.com/microsoft/mssql-jdbc/issues)
 

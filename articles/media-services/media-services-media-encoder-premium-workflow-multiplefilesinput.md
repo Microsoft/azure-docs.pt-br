@@ -4,7 +4,7 @@ description: "Este tópico explica como usar setRuntimeProperties para usar vár
 services: media-services
 documentationcenter: 
 author: xpouyat
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 7fb35bdd-9891-4401-a65b-ef3cc8190e8a
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/20/2017
 ms.author: xpouyat;anilmur;juliako
-translationtype: Human Translation
-ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
-ms.openlocfilehash: c789a5518575706992c8719c1927a8566c504fbb
-
-
+ms.openlocfilehash: df1ee5089a0af6ffce1431b658843fcb34a66ce5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Usando vários arquivos de entrada e propriedades do componente com o Codificador Premium
 ## <a name="overview"></a>Visão geral
@@ -477,9 +477,3 @@ Para codificar, siga estas etapas:
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

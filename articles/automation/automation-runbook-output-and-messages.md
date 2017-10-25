@@ -3,7 +3,7 @@ title: "Saída e mensagens do runbook na Automação do Azure | Microsoft Docs"
 description: "Descreve como criar e recuperar a saída e mensagens de erro de runbooks na Automação do Azure."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 13a414f5-0e2c-4be2-9558-a3e3ec84b6b2
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 505834d7354fb920e7ebd931e3bb31d837a79077
-ms.openlocfilehash: 6f01f97e38aa271034741c8a5e2f8057ab61fcd7
-
-
+ms.openlocfilehash: 212aa4ede83b7c9f3240f8f32073bb7b87bda06d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Saída e mensagens do runbook na Automação do Azure
 A maioria dos runbooks da Automação do Azure terá alguma forma de saída, como uma mensagem de erro para o usuário ou um objeto complexo destinado a ser consumido por outro fluxo de trabalho. O Windows PowerShell oferece [vários fluxos](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) para o envio da saída de um script ou de um de fluxo de trabalho. A Automação do Azure funciona com cada um desses fluxos de forma diferente e você deve seguir as práticas recomendadas de como usar cada um quando estiver criando um runbook.
@@ -99,7 +99,7 @@ Para declarar um tipo de saída em runbooks Gráficos ou de Fluxo de Trabalho Gr
 
 No exemplo a seguir, temos dois runbooks gráficos para demonstrar esse recurso.  Se aplicarmos o modelo de design modular do runbook, temos um runbook que serve como o *modelo de Autenticação do Runbook* que gerencia a autenticação com o Azure usando a conta Executar como.  Nosso segundo runbook, que normalmente executaria a lógica principal para automatizar um determinado cenário, nesse caso executará o *modelo de Autenticação de Runbook* e exibirá os resultados para o painel de saída **Teste** .  Sob circunstâncias normais, esse runbook teria de fazer algo em um recurso aproveitando a saída do runbook filho.    
 
-Veja a lógica básica do runbook** AuthenticateTo-Azure**.<br> ![Exemplo de modelo de runbook de autenticação](media/automation-runbook-output-and-messages/runbook-authentication-template.png).  
+Veja a lógica básica do runbook **AuthenticateTo-Azure**.<br> ![Exemplo de modelo de runbook de autenticação](media/automation-runbook-output-and-messages/runbook-authentication-template.png).  
 
 Ele inclui o tipo de saída *Microsoft.Azure.Commands.Profile.Models.PSAzureContext*, que retornará as propriedades de perfil de autenticação.<br> ![Exemplo de tipo de saída de runbook](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png) 
 
@@ -187,6 +187,11 @@ O exemplo a seguir inicia um runbook de exemplo e aguarda a sua conclusão. Depo
 
     Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
+    
+    # For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
+    Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
+    
 
 ### <a name="graphical-authoring"></a>Criação gráfica
 Para runbooks gráficos, um log extra está disponível na forma de rastreamento em nível de atividade.  Há dois níveis de rastreamento: Básico e Detalhado.  No rastreamento Básico, é possível ver a hora de início e de término de cada atividade do runbook, além de informações relacionadas a quaisquer repetições de atividade, como o número de tentativas e a hora de início da atividade.  No rastreamento Detalhado, você obtém o rastreamento Básico, além de dados de entrada e de saída para cada atividade.  Observe que, atualmente, os registros de rastreamento são escritos usando a transmissão detalhada; portanto, é necessário, habilitar o log Detalhado ao habilitar o rastreamento.  Para runbooks gráficos com o rastreamento habilitado, não é necessário fazer registros de progresso de log, pois o rastreamento Básico tem a mesma finalidade e é mais informativo.
@@ -220,10 +225,4 @@ Para saber mais sobre como configurar a integração com o Log Analytics para co
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre a execução de runbooks, como monitorar trabalhos de runbook e outros detalhes técnicos, confira [Acompanhar um trabalho de runbook](automation-runbook-execution.md)
 * Para entender como criar e usar runbooks filho, consulte [Runbooks filho na Automação do Azure](automation-child-runbooks.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

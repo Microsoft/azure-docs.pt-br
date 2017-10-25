@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: cd7e8564d24e45bad291c3632021f96fb1584b6f
-ms.openlocfilehash: 730cf9be80be5c5381148f138c3a437beb95c340
-ms.lasthandoff: 02/09/2017
-
-
+ms.openlocfilehash: 04392b535965edd785bbb66a52eb6b41b768553e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-apache-phoenix-and-squirrel-with-windows-based-hbase-clusters-in-hdinsight"></a>Usar Apache Phoenix e SQuirreL com clusters do HBase baseados em Windows no HDInsight
 Saiba como usar o [Apache Phoenix](http://phoenix.apache.org/) no HDInsight e como instalar e configurar o SQuirreL na sua estação de trabalho para se conectar a um cluster HBase no HDInsight. Para obter mais informações sobre o Phoenix, consulte [Phoenix em 15 minutos ou menos](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Para conhecer a gramática de Phoenix, consulte [Gramática do Phoenix](http://phoenix.apache.org/language/index.html).
@@ -30,7 +29,7 @@ Saiba como usar o [Apache Phoenix](http://phoenix.apache.org/) no HDInsight e co
 >
 
 > [!IMPORTANT]
-> As etapas neste documento só funcionam para clusters HDInsight baseados no Windows. O HDInsight está disponível somente no Windows para versões inferiores ao HDInsight 3.4. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Para obter informações sobre como usar o Phoenix no HDInsight baseado em Linux, consulte [Usar o Apache Phoenix com clusters HBase baseados em Linux no HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
+> As etapas neste documento só funcionam para clusters HDInsight baseados no Windows. O HDInsight está disponível somente no Windows para versões inferiores ao HDInsight 3.4. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Para obter informações sobre como usar o Phoenix no HDInsight baseado em Linux, consulte [Usar o Apache Phoenix com clusters HBase baseados em Linux no HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
 >
 
 
@@ -88,7 +87,7 @@ Antes de seguir os procedimentos, você deve ter o seguinte:
 * Obtenha o sufixo DNS específico da Conexão do cluster de cluster HBase. Para obtê-lo, faça RDP no cluster e, em seguida, execute IPConfig.  O sufixo DNS é semelhante a:
 
         myhbase.b7.internal.cloudapp.net
-* Baixe e instale o [Microsoft Visual Studio Express 2013 para Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx) em sua estação de trabalho. Você precisará garantir o pacote para criar seu certificado.  
+* Baixe e instale o [Microsoft Visual Studio Express para Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx) em sua estação de trabalho. Você precisará garantir o pacote para criar seu certificado.  
 * Baixe e instale o [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html) em sua estação de trabalho.  O SQuirreL SQL client versão 3.0 e superior requer JRE versão 1.6 ou superior.  
 
 ### <a name="configure-a-point-to-site-vpn-connection-to-the-azure-virtual-network"></a>Configurar uma conexão VPN site a ponto para a rede virtual do Azure
@@ -127,7 +126,7 @@ Garanta que você possua um cluster HBase em uma rede virtual do Azure (consulte
     O diagrama mostra 0 conexões de cliente. Depois de fazer uma conexão com a rede virtual, o número será atualizado para um.
 
 #### <a name="create-your-certificates"></a>Criar seus certificados
-Uma maneira de criar um certificado X.509 é usando a ferramenta de criação de certificado (makecert.exe) que acompanha o [Microsoft Visual Studio Express 2013 para Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx).
+Uma maneira de criar um certificado X.509 é usando a Ferramenta de Criação de Certificado (makecert.exe) que acompanha o [Microsoft Visual Studio Express para Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx).
 
 **Para criar um certificado autoassinado**
 
@@ -206,7 +205,7 @@ Uma maneira de criar um certificado X.509 é usando a ferramenta de criação de
   >
   >     java.exe -jar [o caminho do arquivo jar do SQuirreL]
 5. Clique em **OK** para confirmar a criação do diretório de destino.
-6. A configuração padrão é para instalar os pacotes Base e Padrão.  Clique em **Próximo**.
+6. A configuração padrão é para instalar os pacotes Base e Padrão.  Clique em **Avançar**.
 7. Clique em **Próximo** duas vezes e, em seguida, clique em **Pronto**.
 
 **Para instalar o driver do Phoenix**
@@ -271,7 +270,7 @@ Neste artigo, você aprendeu a usar o Apache Phoenix no HDInsight.  Para obter m
 * [Visão geral do HBase do HDInsight][hdinsight-hbase-overview]: o HBase é um banco de dados NoSQL de software livre Apache baseado no Hadoop que fornece acesso aleatório e uma sólida consistência para grandes quantidades de dados não estruturados e semiestruturados.
 * [Provisionar clusters do HBase na Rede Virtual do Azure][hdinsight-hbase-provision-vnet]: com a integração da rede virtual, os clusters do HBase podem ser implantados na mesma rede virtual que seus aplicativos, de modo que os aplicativos possam se comunicar diretamente com o HBase.
 * [Configurar replicação HBase no HDInsight](hdinsight-hbase-replication.md): saiba como configurar a replicação do HBase entre dois datacenters do Azure.
-* [Analisar sentimentos do Twitter com o HBase no HDInsight][hbase-twitter-sentiment]: saiba como fazer a [análise de sentimento](http://en.wikipedia.org/wiki/Sentiment_analysis) em tempo real de Big Data usando o HBase em um cluster do Hadoop no HDInsight.
+
 
 [azure-portal]: https://portal.azure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
@@ -281,7 +280,6 @@ Neste artigo, você aprendeu a usar o Apache Phoenix no HDInsight.  Para obter m
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
-[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
 [hdinsight-hbase-phoenix-sqlline]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-phoenix-sqlline.png
 [img-certificate]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-vpn-certificate.png
@@ -290,4 +288,3 @@ Neste artigo, você aprendeu a usar o Apache Phoenix no HDInsight.  Para obter m
 [img-squirrel-alias]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-alias.png
 [img-squirrel]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel.png
 [img-squirrel-sql]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-sql.png
-

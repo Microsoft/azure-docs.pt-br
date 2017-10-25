@@ -12,12 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 05/01/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: 24c2670394c2873b333f41c081a8134710d16d54
-
+ms.openlocfilehash: c75c6ed40754aee964e2b68f4f569dc1422507f2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-multipath-io-on-windows-server-host-for-the-storsimple-virtual-array"></a>Configurar o Multipath I/O no host do Windows Server para a Matriz Virtual StorSimple
 ## <a name="overview"></a>Visão geral
@@ -45,7 +46,7 @@ Esta seção detalha os pré-requisitos de configuração para o host do Windows
 ### <a name="on-storsimple-virtual-array"></a>Na matriz virtual do StorSimple
 * A matriz virtual deve estar configurada como um servidor iSCSI. Para saber mais, confira o artigo sobre como [configurar a matriz virtual como um servidor iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md). Uma ou mais interfaces de rede devem estar habilitadas na matriz.   
 * As interfaces de rede na matriz virtual devem poder ser acessadas pelo host do Windows Server.
-* Um ou mais volumes devem ser criados na Matriz Virtual StorSimple. Para saber mais, confira [Adicionar um volume](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume) na Matriz Virtual StorSimple. Neste procedimento, criamos 3 volumes (1 localmente fixo e 2 volumes em camadas, como mostrado abaixo) na matriz virtual.
+* Um ou mais volumes devem ser criados na Matriz Virtual StorSimple. Para saber mais, confira [Adicionar um volume](storsimple-virtual-array-deploy3-iscsi-setup.md#step-3-add-a-volume) na Matriz Virtual StorSimple. Neste procedimento, criamos 3 volumes (1 localmente fixo e 2 volumes em camadas, como mostrado abaixo) na matriz virtual.
   
     ![mpio0](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio0.png)
 
@@ -156,10 +157,4 @@ Depois de configurar o MPIO no Windows Server, os volumes criados na matriz Stor
    
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre como [usar o Gerenciador de Dispositivo StorSimple para administrar a Matriz Virtual StorSimple](storsimple-virtual-array-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

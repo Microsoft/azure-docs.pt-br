@@ -1,8 +1,8 @@
 ---
 title: "Dimensionar manualmente a contagem de instância ou com dimensionamento automático com o Portal do Azure | Microsoft Docs"
 description: "Saiba como dimensionar seus serviços do Azure."
-author: rboucher
-manager: carmonm
+author: anirudhcavale
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2015
-ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1e680679086d54a2c6b10be7635e997ac61bacd5
-
-
+ms.date: 06/06/2017
+ms.author: ancav
+ms.openlocfilehash: d171538ea57839eccddcc74ca099a39aee34ea10
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Dimensionar a contagem de instância manualmente ou automaticamente
 No [Portal do Azure](https://portal.azure.com/), você pode definir manualmente a contagem de instâncias de seu serviço ou definir parâmetros para que o dimensionamento seja feito automaticamente com base na demanda. Isso é normalmente conhecido como *escala horizontal* ou *redução horizontal*.
 
 Antes de dimensionamento com base na contagem de instâncias, você deve considerar que o dimensionamento é afetado pela **camada de preços** além de contagem de instâncias. Diferentes faixas de preço podem ter diferentes números de núcleos e memória e, portanto, terão melhor desempenho para o mesmo número de instâncias (o que significa *escalar verticalmente* ou *reduzir verticalmente*). Este artigo aborda especificamente a *redução horizontal* e a *escala horizontal*.
 
-Você pode reduzir horizontalmente no portal e também pode usar a [API REST](https://msdn.microsoft.com/library/azure/dn931953.aspx) ou o [SDK .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) para ajustar a escala manual ou automaticamente.
+Você pode reduzir horizontalmente no portal e também pode usar a [API REST](https://msdn.microsoft.com/library/azure/dn931953.aspx) ou o [SDK .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) para ajustar a escala manual ou automaticamente.
 
 > [!NOTE]
 > Este artigo descreve como criar uma configuração de dimensionamento automático no portal em [http://portal.azure.com](http://portal.azure.com). As configurações de autoescala criadas nesse portal não podem ser editadas no portal clássico ([http://manage.windowsazure.com](http://manage.windowsazure.com)).
@@ -34,10 +34,8 @@ Você pode reduzir horizontalmente no portal e também pode usar a [API REST](ht
 
 ## <a name="scaling-manually"></a>Dimensionando manualmente
 1. No [Portal do Azure](https://portal.azure.com/), clique em **Procurar**, navegue até o recurso que você deseja dimensionar, como um **plano do Serviço de Aplicativo**.
-2. O bloco **Dimensionar** em **Operações** informará o status do dimensionamento: **Desativado** para quando você estiver dimensionando manualmente, **Ativado** para quando você estiver dimensionando de acordo com uma ou mais métricas de desempenho. 
-   
-    ![Bloco Dimensionar](./media/insights-how-to-scale/Insights_UsageLens.png)
-3. Clicar no bloco abrirá a folha **Dimensionar** . Na parte superior da folha Dimensionar, você pode ver um histórico das ações de dimensionamento automático do serviço.
+2. Clique em **Configurações > Escalar horizontalmente (Plano do Serviço de Aplicativo).**
+3. Na parte superior da folha **Escala**, você pode ver um histórico das ações de dimensionamento automático do serviço.
    
     ![Lâmina Escala](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    
@@ -129,10 +127,4 @@ No entanto, você talvez queira ter um dimensionamento mais agressivo durante o 
 * [Monitore o desempenho do aplicativo](../application-insights/app-insights-azure-web-apps.md) se você quiser compreender exatamente como seu código está sendo executado na nuvem.
 * [Exiba eventos e logs de atividade](insights-debugging-with-events.md) para saber tudo o que aconteceu no seu serviço.
 * [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../application-insights/app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

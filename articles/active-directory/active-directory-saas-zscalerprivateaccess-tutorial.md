@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: c81f23603cfbbc916c148c61bd3de52ef1db36ac
 ms.openlocfilehash: 5c598bfa5b6725d21a89df54dbcb3314cc631d80
-ms.lasthandoff: 02/15/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Tutorial: integração do Azure Active Directory com o ZPA (Zscaler Private Access)
 
@@ -125,17 +124,17 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
 
 4. Sobre o **certificado de autenticação SAML** seção, clique em **criar novo certificado**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_general_400.png)     
+    ![Configurar o logon único](./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_general_400.png)   
 
-5. Sobre o **criar um novo certificado** caixa de diálogo, clique no ícone de calendário e selecione um **data de expiração**. Em seguida, clique no botão **Salvar**.
+5. Na caixa de diálogo **Criar um Novo Certificado**, clique no ícone de calendário e selecione uma **data de expiração**. Em seguida, clique no botão **Salvar**.
 
-    ![Configurar o logon único](./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_general_500.png)
+    ![Configurar Logon Único](./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_general_500.png)
 
-6. Sobre o **certificado de autenticação SAML** seção, selecione **ativar o novo certificado** e clique em **salvar** botão.
+6. Na seção **Certificado de Autenticação SAML**, selecione **Ativar o novo certificado** e clique no botão **Salvar**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_02.png)
+    ![Configurar o logon único](./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_02.png)
 
-7. No pop-up **certificado de substituição** janela, clique em **OK**.
+7. Na janela pop-up **Certificado de substituição**, clique em **OK**.
 
     ![Configurar o logon único](./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_general_600.png)
 
@@ -164,7 +163,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal de Gerenciamento do Azure chamado Brenda Fernandes.
+O objetivo desta seção é criar um usuário de teste no Portal de Gerenciamento do Azure chamado Britta Simon.
 
 ![Criar um usuário do AD do Azure][100]
 

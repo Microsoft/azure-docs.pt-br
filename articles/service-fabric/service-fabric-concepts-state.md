@@ -12,27 +12,27 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 08/18/2017
 ms.author: masnider
-translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: d03bd6a4c317da67a4e6d0e8cdb0cbd3f07d5a1f
-
-
+ms.openlocfilehash: 103fd6c3d536bc11f4e39444043a332a1d8f6c01
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-state"></a>Estado do serviço
-**Estado do serviço** refere-se aos dados que o serviço requer para funcionar. São as estruturas de dados e variáveis que o serviço lê e grava para realizar trabalhos.
+**Estado do serviço** refere-se aos dados em disco ou na memória que um serviço requer para funcionar. Inclui, por exemplo, as estruturas de dados e variáveis de membro que o serviço lê e grava para realizar trabalhos. Dependendo de como o serviço é estruturado, também pode incluir arquivos ou outros recursos armazenados em disco. Por exemplo, os arquivos que um banco de dados usaria para armazenar dados e logs de transação.
 
-Considere um serviço de calculadora, por exemplo. Esse serviço usa dois números e retorna a soma. Este é um serviço puramente sem monitoração de estado que não possui dados associados a ele.
+Como um exemplo de serviço, vamos considerar uma calculadora. Um serviço de calculadora básica pega dois números e retorna sua soma. Executar este cálculo não envolve nenhuma variável de membro ou outras informações.
 
-Agora, considere a mesma calculadora, mas além da soma de computação, ela também conta com um método para retornar a última soma computada. Esse serviço agora é com monitoração de estado - contém algum estado que é gravado (quando calcula uma nova soma) e lido (quando retorna a última soma calculada).
+Agora, considere a mesma calculadora, mas com um método adicional para armazenar e retornar a última soma computada. Agora, trata-se de um serviço com estado. Com estado significa que ele contém algum estado no qual grava quando calcula uma nova soma e do qual lê quando você solicita que ele retorne a última soma calculada.
 
 No Service Fabric do Azure, o primeiro serviço é chamado de serviço sem estado. O segundo serviço é chamado de serviço com estado.
 
 ## <a name="storing-service-state"></a>Armazenando o estado do serviço
-O estado pode ser externalizado ou localizado em conjunto com o código que está manipulando o estado. A externalização de estado normalmente é feita por meio de um armazenamento ou banco de dados externo. Em nosso exemplo de calculadora, isso pode ser um Banco de Dados SQL no qual o resultado atual é armazenado em uma tabela. Todas as solicitações para calcular a soma executa uma atualização nesta linha.
+O estado pode ser externalizado ou localizado em conjunto com o código que está manipulando o estado. Normalmente, a externalização do estado é feita usando um banco de dados externo ou outro armazenamento de dados que é executado em máquinas diferentes na rede ou fora do processo no mesmo computador. Em nosso exemplo da calculadora, o armazenamento de dados poderia ser uma um banco de dados SQL ou uma instância do Armazenamento de Tabela do Azure. Cada solicitação para calcular a soma executa uma atualização desses dados e solicitações para o serviço retornar o valor fazem com que o valor atual seja buscado no repositório. 
 
-O estado também pode ser localizado com o código que manipula esse código. Serviços com monitoração de estado no Service Fabric são criados usando esse modelo. O Service Fabric fornece a infraestrutura para garantir que esse estado seja altamente disponível e tolerante a falhas em caso de uma falha.
+O estado também pode ser localizado com o código que manipula o estado. Serviços com estado no Service Fabric normalmente são criados usando esse modelo. O Service Fabric fornece a infraestrutura para garantir que esse estado seja altamente disponível, consistente e durável e que serviços criados dessa maneira possam ser dimensionados com facilidade.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre os conceitos do Service Fabric, confira os seguintes artigos:
@@ -41,9 +41,3 @@ Para saber mais sobre os conceitos do Service Fabric, confira os seguintes artig
 * [Escalabilidade de serviços da Malha do Serviço](service-fabric-concepts-scalability.md)
 * [Particionando serviços da Malha do Serviço](service-fabric-concepts-partitioning.md)
 * [Reliable Services do Service Fabric](service-fabric-reliable-services-introduction.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

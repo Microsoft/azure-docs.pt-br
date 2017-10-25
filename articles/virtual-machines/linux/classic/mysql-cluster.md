@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 4eaf86c9ac3e4dc2b51b88383626eda774cab0e9
-ms.lasthandoff: 03/27/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>Use os conjuntos de carga balanceada para clusterizar MySQL no Linux
 > [!IMPORTANT]
@@ -339,4 +338,3 @@ As seguintes limitações se aplicam:
 * O balanceador de carga precisa de pelo menos cinco segundos para responder, por isso os aplicativos devem reconhecer o cluster e ser mais tolerantes quanto ao tempo limite. Outras arquiteturas, como filas no aplicativo e middleware de consulta também podem ajudar.
 * O ajuste do MySQL é necessário para garantir que a gravação ocorra em um ritmo gerenciável e que os caches sejam liberados para o disco com a maior frequência possível a fim de minimizar a perda de memória.
 * O desempenho da gravação dependerá da interconexão da VM no comutador virtual, pois esse é o mecanismo usado pelo DRBD para replicar o dispositivo.
-

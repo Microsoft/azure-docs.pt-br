@@ -11,14 +11,13 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 03/05/2017
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 379bc2e80a89b6d46db3bd536737583d51029328
-ms.lasthandoff: 03/06/2017
-
-
+ms.openlocfilehash: 58f4eab190e40e16ed261c165ffdfc8155eeb434
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Criar um serviço de Pesquisa do Azure no portal
 
@@ -48,7 +47,7 @@ Requisitos de nome de serviço:
    * sem traços consecutivos ("--")
 
 ## <a name="select-a-subscription"></a>Selecionar uma assinatura
-Se você tiver mais de uma assinatura, escolha uma que também tenha serviços de armazenamento de arquivos ou dados. O Azure Search pode detectar automaticamente o Armazenamento de Blobs e de Tabelas do Azure, Banco de Dados SQL e DocumentDB para indexação por meio de *indexadores*, mas apenas para os serviços na mesma assinatura.
+Se você tiver mais de uma assinatura, escolha uma que também tenha serviços de armazenamento de arquivos ou dados. O Azure Search pode detectar automaticamente o armazenamento de Tabelas e Blobs do Azure, o Banco de Dados SQL e o Azure Cosmos DB para indexação por meio de *indexadores*, mas apenas para os serviços na mesma assinatura.
 
 ## <a name="select-a-resource-group"></a>Selecionar um grupo de recursos
 Um grupo de recursos é uma coleção de serviços e recursos do Azure que são usados juntos. Por exemplo, se você estiver usando a Azure Search para indexar um banco de dados SQL, esses dois serviços deverão fazer parte do mesmo grupo de recursos.
@@ -111,5 +110,4 @@ Após o provisionamento de um serviço de Azure Search, você está pronto para 
 Para acessar o serviço de código ou script, forneça a URL (*nome-do-serviço*.search.windows.net) e uma chave. Chaves de administração concedem acesso completo; chaves de consulta concedem acesso somente leitura. Veja [Como usar o Azure Search no .NET](search-howto-dotnet-sdk.md) para começar.
 
 Consulte [Criar e consultar seu primeiro índice](search-get-started-portal.md) para obter um tutorial rápido baseado no portal.
-
 

@@ -1,252 +1,277 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Google Apps | Microsoft Docs"
-description: "Saiba como usar o Google Apps com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais!"
+title: "Tutorial: Integração do Azure Active Directory ao Google Apps no Azure | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Google Apps."
 services: active-directory
-documentationcenter: 
-author: asmalser-msft
+documentationCenter: na
+author: jeevansd
 manager: femila
-editor: 
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 05/16/2016
-ms.author: asmalser
-translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: 111d2835610262a5c726562df09ecfecae7dbc07
-
-
+ms.date: 07/12/2017
+ms.author: jeedes
+ms.openlocfilehash: 065841d6b4fe50e953f01bba4d3f23de82b82726
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-google-apps"></a>Tutorial: integração do Azure Active Directory ao Google Apps
-Este tutorial mostrará como conectar seu ambiente do Google Apps ao Active Directory do Azure (AD do Azure). Você aprenderá como configurar o logon único para o Google Apps, como habilitar o provisionamento automatizado de usuários e como atribuir usuários para que tenham acesso ao Google Apps. 
+
+Neste tutorial, você aprende a integrar o Google Apps ao Azure AD (Azure Active Directory).
+
+A integração do Google Apps ao Azure AD oferece os seguintes benefícios:
+
+- No Azure AD, é possível controlar quem tem acesso ao Google Apps
+- É possível permitir que os usuários se conectem automaticamente ao Google Apps (Logon Único) com suas contas do Azure AD
+- Você pode gerenciar suas contas em um única localização: o Portal do Azure
+
+Caso deseje obter mais informações sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-1. Para acessar o Azure Active Directory usando o [portal clássico do Azure](https://manage.windowsazure.com), você precisará ter uma assinatura válida do Azure.
-2. É preciso ter um locatário válido para o [Google Apps for Work](https://www.google.com/work/apps/) ou o [Google Apps for Education](https://www.google.com/edu/products/productivity-tools/). Você pode usar uma conta de avaliação gratuita para qualquer serviço.
+
+Para configurar a integração do Azure AD ao Google Apps, você precisa dos seguintes itens:
+
+- Uma assinatura do AD do Azure
+- Uma assinatura habilitada para logon único do Google Apps
+
+> [!NOTE]
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+
+- Não use o ambiente de produção, a menos que seja necessário.
+- Se não tiver um ambiente de avaliação do Azure AD, será possível obter uma versão de avaliação de um mês aqui: [Oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="video-tutorial"></a>Tutorial em vídeo
 Como habilitar o logon único no Google Apps em dois minutos:
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enable-single-sign-on-to-Google-Apps-in-2-minutes-with-Azure-AD/player]
-> 
-> 
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 1. **P: Os Chromebooks e outros dispositivos Chrome são compatíveis com o logon único do AD do AD do Azure?**
    
-    R: Sim, os usuários poderão entrar em seus dispositivos Chromebook usando suas credenciais do AD do Azure. Confira este [artigo de suporte do Google Apps](https://support.google.com/chrome/a/answer/6060880) para saber mais sobre o motivo de os usuários receberem uma solicitação por credenciais duas vezes.
-2. **P: Se eu habilitar o logon único, os usuários conseguirão usar suas credenciais do AD do Azure para entrar em qualquer produto do Google, como o Google Classroom, o GMail, o Google Drive, o YouTube etc?**
+    R: Sim. Os usuários podem entrar em seus dispositivos Chromebook usando suas credenciais do Azure AD. Confira este [artigo de suporte do Google Apps](https://support.google.com/chrome/a/answer/6060880) para saber mais sobre o motivo de os usuários receberem uma solicitação por credenciais duas vezes.
+
+2. **P: Se eu habilitar o logon único, os usuários conseguirão usar suas credenciais do Azure AD para entrar em qualquer produto do Google, como Google Sala de aula, GMail, Google Drive, YouTube e assim por diante?**
    
     R: Sim, dependendo de [quais aplicativos do Google](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) você optar por habilitar ou desabilitar para sua organização.
+
 3. **P: Posso habilitar o logon único apenas para um subconjunto de meus usuários do Google Apps?**
    
-    R: Não, ativar o logon único exigirá imediatamente que todos os usuários do Google Apps se autentiquem com as credenciais do AD do Azure. Como o Google Apps não oferece suporte a vários provedores de identidade, o provedor de identidade para seu ambiente do Google Apps pode ser o AD do Azure ou o Google, mas não ambos ao mesmo tempo.
+    R: Não. A ativação do logon único exige imediatamente que todos os usuários do Google Apps se autentiquem com suas credenciais do Azure AD. Como o Google Apps não oferece suporte a vários provedores de identidade, o provedor de identidade para seu ambiente do Google Apps pode ser o AD do Azure ou o Google, mas não ambos ao mesmo tempo.
+
 4. **P: Se um usuário se conectar por meio do Windows, ele será autenticado automaticamente no Google Apps sem que uma senha seja solicitada?**
    
-    R: Há duas opções para este cenário. Primeiro, os usuários podem entrar em dispositivos com Windows 10 por meio do [Ingresso no Active Directory do Azure](active-directory-azureadjoin-overview.md). Como alternativa, os usuários podem entrar em dispositivos com Windows que ingressaram em um domínio para um Active Directory local com logon único habilitado no AD do Azure por meio de uma implantação dos [Serviços de Federação do Active Directory (AD FS)](active-directory-aadconnect-user-signin.md) . Obviamente, as duas opções exigem que você siga o tutorial a seguir para habilitar o logon único entre o AD do Azure e o Google Apps.
+    R: Há duas opções para este cenário. Primeiro, os usuários podem entrar em dispositivos com Windows 10 por meio do [Ingresso no Active Directory do Azure](active-directory-azureadjoin-overview.md). Como alternativa, os usuários podem entrar em dispositivos com Windows que ingressaram em um domínio para um Active Directory local com logon único habilitado no AD do Azure por meio de uma implantação dos [Serviços de Federação do Active Directory (AD FS)](active-directory-aadconnect-user-signin.md) . Ambas as opções exigem que você realize as etapas no tutorial a seguir para habilitar o logon único entre o Azure AD e o Google Apps.
 
-## <a name="step-1-add-google-apps-to-your-directory"></a>Etapa 1: adicionar Google Apps ao seu diretório
-1. No [portal clássico do Azure](https://manage.windowsazure.com), no painel de navegação à esquerda, clique em **Active Directory**.
-   
-    ![Selecione Active Directory no painel de navegação esquerdo.][0]
-2. Na lista **Diretório** , selecione o diretório ao qual você deseja adicionar o Google Apps.
-3. Clique em **Aplicativos** no menu superior.
-   
-    ![Clique em Aplicativos.][1]
-4. Clique em **Adicionar** na parte inferior da página.
-   
-    ![Clique em Adicionar para adicionar um novo aplicativo.][2]
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
-   
-    ![Clique em Adicionar um aplicativo da galeria.][3]
-6. Na **caixa de pesquisa**, digite **Google Apps**. Em seguida, selecione **Google Apps** nos resultados e clique em **Concluir** para adicionar o aplicativo.
-   
-    ![Adicione o Google Apps.][4]
-7. Agora, você verá a página Início Rápido para o Google Apps:
-   
-    ![Página de Início Rápido do Google Apps no AD do Azure][5]
+## <a name="scenario-description"></a>Descrição do cenário
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-## <a name="step-2-enable-single-sign-on"></a>Parte 2: Habilitar logon único
-1. No AD do Azure, na página Início Rápido para o Google Apps, clique no botão **Configurar logon único** .
-   
-    ![Botão de configuração de logon único][6]
-2. Uma caixa de diálogo será aberta e você verá uma tela que pergunta "Como você gostaria que os usuários fizessem logon no Google Apps?" Selecione **Logon Único do Azure AD** e, em seguida, clique em **Avançar**.
-   
-    ![Selecione Logon Único do AD do Azure][7]
-   
-   > [!NOTE]
-   > Para saber mais sobre as diferentes opções de logon único, [clique aqui](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
-   > 
-   > 
-3. Na página **Definir Configurações de Aplicativo**, para o campo **URL de Logon**, digite a URL do locatário do Google Apps usando o seguinte formato: `https://mail.google.com/a/<yourdomain>`
-   
-    ![Digite a URL do seu locatário][8]
-4. Na página **Configurar logon único automaticamente** , digite o domínio de seu locatário do Google Apps. Em seguida, pressione o botão **Configurar** .
-   
-    ![Digite seu nome de domínio e pressione Configurar.](./media/active-directory-saas-google-apps-tutorial/ga-auto-config.png)
-   
-   > [!NOTE]
-   > Se você preferir configurar manualmente o logon único, consulte [Etapa opcional: configurar logon único manualmente](#optional-step-manually-configure-single-sign-on)
-   > 
-   > 
-5. Entre em sua conta de administrador do Google Apps. Em seguida, clique em **Permitir** para permitir que o Azure Active Directory faça alterações de configuração em sua assinatura do Google Apps.
-   
-    ![Digite seu nome de domínio e pressione Configurar.](./media/active-directory-saas-google-apps-tutorial/ga-consent.PNG)
-6. Aguarde alguns segundos enquanto o Active Directory do Azure configura seu locatário do Google Apps. Quando for concluído, clique em **Avançar**.
-7. Na página final da caixa de diálogo, digite um endereço de email se você quiser receber notificações de email para erros e avisos relacionados à manutenção dessa configuração de logon único.
-   
-   ![Digite seu endereço de email.][14]
-8. Clique em **Concluir** para fechar a caixa de diálogo. Para testar sua configuração, consulte a seção abaixo intitulada [Atribuir Usuários ao Google Apps](#step-4-assign-users-to-google-apps).
+1. Adicionando o Google Apps por meio da galeria
+2. Configurar e testar o logon único do AD do Azure
 
-## <a name="optional-step-manually-configure-single-sign-on"></a>Etapa opcional: configurar logon único manualmente
-Se você preferir configurar manualmente o logon único, conclua as seguintes etapas:
+## <a name="adding-google-apps-from-the-gallery"></a>Adicionando o Google Apps por meio da galeria
+Para configurar a integração do Google Apps ao Azure AD, é necessário adicionar o Google Apps à lista de aplicativos SaaS gerenciados por meio da galeria.
 
-1. No AD do Azure, na página Início Rápido para o Google Apps, clique no botão **Configurar logon único** .
-   
-    ![Botão de configuração de logon único][6]
-2. Uma caixa de diálogo será aberta e você verá uma tela que pergunta "Como você gostaria que os usuários fizessem logon no Google Apps?" Selecione **Logon Único do Azure AD** e, em seguida, clique em **Avançar**.
-   
-    ![Selecione Logon Único do AD do Azure][7]
-   
-   > [!NOTE]
-   > Para saber mais sobre as diferentes opções de logon único, [clique aqui](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
-   > 
-   > 
-3. Na página **Definir Configurações de Aplicativo**, para o campo **URL de Logon**, digite a URL do locatário do Google Apps usando o seguinte formato: `https://mail.google.com/a/<yourdomain>`
-   
-    ![Digite a URL do seu locatário][8]
-4. Na página **Configurar logon único automaticamente**, marque a caixa de seleção **Configurar logon único manualmente para esse aplicativo**. Em seguida, clique em **Próximo**.
-   
-    ![Clique em configuração manual.](./media/active-directory-saas-google-apps-tutorial/ga-auto-skip.PNG)
-5. Na página **Configurar logon único no Google Apps**, clique em **Baixar certificado** e, em seguida, salve o arquivo de certificado em seu computador.
-   
-    ![Baixe o certificado.][9]
-6. Abra uma nova guia no navegador e entre no [Console de Admin do Google Apps](http://admin.google.com/) usando sua conta de administrador.
-7. Clique em **Segurança**. Se você não enxergar o link, ele pode estar oculto sob o menu **Mais Controles** , na parte inferior da tela.
+**Para adicionar o Google Apps por meio da galeria, realize as seguintes etapas:**
+
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+
+    ![Active Directory][1]
+
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+
+    ![Aplicativos][2]
+    
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+
+    ![Aplicativos][3]
+
+4. Na caixa de pesquisa, digite **Google Apps**.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_search.png)
+
+5. No painel de resultados, selecione **Google Apps** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+Nesta seção, você configura e testa o logon único do Azure AD com o Google Apps, com base em um usuário de teste chamado “Brenda Fernandes”.
+
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Google Apps é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Google Apps.
+
+Essa relação de vínculo é estabelecida com a atribuição do valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** no Google Apps.
+
+Para configurar e testar o logon único do Azure AD com o Google Apps, você precisa concluir os seguintes blocos de construção:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criando um usuário de teste do Google Apps](#creating-a-google-apps-test-user)** – para ter um equivalente de Brenda Fernandes no Google Apps que esteja vinculado à representação de usuário do Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+
+Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo Google Apps.
+
+**Para configurar o logon único do Azure AD com o Google Apps, realize as seguintes etapas:**
+
+1. No portal do Azure, na página de integração do aplicativo **Google Apps**, clique em **Logon único**.
+
+    ![Configurar Logon Único][4]
+
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+ 
+    ![Configurar Logon Único](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_samlbase.png)
+
+3. Na seção **Domínio e URLs do Google Apps**, realize as seguintes etapas:
+
+    ![Configurar Logon Único](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_url.png)
+
+    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://mail.google.com/a/<yourdomain>`
+
+    > [!NOTE] 
+    > Esse valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte do Google](https://www.google.com/contact/).
+ 
+4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado** e, em seguida, salve o certificado em seu computador.
+
+    ![Configurar Logon Único](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_certificate.png) 
+
+5. Clique no botão **Salvar** .
+
+    ![Configurar Logon Único](./media/active-directory-saas-google-apps-tutorial/tutorial_general_400.png)
+
+6. Na seção **Configuração do Google Apps**, clique em **Configurar o Google Apps** para abrir a janela **Configurar logon**. Copie a **URL de Saída, a URL do Serviço de Logon Único SAML e a URL de Alteração de Senha** da **seção Referência Rápida.**
+
+    ![Configurar Logon Único](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_configure.png) 
+
+7. Abra uma nova guia no navegador e entre no [Console de Admin do Google Apps](http://admin.google.com/) usando sua conta de administrador.
+
+8. Clique em **Segurança**. Se você não enxergar o link, ele pode estar oculto sob o menu **Mais Controles** , na parte inferior da tela.
    
     ![Clique em Segurança.][10]
-8. Na página **Segurança**, clique em **Configurar logon único (SSO).**
+
+9. Na página **Segurança**, clique em **Configurar logon único (SSO).**
    
     ![Clique em SSO.][11]
-9. Realize as seguintes alterações de configuração:
+
+10. Realize as seguintes alterações de configuração:
    
     ![Configure o SSO][12]
    
-   * Selecione **Configurar SSO com o provedor de identidade de terceiros**.
-   * No AD do Azure, copie a **URL de serviço do logon único** e cole-a no campo **URL da página de entrada** no Google Apps.
-   * No AD do Azure, copie a **URL de serviço da saída única** e cole-a no campo **URL da página de saída** no Google Apps.
-   * No AD do Azure, copie a **URL de alteração de senha** e cole-a no campo **URL de alteração de senha** no Google Apps.
-   * No Google Apps, para o **Certificado de verificação**, carregue o certificado que você baixou na etapa 4.
-   * Clique em **Salvar Alterações**.
-10. No AD do Azure, marque a caixa de seleção de confirmação de configuração de logon único para habilitar o certificado que você carregou para o Google Apps. Em seguida, clique em **Próximo**.
-    
-     ![Marque a caixa de seleção de confirmação][13]
-11. Na página final da caixa de diálogo, digite um endereço de email se você quiser receber notificações de email para erros e avisos relacionados à manutenção dessa configuração de logon único. 
-    
-    ![Digite seu endereço de email.][14]
-12. Clique em **Concluir** para fechar a caixa de diálogo. Para testar sua configuração, consulte a seção abaixo intitulada [Atribuir Usuários ao Google Apps](#step-4-assign-users-to-google-apps).
+    a. Selecione **Configurar SSO com um provedor de identidade de terceiros**.
 
-## <a name="step-3-enable-automated-user-provisioning"></a>Etapa 3: Habilitar o provisionamento automatizado de usuários
-> [!NOTE]
-> Outra opção viável para automatizar o provisionamento de usuários para o Google Apps é usar a [Ferramenta de Sincronização do Google Apps (GADS)](https://support.google.com/a/answer/106368?hl=en) , que provisiona suas identidades do Active Directory local para o Google Apps. Por outro lado, a solução neste tutorial provisiona seus usuários do Active Directory do Azure (nuvem) e grupos habilitados para email para o Google Apps.
-> 
-> 
+    b. No campo **URL da página de entrada** do Google Apps, cole o valor da **URL do Serviço de Logon Único** copiado do portal do Azure.
 
-1. Entre no [Console de Admin do Google Apps](http://admin.google.com/) usando sua conta de administrador e clique em **Segurança**. Se você não enxergar o link, ele pode estar oculto sob o menu **Mais Controles** , na parte inferior da tela.
-   
-    ![Clique em Segurança.][10]
-2. Na página **Segurança**, clique em **Referência de API**.
-   
-    ![Clique em Referência de API.][15]
-3. Selecione **Habilitar o acesso à API**.
-   
-    ![Clique em Referência de API.][16]
-   
-   > [!IMPORTANT]
-   > Para cada usuário que você pretende provisionar para o Google Apps, seu nome de usuário no Active Directory do Azure *deve* estar vinculado a um domínio personalizado. Por exemplo, nomes de usuários que parecem bob@contoso.onmicrosoft.com não serão aceitos pelo Google Apps, enquanto bob@contoso.com serão aceitos. É possível alterar o domínio de um usuário existente editando as propriedades dele no AD do Azure. Instruções sobre como configurar um domínio personalizado para o Active Directory do Azure e para o Google Apps estão incluídas abaixo.
-   > 
-   > 
-4. Se você ainda não adicionou um nome de domínio personalizado ao Active Directory do Azure, siga as etapas abaixo:
-   
-   * No [portal clássico do Azure](https://manage.windowsazure.com), no painel de navegação à esquerda, clique em **Active Directory**. Na lista de diretórios, selecione o diretório. 
-   * Clique em **Domínios** no menu de nível superior e, em seguida, clique em **Adicionar um domínio personalizado**.
-     
-       ![Adicionar um domínio personalizado][17]
-   * Digite seu nome de domínio no campo **Nome de domínio** . Ele deve ser o mesmo nome de domínio que você pretende usar para o Google Apps. Quando estiver pronto, clique no botão **Adicionar** .
-     
-       ![Digite o nome de domínio.][18]
-   * Clique em **Avançar** para ir até a página de verificação. Para verificar se você possui esse domínio, é preciso editar os registros DNS do domínio de acordo com os valores fornecidos nesta página. É possível optar por verificar usando **Registros MX** ou **Registros TXT**, dependendo do que você selecionar na opção **Tipo de Registro**. Para obter instruções mais abrangentes sobre como verificar o nome de domínio com o AD do Azure, consulte [Adicionar seu próprio nome de domínio ao AD do Azure](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
-     
-       ![Verifique o seu nome de domínio.][19]
-   * Repita as etapas acima para todos os domínios que você pretende adicionar ao diretório.
-5. Agora que você verificou todos os seus domínios com o AD do Azure, deve agora verificá-los novamente com o Google Apps. Para cada domínio que já não estiver registrado com o Google Apps, realize as etapas a seguir:
-   
-   * No [Console de Admin do Google Apps](http://admin.google.com/), clique em **Domínios**.
-     
-       ![Clique em Domínios][20]
-   * Clique em **Adicionar um domínio ou um alias de domínio**.
-     
-       ![Adicione um novo domínio][21]
-   * Selecione **Adicionar outro domínio**e digite o nome do domínio que você deseja adicionar.
-     
-       ![Digite o nome de domínio][22]
-   * Clique em **Continuar e verificar a propriedade do domínio**. Em seguida, siga as etapas para verificar se você possui o nome de domínio. Para obter instruções abrangentes sobre como verificar seu domínio com o Google Apps, consulte [Verificar sua propriedade do site com o Google Apps](https://support.google.com/webmasters/answer/35179).
-   * Repita as etapas acima para domínios adicionais que você pretende adicionar ao Google Apps.
-     
-     > [!WARNING]
-     > Se você alterar o domínio primário para seu locatário do Google Apps e já tiver configurado logon único com o AD do Azure, precisará repetir a etapa 3 em [Etapa 2: habilitar Logon Único](#step-two-enable-single-sign-on).
-     > 
-     > 
-6. No [Console de Admin do Google Apps](http://admin.google.com/), clique em **Funções Admin**.
-   
-    ![Clique em Google Apps][26]
-7. Determine a conta de administrador que você gostaria de usar para gerenciar o provisionamento de usuários. Para a **função de administrador** dessa conta, edite os **Privilégios** para essa função. Verifique se todos os **Privilégios de API de Admin** dela estão habilitados para que essa conta possa ser usada para provisionamento.
-   
-    ![Clique em Google Apps][27]
-   
-   > [!NOTE]
-   > Se você estiver configurando um ambiente de produção, a prática recomendada é criar uma nova conta de administrador no Google Apps especificamente para esta etapa. Essa conta deve ter uma função admin associada a ela que tenha os privilégios de API necessários.
-   > 
-   > 
-8. No Active Directory do Azure, clique em **Aplicativos** no menu de nível superior e, em seguida, clique em **Google Apps**.
-   
-    ![Clique em Google Apps][23]
-9. Na página Início Rápido para o Google Apps, clique em **Configurar provisionamento do usuário**.
-   
-    ![Configurar provisionamento do usuário][24]
-10. Na caixa de diálogo que é aberta, clique em **Habilitar o provisionamento do usuário** para autenticar na Conta de Administrador do Google Apps que você deseja usar para gerenciar o provisionamento.
+    c. No campo **URL da página de saída** do Google Apps, cole o valor da **URL de Saída** copiado do portal do Azure. 
+
+    d. No campo **URL de Alteração de Senha** do Google Apps, cole o valor da **URL de alteração de senha** copiado do portal do Azure. 
+
+    e. No Google Apps, para o **Certificado de verificação**, carregue o certificado baixado no portal do Azure.
+
+    f. Clique em **Salvar Alterações**.
+
+> [!TIP]
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+ 
+### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+
+![Criar um usuário do AD do Azure][100]
+
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+
+1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-google-apps-tutorial/create_aaduser_01.png) 
+
+2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
-    ![Habilite o provisionamento][25]
-11. Confirme que você deseja dar permissão ao Active Directory do Azure para fazer alterações em seu locatário do Google Apps.
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-google-apps-tutorial/create_aaduser_02.png) 
+
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+ 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-google-apps-tutorial/create_aaduser_03.png) 
+
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+ 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-google-apps-tutorial/create_aaduser_04.png) 
+
+    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+
+    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+
+    d. Clique em **Criar**.
+ 
+### <a name="creating-a-google-apps-test-user"></a>Criando um usuário de teste do Google Apps
+
+O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Google Apps Software. O Google Apps dá suporte ao provisionamento automático, que está habilitado por padrão. Não há nenhuma ação para você nesta seção. Se um usuário ainda não existir no Google Apps Software, um novo será criado quando você tentar acessar o Google Apps Software.
+
+>[!NOTE] 
+>Se você precisar criar um usuário manualmente, contate a [equipe de suporte do Google](https://www.google.com/contact/).
+
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+
+Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Google Apps.
+
+![Atribuir usuário][200] 
+
+**Para atribuir Brenda Fernandes ao Google Apps, realize as seguintes etapas:**
+
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+
+    ![Atribuir usuário][201] 
+
+2. Na lista de aplicativos, selecione **Google Apps**.
+
+    ![Configurar Logon Único](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_app.png) 
+
+3. No menu à esquerda, clique em **usuários e grupos**.
+
+    ![Atribuir usuário][202] 
+
+4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+
+    ![Atribuir usuário][203]
+
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+
+6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+
+7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
-    ![Confirme permissões.][28]
-12. Clique em **Concluir** para fechar a caixa de diálogo.
+### <a name="testing-single-sign-on"></a>Teste do logon único
 
-## <a name="step-4-assign-users-to-google-apps"></a>Etapa 4: Atribuir usuários ao Google Apps
-1. Para testar sua configuração, comece a criar uma nova conta de teste no diretório.
-2. Na página Início Rápido do Google Apps, clique no botão **Atribuir Usuários** .
-   
-    ![Clique em Atribuir Usuários][29]
-3. Selecione seu usuário de teste e clique no botão **Atribuir** na parte inferior da tela:
-   
-   * Se você ainda não tiver habilitado o provisionamento automatizado de usuários, verá o seguinte aviso para confirmar:
-     
-        ![Confirme a atribuição.][30]
-   * Se você tiver habilitado o provisionamento automatizado de usuários, verá um aviso para definir o tipo de função que o usuário deve ter no Google Apps. Usuários recentemente provisionados devem aparecer no ambiente do Google Apps após alguns minutos.
-4. Para testar suas configurações de logon único, abra o Painel de Acesso em [https://myapps.microsoft.com](https://myapps.microsoft.com/), entre na conta de teste e clique em **Google Apps**.
+Nesta seção, para testar as configurações de logon único, abra o Painel de Acesso em [https://myapps.microsoft.com](active-directory-saas-access-panel-introduction.md) e, depois, entre na conta de teste e clique no bloco **Google Apps** no Painel de Acesso.
 
-## <a name="related-articles"></a>Artigos relacionados
-* [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-* [Lista de tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md)
+## <a name="additional-resources"></a>Recursos adicionais
+
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Configurar Provisionamento de Usuário](active-directory-saas-google-apps-provisioning-tutorial.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_203.png
 
 [0]: ./media/active-directory-saas-google-apps-tutorial/azure-active-directory.png
-[1]: ./media/active-directory-saas-google-apps-tutorial/applications-tab.png
-[2]: ./media/active-directory-saas-google-apps-tutorial/add-app.png
-[3]: ./media/active-directory-saas-google-apps-tutorial/add-app-gallery.png
-[4]: ./media/active-directory-saas-google-apps-tutorial/add-gapps.png
+
 [5]: ./media/active-directory-saas-google-apps-tutorial/gapps-added.png
 [6]: ./media/active-directory-saas-google-apps-tutorial/config-sso.png
 [7]: ./media/active-directory-saas-google-apps-tutorial/sso-gapps.png
@@ -273,9 +298,3 @@ Se você preferir configurar manualmente o logon único, conclua as seguintes et
 [28]: ./media/active-directory-saas-google-apps-tutorial/gapps-auth.png
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

@@ -12,19 +12,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2017
+ms.date: 09/07/2017
 ms.author: juanpere
-translationtype: Human Translation
-ms.sourcegitcommit: 4ba60cee8848079935111ed3de480081a4aa58f6
-ms.openlocfilehash: 30a707ec15d592c8a10905e13a75ea2f6e52cccc
-ms.lasthandoff: 02/06/2017
-
-
+ms.openlocfilehash: e169367592b25ea45c3d1017937316a3b3b538b8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>Usar o gerenciamento de dispositivos para iniciar uma atualização de firmware do dispositivo (Node/Node)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
-## <a name="introduction"></a>Introdução
 No tutorial [Introdução ao gerenciamento de dispositivo][lnk-dm-getstarted], você viu como usar os primitivos [dispositivo gêmeo][lnk-devtwin] e [métodos diretos][lnk-c2dmethod] para reiniciar remotamente um dispositivo. Este tutorial usa os mesmos primitivos do Hub IoT, fornece orientações e mostra como fazer uma atualização de firmware simulada de ponta a ponta.  Esse padrão é usado na implementação da atualização de firmware para o dispositivo de exemplo Intel Edison.
 
 Este tutorial mostra como:
@@ -40,7 +38,7 @@ Ao fim deste tutorial, você terá dois aplicativos de console do Node.js:
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Node.js versão 0.12.x ou posterior. <br/>  [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Node.js para este tutorial no Windows ou no Linux.
+* Node.js versão 4.0.x ou posterior, <br/>  [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Node.js para este tutorial no Windows ou no Linux.
 * Uma conta ativa do Azure. (Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 
 Consulte o artigo [Introdução ao gerenciamento de dispositivo](iot-hub-node-node-device-management-get-started.md) para criar seu hub IoT e obter a cadeia de conexão dele.
@@ -57,10 +55,10 @@ Nesta seção, você criará um aplicativo do console Node.js que inicia uma atu
     ```
     npm init
     ```
-2. No prompt de comando na pasta **triggerfwupdateondevice**, execute o seguinte comando para instalar os pacotes do SDK do Dispositivo **azure-iot-hub** e **azure-iot-device-mqtt**:
+2. No prompt de comando, na pasta **triggerfwupdateondevice**, execute o seguinte comando para instalar o pacote **azure-iot-hub**:
    
     ```
-    npm install azure-iot-hub --save
+    npm install azure-iothub --save
     ```
 3. Usando um editor de texto, crie um arquivo **dmpatterns_getstarted_service.js** na pasta **triggerfwupdateondevice**.
 4. Adicione as seguintes instruções "require" no início do arquivo **dmpatterns_getstarted_service.js**:
@@ -154,4 +152,3 @@ Para saber como estender sua solução de IoT e agendar chamadas de método em v
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-

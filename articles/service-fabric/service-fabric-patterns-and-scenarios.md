@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/08/2017
+ms.date: 10/04/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: df7c127f4ab140cb26c82e723964f1d99f03131a
-ms.lasthandoff: 03/09/2017
-
-
+ms.openlocfilehash: 8ac4a10b9030a4d56824d1a42ed2729ebb2d208e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Cenários e padrões do Service Fabric
 Se você pretende criar microsserviços em grande escala com o Azure Service Fabric, aprende com os especialistas que projetaram e criaram esta plataforma como serviço (PaaS). Comece com a arquitetura adequada e aprenda a otimizar os recursos para seu aplicativo. O curso [Práticas e padrões do Service Fabric](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) responde às perguntas mais frequentes feitas pelos clientes do mundo real sobre os cenários e áreas de aplicação do Service Fabric.
@@ -100,4 +99,3 @@ Conheça a resposta para a pergunta "Por que contêineres?" Saiba mais sobre a v
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu sobre padrões e cenários do Service Fabric, leia mais sobre como [criar e gerenciar clusters](service-fabric-deploy-anywhere.md), [migrar aplicativos de Serviços de Nuvem para o Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [configurar a entrega contínua](service-fabric-set-up-continuous-integration.md) e [implantar contêineres](service-fabric-containers-overview.md).
-

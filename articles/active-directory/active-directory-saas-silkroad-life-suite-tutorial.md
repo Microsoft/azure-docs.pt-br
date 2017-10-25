@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: ecf4e31ecea00d003fc47ea4cebb781ca58957f7
-ms.lasthandoff: 03/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Tutorial: integração do Active Directory do Azure com o SilkRoad Life Suite
 O objetivo desse tutorial é mostrar como integrar o SilkRoad Life Suite ao Azure AD (Azure Active Directory). 
@@ -136,13 +135,13 @@ O objetivo desta seção é habilitar o SSO do Azure AD no Portal Clássico do A
    
     ![Logon Único do AD do Azure][21] 
  4. Cole o valor na caixa de texto **URL de Resposta** .  
- 5. Clique em **Próximo**.
+ 5. Clique em **Avançar**.
 
 6. Na página **Configurar logon único no SilkRoad Life Suite** , execute as seguintes etapas:
    
     ![Logon Único do AD do Azure][9]  
  1. Clique em Baixar certificado e salve o certificado localmente no computador.  
- 2. Clique em **Próximo**.
+ 2. Clique em **Avançar**.
 
 7. No aplicativo **SilkRoad**, clique em **Fontes de Autenticação**.
    
@@ -208,7 +207,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_05.png)  
  1. Em Tipo de Usuário, selecione Novo usuário na organização.  
  2. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**. 
- 3. Clique em **Próximo**.
+ 3. Clique em **Avançar**.
 
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas: 
    
@@ -217,7 +216,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
  2. Na caixa de texto **Sobrenome**, digite **Fernandes**. 
  3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**. 
  4. Na lista **Função**, selecione **Usuário**.
- 5. Clique em **Próximo**.
+ 5. Clique em **Avançar**.
 
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
@@ -305,7 +304,6 @@ Quando clica no bloco SilkRoad Life Suite no Painel de Acesso, você deve ser co
 [203]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_205.png
-
 
 
 

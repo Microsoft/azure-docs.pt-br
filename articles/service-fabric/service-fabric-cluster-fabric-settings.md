@@ -1,4 +1,3 @@
-
 ---
 title: "Alterar configurações de cluster do Azure Service Fabric | Microsoft Docs"
 description: "Este artigo descreve as configurações de malha e as políticas de atualização de malha que você pode personalizar."
@@ -13,29 +12,28 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/15/2017
+ms.date: 06/15/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: bee47924092a0b327ef3aa5b936116bf311ce8d7
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: cedfba78d8d1186618cf4f61154c5d88a00eb12b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizar as configurações de cluster de Service Fabric e a política de Atualização da Malha
-Este documento explica como personalizar as várias configurações de malha e a política de atualização de malha para o cluster do Service Fabric. Você pode personalizá-los no portal ou usando um modelo do Azure Resource Manager.
+Este documento explica como personalizar as várias configurações de malha e a política de atualização de malha para o cluster do Service Fabric. Você pode personalizá-los através do [Portal do Azure](https://portal.azure.com) ou utilizando um modelo do Azure Resource Manager.
 
 > [!NOTE]
-> Nem todas as configurações podem estar disponíveis por meio do portal. No caso de uma configuração listada abaixo não está disponível por meio do portal, personalize-a usando um modelo do Azure Resource Manager.
+> Nem todas as configurações estão disponíveis no portal. No caso de uma configuração listada abaixo não está disponível por meio do portal, personalize-a usando um modelo do Azure Resource Manager.
 > 
 
-## <a name="customizing-service-fabric-cluster-settings-using-azure-resource-manager-templates"></a>Personalizar configurações de cluster do Service Fabric usando modelos do Azure Resource Manager
+## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Personalize as configurações do cluster, utilizando os modelos do Resource Manager
 As etapas abaixo ilustram como adicionar uma nova configuração *MaxDiskQuotaInMB* à seção *Diagnóstico*.
 
 1. Vá para https://resources.azure.com
-2. Navegue até sua assinatura expandindo assinaturas -> grupos de recursos -> Microsoft.ServiceFabric -> Nome do Cluster
-3. No canto superior direito, selecione "Leitura/Gravação"
-4. Selecione Editar, atualize o elemento JSON `fabricSettings` e adicione um novo elemento
+2. Navegue até a sua assinatura expandindo **assinaturas** -> **grupos de recursos** -> **Microsoft.ServiceFabric** -> **\<Nome do Cluster>**
+3. No canto superior direito, selecione **Leitura/Gravação.**
+4. Selecione **Editar** e atualize o elemento `fabricSettings` JSON e adicione um novo elemento:
 
 ```
       {
@@ -49,10 +47,9 @@ As etapas abaixo ilustram como adicionar uma nova configuração *MaxDiskQuotaIn
       }
 ```
 
-## <a name="fabric-settings-that-you-can-customize"></a>Configurações de malha que você pode personalizar
-Aqui estão as configurações de Malha que você pode personalizar:
+A seguir, é apresentada uma lista de configurações de Malha que você pode personalizar, organizada por seção.
 
-### <a name="section-name-diagnostics"></a>Nome da seção: diagnósticos
+## <a name="diagnostics"></a>Diagnostics
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | ConsumerInstances |Cadeia de caracteres |A lista de instâncias de consumidor DCA. |
@@ -66,12 +63,12 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | EnableTelemetry |Bool, o padrão é true |Isso vai habilitar ou desabilitar a telemetria. |
 | EnableCircularTraceSession |Bool, o padrão é false |O sinalizador indica se as sessões de rastreamento circular devem ser usadas. |
 
-### <a name="section-name-traceetw"></a>Nome da seção: rastreamento/Etw
+## <a name="traceetw"></a>Rastreamento/Etw
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | Nível |Int, o padrão é 4 |O nível de Rastreamento de Eventos para Windows pode assumir os valores 1, 2, 3 e 4. Para que tenha suporte, você deve manter o nível de rastreamento em 4 |
 
-### <a name="section-name-performancecounterlocalstore"></a>Nome da seção: PerformanceCounterLocalStore
+## <a name="performancecounterlocalstore"></a>PerformanceCounterLocalStore
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | IsEnabled |Bool, o padrão é true |O sinalizador indica se a coleta do contador de desempenho no nó local está habilitada. |
@@ -80,7 +77,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | MaxCounterBinaryFileSizeInMB |Int, o padrão é 1 |Tamanho máximo (em MB) para cada arquivo binário de contador de desempenho. |
 | NewCounterBinaryFileCreationIntervalInMinutes |Int, o padrão é 10 |Intervalo máximo (em segundos) após o qual um novo arquivo binário de contador de desempenho é criado. |
 
-### <a name="section-name-setup"></a>Nome da Seção: instalação
+## <a name="setup"></a>Configuração
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | FabricDataRoot |string |Diretório raiz de dados do Service Fabric. O padrão para o Azure é d:\svcfab |
@@ -89,7 +86,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | ServiceStartupType |Cadeia de caracteres |O tipo de inicialização do serviço de host de malha. |
 | SkipFirewallConfiguration |Bool, o padrão é false |Especifica se as configurações do firewall precisam ou não ser definidas pelo sistema. Isso se aplicará apenas se você estiver usando o Firewall do Windows. Se você estiver usando firewalls de terceiros, deverá abrir as portas para o sistema e aplicativos a utilizar |
 
-### <a name="section-name-transactionalreplicator"></a>Nome da seção: TransactionalReplicator
+## <a name="transactionalreplicator"></a>TransactionalReplicator
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | MaxCopyQueueSize |Uint, o padrão é 16384 |Esse é o valor máximo que define o tamanho inicial da fila que mantém as operações de replicação. Observe que ele deve ser uma potência de 2. Se, durante a o tempo de execução, a fila aumentar para esse tamanho, as operações estarão restritas entre os replicadores primários e secundários. |
@@ -113,7 +110,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | SlowApiMonitoringDuration |Tempo em segundos, o padrão é de 300 | Especifica a duração para a API antes que o evento de integridade do aviso seja acionado.|
 | MinLogSizeInMB |Int, o padrão é 0 |Tamanho mínimo do log transacional. O log não poderá truncar um tamanho abaixo dessa configuração. 0 indica que o replicador determinará o tamanho mínimo do log de acordo com outras configurações. Aumentar esse valor aumenta a possibilidade de fazer cópias parciais e backups incrementais, uma vez que as chances de registros de log relevantes sendo truncados são reduzidas. |
 
-### <a name="section-name-fabricclient"></a>Nome da seção: FabricClient
+## <a name="fabricclient"></a>FabricClient
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | NodeAddresses |cadeia de caracteres, o padrão é "" |Uma coleção de endereços (cadeias de conexão) em diferentes nós que podem ser usados para se comunicar com o serviço de cadastramento. Inicialmente, o cliente se conecta selecionando um dos endereços aleatoriamente. Se mais de uma cadeia de conexão for fornecida e uma conexão falhar devido a um erro de comunicação ou de tempo limite, o cliente usará o próximo endereço na sequência. Consulte a seção de repetição do Endereço do Serviço de Cadastramento para obter detalhes sobre semântica de repetição. |
@@ -127,38 +124,38 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | RetryBackoffInterval |Tempo em segundos, o padrão é 3 |Especifique o intervalo de tempo em segundos. O intervalo de retirada antes de repetir a operação. |
 | MaxFileSenderThreads |Uint, o padrão é 10 |O número máximo de arquivos transferidos paralelamente. |
 
-### <a name="section-name-common"></a>Nome da Seção: comum
+## <a name="common"></a>Comum
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | PerfMonitorInterval |Tempo em segundos, o padrão é 1 |Especifique o intervalo de tempo em segundos. Intervalo de monitoramento de desempenho. Definir como 0 ou valor negativo desabilita o monitoramento. |
 
-### <a name="section-name-healthmanager"></a>Nome da seção: HealthManager
+## <a name="healthmanager"></a>HealthManager
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | EnableApplicationTypeHealthEvaluation |Bool, o padrão é false |Política de avaliação de integridade do cluster: habilitar avaliação de integridade de tipo por aplicativo. |
 
-### <a name="section-name-fabricnode"></a>Nome da seção: FabricNode
+## <a name="fabricnode"></a>FabricNode
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | StateTraceInterval |Tempo em segundos, o padrão é de 300 |Especifique o intervalo de tempo em segundos. O intervalo para rastrear o status do nó em cada nó e até nós em FM/FMM. |
 
-### <a name="section-name-nodedomainids"></a>Nome da seção: NodeDomainIds
+## <a name="nodedomainids"></a>NodeDomainIds
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | UpgradeDomainId |cadeia de caracteres, o padrão é "" |Descreve o domínio de atualização ao qual o nó pertence. |
 | PropertyGroup |NodeFaultDomainIdCollection |Descreve os domínios de falha aos quais o nó pertence. O domínio de falha é definido por meio de um URI que descreve o local do nó no data center.  Os URIs do domínio de falha estão no formato fd:/fd/ seguidos por um segmento de caminho do URI.|
 
-### <a name="section-name-nodeproperties"></a>Nome da seção: NodeProperties
+## <a name="nodeproperties"></a>NodeProperties
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | PropertyGroup |NodePropertyCollectionMap |Uma coleção de pares chave-valor da cadeia de caracteres para propriedades do nó. |
 
-### <a name="section-name-nodecapacities"></a>Nome da seção: NodeCapacities
+## <a name="nodecapacities"></a>NodeCapacities
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | PropertyGroup |NodeCapacityCollectionMap |Uma coleção de capacidades de nó para diferentes métricas. |
 
-### <a name="section-name-fabricnode"></a>Nome da seção: FabricNode
+## <a name="fabricnode"></a>FabricNode
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | StartApplicationPortRange |Int, o padrão é 0 |Início das portas do aplicativo gerenciadas pelo subsistema de hospedagem. Necessário se EndpointFilteringEnabled for true na hospedagem. |
@@ -180,12 +177,12 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | UserRoleClientX509FindValue |cadeia de caracteres, o padrão é "" |Valor do filtro de pesquisa usado para localizar o certificado para a função de usuário padrão FabricClient. |
 | UserRoleClientX509FindValueSecondary |cadeia de caracteres, o padrão é "" |Valor do filtro de pesquisa usado para localizar o certificado para a função de usuário padrão FabricClient. |
 
-### <a name="section-name-paas"></a>Nome da seção: Paas
+## <a name="paas"></a>Paas
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | ClusterId |cadeia de caracteres, o padrão é "" |Repositório de certificados X509 usado pela malha para proteção da configuração. |
 
-### <a name="section-name-fabrichost"></a>Nome da seção: FabricHost
+## <a name="fabrichost"></a>FabricHost
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | StopTimeout |Tempo em segundos, o padrão é de 300 |Especifique o intervalo de tempo em segundos. O tempo limite para a ativação; desativação e atualização do serviço hospedado. |
@@ -198,7 +195,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | EnableRestartManagement |Bool, o padrão é false |Isso é para habilitar a reinicialização do servidor. |
 
 
-### <a name="section-name-failovermanager"></a>Nome da Seção: FailoverManager
+## <a name="failovermanager"></a>FailoverManager
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | UserReplicaRestartWaitDuration |Tempo em segundos, o padrão é 60,0 * 30 |Especifique o intervalo de tempo em segundos. Quando uma réplica persistente fica inativa, o Windows Fabric aguarda a duração para que a réplica fique ativa novamente antes de criar novas réplicas de posicionamento (o que exigiria uma cópia do estado). |
@@ -206,7 +203,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | UserStandByReplicaKeepDuration |Tempo em segundos, o padrão é 3600,0 * 24 * 7 |Especifique o intervalo de tempo em segundos. Quando uma réplica persistente voltar de um estado inativo, talvez ela já tenha sido substituída. Este temporizador determina por quanto tempo o FM manterá a réplica em espera antes de descartá-la. |
 | UserMaxStandByReplicaCount |Int, o padrão é 1 |O número máximo padrão de réplicas Em Espera que o sistema mantém para serviços de usuário. |
 
-### <a name="section-name-namingservice"></a>Nome da seção: NamingService
+## <a name="namingservice"></a>NamingService
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | TargetReplicaSetSize |Int, o padrão é 7 |O número de conjuntos de réplicas para cada partição do repositório do Serviço de Cadastramento. O aumento no número de conjuntos de réplicas aumenta o nível de confiabilidade das informações no Repositório do Serviço de Cadastramento; a diminuição da alteração de que as informações serão perdidas como resultado de falhas do nó, a um custo do aumento de carga no Windows Fabric e da quantidade de tempo que leva para realizar atualizações nos dados de nomenclatura.|
@@ -228,42 +225,43 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | GatewayServiceDescriptionCacheLimit |Int, o padrão é 0 |O número máximo de entradas mantidas no cache de descrição do serviço LRU no Gateway de Cadastramento (defina como 0 para sem limite). |
 | PartitionCount |Int, o padrão é 3 |O número de partições do repositório do Serviço de Cadastramento a serem criadas. Cada partição tem uma chave de partição única que corresponde ao seu índice. Portanto, chaves de partição então [0; PartitionCount) existem. O aumento no número de partições do Serviço de Cadastramento aumenta a escala na qual o Serviço de Cadastramento pode ser realizado diminuindo a quantidade média de dados mantidos por qualquer conjunto de réplicas de suporte, a um custo do aumento da utilização de recursos (uma vez que as réplicas de serviço PartitionCount*ReplicaSetSize devem ser mantidas).|
 
-### <a name="section-name-runas"></a>Nome da seção: RunAs
+## <a name="runas"></a>RunAs
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | RunAsAccountName |cadeia de caracteres, o padrão é "" |Indica o nome da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos são "domínio\usuário" ou "user@domain". |
 |RunAsAccountType|cadeia de caracteres, o padrão é "" |Indica o tipo de conta RunAs. Isso é necessário para qualquer seção RunAs Os valores válidos são "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem".|
 |RunAsPassword|cadeia de caracteres, o padrão é "" |Indica a senha da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser". |
 
-### <a name="section-name-runasfabric"></a>Nome da seção: RunAs_Fabric
+## <a name="runasfabric"></a>RunAs_Fabric
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | RunAsAccountName |cadeia de caracteres, o padrão é "" |Indica o nome da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos são "domínio\usuário" ou "user@domain". |
 |RunAsAccountType|cadeia de caracteres, o padrão é "" |Indica o tipo de conta RunAs. Isso é necessário para qualquer seção RunAs Os valores válidos são "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|cadeia de caracteres, o padrão é "" |Indica a senha da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser". |
 
-### <a name="section-name-runashttpgateway"></a>Nome da seção: RunAs_HttpGateway
+## <a name="runashttpgateway"></a>RunAs_HttpGateway
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | RunAsAccountName |cadeia de caracteres, o padrão é "" |Indica o nome da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos são "domínio\usuário" ou "user@domain". |
 |RunAsAccountType|cadeia de caracteres, o padrão é "" |Indica o tipo de conta RunAs. Isso é necessário para qualquer seção RunAs Os valores válidos são "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|cadeia de caracteres, o padrão é "" |Indica a senha da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser". |
 
-### <a name="section-name-runasdca"></a>Nome da seção: RunAs_DCA
+## <a name="runasdca"></a>RunAs_DCA
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | RunAsAccountName |cadeia de caracteres, o padrão é "" |Indica o nome da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos são "domínio\usuário" ou "user@domain". |
 |RunAsAccountType|cadeia de caracteres, o padrão é "" |Indica o tipo de conta RunAs. Isso é necessário para qualquer seção RunAs Os valores válidos são "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|cadeia de caracteres, o padrão é "" |Indica a senha da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser". |
 
-### <a name="section-name-httpgateway"></a>Nome da seção: HttpGateway
+## <a name="httpgateway"></a>HttpGateway
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 |IsEnabled|Bool, o padrão é false | Habilita/desabilita o httpgateway. O httpgateway está desabilitado por padrão e essa configuração precisa ser definida para habilitá-lo. |
 |ActiveListeners |Uint, o padrão é 50 | Número de leituras a serem postadas na fila de servidor http. Isso controla o número de solicitações simultâneas que podem ser atendidas pelo HttpGateway. |
 |MaxEntityBodySize |Uint, o padrão é 4194304 |  Fornece o tamanho máximo do corpo que se espera de uma solicitação http. O valor padrão é 4 MB. Uma solicitação falhará no httpgateway se ele tiver um corpo de tamanho maior que esse valor. O tamanho mínimo da parte de leitura é 4096 bytes. Portanto, isso tem que ser >= 4096. |
+|HttpGatewayHealthReportSendInterval |Tempo em segundos, o padrão é de 30 | Especifique o intervalo de tempo em segundos. O intervalo no qual o Gateway Http envia relatórios de integridade acumulados ao Gerenciador de Integridade. |
 
-### <a name="section-name-ktllogger"></a>Nome da seção: KtlLogger
+## <a name="ktllogger"></a>KtlLogger
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 |AutomaticMemoryConfiguration |Int, o padrão é 1 | Sinalizador que indica se as configurações de memória devem ser configuradas dinâmica e automaticamente. Se for zero, as definições de configuração de memória serão usadas diretamente e não serão alteradas com base nas condições do sistema. Se for um, as definições da memória serão configuradas automaticamente e poderão ser alteradas com base nas condições do sistema. |
@@ -274,21 +272,21 @@ Aqui estão as configurações de Malha que você pode personalizar:
 |SharedLogId |cadeia de caracteres, o padrão é "" |Guid exclusivo para o contêiner de log compartilhado. Use "" se usar o caminho padrão na raiz de dados de malha. |
 |SharedLogSizeInMB |Int, o padrão é 8192 | O número de MB a ser alocado no contêiner do log compartilhado. |
 
-### <a name="section-name-applicationgatewayhttp"></a>Nome da seção: ApplicationGateway/Http
+## <a name="applicationgatewayhttp"></a>ApplicationGateway/Http
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 |IsEnabled |Bool, o padrão é false | Habilita/desabilita o HttpApplicationGateway. HttpApplicationGateway está desabilitado por padrão e essa configuração precisa ser definida para habilitá-lo. |
-|NumberOfParallelOperations | Uint, o padrão é 1000 | Número de leituras a serem postadas na fila de servidor http. Isso controla o número de solicitações simultâneas que podem ser atendidas pelo HttpGateway. |
-|DefaultHttpRequestTimeout |Tempo em segundos. o padrão é 60 |Especifique o intervalo de tempo em segundos.  Fornece o tempo limite da solicitação padrão para as solicitações de http que estão sendo processadas no gateway de aplicativo http. |
+|NumberOfParallelOperations | Uint, o padrão é 5000 | Número de leituras a serem postadas na fila de servidor http. Isso controla o número de solicitações simultâneas que podem ser atendidas pelo HttpGateway. |
+|DefaultHttpRequestTimeout |Tempo em segundos. O padrão é 120 |Especifique o intervalo de tempo em segundos.  Fornece o tempo limite da solicitação padrão para as solicitações de http que estão sendo processadas no gateway de aplicativo http. |
 |ResolveServiceBackoffInterval |Tempo em segundos, o padrão é 5 |Especifique o intervalo de tempo em segundos.  Fornece o intervalo de retirada padrão antes de tentar uma operação de serviço de resolução falido novamente. |
-|BodyChunkSize |Uint, o padrão é 4096 |  Fornece o tamanho da parte em bytes usado para ler o corpo. |
+|BodyChunkSize |Uint, o padrão é 16384 |  Fornece o tamanho da parte em bytes usado para ler o corpo. |
 |GatewayAuthCredentialType |cadeia de caracteres, o padrão é "None" | Indica o tipo de credenciais de segurança para usar nos ponto de extremidade do gateway do aplicativo Os valores válidos são “None/ X509. |
 |GatewayX509CertificateStoreName |cadeia de caracteres, o padrão é "My" | Nome do repositório de certificados X.509 que contém o certificado do gateway de aplicativo http. |
 |GatewayX509CertificateFindType |cadeia de caracteres, o padrão é "FindByThumbprint" | Indica como pesquisar o certificado no repositório especificado pelo valor GatewayX509CertificateStoreName com suporte: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | cadeia de caracteres, o padrão é "" | Valor do filtro de pesquisa usado para localizar o certificado de gateway de aplicativo http. Esse certificado é configurado no ponto de extremidade https e também pode ser usado para verificar a identidade do aplicativo, se necessário, para os serviços. FindValue é pesquisado primeiro; se ele não existir, FindValueSecondary será pesquisado. |
 |GatewayX509CertificateFindValueSecondary | cadeia de caracteres, o padrão é "" |Valor do filtro de pesquisa usado para localizar o certificado de gateway de aplicativo http. Esse certificado é configurado no ponto de extremidade https e também pode ser usado para verificar a identidade do aplicativo, se necessário, para os serviços. FindValue é pesquisado primeiro; se ele não existir, FindValueSecondary será pesquisado.|
 
-### <a name="section-name-management"></a>Nome da seção: gerenciamento
+## <a name="management"></a>Gerenciamento
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | ImageStoreConnectionString |SecureString | Cadeia de conexão para a raiz do ImageStore. |
@@ -300,7 +298,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 |DisableChecksumValidation | Bool, o padrão é false | Essa configuração permite habilitar ou desabilitar a validação de soma de verificação durante o provisionamento de aplicativo. |
 |DisableServerSideCopy | Bool, o padrão é false | Essa configuração habilita ou desabilita a cópia do lado do servidor do pacote de aplicativos no ImageStore durante o provisionamento de aplicativo. |
 
-### <a name="section-name-healthmanagerclusterhealthpolicy"></a>Nome da seção: HealthManager/ClusterHealthPolicy
+## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | ConsiderWarningAsError |Bool, o padrão é false |Política de avaliação de integridade do cluster: os avisos são tratados como erros. |
@@ -309,7 +307,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 |MaxPercentDeltaUnhealthyNodes | Int, o padrão é 10 |Política de avaliação de integridade de atualização do cluster: a porcentagem máxima de nós delta não íntegros permitida para que o cluster seja íntegro. |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes | Int, o padrão é 15 |Política de avaliação de integridade de atualização do cluster: a porcentagem máxima de delta de nós não íntegros em um domínio de atualização permitida para que o cluster seja íntegro.|
 
-### <a name="section-name-faultanalysisservice"></a>Nome da seção: FaultAnalysisService
+## <a name="faultanalysisservice"></a>FaultAnalysisService
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | TargetReplicaSetSize |Int, o padrão é 0 |NOT_PLATFORM_UNIX_START O TargetReplicaSetSize para FaultAnalysisService. |
@@ -322,7 +320,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | CompletedActionKeepDurationInSeconds | Int, o padrão é 604800 | Isso é aproximadamente por quanto tempo serão mantidas as ações em um estado terminal.  Isso também depende de StoredActionCleanupIntervalInSeconds, uma vez que o trabalho de limpeza é realizado somente nesse intervalo. 604800 é 7 dias. |
 | StoredChaosEventCleanupIntervalInSeconds | Int, o padrão é 3600 |Essa é a frequência com que o repositório será auditado para limpeza; se o número de eventos for maior do que 30000, a limpeza começará. |
 
-### <a name="section-name-filestoreservice"></a>Nome da seção: FileStoreService
+## <a name="filestoreservice"></a>FileStoreService
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | NamingOperationTimeout |Tempo em segundos, o padrão é de 60 |Especifique o intervalo de tempo em segundos. O tempo limite para executar uma operação de nomenclatura. |
@@ -348,7 +346,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | SecondaryAccountNTLMX509StoreName | cadeia de caracteres, o padrão é "MY" |O nome de repositório do certificado X509 usado para gerar HMAC no SecondaryAccountNTLMPasswordSecret ao usar a autenticação NTLM. |
 | SecondaryAccountNTLMX509Thumbprint | cadeia de caracteres, o padrão é ""| A impressão digital do certificado X509 usado para gerar HMAC no SecondaryAccountNTLMPasswordSecret ao usar a autenticação NTLM. |
 
-### <a name="section-name-imagestoreservice"></a>Nome da seção: ImageStoreService
+## <a name="imagestoreservice"></a>ImageStoreService
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | Habilitado |Bool, o padrão é false |O sinalizador Enabled para ImageStoreService. |
@@ -364,7 +362,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | ClientListTimeout | Tempo em segundos, o padrão é 600 | Especifique o intervalo de tempo em segundos. Valor de tempo limite para solicitação de lista de nível superior para o Serviço de Repositório de Imagens. |
 | ClientDefaultTimeout | Tempo em segundos, o padrão é 180 | Especifique o intervalo de tempo em segundos. Valor de tempo limite para todas as solicitações que não são de upload/que não são de download (por exemplo, existe; excluir) para o Serviço de Repositório de Imagens. |
 
-### <a name="section-name-imagestoreclient"></a>Nome da seção: ImageStoreClient
+## <a name="imagestoreclient"></a>ImageStoreClient
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | ClientUploadTimeout |Tempo em segundos, o padrão é 1800 | Especifique o intervalo de tempo em segundos. Valor de tempo limite para solicitação de upload de nível superior para o Serviço de Repositório de Imagens. |
@@ -373,12 +371,12 @@ Aqui estão as configurações de Malha que você pode personalizar:
 |ClientListTimeout | Tempo em segundos, o padrão é 600 |Especifique o intervalo de tempo em segundos. Valor de tempo limite para solicitação de lista de nível superior para o Serviço de Repositório de Imagens. |
 |ClientDefaultTimeout | Tempo em segundos, o padrão é 180 | Especifique o intervalo de tempo em segundos. Valor de tempo limite para todas as solicitações que não são de upload/que não são de download (por exemplo, existe; excluir) para o Serviço de Repositório de Imagens. |
 
-### <a name="section-name-tokenvalidationservice"></a>Nome da seção: TokenValidationService
+## <a name="tokenvalidationservice"></a>TokenValidationService
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | Provedores |cadeia de caracteres, o padrão é "DSTS" |Lista separada por vírgulas dos provedores de validação de tokens para habilitar (os provedores válidas são: DSTS; AAD). No momento, somente um provedor pode ser habilitado a qualquer momento. |
 
-### <a name="section-name-upgradeorchestrationservice"></a>Nome da seção: UpgradeOrchestrationService
+## <a name="upgradeorchestrationservice"></a>UpgradeOrchestrationService
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | TargetReplicaSetSize |Int, o padrão é 0 |O TargetReplicaSetSize para UpgradeOrchestrationService. |
@@ -390,7 +388,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | AutoupgradeEnabled | Bool, o padrão é true | Sondagem automática e ação de atualização baseadas em um arquivo de estado de meta. |
 | UpgradeApprovalRequired | Bool, o padrão é false | Configuração para fazer a atualização de código exigir aprovação do administrador antes de continuar. |
 
-### <a name="section-name-upgradeservice"></a>Nome da seção: UpgradeService
+## <a name="upgradeservice"></a>UpgradeService
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | PlacementConstraints |cadeia de caracteres, o padrão é "" |O PlacementConstraints para o serviço de atualização. |
@@ -407,7 +405,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | OnlyBaseUpgrade | Bool, o padrão é false | OnlyBaseUpgrade para UpgradeService. |
 | TestCabFolder | cadeia de caracteres, o padrão é "" | TestCabFolder para UpgradeService. |
 
-### <a name="section-name-securityclientaccess"></a>Nome da seção: segurança/ClientAccess
+## <a name="securityclientaccess"></a>Security/ClientAccess
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | CreateName |cadeia de caracteres, o padrão é "Admin" |Configuração de segurança para a criação do URI de nomenclatura. |
@@ -494,7 +492,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | GetClusterConfigurationUpgradeStatus | cadeia de caracteres, o padrão é "Admin\|\|User" | Induz GetClusterConfigurationUpgradeStatus em uma partição. |
 | GetClusterConfiguration | cadeia de caracteres, o padrão é "Admin\|\|User" | Induz GetClusterConfiguration em uma partição. |
 
-### <a name="section-name-reconfigurationagent"></a>Nome da seção: ReconfigurationAgent
+## <a name="reconfigurationagent"></a>ReconfigurationAgent
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | ApplicationUpgradeMaxReplicaCloseDuration | Tempo em segundos, o padrão é 900 |Especifique o intervalo de tempo em segundos. A duração para a qual o sistema aguardará antes de encerrar os hosts de serviço que têm réplicas presas no fechamento. |
@@ -505,7 +503,7 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | FabricUpgradeMaxReplicaCloseDuration | Tempo em segundos, o padrão é 900 | Especifique o intervalo de tempo em segundos. A duração máxima que o RA aguardará antes de encerrar o host de serviço da réplica que não está sendo fechada. |
 | IsDeactivationInfoEnabled | Bool, o padrão é true | Determina se o RA usará as informações de desativação para realizar a reeleição primária Para novos clusters, essa configuração deve ser definida como true Para clusters existentes que estão sendo atualizados, consulte as notas de versão sobre como habilitar isso. |
 
-### <a name="section-name-placementandloadbalancing"></a>Nome da seção: PlacementAndLoadBalancing
+## <a name="placementandloadbalancing"></a>PlacementAndLoadBalancing
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | TraceCRMReasons |Bool, o padrão é true |Especifica se os motivos devem ser rastreados para movimentos emitidos pelo CRM para o canal de eventos operacionais. |
@@ -557,12 +555,12 @@ Aqui estão as configurações de Malha que você pode personalizar:
 |PartiallyPlaceServices | Bool, o padrão é true | Determina se todas as réplicas de serviço no cluster serão posicionadas em “tudo ou nada” dados os nós adequados limitados para elas.|
 |InterruptBalancingForAllFailoverUnitUpdates | Bool, o padrão é false | Determina se qualquer tipo de atualização de unidade de failover deve interromper a execução de balanceamento rápida ou lenta. Com o balanceamento “false” especificado, a execução será interrompida se FailoverUnit: for criado/excluído; tiver réplicas ausentes; o local de réplica primário tiver sido alterado ou a quantidade de réplicas tiver sido alterada. A execução de balanceamento NÃO será interrompida em outros casos – se FailoverUnit: tiver réplicas extras; qualquer outro sinalizador de réplica tiver sido alterado; somente a versão de partição ou qualquer outro caso tiver sido alterado. |
 
-### <a name="section-name-security"></a>Nome da Seção: Segurança
+## <a name="security"></a>Segurança
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | ClusterProtectionLevel |None ou EncryptAndSign |None (padrão) para clusters não seguros, EncryptAndSign para clusters seguros. |
 
-### <a name="section-name-hosting"></a>Nome da Seção: Hospedagem
+## <a name="hosting"></a>Hosting
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | ServiceTypeRegistrationTimeout |Tempo em segundos, o padrão é de 300 |Tempo máximo permitido para que o ServiceType seja registrado na malha |
@@ -571,18 +569,18 @@ Aqui estão as configurações de Malha que você pode personalizar:
 | ActivationMaxRetryInterval |Tempo em segundos, o padrão é de 300 |Em cada falha de ativação contínua, o sistema tenta novamente realizar a ativação até a ActivationMaxFailureCount. ActivationMaxRetryInterval especifica o intervalo de tempo de espera antes de tentar novamente após cada falha de ativação |
 | ActivationMaxFailureCount |Número inteiro, o padrão é 10 |Número de vezes que o sistema tenta realizar novamente a ativação que falhou antes de desistir |
 
-### <a name="section-name-failovermanager"></a>Nome da Seção: FailoverManager
+## <a name="failovermanager"></a>FailoverManager
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | PeriodicLoadPersistInterval |Tempo em segundos, o padrão é de 10 |Isso determina a frequência com que o FM verifica se há novos relatórios de carregamento |
 
-### <a name="section-name-federation"></a>Nome da Seção: Federação
+## <a name="federation"></a>Federação
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | LeaseDuration |Tempo em segundos, o padrão é de 30 |Duração de uma concessão entre um nó e seus vizinhos. |
 | LeaseDurationAcrossFaultDomain |Tempo em segundos, o padrão é de 30 |Duração de uma concessão entre um nó e seus vizinhos entre domínios de falha. |
 
-### <a name="section-name-clustermanager"></a>Nome da Seção: ClusterManager
+## <a name="clustermanager"></a>ClusterManager
 | **Parâmetro** | **Valores permitidos** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- |
 | UpgradeStatusPollInterval |Tempo em segundos, o padrão é de 60 |A frequência de sondagem do status de atualização do aplicativo. Esse valor determina a taxa de atualização para qualquer chamada GetApplicationUpgradeProgress |
@@ -615,5 +613,4 @@ Aqui estão as configurações de Malha que você pode personalizar:
 Leia estes artigos para obter mais informações sobre gerenciamento de cluster:
 
 [Adicionar, transferir e remover certificados do cluster do Azure ](service-fabric-cluster-security-update-certs-azure.md) 
-
 

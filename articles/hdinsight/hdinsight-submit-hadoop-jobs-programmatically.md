@@ -1,6 +1,6 @@
 ---
 title: Enviar trabalhos do Hadoop no HDInsight | Microsoft Docs
-description: Saiba como enviar trabalhos Hadoop para o Hadoop no Azure HDInsight.
+description: Saiba como enviar trabalhos Hadoop no Azure HDInsight.
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -14,35 +14,36 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 09/06/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: acce9907fca6e411d8028e87eff7b50ffa04d575
-ms.openlocfilehash: 4098680a7941ec4732ec0a408c3bf02d6a9906f8
-ms.lasthandoff: 02/15/2017
-
-
+ms.openlocfilehash: a824e6af903e006e6bb4899430741f7f2a9edaca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="submit-hadoop-jobs-in-hdinsight"></a>Enviar trabalhos Hadoop no HDInsight
 
-Você pode enviar trabalhos do Hadoop usando o SDK do .NET, Curl e Azure PowerShell:
+É possível enviar trabalhos Hadoop no Azure HDInsight usando o SDK do Microsoft .NET para HDInsight, curl ou o Azure PowerShell.
 
-- Usar o SDK do .NET
+## <a name="resources"></a>Recursos
+
+- **SDK .NET**:
 
   - [Criar aplicativos .NET de autenticação não interativa](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
   - [Executar consultas Hive usando o SDK .NET do HDInsight](hdinsight-hadoop-use-hive-dotnet-sdk.md)
   - [Executar trabalhos do Pig usando o SDK do .NET para Hadoop no HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk.md)
   - [Executar trabalhos do Sqoop usando o SDK do .NET para Hadoop no HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
-  - [Executar trabalhos MapReduce usando o SDK do .NET do HDInsight](hdinsight-hadoop-use-mapreduce-dotnet-sdk.md)
+  - [Executar trabalhos MapReduce usando o SDK .NET do HDInsight](hdinsight-hadoop-use-mapreduce-dotnet-sdk.md)
 
-- CURL
+- **curl**:
 
-  - [Executar consultas Hive com Hadoop no HDInsight com Curl](hdinsight-hadoop-use-hive-curl.md)
-  - [Executar trabalhos do Pig com Hadoop no HDInsight usando o Curl](hdinsight-hadoop-use-pig-curl.md)
-  - [Executar trabalhos do Sqoop com Hadoop no HDInsight com Curl](hdinsight-hadoop-use-sqoop-curl.md)
-  - [Executar trabalhos MapReduce com Hadoop no HDInsight usando o Curl](hdinsight-hadoop-use-mapreduce-curl.md)
+  - [Executar consultas Hive com Hadoop no HDInsight usando o curl](hdinsight-hadoop-use-hive-curl.md)
+  - [Executar trabalhos do Pig com Hadoop no HDInsight usando o curl](hdinsight-hadoop-use-pig-curl.md)
+  - [Executar trabalhos do Sqoop com Hadoop no HDInsight usando o curl](hdinsight-hadoop-use-sqoop-curl.md)
+  - [Executar trabalhos MapReduce com Hadoop no HDInsight usando o curl](hdinsight-hadoop-use-mapreduce-curl.md)
 
-- PowerShell
+- **PowerShell**:
 
   - [Executar consultas Hive usando o PowerShell](hdinsight-hadoop-use-hive-powershell.md)
   - [Executar trabalhos do Pig usando o PowerShell](hdinsight-hadoop-use-pig-powershell.md)
@@ -51,4 +52,4 @@ Você pode enviar trabalhos do Hadoop usando o SDK do .NET, Curl e Azure PowerSh
 
 ## <a name="see-also"></a>Consulte também
 
-- [Documentação do HDInsight do Azure](https://docs.microsoft.com/azure/hdinsight/)
+- [Documentação do Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/)

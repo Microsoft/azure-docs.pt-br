@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 05/17/2017
 ms.author: anbacker
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 80fde4dfe7de89dffd39242d94fe46f68e41d611
-ms.openlocfilehash: 833dee54ef9de46c50e9e760594359baf4f89b5e
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: c000a642aa088ac80cc7077453b87e9a47f96900
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deactivate-and-delete-a-storsimple-8000-series-device-via-storsimple-manager-service"></a>Desativar e excluir um dispositivo StorSimple série 8000 por meio do serviço StorSimple Manager
 ## <a name="overview"></a>Visão geral
@@ -29,7 +28,7 @@ Talvez você queira usa rum dispositivo StorSimple fora de serviço (por exemplo
 Quando você desativa um dispositivo, todos os dados que foram armazenados localmente no dispositivo não estarão acessíveis. Somente os dados associados ao dispositivo que foi armazenado na nuvem podem ser recuperados.  
 
 > [!WARNING]
-> A desativação é uma operação PERMANENTE e não pode ser desfeita. Um dispositivo desativado não pode ser registrado com o serviço StorSimple Manager, a menos que ele seja primeiramente redefinido com as configurações de fábrica. 
+> A desativação é uma operação PERMANENTE e não pode ser desfeita. Um dispositivo desativado não pode ser registrado com o serviço StorSimple Manager, a menos que ele primeiro seja redefinido para as configurações de fábrica. 
 > 
 > O processo de redefinição de fábrica exclui todos os dados que foram armazenados localmente no seu dispositivo. Por isso, é essencial fazer um instantâneo de nuvem de todos os dados antes de desativar um dispositivo. Isso permitirá que você recupere todos os dados em um estágio posterior.
 > 
@@ -95,5 +94,4 @@ A desativação resulta nas seguintes ações:
 * Para restaurar os dispositivos desativados para os padrões de fábrica, acesse [Redefinir o dispositivo para as configurações padrão de fábrica](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 * Para obter assistência técnica, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 * Para saber como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md). 
-
 

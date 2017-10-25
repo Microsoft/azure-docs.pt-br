@@ -2,7 +2,7 @@
 title: "Documentação do Azure Data Lake Store - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba mais sobre como configurar, gerenciar e acessar um repositório data lake compatível com o Hadoop hiperescala para análise em dados de qualquer tamanho, tipo e velocidade de ingestão."
 services: data-lake-store
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: dcc8f86fe5871d307bf304252e80e64a0084ef49
-ms.openlocfilehash: d7f56dd2658de2cc270f569b871ebf28ad610fd7
-
+ms.openlocfilehash: 3c0327ebb4cb8d6ee66d019326ade4f4bcb258ae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-lake-store-documentation"></a>Documentação do Data Lake Store
 
@@ -179,6 +180,7 @@ Saiba mais sobre como usar o Data Lake Store para criar um repositório compatí
                     <div class="cardText">
                         <h3>Linha de comando</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore">PowerShell</a></p>
+                        <p><a href="/cli/azure/dls">CLI 2.0 do Azure</a></p>
                     </div>
                 </div>
             </div>
@@ -190,7 +192,7 @@ Saiba mais sobre como usar o Data Lake Store para criar um repositório compatí
                 <div class="card">
                     <div class="cardText">
                         <h3>Linguagens</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.datalake.store">.NET</a></p>
+                        <p><a href="/dotnet/api/overview/azure/data-lake-store">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.datalake.store">Java</a></p>
                         <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.js</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html">Python (Gerenciamento de Conta)</a></p>
@@ -213,10 +215,4 @@ Saiba mais sobre como usar o Data Lake Store para criar um repositório compatí
         </div>
     </li>
 </ul>
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

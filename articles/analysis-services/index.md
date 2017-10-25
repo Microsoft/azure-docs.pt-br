@@ -2,7 +2,7 @@
 title: "Documentação do Azure Analysis Services - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como configurar a modelagem de dados com o Analysis Services na nuvem. A Documentação mostra como criar uma solução de BI empresarial usando dados tabulares."
 services: analysis-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 565dfcc4ca69badecff981057681bb7bd61d048d
-ms.openlocfilehash: 931102cca5799d0117fdaf056ac479edac8de776
-
+ms.openlocfilehash: 3f66f61651aab5f1cf0850cdbbd069b0a9a65543
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analysis-services-documentation"></a>Documentação do Analysis Services
 
@@ -106,12 +107,19 @@ Saiba como configurar e gerenciar a modelagem dados com o Analysis Services. Os 
             </div>
         </div>
     </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Outros</h3>
+                        <p><a href="https://msdn.microsoft.com/library/gg413422.aspx">DAX</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt211003.aspx">Power Query M</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

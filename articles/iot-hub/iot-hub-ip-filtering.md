@@ -12,25 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2017
+ms.date: 05/23/2017
 ms.author: boltean
-translationtype: Human Translation
-ms.sourcegitcommit: ddb729d29072724f691c178967b6181f6ce06df4
-ms.openlocfilehash: a9207d116e9b7360865c950ba00210ed67c3e028
-
-
+ms.openlocfilehash: 85f5f044faddd5180f0c19d3f2c235b20f6373d5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-ip-filters"></a>Usar filtros IP
 
-A segurança é um aspecto importante de qualquer solução de IoT com base no Hub IoT do Azure. Às vezes você precisa colocar determinados IP em uma lista negra ou lista branca como parte da configuração de segurança. O recurso _filtro IP_ permite que você configure regras para rejeitar ou aceitar tráfego de endereços IPv4 específicos.
+A segurança é um aspecto importante de qualquer solução de IoT com base no Hub IoT do Azure. Às vezes você precisa especificar explicitamente os endereços IP dos quais o dispositivo pode se conectar como parte da sua configuração de segurança. O recurso _filtro IP_ permite que você configure regras para rejeitar ou aceitar tráfego de endereços IPv4 específicos.
 
 ## <a name="when-to-use"></a>Quando usar
 
 Há dois casos de uso específicos em que é útil bloquear os pontos de extremidade do Hub IoT para determinados endereços IP:
 
-- Quando o Hub IoT deve receber tráfego somente de um intervalo específico de endereços IP e rejeitar todo o resto. Por exemplo, quando você está usando o Hub IoT com o [Azure ExpressRoute] para criar conexões privadas entre um Hub IoT e sua infraestrutura local.
-- Quando você precisa rejeitar tráfego de endereços IP que foram identificados como suspeitos pelo administrador do Hub IoT.
+- O Hub IoT deve receber tráfego somente de um intervalo específico de endereços IP e rejeitar todo o resto. Por exemplo, caso você esteja usando o Hub IoT com o [Azure ExpressRoute] para criar conexões privadas entre um Hub IoT e sua infraestrutura local.
+- Você precisa rejeitar tráfego de endereços IP que foram identificados como suspeitos pelo administrador do Hub IoT.
 
 ## <a name="how-filter-rules-are-applied"></a>Como são aplicadas as regras de filtro
 
@@ -39,9 +38,10 @@ As regras de filtro IP são aplicadas no nível do serviço Hub IoT. Portanto, a
 Todas as tentativas de conexão de um endereço IP que corresponde a uma regra IP de rejeição em seu Hub IoT recebem um código de status 401 não autorizado e uma descrição. A mensagem de resposta não menciona a regra IP.
 
 ## <a name="default-setting"></a>Configuração padrão
+
 Por padrão, a grade **Filtro IP** no portal de Hub IoT fica vazia. Essa configuração padrão significa que o hub aceita conexões de qualquer endereço IP. Essa configuração padrão é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0.
 
-![][img-ip-filter-default]
+![Configurações de filtro IP padrão do Hub IoT][img-ip-filter-default]
 
 ## <a name="add-or-edit-an-ip-filter-rule"></a>Adicionar ou editar uma regra de filtro IP
 
@@ -51,11 +51,11 @@ Quando você adiciona uma regra de filtro IP, os seguintes valores são solicita
 - Selecione **rejeitar** ou **aceitar** como a **ação** para a regra de filtro IP.
 - Forneça um endereço IPv4 único ou um bloco de endereços IP na notação CIDR. Por exemplo, uma notação CIDR 192.168.100.0/22 representa os 1024 endereços IPv4 de 192.168.100.0 a 192.168.103.255.
 
-![][img-ip-filter-add-rule]
+![Adicionar uma regra de filtro IP a um Hub IoT][img-ip-filter-add-rule]
 
 Depois de salvar a regra, você verá um alerta informando que a atualização está em andamento.
 
-![][img-ip-filter-save-new-rule]
+![Notificação sobre como salvar uma regra de filtro IP][img-ip-filter-save-new-rule]
 
 A opção **Adicionar** é desabilitada quando você atinge o máximo de dez regras de filtro IP.
 
@@ -64,11 +64,14 @@ Você pode editar uma regra existente clicando duas vezes na linha que contém a
 > [!NOTE]
 > Rejeitar endereços IP pode impedir que outros serviços do Azure (como Stream Analytics do Azure, Máquinas Virtuais do Azure ou o Explorer de dispositivos no portal) interajam com o hub IoT.
 
+> [!WARNING]
+> Se você usar o ASA (Azure Stream Analytics) para ler mensagens de um hub IoT com a filtragem de IP habilitada, use o nome compatível com o Hub-de Eventos e o ponto de extremidade do Hub IoT na cadeia de conexão ASA.
+
 ## <a name="delete-an-ip-filter-rule"></a>Excluir uma regra de filtro IP
 
 Para excluir uma regra de filtro IP, selecione uma ou mais regras na grade e clique em **Excluir**.
 
-![][img-ip-filter-delete-rule]
+![Excluir uma regra de filtro IP de Hub IoT][img-ip-filter-delete-rule]
 
 ## <a name="ip-filter-rule-evaluation"></a>Avaliação da regra de filtro IP
 
@@ -80,14 +83,14 @@ Você pode alterar a ordem de suas regras de filtro IP na grade clicando nos tr�
 
 Para salvar a nova ordem das regras de filtro IP, clique em **Salvar**.
 
-![][img-ip-filter-rule-order]
+![Alterar a ordem de suas regras de filtro IP de Hub IoT][img-ip-filter-rule-order]
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Monitoramento de operações][lnk-monitor]
-* [Métricas do Hub IoT][lnk-metrics]
+- [Monitoramento de operações][lnk-monitor]
+- [Métricas do Hub IoT][lnk-metrics]
 
 <!-- Images -->
 [img-ip-filter-default]: ./media/iot-hub-ip-filtering/ip-filter-default.png
@@ -104,8 +107,3 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 [lnk-monitor]: iot-hub-operations-monitoring.md
 [lnk-metrics]: iot-hub-metrics.md
-
-
-<!--HONumber=Jan17_HO4-->
-
-

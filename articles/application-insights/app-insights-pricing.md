@@ -3,7 +3,7 @@ title: "Gerenciar preços e volume de dados do Azure Application Insights | Micr
 description: Gerencie volumes de telemetria e monitore custos no Application Insights.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
@@ -11,14 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 3f0c890056c2ee00151ebc4cc74106368a56ba2f
-ms.lasthandoff: 03/18/2017
-
-
+ms.date: 05/10/2017
+ms.author: bwren
+ms.openlocfilehash: 65d11d30e23cd7671b769c3c17e4aba32c432340
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gerenciar preços e volume de dados no Application Insights
 
@@ -40,19 +39,21 @@ Consulte a [página de preços do Application Insights][pricing] para preços at
 O plano Básico é o padrão quando um novo recurso do Application Insights é criado e será suficiente para a maioria dos clientes.
 
 * No plano Básico, você é cobrado pelo volume de dados: o número de bytes de telemetria recebidos pelo Application Insights. O volume de dados é medido como o tamanho do pacote de dados JSON descompactado recebido pelo Application Insights do seu aplicativo.
+Para [dados tabulares importados para análise](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-import), o volume de dados é medido como o tamanho descompactado de arquivos enviados ao Application Insights.  
 * O primeiro GB para cada aplicativo é gratuito, portanto, se você estiver apenas testando ou desenvolvendo, é pouco provável que precise pagar.
 * Os dados de [Live Metrics Stream](app-insights-live-stream.md) não são contatos para fins de preços.
-* [Exportação contínua](app-insights-export-telemetry.md) está disponível para um encargo de GB de extra no plano básico, embora ele é gratuito até de 2017 início de março.
+* A [exportação contínua](app-insights-export-telemetry.md) está disponível para uma cobrança adicional por GB no plano Básico.
 
 ### <a name="enterprise-plan"></a>Plano Enterprise
 
-* No plano Enterprise, seu aplicativo pode usar todos os recursos do Application Insights. A [Exportação Contínua](app-insights-export-telemetry.md) e o [Conector do Log Analytics](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) estão disponíveis sem nenhuma cobrança adicional no plano Enterprise.
+* No plano Enterprise, seu aplicativo pode usar todos os recursos do Application Insights. [Exportação Contínua](app-insights-export-telemetry.md) e 
+
+O [Conector do Log Analytics](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) está disponível sem nenhuma cobrança adicional no plano Enterprise.
 * Você paga por nó que está enviando telemetria para quaisquer aplicativos no plano Enterprise. 
  * Um *nó* é um computador de servidor físico ou virtual ou então uma instância de função de Plataforma como Serviço que hospeda seu aplicativo.
  * Computadores de desenvolvimento, navegadores do cliente e dispositivos móveis não são contados como nós.
  * Se seu aplicativo tem vários componentes que enviam telemetria, assim como um serviço Web e um trabalho de back-end, eles são contadas separadamente.
- * Os dados de [Live Metrics Stream](app-insights-live-stream.md) não são contatos para fins de preços.
-* Em uma assinatura, as cobranças são por nó, não por aplicativo. Se você tiver cinco nós enviando telemetria para 12 aplicativos, a cobrança será para cinco nós.
+ * Os dados de [Live Metrics Stream](app-insights-live-stream.md) não são contados para fins de preço.* Em uma assinatura, as cobranças são por nó, não por aplicativo. Se você tiver cinco nós enviando telemetria para 12 aplicativos, a cobrança será para cinco nós.
 * Embora as cobrança sejam cotadas por mês, você é cobrado apenas por aquelas horas em que um nó envia telemetria de um aplicativo. A cobrança por hora é a cobrança mensal cotada / 744 (o número de horas em um mês de 31 dias).
 * Uma alocação de volume de dados de 200 MB por dia é fornecida para cada nó detectado (com granularidade por hora). A alocação de dados não utilizados não é transferida de um dia para o seguinte.
  * Se você escolher a opção de preço Enterprise, cada assinatura receberá uma provisão diária de dados com base no número de nós enviando telemetria para os recursos do Application Insights nessa assinatura. Então, se você tiver 5 nós enviando dados todos os dias, uma provisão em pool de 1 GB será aplicada a todos os recursos do Application Insights nessa assinatura. Não importa se determinados nós estão enviando mais dados que outros, porque os dados incluídos são compartilhados entre todos os nós. Se em um determinado dia os recursos do Application Insights recebem mais dados do que está incluído na alocação de dados diária para esta assinatura, as cobranças por dados excedentes por GB se aplicam. 
@@ -78,9 +79,18 @@ O plano Básico é o padrão quando um novo recurso do Application Insights é c
 Há uma cobrança adicional para [testes na Web de várias etapas](app-insights-monitor-web-app-availability.md#multi-step-web-tests). Isso se refere a testes na Web que executam uma sequência de ações. 
 
 Não há nenhuma cobrança separada para 'testes de ping' de uma única página. A telemetria de testes de ping e de testes de várias etapas é cobrada juntamente com outras telemetrias do seu aplicativo.
+ 
+## <a name="operations-management-suite-subscription-entitlement"></a>Qualificação de assinatura do Operations Management Suite
 
-## <a name="review-pricing-plan-and-estimate-costs-for-your-application-insights-resource"></a>Examinar o plano de preços e estimar custos para seu recurso do Application Insights
-Abra a folha Recursos + Preço no recurso do Application Insights para seu aplicativo.
+Como [recentemente anunciado](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/), os clientes que compram Microsoft Operations Management Suite E1 e E2 são capazes de obter Application Insights Enterprise como um componente adicional sem custo adicional. Especificamente, cada unidade adquirida do Operations Management Suite E1 e E2 incluem uma autorização para o nó 1 do plano Enterprise de Application Insights. Conforme observado acima, cada nó do Application Insights inclui até 200 MB de dados incluídos por dia (separado de ingestão de dados de análise de Log), com a retenção de dados de 90 dias sem nenhum custo adicional. 
+
+> [!NOTE]
+> Para garantir que você obtenha este direito, você deve ter os recursos do Application Insights no plano de preços Enterprise. Esse direito se aplica apenas somente aos nós, portanto os recursos do Application Insights no plano Básico não terão nenhum benefício. Observe que esse direito não ficará visível nos custos estimados mostrados na folha Recursos + preços. 
+>
+ 
+## <a name="review-pricing-plans-and-estimate-costs"></a>Examine os planos de preços e estime os custos
+
+Application Insights torna fácil de entender os planos de preços disponíveis e que os custos podem ser baseados em padrões de uso recentes. Comece abrindo a folha **Recursos + Preço** no recurso do Application Insights no portal do Azure:
 
 ![Escolha Preço.](./media/app-insights-pricing/01-pricing.png)
 
@@ -99,20 +109,18 @@ Encargos do Application Insights são adicionados à sua conta do Azure. Você p
 ## <a name="data-rate"></a>Taxa de dados
 Há três maneiras de limitar o volume de dados enviados:
 
-* **Capacidade diária.** O limite máximo é 500 GB/dia. Ao criar um recurso Application Insights do Visual Studio, o padrão é pequeno (somente 32,3 MB/dia). Ao criar um recurso Application Insights no Portal do Azure, isso é definido como o valor máximo. Tome cuidado ao alterar isso, pois atingir o limite causará a perda de dados pelo restante do dia. Para alterá-lo, use a folha Limite de volume diário, vinculado da lâmina de Gerenciamento de Volumes de Dados.
-* **[Amostragem](app-insights-sampling.md).** Esse mecanismo pode reduzir o volume de telemetria enviado do seu servidor e de aplicativos cliente, com mínima distorção de métricas.
-* A **Limitação** limita a taxa de dados para 32 mil eventos por segundo, medidos ao longo de um minuto. 
+* **Amostragem:** esse mecanismo pode ser usado para reduzir o volume de telemetria enviado do seu servidor e de aplicativos cliente, com mínima distorção de métricas. Essa é a ferramenta principal que você tem para ajustar a quantidade de dados. Saiba mais sobre [recursos de amostragem](app-insights-sampling.md). 
+* **Limite diário:** ao criar um recurso Application Insights no Portal do Azure, isso é definido como 500 GB/dia. Ao criar um recurso Application Insights do Visual Studio, o padrão é pequeno (somente 32,3 MB/dia), algo que só se destina à facilitação dos testes. Nesse caso, o propósito dele é que o usuário irá gerar o limite diário antes de implantar o aplicativo em produção. O limite máximo é 500 GB/dia, a menos que você tenha solicitado um máximo maior para um aplicativo de alto tráfego. Tome cuidado ao definir o limite diário, porque sua intenção deve ser **nunca atingir o limite diário**, pois você irá perder dados do restante do dia e não poderá monitorar seu aplicativo. Para alterá-lo, use a folha Limite de volume diário, vinculado da lâmina de Gerenciamento de Volumes de Dados (veja abaixo). Observe que alguns tipos de assinatura têm crédito que não pode ser usado no Application Insights. Se a assinatura tiver um limite de gastos, a folha de limite diário terá instruções de como removê-lo e habilitar o limite diário para ser aumentado além de 32,3 MB/dia.  
+* **Limitação:** isso limita a taxa de dados para 32 mil eventos por segundo, medidos ao longo de um minuto. 
 
 
 *O que acontece se o aplicativo exceder a taxa de limitação?*
 
-* O volume de dados que seu aplicativo envia é avaliado a cada minuto. Se ele exceder a taxa por segundo média por minuto, o servidor recusa algumas solicitações. O SDK armazena os dados em buffer e tenta reenviá-los, espalhando o aumento por vários minutos. Se seu aplicativo envia dados em acima da taxa de limitação consistentemente, alguns dados serão descartados. (Os SDKs do ASP.NET, Java e JavaScript tentam reenviar dessa maneira; outros SDKs poderão simplesmente descartar dados limitados.)
+* O volume de dados que seu aplicativo envia é avaliado a cada minuto. Se ele exceder a taxa por segundo média por minuto, o servidor recusa algumas solicitações. O SDK armazena os dados em buffer e tenta reenviá-los, espalhando o aumento por vários minutos. Se seu aplicativo envia dados em acima da taxa de limitação consistentemente, alguns dados serão descartados. (Os SDKs do ASP.NET, Java e JavaScript tentam reenviar dessa maneira; outros SDKs poderão simplesmente descartar dados limitados.) Caso ocorra uma limitação, será exibido um aviso de notificação que isso aconteceu.
 
-Caso ocorra uma limitação, será exibido um aviso de notificação que isso aconteceu.
+*Como posso saber quantos dados meu aplicativo está enviando?*
 
-*Como posso saber quantos pontos de dados meu aplicativo está enviando?*
-
-* Abra a folha Preço para ver o gráfico Volume de Dados.
+* Abra a folha **Gerenciamento do volume de dados** para ver o gráfico do volume de dados diário. 
 * Ou, no Metrics Explorer, adicione um novo gráfico e selecione **Volume de pontos de dados** como a métrica. Ative o Agrupamento e agrupe por **Tipo de dados**.
 
 ## <a name="to-reduce-your-data-rate"></a>Para reduzir a taxa de dados
@@ -123,9 +131,16 @@ Veja abaixo o que é possível fazer para reduzir o volume de dados:
 * Desative os módulos de coleção que você não precisa [editando o ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Por exemplo, você pode decidir que os contadores de desempenho ou dados de dependência não são essenciais.
 * Divida a telemetria para separar as chaves de instrumentação. 
 * Métricas de pré-agregação. Se você colocou chamadas ao TrackMetric no seu aplicativo, você pode reduzir o tráfego usando a sobrecarga que aceita o cálculo da média e o desvio padrão de um lote de medições. Ou então, você pode usar um [pacote de pré-agregação](https://www.myget.org/gallery/applicationinsights-sdk-labs).
-* Por fim, você pode reduzir o limite de volume diário que limita os dados coletados, mas resultará em uma perda de dados pelo restante do dia. Para alterá-lo, abra **Recursos + preços**, **Gerenciamento de dados**.
 
-    ![Ajustar o limite de volume de telemetria diária](./media/app-insights-pricing/daily-cap.png) 
+## <a name="managing-the-maximum-daily-data-volume"></a>Gerenciar o volume diário máximo de dados
+
+Você pode usar o limite do volume diário para limitar os dados coletados, mas se o limite for atingido, isso resultará em perda de toda a telemetria enviada do seu aplicativo durante o restante do dia. **Não é aconselhável** que o aplicativo atinja o limite diário, pois você não pode controlar a integridade e o desempenho do seu aplicativo após esse limite ser atingido. 
+
+Em vez disso, use [Amostragem](app-insights-sampling.md) para ajustar o volume de dados para o nível que você desejar e use o limite diário apenas como "último recurso" caso o aplicativo comece a enviar volumes de telemetria muito mais altos inesperadamente. 
+
+Para alterar o limite diário, na seção Configuração do seu recurso do Application Insights, clique em **Gerenciamento do volume de dados** e em **Limite diário**.
+
+![Ajustar o limite de volume de telemetria diária](./media/app-insights-pricing/daily-cap.png) 
 
 ## <a name="sampling"></a>amostragem
 [Sampling](app-insights-sampling.md) é um método de redução da taxa na qual a telemetria é enviada para seu aplicativo, ao mesmo tempo que ainda retém a capacidade de encontrar eventos relacionados durante as pesquisas de diagnóstico, retendo também as contagens de eventos corretas. 
@@ -142,10 +157,7 @@ Para definir a amostragem de ingestão, defina o controle na folha Preço:
 ![Na folha Cota e preço, clique no bloco Exemplos e selecione uma fração de amostragem.](./media/app-insights-pricing/04.png)
 
 > [!WARNING]
-> O valor mostrado no bloco Exemplos Retidos indica somente o valor definido para amostragem de ingestão. Ele não mostra a taxa de amostragem operando com o SDK em seu aplicativo. 
-> 
-> Se a telemetria de entrada já tiver sido obtida como amostra no SDK, a amostragem de ingestão não será aplicada.
-> 
+> A folha Amostragem de dados só controla o valor de amostragem de ingestão. Ele não reflete a taxa de amostragem aplicada pelo SDK do Application Insights em seu aplicativo. Se a telemetria de entrada já tiver sido obtida como amostra no SDK, a amostragem de ingestão não será aplicada.
 > 
 
 Para descobrir a taxa de amostragem real, independentemente de onde ela tiver sido aplicada, use uma [consulta do Analytics](app-insights-analytics.md) como esta:
@@ -174,5 +186,4 @@ Em cada registro retido, o `itemCount` indica o número de registros originais q
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: app-insights-overview.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
-
 

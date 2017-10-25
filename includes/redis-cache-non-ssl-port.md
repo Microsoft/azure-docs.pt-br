@@ -2,8 +2,3 @@ Para habilitar a porta não SSL, [procure](../articles/redis-cache/cache-configu
 
 ![Configurações de Cache Redis](media/redis-cache-non-ssl-port/redis-cache-non-ssl-port.png)
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-

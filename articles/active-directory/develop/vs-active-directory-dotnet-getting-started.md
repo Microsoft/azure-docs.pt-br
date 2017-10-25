@@ -3,8 +3,8 @@ title: "Introdução ao Azure AD em projetos do Visual Studio MVC | Microsoft Do
 description: "Como começar a usar o Active Directory do Azure em projetos do MVC após a conexão ou criação de um AD do Azure usando os serviços conectados do Visual Studio"
 services: active-directory
 documentationcenter: 
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 1c8b6a58-5144-4965-a905-625b9ee7b22b
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: a58f328795f85e5392d1bd4c305aabb48b65798c
-ms.lasthandoff: 03/21/2017
-
-
+ms.author: kraigb
+ms.custom: aaddev
+ms.openlocfilehash: c4d49cfc9887e422b3eaed2b96348c99eca48881
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-active-directory-and-visual-studio-connected-services-mvc-projects"></a>Introdução ao Active Directory do Azure e aos serviços conectados do Visual Studio (Projetos do MVC)
 > [!div class="op_single_selector"]
@@ -41,7 +41,9 @@ Para adicionar controles SignIn/SignOut à exibição, é possível usar a exibi
          &lt;meta charset="utf-8" /&gt; 
         &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; 
         &lt;title&gt;@ViewBag.Title - My ASP.NET Application&lt;/title&gt; 
-        @Styles.Render("~/Content/css") @Scripts.Render("~/bundles/modernizr") &lt;/head&gt; 
+        @Styles.Render("~/Content/css") 
+        @Scripts.Render("~/bundles/modernizr") 
+    &lt;/head&gt; 
     &lt;body&gt; 
         &lt;div class="navbar navbar-inverse navbar-fixed-top"&gt; 
             &lt;div class="container"&gt; 
@@ -51,7 +53,8 @@ Para adicionar controles SignIn/SignOut à exibição, é possível usar a exibi
                         &lt;span class="icon-bar"&gt;&lt;/span&gt; 
                         &lt;span class="icon-bar"&gt;&lt;/span&gt; 
                     &lt;/button&gt; 
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) &lt;/div&gt; 
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) 
+                &lt;/div&gt; 
                 &lt;div class="navbar-collapse collapse"&gt; 
                     &lt;ul class="nav navbar-nav"&gt; 
                         &lt;li&gt;@Html.ActionLink("Home", "Index", "Home")&lt;/li&gt; 
@@ -63,16 +66,19 @@ Para adicionar controles SignIn/SignOut à exibição, é possível usar a exibi
             &lt;/div&gt; 
         &lt;/div&gt; 
         &lt;div class="container body-content"&gt; 
-            @RenderBody() &lt;hr /&gt; 
+            @RenderBody() 
+            &lt;hr /&gt; 
             &lt;footer&gt; 
                 &lt;p&gt;&amp;copy; @DateTime.Now.Year - My ASP.NET Application&lt;/p&gt; 
             &lt;/footer&gt; 
         &lt;/div&gt; 
-        @Scripts.Render("~/bundles/jquery") @Scripts.Render("~/bundles/bootstrap") @RenderSection("scripts", required: false) &lt;/body&gt; 
+        @Scripts.Render("~/bundles/jquery") 
+        @Scripts.Render("~/bundles/bootstrap") 
+        @RenderSection("scripts", required: false) 
+    &lt;/body&gt; 
     &lt;/html&gt;
 </pre>
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Saiba mais sobre o Active Directory do Azure](https://azure.microsoft.com/services/active-directory/) 
-
 

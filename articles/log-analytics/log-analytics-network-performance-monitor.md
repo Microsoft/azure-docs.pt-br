@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2017
+ms.date: 08/11/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 7e9ca0c15c29fb670b742d939107bb5d4a48245c
-ms.lasthandoff: 03/11/2017
-
-
+ms.openlocfilehash: c6568e491429f6046ab164ab5eacd0ae5846e201
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Solução Monitor de Desempenho de Rede no Azure Log Analytics
+
+![Símbolo do Monitor de Desempenho de Rede](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 
 Este documento descreve como configurar e usar a solução de Monitor de Desempenho de Rede no Log Analytics, que ajuda a monitorar o desempenho de suas redes quase em tempo real para detectar e localizar afunilamentos de desempenho de rede. Com a solução de Monitor de Desempenho de Rede, você pode monitorar a perda e a latência entre duas redes, servidores ou sub-redes. O Monitor de Desempenho de Rede detecta problemas de tráfego de rede, como blackholing, erros de roteamento e problemas que os métodos de monitoramento de rede convencionais não são capazes de detectar. O Monitor de Desempenho de Rede gera alertas e notifica como e quando um limite é ultrapassado para um link de rede. Esses limites podem ser aprendidos automaticamente pelo sistema ou você pode configurá-los para usar regras de alerta personalizadas. O Monitor de Desempenho de Rede garante a detecção oportuna de problemas de desempenho de rede e localiza a origem do problema para determinado segmento de rede ou dispositivo.
 
@@ -199,9 +200,9 @@ Por outro lado, o ICMP não funciona usando a porta. Na maioria dos cenários de
 Se você optar por usar o ICMP durante a implantação, poderá mudar para TCP a qualquer momento, editando a regra de monitoramento padrão.
 
 ##### <a name="to-edit-the-default-monitoring-rule"></a>Para editar a regra de monitoramento padrão
-1.    Navegue até **Desempenho da Rede** > **Monitorar** > **Configurar** > **Monitorar** e, em seguida, clique em **Regra padrão**.
-2.    Role até a seção **Protocolo** e selecione o protocolo que você deseja usar.
-3.    Clique em **Salvar** para aplicar a configuração.
+1.  Navegue até **Desempenho da Rede** > **Monitorar** > **Configurar** > **Monitorar** e, em seguida, clique em **Regra padrão**.
+2.  Role até a seção **Protocolo** e selecione o protocolo que você deseja usar.
+3.  Clique em **Salvar** para aplicar a configuração.
 
 Mesmo se a regra padrão for usar um protocolo específico, você poderá criar novas regras com um protocolo diferente. Você pode até mesmo criar uma combinação de regras em que algumas das regras usem ICMP e a outra use TCP.
 
@@ -215,7 +216,7 @@ A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre 
 
 | plataforma | Agente direto | Agente SCOM | Armazenamento do Azure | SCOM necessário? | Os dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Sim](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![Sim](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![Não](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![Não](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![Não](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |Mensagens de handshakes TCP/ECO ICMP a cada 5 segundos, dados enviados a cada 3 minutos |
+| Windows | &#8226; | &#8226; |  |  |  |Mensagens de handshakes TCP/ECO ICMP a cada 5 segundos, dados enviados a cada 3 minutos |
 
 A solução usa transações sintéticas para avaliar a integridade da rede. Os agentes do OMS instalados em vários pontos da rede trocam pacotes TCP ou Eco ICMP (dependendo do protocolo selecionado para monitoramento) uns com os outros. No processo, os agentes aprendem qual é o tempo de ida e volta e a perda de pacotes, se houver. Periodicamente, cada agente também realiza uma rota de rastreamento para outros agentes para localizar todas as várias rotas da rede que deve ser testadas. Usando esses dados, os agentes podem deduzir a latência de rede e os valores de perda de pacotes. Os testes são repetidos a cada cinco segundos, e os dados são agregados por um período de três minutos pelos agentes antes de serem carregados no serviço Log Analytics.
 
@@ -313,4 +314,3 @@ Agora que você leu sobre o Monitor de Desempenho de Rede, vejamos uma investiga
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Pesquisar logs](log-analytics-log-searches.md) para exibir registros de dados de desempenho de rede detalhados.
-

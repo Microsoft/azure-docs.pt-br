@@ -1,5 +1,5 @@
 ---
-title: "Criar um grupo para usuários na visualização do Azure Active Directory | Microsoft Docs"
+title: "Criar um grupo para usuários no Azure Active Directory | Microsoft Docs"
 description: Como criar um grupo no Azure Active Directory e adicionar membros ao grupo
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 08/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
-ms.openlocfilehash: 4b85a754dfa9632f27308a3d9234213533dea4c4
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 6d3d37761a9fdf9bd9801396d45f2fcd47efb0be
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Criar um grupo e adicionar membros no Azure Active Directory
 > [!div class="op_single_selector"]
@@ -30,7 +29,7 @@ ms.lasthandoff: 03/01/2017
 >
 >
 
-Este artigo explica como criar e popular um novo grupo na visualização do Azure Active Directory (Azure AD). [O que está na visualização?](active-directory-preview-explainer.md) Use um grupo para executar tarefas de gerenciamento, como a atribuição de licenças ou permissões a vários usuários ou dispositivos de uma vez.
+Este artigo explica como criar e popular um novo grupo no Azure Active Directory. Use um grupo para executar tarefas de gerenciamento, como a atribuição de licenças ou permissões a vários usuários ou dispositivos de uma vez.
 
 ## <a name="how-do-i-create-a-group"></a>Como faço para criar um grupo?
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
@@ -52,6 +51,7 @@ Este artigo explica como criar e popular um novo grupo na visualização do Azur
 
    ![Criar a confirmação do grupo](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
 
+
 ## <a name="next-steps"></a>Próximas etapas
 Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
@@ -60,4 +60,3 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 * [Gerenciar membros de um grupo](active-directory-groups-members-azure-portal.md)
 * [Gerenciar associações de um grupo](active-directory-groups-membership-azure-portal.md)
 * [Gerenciar regras dinâmicas para usuários em um grupo](active-directory-groups-dynamic-membership-azure-portal.md)
-

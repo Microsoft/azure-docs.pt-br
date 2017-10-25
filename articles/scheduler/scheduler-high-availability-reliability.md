@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2016
 ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 7e7fe49de7814b6058468d630f8638720e5864f3
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scheduler-high-availability-and-reliability"></a>Alta disponibilidade e confiabilidade do Agendador
 ## <a name="azure-scheduler-high-availability"></a>Alta disponibilidade do Agendador do Azure
@@ -79,9 +79,3 @@ Para saber como configurar um ponto de extremidade alternativo, confira [errorAc
 [1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

@@ -12,15 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 03/02/2017
+ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 12b121783f6d95a952441f1a570d58af9ec1eb7a
-ms.lasthandoff: 03/07/2017
-
-
+ms.openlocfilehash: 465306d2de8d1dbe6ba1f0cd74be720b78a50de3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Crie dependências de tarefas para executar tarefas que dependam de outras tarefas
 
@@ -153,10 +152,11 @@ Por exemplo, suponha que uma tarefa dependente está aguardando dados da conclus
 
 Uma ação de dependência baseia-se em uma condição de saída da tarefa pai. É possível especificar uma ação de dependência para qualquer uma das condições de saída a seguir; para o .NET, consulte a classe [ExitConditions][net_exitconditions] para obter detalhes:
 
-- Quando ocorre um erro de agendamento
-- Quando a tarefa é encerrada com um código de saída definido pela propriedade **ExitCodes**
-- Quando a tarefa é encerrada com um código de saída que está dentro de um intervalo especificado pela propriedade **ExitCodeRanges**
-- O caso padrão, se a tarefa é encerrada com um código de saída não definido por **ExitCodes** nem por **ExitCodeRanges** ou se a tarefa é encerrada com um erro de agendamento e a propriedade **SchedulingError** não está definida 
+- Quando ocorre um erro de pré-processamento.
+- Quando ocorre um erro de carregamento de arquivo. Se a tarefa é encerrada com um código de saída especificado por meio de **exitCodes** ou **exitCodeRanges**, e, em seguida, encontra erro de carregamento de arquivo, a ação especificada pelo código de saída tem precedência.
+- Quando a tarefa é encerrada com um código de saída definido pela propriedade **ExitCodes**.
+- Quando a tarefa é encerrada com um código de saída que está dentro de um intervalo especificado pela propriedade **ExitCodeRanges**.
+- No caso padrão, se a tarefa for encerrada com um código de saída não definido por **ExitCodes** ou **ExitCodeRanges**, ou se a tarefa for encerrada com um erro de pré-processamento e a propriedade **PreProcessingError** não for definida, ou se houver erro de carregamento de arquivo e a propriedade **FileUploadError** não estiver definida. 
 
 Para especificar uma ação de dependência no .NET, defina a propriedade [ExitOptions][net_exitoptions].[DependencyAction][net_dependencyaction] da condição de saída. A propriedade **DependencyAction** usa um dos dois valores:
 
@@ -165,29 +165,29 @@ Para especificar uma ação de dependência no .NET, defina a propriedade [ExitO
 
 A configuração padrão da propriedade **DependencyAction** é **Atender** para o código de saída 0 e **Bloquear** para todas as outras condições de saída.
 
-O trecho de código a seguir define a propriedade **DependencyAction** de uma tarefa pai. Se a tarefa pai é encerrada com um erro de agendamento ou com os códigos de erro especificados, a tarefa dependente é bloqueada. Se a tarefa pai é encerrada com qualquer outro erro diferente de zero, a tarefa dependente é qualificada para execução.
+O trecho de código a seguir define a propriedade **DependencyAction** de uma tarefa pai. Se a tarefa pai é encerrada com um erro de pré-processamento ou com os códigos de erro especificados, a tarefa dependente é bloqueada. Se a tarefa pai é encerrada com qualquer outro erro diferente de zero, a tarefa dependente é qualificada para execução.
 
 ```csharp
 // Task A is the parent task.
 new CloudTask("A", "cmd.exe /c echo A")
 {
     // Specify exit conditions for task A and their dependency actions.
-    ExitConditions = new ExitConditions()
+    ExitConditions = new ExitConditions
     {
-        // If task A exits with a scheduling error, block any downstream tasks (in this example, task B).
-        SchedulingError = new ExitOptions()
+        // If task A exits with a pre-processing error, block any downstream tasks (in this example, task B).
+        PreProcessingError = new ExitOptions
         {
             DependencyAction = DependencyAction.Block
         },
         // If task A exits with the specified error codes, block any downstream tasks (in this example, task B).
-        ExitCodes = new List<ExitCodeMapping>()
+        ExitCodes = new List<ExitCodeMapping>
         {
             new ExitCodeMapping(10, new ExitOptions() { DependencyAction = DependencyAction.Block }),
             new ExitCodeMapping(20, new ExitOptions() { DependencyAction = DependencyAction.Block })
         },
         // If task A succeeds or fails with any other error, any downstream tasks become eligible to run 
         // (in this example, task B).
-        Default = new ExitOptions()
+        Default = new ExitOptions
         {
             DependencyAction = DependencyAction.Satisfy
         }
@@ -237,4 +237,3 @@ Consulte [Instalando aplicativos e preparando dados em nós de computação do L
 [1]: ./media/batch-task-dependency/01_one_to_one.png "Diagrama: dependência de um para um"
 [2]: ./media/batch-task-dependency/02_one_to_many.png "Diagrama: dependência de um para muitos"
 [3]: ./media/batch-task-dependency/03_task_id_range.png "Diagrama: dependência de intervalo de ids de tarefas"
-

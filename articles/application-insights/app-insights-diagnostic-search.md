@@ -3,7 +3,7 @@ title: Usar a Pesquisa no Azure Application Insights | Microsoft Docs
 description: Pesquise e filtre telemetria bruta enviada pelo seu aplicativo Web.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 5e3cf1407079a166fbe5e24abae2248ef467ebbb
-ms.lasthandoff: 03/16/2017
-
-
+ms.author: bwren
+ms.openlocfilehash: e2d12f807756b778a64920b12a66fba184a99844
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-search-in-application-insights"></a>Usar a Pesquisa no Application Insights
 A Pesquisa é um recurso do [Application Insights](app-insights-overview.md) que você usa para localizar e explorar itens individuais de telemetria, como exibições de página, exceções ou solicitações da Web. Você também pode exibir rastreamentos de log e eventos que você tenha codificado.
@@ -165,7 +164,7 @@ Além de telemetria da caixa enviada pelo SDK do Application Insights, você pod
 * Capturar rastreamentos de log da sua estrutura de registros favorita no [.NET](app-insights-asp-net-trace-logs.md) ou [Java](app-insights-java-trace-logs.md). Isso significa que você pode pesquisar os rastreamentos de log e correlacioná-los com outros eventos, exceções e visualizações de página. 
 * [Escrever código](app-insights-api-custom-events-metrics.md) para enviar eventos personalizados, visualizações de página e exceções. 
 
-[Saiba como enviar logs e telemetria personalizada para o Application Insights](app-insights-search-diagnostic-logs.md).
+[Saiba como enviar logs e telemetria personalizada para o Application Insights](app-insights-asp-net-trace-logs.md).
 
 ## <a name="questions"></a>Perguntas e respostas
 ### <a name="limits"></a>Que quantidade de dados é mantida?
@@ -173,7 +172,7 @@ Além de telemetria da caixa enviada pelo SDK do Application Insights, você pod
 Veja o [Resumo de limites](app-insights-pricing.md#limits-summary).
 
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>Como consultar dados de POSTAGEM nas minhas solicitações de servidor?
-Nós não registramos os dados de POST automaticamente, mas você pode usar [chamadas de log ou TrackTrace](app-insights-search-diagnostic-logs.md). Coloque os dados de POSTAGEM no parâmetro de mensagem. Não é possível filtrar a mensagem da mesma maneira que as propriedades, mas o limite de tamanho é maior.
+Nós não registramos os dados de POST automaticamente, mas você pode usar [chamadas de log ou TrackTrace](app-insights-asp-net-trace-logs.md). Coloque os dados de POSTAGEM no parâmetro de mensagem. Não é possível filtrar a mensagem da mesma maneira que as propriedades, mas o limite de tamanho é maior.
 
 ## <a name="video"></a>Vídeo
 
@@ -181,7 +180,6 @@ Nós não registramos os dados de POST automaticamente, mas você pode usar [cha
 
 ## <a name="add"></a>Próximas etapas
 * [Escrever consultas complexas no Analytics](app-insights-analytics-tour.md)
-* [Enviar logs e telemetria personalizada para o Application Insights](app-insights-search-diagnostic-logs.md)
+* [Enviar logs e telemetria personalizada para o Application Insights](app-insights-asp-net-trace-logs.md)
 * [Configurar testes de disponibilidade e capacidade de resposta](app-insights-monitor-web-app-availability.md)
 * [Solução de problemas](app-insights-troubleshoot-faq.md)
-

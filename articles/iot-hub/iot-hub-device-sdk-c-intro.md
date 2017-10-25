@@ -12,14 +12,13 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2017
+ms.date: 08/25/2017
 ms.author: obloch
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: fde51fec722bf3e4c4ca232a758deadd2d670715
-ms.lasthandoff: 03/23/2017
-
-
+ms.openlocfilehash: 9f0ea741355c6403cde6f02d8263dd8bff7e553b
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK do dispositivo IoT do Azure para C
 
@@ -125,7 +124,7 @@ Essa solução contém um único projeto. Há quatro pacotes NuGet instalados na
 * Microsoft.Azure.IoTHub.IoTHubClient
 * Microsoft.Azure.umqtt
 
-Você sempre precisará do pacote **Microsoft.Azure.C.SharedUtility** quando estiver trabalhando com o SDK. Este exemplo usa o protocolo MQTT e, portanto, você deve incluir os pacotes **Microsoft.Azure.umqtt** e **Microsoft.Azure.IoTHub.MqttTransport** (há pacotes equivalentes para AMQP e HTTP). Como o exemplo usa a biblioteca **IoTHubClient**, você também deverá incluir o pacote **Microsoft.Azure.IoTHub.IoTHubClient** em sua solução.
+Você sempre precisará do pacote **Microsoft.Azure.C.SharedUtility** quando estiver trabalhando com o SDK. Este exemplo usa o protocolo MQTT e, portanto, você deve incluir os pacotes **Microsoft.Azure.umqtt** e **Microsoft.Azure.IoTHub.MqttTransport** (há pacotes equivalentes para AMQP e HTTPS). Como o exemplo usa a biblioteca **IoTHubClient**, você também deverá incluir o pacote **Microsoft.Azure.IoTHub.IoTHubClient** em sua solução.
 
 Você pode encontrar a implementação do aplicativo de exemplo no arquivo de origem **iothub\_client\_sample\_mqtt.c**.
 
@@ -148,7 +147,7 @@ else
     ...
 ```
 
-Passe uma cópia da cadeia de conexão do dispositivo obtido da ferramenta Gerenciador de Dispositivos para essa função. Você também pode designar o protocolo de comunicação a ser usado. Este exemplo usa MQTT, mas AMQP e HTTP também são opções.
+Passe uma cópia da cadeia de conexão do dispositivo obtido da ferramenta Gerenciador de Dispositivos para essa função. Você também pode designar o protocolo de comunicação a ser usado. Este exemplo usa MQTT, mas AMQP e HTTPS também são opções.
 
 Quando você tiver um **IOTHUB\_CLIENT\_HANDLE** válido, será possível iniciar a chamada a APIs para enviar e receber mensagens do Hub IoT.
 
@@ -375,7 +374,7 @@ else
 ...
 ```
 
-A chamada à função **serializer\_init** é uma chamada única e inicializa a biblioteca subjacente. Então, você chama a função **IoTHubClient\_LL\_CreateFromConnectionString**, que é a mesma API do exemplo **IoTHubClient**. Essa chamada define a cadeia de conexão de dispositivo (ela é também onde você escolhe o protocolo que quer usar). Este exemplo usa MQTT como transporte, mas pode usar AMQP ou HTTP.
+A chamada à função **serializer\_init** é uma chamada única e inicializa a biblioteca subjacente. Então, você chama a função **IoTHubClient\_LL\_CreateFromConnectionString**, que é a mesma API do exemplo **IoTHubClient**. Essa chamada define a cadeia de conexão de dispositivo (ela é também onde você escolhe o protocolo que quer usar). Este exemplo usa MQTT como transporte, mas pode usar AMQP ou HTTPS.
 
 Por fim, chame a função **CREATE\_MODEL\_INSTANCE**. **WeatherStation** é o namespace do modelo e **ContosoAnemometer** é o nome do modelo. Depois que a instância do modelo for definida, você poderá usá-lo para começar a enviar e a receber mensagens. No entanto, em primeiro lugar, é importante entender o que é um modelo.
 
@@ -412,7 +411,7 @@ myWeather->DeviceId = "myFirstDevice";
 myWeather->WindSpeed = avgWindSpeed + (rand() % 4 + 2);
 ```
 
-O modelo que você definiu anteriormente permite que você defina os valores definindo membros de uma **struct**. Em seguida, serialize a mensagem que deseja enviar e:
+O modelo que você definiu anteriormente permite que você defina os valores definindo membros de uma **struct**. Em seguida, serialize a mensagem que deseja enviar:
 
 ```c
 unsigned char* destination;
@@ -571,12 +570,11 @@ Para saber mais sobre como desenvolver para o Hub IoT, consulte os [SDKs do Azur
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Simulando um dispositivo com o SDK do Gateway do IoT][lnk-gateway]
+* [Simulando um dispositivo com Azure IoT Edge][lnk-iotedge]
 
 [lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md

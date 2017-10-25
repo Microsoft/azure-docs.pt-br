@@ -3,7 +3,7 @@ title: "Introdução à Windows Store no Azure AD | Microsoft Docs"
 description: Crie aplicativos da Windows Store que se integrem ao Azure AD para entrar e chame APIs protegidas do Azure AD usando OAuth.
 services: active-directory
 documentationcenter: windows
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: 3b96a6d1-270b-4ac1-b9b5-58070c896a68
@@ -13,18 +13,21 @@ ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/16/2016
-ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 3a78fe76119d1c748b5b75c00148a3e2a6f4a2b8
-ms.openlocfilehash: adfc28c7e41f49ce65309a316703fba57463040f
-ms.lasthandoff: 02/17/2017
-
-
+ms.author: jmprieur
+ms.custom: aaddev
+ms.openlocfilehash: 6b5189dc06d7f8b0ed4426944948b904feba847e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-azure-ad-with-windows-store-apps"></a>Integrar o Azure AD com aplicativos da Windows Store
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+
+> [!NOTE]
+> Não há suporte para projetos da Windows Store 8.1 e de versões anteriores no Visual Studio 2017.  Para obter mais informações, consulte [Direcionamento e compatibilidade da plataforma Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
 
 Se você estiver desenvolvendo aplicativos para a Windows Store, o Azure AD (Azure Active Directory) tornará simples e direto autenticar os usuários com suas contas do Active Directory. Ao integrar-se com o Azure AD, um aplicativo pode consumir com segurança qualquer API Web protegida pelo Azure AD, por exemplo as APIs do Office 365 ou a API do Azure.
 
@@ -44,7 +47,7 @@ Quando estiver pronto, siga os procedimentos nas próximas três seções.
 Para habilitar o aplicativo para obter tokens, primeiro será necessário registrá-lo no seu locatário do Azure AD e conceder permissão para acessar a API do Graph do Azure AD. Faça assim:
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Na barra superior, clique em sua conta. Na lista **Diretório**, selecione o locatário do Active Directory em que você deseja registrar o aplicativo.
+2. Na barra superior, clique em sua conta. Em seguida, na lista **Diretório**, selecione o locatário do Active Directory em que você deseja registrar o aplicativo.
 3. Clique em **Mais Serviços** no painel esquerdo e selecione **Azure Active Directory**.
 4. Clique em **Registros do aplicativo** e, em seguida, selecione **Adicionar**.
 5. Siga os prompts para criar um **aplicativo cliente nativo**.
@@ -56,7 +59,7 @@ Para habilitar o aplicativo para obter tokens, primeiro será necessário regist
 9. Em **Permissões Delegadas**, adicione a permissão **Acessar o diretório como o usuário conectado**. Fazer isso permite que o aplicativo consulte a API do Graph para usuários.
 
 ## <a name="step-2-install-and-configure-adal"></a>Etapa 2: instalar e configurar a ADAL
-Agora que você tem um aplicativo no Azure AD, você pode instalar a ADAL e escrever seu código relacionado à identidade. Para habilitar a ADAL para se comunicar com o Azure AD, dê a ele algumas informações sobre o registro do aplicativo.
+Agora que você tem um aplicativo no Azure AD, você pode instalar a ADAL e escrever seu código relacionado à identidade. Para permitir que a ADAL se comunique com o Azure AD, dê a ela algumas informações sobre o registro do aplicativo.
 
 1. Adicione a ADAL ao projeto DirectorySearcher usando o Console do Gerenciador de Pacotes.
 
@@ -147,7 +150,7 @@ O princípio básico da ADAL é que sempre que o aplicativo precisa de um token 
 Agora você tem um aplicativo da Windows Store que pode autenticar usuários, chamar APIs Web com segurança usando OAuth 2.0 e obter informações básicas sobre o usuário.
 
 Se você ainda não fez isso, agora é o momento de popular seu locatário com alguns usuários.
-1. Execute o aplicativo DirectorySearcher e então entre com um desses usuários.
+1. Execute o aplicativo DirectorySearcher e então entre com um dos usuários.
 2. Procure por outros usuários com base em seus UPNs.
 3. Feche o aplicativo e execute-o novamente. Observe como a sessão do usuário permanece intacta.
 4. Saia clicando com o botão direito do mouse para mostrar a barra inferior e entre novamente como outro usuário.
@@ -159,4 +162,3 @@ Para referência, baixe a [amostra concluída](https://github.com/AzureADQuickSt
 Agora você pode passar para cenários de identidade adicionais. Por exemplo, experimente [Proteger uma API Web .NET com o Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

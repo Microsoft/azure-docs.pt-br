@@ -4,7 +4,7 @@ description: Entenda como usar gatilhos de temporizador no Azure Functions.
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"
@@ -15,16 +15,16 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
-ms.author: chrande; glenga
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2542d8c750fc7e1bcc31a9c0eb1672402facfd58
-ms.openlocfilehash: 146884833e968767c14d7e4f924762a592e427e2
-ms.lasthandoff: 03/01/2017
-
-
+ms.author: glenga
+ms.custom: 
+ms.openlocfilehash: ed4afa2b946fe11d5802a95f8a490f3419dc0f39
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="schedule-code-execution-with-azure-functions"></a>Agendar a execução de código com Azure Functions
+# <a name="azure-functions-timer-trigger"></a>Gatilho de temporizador do Azure Functions
+
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Este artigo explica como configurar e codificar gatilhos de temporizador no Azure Functions. O Azure Functions tem uma associação de gatilho de timer que permite executar o código de função com base em um agendamento definido. 
@@ -60,13 +60,13 @@ Por exemplo, a *Hora padrão da costa leste dos EUA* é UTC-05:00. Para que o ti
 
 ```json
 "schedule": "0 0 15 * * *",
-```    
+``` 
 
 Como alternativa, você pode adicionar uma nova configuração de aplicativo para seu aplicativo de funções denominada `WEBSITE_TIME_ZONE` e definir o valor como **Horário padrão da costa leste dos EUA**.  Em seguida, a seguinte expressão CRON poderia ser usada para 10:00 EST: 
 
 ```json
 "schedule": "0 0 10 * * *",
-```    
+``` 
 
 
 <a name="examples"></a>
@@ -191,5 +191,4 @@ module.exports = function (context, myTimer) {
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
 

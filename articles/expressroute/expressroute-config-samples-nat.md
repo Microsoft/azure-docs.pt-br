@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: b77a20274e22827aaa8aa4d354b62d086a19b206
 ms.openlocfilehash: 83a7da2db537a3c900e90432455d59e8ac56d917
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Exemplos de configuração do roteador para configurar e gerenciar o NAT
 Esta página fornece exemplos de configuração do NAT para roteadores da série Cisco ASA e Juniper SRX. Devem ser exemplos para obter orientação apenas e não devem ser usados como estão. Você pode trabalhar com o fornecedor para exibir as configurações apropriadas para sua rede. 
@@ -30,7 +30,7 @@ Esta página fornece exemplos de configuração do NAT para roteadores da série
 
 * Os exemplos de configuração de roteador abaixo se aplicam a emparelhamentos do Azure Public e Microsoft. Você não deve configurar o NAT para emparelhamento privado do Azure. Examine [Emparelhamentos do ExpressRoute](expressroute-circuit-peerings.md) e [Requisitos de NAT do ExpressRoute](expressroute-nat.md) para obter mais detalhes.
 
-* Você DEVE usar pools de IP de NAT separados para conectividade à Internet e ExpressRoute. Usando o mesmo pool de IP de NAT através da Internet e Rota Expressa vai resultar em roteamento assimétrico e perda de conectividade.
+* Você DEVE usar pools de IP de NAT separados para conectividade à Internet e ExpressRoute. Usando o mesmo pool de IP de NAT através da Internet e ExpressRoute vai resultar em roteamento assimétrico e perda de conectividade.
 
 
 ## <a name="cisco-asa-firewalls"></a>Firewalls do Cisco ASA
@@ -316,11 +316,5 @@ Veja os exemplos na página [Exemplos de configuração de roteamento ](expressr
     }
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte as [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md) para obter mais detalhes.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+Consulte as [Perguntas Frequentes sobre ExpressRoute](expressroute-faqs.md) para obter mais detalhes.
 

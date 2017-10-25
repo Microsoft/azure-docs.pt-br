@@ -189,8 +189,3 @@ Exemplo de modelo de Balanceador de carga no formato Json:
 ### <a name="additional-resources"></a>Recursos adicionais
 Para obter mais informações, leia [API REST do balanceador de carga](https://msdn.microsoft.com/library/azure/mt163651.aspx) .
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

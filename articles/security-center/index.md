@@ -2,7 +2,7 @@
 title: "Documentação da Central de Segurança do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como configurar o monitoramento de segurança e o gerenciamento de políticas para recursos do Azure. Tutoriais, uma referência da API REST e outras documentações."
 services: security-center
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 75d2819ed673b6283221d1e09507dd9f18a1bc99
-ms.openlocfilehash: 324192324831cbda13f23b784b37efcfd14808d3
-
+ms.openlocfilehash: 8a17bd97f758db843cecc53b02722344d6b9d6dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-center-documentation"></a>Documentação da Central de Segurança
 
@@ -94,12 +95,6 @@ Saiba como usar a Central de Segurança para obter visibilidade e controle sobre
             </div>
         </div>
     </li>
-</ul>    
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
+</ul>   
 
 

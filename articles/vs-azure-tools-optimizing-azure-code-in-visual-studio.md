@@ -3,8 +3,8 @@ title: "Otimizando o código do Azure no Visual Studio | Microsoft Docs"
 description: "Saiba mais sobre como as ferramentas de otimização de código do Azure no Visual Studio ajudam a tornar o código mais robusto e com melhor desempenho."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: cawa
+manager: paulyuk
 editor: 
 ms.assetid: ed48ee06-e2d2-4322-af22-07200fb16987
 ms.service: multiple
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: a07496a2d5eb52dd3c4092105e45b70b6e9f69cd
-
+ms.author: cawa
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: bce7a5c9d65f124edfcd86bb882537632ecf73df
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="optimizing-your-azure-code"></a>Otimizando o código do Azure
@@ -465,10 +466,5 @@ public class BlogsController : Controller
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre a otimização e solução de problemas de aplicativos do Azure, consulte [Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+Para saber mais sobre a otimização e solução de problemas de aplicativos do Azure, consulte [Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio](app-service/web-sites-dotnet-troubleshoot-visual-studio.md).
 

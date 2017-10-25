@@ -11,13 +11,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 04/26/2017
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 1e18f20e202c199036ff2012dcc6d415898cac7f
-
-
+ms.openlocfilehash: a22b82829df4659681940267e64c98d345453958
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="query-your-azure-search-index"></a>Consultar seu índice de Pesquisa do Azure
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.openlocfilehash: 1e18f20e202c199036ff2012dcc6d415898cac7f
 > 
 > 
 
-Ao enviar solicitações de pesquisa à Pesquisa do Azure, há vários parâmetros que podem ser especificados junto com as palavras reais digitadas na caixa de pesquisa de seu aplicativo. Esses parâmetros de consulta permitem conseguir maior controle da experiência de pesquisa de texto completa.
+Ao enviar solicitações de pesquisa à Pesquisa do Azure, há vários parâmetros que podem ser especificados junto com as palavras reais digitadas na caixa de pesquisa de seu aplicativo. Esses parâmetros de consulta permitem conseguir maior controle do comando [full-text search experience](search-lucene-query-architecture.md).
 
 Abaixo está uma lista que explica resumidamente os usos comuns dos parâmetros de consulta na Pesquisa do Azure. Para ver uma cobertura completa dos parâmetros de consulta e seu comportamento, consulte as páginas detalhadas da [API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) e do [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters#microsoft_azure_search_models_searchparameters#properties_summary).
 
@@ -60,9 +60,10 @@ Você pode aprender mais sobre a paginação dos resultados da pesquisa no artig
 ## <a name="hit-highlighting"></a>Realce de ocorrência
 Na Pesquisa do Azure, enfatizar a parte exata dos resultados da pesquisa que correspondem à consulta de pesquisa é mais fácil usando os parâmetros `highlight`, `highlightPreTag` e `highlightPostTag`. Você pode especificar quais campos *pesquisáveis* devem ter o texto correspondido enfatizado, bem como especificar as marcas da cadeia de caracteres exatas para anexar ao início e ao término do texto correspondente que a Azure Search retorna.
 
+## <a name="try-out-query-syntax"></a>Experimente a sintaxe de consulta
 
+A melhor maneira de entender as diferenças de sintaxe é por meio do envio de consultas e do exame dos resultados.
 
++ Use o [Search Explorer](search-explorer.md) no portal do Azure. Ao implantar [o índice de exemplo](search-get-started-portal.md), você poderá consultar o índice em minutos usando as ferramentas no portal.
 
-<!--HONumber=Dec16_HO2-->
-
-
++ Use o [Fiddler](search-fiddler.md) ou o Chrome Postman para enviar consultas para um índice que você carregou no serviço de pesquisa. Ambas as ferramentas oferecem suporte a chamadas REST para um ponto de extremidade HTTP. 

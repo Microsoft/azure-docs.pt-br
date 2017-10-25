@@ -6,8 +6,3 @@ Os limites a seguir se aplicam somente ao usar o Gerenciador de Recursos do Azur
 | Operações de gerenciamento de conta de armazenamento (gravação) |200 por hora |
 | Operações de gerenciamento de conta de armazenamento (lista) |100 a cada 5 minutos |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

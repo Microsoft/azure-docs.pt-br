@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6356b4e69892b90ff74aa9db0157930dc00f4a08
-
-
+ms.openlocfilehash: c182cc2062ada40029504de5b2b64b021c614ce6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Cenários de Possibilidade de Teste do Service Fabric: Comunicação do serviço
 Os estilos de arquitetura orientada a serviços e microsserviços surgem naturalmente no Azure Service Fabric. Nesses tipos de arquiteturas distribuídas, os aplicativos de microsserviço divididos em componentes são compostos normalmente por vários serviços que precisam se comunicar. Mesmo nos casos mais simples, há geralmente pelo menos um serviço Web sem estado e um serviço de armazenamento de dados com estado que precisam se comunicar.
@@ -93,10 +93,4 @@ Neste exemplo, definimos `QuorumLossMode` como `QuorumReplicas` para indicar que
 [Saiba mais sobre as ações de possibilidade de teste](service-fabric-testability-actions.md)
 
 [Saiba mais sobre os cenários de possibilidade de teste](service-fabric-testability-scenarios.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

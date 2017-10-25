@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 06/13/2017
 ms.author: amanbha
-translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 92df9505416c5b4326f007dbf4b920f2c7ec3bd8
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: d936670c548ff709fc2e935d3f28d94e4bde8a04
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="actor-events"></a>Eventos de ator
 Os eventos de ator são uma forma de enviar notificações de melhor esforço do ator para os clientes. Os eventos de ator foram desenvolvidos para comunicação entre ator e cliente e não devem ser usados para comunicação entre ator e ator.
@@ -34,7 +33,12 @@ public interface IGameEvents : IActorEvents
     void GameScoreUpdated(Guid gameId, string currentScore);
 }
 ```
-
+```Java
+public interface GameEvents implements ActorEvents
+{
+    void gameScoreUpdated(UUID gameId, String currentScore);
+}
+```
 Declare os eventos publicados pelo ator na interface do ator.
 
 ```csharp
@@ -45,7 +49,14 @@ public interface IGameActor : IActor, IActorEventPublisher<IGameEvents>
     Task<string> GetGameScore();
 }
 ```
+```Java
+public interface GameActor extends Actor, ActorEventPublisherE<GameEvents>
+{
+    CompletableFuture<?> updateGameStatus(GameStatus status);
 
+    CompletableFuture<String> getGameScore();
+}
+```
 No lado do cliente, implemente o manipulador de eventos.
 
 ```csharp
@@ -54,6 +65,15 @@ class GameEventsHandler : IGameEvents
     public void GameScoreUpdated(Guid gameId, string currentScore)
     {
         Console.WriteLine(@"Updates: Game: {0}, Score: {1}", gameId, currentScore);
+    }
+}
+```
+
+```Java
+class GameEventsHandler implements GameEvents {
+    public void gameScoreUpdated(UUID gameId, String currentScore)
+    {
+        System.out.println("Updates: Game: "+gameId+" ,Score: "+currentScore);
     }
 }
 ```
@@ -67,6 +87,12 @@ var proxy = ActorProxy.Create<IGameActor>(
 await proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler());
 ```
 
+```Java
+GameActor actorProxy = ActorProxyBase.create<GameActor>(GameActor.class, new ActorId(UUID.fromString(args)));
+
+return ActorProxyEventUtility.subscribeAsync(actorProxy, new GameEventsHandler());
+```
+
 No caso de failovers, o ator pode realizar failover para um processo ou nó diferente. O proxy de ator gerencia as assinaturas ativas e as renova automaticamente. Você pode controlar o intervalo da renovação da assinatura por meio da API `ActorProxyEventExtensions.SubscribeAsync<TEvent>` . Para cancelar a assinatura, use a API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` .
 
 No ator, simplesmente publique os eventos à medida que eles acontecem. Se existirem assinantes no evento, o tempo de execução dos Atores enviará a eles a notificação.
@@ -75,10 +101,16 @@ No ator, simplesmente publique os eventos à medida que eles acontecem. Se exist
 var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), score);
 ```
+```Java
+GameEvents event = getEvent<GameEvents>(GameEvents.class);
+event.gameScoreUpdated(Id.getUUIDId(), score);
+```
+
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Reentrância de ator](service-fabric-reliable-actors-reentrancy.md)
 * [Diagnóstico e monitoramento de desempenho do ator](service-fabric-reliable-actors-diagnostics.md)
 * [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Exemplo de código](https://github.com/Azure/servicefabric-samples)
-
+* [Código de exemplo C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Código de exemplo em c# .NET Core](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
+* [Código de exemplo Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)

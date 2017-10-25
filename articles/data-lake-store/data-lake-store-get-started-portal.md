@@ -12,113 +12,107 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 09/28/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: db53f991aab10bace2d253fa96f739f99640bd77
-
-
+ms.openlocfilehash: 4d3a5c0c49b881db69a9d5cccc65406322212a8d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Introdução ao Repositório do Azure Data Lake usando o Portal do Azure
+# <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Introdução ao Azure Data Lake Store usando o portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [SDK .NET](data-lake-store-get-started-net-sdk.md)
-> * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [API REST](data-lake-store-get-started-rest-api.md)
-> * [CLI do Azure](data-lake-store-get-started-cli.md)
-> * [Node.js](data-lake-store-manage-use-nodejs.md)
-> * [Python](data-lake-store-get-started-python.md)
+> * [CLI 2.0 do Azure](data-lake-store-get-started-cli-2.0.md)
 >
 > 
 
-Saiba como usar o Portal do Azure para criar uma conta do Repositório do Azure Data Lake e executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, excluir sua conta, etc. Para saber mais sobre o Data Lake Store, consulte [Visão geral do Azure Data Lake Store](data-lake-store-overview.md).
+Saiba como usar o portal do Azure para criar uma conta do Azure Data Lake Store e executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, excluir sua conta etc. Para obter mais informações, consulte [Visão geral do Azure Data Lake Store](data-lake-store-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar este tutorial, você deve ter o seguinte:
+Antes de começar este tutorial, você deve ter os seguintes itens:
 
-* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-
-## <a name="do-you-learn-faster-with-videos"></a>Você aprende mais rapidamente com vídeos?
-Veja os vídeos a seguir para começar a usar o Repositório Data Lake.
-
-* [Criar uma conta do Repositório Data Lake](https://mix.office.com/watch/1k1cycy4l4gen)
-* [Gerenciar dados no Repositório Data Lake usando o Explorador de Dados](https://mix.office.com/watch/icletrxrh6pc)
+* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-an-azure-data-lake-store-account"></a>Criar uma conta do Repositório Azure Data Lake
-1. Entre no novo [Portal do Azure](https://portal.azure.com).
+
+1. Inscreva-se no novo [portal do Azure](https://portal.azure.com).
 2. Clique em **NOVO**, clique em **Dados + Armazenamento** e clique em **Azure Data Lake Store**. Leia as informações na folha **Azure Data Lake Store** e clique em **Criar** no canto inferior esquerdo da folha.
-3. Na folha **Novo Repositório Data Lake** , forneça os valores conforme mostrado na captura de tela abaixo:
+3. Na folha **Novo Data Lake Store**, forneça os valores conforme mostrado na captura de tela a seguir:
    
     ![Criar uma nova conta do Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Criar uma nova conta do Azure Data Lake Store")
    
    * **Nome**. Insira um nome exclusivo para a conta do Data Lake Store.
    * **Assinatura**. Selecione a assinatura na qual você deseja criar uma nova conta do Data Lake Store.
-   * **Grupo de Recursos**. Selecione um grupo de recursos existente ou selecione a opção **Criar novo ** para criar um. Um grupo de recursos é um contêiner que mantém os recursos relacionados para um aplicativo. Para saber mais, consulte [Grupos de Recursos no Azure](../azure-resource-manager/resource-group-overview.md#resource-groups).
+   * **Grupo de Recursos**. Selecione um grupo de recursos existente ou selecione a opção **Criar novo** para criar um. Um grupo de recursos é um contêiner que mantém os recursos relacionados para um aplicativo. Para saber mais, consulte [Grupos de Recursos no Azure](../azure-resource-manager/resource-group-overview.md#resource-groups).
    * **Local**: selecione um local no qual você deseja criar a conta do Data Lake.
-   * **Configurações de Criptografia**. Você pode escolher se deseja criptografar sua conta do Data Lake Store. Se você optar por criptografar, também poderá especificar como gerenciar a chave de criptografia principal que deseja usar para criptografar os dados em sua conta.
+   * **Configurações de Criptografia**. Há três opções:
      
-     * (Opcional) Selecione **Não habilitar a criptografia** no menu suspenso para recusar a criptografia.
-     * (Padrão) Selecione **Usar chaves gerenciadas pelo Azure Data Lake** se quiser que o Azure Data Lake Store gerencie suas chaves de criptografia.
+     * **Não habilite a criptografia**.
+     * **Use chaves gerenciadas pelo Azure Data Lake**.  se quiser que o Azure Data Lake Store gerencie suas chaves de criptografia.
+     * **Utilize as chaves do seu próprio Key Vault**. Você pode selecionar um Azure Key Vault existente ou criar um novo Key Vault. Para usar as chaves em um Key Vault, você deve atribuir permissões para a conta do Azure Data Lake Store para acessar o Azure Key Vault. Para obter instruções, consulte [Atribuir permissões ao Azure Key Vault](#assign-permissions-to-azure-key-vault).
        
-         ![Criptografia do Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Criptografia do Data Lake Store")
-     * (Opcional) Selecione **Escolher chaves do Cofre de Chaves do Azure** se quiser usar suas próprias chaves presentes em seu Cofre de Chaves do Azure. Com essa opção, você também pode criar uma conta do Cofre de chaves se ainda não tiver uma.
+        ![Criptografia do Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Criptografia do Data Lake Store")
        
-         ![Criptografia do Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Criptografia do Data Lake Store")
-       
-       Clique em **OK** na folha **Configurações de Criptografia**.
-       
-       > [!NOTE]
-       > Se você usar as chaves de um Cofre de Chaves do Azure para configurar a criptografia para a conta do Data Lake Store, deverá atribuir permissões para a conta do Azure Data Lake Store acessar o Cofre de Chaves do Azure. Para obter instruções sobre como fazer isso, veja [Atribuir permissões ao Cofre de Chaves do Azure](#assign-permissions-to-the-azure-key-vault)
-       > 
-       > 
+        Clique em **OK** na folha **Configurações de Criptografia**.
+
+        Para obter mais informações, consulte [Criptografia dos dados no Azure Data Lake Store](./data-lake-store-encryption.md).
+
 4. Clique em **Criar**. Se você escolher fixar a conta no painel, você será levado de volta para o painel e poderá ver o progresso de seu provisionamento de conta do Data Lake Store. Após o provisionamento da conta do Repositório Data Lake, a folha da conta será exibida.
 
-## <a name="assign-permissions-to-the-azure-key-vault"></a>Atribuir permissões ao Cofre de Chaves do Azure
+### <a name="assign-permissions-to-azure-key-vault"></a>Atribuir permissões ao Azure Key Vault
 Se você tiver usado as chaves de um Cofre de Chaves do Azure para configurar a criptografia na conta do Data Lake Store, deverá configurar o acesso entre a conta do Data Lake Store e a conta do Cofre de Chaves do Azure. Execute as seguintes etapas para fazê-lo.
 
-1. Se você tiver usado as chaves do Cofre de Chaves do Azure, a folha da conta do Data Lake Store exibirá um aviso na parte superior. Clique no aviso para abrir a folha **Configurar permissões do Cofre de Chaves**.
+1. Se você tiver usado as chaves do Cofre de Chaves do Azure, a folha da conta do Data Lake Store exibirá um aviso na parte superior. Clique no aviso para abrir **Criptografia**.
    
     ![Criptografia do Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Criptografia do Data Lake Store")
 2. A folha mostra duas opções para configurar o acesso.
+
+    ![Criptografia do Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-4.png "Criptografia do Data Lake Store")
    
-   * Na primeira opção, clique em **Conceder Permissão** para configurar o acesso. A primeira opção só será habilitada quando o usuário que criou a conta do Data Lake Store também for um administrador do Cofre de Chaves do Azure.
+   * Na primeira opção, clique em **Conceder Permissões** para configurar o acesso. A primeira opção só será habilitada quando o usuário que criou a conta do Data Lake Store também for um administrador do Cofre de Chaves do Azure.
    * A outra opção é executar o cmdlet do PowerShell exibido na folha. Você precisa ser o proprietário do Cofre de Chaves do Azure ou ter a capacidade de conceder permissões no Cofre de Chaves do Azure. Depois de executar o cmdlet, volte para a folha e clique em **Habilitar** para configurar o acesso.
 
-## <a name="a-namecreatefolderacreate-folders-in-azure-data-lake-store-account"></a><a name="createfolder"></a>Criar pastas na conta do Repositório Azure Data Lake
+> [!NOTE]
+> Você também pode criar uma conta do Data Lake Store usando modelos do Azure Resource Manager. Esses modelos são acessíveis nos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/?term=data+lake+store):
+    - Sem criptografia de dados: [Implantar conta do Azure Data Lake Store sem criptografia de dados](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
+    - Com criptografia de dados usando o Data Lake Store: [Implantar conta do Data Lake Store com criptografia (Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
+    - Com criptografia de dados usando o Azure Key Vault: [Implantar conta do Data Lake Store com criptografia (Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
+> 
+> 
+
+
+
+## <a name="createfolder"></a>Criar pastas na conta do Repositório Azure Data Lake
 Você pode criar pastas em sua conta do Repositório Data Lake para gerenciar e armazenar dados.
 
-1. Abra a conta do Repositório Data Lake que você acabou de criar. No painel esquerdo, clique em **Procurar**, clique em **Data Lake Store** e, na folha Data Lake Store, clique no nome da conta sob a qual você deseja criar as pastas. Se você tiver fixado a conta no quadro inicial, clique no bloco da conta.
+1. Abra a conta do Data Lake Store que você criou. No painel esquerdo, clique em **Procurar**, clique em **Data Lake Store** e, na folha Data Lake Store, clique no nome da conta sob a qual você deseja criar as pastas. Se você tiver fixado a conta no quadro inicial, clique no bloco da conta.
 2. Na folha de sua conta do Repositório Data Lake, clique em **Gerenciador de Dados**.
    
     ![Criar pastas na conta do Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Criar pastas na conta do Data Lake Store")
-3. Na folha de sua conta do Data Lake Store, clique em **Nova Pasta**, insira um nome para a nova pasta e clique em **OK**.
+3. Na folha Data Explorer, clique em **Nova Pasta**, insira um nome para a nova pasta e clique em **OK**.
    
     ![Criar pastas na conta do Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Criar pastas na conta do Data Lake Store")
    
-    A pasta recém-criada será listada na folha **Gerenciador de Dados** . Você pode criar pastas aninhadas em qualquer nível.
+    A pasta recém-criada é listada na folha **Data Explorer**. Você pode criar pastas aninhadas em qualquer nível.
    
     ![Criar pastas na conta do Data Lake](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Criar pastas na conta do Data Lake")
 
-## <a name="a-nameuploaddataaupload-data-to-azure-data-lake-store-account"></a><a name="uploaddata"></a>Carregar dados na conta do Repositório Azure Data Lake
-É possível carregar seus dados em uma conta do Repositório Data Lake diretamente no nível da raiz ou em uma pasta que você criou na conta. Na captura de tela abaixo, execute as etapas para carregar um arquivo em uma subpasta da folha **Gerenciador de Dados** . Nessa captura de tela, o arquivo é carregado em uma subpasta mostrada na trilha (marcada em uma caixa vermelha).
+## <a name="uploaddata"></a>Carregar dados na conta do Repositório Azure Data Lake
+É possível carregar seus dados em uma conta do Repositório Data Lake diretamente no nível da raiz ou em uma pasta que você criou na conta. 
+
+1. Na folha **Data Explorer**, clique em **Upload**. 
+2. Na folha **Carregar arquivos**, navegue até os arquivos que você deseja carregar e, em seguida, clique em **Adicionar arquivos selecionados**. Você também pode selecionar mais de um arquivo para upload.
+
+    ![Carregar dados](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Carregar dados")
 
 Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
-![Carregar dados](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Carregar dados")
+## <a name="properties"></a>Ações disponíveis para os dados armazenados
+Clique no ícone de reticências em um arquivo e, no menu pop-up, clique na ação que você deseja executar nos dados.
 
-## <a name="a-namepropertiesaproperties-and-actions-available-on-the-stored-data"></a><a name="properties"></a>Propriedades e ações disponíveis para os dados armazenados
-Clique no arquivo recém-adicionado para abrir a folha **Propriedades** . As propriedades associadas ao arquivo e as ações que você pode executar no arquivo estão disponíveis nesta folha. Você também pode copiar o caminho completo para o arquivo em sua conta do Repositório Azure Data Lake, realçada na caixa vermelha na captura de tela abaixo.
-
-![Propriedades nos dados](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Propriedades nos dados")
-
-* Clique em **Visualizar** para uma visualização do arquivo, diretamente do navegador. Você também pode especificar o formato da visualização. Clique em **Visualização**, clique em **Formato** na folha **Visualização de Arquivo** e, na folha **Formato de Visualização do Arquivo**, especifique as opções, como o número de linhas para exibição, codificação a ser usada, o delimitador, etc.
-  
-  ![Formato de arquivo de visualização](./media/data-lake-store-get-started-portal/ADL.File.Preview.png "Formato de arquivo de visualização")
-* Clique em **Baixar** para baixar o arquivo em seu computador.
-* Clique em **Renomear arquivo** para renomear o arquivo.
-* Clique em **Excluir arquivo** para excluir o arquivo.
+![Propriedades nos dados](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Propriedades nos dados") 
 
 ## <a name="secure-your-data"></a>Proteja seus dados
 Você pode proteger os dados armazenados em sua conta do Repositório Azure Data Lake usando o Active Directory do Azure e o controle de acesso (ACLs). Para obter instruções sobre como fazer isso, consulte [Protegendo dados no Repositório Azure Data Lake](data-lake-store-secure-data.md).
@@ -129,14 +123,8 @@ Para excluir uma conta do Repositório Azure Data Lake da folha de seu Repositó
 ![Excluir conta do Data Lake](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Excluir conta do Data Lake")
 
 ## <a name="next-steps"></a>Próximas etapas
+* [Usar o Azure Data Lake Store para requisitos de big data](data-lake-store-data-scenarios.md) 
 * [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
 * [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
-* [Acessar os logs de diagnóstico do Azure Data Lake Store](data-lake-store-diagnostic-logs.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 75eeca842cc31be6807dd6071de6d9a5c327fad3
-ms.lasthandoff: 03/10/2017
-
-
+ms.author: LADocs; padmavc
+ms.openlocfilehash: b8d577326d23ec45cb4a9ec0e450ebf7afd945f3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="encode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Codificar mensagens EDIFACT para o Aplicativo Lógico do Azure com o Enterprise Integration Pack
 
@@ -41,7 +40,7 @@ Veja os itens necessários:
 
 2. O conector de mensagem EDIFACT de codificação não possui gatilhos, você deve adicionar um gatilho para iniciar seu aplicativo lógico, como um gatilho de Solicitação. No Designer de Aplicativo Lógico, adicione um gatilho e uma ação ao aplicativo lógico.
 
-3.    Na caixa de pesquisa, digite "EDIFACT" como filtro. Selecione **Codificar Mensagem EDIFACT pelo nome do contrato** ou **Codificar mensagem EDIFACT por identidades**.
+3.  Na caixa de pesquisa, digite "EDIFACT" como filtro. Selecione **Codificar Mensagem EDIFACT pelo nome do contrato** ou **Codificar mensagem EDIFACT por identidades**.
    
     ![pesquisar EDIFACT](media/logic-apps-enterprise-integration-edifact-encode/edifactdecodeimage1.png)  
 
@@ -56,7 +55,7 @@ Veja os itens necessários:
     | Nome da Conexão * |Digite um nome para a conexão. |
     | Uma conta de integração * |Insira um nome para sua conta de integração. Verifique se sua conta de integração e o aplicativo lógico estão no mesmo local do Azure. |
 
-5.    Quando terminar, os detalhes de conexão devem ser semelhantes a este exemplo. Para concluir a criação da sua conexão, escolha **Criar**.
+5.  Quando terminar, os detalhes de conexão devem ser semelhantes a este exemplo. Para concluir a criação da sua conexão, escolha **Criar**.
 
     ![detalhes da conexão com a conta de integração](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage2.png)
 
@@ -66,7 +65,7 @@ Veja os itens necessários:
 
 #### <a name="encode-edifact-message-by-agreement-name"></a>Codificar Mensagem EDIFACT pelo nome do contrato
 
-Se você optar por codificar mensagens EDIFACT por nome do contrato, abra a lista **Nome do contrato X12**, insira ou selecione o contrato EDIFACT existente. Insira a mensagem XML para codificar.
+Se você optar por codificar as mensagens EDIFACT pelo nome do contrato, abra a lista **Nome do contrato EDIFACT** e insira ou selecione o nome do contrato EDIFACT. Insira a mensagem XML para codificar.
 
 ![Insira o nome do contrato EDIFACT e a mensagem XML para codificar](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage6.png)
 
@@ -94,7 +93,9 @@ O conector EDIFACT de codificação executa as seguintes tarefas:
   * Como uma confirmação técnica, a mensagem CONTRL indica o recebimento de um intercâmbio.
   * Como uma confirmação funcional, a mensagem CONTRL indica a aceitação ou a rejeição do intercâmbio recebido, do grupo ou da mensagem, com uma lista de erros ou funcionalidade sem suporte
 
+## <a name="view-swagger-file"></a>Exibir o arquivo do Swagger
+Para exibir os detalhes de Swagger para o conector do EDIFACT, consulte [EDIFACT](/connectors/edifact/).
+
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack") 
-
 

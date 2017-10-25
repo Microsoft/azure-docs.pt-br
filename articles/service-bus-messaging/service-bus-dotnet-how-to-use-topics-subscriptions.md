@@ -1,327 +1,224 @@
 ---
-title: "Usar os tópicos de Barramento de Serviço do Azure com o .NET | Microsoft Docs"
-description: "Saiba como usar as assinaturas e os tópicos do Barramento de Serviço com o .NET no Azure. Os códigos de exemplo são escritos para aplicativos .NET."
+title: "Introdução a tópicos e assinaturas do Barramento de Serviço do Azure | Microsoft Docs"
+description: "Escreva um aplicativo de console em C# que usa tópicos e assinaturas de mensagens do Barramento de Serviço."
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: 
-ms.assetid: 31d0bc29-6524-4b1b-9c7f-aa15d5a9d3b4
+ms.assetid: 
 ms.service: service-bus-messaging
+ms.devlang: tbd
+ms.topic: hero-article
+ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: get-started-article
-ms.date: 03/23/2017
+ms.date: 10/10/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: bec18e91ef8798a791d4b1fe93bd529593197e01
-ms.lasthandoff: 03/24/2017
-
-
+ms.openlocfilehash: 3646d14be662af0fdf80790cb53ddc581b33a146
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Como usar tópicos e assinaturas do Barramento de Serviço
+# <a name="get-started-with-service-bus-topics"></a>Introdução aos tópicos do Barramento de Serviço
+
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Este artigo descreve como usar tópicos e assinaturas do Barramento de Serviço. Os exemplos são escritos em C# e utilizam APIs .NET. Os cenários abordados incluem a criação de tópicos e assinaturas, a criação de filtros de assinatura, o envio de mensagens para um tópico, o recebimento de mensagens de uma assinatura e a exclusão de tópicos e assinaturas. Para saber mais sobre tópicos e assinaturas, confira a seção [Próximas etapas](#next-steps).
+Este tutorial cobre as seguintes etapas:
+
+1. Crie um namespace do Barramento de Serviço usando o portal do Azure.
+2. Crie um tópico do Barramento de Serviço usando o portal do Azure.
+3. Crie uma assinatura do Barramento de Serviço para esse tópico usando o portal do Azure.
+4. Escreva um aplicativo de console para enviar uma mensagem ao tópico.
+5. Escreva um aplicativo de console para receber essa mensagem da assinatura.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+1. [Visual Studio 2015 ou superior](http://www.visualstudio.com). Os exemplos neste tutorial usam o Visual Studio 2017.
+2. Uma assinatura do Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Criar um namespace usando o portal do Azure
 
-## <a name="configure-the-application-to-use-service-bus"></a>Configurar o aplicativo para usar o Barramento de Serviço
-Quando você cria um aplicativo que usa o Barramento de Serviço, você deve adicionar uma referência ao assembly do Barramento de Serviço e incluir os espaços para nome correspondentes. A maneira mais fácil de fazer isso é baixar o pacote [NuGet](https://www.nuget.org) adequado.
+Se você já criou um namespace de Mensagens do Barramento de Serviço, vá para a seção [Criar um tópico usando o portal do Azure](#2-create-a-topic-using-the-azure-portal).
 
-## <a name="get-the-service-bus-nuget-package"></a>Obtenha o pacote do NuGet do Barramento de Serviço
-O [pacote NuGet do Barramento de Serviço](https://www.nuget.org/packages/WindowsAzure.ServiceBus) é a maneira mais fácil de configurar seu aplicativo com todas as dependências de Barramento de Serviço necessárias. Para instalar o pacote do NuGet do Barramento de Serviço em seu projeto, faça o seguinte:
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse em **Referências** e clique em **Gerenciar Pacotes NuGet**.
-2. Clique em **Procurar**, pesquise "Barramento de Serviço do Azure", em seguida, selecione o item **Barramento de Serviço do Microsoft Azure**. Clique em **Instalar** para concluir a instalação, em seguida, feche a caixa de diálogo:
+## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Criar um tópico usando o portal do Azure
+
+1. Faça logon no [Portal do Azure][azure-portal].
+2. No painel de navegação à esquerda do portal, clique em **Barramento de Serviço** (se a opção **Barramento de Serviço** não estiver visível, clique em **Mais serviços**).
+3. Clique no namespace no qual você gostaria de criar o tópico. Será exibida a folha Visão geral do namespace:
    
-   ![][7]
+    ![Criar um tópico][createtopic1]
+4. No **namespace do Barramento de Serviço**, clique em **Tópicos** e clique em **Adicionar tópico**.
+   
+    ![Selecionar tópicos][createtopic2]
+5. Insira um nome para o tópico e desmarque a opção **Ativar particionamento**. Deixe as outras opções com os valores padrão.
+   
+    ![Selecionar Nova][createtopic3]
+6. Na parte inferior da folha, clique em **Criar**.
 
-Agora você está pronto para escrever código para o Barramento de Serviço.
+## <a name="3-create-a-subscription-to-the-topic"></a>3. Criar uma assinatura para o tópico
 
-## <a name="create-a-service-bus-connection-string"></a>Criar uma cadeia de conexão do Barramento de Serviço
-O Barramento de Serviço usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais. Você pode colocar a cadeia de conexão em um arquivo de configuração, em vez de embuti-la no código:
+1. No painel de recursos de portal, clique no namespace que você criou na etapa 1 e clique no nome do tópico que criou na etapa 2.
+2. Na parte superior do painel de visão geral, clique no sinal de adição ao lado de **Assinatura** para adicionar uma assinatura ao tópico.
 
-* Ao usar os serviços do Azure, é recomendável armazenar a cadeia de conexão usando o sistema de configuração de serviço do Azure (arquivos .csdef e .cscfg).
-* Ao usar sites do Azure ou Máquinas Virtuais do Azure, é recomendável armazenar a cadeia de conexão usando o sistema de configuração do .NET (por exemplo, o arquivo Web.config).
+    ![Criar assinatura][createtopic4]
 
-Nos dois casos, você pode recuperar a cadeia de conexão usando o método `CloudConfigurationManager.GetSetting`, como mostrado mais adiante neste artigo.
+3. Insira um nome para a assinatura. Deixe as outras opções com os valores padrão.
 
-### <a name="configure-your-connection-string"></a>Configurar a cadeia de conexão
-O mecanismo de configuração do serviço permite que você altere dinamicamente as definições da configuração no [portal do Azure][Azure portal] sem reimplantar o aplicativo. Por exemplo, adicione um rótulo `Setting` ao seu arquivo de definição de serviço (**.csdef**), como mostrado no próximo exemplo.
+## <a name="4-send-messages-to-the-topic"></a>4. Enviar mensagens para o tópico
 
-```xml
-<ServiceDefinition name="Azure1">
-...
-    <WebRole name="MyRole" vmsize="Small">
-        <ConfigurationSettings>
-            <Setting name="Microsoft.ServiceBus.ConnectionString" />
-        </ConfigurationSettings>
-    </WebRole>
-...
-</ServiceDefinition>
-```
+Para enviar mensagens para o tópico, escreveremos um aplicativo de console em C# usando o Visual Studio.
 
-Em seguida, especifique valores no arquivo de configuração do serviço (.cscfg).
+### <a name="create-a-console-application"></a>Criar um aplicativo de console
 
-```xml
-<ServiceConfiguration serviceName="Azure1">
-...
-    <Role name="MyRole">
-        <ConfigurationSettings>
-            <Setting name="Microsoft.ServiceBus.ConnectionString"
-                     value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey" />
-        </ConfigurationSettings>
-    </Role>
-...
-</ServiceConfiguration>
-```
+Inicie o Visual Studio e crie um novo projeto de **Aplicativo de console (.NET Framework)**.
 
-Use o nome da chave da SAS (Assinatura de Acesso Compartilhado) e os valores de chave recuperados do portal, conforme descrito anteriormente.
+### <a name="add-the-service-bus-nuget-package"></a>Adicionar o pacote NuGet do Barramento de Serviço
 
-### <a name="configure-your-connection-string-when-using-azure-websites-or-azure-virtual-machines"></a>Configurar a cadeia de conexão ao usar sites ou Máquinas Virtuais do Azure
-Ao usar sites ou Máquinas Virtuais, é recomendável usar o sistema de configuração .NET (por exemplo, Web.config). Você pode armazenar a cadeia de conexão usando o elemento `<appSettings>`.
+1. Clique com o botão direito do mouse no projeto recém-criado e selecione **Gerenciar Pacotes NuGet**.
+2. Clique na guia **Procurar**, pesquise **WindowsAzure.ServiceBus** e selecione o item **WindowsAzure.ServiceBus**. Clique em **Instalar** para concluir a instalação e feche essa caixa de diálogo.
+   
+    ![Selecionar um pacote NuGet][nuget-pkg]
 
-```xml
-<configuration>
-    <appSettings>
-        <add key="Microsoft.ServiceBus.ConnectionString"
-             value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey" />
-    </appSettings>
-</configuration>
-```
+### <a name="write-some-code-to-send-a-message-to-the-topic"></a>Escrever um código para enviar um tópico para a fila
 
-Use o nome da SAS e os valores de chave recuperados no [portal do Azure][Azure portal], conforme descrito anteriormente.
+1. Adicione a seguinte instrução `using` à parte superior do arquivo Program.cs.
+   
+    ```csharp
+    using Microsoft.ServiceBus.Messaging;
+    ```
+2. Adicione o seguinte código ao `Main` método. Defina a variável `connectionString` para a cadeia de conexão que você obteve ao criar o namespace e defina `topicName` como o nome que você usou ao criar o tópico.
+   
+    ```csharp
+    var connectionString = "<your connection string>";
+    var topicName = "<your topic name>";
+   
+    var client = TopicClient.CreateFromConnectionString(connectionString, topicName);
+    var message = new BrokeredMessage("This is a test message!");
 
-## <a name="create-a-topic"></a>Criar um tópico
-Você pode executar operações de gerenciamento de tópicos e assinaturas do Barramento de Serviço usando a classe [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager). Essa classe fornece métodos para criar, enumerar e excluir tópicos.
+    Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
+    Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
-O exemplo a seguir constrói um objeto `NamespaceManager` usando a classe `CloudConfigurationManager` do Azure com uma cadeia de conexão que consiste no endereço básico de um namespace do Barramento de Serviço e nas credenciais apropriadas da SAS com permissões para gerenciá-lo. Essa cadeia de conexão tem o seguinte formato:
+    client.Send(message);
 
-```xml
-Endpoint=sb://<yourNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<yourKey>
-```
+    Console.WriteLine("Message successfully sent! Press ENTER to exit program");
+    Console.ReadLine();
+    ```
+   
+    Seu arquivo Program.cs deve ficar assim.
+   
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using Microsoft.ServiceBus.Messaging;
 
-Use o exemplo a seguir, considerando as definições de configuração da seção anterior.
-
-```csharp
-// Create the topic if it does not exist already.
-string connectionString =
-    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-
-var namespaceManager =
-    NamespaceManager.CreateFromConnectionString(connectionString);
-
-if (!namespaceManager.TopicExists("TestTopic"))
-{
-    namespaceManager.CreateTopic("TestTopic");
-}
-```
-
-Há sobrecargas do método [CreateTopic](/dotnet/api/microsoft.servicebus.namespacemanager) que permitem definir as propriedades do tópico, por exemplo, definir o valor de TTL (vida útil) padrão a ser aplicado às mensagens enviadas ao tópico. Essas configurações são aplicadas usando a classe [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription). O exemplo a seguir mostra como criar um tópico chamado **TestTopic** com um tamanho máximo de 5 GB e uma mensagem padrão de TTL de 1 minuto.
-
-```csharp
-// Configure Topic Settings.
-TopicDescription td = new TopicDescription("TestTopic");
-td.MaxSizeInMegabytes = 5120;
-td.DefaultMessageTimeToLive = new TimeSpan(0, 1, 0);
-
-// Create a new Topic with custom settings.
-string connectionString =
-    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-
-var namespaceManager =
-    NamespaceManager.CreateFromConnectionString(connectionString);
-
-if (!namespaceManager.TopicExists("TestTopic"))
-{
-    namespaceManager.CreateTopic(td);
-}
-```
-
-> [!NOTE]
-> Você pode usar o método [TopicExists](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_TopicExists_System_String_) em objetos [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) para verificar se uma fila com um nome especificado já existe no namespace.
-> 
-> 
-
-## <a name="create-a-subscription"></a>Criar uma assinatura
-Você também pode criar assinaturas de tópico usando a classe [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager). As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens passadas para a fila virtual da assinatura.
-
-> [!IMPORTANT]
-> Para que as mensagens sejam recebidas por uma assinatura, você deve criar essa assinatura antes de enviar as mensagens ao tópico. Se não houver nenhuma assinatura em um tópico, o tópico descartará as mensagens.
-> 
-> 
-
-### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Criar uma assinatura com o filtro padrão (MatchAll)
-Se nenhum filtro for especificado quando uma nova assinatura for criada, o filtro **MatchAll** será o padrão usado. Quando você usa o filtro **MatchAll**, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada “AllMessages” e usa o filtro padrão **MatchAll**.
-
-```csharp
-string connectionString =
-    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-
-var namespaceManager =
-    NamespaceManager.CreateFromConnectionString(connectionString);
-
-if (!namespaceManager.SubscriptionExists("TestTopic", "AllMessages"))
-{
-    namespaceManager.CreateSubscription("TestTopic", "AllMessages");
-}
-```
-
-### <a name="create-subscriptions-with-filters"></a>Criar assinaturas com os filtros
-Você também pode configurar filtros que permitem especificar quais mensagens enviadas a um tópico devem aparecer dentro de uma assinatura específica do tópico.
-
-O tipo de filtro mais flexível com suporte das assinaturas é a classe [SqlFilter][SqlFilter], que implementa um subconjunto do SQL92. Os filtros SQL operam nas propriedades das mensagens que são publicadas no tópico. Para saber mais sobre as expressões que podem ser usadas com um filtro SQL, confira a sintaxe [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
-
-O exemplo a seguir cria uma assinatura denominada **HighMessages** com um objeto [SqlFilter][SqlFilter] que seleciona apenas as mensagens que tenham uma propriedade **MessageNumber** personalizada maior do que 3.
-
-```csharp
-// Create a "HighMessages" filtered subscription.
-SqlFilter highMessagesFilter =
-   new SqlFilter("MessageId > 3");
-
-namespaceManager.CreateSubscription("TestTopic",
-   "HighMessages",
-   highMessagesFilter);
-```
-
-De maneira semelhante, o exemplo a seguir cria uma assinatura denominada **LowMessages** com um [SqlFilter][SqlFilter] que seleciona apenas as mensagens que tenham uma propriedade **MessageNumber** menor ou igual a 3.
-
-```csharp
-// Create a "LowMessages" filtered subscription.
-SqlFilter lowMessagesFilter =
-   new SqlFilter("MessageId <= 3");
-
-namespaceManager.CreateSubscription("TestTopic",
-   "LowMessages",
-   lowMessagesFilter);
-```
-
-Agora, quando uma mensagem for enviada para `TestTopic`, ela sempre será fornecida aos destinatários inscritos na assinatura do tópico **AllMessages** e será fornecida de forma seletiva para os destinatários inscritos nas assinaturas dos tópicos **HighMessages** e **LowMessages** (dependendo do conteúdo da mensagem).
-
-## <a name="send-messages-to-a-topic"></a>Enviar mensagens para um tópico
-Para enviar uma mensagem a um tópico do Barramento de Serviço, seu aplicativo cria um objeto [TopicClient](/dotnet/api/microsoft.servicebus.messaging.topicclient) usando a cadeia de conexão.
-
-O código a seguir demonstra como criar um objeto [TopicClient](/dotnet/api/microsoft.servicebus.messaging.topicclient) para o tópico **TestTopic** criado anteriormente usando a chamada à API [CreateFromConnectionString](/dotnet/api/microsoft.servicebus.messaging.topicclient#Microsoft_ServiceBus_Messaging_TopicClient_CreateFromConnectionString_System_String_System_String_).
-
-```csharp
-string connectionString =
-    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-
-TopicClient Client =
-    TopicClient.CreateFromConnectionString(connectionString, "TestTopic");
-
-Client.Send(new BrokeredMessage());
-```
-
-As mensagens enviadas aos tópicos de Barramento de Serviço são instâncias da classe [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Os objetos **BrokeredMessage** têm um conjunto de propriedades padrão (como [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) e [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), um dicionário usado para manter as propriedades personalizadas específicas do aplicativo e um corpo de dados de aplicativo arbitrários. Um aplicativo pode definir o corpo da mensagem, passando qualquer objeto serializável para o construtor do objeto **BrokeredMessage** e o **DataContractSerializer** adequado será usado para serializar o objeto. Como alternativa, é possível fornecer um objeto **System.IO.Stream**.
-
-O exemplo a seguir demonstra como enviar cinco mensagens de teste ao objeto **TestTopic** [TopicClient](/dotnet/api/microsoft.servicebus.messaging.topicclient) obtido no exemplo de código anterior. Observe que o valor da propriedade [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) de cada mensagem varia dependendo da iteração do loop (isso determina qual assinatura o recebe).
-
-```csharp
-for (int i=0; i<5; i++)
-{
-  // Create message, passing a string message for the body.
-  BrokeredMessage message = new BrokeredMessage("Test message " + i);
-
-  // Set additional custom app-specific property.
-  message.Properties["MessageId"] = i;
-
-  // Send message to the topic.
-  Client.Send(message);
-}
-```
-
-Os tópicos do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em um tópico, mas há uma capacidade do tamanho total das mensagens mantidas por um tópico. O tamanho do tópico é definido no momento da criação, com um limite máximo de 5 GB. Se o particionamento estiver habilitado, o limite superior será maior. Para obter mais informações, consulte [Entidades de mensagens particionadas](service-bus-partitioning.md).
-
-## <a name="how-to-receive-messages-from-a-subscription"></a>Como receber mensagens de uma assinatura
-A maneira recomendada de receber mensagens de uma assinatura é usar um objeto [SubscriptionClient](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient). Os objetos **SubscriptionClient** podem funcionar em dois modos diferentes: [*ReceiveAndDelete* e *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** é o padrão.
-
-Quando o modo **ReceiveAndDelete** for usado, o recebimento será uma operação única, ou seja, quando o Barramento de Serviço receber uma solicitação de leitura de uma mensagem em uma assinatura, ele marcará a mensagem como sendo consumida e a retornará ao aplicativo. O modo **ReceiveAndDelete** é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Barramento de Serviço marca a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
-
-No modo **PeekLock** (o modo padrão), o processo de recebimento se torna uma operação de duas etapas, o que torna possível o suporte a aplicativos que não toleram mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo conclui o processamento da mensagem (ou a armazena de forma segura para processamento futuro), ele conclui a segunda etapa do processo de recebimento chamando [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) na mensagem recebida. Quando o Barramento de Serviço vê a chamada **Complete**, ele marca a mensagem como sendo consumida e remove-a da assinatura.
-
-O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas usando o modo **PeekLock** padrão. Para especificar outro valor de [ReceiveMode](/dotnet/api/microsoft.servicebus.messaging.receivemode), você pode usar outra sobrecarga para [CreateFromConnectionString](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_CreateFromConnectionString_System_String_System_String_System_String_Microsoft_ServiceBus_Messaging_ReceiveMode_). Este exemplo usa o retorno de chamada [OnMessage](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) para processar mensagens assim que chegam à assinatura **HighMessages**.
-
-```csharp
-string connectionString =
-    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-
-SubscriptionClient Client =
-    SubscriptionClient.CreateFromConnectionString
-            (connectionString, "TestTopic", "HighMessages");
-
-// Configure the callback options.
-OnMessageOptions options = new OnMessageOptions();
-options.AutoComplete = false;
-options.AutoRenewTimeout = TimeSpan.FromMinutes(1);
-
-Client.OnMessage((message) =>
-{
-    try
+    namespace tsend
     {
-        // Process message from subscription.
-        Console.WriteLine("\n**High Messages**");
-        Console.WriteLine("Body: " + message.GetBody<string>());
-        Console.WriteLine("MessageID: " + message.MessageId);
-        Console.WriteLine("Message Number: " +
-            message.Properties["MessageNumber"]);
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                var connectionString = "Endpoint=sb://<your namespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<your key>";
+                var topicName = "<your topic name>";
 
-        // Remove message from subscription.
-        message.Complete();
+                var client = TopicClient.CreateFromConnectionString(connectionString, topicName);
+                var message = new BrokeredMessage("This is a test message!");
+
+                Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
+                Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
+
+                client.Send(message);
+
+                Console.WriteLine("Message successfully sent! Press ENTER to exit program");
+                Console.ReadLine();
+            }
+        }
     }
-    catch (Exception)
+    ```
+3. Execute o programa e verifique o portal do Azure: clique no nome do tópico na folha **Visão geral** do namespace. A folha **Essentials** do tópico é exibida. Nas assinaturas listadas na parte inferior da folha, observe que o valor **Contagem de Mensagens** para cada assinatura agora deve ser 1. Cada vez que você executa o aplicativo de remetente sem recuperar mensagens (conforme descrito na próxima seção), esse valor aumenta em 1. Observe também que o tamanho atual do tópico aumenta o valor **Atual** na folha **Essentials** cada vez que o aplicativo adiciona uma mensagem para o tópico/a assinatura.
+   
+      ![Tamanho da mensagem][topic-message]
+
+## <a name="5-receive-messages-from-the-subscription"></a>5. Receber mensagens da assinatura
+
+1. Para receber as mensagens recém-enviadas, crie um novo aplicativo de console e adicione uma referência ao pacote NuGet do Barramento de Serviço, parecido com o aplicativo de envio anterior.
+2. Adicione a seguinte instrução `using` à parte superior do arquivo Program.cs.
+   
+    ```csharp
+    using Microsoft.ServiceBus.Messaging;
+    ```
+3. Adicione o seguinte código ao `Main` método. Defina a variável `connectionString` para a cadeia de conexão que você obteve ao criar o namespace e defina `topicName` como o nome que você usou ao criar o tópico. Além disso, substitua `<your subscription name>` pelo nome da assinatura que você criou na etapa 3. 
+   
+    ```csharp
+    var connectionString = "<your connection string>";
+    var topicName = "<your topic name>";
+   
+    var client = SubscriptionClient.CreateFromConnectionString(connectionString, topicName, "<your subscription name>");
+   
+    client.OnMessage(message =>
     {
-        // Indicates a problem, unlock message in subscription.
-        message.Abandon();
+      Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
+      Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
+    });
+   
+    Console.WriteLine("Press ENTER to exit program");
+    Console.ReadLine();
+    ```
+   
+    O arquivo Program.cs deve ficar assim:
+   
+    ```csharp
+    using System;
+    using Microsoft.ServiceBus.Messaging;
+   
+    namespace GettingStartedWithTopics
+    {
+      class Program
+      {
+        static void Main(string[] args)
+        {
+          var connectionString = "Endpoint=sb://<your namespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<your key>";;
+          var topicName = "<your topic name>";
+   
+          var client = SubscriptionClient.CreateFromConnectionString(connectionString, topicName, "<your subscription name>");
+   
+          client.OnMessage(message =>
+          {
+            Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
+            Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
+          });
+
+          Console.WriteLine("Press ENTER to exit program");   
+          Console.ReadLine();
+        }
+      }
     }
-}, options);
-```
+    ```
+4. Execute o programa e verifique o portal novamente. Observe que os valores **Contagem de Mensagens** e **Atuais** agora são 0.
+   
+    ![Tamanho do tópico][topic-message-receive]
 
-Este exemplo configura o retorno de chamada [OnMessage](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) usando um objeto [OnMessageOptions](/dotnet/api/microsoft.servicebus.messaging.onmessageoptions). [AutoComplete](/dotnet/api/microsoft.servicebus.messaging.onmessageoptions#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoComplete) é definido como **false** para habilitar o controle manual de quando chamar [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) na mensagem recebida. [AutoRenewTimeout](/dotnet/api/microsoft.servicebus.messaging.onmessageoptions#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoRenewTimeout) é definido como 1 minuto, o que faz com que o cliente aguarde até um minuto antes do encerramento do recurso de renovação automática e que o cliente faça uma nova chamada para verificar se há mensagens. Esse valor de propriedade reduz o número de vezes que o cliente faz chamadas passíveis de cobrança que não recuperam mensagens.
-
-## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como tratar falhas do aplicativo e mensagens ilegíveis
-O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recuperar normalmente dos erros no seu aplicativo ou das dificuldades no processamento de uma mensagem. Se um aplicativo receptor não for capaz de processar a mensagem por algum motivo, ele chamará o método [Abando](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon_System_Collections_Generic_IDictionary_System_String_System_Object__)n na mensagem recebida (em vez do método [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)). Isso fará com que o Barramento de Serviço desbloqueie a mensagem na assinatura e disponibilize-a para ser recebida novamente, pelo mesmo aplicativo de consumo ou por outro.
-
-Também há um tempo limite associado a uma mensagem bloqueada na assinatura e, se houver falha no processamento da mensagem pelo aplicativo antes da expiração do tempo limite de bloqueio (por exemplo, se o aplicativo travar), o Barramento de Serviço desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
-
-Se houver falha do aplicativo após o processamento da mensagem, mas antes de a solicitação [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) ser emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Isso é frequentemente chamado de *Processamento de pelo menos uma vez*, ou seja, cada mensagem será processada pelo menos uma vez, mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é obtido com a propriedade [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) da mensagem, que permanece constante nas tentativas da entrega.
-
-## <a name="delete-topics-and-subscriptions"></a>Excluir tópicos e assinaturas
-O exemplo a seguir demonstra como excluir o tópico **TestTopic** do namespace de serviço **HowToSample**.
-
-```csharp
-// Delete Topic.
-namespaceManager.DeleteTopic("TestTopic");
-```
-
-A exclusão de um tópico também exclui todas as assinaturas registradas com o tópico. As assinaturas também podem ser excluídas de forma independente. O código a seguir demonstra como excluir uma assinatura denominada **HighMessages** do tópico **TestTopic**.
-
-```csharp
-namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
-```
+Parabéns! Agora você criou um tópico e uma assinatura, enviou uma mensagem e recebeu essa mensagem.
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, acesse estes links para saber mais.
 
-* [Filas, tópicos e assinaturas][Queues, topics, and subscriptions].
-* [Exemplo de filtros do tópico][Topic filters sample]
-* Referência da API para [SqlFilter][SqlFilter].
-* Compile um aplicativo de trabalho que envie e receba mensagens de e para uma fila do Barramento de Serviço: [tutorial do .NET do Sistema de Mensagens agenciado do Barramento de Serviço][Service Bus brokered messaging .NET tutorial].
-* Exemplos do Barramento de Serviço: baixe de [Exemplos do Azure][Azure samples] ou confira a [visão geral](service-bus-samples.md).
+Confira nosso [Repositório GitHub com exemplos](https://github.com/Azure/azure-service-bus/tree/master/samples) que demonstram alguns dos recursos mais avançados de mensagens do Barramento de Serviço.
 
-[Azure portal]: https://portal.azure.com
+<!--Image references-->
 
-[7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
-
-[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[Topic filters sample]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
-[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
-[SqlFilter.SqlExpression]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
-[Service Bus brokered messaging .NET tutorial]: service-bus-brokered-tutorial-dotnet.md
-[Azure samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-
+[nuget-pkg]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/nuget-package.png
+[topic-message]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/topic-message.png
+[topic-message-receive]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/topic-message-receive.png
+[createtopic1]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic1.png
+[createtopic2]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic2.png
+[createtopic3]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic3.png
+[createtopic4]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic4.png
+[github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+[azure-portal]: https://portal.azure.com

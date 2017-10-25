@@ -1,5 +1,5 @@
 ---
-title: 'Troubleshooting: ''Active Directory'' item is missing or not available | Microsoft Docs'
+title: "Solução de problemas: o item “Active Directory” está ausente ou não está disponível | Microsoft Docs"
 description: "O que fazer quando o item de menu do Active Directory não aparece no Portal de Gerenciamento do Azure."
 services: active-directory
 documentationcenter: na
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
-ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9c52e9257272c5b0c55c488d2c7ca6fef500260b
-
-
+ms.date: 04/27/2017
+ms.author: bryanla
+ms.openlocfilehash: be3a797c4a405fd2f6636e67f4c961dd6d143486
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Solução de problemas: o item “Active Directory” está ausente ou não está disponível
 Muitas das instruções para usar os recursos e serviços do Azure Active Directory começam com "Vá para o Portal de Gerenciamento do Azure e clique em **Active Directory**." Mas o que fazer se o item de menu ou extensão do Active Directory não for exibido ou se ele está marcado como **Não disponível**? Este tópico foi criado para ajudar. Ele descreve as condições sob as quais o **Active Directory** não é exibido ou não está disponível e explica como proceder.
@@ -51,10 +51,4 @@ Quando você clica em **+Novo** > **Serviços de Aplicativos**, um item do **Act
 No entanto, enquanto a página está carregando, o item fica esmaecido e é marcado como **Não Disponível**. Este é um estado temporário. Se você aguardar alguns segundos, o item será disponibilizado. Se o atraso for prolongado, atualizar a página da Web geralmente resolve o problema.
 
 ![Captura de tela: Active Directory não disponível](./media/active-directory-troubleshooting/not-available.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

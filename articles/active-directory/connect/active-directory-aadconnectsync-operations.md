@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 9faa28a86c9427a83e8ca4485ebcdc8e8dacd93d
-ms.lasthandoff: 03/03/2017
-
-
+ms.openlocfilehash: b7583a1556bb1113f349a78890768451e39c6878
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Sincronização do Azure AD Connect: considerações e tarefas operacionais
 O objetivo deste tópico é descrever as tarefas operacionais da sincronização do Azure AD Connect.
@@ -69,7 +68,7 @@ Você agora preparou a exportação das alterações para o Azure AD e AD local 
 #### <a name="verify"></a>Verificar
 1. Inicie um prompt de comando e vá para `%ProgramFiles%\Microsoft Azure AD Sync\bin`
 2. Execute: `csexport "Name of Connector" %temp%\export.xml /f:x` o nome do Conector pode ser encontrado no Serviço de Sincronização. Ele tem um nome semelhante a "contoso.com – AAD" para o Azure AD.
-3. Copie o script do PowerShell da seção [CSAnalyzer](#Appendix-CSAnalyzer) para um arquivo chamado `csanalyzer.ps1`.
+3. Copie o script do PowerShell da seção [CSAnalyzer](#appendix-csanalyzer) para um arquivo chamado `csanalyzer.ps1`.
 4. Abra uma janela do PowerShell e procure a pasta em que você criou o script do PowerShell.
 5. Execute: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
 6. Agora você tem um arquivo chamado **processedusers1.csv** que pode ser examinado no Microsoft Excel. Todas as alterações preparadas para serem exportadas para o Azure AD são encontradas nesse arquivo.
@@ -77,7 +76,7 @@ Você agora preparou a exportação das alterações para o Azure AD e AD local 
 
 #### <a name="switch-active-server"></a>Servidor ativo do comutador
 1. No servidor atualmente ativo, desligue o servidor (FIM/DirSync/Azure AD Sync) para que ele não exporte para o Azure AD ou defina-o no modo de preparação (Azure AD Connect).
-2. Execute o assistente de instalação no servidor no **modo de preparo** e desabilite o** modo de preparo**.
+2. Execute o assistente de instalação no servidor no **modo de preparo** e desabilite o **modo de preparo**.
    ![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/additionaltasks.png)
 
 ## <a name="disaster-recovery"></a>Recuperação de desastre
@@ -109,7 +108,9 @@ Para obter mais informações, consulte [Modo de preparo](#staging-mode).
 Um método comum e com suporte é a execução do mecanismo de sincronização em uma máquina virtual. Se o host tiver um problema, a imagem com o servidor do mecanismo de sincronização pode ser migrada para outro servidor.
 
 ### <a name="sql-high-availability"></a>Alta disponibilidade do SQL
-Se você não estiver usando o SQL Server Express que vem com o Azure AD Connect, a alta disponibilidade do SQL Server também deverá ser considerada. A única solução de alta disponibilidade com suporte é o SQL clustering. Soluções sem suporte incluem espelhamento e Sempre ativo.
+Se você não estiver usando o SQL Server Express que vem com o Azure AD Connect, a alta disponibilidade do SQL Server também deverá ser considerada. As soluções de alta disponibilidade com suporte incluem o clustering de SQL e AOA (Grupos de Disponibilidade AlwaysOn). Soluções sem suporte incluem espelhamento.
+
+Suporte para SQL AOA foi adicionado ao Azure AD Connect versão 1.1.524.0. Você deve habilitar o SQL AOA antes de instalar o Azure AD Connect. Durante a instalação, o Azure AD Connect detecta se a instância do SQL fornecida está habilitada para SQL AOA ou não. Se o SQL AOA estiver habilitado, o Azure AD Connect descobrirá melhor se o AOA SQL está configurado para usar replicação síncrona ou replicação assíncrona. Ao configurar o Ouvinte do Grupo de Disponibilidade, é recomendável definir a propriedade RegisterAllProvidersIP como 0. Isso ocorre porque o Azure AD Connect atualmente usa o SQL Native Client para conectar-se ao SQL, e o SQL Native Client não dá suporte ao uso da propriedade MultiSubNetFailover.
 
 ## <a name="appendix-csanalyzer"></a>Apêndice: CSAnalyzer
 Consulte a seção [Verificar](#verify) para saber como usar esse script.
@@ -258,4 +259,3 @@ $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeI
 
 * [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)  
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)  
-

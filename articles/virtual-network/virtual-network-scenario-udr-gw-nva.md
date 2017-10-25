@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fb8d59469eadad51dcf269ec8ff2829b2f8ef922
-
-
+ms.openlocfilehash: 8e464348660114f5e99b4739bb7761b7e53ebf99
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="virtual-appliance-scenario"></a>Cenário de dispositivo virtual
 Um cenário comum entre os maiores clientes do Azure é a necessidade de fornecer um aplicativo de duas camadas exposto à Internet, permitindo acesso para a camada traseira de um datacenter local. Este documento explica um cenário usando UDR (Rotas Definidas pelo Usuário), um Gateway de VPN e dispositivos virtuais de rede para implantar um ambiente de duas camadas que atende aos seguintes requisitos:
@@ -63,7 +63,7 @@ Neste exemplo, há uma assinatura que contém o seguinte:
   * **azsn2**. A sub-rede de front-end hospeda uma VM em execução como um servidor Web que será acessado da Internet.
   * **azsn3**. A sub-rede de back-end hospeda uma VM que executa um servidor de aplicativos de back-end que será acessado pelo servidor Web de front-end.
   * **azsn4**. A sub-rede de gerenciamento usada exclusivamente para fornecer acesso de gerenciamento para todos os dispositivos virtuais do firewall. Essa sub-rede contém apenas uma NIC para cada dispositivo virtual de firewall usado na solução.
-  * **GatewaySubnet**. A sub-rede de conexão híbrida do Azure necessária para o Gateway de VPN e a Rota Expressa para fornecer conectividade entre VNets do Azure e outras redes. 
+  * **GatewaySubnet**. A sub-rede de conexão híbrida do Azure necessária para o Gateway de VPN e o ExpressRoute para fornecer conectividade entre VNets do Azure e outras redes. 
 * Há 3 dispositivos virtuais de firewall na rede **azurevnet** . 
   * **AZF1**. Firewall externo exposto à Internet pública usando um recurso de endereço IP público do Azure. Você precisa garantir que tem um modelo do Marketplace, ou diretamente do seu fornecedor de dispositivo, que provisiona um dispositivo virtual de 3 NICs.
   * **AZF2**. Firewall interno usado para controlar o tráfego entre **azsn2** e **azsn3**. Isso também é um dispositivo virtual de 3 NICs.
@@ -167,10 +167,4 @@ Para implantar este cenário, siga as etapas de alto nível abaixo.
 3. Provisione os recursos que fazem parte do **AZURERG**.
 4. Provisionar o túnel de **onpremvnet** para **azurevnet**.
 5. Depois que todos os recursos forem provisionados, faça logon em **onpremvm2** e faça ping do 10.0.3.101 para testar a conectividade entre **onpremsn2** e **azsn3**.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

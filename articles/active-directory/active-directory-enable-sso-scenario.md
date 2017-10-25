@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 10/17/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f6bceb2fd03230e4a39c22605ad1fea8dd422be1
-ms.lasthandoff: 12/29/2016
-
+ms.reviewer: asteen
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: b8f0cfdb468094bc761d6b939ca318fcfbea3ea4
+ms.contentlocale: pt-br
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Gerenciamento de aplicativos com o Active Directory do Azure
@@ -54,7 +55,7 @@ O Active Directory do Azure é a solução IDaaS (Identidade como Serviço) abra
 * Fornece gerenciamento de acesso central, logon único (SSO) e relatórios 
 * Oferece suporte ao gerenciamento de acesso integrado para [milhares de aplicativos](https://azure.microsoft.com/marketplace/active-directory/) na galeria de aplicativos, incluindo Salesforce, Google Apps, Box, Concur e outros. 
 
-Com o Azure Active Directory, os aplicativos que você publica para seus parceiros e clientes (comerciais ou consumidores) têm os mesmos recursos de gerenciamento de identidades e de acesso.<br>  Isso permite que você reduza significativamente os custos operacionais.
+Com o Azure Active Directory, os aplicativos que você publica para seus parceiros e clientes (comerciais ou consumidores) têm os mesmos recursos de gerenciamento de identidades e de acesso.<br> Isso permite que você reduza significativamente os custos operacionais.
 
 E se você precisar implementar um aplicativo que ainda não está listado na galeria de aplicativos? Embora isso seja um pouco mais demorado do que configurar o SSO para aplicativos da galeria de aplicativos, o AD do Azure fornece um assistente que ajuda você com a configuração.
 
@@ -82,7 +83,7 @@ Ao usar o AD do Azure para gerenciar aplicativos e habilitar o SSO:
 
 * **Aplicativos pré-integrados pelo provedor de serviços** Como o Office 365 e o Azure, estes são aplicativos criados diretamente no AD do Azure e que dependem dele para seus recursos abrangentes de gerenciamento de identidades e de acesso. O acesso a esses aplicativos é habilitado por meio de informações de diretório e emissão de token.
 * **Aplicativos pré-integrados pela Microsoft e aplicativos personalizados** Estes são aplicativos de nuvem independentes que dependem de um diretório interno de aplicativos e que podem funcionar independentemente do AD do Azure. O acesso a esses aplicativos é habilitado por meio da emissão de uma credencial específica de aplicativo mapeada para uma conta de aplicativo. Dependendo dos recursos do aplicativo, a credencial pode ser um token de federação ou o nome de usuário e a senha de uma conta provisionada anteriormente no aplicativo.
-* **Aplicativos locais** Os aplicativos publicados por meio do proxy de aplicativo do AD do Azure que habilitam principalmente o acesso aos aplicativos locais. Esses aplicativos dependem de uma central no diretório local como o Windows Server Active Directory. O acesso a esses aplicativos é habilitado por meio do disparo do proxy para entregar o conteúdo do aplicativo para o usuário final, ao mesmo tempo que respeita o requisito de logon local.
+* **Aplicativos locais** Os aplicativos publicados por meio do proxy de aplicativo do AD do Azure que habilitam principalmente o acesso aos aplicativos locais. Esses aplicativos dependem de um diretório local central, como o Windows Server Active Directory. O acesso a esses aplicativos é habilitado por meio do disparo do proxy para entregar o conteúdo do aplicativo para o usuário final, ao mesmo tempo que respeita o requisito de logon local.
 
 Por exemplo, se um usuário ingressar em sua organização, você precisa criar uma conta para o usuário no AD do Azure para as operações de logon primárias. Se esse usuário precisar ter acesso a um aplicativo gerenciado, como o Salesforce, você também precisará criar uma conta para este usuário no Salesforce e vinculá-la à conta do Azure para que o SSO funcione. Quando o usuário sair de sua organização, é aconselhável excluir a conta do AD do Azure e todas as contas equivalentes nos repositórios de IAM dos aplicativos aos quais o usuário tinha acesso.
 

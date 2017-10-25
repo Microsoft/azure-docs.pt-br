@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
 title: "Documentação da Retransmissão do Barramento de Serviço"
 description: "Saiba como o serviço de Retransmissão do Azure funciona em um ambiente local e na nuvem híbrido, completo com instruções, tutoriais, vídeos, referências de API e muito mais."
-translationtype: Human Translation
-ms.sourcegitcommit: ef8188d6790dac8b420348887c480cd4fdab07c4
-ms.openlocfilehash: 911ad28e0e93b9b46b368de2cfbbbbc9f1183b7b
-
+services: service-bus
+author: czeumault
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 03/14/2017
+ms.author: carolz
+ms.openlocfilehash: 9305e85ff075e8e7ee3e21315d28f63613ac01f4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
+---
 ---
 # <a name="service-bus-relay-documentation"></a>Documentação da Retransmissão do Barramento de Serviço
 Saiba como o serviço de Retransmissão do Azure facilita os aplicativos híbridos entre ambientes locais e na nuvem em uma rede empresarial corporativa e para a nuvem pública sem precisar abrir uma conexão de firewall nem exigir mudanças intrusivas em uma infraestrutura de rede corporativa.
@@ -30,7 +42,7 @@ Saiba como o serviço de Retransmissão do Azure facilita os aplicativos híbrid
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus-relay">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -112,8 +124,8 @@ Saiba como o serviço de Retransmissão do Azure facilita os aplicativos híbrid
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Exemplos</h3>
-                        <p><a href="/azure/service-bus-relay/service-bus-relay-samples">Exemplos de Retransmissão do Barramento de Serviço</a></p>
+                        <h3>Linha de comando</h3>
+                        <p><a href="/powershell/module/azurerm.servicebus">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -124,9 +136,8 @@ Saiba como o serviço de Retransmissão do Azure facilita os aplicativos híbrid
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.relay">Microsoft.Azure.Relay</a></p>
+                        <h3>Linguagens</h3>
+                        <p><a href="/dotnet/api/overview/azure/service-bus-relay">.NET</a></p>
                     </div>
                 </div>
             </div>
@@ -137,17 +148,11 @@ Saiba como o serviço de Retransmissão do Azure facilita os aplicativos híbrid
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Outros</h3>
-                        <p><a href="service-bus-relay-port-settings.md">Configurações de porta</a></p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/servicebus/">referência da API REST (a página pode estar em inglês)</a></p>
                    </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

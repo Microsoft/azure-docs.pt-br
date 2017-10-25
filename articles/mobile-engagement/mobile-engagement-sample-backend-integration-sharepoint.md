@@ -1,6 +1,6 @@
 ---
-title: "Mobile Engagement do Azure - integração do back-end"
-description: Conectar o Mobile Engagement do Azure com um back-end do SharePoint para criar campanhas do SharePoint
+title: "Azure Mobile Engagement - integração do back-end"
+description: Conectar o Azure Mobile Engagement com um back-end do SharePoint para criar campanhas do SharePoint
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,15 +14,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: d49f1094f4c3f170f3618f3e19e42266f9ae8858
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement---api-integration"></a>Integração da API do Azure Mobile Engagement
-Em um sistema automatizado de marketing, a criação e ativação das campanhas de marketing também ocorrerem automaticamente. Para essa finalidade - o Mobile Engagement do Azure permite criar essas campanhas de marketing automatizadas usando também as APIs. 
+Em um sistema automatizado de marketing, a criação e ativação das campanhas de marketing também ocorrerem automaticamente. Para essa finalidade - o Azure Mobile Engagement permite criar essas campanhas de marketing automatizadas usando também as APIs. 
 
 Normalmente os clientes usam a interface de front-end do Mobile Engagement para criar anúncios/pesquisas etc como parte de suas campanhas de marketing. No entanto conforme as campanhas de marketing ficam maduras, é necessário aproveitar os dados bloqueados nos sistemas de back-end (como qualquer sistema CRM ou sistema CMS como o SharePoint) para que possa ser criado um pipeline totalmente automatizado que cria campanhas em Mobile Engagement dinamicamente com base nos dados que fluem dos sistemas back-end. 
 
@@ -36,7 +35,7 @@ Este tutorial passa pelo cenário em que um usuário de negócios do SharePoint 
 > 
 
 ## <a name="sharepoint-integration"></a>Integração do SharePoint
-1. A lista do SharePoint de exemplo é semelhante ao seguinte. **Title**, **Category**, **NotificationTitle**, **Message** e **URL** são usados para criar o anúncio. Há uma coluna chamada **IsProcessed** que é usada pelo processo de automação de exemplo na forma de um programa de console. É possível executar esse console do programa como um Trabalho Web do Azure para que você pode programá-lo ou usar diretamente o fluxo de trabalho do SharePoint para programar a criação e ativação do anúncio quando um item é inserido na lista do SharePoint. Neste exemplo, usamos o programa de console que vai pelos itens da lista do SharePoint e cria um anúncio no Mobile Engagement do Azure para cada um deles e, em seguida, marca o sinalizador **IsProcessed** como true na criação do anúncio com êxito.
+1. A lista do SharePoint de exemplo é semelhante ao seguinte. **Title**, **Category**, **NotificationTitle**, **Message** e **URL** são usados para criar o anúncio. Há uma coluna chamada **IsProcessed** que é usada pelo processo de automação de exemplo na forma de um programa de console. É possível executar esse console do programa como um Trabalho Web do Azure para que você pode programá-lo ou usar diretamente o fluxo de trabalho do SharePoint para programar a criação e ativação do anúncio quando um item é inserido na lista do SharePoint. Neste exemplo, usamos o programa de console que vai pelos itens da lista do SharePoint e cria um anúncio no Azure Mobile Engagement para cada um deles e, em seguida, marca o sinalizador **IsProcessed** como true na criação do anúncio com êxito.
    
     ![][1]
 2. Estamos usando o código do exemplo *Autenticação remota no SharePoint Online usando o modelo de objeto do cliente* [aqui](https://code.msdn.microsoft.com/Remote-Authentication-in-b7b6f43c) para autenticar com a lista do SharePoint.
@@ -201,7 +200,6 @@ Esse exemplo criou uma campanha de anúncio simples especificando principalmente
 [3]: ./media/mobile-engagement-sample-backend-integration-sharepoint/new-announcement.png
 [4]: ./media/mobile-engagement-sample-backend-integration-sharepoint/activate-announcement.png
 [5]: ./media/mobile-engagement-sample-backend-integration-sharepoint/diagram.png
-
 
 
 

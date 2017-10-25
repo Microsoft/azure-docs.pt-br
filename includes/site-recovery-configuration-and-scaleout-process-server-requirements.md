@@ -8,8 +8,10 @@
 | **Software** | |
 | Versão do sistema operacional | Windows Server 2012 R2 |
 | Localidade do sistema operacional | Inglês (en-us)|
-| Versão do VMware vSphere PowerCLI | [PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0 "PowerCLI 6.0")|
+| Versão do VMware vSphere PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
 | Funções do Windows Server | Não habilite estas funções: <br> - Active Directory Domain Services <br>- Serviços de Informações da Internet <br> - Hyper-V |
+| Políticas de grupo| As seguintes Políticas de grupo não devem ser habilitadas no servidor <br> - Impedir o acesso ao prompt de comando <br> - Impedir o acesso às ferramentas de edição do registro <br> - Lógica de confiança para anexos de arquivo <br> - Ativar a execução do script <br> **Observação:** Mais informações sobre essas políticas de grupo podem ser encontradas [aqui](https://technet.microsoft.com/en-us/library/gg176671(v=ws.10).aspx)|
+| Configuração dos Serviços de Informações da Internet (IIS) | - Nenhum site da Web padrão já existente <br> - Habilitar [Autenticação anônima](https://technet.microsoft.com/en-us/library/cc731244(v=ws.10).aspx) <br> - Habilitar configuração [FastCGI](https://technet.microsoft.com/en-us/library/cc753077(v=ws.10).aspx)  <br> - Nenhum aplicativo/site da Web pré-existente deve estar escutando na porta 443<br>|
 | **Rede** | |
 | Tipo de placa de interface de rede | VMXNET3 |
 | Tipo de endereço IP | Estático |

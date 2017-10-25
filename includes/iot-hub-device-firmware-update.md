@@ -10,11 +10,13 @@ Nesta seção, você:
     ```
     npm init
     ```
+
 2. No prompt de comando na pasta **manageddevice**, execute o seguinte comando para instalar os pacotes **azure-iot-device** e **azure-iot-device-mqtt** do SDK do Dispositivo:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
+
 3. Usando um editor de texto, crie um arquivo **dmpatterns_fwupdate_device.js** na pasta **manageddevice**.
 
 4. Adicione as seguintes instruções "require" no início do arquivo **dmpatterns_fwupdate_device.js**:
@@ -31,6 +33,7 @@ Nesta seção, você:
     var connectionString = '{yourdeviceconnectionstring}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
+
 6. Adicione a seguinte função, que será usada para atualizar as propriedades relatadas:
    
     ```
@@ -47,6 +50,7 @@ Nesta seção, você:
       });
     };
     ```
+
 7. Adicione as seguintes funções que simulam baixar e aplicar a imagem do firmware:
    
     ```
@@ -69,7 +73,8 @@ Nesta seção, você:
       callback(error);
     }
     ```
-8. Adicione a seguinte função, que atualizará o status da atualização de firmware por meio das propriedades relatadas para **aguardando**. Normalmente, os dispositivos serão informados sobre uma atualização disponível e uma política definida pelo administrador fará com que o dispositivo inicie o download e aplique a atualização. Essa função é onde a lógica para habilitar essa política deve ser executado. Para simplificar, o exemplo deplays por quatro segundos antes de continuar a baixar a imagem do firmware:
+
+8. Adicione a seguinte função, que atualizará o status da atualização de firmware por meio das propriedades relatadas para **aguardando**. Normalmente, os dispositivos serão informados sobre uma atualização disponível e uma política definida pelo administrador fará com que o dispositivo inicie o download e aplique a atualização. Essa função é onde a lógica para habilitar essa política deve ser executado. Para simplificar, o exemplo aguarda quatro segundos antes de continuar a baixar a imagem do firmware:
    
     ```
     var waitToDownload = function(twin, fwPackageUriVal, callback) {
@@ -84,6 +89,7 @@ Nesta seção, você:
       setTimeout(callback, 4000);
     };
     ```
+
 9. Adicione a seguinte função, que atualizará o status da atualização de firmware por meio das propriedades relatadas para **baixando**. A função, em seguida, simula um download de firmware e finalmente atualiza o status de atualização do firmware para o **downloadFailed** ou **downloadComplete**:
    
     ```
@@ -121,6 +127,7 @@ Nesta seção, você:
       }, 4000);
     }
     ```
+
 10. Adicione a seguinte função, que atualizará o status da atualização de firmware por meio das propriedades relatadas para **aplicando**. A função simula a aplicação da imagem de firmware e finalmente atualiza o status de atualização do firmware para o **applyFailed** ou **applyComplete**:
     
     ```
@@ -158,6 +165,7 @@ Nesta seção, você:
       }, 4000);
     }
     ```
+
 11. Adicione a seguinte função que manipula a **firmwareUpdate** método direto e inicia a atualização de firmware de vários estágios de processo:
     
     ```
@@ -193,6 +201,7 @@ Nesta seção, você:
       });
     }
     ```
+
 12. Finalmente, adicione o seguinte código que se conecta ao seu hub IoT:
     
     ```
@@ -208,10 +217,6 @@ Nesta seção, você:
     ```
 
 > [!NOTE]
-> Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, você deve implementar políticas de repetição (como retirada exponencial), conforme sugerido no artigo do MSDN [Tratamento de Falhas Transitórias][lnk-transient-faults].
+> Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), conforme sugerido no artigo [Tratamento de falhas transitórias](https://msdn.microsoft.com/library/hh675232.aspx) do MSDN.
 > 
 > 
-
-<!--HONumber=Feb17_HO1-->
-
-

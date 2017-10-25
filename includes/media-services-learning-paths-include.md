@@ -1,9 +1,4 @@
-Você pode exibir os serviços de mídia do Azure aqui os planos de aprendizado:
+Leia sobre os caminhos de aprendizado dos Serviços de Mídia do Azure:
 
 * [Fluxo de trabalho da transmissão ao vivo dos Serviços de Mídia](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-* [Serviços de Mídia no fluxo de trabalho de Streaming sob Demanda](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+* [Serviços de Mídia no fluxo de trabalho de streaming sob demanda](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
