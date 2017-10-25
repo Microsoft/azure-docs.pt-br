@@ -43,7 +43,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 1. No painel esquerdo, clique em **Novo**.
 
-1. No painel **Novo**, clique em **Computação**.
+1. No painel **Novo**, clique em **Computador**.
 
 1. Clique em **Ver todos os** ao lado do cabeçalho **Em destaque**.
 
@@ -147,7 +147,7 @@ Vários [pacotes](sql-server-linux-virtual-machines-overview.md#packages) do SQL
 
 Se você precisa se conectar remotamente ao SQL Server na VM do Azure, configure uma regra de entrada no grupo de segurança de rede. A regra permite o tráfego na porta na qual o SQL Server escuta (padrão 1433). As etapas a seguir mostram como usar o portal do Azure nesta etapa. 
 
-1. No portal, selecione **Máquinas Virtuais**e selecione sua VM do SQL Server.
+1. No portal, selecione **Máquinas Virtuais** e selecione sua VM do SQL Server.
 
 1. Na lista de propriedades, selecione **Rede**.
 
