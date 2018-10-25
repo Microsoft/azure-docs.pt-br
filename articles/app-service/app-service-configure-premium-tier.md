@@ -54,7 +54,7 @@ Selecione **produção**, em seguida, selecione **P1V2**, **P2V2**, ou **P3V2**,
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
-> [!IMPORTANT] 
+> [IMPORTANTE!] 
 > Se você não ver **P1V2**, **P2V2** e **P3V2** como opções, ou se as opções não estiverem disponíveis, **PremiumV2** provavelmente não está disponível na implantação do Serviço de Aplicativo subjacente que contém o plano do Serviço de Aplicativo. Consulte [Expandir de uma combinação de regiões e de um grupo de recursos sem suporte](#unsupported) para obter mais detalhes.
 
 ## <a name="scale-up-an-existing-app-to-premiumv2-tier"></a>Expandir um aplicativo existente para o tipo de preço PremiumV2
