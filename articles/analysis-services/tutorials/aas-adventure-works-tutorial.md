@@ -4,7 +4,7 @@ description: Apresenta o tutorial da Adventure Works para o Azure Analysis Servi
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
-ms.topic: conceptual
+ms.topic: concepção
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
