@@ -62,11 +62,11 @@ Veja as etapas para criar uma instância da Máquina Virtual de Aprendizado Apro
 ## <a name="how-to-access-the-deep-learning-virtual-machine"></a>Como acessar a Máquina Virtual de Aprendizado Aprofundado
 
 ### <a name="windows-edition"></a>Edição do Windows
-Depois de criar a máquina virtual, você poderá entrar na área de trabalho remotamente usando as credenciais da conta de administrador configurada anteriormente na seção **Noções básicas** . 
+Depois de criar a máquina virtual, você poderá entrar na área de trabalho remotamente usando as credenciais da conta de administrador configurada anteriormente na seção [**Noções básicas**](https://docs.microsoft.com/pt-br/azure/virtual-machines/linux/use-remote-desktop) . 
 
 ### <a name="linux-edition"></a>Edição do Linux
 
-Após a criação da VM, você poderá entrar nela usando SSH. Use as credenciais da conta criada na seção **Noções básicas** da etapa 3 para a interface shell de texto. Em um cliente Windows, você pode baixar uma ferramenta de cliente SSH como o [Putty](http://www.putty.org). Se você preferir uma área de trabalho gráfica (Sistema do Windows X), poderá usar o encaminhamento X11 no Putty ou instalar o cliente X2Go.
+Após a criação da VM, você poderá entrar nela usando SSH. Use as credenciais da conta criada na seção [**Noções básicas**](https://docs.microsoft.com/pt-br/azure/virtual-machines/linux/use-remote-desktop) da etapa 3 para a interface shell de texto. Em um cliente Windows, você pode baixar uma ferramenta de cliente SSH como o [Putty](http://www.putty.org). Se você preferir uma área de trabalho gráfica (Sistema do Windows X), poderá usar o encaminhamento X11 no Putty ou instalar o cliente X2Go.
 
 > [!NOTE]
 > O cliente X2Go apresentou desempenho melhor do que o encaminhamento X11 nos testes. Recomendamos o uso do cliente X2Go para uma interface gráfica de área de trabalho.
