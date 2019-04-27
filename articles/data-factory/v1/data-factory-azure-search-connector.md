@@ -58,9 +58,9 @@ A tabela a seguir fornece descrições dos elementos JSON específicos para o se
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | -------- | ----------- | -------- |
-| Tipo | A propriedade type deve ser definida como: **AzureSearch**. | SIM |
-| URL | URL para o serviço Azure Search. | SIM |
-| chave | Chave de administração para o serviço Azure Search. | SIM |
+| type | A propriedade type deve ser definida como: **AzureSearch**. | SIM |
+| url | URL para o serviço Azure Search. | SIM |
+| key | Chave de administração para o serviço Azure Search. | SIM |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
@@ -68,7 +68,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | -------- | ----------- | -------- |
-| Tipo | A propriedade type deve ser definida como: **AzureSearchIndex**.| SIM |
+| type | A propriedade type deve ser definida como: **AzureSearchIndex**.| SIM |
 | indexName | Nome do índice do Azure Search. O Data Factory não cria o índice. O índice deve existir no Azure Search. | SIM |
 
 
@@ -100,13 +100,13 @@ A tabela a seguir especifica se um tipo de dados do Azure Search tem suporte ou 
 
 | Tipo de dados do Azure Search | Suporte no coletor do Azure Search |
 | ---------------------- | ------------------------------ |
-| Cadeia de caracteres | S |
+| String | S |
 | Int32 | S |
 | Int64 | S |
-| Duplo | S |
-| BOOLEAN | S |
+| Double | S |
+| Boolean | S |
 | DataTimeOffset | S |
-| Matriz de cadeia de caracteres | N |
+| String Array | N |
 | GeographyPoint | N |
 
 ## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>Exemplo JSON: copiar dados do SQL Server local para o índice do Azure Search
