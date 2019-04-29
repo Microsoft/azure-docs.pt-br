@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: rimman
 ms.openlocfilehash: 72ec8332a3363d5336fb84b3390d5e44ced0b2e5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798956"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60925964"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de Solicitação no Azure Cosmos DB
 
@@ -64,7 +64,7 @@ Enquanto você estima o número de RUs por segundo para provisionar, considere o
 
 * **Uso de script**: Assim como acontece com as consultas, os procedimentos armazenados e gatilhos consomem RUs com base na complexidade das operações que são executadas. À medida que você desenvolve seu aplicativo, inspecione a [cabeçalho de solicitação de encargo](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query) para compreender quanta capacidade de RU consome cada operação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre como [provisionar taxa de transferência para contêineres e bancos de dados do Azure Cosmos DB](set-throughput.md).
 * Saiba mais sobre [partições lógicas](partition-data.md).

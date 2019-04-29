@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 07cc83830fe2d467c611622bb66dfbb8c9429c2d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864869"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60860531"
 ---
 # <a name="send-errors-to-stackify-for-logging"></a>Enviar erros para o Stackify para registro em log
 

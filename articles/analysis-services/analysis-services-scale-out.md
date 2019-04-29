@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6a69d8d60b2e588ded9ccca20521195ae11ff136
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 8c226608f6c1c776463aa05c02b1d3cc04b699ec
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449414"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766817"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escala horizontal do Azure Analysis Services
 
@@ -129,6 +129,8 @@ Para definir o número de réplicas de consulta, use [AzAnalysisServicesServer c
 
 Para separar o servidor de processamento do pool de consulta, use [AzAnalysisServicesServer conjunto](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Especifique o valor opcional `-DefaultConnectionMode` parâmetro usar `Readonly`.
 
+Para obter mais informações, consulte [usando uma entidade de serviço com o módulo Az.AnalysisServices](analysis-services-service-principal.md#azmodule).
+
 ## <a name="connections"></a>conexões
 
 Na página Visão Geral do servidor, há dois nomes de servidor. Se você ainda não tiver configurado a escala horizontal para um servidor, os dois nomes de servidor funcionam da mesma forma. Depois de configurar a expansão para um servidor, você precisará especificar o nome do servidor adequado dependendo do tipo de conexão. 
@@ -139,7 +141,7 @@ Para SSMS, SSDT e cadeias de conexão no PowerShell, aplicativos do Azure Functi
 
 ![nomes do servidor](media/analysis-services-scale-out/aas-scale-out-name.png)
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 
 **Problema:** usuários obtêm o erro **não é possível localizar o servidor '\<nome do servidor >' instância no modo de conexão 'ReadOnly'.**
 

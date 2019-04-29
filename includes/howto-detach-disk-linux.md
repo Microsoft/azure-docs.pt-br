@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
 ms.openlocfilehash: 94f662cea5f20485659a7b93549b758fdd7770f6
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "58114393"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61476263"
 ---
 Quando não precisar mais de um disco de dados conectado a uma VM (máquina virtual), você poderá desanexá-lo facilmente. Ao desanexar um disco da VM, o disco não é removido do armazenamento. Se desejar usar os dados existentes no disco novamente, você poderá reanexá-lo à mesma VM ou anexá-lo a outra.  
 

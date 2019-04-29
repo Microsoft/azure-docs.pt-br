@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
 ms.openlocfilehash: a6a2fb246e407d6ea240ff40f4d2fa2b1b780931
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054003"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61023706"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Usar o Virtual Kubelet com o serviço de Kubernetes do Azure (AKS)
 
@@ -87,9 +87,9 @@ Esses argumentos estão disponíveis para o comando `aks install-connector`.
 
 | Argumento: | DESCRIÇÃO | Obrigatório |
 |---|---|:---:|
-| `--connector-name` | Nome do conector ACI.| SIM |
-| `--name` `-n` | Nome do cluster gerenciado. | SIM |
-| `--resource-group` `-g` | Nome do grupo de recursos. | SIM |
+| `--connector-name` | Nome do conector ACI.| Sim |
+| `--name` `-n` | Nome do cluster gerenciado. | Sim |
+| `--resource-group` `-g` | Nome do grupo de recursos. | Sim |
 | `--os-type` | Tipo de sistema operacional de instâncias de contêiner. Valores permitidos: Ambos, Linux, Windows. Padrão: Linux. | Não  |
 | `--aci-resource-group` | O grupo de recursos no qual criar os grupos de contêiner do ACI. | Não  |
 | `--location` `-l` | O local para criar os grupos de contêiner do ACI. | Não  |

@@ -9,11 +9,11 @@ ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
 ms.openlocfilehash: c18227a491478d0d8010761440a54fd088344b39
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149369"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776567"
 ---
 # <a name="common-alert-schema"></a>Esquema comum de alertas
 
@@ -122,7 +122,7 @@ Por exemplo, a solicitação a seguir corpo feito para o [criar ou atualizar](ht
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Definições de alerta de esquema comuns para Runbooks de automação de funções/aplicativos/Azure Webhooks/lógica.](https://aka.ms/commonAlertSchemaDefinitions)
 

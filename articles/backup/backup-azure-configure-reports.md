@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
 ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278810"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60642496"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 Este artigo mostra as etapas a seguir para configurar relatórios para o Backup do Azure por meio de um cofre dos Serviços de Recuperação. Ele também mostra como acessar relatórios por meio do Power BI. Depois de concluir essas etapas, você pode ir diretamente para o Power BI para exibir, personalizar e criar relatórios.
@@ -147,7 +147,7 @@ Sim, você pode configurar a mesma conta de armazenamento entre vários cofres p
 | Depois de configurar a conta de armazenamento para Relatórios de Backup, a **Conta de armazenamento** ainda mostra **Não configurada**. | Se você configurou uma conta de armazenamento com êxito, os dados do relatório são transmitidos mesmo com esse problema. Para resolver esse problema, vá para o portal do Azure e selecione **Todos os serviços** > **Configurações de diagnóstico** > **Cofre dos Serviços de Recuperação** > **Editar configuração**. Exclua a configuração previamente definida e crie uma nova configuração na mesma folha. Desta vez, além da caixa **Nome**, selecione **serviço**. Agora, a conta de armazenamento configurada aparece. |
 |Depois de importar o pacote de conteúdo de Backup do Azure no Power BI, uma mensagem de erro "404 – contêiner não encontrado" será exibida. | Conforme mencionado anteriormente, você precisa aguardar 24 horas depois de configurar relatórios no cofre dos Serviços de Recuperação para vê-los corretamente no Power BI. Se você tentar acessar os relatórios antes de 24 horas, você receberá esse erro porque os dados completos ainda não estarão presentes para mostrar relatórios válidos. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Após você configurar a conta de armazenamento e importar o pacote de conteúdo do Backup do Azure, a próxima etapa é personalizar esses relatórios e usar um modelo de dados de relatório para criar relatórios. Para obter mais informações, consulte os seguintes artigos.
 
 * [Usar um modelo de dados de relatórios do Backup do Azure](backup-azure-reports-data-model.md)

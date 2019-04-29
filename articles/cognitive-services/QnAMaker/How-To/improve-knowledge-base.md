@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
 ms.openlocfilehash: f59f281b1bf7fa2851ab7759a0167b5d39ef44c1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678982"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61372641"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Use o aprendizado ativo para melhorar a sua base de dados de Conhecimento
 
@@ -171,10 +171,10 @@ Content-Type: application/json
 
 |Propriedade de solicitação HTTP|NOME|Type|Finalidade|
 |--|--|--|--|
-|Parâmetro de rota de URL|ID da base de dados de Conhecimento|cadeia de caracteres|o GUID da base de dados de conhecimento.|
-|Host subdomain|Nome do recurso QnAMaker|cadeia de caracteres|O nome do host para o QnA Maker em sua assinatura do Azure. Isso está disponível na página de configurações depois de publicar a base de Conhecimento. |
-|Cabeçalho|Tipo de conteúdo|cadeia de caracteres|o tipo de mídia do corpo enviado para a API. Valor padrão é: `application/json`|
-|Cabeçalho|Autorização|cadeia de caracteres|sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Parâmetro de rota de URL|ID da base de dados de Conhecimento|string|o GUID da base de dados de conhecimento.|
+|Host subdomain|Nome do recurso QnAMaker|string|O nome do host para o QnA Maker em sua assinatura do Azure. Isso está disponível na página de configurações depois de publicar a base de Conhecimento. |
+|Cabeçalho|Tipo de conteúdo|string|o tipo de mídia do corpo enviado para a API. Valor padrão é: `application/json`|
+|Cabeçalho|Autorização|string|sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Corpo do POST|Objeto JSON|JSON|Os comentários de treinamento|
 
 O corpo JSON tem várias configurações:
@@ -182,8 +182,8 @@ O corpo JSON tem várias configurações:
 |Propriedade de corpo JSON|Type|Finalidade|
 |--|--|--|--|
 |`feedbackRecords`|matriz|Lista de comentários.|
-|`userId`|cadeia de caracteres|A ID de usuário da pessoa que está aceitando as sugestões de perguntas. O formato de ID de usuário cabe a você. Por exemplo, um endereço de email pode ser uma ID de usuário válido em sua arquitetura. Opcional.|
-|`userQuestion`|cadeia de caracteres|Texto exato da pergunta. Obrigatório.|
+|`userId`|string|A ID de usuário da pessoa que está aceitando as sugestões de perguntas. O formato de ID de usuário cabe a você. Por exemplo, um endereço de email pode ser uma ID de usuário válido em sua arquitetura. Opcional.|
+|`userQuestion`|string|Texto exato da pergunta. Obrigatório.|
 |`qnaID`|número|ID da pergunta, encontrada na [GenerateAnswer resposta](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Um exemplo de corpo JSON é semelhante a:

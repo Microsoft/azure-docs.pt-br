@@ -2,19 +2,20 @@
 title: Aplicação de parâmetros de comparação a seu aplicativo no Armazenamento em Disco do Azure - discos gerenciados
 description: Saiba mais sobre o processo de aplicação de parâmetros de comparação em seu aplicativo no Azure.
 services: virtual-machines-windows,storage
-author: roygara
-ms.author: rogarana
-ms.date: 01/11/2019
+author: rockboyfor
+ms.author: v-yeche
+origin.date: 01/11/2019
+ms.date: 04/01/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows
 ms.subservice: disks
 ms.openlocfilehash: 8db1fb3c9b3ed551cd668cf14105eb8bfb486251
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331640"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60679714"
 ---
 # <a name="benchmarking-a-disk"></a>Aplicação de parâmetros de comparação em um disco
 
@@ -28,7 +29,7 @@ Para seguir os exemplos abaixo, crie uma VM DS14 padrão e anexe 11 discos do Ar
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Continue em nosso artigo Projeto para alto desempenho. Nele, você cria uma lista de verificação semelhante para o aplicativo existente do protótipo. Usando ferramentas de Benchmark, você pode simular as cargas de trabalho e avaliar o desempenho no aplicativo do protótipo. Com isso, você pode determinar qual oferta de disco pode corresponder ou superar os requisitos de desempenho do aplicativo. Em seguida, você pode implementar as mesmas diretrizes para o aplicativo de produção.
+Continue em nosso artigo Projeto para alto desempenho. Nele, você criará uma lista de verificação semelhante para o aplicativo existente do protótipo. Usando ferramentas de Benchmark, você pode simular as cargas de trabalho e avaliar o desempenho no aplicativo do protótipo. Com isso, será possível determinar qual oferta de disco pode corresponder ou superar os requisitos de desempenho do aplicativo. Em seguida, você pode implementar as mesmas diretrizes para o aplicativo de produção.
 
 > [!div class="nextstepaction"]
-> Confira o artigo [Projeto para alto desempenho](premium-storage-performance.md).
+> Confira a parte do artigo sobre começar o [Projeto para alto desempenho](premium-storage-performance.md).

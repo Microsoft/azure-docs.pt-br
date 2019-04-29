@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: b2c43ad2475ab75d251e57fca6009eb1fa2e1f00
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225288"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60707590"
 ---
 # <a name="how-to-create-a-hello-world-model-with-conversation-learner"></a>Como criar um modelo "Olá, Mundo" com o Aprendiz de Conversa
 
@@ -106,7 +106,7 @@ Usando Registrar Diálogos você poderá exibir a lista das conversas que os usu
 3. Selecione "Até logo!" para corrigir o Bot.
 4. Clique no botão "Salvar como Diálogo de Treinamento".
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Introdução ao treinamento](./02-intro-to-training.md)

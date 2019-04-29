@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/02/2018
 ms.author: jeconnoc
 ms.openlocfilehash: 68101be211335d51eb4bf99361ea36b73fa19218
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485388"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60653732"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Coletar contadores de desempenho para o Serviço de Nuvem do Azure
 

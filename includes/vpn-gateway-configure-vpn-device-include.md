@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/04/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: efb6ffa1d3a0a04ef67d9a46c3525a489fa79961
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: HT
+ms.openlocfilehash: 272dbf75f68eff73b360cde7d36776c8303e5064
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30921327"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60407480"
 ---
 **Para fazer o download de scripts de configuração do dispositivo VPN**
 

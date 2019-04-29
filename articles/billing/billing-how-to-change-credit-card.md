@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 3/13/2019
 ms.author: banders
 ms.openlocfilehash: b910cb3061b1451ea80b9843e2aa4047a784548f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876860"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60918468"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Adicionar, atualizar ou remover um cartão de crédito ou débito do Azure
 
@@ -40,7 +40,7 @@ No portal do Azure, você pode adicionar um novo cartão de crédito, atualize u
     ![Captura de tela que mostra a pesquisa](./media/billing-how-to-change-credit-card/search.png)
 
 1. Selecione a assinatura que você deseja adicionar o cartão de crédito ou débito.
-1. Selecione **métodos de pagamento**.
+1. Selecione **Formas de pagamento**.
 
     ![Captura de tela que mostra a opção Gerenciar formas de pagamento selecionada.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
@@ -64,7 +64,7 @@ Se seu cartão de crédito for renovado e o número permaneça o mesmo, atualize
 
     ![Captura de tela que mostra a pesquisa](./media/billing-how-to-change-credit-card/search.png)
 
-1. Selecione **métodos de pagamento**.
+1. Selecione **Formas de pagamento**.
 
     ![Captura de tela que mostra a opção Gerenciar formas de pagamento selecionada.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
@@ -85,7 +85,7 @@ Se mais de uma de suas assinaturas têm o mesmo método de pagamento ativo, tamb
     ![Captura de tela que mostra a pesquisa](./media/billing-how-to-change-credit-card/search.png)
 
 1. Selecione a assinatura que você deseja adicionar o cartão de crédito ou débito.
-1. Selecione **métodos de pagamento**.
+1. Selecione **Formas de pagamento**.
 
     ![Captura de tela que mostra a opção Gerenciar formas de pagamento selecionada.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 

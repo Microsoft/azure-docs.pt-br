@@ -8,15 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: erhopf
+origin.date: 12/06/2018
+ms.date: 04/01/2019
+ms.author: v-biyu
 ms.custom: seodec18
 ms.openlocfilehash: 825a6035a997eb27a3e8e5833a792bdd985997c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084616"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61461214"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Contrato de licença do SDK dos Dispositivos de Fala
 

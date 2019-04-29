@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: kmouss;aglick
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 70aec41c885ab81371f5318f7557b0e628ac3308
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: HT
+ms.openlocfilehash: dc71e8564b35f4fdd4153a04c66a3d8c5df88c30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915408"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478837"
 ---
 # <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>O que fazer caso uma interrupção de serviço do Azure afete as VMs do Azure
 Na Microsoft, trabalhamos muito para garantir que nossos serviços estejam sempre disponíveis quando você precisar deles. Às vezes, forças além do nosso controle nos afetam de formas que causam interrupções de serviço não planejadas.
@@ -37,7 +37,7 @@ Para ajudar você a lidar com essas ocorrências raras, fornecemos as seguintes 
 É possível configurar o Azure Site Recovery para suas VMs, de modo que você possa recuperar o aplicativo com um único clique em questão de minutos. É possível replicar para a região do Azure de sua escolha e não restrito para regiões emparelhadas. Você pode começar [replicando suas máquinas virtuais](https://aka.ms/a2a-getting-started). É possível [criar um plano de recuperação](../site-recovery/site-recovery-create-recovery-plans.md) para que você possa automatizar todo o processo de failover para sua aplicação. Você pode testar [seus failovers](../site-recovery/site-recovery-test-failover-to-azure.md) previamente sem afetar o aplicativo de produção ou a replicação em andamento. No caso de uma interrupção da região primária, você apenas [inicia um failover](../site-recovery/site-recovery-failover.md) e traz seu aplicativo na região alvo.
 
 
-## <a name="option-2-wait-for-recovery"></a>Opção 2: aguardar a recuperação
+## <a name="option-2-wait-for-recovery"></a>Opção 2: Aguardar a recuperação
 Nesse caso, nenhuma ação sua é necessária. Saiba que estamos trabalhando cuidadosamente para restaurar a disponibilidade do serviço. Você pode ver o status atual do serviço no nosso [Painel de Integridade do Serviço Azure](https://azure.microsoft.com/status/).
 
 Essa será a melhor opção se você não tiver instalado o Azure Site Recovery, o armazenamento com redundância geográfica de acesso de leitura ou o armazenamento com redundância geográfica antes da interrupção. Se você configurou o armazenamento com redundância geográfica de acesso de leitura ou o armazenamento com redundância geográfica para a conta de armazenamento na qual os VHDs (discos rígidos virtuais) de sua VM estão armazenados, você poderá recuperar o VHD da imagem base e tentar provisionar uma nova VM por meio dele. Essa não é uma opção preferencial, pois não há nenhuma garantia de sincronização de dados. Consequentemente, não há garantia de funcionamento dessa opção.

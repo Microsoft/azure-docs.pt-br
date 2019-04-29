@@ -14,11 +14,11 @@ ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 433a8b2f9fb1f4c4599afbb807e9270992a98a52
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331530"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824177"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Mover dados do MongoDB usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,15 +66,15 @@ A tabela a seguir fornece a descrição para elementos JSON específicos do serv
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| Tipo |A propriedade type deve ser definida como: **OnPremisesMongoDb** |SIM |
-| Servidor |Endereço IP ou nome do host do servidor MongoDB. |SIM |
+| type |A propriedade type deve ser definida como: **OnPremisesMongoDb** |Sim |
+| Servidor |Endereço IP ou nome do host do servidor MongoDB. |Sim |
 | porta |A porta TCP usada pelo servidor MongoDB para ouvir conexões de cliente. |Opcional, valor padrão: 27017 |
-| authenticationType |Básica ou Anônima. |SIM |
+| authenticationType |Básica ou Anônima. |Sim |
 | Nome de Usuário |Conta de usuário para acessar o MongoDB. |Sim (se a autenticação básica for usada). |
 | Senha |Senha do usuário. |Sim (se a autenticação básica for usada). |
 | authSource |Nome do banco de dados MongoDB que você deseja usar para verificar suas credenciais para autenticação. |Opcional (se a autenticação básica for usada). Padrão: usa a conta de administrador e o banco de dados especificado usando a propriedade databaseName. |
-| databaseName |Nome do banco de dados MongoDB que você deseja acessar. |SIM |
-| gatewayName |Nome do gateway que acessa o armazenamento de dados. |SIM |
+| databaseName |Nome do banco de dados MongoDB que você deseja acessar. |Sim |
+| gatewayName |Nome do gateway que acessa o armazenamento de dados. |Sim |
 | encryptedCredential |Credencial criptografada pelo gateway. |Opcional |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
@@ -296,15 +296,15 @@ Ao mover dados para o MongoDB, os seguintes mapeamentos serão usados dos tipos 
 | Tipo do MongoDB | Tipo .NET Framework |
 | --- | --- |
 | Binário |Byte[] |
-| BOOLEAN |BOOLEAN |
-| Data |Datetime |
-| NumberDouble |Duplo |
+| Boolean |Boolean |
+| Data |DateTime |
+| NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |Cadeia de caracteres |
 | Cadeia de caracteres |Cadeia de caracteres |
 | UUID |Guid |
-| Objeto |Renormalizado para colunas simples com “_” como separador aninhado |
+| Object |Renormalizado para colunas simples com “_” como separador aninhado |
 
 > [!NOTE]
 > Para saber mais sobre o suporte para matrizes usando tabelas virtuais, consulte a seção [Suporte para tipos complexos usando tabelas virtuais](#support-for-complex-types-using-virtual-tables) abaixo.

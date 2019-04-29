@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 74fe4f7c4c231f80c7555f39f840a85baae310e9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662016"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60809390"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Balanceamento do cluster do Service Fabric
 O Gerenciador de Recursos de Cluster do Service Fabric oferece suporte a alterações de carga dinâmico, reagindo a inclusões ou remoções de nós ou serviços. Ele também corrige automaticamente as violações de restrição e, proativamente, balanceia novamente o cluster. Mas com que frequência essas ações são executadas, e o que as dispara?

@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
 ms.openlocfilehash: 1cb6889305e5f6bce5728039712a1834dc2e9353
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033580"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626733"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Node.js do Azure Cosmos DB para API do SQL: Notas sobre a versão e recursos
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "54033580"
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-|Recurso  |Link  |
+|Resource  |Link  |
 |---------|---------|
 |Baixar o SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
 |Documentação da API  |  [Documentação de referência de SDK do JavaScript](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
@@ -212,7 +212,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado é reje
 
 <br/>
 
-| Versão | Data do lançamento | Data de desativação |
+| Version | Data do lançamento | Data de desativação |
 | --- | --- | --- |
 | [2.0.0-3 (RC)](#2.0.0-3) |2 de agosto de 2018 |--- |
 | [1.14.4](#1.14.4) |03 de maio de 2018 |--- |

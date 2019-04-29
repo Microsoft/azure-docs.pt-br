@@ -2,18 +2,19 @@
 title: Arquivo de inclusão
 description: Arquivo de inclusão
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
-ms.author: cherylmc
+origin.date: 03/21/2018
+ms.date: 12/24/2018
+ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 97d33bfcc8251b10ba121b7fb013800904450563
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
-ms.translationtype: HT
+ms.openlocfilehash: e2e91dc91cf0fbe6827808785a4c3cc25b06542b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "30197024"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60319966"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
@@ -27,11 +28,11 @@ Você pode usar sua solução de Enterprise PKI (sua PKI interna), Azure PowerSh
 
 ### <a name="certsettings"></a>Há instruções para configurações e parâmetros de certificado?
 
-* **Solução PKI interna/Enterprise PKI** : ver as etapas para [Gerar certificados](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
+* **Solução PKI/Enterprise PKI interna:** Consulte as etapas a serem [gerar certificados](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
 
-* **Azure PowerShell:** consulte o artigo [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) para ver as etapas.
+* **Azure PowerShell:** Consulte a [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) artigo para obter as etapas.
 
-* **MakeCert**: consulte o artigo [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) para ver as etapas.
+* **MakeCert:** Consulte a [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) artigo para obter as etapas.
 
 * **OpenSSL:** 
 

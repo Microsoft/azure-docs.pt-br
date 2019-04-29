@@ -11,17 +11,17 @@ ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.openlocfilehash: 3ed1f251c8c09a52def517f4c94ed2ca1420eda8
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999630"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60778279"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de capacidade do SQL Data Warehouse
 Valores máximos permitidos para vários componentes do Azure SQL Data Warehouse.
 
 ## <a name="workload-management"></a>Gerenciamento de carga de trabalho
-| Categoria | DESCRIÇÃO | Máximo |
+| Category | DESCRIÇÃO | Máximo |
 |:--- |:--- |:--- |
 | [DWU (Unidades de Data Warehouse)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DWU máxima para um único Data Warehouse do SQL | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [DWU (Unidades de Data Warehouse)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DTU padrão por servidor |54.000<br></br>Por padrão, cada SQL Server (por exemplo, myserver.database.windows.net) tem uma Cota de DTU de 54.000, que permite até DW6000c. Essa cota é simplesmente um limite de segurança. Você pode aumentar sua cota [criando um tíquete de suporte](sql-data-warehouse-get-started-create-support-ticket.md) e selecionando *Cota* como o tipo de solicitação.  Para calcular suas necessidades de DTU, multiplique 7,5 pelo total de DWU necessário ou 9,0 pelo total de cDWU necessário. Por exemplo: <br></br>DW6000 x 7,5 = 45.000 DTUs<br></br>DW6000c x 9,0 = 54.000 DTUs.<br></br>Exiba seu consumo atual de DTU na opção SQL Server no portal. Os bancos de dados em pausa e que não estão em pausa contam como a cota de DTU. |
@@ -31,7 +31,7 @@ Valores máximos permitidos para vários componentes do Azure SQL Data Warehouse
 | [tempdb](sql-data-warehouse-tables-temporary.md) |GB máximo |399 GB por DW100. Portanto, em DWU1000, o tempdb é dimensionado para 3,99 TB. |
 
 ## <a name="database-objects"></a>Objetos de banco de dados
-| Categoria | DESCRIÇÃO | Máximo |
+| Category | DESCRIÇÃO | Máximo |
 |:--- |:--- |:--- |
 | Banco de dados |Tamanho máx. | Gen1: 240 TB compactados em disco. Este espaço é independente do espaço de tempdb ou de log, portanto, é dedicado às tabelas permanentes.  A compactação do columnstore clusterizado é estimada em cinco vezes.  Essa compactação permite que o banco de dados aumente até aproximadamente 1 PB quando todas as tabelas são de columnstore clusterizado (o tipo de tabela padrão). <br/><br/> Gen2: 240 TB para rowstore e armazenamento ilimitado para tabelas columnstore |
 | Tabela |Tamanho máx. |60 TB compactados em disco |
@@ -52,12 +52,12 @@ Valores máximos permitidos para vários componentes do Azure SQL Data Warehouse
 | Visualizar |Colunas por exibição |1.024 |
 
 ## <a name="loads"></a>Cargas
-| Categoria | DESCRIÇÃO | Máximo |
+| Category | DESCRIÇÃO | Máximo |
 |:--- |:--- |:--- |
 | Cargas de Polybase |MB por segundo |1<br/><br/>O Polybase é carregado apenas em linhas menores que 1 MB e não pode ser carregado em VARCHAR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX).<br/><br/> |
 
 ## <a name="queries"></a>Consultas
-| Categoria | DESCRIÇÃO | Máximo |
+| Category | DESCRIÇÃO | Máximo |
 |:--- |:--- |:--- |
 | Consultar |Consultas em fila em tabelas de usuário. |1000 |
 | Consultar |Consultas simultâneas em exibições do sistema. |100 |

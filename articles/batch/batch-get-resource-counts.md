@@ -10,11 +10,11 @@ ms.date: 09/07/2018
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 574cdea61a474dda5d20254bfae9ff2f06044cca
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733103"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60775365"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorar soluções do Lote pela contagem de tarefas e nós por estado
 

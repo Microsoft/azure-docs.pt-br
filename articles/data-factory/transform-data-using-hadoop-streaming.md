@@ -12,11 +12,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 0d8267f1cd65f78d5e98ae9d288d5fa5c4214420
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576422"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848233"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformar dados usando a atividade de streaming do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -70,8 +70,8 @@ Se você é novo no Azure Data Factory, leia a [Introduction to Azure Data Facto
 
 | Propriedade          | DESCRIÇÃO                              | Obrigatório |
 | ----------------- | ---------------------------------------- | -------- |
-| Nome              | Nome da atividade                     | Sim      |
-| Descrição       | Texto que descreve qual a utilidade da atividade | Não        |
+| nome              | Nome da atividade                     | Sim      |
+| descrição       | Texto que descreve qual a utilidade da atividade | Não       |
 | Tipo              | Para a atividade de streaming do Hadoop, o tipo de atividade é HDInsightStreaming | Sim      |
 | linkedServiceName | Referência ao cluster do HDInsight registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | Sim      |
 | mapper            | Especifica o nome do executável do Mapeador | Sim      |

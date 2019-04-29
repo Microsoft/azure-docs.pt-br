@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.openlocfilehash: d1cff1011e190e5fbb2874657cbdfbdc68bde0c0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084388"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60619817"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Usando a extensão do Application Health com os conjuntos de dimensionamento de máquinas virtuais
 O monitoramento de integridade do seu aplicativo é um sinal importante para gerenciar e atualizar sua implantação. Os conjuntos de dimensionamento de máquinas virtuais do Azure fornecem suporte para [atualizações sem interrupção](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) incluindo [atualizações automáticas de imagem do sistema operacional](virtual-machine-scale-sets-automatic-upgrade.md), que dependem do monitoramento de integridade das instâncias individuais para atualizar sua implantação.
@@ -65,18 +65,18 @@ O JSON a seguir mostra o esquema para a extensão para VM do Application Health.
 
 | Nome | Valor/Exemplo | Tipo de Dados
 | ---- | ---- | ---- 
-| apiVersion | `2018-10-01` | data |
-| publicador | `Microsoft.ManagedServices` | cadeia de caracteres |
-| tipo | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | cadeia de caracteres |
+| apiVersion | `2018-10-01` | date |
+| publicador | `Microsoft.ManagedServices` | string |
+| tipo | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>Configurações
 
-| Nome | Valor/Exemplo | Tipo de Dados
+| NOME | Valor/Exemplo | Tipo de Dados
 | ---- | ---- | ----
-| protocolo | `http` ou `tcp` | cadeia de caracteres |
+| protocol | `http` ou `tcp` | string |
 | porta | Obrigatório quando o protocolo for `http`, não é permitido quando o protocolo for `tcp` | int |
-| requestPath | Obrigatório quando o protocolo for `http`, não é permitido quando o protocolo for `tcp` | cadeia de caracteres |
+| requestPath | Obrigatório quando o protocolo for `http`, não é permitido quando o protocolo for `tcp` | string |
 
 ## <a name="deploy-the-application-health-extension"></a>Implantar a Extensão de Integridade do Aplicativo
 Há várias maneiras de implantar a integridade da extensão do Application Health para o dimensionamento conforme detalhado nos exemplos a seguir.

@@ -17,11 +17,11 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7631205943efc827edd80d3a89ea68804d94153d
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888695"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60762346"
 ---
 # <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Gerenciar a disponibilidade de máquinas virtuais Windows no Azure 
 

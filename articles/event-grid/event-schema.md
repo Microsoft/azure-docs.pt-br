@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 01/20/2019
 ms.author: babanisa
 ms.openlocfilehash: b67d656ed6ab537a01696ec9c0c98f84b880f03b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470606"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561555"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos da Grade de Eventos do Azure
 
@@ -80,7 +80,7 @@ Por exemplo, o esquema publicado para um evento de armazenamento de Blob do Azur
 
 Todos os eventos terão os mesmos dados de nível superior a seguir:
 
-| Propriedade | Tipo | DESCRIÇÃO |
+| Propriedade | Type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
 | topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
 | subject | string | Caminho definido pelo fornecedor para o assunto do evento. |

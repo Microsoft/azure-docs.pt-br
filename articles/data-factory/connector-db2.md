@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
 ms.openlocfilehash: 4bf4c5c8339c8c56d91737fa1ff62f55b9c38696
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019615"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60786366"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados do DB2 usando o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-onprem-db2-connector.md)
 > * [Versão atual](connector-db2.md)
 
@@ -61,12 +61,12 @@ As propriedades a seguir têm suporte para o serviço vinculado do DB2:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Db2** | SIM |
-| Servidor |Nome do servidor DB2. Você pode especificar o número da porta após o nome do servidor delimitado por dois pontos, por exemplo, `server:port`. |SIM |
-| Banco de Dados |Nome do banco de dados DB2. |SIM |
-| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados DB2.<br/>O valor permitido é: **Básica**. |SIM |
-| Nome de Usuário |Especifica o nome de usuário para se conectar ao banco de dados DB2. |SIM |
-| Senha |Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |SIM |
+| type | A propriedade type deve ser definida como: **Db2** | Sim |
+| Servidor |Nome do servidor DB2. Você pode especificar o número da porta após o nome do servidor delimitado por dois pontos, por exemplo, `server:port`. |Sim |
+| Banco de Dados |Nome do banco de dados DB2. |Sim |
+| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados DB2.<br/>O valor permitido é: **Básica**. |Sim |
+| Nome de Usuário |Especifica o nome de usuário para se conectar ao banco de dados DB2. |Sim |
+| Senha |Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime auto-hospedado ou o Integration Runtime do Azure (se seu armazenamento de dados estiver publicamente acessível). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 **Exemplo:**
@@ -102,7 +102,7 @@ Para copiar dados do DB2, defina a propriedade type do conjunto de dados como **
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | SIM |
+| type | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
 | tableName | Nome da tabela no banco de dados DB2. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -132,7 +132,7 @@ Para copiar dados do DB2, defina o tipo de origem na atividade de cópia como **
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | SIM |
+| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**
@@ -183,22 +183,22 @@ Ao copiar dados do DB2, os seguintes mapeamentos são usados de tipos de dados d
 | DbClob |Cadeia de caracteres |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| Duplo |Duplo |
-| Float |Duplo |
+| Double |Double |
+| Float |Double |
 | Graphic |Cadeia de caracteres |
 | Número inteiro |Int32 |
 | LongVarBinary |Byte[] |
 | LongVarChar |Cadeia de caracteres |
 | LongVarGraphic |Cadeia de caracteres |
-| Numérico |Decimal |
+| Numeric |Decimal |
 | Real |Single |
 | SmallInt |Int16 |
-| Hora |timespan |
-| Timestamp |Datetime |
+| Hora |TimeSpan |
+| Timestamp |DateTime |
 | VarBinary |Byte[] |
 | VarChar |Cadeia de caracteres |
 | VarGraphic |Cadeia de caracteres |
-| xml |Byte[] |
+| Xml |Byte[] |
 
 
 ## <a name="next-steps"></a>Próximas etapas

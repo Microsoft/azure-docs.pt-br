@@ -8,11 +8,11 @@ ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.openlocfilehash: c49044d8bd96efb7e86cf54509c32033900be305
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180901"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561737"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gerenciar tópicos e publicar eventos usando domínios de eventos
 

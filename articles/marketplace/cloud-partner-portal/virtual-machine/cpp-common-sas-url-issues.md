@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: pbutlerm
 ms.openlocfilehash: abb29cd0d31288ba7bfab7024cf7657ab6b9a3d3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879209"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744118"
 ---
 # <a name="common-sas-url-issues-and-fixes"></a>Problemas comuns de URL do SAS e correções
 

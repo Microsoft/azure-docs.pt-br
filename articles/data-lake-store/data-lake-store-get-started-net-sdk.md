@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 8ab051d49e7ed67e642ef656dfb382ed07763ed2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879702"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60877417"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operações de gerenciamento de conta no Armazenamento de Data Lake do Azure Gen1 usando o .NET SDK
 > [!div class="op_single_selector"]
@@ -41,9 +41,9 @@ Para obter instruções sobre como executar operações de gerenciamento de dado
 2. No menu **Arquivo**, clique em **Novo** e em **Projeto**.
 3. Em **Novo Projeto**, digite ou selecione os seguintes valores:
 
-   | Propriedade | Valor |
+   | Propriedade | Value |
    | --- | --- |
-   | Categoria |Modelos/Visual C#/Windows |
+   | Category |Modelos/Visual C#/Windows |
    | Modelo |Aplicativo de console |
    | NOME |CreateADLApplication |
 4. Clique em **OK** para criar o projeto.
@@ -99,7 +99,7 @@ Para obter instruções sobre como executar operações de gerenciamento de dado
 
 Nas seções restantes do artigo, você pode ver como usar o métodos do .NET disponíveis para executar operações como autenticação, carregamento de arquivos, etc.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 * Para autenticação do usuário final para seu aplicativo, veja [Autenticação de usuário final com o Data Lake Storage Gen1 usando o SDK do .NET](data-lake-store-end-user-authenticate-net-sdk.md).
 * Para autenticação de serviço a serviço do aplicativo, confira [Autenticação de serviço a serviço com o Data Lake Storage Gen1 usando o SDK do .NET](data-lake-store-service-to-service-authenticate-net-sdk.md).
@@ -145,5 +145,5 @@ O snippet a seguir exclui a conta do Data Lake Storage Gen1 criada anteriormente
 * [Operações de FileSystem no Data Lake armazenamento Gen1 usando o SDK do .NET](data-lake-store-data-operations-net-sdk.md)
 * [Referência de SDK do .NET do Data Lake Storage Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Proteger dados no Armazenamento do Data Lake Gen1](data-lake-store-secure-data.md)

@@ -13,11 +13,11 @@ ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: fef016d87cc60bc916fdcb08f92171e115221fe5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884113"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60900505"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria da solicitação: Modelo de dados do Application Insights
 

@@ -10,11 +10,11 @@ ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 35f1f359b44af00000ccd9047673b80ca541d376
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57998211"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61243835"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Criar clipes com o Azure Media Clipper 
 
@@ -51,9 +51,9 @@ O Azure Media Clipper é compilado usando tecnologias modernas de HTML5 e tem su
 > [!NOTE]
 > Só há suporte para reprodução de stream do HTML5 dos Serviços de Mídia do Azure atualmente.
 
-## <a name="language-support"></a>Suporte de idioma
+## <a name="language-support"></a>Suporte ao idioma
 O widget do Clipper está disponível nos 18 idiomas a seguir:
-- Chinês (simplificado)
+- Chinês (Simplificado)
 - Chinês (Tradicional)
 - Tcheco
 - Holandês; Flamengo

@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
 ms.openlocfilehash: 55d569d4a993a725137d7bfab37c113147fe81ef
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242455"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60714904"
 ---
 # <a name="enable-fusion"></a>Habilitar fusion
 
 > [!IMPORTANT]
-> Sentinela do Azure está atualmente em visualização pública.
+> No momento, o Azure Sentinel está em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -58,7 +58,7 @@ Siga o mesmo procedimento acima e execute o seguinte comando:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste documento, você aprendeu a habilitar a fusão no Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
+Neste documento, você aprendeu a habilitar a fusão no Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [Obtenha visibilidade sobre seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Introdução ao [detecção de ameaças com o Azure Sentinel](tutorial-detect-threats.md).
 

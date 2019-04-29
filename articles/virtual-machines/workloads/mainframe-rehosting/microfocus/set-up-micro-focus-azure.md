@@ -9,11 +9,11 @@ editor: edprice
 tags: ''
 keywords: ''
 ms.openlocfilehash: 33d0baf10df1882baf212c3e2c2683c8ca072fcc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58896238"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61487561"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Instalar o Micro Focus Enterprise Server 4.0 e do Enterprise Developer 4.0 no Azure
 

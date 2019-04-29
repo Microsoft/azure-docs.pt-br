@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
 ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341702"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60608093"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Diretrizes de Conexão Confiável com a Internet
 
@@ -125,7 +125,7 @@ Os serviços de PaaS do Azure como o Armazenamento do Microsoft Azure podem ser 
 Quando os serviços de PaaS do Azure são integrados com à uma rede virtual, o serviço está acessível de forma particular a partir da rede virtual. Você pode aplicar o roteamento personalizado para 0.0.0.0/0 por meio de rotas definidas pelo usuário ou BGP. O roteamento personalizado garante que todo o tráfego direcionado às rotas locais atravessem o TIC. Integre os serviços do Azure em redes virtuais usando os seguintes padrões:
 
 - **Implantar uma instância dedicada de um serviço**: Um número cada vez maior de serviços de PaaS pode ser implantado como instâncias dedicadas com pontos de extremidade anexados à rede virtual. Você pode implantar um ambiente de Serviço de Aplicativo do Azure para PowerApps no modo de "Isolado" para permitir que o ponto de extremidade de rede seja restrito a uma rede virtual. O ambiente do Serviço de Aplicativo, em seguida, pode hospedar vários serviços de PaaS do Azure, como aplicativos Web do Azure, o Gerenciamento de API do Azure e o Azure Functions.
-- **Usar pontos de extremidade do serviço de rede virtual**: Um número cada vez maior de serviços de PaaS permitem a opção de mover seu ponto de extremidade para um IP privado da VNET, em vez de para um endereço público.
+- **Usar pontos de extremidade de serviço de rede virtual**: Um número cada vez maior de serviços de PaaS permitem a opção de mover seu ponto de extremidade para um IP privado da VNET, em vez de para um endereço público.
 
 Serviços que dão suporte à implantação de instâncias dedicadas em uma rede virtual ou o uso de pontos de extremidade de serviço, a partir de maio de 2018, estão listados nas tabelas a seguir.
 
@@ -247,7 +247,7 @@ Você pode configurar facilmente o acesso ao Microsoft Azure, ao Office 365 e ao
 
 ## <a name="appendix-trusted-internet-connections-patterns-for-common-workloads"></a>Apêndice: Padrões de conexões de Internet confiáveis para cargas de trabalho comuns
 
-| Categoria | Carga de trabalho | IaaS | PaaS dedicado / injeção de rede virtual  | Pontos de extremidade de serviço  |
+| Category | Carga de trabalho | IaaS | PaaS dedicado / injeção de rede virtual  | Pontos de extremidade de serviço  |
 |---------|---------|---------|---------|--------|
 | Computação | Máquinas Virtuais do Linux do Azure | Sim | | |
 | Computação | Máquinas Virtuais do Windows do Azure | Sim | | |

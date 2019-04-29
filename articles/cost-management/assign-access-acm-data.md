@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
 ms.openlocfilehash: 24a77561d08cc3db5356dd0e931f62bf2d16406d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014187"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60577000"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Atribuir acesso a dados do Gerenciamento de Custos
 

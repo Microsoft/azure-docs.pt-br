@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: spelluru
 ms.openlocfilehash: 05d7ac56d6c1c48125eb458d0eee852ba396b300
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663087"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60593351"
 ---
 # <a name="available-relay-apis"></a>APIs de Retransmissão disponíveis
 

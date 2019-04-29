@@ -16,11 +16,11 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: fb09d91bb3204a1ab3dc4f9df71eabd2ee7d2bd1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487525"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60591340"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Usar modelos de início rápido do Azure para configurar o grupo de disponibilidade Always On do SQL Server em uma VM do Azure
 Este artigo descreve como usar os Modelos de início rápido do Azure para automatizar parcialmente a implantação de uma configuração de grupo de disponibilidade Always On para máquinas virtuais do SQL Server no Azure. Há dois Modelos de início rápido do Azure que são usados nesse processo. 
@@ -56,7 +56,7 @@ Depois que suas VMs do SQL Server forem registradas com o novo provedor de recur
 
     A tabela a seguir mostra os valores necessários para o modelo: 
 
-   | **Campo** | Valor |
+   | **Campo** | Value |
    | --- | --- |
    | **Assinatura** |  A assinatura em que estão suas VMs do SQL Server. |
    |**Grupo de recursos** | O grupo de recursos em que suas VMs do SQL Server residem. | 
@@ -95,7 +95,7 @@ O ouvinte de AG (grupo) de disponibilidade AlwaysOn exige um balanceador de carg
 4. Na folha **Balanceador de Carga**, clique em **Criar**.
 5. Na caixa de diálogo **Criar balanceador de carga**, configure o balanceador de carga da seguinte maneira:
 
-   | Configuração | Valor |
+   | Configuração | Value |
    | --- | --- |
    | **Nome** |Um nome de texto que representa o balanceador de carga. Por exemplo, **sqlLB**. |
    | **Tipo** |**Interna**: a maioria das implementações usa um balanceador de carga interno que permite a conexão dos aplicativos na mesma rede virtual ao grupo de disponibilidade.  </br> **Externa**: permite que os aplicativos se conectem ao grupo de disponibilidade por meio de uma conexão à Internet pública. |
@@ -133,7 +133,7 @@ Para configurar o ILB e criar o ouvinte do grupo de disponibilidade, faça o seg
 
     A tabela a seguir mostra os valores necessários para o modelo: 
 
-   | **Campo** | Valor |
+   | **Campo** | Value |
    | --- | --- |
    |**Grupo de recursos** | O grupo de recursos em que estão suas VMs do SQL Server e o grupo de disponibilidade. | 
    |**Nome do cluster de failover existente** | O nome do cluster em que suas VMs do SQL Server ingressaram. |

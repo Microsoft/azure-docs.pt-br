@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/20/2017
 ms.author: genli
 ms.openlocfilehash: 535e7604915555f32a7636b739c49f72cb0220c8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541563"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60823888"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Guia de solução de problemas do DNS do Azure
 
@@ -95,7 +95,7 @@ Exemplo de nomes de registro SRV (nome de serviço 'sip', protocolo 'tcp'):
 
 [Registros e zonas DNS](dns-zones-records.md)
 <br>
-Criar registros e conjuntos de registros DNS usando o portal do Azure](dns-getstarted-create-recordset-portal.md)
+[Criar registros e conjuntos de registros DNS usando o portal do Azure](dns-getstarted-create-recordset-portal.md)
 <br>
 [Tipo de registro SRV (Wikipédia)](https://en.wikipedia.org/wiki/SRV_record)
 

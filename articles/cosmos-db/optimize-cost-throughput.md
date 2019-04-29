@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.openlocfilehash: 280d389875d5ac951e0a846f3331ea727176b5e0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009760"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60929009"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar a taxa de transferência provisionada no Azure Cosmos DB
 

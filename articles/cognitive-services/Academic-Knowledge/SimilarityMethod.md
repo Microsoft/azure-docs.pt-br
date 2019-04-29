@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 44930ad0f941ea174d95658f220db7aa95012133
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7f692c08f8af322bf7e6ab576e2e6f516594a6c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868677"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61336510"
 ---
 # <a name="similarity-method"></a>Método de Similaridade
 
@@ -28,26 +28,34 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ```
 
 ## <a name="request-parameters"></a>Parâmetros de solicitação
+
 Parâmetro        |Tipo de Dados      |Obrigatório | DESCRIÇÃO
 ----------|----------|----------|------------
 **s1**        |Cadeia de caracteres   |Sim  |Cadeia de caracteres * a ser comparada
 **s2**        |Cadeia de caracteres   |Sim  |Cadeia de caracteres * a ser comparada
+
 <sub> *As cadeias de caracteres a serem comparadas têm um comprimento máximo de 1 MB. </sub>
 <br>
+
 ## <a name="response"></a>Response
+
 NOME | DESCRIÇÃO
 --------|---------
 **SimilarityScore**        |Um valor de ponto flutuante representando a similaridade do cosseno de s1 e s2, com valores mais próximos a 1,0, significando mais semelhante e valores mais próximos a -1,0, significando menos semelhante
+
 <br>
 
 ## <a name="successerror-conditions"></a>Condições de erro/êxito
+
 Status HTTP | Motivo | Response
 -----------|----------|--------
 **200**         |Sucesso | Número de ponto flutuante
 **400**         | Solicitação incorreta ou solicitação inválida | Mensagem de erro      
 **500**         |Erro interno do servidor | Mensagem de erro
 **Tempo Limite**     | Atingiu tempo limite solicitado.  | Mensagem de erro
+
 <br>
+
 ## <a name="example-calculate-similarity-of-two-partial-abstracts"></a>Exemplo: Calcular a similaridade de dois abstratos parciais
 #### <a name="request"></a>Solicitação:
 ```

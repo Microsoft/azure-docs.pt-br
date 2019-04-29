@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: rimman
 ms.openlocfilehash: ed3a171e60c078975de7003cdf599f0bac62c402
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004747"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61330275"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar a taxa de transferência para contêineres e bancos de dados
 
@@ -103,7 +103,7 @@ Você pode dimensionar a taxa de transferência provisionada de um contêiner ou
 |Taxa de transferência máxima por partição lógica de um contêiner|10 mil RUs|10 mil RUs|
 |Taxa de transferência máxima (dados + índice) por partição lógica de um contêiner|10 GB|10 GB|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [partições lógicas](partition-data.md).
 * Saiba como [provisionar taxa de transferência em um contêiner do Azure Cosmos](how-to-provision-container-throughput.md).

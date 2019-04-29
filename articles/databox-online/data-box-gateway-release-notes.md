@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: alkohli
 ms.openlocfilehash: f4ee3a5bd754335ab1c7f124671e9c37307a6a28
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499872"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60754192"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Notas de versão de disponibilidade de dados do Azure/borda dados caixa Gateway geral da caixa do Azure
 
@@ -40,7 +40,7 @@ A versão GA corresponde às versões de software:
 
 A tabela a seguir fornece um resumo dos problemas conhecidos para o Gateway de caixa de dados executando a versão.
 
-|  Não. | Recurso | Problema | Solução alternativa/comentários |
+| Não. | Recurso | Problema | Solução alternativa/comentários |
 | --- | --- | --- | --- |
 | **1.** |Tipos de arquivo | Não há suporte para os seguintes tipos de arquivo: arquivos, bloquear arquivos, soquetes, pipes, links simbólicos de caracteres.  |A cópia desses arquivos resulta na criação de arquivos de comprimento 0 no compartilhamento NFS. Esses arquivos permanecem no estado de erro e também são relatados no *error.xml*. <br> Links simbólicos para diretórios resultam nos diretórios nunca serem marcados como offline. Como resultado, você não poderá ver a cruz cinza nos diretórios que indica que os diretórios estão offline e todo o conteúdo associado foi completamente carregado no Azure. |
 | **2.** |Exclusão | Devido a um bug nesta versão, se um compartilhamento NFS for excluído, o compartilhamento não poderá ser excluído. O status do compartilhamento mostrará *Excluindo*.  |Isso ocorre apenas quando o compartilhamento estiver usando um nome de arquivo sem suporte. |

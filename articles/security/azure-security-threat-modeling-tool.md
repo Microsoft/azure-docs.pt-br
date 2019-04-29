@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: jegeib
 ms.openlocfilehash: 4e08491ae898fef16af1e199a76a4c07a6c226b9
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358653"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610487"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Ferramenta de modelagem de ameaças do Microsoft
 

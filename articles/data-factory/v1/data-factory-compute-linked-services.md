@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 0e0a249c53c90d3d8d03dcdb5fbb4f11f31c54df
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545137"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60565711"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes de computação com suporte do Azure Data Factory
 > [!NOTE]
@@ -123,7 +123,7 @@ O JSON a seguir define um serviço vinculado HDInsight sob demanda baseado em Li
 ### <a name="properties"></a>propriedades
 | Propriedade                     | DESCRIÇÃO                              | Obrigatório |
 | ---------------------------- | ---------------------------------------- | -------- |
-| Tipo                         | Defina a propriedade de tipo como **HDInsightOnDemand**. | Sim      |
+| tipo                         | Defina a propriedade de tipo como **HDInsightOnDemand**. | Sim      |
 | clusterSize                  | O número de nós de trabalho e de dados no cluster. O cluster HDInsight é criado com 2 nós de cabeçalho, além do número de nós de trabalho que você especifica para esta propriedade. Os nós são de tamanho Standard_D3, que tem 4 núcleos. Um cluster de nó de 4-worker leva 24 núcleos (4\*4 = 16 núcleos para nós de trabalho, mais 2\*4 = 8 núcleos para nós de cabeçalho). Para obter detalhes sobre a camada de Standard_D3, consulte [Criar clusters do Hadoop com base em Linux no HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Sim      |
 | timeToLive                   | O tempo ocioso permitido para o cluster HDInsight sob demanda. Especifica quanto tempo o cluster HDInsight sob demanda fica ativo quando uma execução de atividade é concluída, se não houver nenhum outro trabalho ativo no cluster.<br /><br />Por exemplo, se uma atividade executada levar 6 minutos e o **timeToLive** é definido como 5 minutos, o cluster permanece ativo durante 5 minutos após os 6 minutos de processamento da execução da atividade. Se outra execução da atividade é executada na janela de 6 minutos, ela é processada pelo mesmo cluster.<br /><br />Criar um cluster do HDInsight sob demanda é uma operação cara (pode levar algum tempo). Use essa configuração conforme necessário para melhorar o desempenho de uma fábrica de dados com a reutilização de um cluster do HDInsight sob demanda.<br /><br />Se você definir o valor **timeToLive** como **0**, o cluster é excluído assim que terminar de executar a atividade. No entanto, se você definir um valor alto, o cluster pode permanecer ocioso, resultando desnecessariamente em altos custos. É importante definir o valor apropriado com base em suas necessidades.<br /><br />Se o valor **timeToLive** estiver definido corretamente, vários pipelines podem compartilhar a instância do cluster HDInsight sob demanda. | Sim      |
 | version                      | A versão do cluster do HDInsight. Para versões de HDInsight permitidas, consulte [Versões do HDInsight com suporte](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). Se esse valor não é especificado, é usada a [versão mais recente de padrão HDI](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning). | Não        |
@@ -259,7 +259,7 @@ Você pode criar um serviço vinculado HDInsight para registrar seu próprio clu
 ### <a name="properties"></a>propriedades
 | Propriedade          | DESCRIÇÃO                              | Obrigatório |
 | ----------------- | ---------------------------------------- | -------- |
-| Tipo              | Defina a propriedade de tipo como **HDInsight**. | Sim      |
+| tipo              | Defina a propriedade de tipo como **HDInsight**. | Sim      |
 | clusterUri        | A URI do cluster HDInsight.        | Sim      |
 | Nome de Usuário          | O nome da conta de usuário a ser usado para se conectar a um cluster HDInsight existente. | Sim      |
 | Senha          | A senha para a conta de usuário.   | Sim      |
@@ -366,7 +366,7 @@ Use a autenticação de entidade de serviço especificando as seguintes propried
 | :---------------------- | :--------------------------------------- | :------- |
 | servicePrincipalId  | A ID do cliente do aplicativo.     | Sim      |
 | servicePrincipalKey | A chave do aplicativo.           | Sim      |
-| locatário              | Especifique as informações de locatário (nome de domínio ou ID do locatário) em que o aplicativo está localizado. Para obter essas informações, passe o mouse no canto superior direito do portal do Azure. | Sim      |
+| tenant              | Especifique as informações de locatário (nome de domínio ou ID do locatário) em que o aplicativo está localizado. Para obter essas informações, passe o mouse no canto superior direito do portal do Azure. | Sim      |
 
 **Exemplo: Autenticação de entidade de serviço**
 ```json

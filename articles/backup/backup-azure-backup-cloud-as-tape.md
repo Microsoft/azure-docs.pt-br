@@ -10,11 +10,11 @@ ms.date: 1/10/2017
 ms.author: saurse
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 59236774f98af927082c78f4b75a1f5880a7cac4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259591"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646882"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Mover o armazenamento de longo prazo da fita para a nuvem do Azure
 Os clientes do Backup do Azure e do System Center Data Protection Manager podem:
@@ -44,10 +44,10 @@ O número total de “pontos de retenção” especificado nessa política é de
 ## <a name="example--putting-both-together"></a>Exemplo – Juntando ambos
 ![Tela de exemplo](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
-1. **Política de retenção diária**: os backups diários são armazenados por sete dias.
-2. **Política de retenção semanal**: os backups feitos aos sábados, à meia-noite e às 18h, serão preservados por quatro semanas
-3. **Política de retenção mensal**: os backups feitos à meia-noite e às 18h no último sábado de cada mês são preservados por 12 meses
-4. **Política anual de retenção**: os backups feitos à meia-noite no último sábado de cada mês de março são preservados por 10 anos
+1. **Política de retenção diária**: Backups diários são armazenados por sete dias.
+2. **Política de retenção semanal**: Backups feitos diariamente às meia-noite e às 18H sábado são preservados por quatro semanas
+3. **Política de retenção mensal**: Backups feitos à meia-noite e às 18h no último sábado de cada mês são preservados por 12 meses
+4. **Política de retenção anual**: Backups feitos à meia-noite no último sábado de cada mês de março são preservados por 10 anos
 
 O número total de “pontos de retenção” (dos quais um cliente pode restaurar dados) no diagrama anterior é calculado da seguinte forma:
 

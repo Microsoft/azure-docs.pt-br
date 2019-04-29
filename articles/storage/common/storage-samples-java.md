@@ -10,11 +10,11 @@ ms.date: 01/12/2017
 ms.author: seguler
 ms.subservice: common
 ms.openlocfilehash: d216313ae88837df395c64a3ba9e707a5bca06a5
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565327"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101873"
 ---
 # <a name="azure-storage-samples-using-java"></a>Exemplos de armazenamento do Azure usando Java
 

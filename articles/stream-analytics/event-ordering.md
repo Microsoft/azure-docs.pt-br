@@ -9,11 +9,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.openlocfilehash: 970eeb871775e24abb87c8b977e214645e514d3b
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58190502"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60789466"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configurar políticas para o Azure Stream Analytics da ordenação de eventos
 

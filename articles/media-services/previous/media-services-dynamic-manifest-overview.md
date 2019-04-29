@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkd;juliako
 ms.openlocfilehash: 229f89a8803f089c24981f56e00e36efe96de3aa
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316585"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61465067"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros e manifestos dinâmicos
 
@@ -31,7 +31,7 @@ A partir da versão 2.17, os Serviços de Mídia do Microsoft Azure permitem def
 
 Este tópico analisa cenários comuns nos quais o uso dos filtros será muito útil para seus clientes e links para tópicos que demonstram como criar filtros de forma programática.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Ao fornecer conteúdo aos clientes (eventos de transmissão ao vivo ou vídeo sob demanda) sua meta é fornecer um vídeo de alta qualidade para vários dispositivos em condições de rede diferentes. Para atingir essa meta, faça o seguinte:
 
 * codifique seu fluxo para múltiplas taxas de bits ([taxa de bits adaptável](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) transmissão de vídeo (isso também tratará das condições de rede e de qualidade) e 
@@ -73,14 +73,14 @@ Aqui está um exemplo desse arquivo de manifesto:
     </SmoothStreamingMedia>
 
 ### <a name="dynamic-manifests"></a>Manifestos dinâmicos
-Há [cenários](media-services-dynamic-manifest-overview.md#scenarios) em que o cliente precisa de mais flexibilidade do que o que é descrito no arquivo de manifesto do ativo padrão. Por exemplo:
+Há [cenários](media-services-dynamic-manifest-overview.md#scenarios) em que o cliente precisa de mais flexibilidade do que o que é descrito no arquivo de manifesto do ativo padrão. Por exemplo: 
 
 * Dispositivo específico: entregar apenas as representações especificadas e/ou faixas de idioma especificadas com suporte pelo dispositivo que é usado para reproduzir o conteúdo ("filtragem da representação"). 
 * Redução do manifesto para mostrar um subclipe de um evento ao vivo ("filtragem de subclipe").
 * Corte do início de um vídeo ("corte de um vídeo").
 * Ajuste a Janela de Apresentação (DVR) para fornecer uma duração limitada da janela do DVR no leitor ("ajustar a janela de apresentação").
 
-Para atingir esta flexibilidade, os serviços de mídia oferecem os **manifestos dinâmico** com base em [filtros](media-services-dynamic-manifest-overview.md#filters)predefinidos.  Depois de definir os filtros, os clientes podem usá-los para transmitir uma representação específica ou subclipes do vídeo. Eles podem especificar filtros na URL de transmissão. Os filtros podem ser aplicados nos protocolos de streaming de taxa de bits adaptável com suporte do [Empacotamento Dinâmico](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH e Smooth Streaming. Por exemplo:
+Para atingir esta flexibilidade, os serviços de mídia oferecem os **manifestos dinâmico** com base em [filtros](media-services-dynamic-manifest-overview.md#filters)predefinidos.  Depois de definir os filtros, os clientes podem usá-los para transmitir uma representação específica ou subclipes do vídeo. Eles podem especificar filtros na URL de transmissão. Os filtros podem ser aplicados nos protocolos de streaming de taxa de bits adaptável com suporte do [Empacotamento Dinâmico](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH e Smooth Streaming. Por exemplo: 
 
 URL de MPEG DASH com filtro
 
@@ -195,7 +195,7 @@ Para saber mais, confira [este](https://azure.microsoft.com/blog/azure-media-ser
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 [Visão geral do fornecimento de conteúdo a clientes](media-services-deliver-content-overview.md)
 
 [renditions1]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter.png

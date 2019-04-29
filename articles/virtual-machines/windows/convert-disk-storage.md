@@ -3,8 +3,8 @@ title: Converter o Azure managed disks o armazenamento Standard para Premium par
 description: Como converter Azure discos gerenciados Standard para Premium para Standard ou Premium usando o PowerShell do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: ramankumarlive
-manager: kavithag
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
-ms.author: ramankum
+ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f97140ffeed9115a0308215ea082baee611501fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: abd893c68f2e9cac713e09dd0bdafb7f277ae889
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58009877"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766097"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Atualizar o tipo de armazenamento de um disco gerenciado
 
 Há quatro opções para o Azure managed disks: Standard, Premium SSD, SSD Standard e armazenamento em disco do Azure de Ultra HD. Você pode alternar entre esses tipos de armazenamento com base em suas necessidades de desempenho com pouco tempo de inatividade. Não há suporte para essa funcionalidade para discos não gerenciados. Mas você pode facilmente [converter um disco não gerenciado em um disco gerenciado](convert-unmanaged-to-managed-disks.md) para alternar entre os tipos de disco.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

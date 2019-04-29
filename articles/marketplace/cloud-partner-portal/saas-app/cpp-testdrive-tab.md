@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 04/24/2019
 ms.author: pbutlerm
 ms.openlocfilehash: b12ba53f847b46479b3100c088c29372b58c1b8e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649026"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60594215"
 ---
 # <a name="saas-application-test-drive-tab"></a>Guia Test Drive do aplicativo SaaS
 
@@ -31,9 +31,11 @@ Criar uma experiência de avaliação gratuita para seus clientes é uma melhor 
 
 O test drive fornece aos clientes uma avaliação gratuita prática e autoguiada sobre os principais recursos e benefícios do seu produto, demonstrados em um cenário de implementação real.
 
+
 ## <a name="how-a-test-drive-works"></a>Como funciona um test drive
 
 Um cliente potencial pesquisa e descobre seu aplicativo no Marketplace. O cliente entra e concorde com os termos de uso. Neste ponto, o cliente recebe o ambiente pré-configurado para testar durante um número fixo de horas, enquanto você recebe um cliente potencial altamente qualificado para acompanhar. Para saber mais, consulte [O que é um test drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
+
 
 ## <a name="publishing-steps"></a>Etapas de publicação
 
@@ -43,6 +45,7 @@ As principais etapas de publicação para adicionar um Test Drive são:
 2. Compilar e/ou modificar o modelo do Resource Manager
 3. Criar o manual passo a passo do Test Drive
 4. Republicar a oferta
+
 
 ## <a name="setting-up-a-test-drive"></a>Configurar um test drive
 
@@ -54,6 +57,8 @@ Há quatro tipos diferentes de Test Drives disponíveis, cada um com base no tip
 |       Hospedado             |       Um test drive hospedado elimina a complexidade da instalação porque a Microsoft instala e mantém o serviço que executa o provisionamento e o desprovisionamento do usuário do test drive.             |         [Test Drive Hospedado](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive)          |
 |      Aplicativo Lógico              |       Um Test Drive de Aplicativo Lógico é um modelo de implantação que serve para abranger todas as arquiteturas complexas da solução. Todos os aplicativos ou produtos personalizados do Dynamics devem usar esse tipo de Test Drive.            |      [Test Drive de Aplicativo Lógico](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)             |
 |       Power BI             |         Um Test Drive do Power BI consiste em um link incorporado a um painel personalizado. Qualquer produto que deseja demonstrar um objeto visual interativo do Power BI deve usar esse tipo de Test Drive. Basta fazer o upload da URL interna do Power BI.          |        [Test Drive do Power BI](#power-bi-test-drive)           |
+|   |   |   |
+
 
 ### <a name="power-bi-test-drive"></a>Test Drive do Power BI
 

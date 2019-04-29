@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
 ms.openlocfilehash: 50f3ecf69561313a5bda67827cfb02d2f61d461f
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59610183"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60653654"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Interromper ou iniciar contêineres em instâncias de contêiner do Azure manualmente
 

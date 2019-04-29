@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 78ee2c1ce402a29f1a9dfdd29f31daef09134eba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997022"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611331"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformar dados usando a Atividade Pig no Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -85,8 +85,8 @@ A atividade de Pig do HDInsight em um [pipeline](data-factory-create-pipelines.m
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| Nome |Nome da atividade |Sim |
-| Descrição |Texto que descreve qual a utilidade da atividade |Não  |
+| nome |Nome da atividade |Sim |
+| descrição |Texto que descreve qual a utilidade da atividade |Não |
 | Tipo |HDinsightPig |Sim |
 | inputs |Uma ou mais entradas consumidas pela atividade Pig |Não  |
 | outputs |Uma ou mais saídas produzidas pela atividade Pig |Sim |

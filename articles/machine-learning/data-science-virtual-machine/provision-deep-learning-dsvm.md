@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: 42430c847149f7eda2f0dbed1cff006a92f372ee
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845181"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60578541"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Provisionar uma Máquina Virtual de Aprendizado Aprofundado no Azure 
 
@@ -66,7 +66,7 @@ Depois de criar a máquina virtual, você poderá entrar na área de trabalho re
 
 ### <a name="linux-edition"></a>Edição do Linux
 
-Após a criação da VM, você poderá entrar nela usando SSH. Use as credenciais da conta criada na seção [**Noções básicas**](./provision-deep-learning-dsvm.md#L39) da etapa 3 para a interface shell de texto, clique [aqui](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop) para saber mais sobre conexões ssh em VMs Azure. Em um cliente Windows, você pode baixar uma ferramenta de cliente SSH como o [Putty](http://www.putty.org). Se você preferir uma área de trabalho gráfica (Sistema do Windows X), poderá usar o encaminhamento X11 no Putty ou instalar o cliente X2Go.
+Após a criação da VM, você poderá entrar nela usando SSH. Use as credenciais da conta criada na seção **Noções básicas** da etapa 3 para a interface shell de texto. Em um cliente Windows, você pode baixar uma ferramenta de cliente SSH como o [Putty](https://www.putty.org). Se você preferir uma área de trabalho gráfica (Sistema do Windows X), poderá usar o encaminhamento X11 no Putty ou instalar o cliente X2Go.
 
 > [!NOTE]
 > O cliente X2Go apresentou desempenho melhor do que o encaminhamento X11 nos testes. Recomendamos o uso do cliente X2Go para uma interface gráfica de área de trabalho.

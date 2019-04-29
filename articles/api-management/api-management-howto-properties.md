@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
 ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791619"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657965"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Como usar Valores Nomeados nas políticas de Gerenciamento de API do Azure
 As políticas de gerenciamento de API são um recurso poderoso do sistema que permitem que o portal do Azure altere o comportamento da API por meio da configuração. As políticas são um conjunto de instruções executadas em sequência, na solicitação ou na resposta de uma API. É possível construir declarações de política usando valores de texto literais, expressões de política e valores nomeados. 
@@ -27,16 +27,16 @@ Cada instância de serviço do Gerenciamento de API tem uma coleção de proprie
 
 | Atributo | Type | DESCRIÇÃO |
 | --- | --- | --- |
-| `Display name` |cadeia de caracteres |Cadeia de caracteres alfanuméricos usada para referenciar a propriedade nas políticas. |
-| `Value` |cadeia de caracteres |O valor da propriedade. Ele não pode ficar vazio ou conter apenas espaços em branco. |
-| `Secret` |booleano|Determina se o valor é um segredo e se deve ser criptografado ou não.|
-| `Tags` |matriz de cadeias de caracteres |Marcas opcionais que, quando fornecidas, podem ser usadas para filtrar a lista de propriedades. |
+| Nome de exibição |string |Cadeia de caracteres alfanuméricos usada para referenciar a propriedade nas políticas. |
+| Value |string |O valor da propriedade. Ele não pode ficar vazio ou conter apenas espaços em branco. |
+|Segredo|boolean|Determina se o valor é um segredo e se deve ser criptografado ou não.|
+| Marcas |matriz de cadeias de caracteres |Marcas opcionais que, quando fornecidas, podem ser usadas para filtrar a lista de propriedades. |
 
 ![Valores nomeados](./media/api-management-howto-properties/named-values.png)
 
 Os valores de propriedade podem conter cadeias de caracteres literais e [expressões de política](/azure/api-management/api-management-policy-expressions). Por exemplo, o valor de `ExpressionProperty` é uma expressão de política que retorna uma cadeia de caracteres que contém a data e hora atuais. A propriedade `ContosoHeaderValue` é marcada como um segredo e, portanto, seu valor não é exibido.
 
-| NOME | Valor | Segredo | Marcas |
+| NOME | Value | Segredo | Marcas |
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |Falso |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
@@ -108,7 +108,7 @@ Se você analisar o [rastreamento do Inspetor de API](api-management-howto-api-i
 
 Enquanto os valores de propriedade podem conter expressões de política, os valores de propriedade não podem conter outros valores nomeados. Se um texto contendo uma referência de propriedade for usado para um valor de propriedade, por exemplo, `Property value text {{MyProperty}}`, essa referência de propriedade não será substituída e será incluída como parte do valor da propriedade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre como trabalhar com políticas
   * [Políticas no Gerenciamento de API](api-management-howto-policies.md)
   * [Referência de política](/azure/api-management/api-management-policies)

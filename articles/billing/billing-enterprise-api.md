@@ -16,11 +16,11 @@ ms.workload: billing
 ms.date: 04/25/2017
 ms.author: erikre
 ms.openlocfilehash: 52612419599ef69e7476c660b52f9e6e36946825
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535392"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615567"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Visão geral das APIs de Relatórios para clientes Enterprise
 As APIs de Relatórios permitem que clientes Enterprise do Azure efetuem pull de modo programático dos dados de consumo e cobrança nas ferramentas preferidas de análise de dados. Os clientes Enterprise assinaram um [EA (Enterprise Agreement)](https://azure.microsoft.com/pricing/enterprise-agreement/) com o Azure para fazer compromissos financeiros negociados e obter acesso a preços personalizados para recursos do Azure.
@@ -29,7 +29,7 @@ As APIs de Relatórios permitem que clientes Enterprise do Azure efetuem pull de
 * **Gerar ou recuperar a chave de API** - Faça logon no portal empresarial e navegue até Relatórios > Baixar uso > Chave de acesso de API para gerar ou recuperar a chave de API.
 * **Passando chaves na API**: a chave de API precisa ser passada para cada chamada de Autenticação e Autorização. A propriedade a seguir precisa ser para os cabeçalhos HTTP
 
-|Chave de cabeçalho da solicitação | Valor|
+|Chave de cabeçalho da solicitação | Value|
 |-|-|
 |Autorização| Especifique o valor neste formato: **portador {API_KEY}** <br/> Exemplo: portador e... 09| 
 

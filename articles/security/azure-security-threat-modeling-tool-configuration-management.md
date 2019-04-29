@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 284d0e888b89d340088f770af22c026a861a4685
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498376"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610719"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Estrutura de segurança: gerenciamento de configurações | Atenuações 
 | Produto/Serviço | Artigo |

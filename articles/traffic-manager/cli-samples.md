@@ -13,11 +13,11 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: kumud
 ms.openlocfilehash: 6bff7bc2b8bfc5ef280c5782945fbc7932f800f8
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230434"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560139"
 ---
 # <a name="azure-cli-samples-for-traffic-manager"></a>Exemplos da CLI do Azure para o Gerenciador de Tráfego
 

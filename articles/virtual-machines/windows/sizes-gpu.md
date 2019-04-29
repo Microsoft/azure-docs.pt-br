@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jonbeck
 ms.openlocfilehash: 222f131e92a6018b4f70c65476cc2c47fb1d1dd5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038555"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776299"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais com GPU otimizadas
 

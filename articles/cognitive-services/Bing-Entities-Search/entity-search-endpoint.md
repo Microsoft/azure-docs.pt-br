@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-gedod
 ms.openlocfilehash: 3c2aa4b22c8e679f73692978d9e1f8009f11a46b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875215"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60598515"
 ---
 # <a name="bing-entity-search-api-endpoint"></a>Ponto de extremidade da API de Pesquisa de Entidade do Bing
 
@@ -30,7 +30,7 @@ Para obter os resultados da entidade usando a **API do Bing**, envie uma solicit
  GET https://api.cognitive.microsoft.com/bing/v7.0/entities
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [O que é a API de Pesquisa de Entidade do Bing?](overview.md)

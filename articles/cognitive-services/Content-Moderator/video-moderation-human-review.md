@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
 ms.openlocfilehash: 43a43ddcbfc656a3eb5a274e1bb63a473b7c89a2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867708"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098194"
 ---
 # <a name="video-moderation-with-human-review"></a>Moderação de vídeo com revisão humana
 
@@ -99,7 +99,7 @@ Os vídeos normalmente têm narração que também precisa de moderação para f
 
 ![exibição de transcrição da ferramenta de análise de vídeo](images/video-review-transcript-view.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Introdução com o [Início rápido de moderação de vídeo](video-moderation-api.md). 
 

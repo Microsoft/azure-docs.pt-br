@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
 ms.openlocfilehash: de11d493c1a42b67aeab6502f719bcee1adc6e99
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578199"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60879133"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>API de Tradução de Texto 3.0: BreakSentence
 

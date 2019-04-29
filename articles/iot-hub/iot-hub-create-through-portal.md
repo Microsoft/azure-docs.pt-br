@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
 ms.openlocfilehash: 21758d112cd7eaf45b8b279cf2a6f6060c44c9c1
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515838"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60741952"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Criar um Hub IoT usando o portal do Azure
 
@@ -34,13 +34,13 @@ Você poderá alterar as configurações de um Hub IoT existente depois que ele 
 
 Aqui estão algumas das propriedades que você pode definir para um hub IoT:
 
-**Preço e escala**: você pode usar essa propriedade para migrar para uma camada diferente ou definir o número de unidades do Hub IoT. 
+**Preço e escala**: Você pode usar essa propriedade para migrar para uma camada diferente ou defina o número de IoT Hub unidades. 
 
-**Monitoramento de operações**: ative ou desative as diferentes categorias de monitoramento, como registro em log para eventos relacionados a mensagens de dispositivo para nuvem ou mensagens de nuvem para dispositivo.
+**Monitoramento de operações**: Ative as diferentes categorias de monitoramento ou desativado, como registro em log para eventos relacionados a mensagens do dispositivo para nuvem ou mensagens da nuvem para dispositivo.
 
-**Filtro de IP**: especifique um intervalo de endereços IP que serão aceitos ou rejeitados pelo Hub IoT.
+**Filtro IP**: Especifique um intervalo de endereços IP que serão aceitos ou rejeitados pelo hub IoT.
 
-**Propriedades**: fornece a lista de propriedades que você pode copiar e usar em outros lugares, como ID de recurso, grupo de recursos, local e assim por diante.
+**Propriedades**: Fornece a lista de propriedades que você pode copiar e usar em outros lugares, como a ID de recurso, grupo de recursos, local e assim por diante.
 
 ### <a name="shared-access-policies"></a>Políticas de acesso compartilhado
 

@@ -15,11 +15,11 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: a11b291ab89dc9f8159e00e1f2304706f041068e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803229"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60297594"
 ---
 ## <a name="test-your-code"></a>Testar seu código
 
@@ -44,7 +44,7 @@ Depois de entrar, você deverá ver as informações do perfil do usuário retor
 |Propriedade  |Formatar  |DESCRIÇÃO |
 |---------|---------|---------|
 
-|**Nome de usuário**  | <span> user@domain.com </span> | O nome de usuário que é usado para identificar o usuário. | | **Token expirar** | Data e hora | A hora em que o token expira. MSAL estende a data de validade Renovando o token conforme necessário. |
+|**Nome de usuário** |<span>user@domain.com</span> | O nome de usuário usado para identificar o usuário.| |**Token Expira** |DateTime |A hora em que o token expira. MSAL estende a data de validade renovando o token, conforme necessário.|
 
 
 <!--start-collapse-->

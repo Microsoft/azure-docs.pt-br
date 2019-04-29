@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman
 ms.openlocfilehash: cfd9f4c52d3ddddd944186a833cba48e6ca76182
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527958"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60837854"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configurar filtros de rota para emparelhamento da Microsoft: CLI do Azure
 

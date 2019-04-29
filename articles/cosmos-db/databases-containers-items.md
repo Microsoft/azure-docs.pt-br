@@ -8,11 +8,11 @@ ms.date: 04/17/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 8eaca83b7ea89737a63fe56a18505c8df7e93fdc
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678779"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60889366"
 ---
 # <a name="work-with-databases-containers-and-items"></a>Como trabalhar com bancos de dados, contêineres e itens
 

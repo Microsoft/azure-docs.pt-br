@@ -1,5 +1,5 @@
 ---
-title: Habilitar criptografia para conta de armazenamento na Central de Segurança do Azure | Microsoft Docs
+title: Criptografia para a conta de armazenamento do Azure na Central de segurança do Azure | Microsoft Docs
 description: Este documento mostra como implementar as recomendações da Central de Segurança do Azure **Habilitar criptografia para Conta de Armazenamento do Azure**.
 services: security-center
 documentationcenter: na
@@ -14,47 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9f8679e988513eecd778970ac796264b274a8088
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cadf375b541900600be82e76673637ff01a8ad96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111655"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703921"
 ---
-# <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Habilitar criptografia para conta de armazenamento do Azure na Central de Segurança do Azure
-A Central de Segurança do Azure pode aconselhar você a habilitar a Criptografia do Serviço de Armazenamento do Azure para dados em repouso.
+# <a name="encryption-for-azure-storage-account-in-azure-security-center"></a>Criptografia para a conta de armazenamento do Azure na Central de segurança do Azure
 
-A SSE (Criptografia do Serviço de Armazenamento) funciona criptografando os dados quando eles são gravados no armazenamento do Azure e descriptografando-os antes da recuperação.  Atualmente, a SSE está disponível somente para o serviço Blob do Azure e pode ser usada para blobs de blocos, blobs de páginas e blobs de acréscimo.  Para saber mais, confira [Criptografia do Serviço de Armazenamento para dados em repouso](../storage/common/storage-service-encryption.md).
-
-
-> [!Note]
-> Depois de habilitar a criptografia, somente dados novos serão criptografados. Todos os blobs existentes em sua conta de armazenamento permanecem descriptografados. Para criptografar os blobs existentes, confira as [perguntas frequentes sobre a Criptografia do Serviço de Armazenamento](../storage/common/storage-service-encryption.md#faq-for-storage-service-encryption).
->
->
-
-A Criptografia do Serviço de Armazenamento é compatível apenas com contas de armazenamento do Resource Manager. Atualmente, não há suporte para contas de armazenamento clássicas. Para entender os modelos de implantação clássicos e do Resource Manager, confira [Modelos de implantação do Azure](../azure-classic-rm.md).
-
-> [!NOTE]
-> Este documento apresenta o serviço usando uma implantação de exemplo.  Este documento não é um guia passo a passo.
->
->
-
-## <a name="implement-the-recommendation"></a>Implementar a recomendação
-1. Na folha **Recomendações**, escolha **Habilitar criptografia para Conta de Armazenamento do Azure**.
-   ![Habilitar a criptografia para a conta de armazenamento][1]
-2. A folha **Habilitar criptografia de armazenamento** é aberta. Essa folha lista as contas de armazenamento do Azure em que a criptografia de armazenamento está desabilitada. Neste exemplo, vamos selecionar **storageacct1**.
-   ![Habilitar criptografia de armazenamento][2]
-3. A folha **Criptografia** de **storageacct1** é aberta. Selecione **Habilitado**.
-   ![Folha Criptografia][3]
-4. Clique em **Salvar**.
-
-Agora, você habilitou a criptografia de armazenamento para **storageacct1**.
-
-
-## <a name="see-also"></a>Consulte também
-Este documento mostrou como implementar a recomendação da Central de Segurança do Azure "Habilitar criptografia para Conta de Armazenamento do Azure". Para saber mais sobre a Criptografia do Serviço de Armazenamento do Azure, confira:
-
-* [Criptografia do Serviço de Armazenamento do Azure para dados em repouso](../storage/common/storage-service-encryption.md)
+Criptografia de armazenamento do Azure para dados em repouso está habilitada por padrão para todas as contas de armazenamento do Azure. O armazenamento do Azure criptografa dados quando ele é gravado no armazenamento do Azure e os descriptografa antes da recuperação. Para obter mais informações, consulte [criptografia do armazenamento do Azure para dados em repouso](../storage/common/storage-service-encryption.md).
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 

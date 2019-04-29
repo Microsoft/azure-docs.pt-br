@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 2a3f8ee5cba3110d392555fad78c1cb2513b5d4e
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232436"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60683062"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Criar instruções switch que executam ações de fluxo de trabalho com base em valores específicos nos Aplicativos Lógicos do Azure
 
@@ -32,7 +32,7 @@ Por exemplo, suponhamos que você deseje um aplicativo lógico que execute etapa
 
 * Para seguir o exemplo neste artigo, [crie esse aplicativo lógico de exemplo](../logic-apps/quickstart-create-first-logic-app-workflow.md) com uma conta do Outlook.com ou Office 365 Outlook.
 
-  1. Ao adicionar a ação para enviar email, localize e selecione a seguinte ação: **Enviar um email de aprovação**
+  1. Quando você adiciona a ação para enviar email, localize e selecione esta ação em vez disso: **Enviar um email de aprovação**
 
      ![Selecione "Enviar um e-mail de aprovação"](./media/logic-apps-control-flow-switch-statement/send-approval-email-action.png)
 
@@ -47,7 +47,7 @@ Por exemplo, suponhamos que você deseje um aplicativo lógico que execute etapa
 
    Quando você deseja adicionar uma instrução de comutação entre as etapas, mova o ponteiro sobre a seta onde você deseja adicionar a instrução de comutação. Escolha o **sinal de adição** (**+**) que aparece e, em seguida, escolha **Adicionar uma ação**.
 
-1. Na caixa de pesquisa, digite “switch” como filtro. Selecione esta ação: **Switch – Control**
+1. Na caixa de pesquisa, digite “switch” como filtro. Selecione esta ação: **Comutador - controle**
 
    ![Adicionar switch](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
 
@@ -122,7 +122,7 @@ Agora que você criou um aplicativo lógico usando uma instrução switch, vamos
 | `"case"` | Especifica o valor do caso, que deve ser um valor constante e exclusivo que a instrução do comutador usa para comparação. Se nenhuma ocorrência corresponder ao resultado da expressão de comutação, as ações na seção `"default"` são executadas. | 
 | | | 
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em recursos e sugestões, visite o [site de comentários do usuário de Aplicativos Lógicos do Azure](https://aka.ms/logicapps-wish).

@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311521"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824007"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mover dados do DB2 usando a Atividade de Cópia do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -316,11 +316,11 @@ Os seguintes mapeamentos são usados quando a Atividade de Cópia converte os da
 | Float |Double |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| Numérico |Decimal |
+| Numeric |Decimal |
 | Data |DateTime |
 | Hora |TimeSpan |
 | Timestamp |Datetime |
-| xml |Byte[] |
+| Xml |Byte[] |
 | Char |Cadeia de caracteres |
 | VarChar |Cadeia de caracteres |
 | LongVarChar |Cadeia de caracteres |
@@ -342,11 +342,11 @@ Os seguintes mapeamentos são usados quando a Atividade de Cópia converte os da
 | Float |Double |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| Numérico |Decimal |
+| Numeric |Decimal |
 | Data |DateTime |
 | Hora |TimeSpan |
 | Timestamp |Datetime |
-| xml |Byte[] |
+| Xml |Byte[] |
 | Char |Cadeia de caracteres |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor

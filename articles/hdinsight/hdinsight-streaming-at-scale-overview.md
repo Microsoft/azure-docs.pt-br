@@ -1,19 +1,18 @@
 ---
 title: Streaming em escala no Azure HDInsight
 description: Como usar fluxo de dados com Clusters HDInsight escalonáveis.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: fd2614c258aff146397e24e688eae18d84d3cfa6
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: e2b6cbabc9a0c727c9eb0232bd55048493b29128
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201153"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763720"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Streaming em escala no HDInsight
 

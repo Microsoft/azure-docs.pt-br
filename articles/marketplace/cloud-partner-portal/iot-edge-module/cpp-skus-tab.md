@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 370d8160661c1f73124151a3a49d0bb3170dfb77
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276033"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60910823"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Guia SKUs do módulo do IoT Edge
 
@@ -41,7 +41,7 @@ A guia **SKUs** é atualizada e exibe os campos editados para configurar a SKU. 
 
 |  **Campo**       |     **Descrição**                                                          |
 |  ---------       |     ---------------                                                          |
-| **ID DO SKU**       | Identificador dessa SKU. Esse nome tem no máximo 50 caracteres, consistindo de caracteres alfanuméricos minúsculos ou traços (-), mas não pode terminar com um traço. **Observação:** não será possível alterar esse nome depois que a oferta for publicada. O nome é publicamente visível nas URLs do produto. |
+| **ID DO SKU**       | Identificador dessa SKU. Esse nome tem no máximo 50 caracteres, consistindo de caracteres alfanuméricos minúsculos ou traços (-), mas não pode terminar com um traço. **Observação:** Depois que a oferta do publicado, é possível alterar esse nome. O nome é publicamente visível nas URLs do produto. |
 
 ## <a name="sku-details"></a>Detalhes da SKU
 
@@ -109,7 +109,7 @@ A tabela a seguir descreve o objetivo, o conteúdo e a formatação dos campos p
 | **ID da assinatura**        | A ID da assinatura do Azure do ACR.|
 | **Nome do grupo de recursos**      | O nome do grupo de recursos do ACR.|
 | **Nome do registro**  | Seu nome do registro ACR. Copie apenas o nome do registro, NÃO o nome do servidor de logon (por exemplo, sem o `azurecr.io`.) |
-| **Nome do repositório**  | O nome do repositório do ACR que contém o módulo do IoT Edge. **Observação:** após definir o nome, ele não poderá ser alterado posteriormente. Use um nome exclusivo para garantir que nenhuma outra oferta na sua conta tenha o mesmo nome. |
+| **Nome do repositório**  | O nome do repositório do ACR que contém o módulo do IoT Edge. **Observação:** Depois que o nome é definido, ele não pode ser alterado posteriormente. Use um nome exclusivo para garantir que nenhuma outra oferta na sua conta tenha o mesmo nome. |
 | **Nome de Usuário** | O nome de usuário associado ao ACR (nome de usuário do administrador). |
 | **Senha** | A senha associada ao ACR. |
 |  ***Versão da imagem***   |  |

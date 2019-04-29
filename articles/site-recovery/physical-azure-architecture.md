@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: raynew
 ms.openlocfilehash: 99aec3be893693e523dffefbb3c422222ac19a2e
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616859"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60947452"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Servidor físico para a arquitetura de recuperação de desastre do Azure
 
@@ -78,6 +78,6 @@ Depois que a replicação é configurada e você executou uma simulação de rec
 ![Failback](./media/physical-azure-architecture/enhanced-failback.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Siga [este tutorial](physical-azure-disaster-recovery.md) para habilitar a replicação de servidor físico para o Azure.

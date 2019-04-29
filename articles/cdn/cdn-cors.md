@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 3dbf0aea50f382a0b325bf068a200cde42098733
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547581"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60679837"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Usar a CDN do Azure com o CORS
 ## <a name="what-is-cors"></a>O que é CORS?

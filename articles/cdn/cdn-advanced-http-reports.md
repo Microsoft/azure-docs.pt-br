@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 2dfbc046674b2da692f30c945aee3ea25ae524eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8cb4713e38ca0da610c687325f3810f57da2b26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22999031"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61216030"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analisar estatísticas de uso com os relatórios HTTP avançados da CDN do Azure
 ## <a name="overview"></a>Visão geral
@@ -48,7 +48,7 @@ As informações detalhadas de tráfego e de largura de banda para cada região 
 
 Uma breve descrição abaixo é apresentada abaixo para cada tipo de relatório geográfico baseado em mapa.
 
-| Nome do relatório | Descrição |
+| Nome do relatório | DESCRIÇÃO |
 | --- | --- |
 | Mapa mundial |Esse relatório permite que você exiba a demanda mundial por seu conteúdo CDN. Cada país é codificado por cor no mapa mundial para indicar a porcentagem de ocorrências originadas da região. |
 | Mapa dos Estados Unidos |Esse relatório permite que você exiba a demanda por seu conteúdo CDN nos Estados Unidos. Cada estado é codificado por cor no mapa para indicar a porcentagem de ocorrências originadas da região. |
@@ -59,7 +59,7 @@ Uma breve descrição abaixo é apresentada abaixo para cada tipo de relatório 
 ## <a name="geography-reports-bar-charts"></a>Relatórios de geografia (gráficos de barras)
 Há dois relatórios adicionais que fornecem informações estatísticas de acordo com a geografia, que são Principais cidades e Principais países. Esses relatórios classificam cidades e países, respectivamente, de acordo com o número de ocorrências originadas dessas regiões. Ao gerar esse tipo de relatório, um gráfico de barras indicará as dez principais cidades ou países que solicitaram o conteúdo em uma plataforma específica. Esse gráfico de barras permite avaliar rapidamente as regiões que geram o maior número de solicitações de seu conteúdo.
 
-O lado esquerdo do gráfico (eixo y) indica o número de ocorrências na região especificada. Diretamente abaixo do gráfico (eixo x), você encontrará um rótulo para cada uma das dez regiões principais.
+O lado esquerdo do grafo (eixo y) indica o número de ocorrências na região especificada. Diretamente abaixo do grafo (eixo x), você encontrará um rótulo para cada uma das dez regiões principais.
 
 ### <a name="using-the-bar-charts"></a>Usando gráficos de barras
 * Se você passar o mouse sobre uma barra, o nome e o número total de ocorrências na região serão exibidos como uma dica de ferramenta.
@@ -71,7 +71,7 @@ Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. 
 
 Uma breve descrição é apresentada para ambos os tipos de relatórios abaixo.
 
-| Nome do relatório | Descrição |
+| Nome do relatório | DESCRIÇÃO |
 | --- | --- |
 | Principais cidades |Este relatório classifica cidades de acordo com o número de ocorrências originadas dessa região. |
 | Principais países |Este relatório classifica países de acordo com o número de ocorrências originadas dessa região. |
@@ -81,7 +81,7 @@ O relatório Resumo diário permite exibir o número total de ocorrências e de 
 
 Ao gerar esse tipo de relatório, um gráfico de barras fornece uma indicação visual da quantidade de demanda específica da plataforma percebida diariamente ao longo do período coberto pelo relatório. Ele fará isso exibindo uma barra para cada dia no relatório. Por exemplo, a seleção do período de tempo "Semana Passada" irá gerar um gráfico de barras com sete barras. Cada barra indica o número total de ocorrências percebidas naquele dia.
 
-O lado esquerdo do gráfico (eixo y) indica o número de ocorrências na data especificada. Diretamente abaixo do gráfico (eixo x), você encontrará um rótulo que indica a data (formato: DD-MM-AAAA) para cada dia incluído no relatório.
+O lado esquerdo do grafo (eixo y) indica o número de ocorrências na data especificada. Diretamente abaixo do grafo (eixo x), você encontrará um rótulo que indica a data (formato: YYYY-MM-DD) para cada dia incluído no relatório.
 
 > [!TIP]
 > Se você passar o mouse sobre uma barra, o número total de ocorrências naquela data será exibido como uma dica de ferramenta.
@@ -95,7 +95,7 @@ O relatório Por hora permite exibir o número total de ocorrências e de dados 
 
 Ao gerar esse tipo de relatório, um gráfico de barras fornece uma indicação visual da quantidade de demanda específica da plataforma percebida por hora ao longo do período coberto pelo relatório. Ele fará isso exibindo uma barra para cada hora coberta pelo relatório. Por exemplo, a seleção de um período de 24 horas irá gerar um gráfico de barras com vinte e quatro barras. Cada barra indica o número total de ocorrências percebidas naquela hora.
 
-O lado esquerdo do gráfico (eixo y) indica o número de ocorrências na hora especificada. Diretamente abaixo do gráfico (eixo x), você encontrará um rótulo que indica a data/hora (formato: DD-MM-AAAA hh:mm) para cada hora incluída no relatório. A hora é relatada usando o formato de 24 horas e é especificada usando o fuso horário UTC/GMT.
+O lado esquerdo do grafo (eixo y) indica o número de ocorrências na hora especificada. Diretamente abaixo do grafo (eixo x), você encontrará um rótulo que indica a data/hora (formato: YYYY-MM-DD HH: mm) para cada hora incluída no relatório. A hora é relatada usando o formato de 24 horas e é especificada usando o fuso horário UTC/GMT.
 
 > [!TIP]
 > Se você passar o mouse sobre uma barra, o número total de ocorrências durante aquela hora será exibido como uma dica de ferramenta.
@@ -112,14 +112,14 @@ O relatório Por arquivo permite que você exiba a quantidade de demanda e o tr�
 > 
 > 
 
-O lado esquerdo do gráfico (eixo y) indica o número de solicitações para cada ativo durante o período de tempo especificado. Diretamente abaixo do gráfico (eixo x), você encontrará um rótulo que indica o nome do arquivo de cada um dos dez ativos mais solicitados.
+O lado esquerdo do grafo (eixo y) indica o número de solicitações para cada ativo durante o período de tempo especificado. Diretamente abaixo do grafo (eixo x), você encontrará um rótulo que indica o nome do arquivo de cada um dos dez ativos mais solicitados.
 
 Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. Lá, você encontrará as seguintes informações sobre cada um dos 250 ativos mais solicitados: o número total e a porcentagem de ocorrências, a quantidade total de dados transferidos (em gigabytes) e a porcentagem dos dados transferidos.
 
 ## <a name="by-file-detail"></a>Por detalhes do arquivo
 O relatório Por detalhes do arquivo permite que você exiba a quantidade de demanda e o tráfego ocorridos em uma plataforma específica para um ativo específico. A opção Por detalhes do arquivo está na parte superior deste relatório. Essa opção fornece uma lista de seus ativos mais solicitados na plataforma selecionada. Para gerar um relatório Por detalhes do arquivo, você precisa selecionar o ativo desejado na opção Detalhes do Arquivo Para. Depois disso, um gráfico de barras indicará a quantidade de demanda diária que ele gerou durante o período de tempo especificado.
 
-O lado esquerdo do gráfico (eixo y) indica o número total de solicitações recebidas por um ativo em um dia específico. Diretamente abaixo do gráfico (eixo x), você encontrará um rótulo que indica a data (formato: DD-MM-AAAA)  na qual a demanda da CDN foi relatada para o ativo.
+O lado esquerdo do grafo (eixo y) indica o número total de solicitações recebidas por um ativo em um dia específico. Diretamente abaixo do grafo (eixo x), você encontrará um rótulo que indica a data (formato: YYYY-MM-DD) para a qual CDN por demanda para o ativo foi relatada.
 
 Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. Lá, você encontrará o número total de ocorrências e a quantidade de dados transferidos (em gigabytes) para cada dia coberto pelo relatório.
 
@@ -141,7 +141,7 @@ O relatório Por diretório permite que você exiba a quantidade de demanda e o 
 * O conteúdo armazenado em uma subpasta de um diretório não será contado no cálculo da demanda por diretório. Esse cálculo depende exclusivamente do número de solicitações gerado para o conteúdo armazenado no diretório real.
 * Para os fins deste relatório, as URLs da borda CNAME são convertidas nas URLs equivalentes da CDN. Isso permite uma contagem precisa de todas as estatísticas associadas a um ativo, independentemente da URL da CDN ou da borda CNAME URL usada para solicitá-las.
 
-O lado esquerdo do gráfico (eixo y) indica o número total de solicitações para o conteúdo armazenado em seus dez diretórios principais. Cada barra no gráfico representa um diretório. Use o esquema de codificação de cores para fazer a correspondência entre uma barra e um diretório listado na seção 250 principais diretórios completos.
+O lado esquerdo do grafo (eixo y) indica o número total de solicitações para o conteúdo armazenado em seus dez diretórios principais. Cada barra no gráfico representa um diretório. Use o esquema de codificação de cores para fazer a correspondência entre uma barra e um diretório listado na seção 250 principais diretórios completos.
 
 Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. Lá, você encontrará as seguintes informações sobre cada um dos principais 250 diretórios: o número total e a porcentagem de ocorrências, a quantidade total de dados transferidos (em gigabytes) e a porcentagem dos dados transferidos.
 
@@ -158,7 +158,7 @@ Os dados usados para gerar o gráfico de pizza podem ser exibidos abaixo dele. L
 ## <a name="by-referrer"></a>Por referenciador
 O relatório Por referenciador permite exibir os principais referenciadores de conteúdo na plataforma selecionada. Um referenciador indica o nome do host do qual uma solicitação foi gerada. Ao gerar este tipo de relatório, um gráfico de barras indica a quantidade de demanda (isto é, ocorrências) gerada pelos dez principais referenciadores.
 
-O lado esquerdo do gráfico (eixo y) indica o número total de solicitações recebidas por um ativo para cada referenciador. Cada barra no gráfico representa um referenciador. Use o esquema de codificação de cores para fazer a correspondência entre uma barra e um referenciador listado na seção 250 principais referenciadores.
+O lado esquerdo do grafo (eixo y) indica o número total de solicitações recebidas por um ativo para cada referenciador. Cada barra no gráfico representa um referenciador. Use o esquema de codificação de cores para fazer a correspondência entre uma barra e um referenciador listado na seção 250 principais referenciadores.
 
 Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. Lá você encontrará a URL, o número total e a porcentagem de ocorrências geradas por cada um dos 250 principais referenciadores.
 
@@ -170,7 +170,7 @@ O relatório Por download permite analisar padrões de download para o conteúdo
 > 
 > 
 
-O lado esquerdo do gráfico (eixo y) indica o nome do arquivo para cada um dos dez ativos mais solicitados. Diretamente abaixo do gráfico (eixo x), você encontrará rótulos que indicam o número total de downloads tentados/concluídos.
+O lado esquerdo do grafo (eixo y) indica o nome do arquivo para cada um dos dez ativos mais solicitados. Diretamente abaixo do grafo (eixo x), você encontrará rótulos que indicam o número total de downloads tentados/concluídos.
 
 Diretamente abaixo do gráfico de barras, as informações a seguir serão listadas para os 250 ativos mais solicitados: caminho relativo (incluindo nome do arquivo), número de vezes que seu download foi concluído, número de vezes que foi solicitado e a porcentagem de solicitações que resultaram em um download completo.
 
@@ -195,7 +195,7 @@ O relatório de erros 404 permite que você identifique o tipo de conteúdo que 
 > 
 > 
 
-O lado esquerdo do gráfico (eixo y) indica o nome do arquivo para cada um dos dez ativos mais solicitados que resultaram em código de status 404 Não encontrado. Diretamente abaixo do gráfico (eixo x), você encontrará rótulos que indicam o número total de solicitações e o número de solicitações que resultaram em um código de status 404 Não encontrado.
+O lado esquerdo do grafo (eixo y) indica o nome do arquivo para cada um dos dez ativos mais solicitados que resultaram em código de status 404 Não encontrado. Diretamente abaixo do grafo (eixo x), você encontrará rótulos que indicam o número total de solicitações e o número de solicitações que resultaram em um código de status 404 Não encontrado.
 
 Diretamente abaixo do gráfico de barras, as informações a seguir serão listadas para os 250 ativos mais solicitados: caminho relativo (incluindo nome do arquivo), número de solicitações que resultaram em código de status 404 Não encontrado, número de vezes que o ativo foi solicitado e a porcentagem de solicitações que resultaram em código de status 404 Não encontrado.
 

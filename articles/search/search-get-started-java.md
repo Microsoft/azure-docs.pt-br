@@ -10,11 +10,11 @@ ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018
 ms.openlocfilehash: d16f20e3c2dfa3d670006e44f0072a3871d41c3f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629894"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61289671"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Introdução ao Azure Search em Java
 > [!div class="op_single_selector"]
@@ -105,7 +105,7 @@ Todas as modificações de arquivos subsequentes e instruções de execução se
 7. Clique em **Concluir**.
 8. Selecione **Janela** > **Preferências** > **Java** > **JREs Instalados** > **Adicionar**.
 9. Em **Adicionar JRE**, selecione **VM padrão**.
-10. Clique em **Próximo**.
+10. Clique em **Avançar**.
 11. Na Definição do JRE, na página inicial do JRE, clique em **Diretório**.
 12. Navegue até **Arquivos de Programas** > **Java** e selecione o JDK instalado anteriormente. É importante selecionar o JDK como o JRE.
 13. Em JREs instalados, escolha o **JDK**. Suas configurações devem ter aparência semelhante à captura de tela a seguir.

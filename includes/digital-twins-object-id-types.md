@@ -9,17 +9,17 @@ ms.date: 12/20/2018
 ms.author: adgera
 ms.custom: include file
 ms.openlocfilehash: 40ab53c941a7ac619ebb09d381a4ae0450f26e8b
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53795868"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60534043"
 ---
 O `objectIdType` (ou **tipo de identificador de objeto**) refere-se ao tipo de identidade que é dada a uma função. Além dos tipos `DeviceId` e `UserDefinedFunctionId`, os tipos de identificador de objeto correspondem às propriedades dos objetos do Azure Active Directory.
 
 A tabela a seguir contém os tipos de identificador de objeto com suporte no Gêmeos Digitais do Azure:
 
-| Tipo | DESCRIÇÃO |
+| Type | DESCRIÇÃO |
 | --- | --- |
 | UserId | Atribui uma função a um usuário. |
 | deviceId | Atribui uma função a um dispositivo. |

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: aahi
 ms.openlocfilehash: 68b99e7f0763f46c705a1ff2ba3a0e90216429c2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878588"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648849"
 ---
 # <a name="how-to-page-through-results-from-the-bing-web-search-api"></a>Como percorrer os resultados da API da Pesquisa na Web do Bing
 

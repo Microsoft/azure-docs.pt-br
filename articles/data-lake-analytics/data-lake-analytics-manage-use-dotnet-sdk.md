@@ -10,11 +10,11 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/18/2017
 ms.openlocfilehash: 0a10af73d754596e9b5bb34b2974d7f1647d06f8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793281"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60617700"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Gerenciar o Azure Data Lake Analytics usando um aplicativo .NET
 

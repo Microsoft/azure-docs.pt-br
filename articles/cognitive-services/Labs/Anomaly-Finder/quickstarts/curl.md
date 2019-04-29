@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
 ms.openlocfilehash: 7a4996c83d57b34fcfcff43650b21359acb4e65e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730878"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094809"
 ---
 # <a name="use-the-anomaly-finder-api-with-curl"></a>Usar a API do Localizador de Anomalias com cURL
 
@@ -57,7 +57,7 @@ curl -v -X POST "https://api.labs.cognitive.microsoft.com/anomalyfinder/v1.0/ano
 ### <a name="example-response"></a>Exemplo de resposta
 Uma resposta com êxito é retornada em JSON. A seguir está a resposta de exemplo: [!INCLUDE [Response](../includes/response.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Referência da API REST](https://dev.labs.cognitive.microsoft.com/docs/services/anomaly-detection/operations/post-anomalydetection)

@@ -12,11 +12,11 @@ ms.date: 05/07/2018
 ms.author: nolachar
 comment: As a bot developer, I want my bot to be able to handle small talk in a consistent tone so that my bot appears more complete and conversational.
 ms.openlocfilehash: 88dfbb2a547b44de1bb98ca536c7841570a12168
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766828"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829966"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
 

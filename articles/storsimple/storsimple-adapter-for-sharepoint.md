@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: v-sharos
 ms.openlocfilehash: a2f8e75578e396085e7d80f43c1180e158967061
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885580"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60633049"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Instalar e configurar o Adaptador StorSimple para o SharePoint
 ## <a name="overview"></a>Visão geral

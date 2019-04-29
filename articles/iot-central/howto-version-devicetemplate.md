@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: d4f9617a5c2ba6f6cf8dc261845aa98e33d70a55
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281770"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60649173"
 ---
 # <a name="create-a-new-device-template-version"></a>Criar uma nova versão do modelo de dispositivo
 
@@ -63,7 +63,7 @@ Os **painéis do dispositivo** podem conter vários tipos de blocos. Algumas blo
 
 ![Como migrar um dispositivo](media/howto-version-devicetemplate/pick-version.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu a usar as versões de modelos de dispositivo no aplicativo Azure IoT Central, a próxima etapa sugerida é apresentada:
 

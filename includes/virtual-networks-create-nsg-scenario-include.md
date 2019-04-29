@@ -2,18 +2,19 @@
 title: Arquivo de inclusão
 description: Arquivo de inclusão
 services: virtual-network
-author: genlin
+author: rockboyfor
 ms.service: virtual-network
 ms.topic: include
-ms.date: 04/13/2018
-ms.author: genli
+origin.date: 04/13/2018
+ms.date: 06/11/2018
+ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 873549442284ede2e9f020bd90879f721b9c1a18
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 588aa260f2ece543445bfd4da7ef4682dab8334c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38760346"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309900"
 ---
 ## <a name="scenario"></a>Cenário
 Para ilustrar melhor como se cria NSGs, este documento usará o cenário a seguir:
@@ -30,4 +31,3 @@ Nesse cenário, você criará um NSG para cada sub-rede na rede virtual **TestVN
   * **web-rule**. Nega todo o tráfego limitado da Internet da sub-rede *BackEnd*.
 
 A combinação dessas regras cria um cenário de DMZ, em que a sub-rede de back-end só pode receber tráfego de entrada para SQL da sub-rede front-end e não tem acesso à Internet, enquanto a sub-rede de front-end pode se comunicar à Internet e receber somente solicitações HTTP de entrada.
-

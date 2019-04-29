@@ -7,11 +7,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: e16cac281b77f3ca93d9ef358ae806203bc8b663
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794356"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61348398"
 ---
 # <a name="azure-data-factory-pivot-transformation"></a>Transformação de dinâmica de fábrica de dados do Azure
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
@@ -67,6 +67,6 @@ Se você deseja exibir os novos nomes de coluna como metadados no inspecionar e 
 ### <a name="how-to-rejoin-original-fields"></a>Como reingressar nos campos originais
 A transformação dinâmica só projetará as colunas usadas nas ações de agregação, agrupamento e dinamização. Se você quiser incluir outras colunas da etapa anterior em seu fluxo, use um novo Branch da etapa anterior e usar o padrão de associação a mesmo para conectar o fluxo com os metadados originais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Experimente o [transformação não dinâmica](data-flow-unpivot.md) para transformar os valores de coluna em valores de linha. 

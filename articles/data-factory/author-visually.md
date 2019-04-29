@@ -13,11 +13,11 @@ ms.author: shlo
 ms.reviewer: ''
 manager: craigg
 ms.openlocfilehash: d2e51551643e154714b9d2368e63d7af9ebfa204
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526904"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60593098"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação visual no Azure Data Factory
 A experiência (UX) da interface do usuário do Azure Data Factory permite criar e implantar visualmente recursos para seu data factory sem ter que gravar nenhum código. Você pode arrastar atividades para uma tela de pipeline, realizar execuções de teste, depurar iterativamente e implantar e monitorar as execuções do pipeline. Há duas abordagens para usar a UX para executar a criação visual:
@@ -58,7 +58,7 @@ O painel de configuração **Definições do repositório** é exibido:
 
 O painel mostra as seguintes configurações do repositório de código do Azure Repos:
 
-| Configuração | DESCRIÇÃO | Valor |
+| Configuração | DESCRIÇÃO | Value |
 |:--- |:--- |:--- |
 | **Tipo de repositório** | O tipo do repositório de código do Azure Repos.<br/>**Observação**: Atualmente, o GitHub não é compatível. | Git do Azure Repos |
 | **Azure Active Directory** | Seu nome de locatário do Microsoft Azure AD. | `<your tenant name>` |

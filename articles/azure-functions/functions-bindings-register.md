@@ -8,14 +8,15 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/18/2019
-ms.author: cshoe
+origin.date: 02/18/2019
+ms.date: 04/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: 5534086d5754691f650370e465fa2c63210e0dc7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739955"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437847"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrar as extensões de associação de funções do Azure
 
@@ -37,7 +38,7 @@ Os seguintes tipos de associação são exceções que não exigem registro expl
 
 ## <a name="azure-portal-development"></a>Desenvolvimento do portal do Azure
 
-Quando você cria uma função ou adiciona uma associação, você será solicitado quando a extensão para o gatilho ou a associação requer o registro. Responder ao aviso clicando **instalar** para registrar a extensão. Instalação pode levar até 10 minutos em um plano de consumo.
+Quando você cria uma função ou adiciona uma associação, você será solicitado quando a extensão para o gatilho ou a associação requer o registro. Responder ao aviso clicando **instalar** para registrar a extensão. Instalação pode levar até 10 minutos em um plano de consumo. 
 
 Você só precisa instalar cada extensão uma vez para um aplicativo de função determinada. Para associações com suporte que não estão disponíveis no portal ou para atualizar uma extensão instalada, você também pode [instalar ou atualizar manualmente as extensões de associação do Azure Functions no portal](install-update-binding-extensions-manual.md).  
 
@@ -75,4 +76,5 @@ Substituir `<target_version>` no exemplo com uma versão específica do pacote, 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Exemplo de gatilho e associação de função do Azure](./functions-bindings-example.md)
+
 

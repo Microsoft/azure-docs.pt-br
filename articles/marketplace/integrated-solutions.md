@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
 ms.openlocfilehash: f0bda0e0d70d325afd84dc64ddacfa4c0f18a4df
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57220904"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733956"
 ---
 # <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Soluções integradas no Azure Marketplace e AppSource
 

@@ -12,11 +12,11 @@ author: marthalc
 ms.date: 12/3/2018
 ms.custom: seodec18
 ms.openlocfilehash: a127a211157edb0b26d0495bc2ed05dd79323111
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842627"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60820418"
 ---
 # <a name="collect-data-for-models-in-production"></a>Coletar dados para modelos em produção
 

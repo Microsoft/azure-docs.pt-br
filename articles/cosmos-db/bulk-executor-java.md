@@ -10,11 +10,11 @@ ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
 ms.openlocfilehash: b6a5712c617ab1e16b5341d9727b840fe8ea2213
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524014"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60894400"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Use a biblioteca bulk executor Java para executar operações em massa no Azure Cosmos DB
 
@@ -211,7 +211,7 @@ Considere os seguintes pontos para melhor desempenho ao usar a biblioteca bulk e
 * Como uma execução de API de operação em massa única consome uma grande parte de ES de CPU e de rede do computador cliente. Isso acontece por geração de várias tarefas internamente, evite a geração de várias tarefas simultâneas no processo de aplicativo executando chamadas de API de operação em massa. Se uma única chamada à API de operação em massa em execução em uma única máquina virtual não puder consumir a produtividade inteira do contêiner (se a produtividade do contêiner for de mais de 1 milhão de RU/s), prefira criar máquinas virtuais separadas para executar as chamadas à API de operação em massa simultaneamente.
 
     
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre os detalhes do pacote maven e as notas de versão da biblioteca bulk executor Java, consulte [Detalhes do SDK do bulk executor](sql-api-sdk-bulk-executor-java.md).
 
 

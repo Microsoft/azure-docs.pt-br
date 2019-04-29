@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: cbb18212f70343d8b9933bd2c787ce6aae8b145d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563381"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61400861"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory-preview"></a>Copiar dados do Jira utilizando o Azure Data Factory (versão prévia)
 
@@ -44,7 +44,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Jira:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Jira** | Sim |
+| type | A propriedade type deve ser definida como: **Jira** | Sim |
 | host | O endereço IP ou nome do host do serviço Jira. (por exemplo, jira.example.com)  | Sim |
 | porta | A porta TCP usada pelo servidor Jira para ouvir conexões de cliente. O valor padrão é 443 se estiver se conectando por meio de HTTPS ou 8080 se estiver se conectando por meio de HTTP.  | Não  |
 | Nome de Usuário | O nome de usuário que você usa para acessar o Serviço Jira.  | Sim |
@@ -81,7 +81,7 @@ Para copiar dados do Jira, defina a propriedade type do conjunto de dados como *
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **JiraObject** | Sim |
+| type | A propriedade type do conjunto de dados deve ser definida como: **JiraObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -110,7 +110,7 @@ Para copiar dados de Jira, defina o tipo de fonte na atividade de cópia como **
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da origem da atividade de cópia deve ser definida como: **JiraSource** | Sim |
+| type | A propriedade type da origem da atividade de cópia deve ser definida como: **JiraSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

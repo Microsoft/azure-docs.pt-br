@@ -13,11 +13,11 @@ ms.reviewer: sstein, carlrab, vanto
 manager: craigg
 ms.date: 04/16/2019
 ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002741"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098518"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Usar segurança de dados avançada do Banco de Dados SQL com as redes virtuais e compatibilidade de quase 100%
 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
 ms.openlocfilehash: 1c77d0ea9e67c8d69f3f632cace164d8a0c4d921
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617590"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60562348"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos da Grade de Eventos do Azure
 

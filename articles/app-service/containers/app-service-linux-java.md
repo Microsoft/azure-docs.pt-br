@@ -14,11 +14,11 @@ ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
 ms.openlocfilehash: 5c9f70650f518c72a75d9a7826e7cbc30a95a00c
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680869"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60852693"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guia do desenvolvedor Java para o Serviço de Aplicativo no Linux
 

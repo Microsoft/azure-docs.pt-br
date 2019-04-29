@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
 ms.openlocfilehash: d2dcb1eb9132e68bebbe84d81a4e4f17df79f2d3
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399767"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615544"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel-preview"></a>Recursos úteis para trabalhar com o Azure Sentinel Preview
 
 > [!IMPORTANT]
-> Sentinela do Azure está atualmente em visualização pública.
+> No momento, o Azure Sentinel está em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este artigo lista recursos que podem ajudar você a obter mais informações sobre como trabalhar com o Azure Sentinel.

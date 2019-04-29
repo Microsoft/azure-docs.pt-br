@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: anroth
 ms.openlocfilehash: 1ee6edbf49bbcd2014afcf29ed3b737168a3b5bc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046063"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60816700"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Usar o modelo com a API de previsão
 
@@ -132,7 +132,7 @@ Quando você executa o aplicativo, você precisará inserir um caminho para um a
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste guia, você aprendeu a enviar imagens para o personalizado/detector de classificador de imagem e recebem uma resposta por meio de programação com o C# SDK. Em seguida, saiba como concluir cenários de ponta a ponta com o C#, ou começar a usar um idioma diferente do SDK.
 

@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
 ms.openlocfilehash: 6b3357ec06c89645b9c41e9efdb582a18af40672
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074668"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614649"
 ---
 # <a name="tutorial-investigate-cases-with-azure-sentinel-preview"></a>Tutorial: Investigar os casos com Azure Sentinel Preview
 
 > [!IMPORTANT]
-> Sentinela do Azure está atualmente em visualização pública.
+> No momento, o Azure Sentinel está em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este tutorial ajuda você a detectar ameaças com o Azure Sentinel.

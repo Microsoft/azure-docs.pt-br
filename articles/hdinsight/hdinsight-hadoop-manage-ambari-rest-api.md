@@ -1,7 +1,6 @@
 ---
 title: Monitorar e gerenciar o Hadoop com a API REST do Ambari – Azure HDInsight
 description: Aprenda a usar o Ambari para monitorar e gerenciar clusters Hadoop no Azure HDInsight. Neste documento, você aprenderá a usar a API REST do Ambari incluída com clusters HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: hrasheed
-ms.openlocfilehash: 37d4c4dbbe623d68edf1de5454d7752a81fc2bd2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d15b61c70f1587cdd1c0d76d2e3eab81294674fc
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58801871"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761137"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gerenciar clusters HDInsight usando a API REST do Apache Ambari
 
@@ -38,7 +37,7 @@ Aprenda a usar a API REST do Apache Ambari para gerenciar e monitorar clusters A
 
  É o URI de base para a API REST do Ambari no HDInsight `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, onde `CLUSTERNAME` é o nome do seu cluster.  Nomes de cluster nos URIs são **diferencia maiusculas de minúsculas**.  Embora o nome do cluster na parte do nome de domínio totalmente qualificado (FQDN) do URI (CLUSTERNAME.azurehdinsight.net) diferencie maiúsculas de minúsculas, outras ocorrências no URI diferenciam maiúsculas de minúsculas.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 Conectar-se ao Ambari no HDInsight requer HTTPS. Use o nome da conta do administrador (o padrão é **admin**) e a senha fornecidos durante a criação do cluster.
 

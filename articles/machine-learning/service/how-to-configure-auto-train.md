@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: 33d8e18dcec98710443623c03651aa568aa37009
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60010374"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60819950"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configurar experimentos de aprendizado de máquina automatizado
 
@@ -121,7 +121,7 @@ y_valid |   Dataframe do Pandas ou matriz Numpy | data_train, rótulo | _Opciona
 sample_weight | Dataframe do Pandas ou matriz Numpy |   data_train, rótulo, colunas| _Opcional_ Um valor de peso para cada amostra. Use quando quiser atribuir pesos diferentes aos pontos de dados
 sample_weight_valid | Dataframe do Pandas ou matriz Numpy | data_train, rótulo, colunas |    _Opcional_ Um valor de peso para cada amostra de validação. Se não for especificado, sample_weight será dividido entre "treinar" e "validar"
 data_train |    Dataframe do Pandas |  X, y, X_valid, y_valid |    Todos os dados (recursos + rótulo) a serem treinados com
-label | cadeia de caracteres  | X, y, X_valid, y_valid |  Qual coluna em data_train representa o rótulo
+label | string  | X, y, X_valid, y_valid |  Qual coluna em data_train representa o rótulo
 colunas | Matriz de cadeias de caracteres  ||  _Opcional_ Lista de permissões de colunas a serem usadas para recursos
 cv_splits_indices   | Matriz de inteiros ||  _Opcional_ Lista de índices para dividir os dados para validação cruzada
 

@@ -9,11 +9,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 1f62a5583b7beef2dc535065a6c0d3bcb34fe7b4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009626"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60582713"
 ---
 # <a name="data-catalog-developer-samples"></a>Exemplos de desenvolvedor do Catálogo de Dados
 Comece a desenvolver aplicativos de Catálogo de Dados usando a API REST do Catálogo de Dados. A API REST do Catálogo de Dados é uma API baseada em REST que fornece acesso programático aos recursos do Catálogo de Dados para registrar, anotar e pesquisar ativos de dados programaticamente.

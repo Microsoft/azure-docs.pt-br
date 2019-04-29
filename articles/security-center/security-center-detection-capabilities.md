@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
 ms.openlocfilehash: 8cd76909c9ce15a97de4ea5af3b21ac120058dd3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107354"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60705829"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Recursos de detecção da Central de Segurança do Azure
 Este documento aborda os recursos de detecção avançada da Central de Segurança do Azure, que ajuda a identificar ameaças ativas aos recursos do Microsoft Azure, Windows e Linux e fornece as informações necessárias para uma resposta rápida.
@@ -84,7 +84,7 @@ Neste documento, você aprendeu como funcionam os recursos de detecção da Cent
 * [Guia de planejamento e operações da Central de Segurança do Azure](security-center-planning-and-operations-guide.md)
 * [Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure](security-center-managing-and-responding-alerts.md)
 * [Alertas de Segurança por Tipo na Central de Segurança do Azure](security-center-alerts-type.md)
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) : saiba como monitorar a integridade dos recursos do Azure.
+* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure.
 * [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
 * [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) : encontre postagens no blog sobre conformidade e segurança do Azure.

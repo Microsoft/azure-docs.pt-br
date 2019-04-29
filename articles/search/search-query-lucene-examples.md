@@ -11,11 +11,11 @@ ms.date: 03/25/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 6f7fce7eab697f6517b351d00595cb02110d3641
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499566"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61286267"
 ---
 # <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Exemplos de consulta usando a sintaxe de pesquisa "full" Lucene (consultas avançadas no Azure Search)
 

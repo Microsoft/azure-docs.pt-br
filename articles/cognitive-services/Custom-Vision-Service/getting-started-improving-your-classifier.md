@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: 35f83832b0ceb7507b39095e9cc974d82a480c69
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883066"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60606940"
 ---
 # <a name="how-to-improve-your-classifier"></a>Como melhorar o seu classificador
 
@@ -106,7 +106,7 @@ Para inspecionar as previsões de imagem, vá até a guia __Imagens de Treinamen
 
 Às vezes, uma inspeção visual pode identificar padrões que você pode corrigir adicionando mais dados de treinamento ou modificando os existentes. Por exemplo, um classificador para maçãs em comparação com limões pode rotular incorretamente todas as maçãs verdes como limões. É possível corrigir esse problema adicionando e fornecendo dados de treinamento que contêm imagens marcadas de maçãs verdes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste guia, você aprendeu várias técnicas para criar tornar seu modelo de classificação de imagem personalizada mais preciso. Em seguida, aprenda a testar imagens programaticamente enviando-as à API de Previsão.
 

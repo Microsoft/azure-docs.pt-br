@@ -13,11 +13,11 @@ ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: mbullwin
 ms.openlocfilehash: bf19d4f5ce60411413c21fce12f9fe9d2f391bf1
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58094932"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60783921"
 ---
 # <a id="troubleshooting"></a> Solução de problemas habilitando o depurador de instantâneo do Application Insights ou exibir instantâneos
 Se habilitado o depurador de instantâneo do Application Insights para seu aplicativo, mas não estiver vendo os instantâneos para exceções, você pode usar estas instruções para solucionar problemas. Pode haver vários motivos diferentes, por que os instantâneos não são gerados. Você pode executar a verificação de integridade de instantâneo para identificar algumas das possíveis causas comuns.

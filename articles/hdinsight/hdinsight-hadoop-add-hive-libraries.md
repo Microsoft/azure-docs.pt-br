@@ -1,7 +1,6 @@
 ---
 title: Adicionar bibliotecas Apache Hive durante a criação do cluster HDInsight - Azure
 description: Saiba como adicionar bibliotecas Apache Hive (arquivos jar) a um cluster HDInsight durante a criação do cluster.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 6001d291581dc317da89cadbf3891e334362062b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: fe8f97368531ed572083834256d84cd1ed6dd8a1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897581"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098296"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Adicionar bibliotecas Apache Hive personalizadas ao criar seu cluster HDInsight
 
@@ -69,7 +68,7 @@ Para **Clusters baseados no Windows**: [https://hdiconfigactions.blob.core.windo
 
 2. Na seção **Configuração Opcional**, escolha **Ações de Script** e forneça as seguintes informações:
 
-   * **NAME**: Insira um nome amigável para a ação de script.
+   * **NOME**: Insira um nome amigável para a ação de script.
 
    * **URI DO SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh.
 

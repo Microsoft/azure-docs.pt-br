@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 0f1d4fdbb9e5d2b05b8ec43c1393951a4c6a87b8
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
-ms.translationtype: HT
+ms.openlocfilehash: 6486b38040fc92c2ece839801293817c4afc7cf5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094751"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614003"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Codificar e testar o Azure Functions localmente
 
@@ -25,7 +25,7 @@ Enquanto você é capaz de desenvolver e testar o Azure Functions no [Portal do 
 
 A maneira como você desenvolve funções em seu computador local depende de seu [idioma](supported-languages.md) e preferências de ferramentas. Os ambientes na tabela a seguir dão suporte a desenvolvimento local:
 
-|Ambiente                              |Linguagens         |DESCRIÇÃO|
+|Ambiente                              |Languages         |DESCRIÇÃO|
 |-----------------------------------------|------------|---|
 | [Prompt de comando ou terminal](functions-run-local.md) | [C# (biblioteca de classes)](functions-dotnet-class-library.md), [script do C# (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | [Ferramentas básicas do Azure Functions] fornece os principais tempos de execução e modelos para a criação de funções, o que permite o desenvolvimento local. A versão 2.x oferece suporte a desenvolvimento em Linux, MacOS e Windows. Todos os ambientes contam com ferramentas essenciais para o tempo de execução local do Functions. |
 |[Visual Studio Code](functions-create-first-function-vs-code.md)| [C# (biblioteca de classes)](functions-dotnet-class-library.md), [script do C# (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | A [extensão do Azure Functions para VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adiciona suporte ao Functions para o VS Code. Requer as Ferramentas Essenciais. Oferece suporte ao desenvolvimento em Linux, MacOS e Windows ao usar a versão 2.x das Ferramentas Essenciais. Para saber mais, confira [Criar sua primeira função usando o Visual Studio Code](functions-create-first-function-vs-code.md). |
@@ -45,5 +45,5 @@ Cada um desses ambientes de desenvolvimento local permite criar projetos de apli
 <!-- LINKS -->
 
 [Ferramentas básicas do Azure Functions]: https://www.npmjs.com/package/azure-functions-core-tools
-[portal do Azure]: https://portal.azure.com 
+[Portal do Azure]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

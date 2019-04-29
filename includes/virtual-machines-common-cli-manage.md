@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: beece95164f0d82b1aa7f22d56f4dce02f4bb38c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803219"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387224"
 ---
 A CLI do Azure permite criar e gerenciar os recursos do Azure no Windows, Linux e macOS. Este artigo detalha alguns dos comandos mais comuns para criar e gerenciar máquinas virtuais (VMs).
 

@@ -16,11 +16,11 @@ ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 2e2502e35b3720ddbfe5950b89e2388de378f2ba
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528111"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60583634"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Configure um recurso de Gateway para rotear solicitações
 

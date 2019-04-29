@@ -14,11 +14,11 @@ author: jpconnock
 ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: 4e018af7df64c9ed8050a3c618cf2645d5509cdd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918494"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613261"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Esquema de definição (arquivo .csdef) dos Serviços de Nuvem do Azure
 O arquivo de definição de serviço define o modelo de serviço para um aplicativo. O arquivo contém as definições das funções disponíveis para um serviço de nuvem, especifica os pontos de extremidade de serviço e estabelece as definições de configuração para o serviço. Os valores de definição de configuração são definidos no arquivo de configuração de serviço, conforme descrito pelo [Esquema de configuração do Serviço de Nuvem (clássico)](/previous-versions/azure/reference/ee758710(v=azure.100)).

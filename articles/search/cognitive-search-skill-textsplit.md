@@ -12,11 +12,11 @@ ms.date: 03/12/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: c860066608f1b78d9a4c45b03fb3948b3c888e25
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894199"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61126730"
 ---
 #   <a name="text-split-cognitive-skill"></a>Habilidade cognitiva do Text Split
 

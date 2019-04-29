@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: 4f4b917808f4973dc83294391f58d7e0e2d01c4c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798803"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60887382"
 ---
 # <a name="azure-iot-central-architecture"></a>Arquitetura do Azure IoT Central
 
@@ -96,6 +96,6 @@ Os recursos de segurança do Azure IoT Central incluem:
 
 O shell de interface do usuário é um aplicativo dinâmico e moderno com base no navegador HTML5.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu sobre a arquitetura do Azure IoT Central, a próxima etapa sugerida é aprender sobre a [conectividade de dispositivo](concepts-connectivity.md) no Azure IoT Central.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
 ms.openlocfilehash: 516df2f6177303987fc0354dde647c1fc26820ef
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798597"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61069417"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Gerenciar a política de caching da CDN do Azure nos Serviços de Mídia do Azure
 Os Serviços de Mídia do Azure fornecem streaming adaptável e download progressivo com base em HTTP. Streaming baseado em HTTP é altamente escalonável, com os benefícios do armazenamento em cache em camadas proxy e CDN, bem como armazenamento em cache no lado do cliente. Pontos de extremidade de streaming fornecem recursos de streaming gerais e também a configuração de cabeçalhos de cache HTTP. Pontos de extremidade de streaming definem o Controle de Cache HTTP: cabeçalhos idade máxima e Vencimento. Saiba mais sobre os cabeçalhos de cache HTTP em [W3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).

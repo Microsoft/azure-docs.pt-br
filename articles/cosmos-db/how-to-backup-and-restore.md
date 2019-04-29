@@ -8,11 +8,11 @@ ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 1d886e146e9e18eb735e6f88d2cb2c1a4a472924
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996884"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61059616"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Restaurar dados do backup no Azure Cosmos DB 
 

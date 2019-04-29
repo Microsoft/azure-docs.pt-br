@@ -9,11 +9,11 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.openlocfilehash: bd91d9201e81c884b48b41de27146c186eeb9598
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000837"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60784650"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Recuperação de desastre regional para clusters do Azure Databricks
 
@@ -271,6 +271,6 @@ Para criar sua própria topologia de recuperação de desastre regional, siga es
 
 Se você estiver usando outros serviços do Azure, certifique-se de implementar as práticas recomendadas de recuperação de desastres para esses serviços, muito. Por exemplo, se você optar por usar uma instância de metastore do Hive externa, você deve considerar a recuperação de desastres para [SQL Server do Azure](../sql-database/sql-database-disaster-recovery.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md), e/ou [banco de dados do Azure para MySQL ](../mysql/concepts-business-continuity.md). Para obter informações gerais sobre a recuperação de desastres, consulte [recuperação de desastre para aplicativos do Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações, consulte a [documentação do Azure Databricks](https://docs.azuredatabricks.net/user-guide/index.html).

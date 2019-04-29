@@ -10,11 +10,11 @@ ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 05edbf40e8cd5f8edbdc8b74b540962b1a25c8de
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997879"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60712234"
 ---
 # <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>(PRETERIDO) Usar o Helm para implantar contêineres em um cluster Kubernetes
 

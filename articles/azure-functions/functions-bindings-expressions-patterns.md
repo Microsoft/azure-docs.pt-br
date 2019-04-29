@@ -8,14 +8,15 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/18/2019
-ms.author: cshoe
+origin.date: 02/18/2019
+ms.date: 03/20/2019
+ms.author: v-junlch
 ms.openlocfilehash: 0c1dbbae5e4be965f195b5ea4fc88b1bc5fb4f87
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887175"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437864"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Padrões de expressões de associação de funções do Azure
 
@@ -313,3 +314,5 @@ No C#, e em outras linguagens .NET, você pode usar um padrão de associação o
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Usando o valor de retorno de função do Azure](./functions-bindings-return-value.md)
+
+<!-- Update_Description: link update -->

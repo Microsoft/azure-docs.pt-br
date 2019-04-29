@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: jingwang
 ms.openlocfilehash: 6056df9aa9079887bfb06ca20ad564eb52baff38
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008691"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60546518"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar dados de e para Salesforce usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -171,7 +171,7 @@ Para copiar dados do e para o Salesforce, defina a propriedade tipo do conjunto 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como **RelationalTable**. | Sim |
+| tipo | A propriedade type do conjunto de dados deve ser definida como **RelationalTable**. | Sim |
 | tableName | Nome da tabela no Salesforce. | Não (se "query" na fonte da atividade for especificada) |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
@@ -184,7 +184,7 @@ Para copiar dados do Salesforce, defina o tipo de origem na atividade de cópia 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade tipo da fonte da atividade de cópia deve ser definida como: **SalesforceSource**. | Sim |
+| tipo | A propriedade tipo da fonte da atividade de cópia deve ser definida como: **SalesforceSource**. | Sim |
 | query |Utiliza a consulta personalizada para ler os dados. É possível usar a consulta [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) ou a consulta SQL-92. Veja mais dicas na seção [dicas de consulta](#query-tips). Se a consulta não for especificada, todos os dados do objeto Salesforce especificado em "objectApiName" no conjunto de dados serão recuperados. | Não (se "objectApiName" no conjunto de dados for especificado) |
 | readBehavior | Indica se deve consultar os registros existentes, ou consultar todos os registros, incluindo o que foi excluído. Se não for especificado, o comportamento padrão é o primeiro. <br>Valores permitidos: **query** (padrão), **queryAll**.  | Não  |
 
@@ -318,8 +318,8 @@ Ao copiar dados do Salesforce, os seguintes mapeamentos são usados de tipos de 
 | Numeração automática |Cadeia de caracteres |
 | Caixa de seleção |Boolean |
 | Moeda |Decimal |
-| Data |Datetime |
-| Data/hora |Datetime |
+| Data |DateTime |
+| Data/hora |DateTime |
 | Email |Cadeia de caracteres |
 | ID |Cadeia de caracteres |
 | Relação de pesquisa |Cadeia de caracteres |
@@ -335,5 +335,5 @@ Ao copiar dados do Salesforce, os seguintes mapeamentos são usados de tipos de 
 | Texto (criptografado) |Cadeia de caracteres |
 | URL |Cadeia de caracteres |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

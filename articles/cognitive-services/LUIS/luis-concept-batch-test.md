@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: diberry
 ms.openlocfilehash: acb561970b6a8576d1219fc15758e21a3032c9e5
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528145"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813312"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Lote de teste com 1.000 declarações no portal do LUIS
 
@@ -132,6 +132,6 @@ A seção de falso positivo indica que uma declaração correspondeu a uma inten
 
 Se houver erros no teste em lote, você poderá adicionar mais declarações a uma intenção e/ou rotular mais declarações com a entidade para ajudar o LUIS a diferenciar as intenções. Se você adicionou declarações, rotulou e ainda recebe erros de previsão no teste em lote, considere adicionar um recurso de [lista de frases](luis-concept-feature.md) com um vocabulário específico do domínio para ajudar o LUIS a aprender mais rápido. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [testar um lote](luis-how-to-batch-test.md)

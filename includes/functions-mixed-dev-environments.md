@@ -5,15 +5,18 @@ services: functions
 author: ggailey777
 ms.service: functions
 ms.topic: include
-ms.date: 06/27/2018
-ms.author: glenga
+origin.date: 06/27/2018
+ms.date: 07/24/2018
+ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: dcebef9dde173f5a26c5abed26a2d20b6d0bd116
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
-ms.translationtype: HT
+ms.openlocfilehash: a5252d64c00a4de4c5d2faf083904a994e67a994
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37086374"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614027"
 ---
 >[!IMPORTANT]  
 > Não combine o desenvolvimento local com o desenvolvimento do portal no mesmo aplicativo de funções. Ao criar e publicar funções de um projeto local, não tente manter ou modificar o código do projeto no portal.
+
+<!-- ms.date: 07/24/2018 -->

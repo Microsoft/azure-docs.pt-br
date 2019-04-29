@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.openlocfilehash: 2e5dfda16c4828b3113fc50d4cffc79fe6ff19e8
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563993"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60620165"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Sequenciar o provisionamento de extensões em conjuntos de dimensionamento de máquinas virtuais
 As extensões de máquina virtual do Azure fornecem funcionalidades como a configuração após a implantação e gerenciamento, monitoramento, segurança e muito mais. Implantações de produção normalmente usam uma combinação de várias extensões configuradas para as instâncias de VM para obter os resultados desejados.
@@ -245,7 +245,7 @@ az vmss extension set \
 ```
 
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 
 ### <a name="not-able-to-add-extension-with-dependencies"></a>Não é possível adicionar a extensão com dependências?
 1. Verifique se as extensões especificadas em provisionAfterExtensions estão definidas no modelo de conjunto de dimensionamento.

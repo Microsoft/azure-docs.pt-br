@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.openlocfilehash: 648bc0295cd5435e9c3e44f33b7ae80522fa8e0e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888511"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60618777"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais no portal do Azure
 Ao criar um conjunto de dimensionamento, o número de instâncias de VM que você deseja executar é definido. À medida que seu aplicativo precisar de alterações, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM. A capacidade de autoescala permite acompanhar a demanda do cliente ou reagir a alterações de desempenho do aplicativo durante todo o ciclo de vida do aplicativo.
@@ -47,7 +47,7 @@ Se a demanda do aplicativo aumentar, a carga em instâncias de VM no seu conjunt
 
     Especifique as seguintes configurações para a regra:
     
-    | Parâmetro              | Explicação                                                                                                         | Valor          |
+    | Parâmetro              | Explicação                                                                                                         | Value          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
     | *Tempo de agregação*     | Define como as métricas coletadas devem ser agregadas para análise.                                                | Média        |
     | *Nome da métrica*          | A métrica de desempenho a ser monitorada, na qual as ações do conjunto de dimensionamento serão aplicadas.                                                   | Porcentagem de CPU |
@@ -74,7 +74,7 @@ Se a demanda do aplicativo aumentar, a carga em instâncias de VM no seu conjunt
 
     Use a mesma abordagem da regra anterior. Ajuste as seguintes configurações para a regra:
     
-    | Parâmetro              | Explicação                                                                                                          | Valor          |
+    | Parâmetro              | Explicação                                                                                                          | Value          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
     | *Operador*             | Operador usado para comparar os dados da métrica com o limite.                                                      | Menor que   |
     | *Limite*            | A porcentagem que faz com que a regra de dimensionamento automático dispare uma ação.                                                 | 30             |

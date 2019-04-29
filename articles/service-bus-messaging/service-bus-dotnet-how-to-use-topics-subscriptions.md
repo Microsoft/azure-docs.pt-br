@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/15/2019
 ms.author: aschhab
 ms.openlocfilehash: 892d485fb5cdaa08107870e9ab5b2b7ad9bcba5b
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608887"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60714169"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introdução aos tópicos do Barramento de Serviço
 

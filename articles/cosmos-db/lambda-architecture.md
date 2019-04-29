@@ -7,11 +7,11 @@ ms.author: ramkris
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: 6902b1a26d02efbf1a31fe9a3a25253a6b5a5604
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100336"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61043602"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>O Azure Cosmos DB: Implementar uma arquitetura lambda na plataforma Azure 
 

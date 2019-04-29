@@ -1,7 +1,6 @@
 ---
 title: Use o Azure Monitor registra em log para monitorar clusters Azure HDInsight
 description: Saiba como usar os logs do Azure do Azure Monitor para monitorar trabalhos em execução em um cluster HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: hrasheed
-ms.openlocfilehash: 399a6bcb6e0bfd0edaddca471ba2c8e0802d3394
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 0c37ff3c62817d238a94d5bbeae90c67663a6029
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904773"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761203"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Use o Azure Monitor registra em log para monitorar clusters do HDInsight
 

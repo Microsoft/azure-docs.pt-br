@@ -11,11 +11,11 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.author: sajagtap
 ms.openlocfilehash: b7ec997fd3e9bfe294050893d80fd57a96a47aae
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755871"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61269963"
 ---
 # <a name="content-moderator-review-tool"></a>Ferramenta de revisão do moderador de conteúdo
 

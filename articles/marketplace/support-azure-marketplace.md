@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
 ms.openlocfilehash: de31ceea4faeecabd54c0d23e9263cbb4090925d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791813"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733514"
 ---
 # <a name="support-for-the-marketplace"></a>Suporte para o Marketplace  
 Aqui está uma lista de opções de suporte para o Marketplace.  
@@ -53,7 +53,7 @@ Abra um tíquete com o Microsoft [suporte do marketplace publisher](https://supp
 | Email: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Responde perguntas sobre o uso para logotipos e identidade visual do Azure. |  |  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Visite a página [ do Azure Marketplace e do AppSource Publisher Guide ](./marketplace-publishers-guide.md).  
  
 ---

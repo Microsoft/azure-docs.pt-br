@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
 ms.openlocfilehash: df894fee3328b2199b8f7436adabfd3db62f4004
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737120"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61217285"
 ---
 # <a name="use-the-anomaly-finder-api-with-python"></a>Usar a API de Localização de Anomalias com Python
 

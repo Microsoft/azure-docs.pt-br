@@ -3,17 +3,17 @@ title: Conceitos de serviço no Serviço de Provisionamento de Dispositivos no H
 description: Descreve conceitos de provisionamento de serviços específicos para dispositivos com o Serviço de Provisionamento de Dispositivos e Hub IoT
 author: nberdy
 ms.author: nberdy
-ms.date: 04/04/2019
+ms.date: 03/30/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 4a4f53f991355e634e8139f9e90bec6c508a527d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792740"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60745801"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Conceitos do Serviço de Provisionamento de Dispositivos no Hub IoT
 

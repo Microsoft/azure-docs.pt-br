@@ -12,11 +12,11 @@ ms.date: 01/24/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: a332d263526bb6507e7394c205caa1c4d1f9e3e6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873573"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613265"
 ---
 # <a name="choosing-capacity-for-your-qna-maker-deployment"></a>Escolher a capacidade para sua implantação do QnA Maker
 
@@ -47,7 +47,7 @@ A tabela a seguir fornece algumas diretrizes de alto nível.
 
 Para fazer upgrade de sua pilha do QnA Maker, veja [Fazer upgrade do seu serviço QnA Maker](../How-To/upgrade-qnamaker-service.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Fazer upgrade do seu serviço QnA Maker](../How-To/upgrade-qnamaker-service.md)

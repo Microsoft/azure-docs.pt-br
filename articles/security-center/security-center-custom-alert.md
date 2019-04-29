@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
 ms.openlocfilehash: 9bf4f604386b47e4ca36df69fb140124b097f548
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576889"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60912513"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Regras de alerta personalizadas na Central de Segurança do Azure (versão prévia)
 Este documento ajuda você a criar regras de alerta personalizadas na Central de Segurança do Azure.

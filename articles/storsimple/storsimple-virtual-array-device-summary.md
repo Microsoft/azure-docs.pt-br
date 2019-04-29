@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2016
 ms.author: manuaery
-ms.openlocfilehash: 35413d597c3b6b1c7600241a78572b63f982d175
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9edc0b552f5c2f38e646bc4b44dd8df5c16b0457
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109634"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61408467"
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Use a folha de resumo do dispositivo do Gerenciador de Dispositivos StorSimple conectado à Matriz Virtual StorSimple
 

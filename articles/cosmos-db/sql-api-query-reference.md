@@ -9,11 +9,11 @@ ms.date: 03/31/2019
 ms.author: mjbrown
 ms.custom: seodec18
 ms.openlocfilehash: 22b03417495625ef70650a015530d6f56b32fd4f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283640"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626868"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Referência de linguagem SQL para o Azure Cosmos DB 
 
@@ -3293,7 +3293,7 @@ SELECT ST_ISVALIDDETAILED({
 }]  
 ```  
   
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Próximas etapas  
 
 - [Sintaxe SQL e consulta SQL para Cosmos DB](how-to-sql-query.md)
 

@@ -8,11 +8,11 @@ ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: e81dec7d7556819e60a65a44106426c226c6223d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035722"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61043251"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB como um repositório de valores de chave – Visão geral do custo
 

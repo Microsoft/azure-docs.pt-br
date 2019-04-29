@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: sogup
 ms.openlocfilehash: 9f233af316bd6022b93a7208bf3fae37e913e6af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885257"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848173"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes perguntas-fazer backup de VMs do Azure
 
@@ -27,7 +27,7 @@ Quando você cria uma VM, você pode habilitar o backup para VMs em execução [
  
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>É o custo de backup incluído no custo da VM? 
 
- Não. Custos de backup são separados dos custos da VM. Saiba mais sobre [preços de Backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
+Não. Custos de backup são separados dos custos da VM. Saiba mais sobre [preços de Backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
  
 ### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Quais permissões são necessárias para habilitar o backup de uma VM? 
 
@@ -51,7 +51,7 @@ Se seu Cofre de serviços de recuperação e a VM tiverem grupos de recursos dif
 Examine os [matriz de suporte](backup-support-matrix-iaas.md) para detalhes de suporte e limitações.
 
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>O trabalho de backup sob demanda usa o mesmo agendamento de retenção que os backups agendados?
- Não. Especifique o período de retenção para um trabalho de backup sob demanda. Por padrão, ele é retido por 30 dias quando disparado de um portal.
+Não. Especifique o período de retenção para um trabalho de backup sob demanda. Por padrão, ele é retido por 30 dias quando disparado de um portal.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Eu recentemente habilitei a Criptografia de Disco do Azure em algumas VMs. Meus backups continuarão a funcionar?
 Forneça permissões para o Backup do Azure acessar o Cofre de chaves. Especifique as permissões no PowerShell, conforme descrito na seção **Habilitar backup** na documentação do [PowerShell do Backup do Azure](backup-azure-vms-automation.md).
@@ -74,7 +74,7 @@ Se você bloquear o grupo de recursos criado pelo serviço de Backup do Azure, o
 Usuário precisa remover o bloqueio e limpar a coleção de pontos de restauração do grupo de recursos para tornar os futuros backups bem-sucedidos, [siga estas etapas](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) para remover a coleção de pontos de restauração.
 
 ### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>A política de backup leva em conta o horário de verão (DST)?
- Não. A data e hora no computador local é local com o atual horário de verão aplicado. O tempo definido para backups agendados pode ser diferente do horário local devido ao horário de verão.
+Não. A data e hora no computador local é local com o atual horário de verão aplicado. O tempo definido para backups agendados pode ser diferente do horário local devido ao horário de verão.
 
 ### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>Quantos discos de dados eu posso anexar a uma VM para fazer backup pelo Backup do Azure?
 O Backup do Azure pode fazer backup de VMs com até 16 discos. Suporte para 16 discos é fornecido na [Restauração Instantânea](backup-instant-restore-capability.md).

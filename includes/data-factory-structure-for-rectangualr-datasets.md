@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51571764"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309125"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Especifica a definição de estrutura para conjuntos de dados retangulares
 A seção de estrutura em conjuntos de dados JSON é uma seção **opvional** para tabelas retangulares (com linhas e colunas) e contém uma coleção de colunas para a tabela. Você usará a seção de estrutura tanto para fornecer informações de tipo para conversões de tipo quanto para fazer mapeamentos de coluna. As seções a seguir descrevem esses recursos detalhadamente. 
@@ -18,7 +18,7 @@ Cada coluna contém as seguintes propriedades:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| Nome |Nome da coluna. |SIM |
+| Nome |Nome da coluna. |Sim |
 | Tipo |Tipo de dados da coluna. Consulte a seção de conversões de tipo abaixo para obter mais detalhes sobre quando deve você especificar informações de tipo |Não  |
 | culture |Cultura baseada em .NET a ser usada quando o tipo é especificado e é o tipo .NET Datetime ou Datetimeoffset. O padrão é "en-us". |Não  |
 | formato |O formato de cadeia de caracteres a ser usado quando o tipo é especificado e é o tipo .NET Datetime ou Datetimeoffset. |Não  |

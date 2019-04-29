@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: a78c03537d7fb3db6afa0c4a4e84c4746146ca85
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486354"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657766"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelos de API no Gerenciamento de API do Azure
 
@@ -345,12 +345,12 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
   
 |Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
-|`apiId`|cadeia de caracteres|A ID da API atual.|  
-|`apiName`|cadeia de caracteres|O nome da API.|  
-|`apiDescription`|cadeia de caracteres|Uma descrição para a API.|  
+|`apiId`|string|A ID da API atual.|  
+|`apiName`|string|O nome da API.|  
+|`apiDescription`|string|Uma descrição para a API.|  
 |`api`|Entidade [Resumo da API](api-management-template-data-model-reference.md#APISummary).|A API atual.|  
 |`operation`|[Operação](api-management-template-data-model-reference.md#Operation)|A operação atualmente exibida.|  
-|`sampleUrl`|cadeia de caracteres|A URL para a operação atual.|  
+|`sampleUrl`|string|A URL para a operação atual.|  
 |`operationMenu`|[Menu de operação](api-management-template-data-model-reference.md#Menu)|Um menu de operações para esta API.|  
 |`consoleUrl`|URI|O URI para o botão **Experimente**.|  
 |`samples`|Coleção de entidades de [Exemplo de código](api-management-template-data-model-reference.md#Sample).|Os exemplos de código para a operação atual.|  

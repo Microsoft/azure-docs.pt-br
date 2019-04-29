@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: raynew
 ms.openlocfilehash: dc455b5256f9c04e1e0af2c1ff3fea04af54d90b
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149437"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60565404"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -134,10 +134,10 @@ Adicionar disco na VM replicada | Desabilitar a replicação para a VM, adiciona
 Agrupamento NIC da rede do host | Compatível com VMs da VMware. <br/><br/>Sem suporte para a replicação de computador físico.
 VLAN da rede do host | Sim.
 IPv4 da rede do host | Sim.
-IPv6 da rede do host |  Não.
-Agrupamento NIC da rede do convidado/servidor |  Não.
+IPv6 da rede do host | Não.
+Agrupamento NIC da rede do convidado/servidor | Não.
 IPv4 da rede do convidado/servidor | Sim.
-IPv6 da rede do convidado/servidor |  Não.
+IPv6 da rede do convidado/servidor | Não.
 IP estático da rede do convidado/servidor (Windows) | Sim.
 IP estático da rede do convidado/servidor (Linux) | Sim. <br/><br/>As VMs são configuradas para usar o DHCP no failback.
 Várias NICs da rede do convidado/servidor | Sim.
@@ -276,7 +276,7 @@ Serviço de Mobilidade | Coordena a replicação entre servidores VMware/servido
 Para saber mais sobre os recursos mais recentes, visite [notas de versão mais recente](https://aka.ms/ASR_latest_release_notes).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Saiba como](tutorial-prepare-azure.md) para preparar o Azure para recuperação de desastres de máquinas virtuais da VMware.
 
 [9.23 UR]: https://support.microsoft.com/help/4489582/update-rollup-33-for-azure-site-recovery

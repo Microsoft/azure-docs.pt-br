@@ -12,11 +12,11 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 71abfdff629f36b278488851b546c7371353a4d9
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575283"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60767958"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Definir Atividade Variável no Azure Data Factory
 
@@ -24,13 +24,13 @@ Use a atividade Definir Variável para definir o valor de uma variável existent
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | Descrição | Obrigatório
+Propriedade | DESCRIÇÃO | Obrigatório
 -------- | ----------- | --------
-nome | Nome da atividade no pipeline | Sim
-descrição | Texto descrevendo o que a atividade realiza | não
-tipo | Tipo de atividade é SetVariable | sim
-valor | Literal de cadeia de caracteres ou valor do objeto de expressão usado para definir a variável especificada | sim
-variableName | Nome da variável que será definida por essa atividade | sim
+Nome | Nome da atividade no pipeline | Sim
+description | Texto descrevendo o que a atividade realiza | não
+tipo | Tipo de atividade é SetVariable | Sim
+value | Literal de cadeia de caracteres ou valor do objeto de expressão usado para definir a variável especificada | Sim
+variableName | Nome da variável que será definida por essa atividade | Sim
 
 
 ## <a name="next-steps"></a>Próximas etapas

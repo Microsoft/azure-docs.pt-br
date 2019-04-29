@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 37eb8ca3c25268dd7923087439a8fbf0fd1f168b
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 56e87da0353a41504035a070d4c10bab0dda2279
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269902"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551746"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Agregações avançadas nas consultas de log do Azure Monitor
 
@@ -38,6 +38,7 @@ Event
 | order by TimeGenerated desc
 | summarize makelist(EventID) by Computer
 ```
+
 |Computador|list_EventID|
 |---|---|
 | computador1 | [704,701,1501,1500,1085,704,704,701] |
@@ -54,6 +55,7 @@ Event
 | order by TimeGenerated desc
 | summarize makeset(EventID) by Computer
 ```
+
 |Computador|list_EventID|
 |---|---|
 | computador1 | [704,701,1501,1500,1085] |
@@ -76,7 +78,7 @@ Heartbeat
 | computador1 | "segurança", "atualizações", "changeTracking" |
 | computador2 | "segurança", "atualizações" |
 | Computador3 | "antiMalware", "controle de alterações" |
-| ... | ... | ... |
+| ... | ... |
 
 Use `mvexpand` para mostrar cada valor em uma linha separada em vez de uma lista separada por vírgula:
 
@@ -96,7 +98,7 @@ Heartbeat
 | computador2 | "atualizações" |
 | Computador3 | "antiMalware" |
 | Computador3 | "controle de alterações" |
-| ... | ... | ... |
+| ... | ... |
 
 
 Você pode usar `makelist` novamente agrupar itens juntos e, desta vez ver a lista de computadores por solução:
@@ -108,6 +110,7 @@ Heartbeat
 | mvexpand Solutions
 | summarize makelist(Computer) by tostring(Solutions) 
 ```
+
 |Soluções | list_Computer |
 |--------------|----------------------|
 | "segurança" | ["Computador1", "computador2"] |
@@ -124,7 +127,8 @@ Heartbeat
 | where TimeGenerated > ago(12h)
 | summarize count() by Category, bin(TimeGenerated, 1h)
 ```
-| Categoria | TimeGenerated | count_ |
+
+| Category | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | Agente direto | 2017-06-06T17:00:00Z | 15 |
 | Agente direto | 2017-06-06T18:00:00Z | 60 |
@@ -140,7 +144,7 @@ Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 ```
 
-| Categoria | count_ | TimeGenerated |
+| Category | count_ | TimeGenerated |
 |---|---|---|
 | Agente direto | [15,60,0,55,60,57,60...] | ["2017-06-06T17:00:00.0000000Z","2017-06-06T18:00:00.0000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z",...] |
 | ... | ... | ... |
@@ -153,7 +157,8 @@ Heartbeat
 | mvexpand TimeGenerated, count_
 | project Category, TimeGenerated, count_
 ```
-| Categoria | TimeGenerated | count_ |
+
+| Category | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | Agente direto | 2017-06-06T17:00:00Z | 15 |
 | Agente direto | 2017-06-06T18:00:00Z | 60 |
@@ -181,7 +186,7 @@ WindowsFirewall
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira outras lições para usar a [linguagem de consulta do Kusto](/azure/kusto/query/) com os dados de log do Azure Monitor:
+Consulte outras lições para usar a [linguagem de consulta Kusto](/azure/kusto/query/) com os dados de log do Azure Monitor:
 
 - [Operações de cadeia de caracteres](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)

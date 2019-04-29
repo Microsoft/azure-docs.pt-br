@@ -11,11 +11,11 @@ ms.reviewer: klam, divswa, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: d677c0eae9c92f90783ed4ebd95a528b34c872ec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60847292"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conectar aos sistemas SAP a partir do Aplicativos Lógicos do Azure
 
@@ -193,7 +193,7 @@ Para obter detalhes técnicos sobre o conector conforme descrito pelos arquivos 
 * [Servidor de Aplicativos SAP](/connectors/sapapplicationserver/)
 * [Servidor de Mensagens SAP](/connectors/sapmessageserver/)
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).

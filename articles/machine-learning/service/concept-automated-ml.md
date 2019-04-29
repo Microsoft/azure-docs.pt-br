@@ -12,11 +12,11 @@ ms.author: nilesha
 ms.date: 12/12/2018
 ms.custom: seodec18
 ms.openlocfilehash: 620dbd22613df37fdc3c20e34906684446b2251f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545989"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821188"
 ---
 # <a name="what-is-automated-machine-learning"></a>O que é o aprendizado de máquina automatizado?
 
@@ -52,7 +52,7 @@ Durante o treinamento, o serviço Azure Machine Learning cria um número de pipe
 Você pode inspecionar as informações de execução registradas, que contêm as métricas coletadas durante a execução. A execução de treinamento também produz um objeto serializado do Python (`.pkl` arquivo) que contém o pré-processamento de modelo e de dados.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Veja exemplos e saiba como criar modelos usando o aprendizado de máquina automatizado:
 

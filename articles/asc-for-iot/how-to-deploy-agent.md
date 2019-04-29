@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 8f5a6187b0a651da9dd8de1cb5670a8faffded1a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58862413"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61358396"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selecione e implantar um agente de segurança em seu dispositivo IoT
 
@@ -95,7 +95,7 @@ A lista a seguir inclui todas as plataformas com suporte no momento.
 |C#|Windows Server 2016|    X64|
 |C#|Windows 10 IoT Core build 17763 |x64|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre opções de configuração, continue para o guia de instruções para configuração do agente. 
 > [!div class="nextstepaction"]

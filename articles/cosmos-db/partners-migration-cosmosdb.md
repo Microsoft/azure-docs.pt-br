@@ -7,11 +7,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
 ms.openlocfilehash: f3b744f676dd352bb38e5cbca6e532c650617816
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880603"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60931267"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Parceiros de desenvolvimento de aplicativo e de migração do NoSQL do Azure Cosmos DB
 
@@ -54,7 +54,7 @@ Da migração do NoSQL ao desenvolvimento de aplicativo, é possível escolher e
 | ![Xpand IT][25] | Desenvolvimento de novos aplicativos | Portugal, Reino Unido| [Site](https://www.xpand-it.com/)|
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre outros parceiros da Microsoft, consulte o silte [Microsoft Partner](https://partner.microsoft.com/en-US/).
 

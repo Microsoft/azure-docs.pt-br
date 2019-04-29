@@ -14,11 +14,11 @@ ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
 ms.openlocfilehash: cfa00504cd2a05985fde2af3357418eac8baceeb
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117649"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61299016"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Detecção Inteligente - anomalias de falha
 O [Application Insights](../../azure-monitor/app/app-insights-overview.md) enviará uma notificação a você automaticamente, quase em tempo real, se seu aplicativo Web experimentar um aumento anormal de solicitações com falha. Ele detecta um aumento excepcional na taxa de solicitações de HTTP ou chamadas de dependência são relatadas como falha. Para solicitações, solicitações com falha geralmente são aqueles com códigos de resposta de 400 ou superior. Para ajudar você com a triagem e o diagnóstico do problema, a notificação acompanha uma análise das características das falhas e a telemetria relacionada. Também há links para portal do Application Insights, onde você pode obter um diagnóstico mais detalhado. O recurso não precisa de qualquer configuração, pois usa algoritmos de aprendizado de máquina para prever a taxa normal de falhas.
@@ -131,11 +131,11 @@ A Detecção Inteligente de anomalias de falha complementa outros recursos disti
 
 *Então, vocês examinam os meus dados?*
 
-*  Não. O serviço é totalmente automático. Somente você recebe as notificações. Os dados são [privados](../../azure-monitor/app/data-retention-privacy.md).
+* Não. O serviço é totalmente automático. Somente você recebe as notificações. Os dados são [privados](../../azure-monitor/app/data-retention-privacy.md).
 
 *É necessário assinar este alerta?*
 
-*  Não. Todos os aplicativos que enviam uma telemetria de solicitação têm a regra de alerta de Detecção Inteligente.
+* Não. Todos os aplicativos que enviam uma telemetria de solicitação têm a regra de alerta de Detecção Inteligente.
 
 *Posso cancelar a assinatura ou ter as notificações enviadas para meus colegas em vez disso?*
 

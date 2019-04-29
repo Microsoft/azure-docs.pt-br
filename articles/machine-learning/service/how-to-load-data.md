@@ -13,11 +13,11 @@ ms.reviewer: jmartens
 ms.date: 2/22/2019
 ms.custom: seodec18
 ms.openlocfilehash: 34dd20826928d1ab2ba1fc7980c7d47b796ea663
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311009"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60819232"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Carregar e ler dados com o Azure Machine Learning
 
@@ -32,7 +32,7 @@ A tabela a seguir mostra uma seleção de funções usadas para carregamento de 
 | Tipo de arquivo | Função | Link de referência |
 |-------|-------|-------|
 |Qualquer|`auto_read_file()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#auto-read-file-path--filepath--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
-|Enviar SMS|`read_lines()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-lines-path--filepath--header--azureml-dataprep-api-engineapi-typedefinitions-promoteheadersmode----promoteheadersmode-none--0---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---skip-rows--int---0--skip-mode--azureml-dataprep-api-engineapi-typedefinitions-skipmode----skipmode-none--0---comment--str---none--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
+|Text|`read_lines()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-lines-path--filepath--header--azureml-dataprep-api-engineapi-typedefinitions-promoteheadersmode----promoteheadersmode-none--0---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---skip-rows--int---0--skip-mode--azureml-dataprep-api-engineapi-typedefinitions-skipmode----skipmode-none--0---comment--str---none--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
 |CSV|`read_csv()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-csv-path--filepath--separator--str--------header--azureml-dataprep-api-engineapi-typedefinitions-promoteheadersmode----promoteheadersmode-constantgrouped--3---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---quoting--bool---false--inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--skip-mode--azureml-dataprep-api-engineapi-typedefinitions-skipmode----skipmode-none--0---comment--str---none--include-path--bool---false--archive-options--azureml-dataprep-api--archiveoption-archiveoptions---none-----azureml-dataprep-api-dataflow-dataflow)|
 |Excel|`read_excel()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-excel-path--filepath--sheet-name--str---none--use-column-headers--bool---false--inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
 |Largura fixa|`read_fwf()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-fwf-path--filepath--offsets--typing-list-int---header--azureml-dataprep-api-engineapi-typedefinitions-promoteheadersmode----promoteheadersmode-constantgrouped--3---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--skip-mode--azureml-dataprep-api-engineapi-typedefinitions-skipmode----skipmode-none--0---include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
@@ -156,10 +156,10 @@ dflow.head(5)
 
 | |Coluna1|Coluna2|Coluna3|Coluna4|Coluna5|Coluna6|Coluna7|Coluna8| | |
 |-|-------|-------|-------|-------|-------|-------|-------|-------|-|-|
-|0|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma| |
-|1|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma| |
-|2|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma| |
-|3|Classificar|Cargo|Estúdio|Mundial|Domestic / %|Coluna1|Overseas / %|Coluna2|Year^| |
+|0|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum| |
+|1|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum| |
+|2|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum| |
+|3|RANK|Title|Estúdio|Worldwide|Domestic / %|Coluna1|Overseas / %|Coluna2|Year^| |
 |4|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009^|5|
 
 A saída mostra que os dados na segunda folha tinham três linhas vazias antes dos cabeçalhos. A função `read_excel()` contém parâmetros opcionais para pular linhas e usar cabeçalhos. Execute o seguinte código para pular as três primeiras linhas e use a quarta linha como os cabeçalhos.
@@ -168,7 +168,7 @@ A saída mostra que os dados na segunda folha tinham três linhas vazias antes d
 dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
 ```
 
-||Classificar|Cargo|Estúdio|Mundial|Domestic / %|Coluna1|Overseas / %|Coluna2|Year^|
+||RANK|Title|Estúdio|Worldwide|Domestic / %|Coluna1|Overseas / %|Coluna2|Year^|
 |------|------|------|-----|------|-----|-------|----|-----|-----|
 |0|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009^|
 |1|2|Titanic|Par.|2186,8|658. 7|0,301|1528,1|0. 699|1997^|
@@ -225,11 +225,11 @@ dflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
 dflow.head(5)
 ```
 
-| |ProductID|Nome|ProductNumber|Cor|StandardCost|ListPrice|Tamanho|Peso|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|rowguid|ModifiedDate| |
+| |ProductID|NOME|ProductNumber|Cor|StandardCost|ListPrice|Tamanho|Peso|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|rowguid|ModifiedDate| |
 |-|---------|----|-------------|-----|------------|---------|----|------|-----------------|--------------|-------------|-----------|----------------|--------------|----------------------|-------|------------|-|
-|0|680|HL Road Frame - Black, 58|FR-R92B-58|Preto|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|Nenhuma|Nenhuma|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461f-9069-55309d90ea7e|2008-03-11 |0:01:36.827000+00:00|
-|1|706|HL Road Frame - Red, 58|FR-R92R-58|Vermelho|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|Nenhuma|Nenhuma|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|9540ff17-2712-4c90-a3d1-8ce5568b2462|2008-03-11 |10:01:36.827000+00:00|
-|2|707|Sport-100 Helmet, Red|HL-U509-R|Vermelho|13.0863|34.99|Nenhuma|Nenhuma|35|33|2005-07-01 00:00:00+00:00|Nenhuma|Nenhuma|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|2e1ef41a-c08a-4ff6-8ada-bde58b64a712|2008-03-11 |10:01:36.827000+00:00|
+|0|680|HL Road Frame - Black, 58|FR-R92B-58|Preto|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|Nenhum|Nenhum|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461f-9069-55309d90ea7e|2008-03-11 |0:01:36.827000+00:00|
+|1|706|HL Road Frame - Red, 58|FR-R92R-58|Vermelho|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|Nenhum|Nenhum|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|9540ff17-2712-4c90-a3d1-8ce5568b2462|2008-03-11 |10:01:36.827000+00:00|
+|2|707|Sport-100 Helmet, Red|HL-U509-R|Vermelho|13.0863|34.99|Nenhum|Nenhum|35|33|2005-07-01 00:00:00+00:00|Nenhum|Nenhum|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|2e1ef41a-c08a-4ff6-8ada-bde58b64a712|2008-03-11 |10:01:36.827000+00:00|
 
 
 ## <a name="use-azure-data-lake-storage"></a>Usar o Azure Data Lake Storage
@@ -303,7 +303,7 @@ dflow = dprep.read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azur
 dflow.to_pandas_dataframe().head()
 ```
 
-||FMID|MarketName|Site|street|city|Condado|
+||FMID|MarketName|Site|street|city|Município|
 |----|------|-----|----|----|----|----|
 |0|1012063|Associação do mercado dos fazendeiros de Caledonia - Danville|https://sites.google.com/site/caledoniafarmers... ||Danville|Caledonia|
 |1|1011871|Stearns Homestead Fazendeiros ' mercado|http://Stearnshomestead.com |6975 Ridge Road|Parma|Cuyahoga|

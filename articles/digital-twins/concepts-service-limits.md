@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: dwalthermsft
 ms.openlocfilehash: cc873ad441c93a7fce54c275e9f7d52f0b044319
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302418"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60927543"
 ---
 # <a name="public-preview-service-limits"></a>Limites do serviço de visualização pública
 

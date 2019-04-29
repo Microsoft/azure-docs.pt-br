@@ -8,11 +8,11 @@ ms.author: lahugh
 ms.date: 03/26/2018
 ms.topic: conceptual
 ms.openlocfilehash: 84b2ca30f1ccd49e18e2f9d42133f8672d3f8ad6
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496013"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776162"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>Aplicativos pré-instalados de renderização de imagens da VM
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 5f8378de18796fd679354c88880942df83399ad5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112037"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60586775"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Recursos, local e segurança física do Azure
 O Azure é composto de uma [infraestrutura de datacenter distribuída globalmente](https://azure.microsoft.com/global-infrastructure/), oferecendo suporte a milhares de serviços on-line e abrangendo mais de 100 instalações altamente seguras em todo o mundo.

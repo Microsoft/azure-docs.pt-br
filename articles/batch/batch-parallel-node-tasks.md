@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 05/22/2017
+ms.date: 04/17/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5583ccb6076dae2f33e265b95387bcd35aa9fa4d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 79b45bd423ed6715cdb7cc7c0e079c150eefede5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547275"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763703"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Execute tarefas simultaneamente para maximizar o uso dos nós de computação do Lote 
 
@@ -41,7 +41,7 @@ Em vez de usar os nós Standard\_D1, que têm um núcleo de CPU, você poderia u
 ## <a name="enable-parallel-task-execution"></a>Habilitar a execução de tarefas paralelas
 Você configura os nós de computação para a execução paralela das tarefas no nível do pool. Com a biblioteca .NET do Lote, defina a propriedade [CloudPool.MaxTasksPerComputeNode][maxtasks_net] quando criar um pool. Se você estiver usando a API REST do Lote, defina o elemento [maxTasksPerNode][rest_addpool] no corpo da solicitação durante a criação do pool.
 
-O Lote do Azure permite que você configure o número máximo de tarefas por nó até quatro vezes (4x) o número de núcleos de nó. Por exemplo, se o pool estiver configurado com nós de tamanho "Grande" (quatro núcleos), será possível definir `maxTasksPerNode` como 16. Para obter detalhes sobre o número de núcleos para cada um dos tamanhos de nó, confira [Tamanhos para Serviços de Nuvem](../cloud-services/cloud-services-sizes-specs.md). Para saber mais sobre limites de serviço, confira [Cotas e limites para o serviço de Lote do Azure](batch-quota-limit.md).
+O lote do Azure permite que você defina tarefas por nó até (4X) o número de nós principais. Por exemplo, se o pool estiver configurado com nós de tamanho "Grande" (quatro núcleos), será possível definir `maxTasksPerNode` como 16. No entanto, independentemente do nó tem o número de núcleos, você não pode ter mais de 256 tarefas por nó. Para obter detalhes sobre o número de núcleos para cada um dos tamanhos de nó, confira [Tamanhos para Serviços de Nuvem](../cloud-services/cloud-services-sizes-specs.md). Para saber mais sobre limites de serviço, confira [Cotas e limites para o serviço de Lote do Azure](batch-quota-limit.md).
 
 > [!TIP]
 > Leve em consideração o valor de `maxTasksPerNode` ao criar uma [fórmula de dimensionamento automático][enable_autoscaling] para o seu pool. Por exemplo, uma fórmula que avalia `$RunningTasks` poderia ser drasticamente afetada por um aumento nas tarefas por nó. Consulte [Dimensionar automaticamente nós de computação em um pool do Lote do Azure](batch-automatic-scaling.md) para saber mais.
@@ -124,7 +124,7 @@ A segunda execução do exemplo mostra uma redução significativa na duração 
 >
 >
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 ### <a name="batch-explorer-heat-map"></a>Mapa de Calor do Explorador do Lote
 [O Explorador de lotes][batch_labs] é uma ferramenta de cliente autônomo e gratuita para ajudar a criar, depurar e monitorar aplicativos em lote do Azure. O Batch Explorer contém um recurso de *Mapa de Calor* que fornece visualização da execução da tarefa. Ao executar o aplicativo de exemplo [ParallelTasks][parallel_tasks_sample], você pode usar o recurso Mapa de Calor para visualizar facilmente a execução das tarefas paralelas em cada nó.
 

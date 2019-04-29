@@ -12,11 +12,11 @@ author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: 2e6bc0fd9de4fdba1188b40c49ebf9459d684d38
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679985"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60819884"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Criar e executar um pipeline de aprendizado de máquina usando o SDK do Azure Machine Learning
 
@@ -369,7 +369,7 @@ Confira a lista de todos os seus pipelines e seus detalhes de execução:
  
 1. Selecione um pipeline específico para ver os resultados da execução.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Use [esses Jupyter Notebooks no GitHub](https://aka.ms/aml-pipeline-readme) para explorar ainda mais pipelines de machine learning.
 - Leia a ajuda de referência do SDK para o pacote [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) e o pacote [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py).
 

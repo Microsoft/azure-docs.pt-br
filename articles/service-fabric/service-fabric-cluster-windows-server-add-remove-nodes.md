@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: c9e771d97c037ddd07834025063233c3ede1f0c2
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 585d918026ca40bc1a04c55e2bac454492c55936
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668476"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60711026"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Adicionar ou remover nós de um cluster do Service Fabric autônomo em execução no Windows Server
 Depois de ter [criado seu cluster autônomo do Service Fabric em computadores com Windows Server](service-fabric-cluster-creation-for-windows-server.md), suas necessidades (ou dos seus negócios) podem mudar e talvez seja preciso adicionar ou remover nós do cluster. Este artigo fornece as etapas detalhadas para fazer isso. Observe que não há suporte para a funcionalidade de adicionar/remover nó em clusters de desenvolvimento local.

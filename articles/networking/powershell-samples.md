@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/24/2017
 ms.author: georgewallace
-ms.openlocfilehash: 0bca4fb6874bd265f0ae9faeb4219abeb4ffb6d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5bd0b4e33b5bef4d293e0475880692c72bf1504c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23036591"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564656"
 ---
 # <a name="azure-powershell-samples-for-networking"></a>Exemplos do Azure PowerShell para rede
 

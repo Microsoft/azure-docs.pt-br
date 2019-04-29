@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: aa0ffbd69e73ddbef72e0eabf79f2736079c3d23
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622016"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60636359"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gerenciar todas as políticas de um laboratório no Azure DevTest Labs
 
@@ -91,7 +91,7 @@ Como proprietário de um laboratório, você pode configurar uma programação d
 
 1. Na home page do seu laboratório, selecione **Configuração e políticas**.
 2. Selecione **Política de desligamento automático** na seção **Horários** do menu à esquerda.
-3. Selecione uma das opções. As seções a seguir fornecem mais detalhes sobre essas opções: A política de configuração se aplica apenas às novas VMs criadas no laboratório e não às VMs já existentes. 
+3. Selecione uma das opções. As seções a seguir oferecem mais detalhes sobre essas opções: Definir política se aplica somente a novas VMs criadas no laboratório e não para as VMs já existentes. 
 
     ![Opções de política de desligamento automático](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 

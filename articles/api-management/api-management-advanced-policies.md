@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: 43cbeea554f43e4db7d5440af83a9b414741d2f6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756606"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60795886"
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gerenciamento de API
 
@@ -584,7 +584,7 @@ Essa política de exemplo mostra um exemplo de uso da política `send-one-way-re
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-one-way-request       | Elemento raiz.                                                                                               | Sim                             |
 | url                        | A URL da solicitação.                                                                                     | Não se mode=copy, caso contrário, sim. |
-| estático                     | O método HTTP para a solicitação.                                                                            | Não se mode=copy, caso contrário, sim. |
+| method                     | O método HTTP para a solicitação.                                                                            | Não se mode=copy, caso contrário, sim. |
 | cabeçalho                     | Cabeçalho da solicitação. Use vários elementos de cabeçalho para vários cabeçalhos de solicitação.                                  | Não                               |
 | body                       | O corpo da solicitação.                                                                                           | Não                               |
 | authentication-certificate | [Certificado a ser usado para autenticação de cliente](api-management-authentication-policies.md#ClientCertificate) | Não                               |
@@ -668,7 +668,7 @@ Este exemplo mostra uma maneira de verificar um token de referência com um serv
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-request               | Elemento raiz.                                                                                               | Sim                             |
 | url                        | A URL da solicitação.                                                                                     | Não se mode=copy, caso contrário, sim. |
-| estático                     | O método HTTP para a solicitação.                                                                            | Não se mode=copy, caso contrário, sim. |
+| method                     | O método HTTP para a solicitação.                                                                            | Não se mode=copy, caso contrário, sim. |
 | cabeçalho                     | Cabeçalho da solicitação. Use vários elementos de cabeçalho para vários cabeçalhos de solicitação.                                  | Não                               |
 | body                       | O corpo da solicitação.                                                                                           | Não                               |
 | authentication-certificate | [Certificado a ser usado para autenticação de cliente](api-management-authentication-policies.md#ClientCertificate) | Não                               |

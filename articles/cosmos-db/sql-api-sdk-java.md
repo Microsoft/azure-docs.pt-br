@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
 ms.openlocfilehash: cb8a97a29a14ecd5601495048bcbe1aff748d892
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617125"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626764"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Java do Azure Cosmos DB para a API do SQL: Notas sobre a versão e recursos
 > [!div class="op_single_selector"]

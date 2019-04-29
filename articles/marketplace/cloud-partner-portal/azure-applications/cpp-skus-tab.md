@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 5d6ec0197699f603c79f414e015cdebcde6b9f60
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905606"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744976"
 ---
 # <a name="azure-application-skus-tab"></a>Guia de SKUs de aplicativo do Azure
 
@@ -163,6 +163,6 @@ Adicione as políticas com as quais o aplicativo gerenciado está em conformidad
 
 4. Em **SKU de política**, selecione Gratuito ou Standard como o tipo de SKU de política. A SKU Standard é necessária para as políticas de auditoria.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Guia Marketplace](./cpp-marketplace-tab.md)

@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 1019c06afbdab0a6b0e172133da316aea01a5504
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216878"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744611"
 ---
 # <a name="update-an-existing-azure-application-offer"></a>Atualizar uma oferta existente de aplicativo do Azure
 

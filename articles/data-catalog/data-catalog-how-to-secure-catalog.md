@@ -8,11 +8,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 6c09b509399647f4cacbc96427200da5a1b00ac9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60010732"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61000682"
 ---
 # <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Como proteger o acesso ao catálogo de dados e ativos de dados
 > [!IMPORTANT]
@@ -48,6 +48,6 @@ Para dar a um usuário ou grupo o acesso a um catálogo de dados e definir permi
 - As permissões atribuídas a grupos de segurança são aditivas. Digamos que um usuário esteja em dois grupos. Um grupo tem permissões para anotar e outro grupo não tem permissões para anotar. Nesse caso, o usuário tem permissões para anotar. 
 - As permissões atribuídas explicitamente a um usuário substituem as permissões atribuídas a grupos aos quais o usuário pertence. No exemplo anterior, digamos, você adicionou explicitamente o usuário a usuários do catálogo e não atribuiu permissões para anotar. O usuário não pode anotar os ativos de dados mesmo que o usuário seja um membro de um grupo que tenha permissões para anotar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Backup do Azure: gerenciar tarefas de backup usando a API REST'
+title: 'Serviço de Backup do Azure: Gerenciar trabalhos de Backup usando a API REST'
 description: gerenciar tarefas de backup e restauração do Backup do Azure usando a API REST
 services: backup
 author: pvrk
@@ -11,11 +11,11 @@ ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 ms.openlocfilehash: eb8b7dc77d180eb56c2585e93e60a36742f6c84c
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289423"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646615"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Acompanhe as tarefas de backup e restauração usando a API REST
 
@@ -23,7 +23,7 @@ O serviço de Backup do Azure aciona tarefas executadas em segundo plano em vár
 
 ## <a name="fetch-job-information-from-operations"></a>Buscar informações de trabalho de operações
 
-Uma operação como o acionamento de backup sempre retornará um jobID. Por exemplo: A resposta final de uma [operação da API REST de backup do acionador](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) é a seguinte:
+Uma operação como o acionamento de backup sempre retornará um jobID. Para por exemplo: A resposta final de uma [disparar a operação de API REST de backup](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) é da seguinte maneira:
 
 ```http
 {
@@ -51,7 +51,7 @@ O `{jobName}` é "jobId" mencionado acima. A resposta é sempre 200 OK com o cam
 
 ### <a name="response"></a>Response
 
-|NOME  |Tipo  |DESCRIÇÃO  |
+|NOME  |Type  |DESCRIÇÃO  |
 |---------|---------|---------|
 |200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 

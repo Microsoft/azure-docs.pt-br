@@ -12,11 +12,11 @@ ms.date: 03/04/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: c1d8104f94d3f215108000b904848f3b968492ee
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341896"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61372792"
 ---
 # <a name="how-to-manage-keys-in-qna-maker"></a>Como gerenciar chaves no QnA Maker
 
@@ -53,7 +53,7 @@ As chaves de ponto de extremidade podem ser gerenciadas a partir do [portal do Q
     >[!NOTE]
     >Atualize as chaves se você achar que elas estão comprometidas. Isso pode exigir que sejam feitas as alterações correspondentes no seu aplicativo cliente ou código bot.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Criar uma base de dados de conhecimento em um idioma diferente](./language-knowledge-base.md)

@@ -3,22 +3,23 @@ title: Importar o ambiente Postman para chamadas REST de Serviços de Mídia do 
 description: Este tópico fornece uma definição do ambiente Postman para chamadas REST dos Serviços de Mídia do Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
+origin.date: 02/08/2019
+ms.date: 03/04/2019
+ms.author: v-jay
 ms.openlocfilehash: 6813dfca4a89263a10887ef4fa58c7403a9b1294
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312488"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60637549"
 ---
 # <a name="import-the-postman-environment"></a>Importar o ambiente Postman  
 

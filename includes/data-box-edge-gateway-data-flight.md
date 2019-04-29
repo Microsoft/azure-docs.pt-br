@@ -4,18 +4,18 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
-ms.openlocfilehash: bea14544949f90290bf3878295b49f1e08be9eea
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: acf1195616d45b155445604ef0204528e5f7ca03
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684388"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60754229"
 ---
-Para os dados em trânsito:
+Para dados em trânsito:
 
-- Para dados que passa entre o dispositivo e o Azure, o TLS 1.2 padrão é usado. Não há nenhum fallback para o TLS 1.1 e versões anteriores. A comunicação do agente será bloqueada se não há suporte para o TLS 1.2. O TLS 1.2 também é necessário para operações de gerenciamento de SDK e portal.
-- Quando os clientes acessam seu dispositivo por meio da interface do usuário web local em um navegador, o TLS 1.2 padrão é usado como o protocolo de segurança padrão.
+- Padrão de TLS 1.2 é usado para dados que trafegam entre o dispositivo e o Azure. Não há nenhum fallback para o TLS 1.1 e versões anteriores. Comunicação do agente será bloqueada se não há suporte para TLS 1.2. TLS 1.2 também é necessária para o gerenciamento do SDK e do portal.
+- Quando os clientes acessam seu dispositivo por meio da interface do usuário de um navegador da web local, padrão do protocolo TLS 1.2 é usado como o protocolo de segurança padrão.
 
     - A prática recomendada é configurar seu navegador para usar o TLS 1.2.
-    - Se o navegador não oferece suporte a TLS 1.2, você pode usar o TLS 1.1 ou TLS 1.0.
-- Para proteger os dados ao copiar de seus servidores de dados, é recomendável que você use o SMB 3.0 com criptografia.
+    - Se o navegador não dá suporte a TLS 1.2, você pode usar o TLS 1.1 ou TLS 1.0.
+- É recomendável que você usar o SMB 3.0 com criptografia para proteger os dados ao copiar de seus servidores de dados.

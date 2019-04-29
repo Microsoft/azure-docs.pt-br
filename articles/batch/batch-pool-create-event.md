@@ -13,11 +13,11 @@ ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
 ms.openlocfilehash: 176f00de77c2d353d6efeb8b5a535a607b8f3204
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470579"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776500"
 ---
 # <a name="pool-create-event"></a>Evento de criação de pool
 
@@ -91,7 +91,7 @@ ms.locfileid: "55470579"
 
 |Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
-|enableAutomaticUpdates|BOOLEAN|Indica se a máquina virtual está habilitada para atualizações automáticas. Se essa propriedade não for especificada, o valor padrão será verdadeiro.|
+|enableAutomaticUpdates|Boolean|Indica se a máquina virtual está habilitada para atualizações automáticas. Se essa propriedade não for especificada, o valor padrão será verdadeiro.|
 
 ###  <a name="bk_netconf"></a> networkConfiguration
 

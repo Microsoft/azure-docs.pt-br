@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
 ms.openlocfilehash: 96c3a7b2cfda23f173f4caeff4fb7a92b1ddc438
-ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59571270"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61440194"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Como fazer upgrade do Hub IoT
 

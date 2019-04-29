@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: alinast
 ms.openlocfilehash: 4db515a931bc7f423eb11ae31b7304a602f0da46
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531719"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60925794"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Processamento de dados e funções definidas pelo usuário
 
@@ -94,7 +94,7 @@ Correspondentes definem um conjunto de condições que avaliam quais ações oco
 
 Uma função definida pelo usuário é uma função personalizada executada em um ambiente isolado nos Gêmeos Digitais do Azure. As funções definidas pelo usuário têm acesso à mensagem de telemetria do sensor bruto à medida que foi recebida. As funções definidas pelo usuário também têm acesso ao serviço de gráfico espacial e despachante. Depois que a função definida pelo usuário é registrada no gráfico, um correspondente (detalhado [acima](#matcher)) deve ser criado para especificar quando executar a função. Por exemplo, quando os Gêmeos Digitais do Azure recebem nova telemetria de um determinado sensor, a função definida pelo usuário correspondente pode calcular uma média móvel das últimas poucas leituras do sensor.
 
-As funções definidas pelo usuário podem ser gravadas no JavaScript. Os métodos auxiliares interagem com o gráfico no ambiente de execução definido pelo usuário. Os desenvolvedores podem executar snippets personalizados de código contra mensagens de telemetria do sensor. Por exemplo:
+As funções definidas pelo usuário podem ser gravadas no JavaScript. Os métodos auxiliares interagem com o gráfico no ambiente de execução definido pelo usuário. Os desenvolvedores podem executar snippets personalizados de código contra mensagens de telemetria do sensor. Os exemplos incluem:
 
 - Defina a leitura do sensor diretamente para o objeto do sensor no grafo.
 - Execute uma ação com base em diferentes leituras de sensor dentro de um espaço no grafo.

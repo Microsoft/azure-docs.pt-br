@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: benshy
 ms.custom: secdec18
 ms.openlocfilehash: f03193253bd8d8a7530d65a552a07d3901887cf5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104294"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61024707"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Configurar contas de armazenamento para Cloudyn
 

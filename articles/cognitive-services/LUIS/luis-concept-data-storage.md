@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: diberry
 ms.openlocfilehash: a1093c2a6303b453a17a52058303913de5ecfa8d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893190"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60812946"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Armazenamento e remoção de dados nos Serviços Cognitivos do LUIS (Reconhecimento vocal)
 O LUIS armazena dados criptografados em um armazenamento de dados do Azure correspondente à região especificada pela chave. Esses dados são armazenados por 30 dias. 
@@ -63,7 +63,7 @@ Para os fins da retenção e da exclusão de dados, um aplicativo LUIS inativo p
 * Não tem uma chave atual atribuída a ele.
 * Não tem uma credencial de usuário para ele.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre como exportar e excluir um aplicativo](luis-how-to-start-new-app.md)

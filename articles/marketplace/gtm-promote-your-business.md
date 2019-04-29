@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
 ms.openlocfilehash: 026b8a85bf353dfe384077b1dc8e284d7c373046
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354945"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60740124"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Promover seu negócio com a Microsoft
 

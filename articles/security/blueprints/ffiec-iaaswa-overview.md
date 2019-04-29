@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
 ms.openlocfilehash: 10d13e7dd145feff286b8dd58fa1bc657961e8c4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247555"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585756"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-ffiec-financial-services"></a>Blueprint de Segurança e Conformidade do Azure: Aplicativo Web de IaaS para os serviços financeiros FFIEC
 

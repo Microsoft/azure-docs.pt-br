@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 10e19377d31489cd19465fe6171ffb530bd58c28
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013384"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60918329"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-sql-data-warehouse"></a>Como os descontos de reserva se aplicam ao Azure SQL Data Warehouse
 

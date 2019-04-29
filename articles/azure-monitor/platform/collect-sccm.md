@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.openlocfilehash: e5cf89b7fe01946de9944a7026ec448cd55dd6dc
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630662"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60741426"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Conectar o Configuration Manager para o Azure Monitor
 Você pode conectar seu ambiente do System Center Configuration Manager para o Azure Monitor para sincronizar dados de coleção de dispositivo e fazer referência a essas coleções no Azure Monitor e a automação do Azure.  

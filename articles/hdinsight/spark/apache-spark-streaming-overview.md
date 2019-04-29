@@ -17,12 +17,12 @@ ms.topic: article
 origin.date: 03/11/2019
 ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 3ecabd683ed4303a7ff54780299ed0e83aa14c26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 19d77d4aa49008232a01cd3ac2761a796505a35c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60539244"
+ms.locfileid: "62098211"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Visão geral de Streaming do Apache Spark
 
@@ -258,7 +258,7 @@ Normalmente, você cria um aplicativo Spark Streaming localmente em um arquivo J
 
 O status de todos os aplicativos também pode ser verificado com uma solicitação GET em um ponto de extremidade LIVY. Por fim, encerre um aplicativo em execução emitindo uma solicitação DELETE no ponto de extremidade do LIVY. Para detalhes sobre a API LIVY, veja [ Trabalhos remotos com o Apache LIVY ](apache-spark-livy-rest-interface.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Criar um cluster Apache Spark no HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
 * [Guia de programação de Streaming do Apache Spark](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)

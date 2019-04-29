@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 41999defb01e024773b6364f169a1ce3b1377237
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54056208"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60902276"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Adicionar monitoramento contínuo ao seu pipeline de versão
 
@@ -38,7 +38,7 @@ Agora, o Azure DevOps Services dá suporte ao monitoramento contínuo por meio d
 
    Uma caixa de configuração será exibida, use a tabela a seguir para preencher os campos de entrada.
 
-    | Parâmetro        | Valor |
+    | Parâmetro        | Value |
    | ------------- |:-----|
    | **Nome do ambiente**      | Nome que descreva o ambiente do pipeline de lançamento |
    | **Assinatura do Azure** | A lista suspensa é preenchida com assinaturas do Azure vinculadas à organização do Azure DevOps Services|

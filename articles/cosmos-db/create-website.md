@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: sngun
 ms.openlocfilehash: 1a63de4642850e425cc785e0d89197178ceec1a6
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041009"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60889681"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Implantar o Azure Cosmos DB e Aplicativos Web do Serviço de Aplicativo do Azure usando um modelo do Azure Resource Manager
 Este tutorial mostra como usar um modelo do Azure Resource Manager para implantar e integrar o [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), um aplicativo Web do [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) e um aplicativo Web de exemplo.

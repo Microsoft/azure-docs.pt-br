@@ -10,11 +10,11 @@ ms.date: 01/25/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: c30c8bae3e76778a31cdd0695acde52b5b1c6b02
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079657"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749543"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-search"></a>Implementar análise de tráfego de pesquisa no Azure Search
 Análise de tráfego de pesquisa é um padrão de implementação de um loop de comentários para seu serviço de pesquisa. Esse padrão descreve os dados necessários e como coletá-los usando o Application Insights, líder no setor de serviços de monitoramento em várias plataformas.

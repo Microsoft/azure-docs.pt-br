@@ -11,24 +11,27 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9aea7a9c9dd96bf30ebb3def9354df9e4bd30114
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: dd4c5e1652eb4dbff66591aa4bbe74e51be3e6c0
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558508"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759558"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Conceder acesso a dados a um ambiente
 
 Este artigo aborda os dois tipos de políticas de acesso da Versão prévia do Azure Time Series Insights.
 
-## <a name="grant-data-access"></a>Conceder acesso a dados
-
-Siga estas etapas para conceder acesso a dados para uma entidade de usuário.
+## <a name="sign-in-to-tsi"></a>Entrar no TSI
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 1. Localize o seu ambiente do Time Series Insights. Insira `Time Series` na caixa **Pesquisar**. Selecione **Ambiente do Time Series** nos resultados da pesquisa.
 1. Selecione o seu ambiente de Análise de Séries Temporais na lista.
+
+## <a name="grant-data-access"></a>Conceder acesso a dados
+
+Siga estas etapas para conceder acesso a dados para uma entidade de usuário.
+
 1. Selecione **Políticas de Acesso a Dados** e, em seguida, selecione **+ Adicionar**.
 
     ![Data-access-one][1]
@@ -55,15 +58,12 @@ Siga estas etapas para conceder acesso a dados para uma entidade de usuário.
 
     ![Data-access-five][5]
 
-## <a name="provide-guest-access-to-a-user-from-another-azure-active-directory-tenant"></a>Fornecer acesso de convidado para um usuário por meio de outro locatário do Azure Active Directory
+## <a name="provide-guest-access-from-another-aad-tenant"></a>Fornecer acesso de convidado de outro locatário do AAD
 
 `Guest` não é uma função de gerenciamento. É um termo usado para uma conta Convidado de um locatário para outro. Depois que a conta Convidado é convidada no diretório do locatário, ela pode ter o mesmo controle de acesso aplicado como qualquer outra conta. Você pode conceder acesso de gerenciamento a um ambiente do Time Series Insights usando a folha de Controle de Acesso (IAM). Ou pode permitir acesso aos dados no ambiente por meio da folha Políticas de Acesso a Dados. Para obter mais informações sobre o acesso de convidado de locatário do Azure AD (Azure Active Directory), leia [Adicionar usuários de colaboração B2B do Azure Active Directory no portal do Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
 Siga estas etapas para conceder acesso de convidado a um ambiente do Time Series Insights para um usuário do Azure AD de outro locatário.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
-1. Localize o seu ambiente do Time Series Insights. Insira **Time Series** na caixa **Pesquisar**. Selecione **Ambiente do Time Series** nos resultados da pesquisa.
-1. Selecione o seu ambiente de Análise de Séries Temporais na lista.
 1. Selecione **Políticas de Acesso a Dados** e, em seguida, selecione **+ Convidar**.
 
     ![Data-access-six][6]
@@ -112,12 +112,14 @@ Siga estas etapas para conceder acesso de convidado a um ambiente do Time Series
 
     ![Data-access-fifteen][15]
 
-Depois que o usuário convidado selecionar seu locatário, ele verá o ambiente do Time Series Insights para o qual você forneceu acesso. Então, ele terá todos os recursos associados com a função que você forneceu na etapa 8.
+Depois que o usuário convidado selecionar seu locatário, ele verá o ambiente do Time Series Insights para o qual você forneceu acesso. Agora eles têm todos os recursos associados à função que você forneceu-los com na **etapa 5**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba [como adicionar uma fonte de evento do Hubs de Eventos do Azure](./time-series-insights-how-to-add-an-event-source-eventhub.md) ao ambiente do Azure Time Series Insights.
+
 * Enviar [eventos para a origem do evento](./time-series-insights-send-events.md).
+
 * Exibir [seu ambiente no gerenciador da Versão prévia do Azure Time Series Insights](./time-series-insights-update-explorer.md).
 
 <!-- Images -->

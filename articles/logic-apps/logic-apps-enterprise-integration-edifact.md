@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.date: 07/26/2016
 ms.openlocfilehash: bbcdad7c5496cd08994a613b07e1bc7c611e4572
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57876843"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60684379"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens EDIFACT para Enterprise Integration B2B nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
@@ -24,7 +24,7 @@ Antes de trocar mensagens EDIFACT para aplicativos lógicos do Azure, você deve
 > [!NOTE]
 > Esta página abrange os recursos de EDIFACT dos aplicativos lógicos do Azure. Para obter mais informações, consulte [X12](logic-apps-enterprise-integration-x12.md).
 
-## <a name="before-you-start"></a>Antes de iniciar
+## <a name="before-you-start"></a>Antes de começar
 
 Veja os itens necessários:
 
@@ -65,14 +65,14 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
 
    | Propriedade | Descrição |
    | --- | --- |
-   | Nome |Nome do contrato |
-   | Tipo de Contrato | Deve ser EDIFACT |
-   | Parceiro do Host |Um contrato precisa dos parceiros host e convidado. O parceiro host representa a organização que está configurando o contrato. |
+   | NOME |Nome do contrato |
+   | Tipo de contrato | Deve ser EDIFACT |
+   | Parceiro de Host |Um contrato precisa dos parceiros host e convidado. O parceiro host representa a organização que está configurando o contrato. |
    | Identidade do Host |Um identificador para o parceiro host |
    | Parceiro Convidado |Um contrato precisa dos parceiros host e convidado. O parceiro convidado representa a organização que está fazendo negócios com o parceiro host. |
-   | Identidade do Cliente |Um identificador para o parceiro convidado |
+   | Identidade do Convidado |Um identificador para o parceiro convidado |
    | Configurações de Recebimento |Essas propriedades se aplicam a todas as mensagens recebidas por um contrato. |
-   | Enviar Configurações |Essas propriedades se aplicam a todas as mensagens enviadas por um contrato. |
+   | Configurações de Envio |Essas propriedades se aplicam a todas as mensagens enviadas por um contrato. |
    ||| 
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Configurar como seu contrato lida com mensagens recebidas
@@ -92,21 +92,21 @@ Agora o contrato está pronto para lidar com mensagens de entrada de acordo com 
 
 ### <a name="identifiers"></a>Identificadores
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | UNB 6.1 (Senha de Referência do Destinatário) |Insira um valor alfanumérico entre 1 e 14 caracteres. |
-| UNB6.2 (Qualificador de Referência do Recebimento) |Insira um valor alfanumérico com no mínimo um caractere e no máximo dois caracteres. |
+| UNB 6.2 (Qualificador de Referência do Destinatário) |Insira um valor alfanumérico com no mínimo um caractere e no máximo dois caracteres. |
 
 ### <a name="acknowledgments"></a>Agradecimentos
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | Recebimento de Mensagem (CONTRL) |Marque essa caixa de seleção para retornar uma confirmação técnica (CONTRL) ao remetente do intercâmbio. A confirmação é enviada ao remetente do intercâmbio com base nas Configurações de Envio do contrato. |
 | Confirmação (CONTRL) |Marque essa caixa de seleção para retornar uma confirmação funcional (CONTRL) ao emissor de intercâmbio. A confirmação é enviada ao emissor de intercâmbio com base nas Configurações de Envio do contrato. |
 
 ### <a name="schemas"></a>Esquemas
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | UNH2.1 (TIPO) |Selecione um tipo de conjunto de transação. |
 | UNH2.2 (VERSÃO) |Insira o número de versão da mensagem. (No mínimo um caractere; no máximo três caracteres). |
@@ -117,36 +117,36 @@ Agora o contrato está pronto para lidar com mensagens de entrada de acordo com 
 | Esquema |Selecione o esquema carregado anteriormente que você deseja usar de sua Conta de Integração associada. |
 
 ### <a name="control-numbers"></a>Números de Controle
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | Recusar duplicatas de Números de Controle de Intercâmbio |Para bloquear intercâmbios de duplicatas, selecione essa propriedade. Se essa opção for selecionada, a Ação de Decodificação do EDIFACT verificará se o número de controle de intercâmbio (UNB5) do intercâmbio recebido não corresponde ao número de controle de intercâmbio processado anteriormente. Se houver uma correspondência, o intercâmbio não será processado. |
 | Verificar UNB5 duplicado a cada (dias) |Se optou por não permitir números de controle de intercâmbio de duplicatas, você pode especificar o número de dias quando executar a verificação, fornecendo o valor apropriado para esta configuração. |
-| Não permitir duplicatas do número de controle do Grupo |Marque essa propriedade para bloquear intercâmbios com números de controle de grupo duplicados (UNG5). |
-| Não permitir duplicatas do número de controle do conjunto de Transações |Marque essa propriedade para bloquear intercâmbios com números de controle de conjunto de transações duplicados (UNH1). |
+| Recusar duplicatas de Números de controle de grupo |Marque essa propriedade para bloquear intercâmbios com números de controle de grupo duplicados (UNG5). |
+| Recusar duplicatas de Números de controle de Conjuntos de transações |Marque essa propriedade para bloquear intercâmbios com números de controle de conjunto de transações duplicados (UNH1). |
 | Número de controle da confirmação EDIFACT |Para designar os números de referência do conjunto de transações a serem usados em uma confirmação, insira um valor para o prefixo, um intervalo de números de referência e um sufixo. |
 
 ### <a name="validations"></a>Validações
 
 Quando você conclui cada linha de validação, outra é adicionada automaticamente. Se você não especificar regras, a validação usa a linha "Padrão".
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | Tipo de Mensagem |Seleciona o tipo de mensagem EDI. |
 | Validação de EDI |Executa a validação de EDI nos tipos de dados conforme a definição das propriedades de EDI do esquema, restrições de comprimento, elementos de dados vazios e separadores à direita. |
 | Validação Estendida |Se o tipo de dados não for EDI, a validação será realizada nos requisitos de elementos de dados e na permissão de repetições, enumerações e validação de tamanho de elementos de dados (mín./máx.). |
 | Permitir Zeros à Esquerda/Direita |Retém zeros à esquerda ou à direita adicionais e caracteres de espaço. Não remova esses caracteres. |
-| Cortar Zeros à Direita/Esquerda |Remove zeros à esquerda ou à direita e caracteres de espaço. |
+| Cortar Zeros à Esquerda/Direita |Remove zeros à esquerda ou à direita e caracteres de espaço. |
 | Política de Separador à Direita |Gera separadores à direita. <p>Selecione **Não permitido** para proibir delimitadores e separadores à direita no intercâmbio recebido. Se o intercâmbio tiver delimitadores e separadores à direita, o intercâmbio é declarado não válido. <p>Escolha **Opcional** para aceitar intercâmbios com ou sem delimitadores e separadores à direita. <p>Escolha **Obrigatório** se o intercâmbio recebido precisar conter delimitadores e separadores à direita. |
 
 ### <a name="internal-settings"></a>Configurações Internas
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
-| Criar marcas XML vazias se separadores à direita forem permitidos |Marque essa caixa de seleção para que o remetente do intercâmbio inclua marcas XML vazias para separadores à direita. |
+| Criar marcas XML vazias se forem permitidos separadores à direita |Marque essa caixa de seleção para que o remetente do intercâmbio inclua marcas XML vazias para separadores à direita. |
 | Dividir Intercâmbio como conjuntos de transação – suspender conjuntos de transação com erro|Analisa cada conjunto de transações em um intercâmbio dentro de um documento XML separado ao aplicar o envelope apropriado ao conjunto de transações. Suspenda somente os conjuntos de transações com falha na validação. |
-| Dividir intercâmbio como conjuntos de transação - suspender intercâmbio no erro|Analisa cada conjunto de transações em um intercâmbio dentro de um documento XML separado ao aplicar o envelope apropriado. Suspende o intercâmbio inteiro se um ou mais conjuntos de transações no intercâmbio falharem na validação. | 
+| Dividir Intercâmbio como conjuntos de transação – suspender intercâmbio com erro|Analisa cada conjunto de transações em um intercâmbio dentro de um documento XML separado ao aplicar o envelope apropriado. Suspende o intercâmbio inteiro se um ou mais conjuntos de transações no intercâmbio falharem na validação. | 
 | Preservar Intercâmbio – suspender conjuntos transação com erro |Mantém o intercâmbio intacto, cria um documento XML para o intercâmbio em lote inteiro. Suspenda somente os conjuntos de transações com falha na validação, enquanto continua a processar todos os outros conjuntos de transações. |
-| Preservar Intercâmbio - suspender intercâmbio no erro |Mantém o intercâmbio intacto, cria um documento XML para o intercâmbio em lote inteiro. Suspende o intercâmbio inteiro se um ou mais conjuntos de transações no intercâmbio falharem na validação. |
+| Preservar Intercâmbio – suspender intercâmbio com erro |Mantém o intercâmbio intacto, cria um documento XML para o intercâmbio em lote inteiro. Suspende o intercâmbio inteiro se um ou mais conjuntos de transações no intercâmbio falharem na validação. |
 
 ## <a name="configure-how-your-agreement-sends-messages"></a>Configurar como seu contrato envia mensagens
 
@@ -165,24 +165,24 @@ Agora o contrato está pronto para lidar com mensagens de saída de acordo com a
 
 ### <a name="identifiers"></a>Identificadores
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | UNB1.2 (Versão de sintaxe) |Selecione um valor entre **1** e **4**. |
 | UNB 2.3 (Endereço de Roteamento do Remetente Inverso) |Insira um valor alfanumérico com no mínimo um caractere e no máximo 14 caracteres. |
 | UNB3.3 (Endereço de Roteamento do Destinatário Inverso) |Insira um valor alfanumérico com no mínimo um caractere e no máximo 14 caracteres. |
-| UNB6.1 (Senha de Referência do Recebimento) |Insira um valor alfanumérico com no mínimo um e no máximo 14 caracteres. |
+| UNB 6.1 (Senha de Referência do Destinatário) |Insira um valor alfanumérico com no mínimo um e no máximo 14 caracteres. |
 | UNB 6.2 (Qualificador de Referência do Destinatário) |Insira um valor alfanumérico com no mínimo um caractere e no máximo dois caracteres. |
 | UNB7 (ID de Referência do Aplicativo) |Insira um valor alfanumérico com no mínimo um caractere e no máximo 14 caracteres |
 
 ### <a name="acknowledgment"></a>Confirmação
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | Recebimento de Mensagem (CONTRL) |Marque esta caixa de seleção se o parceiro hospedado espera receber uma confirmação técnica (CONTRL). Essa configuração especifica que o parceiro hospedado, que está enviando a mensagem, solicitou uma confirmação do parceiro convidado. |
 | Confirmação (CONTRL) |Marque esta caixa de seleção se o parceiro hospedado espera receber uma confirmação funcional (CONTRL). Essa configuração especifica que o parceiro hospedado, que está enviando a mensagem, solicitou uma confirmação do parceiro convidado. |
 | Gerar loop SG1/SG4 para conjuntos de transação aceitos |Se você escolher solicitar uma confirmação funcional, marque essa caixa de seleção para forçar a geração de loops SG1/SG4 em confirmações funcionais CONTRL para conjuntos de transação aceitos. |
 
 ### <a name="schemas"></a>Esquemas
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | UNH2.1 (TIPO) |Selecione um tipo de conjunto de transação. |
 | UNH2.2 (VERSÃO) |Insira o número de versão da mensagem. |
@@ -190,7 +190,7 @@ Agora o contrato está pronto para lidar com mensagens de saída de acordo com a
 | ESQUEMA |Selecione o esquema a ser usado. Esquema estão localizados na sua conta de integração. Para acessar seus esquemas, vincule sua conta de integração ao seu aplicativo lógico. |
 
 ### <a name="envelopes"></a>Envelopes
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | UNB8 (Código de Prioridade de Processamento) |Insira um valor alfabético que não tenha mais de um caractere de comprimento. |
 | UNB10 (Contrato de Comunicação) |Insira um valor alfanumérico com no mínimo um caractere e no máximo 40 caracteres. |
@@ -202,18 +202,18 @@ Agora o contrato está pronto para lidar com mensagens de saída de acordo com a
 
 Além do conjunto de caracteres, você pode inserir um conjunto diferente de delimitadores a serem usados para cada tipo de mensagem. Se um conjunto de caracteres não for especificado para um determinado esquema de mensagem, o conjunto de caracteres padrão será usado.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | UNB1.1 (Identificador do Sistema) |Selecione o conjunto de caracteres EDIFACT a ser aplicado no intercâmbio de saída. |
 | Esquema |Selecione um esquema na lista suspensa. Depois de concluir cada linha, uma nova linha é adicionada automaticamente. Para o esquema selecionado, selecione o conjunto de separadores que deseja usar, com base nas descrições do separador abaixo. |
-| Tipo de Entrada |Selecione um tipo de entrada na lista suspensa. |
-| Separador de Componente |Insira um único caractere para separar os elementos de dados compostos. |
-| Separador de Elemento de Dados |Insira um único caractere para separar os elementos de dados simples dentro dos elementos de dados compostos. |
+| Tipo de entrada |Selecione um tipo de entrada na lista suspensa. |
+| Separador de componente |Insira um único caractere para separar os elementos de dados compostos. |
+| Separador de elemento de dados |Insira um único caractere para separar os elementos de dados simples dentro dos elementos de dados compostos. |
 | Terminador de segmento |Insira um único caractere para indicar o final de um segmento EDI. |
 | Suffix |Selecionar o caractere a ser usado com o identificador de segmento. Se você designar um sufixo, o elemento de dados de terminador de segmento poderá ficar vazio. Se o terminador de segmento ficar vazio, você deverá designar um sufixo. |
 
 ### <a name="control-numbers"></a>Números de Controle
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | UNB5 (Número de Controle de Intercâmbio) |Insira um prefixo, um intervalo de valores para o número de controle de intercâmbio e um sufixo. Esses valores são usados para gerar um intercâmbio de saída. O prefixo e sufixo são opcionais; o número de controle é obrigatório. O número de controle é incrementado para cada nova mensagem; o prefixo e sufixo permanecem os mesmos. |
 | UNG5 (Número de Controle de Grupo) |Insira um prefixo, um intervalo de valores para o número de controle de intercâmbio e um sufixo. Esses valores são usados para gerar o número de controle de grupo. O prefixo e sufixo são opcionais; o número de controle é obrigatório. O número de controle é incrementado para cada nova mensagem até que o valor máximo seja alcançado; o prefixo e sufixo permanecem os mesmos. |
@@ -223,14 +223,14 @@ Além do conjunto de caracteres, você pode inserir um conjunto diferente de del
 
 Quando você conclui cada linha de validação, outra é adicionada automaticamente. Se você não especificar regras, a validação usa a linha "Padrão".
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | Tipo de Mensagem |Seleciona o tipo de mensagem EDI. |
 | Validação de EDI |Executa a validação de EDI nos tipos de dados conforme a definição das propriedades de EDI do esquema, restrições de comprimento, elementos de dados vazios e separadores à direita. |
 | Validação Estendida |Se o tipo de dados não for EDI, a validação será realizada nos requisitos de elementos de dados e na permissão de repetições, enumerações e validação de tamanho de elementos de dados (mín./máx.). |
 | Permitir Zeros à Esquerda/Direita |Retém zeros à esquerda ou à direita adicionais e caracteres de espaço. Não remova esses caracteres. |
 | Cortar Zeros à Esquerda/Direita |Remove zeros à esquerda ou à direita adicionais. |
-| Política do Separador à Direita |Gera separadores à direita. <p>Selecione **Não permitido** para proibir delimitadores e separadores à direita no intercâmbio enviado. Se o intercâmbio tiver delimitadores e separadores à direita, o intercâmbio é declarado não válido. <p>Escolha **Opcional** para enviar intercâmbios com ou sem delimitadores e separadores à direita. <p>Selecione **Obrigatório** se o intercâmbio enviado deve ter delimitadores e separadores à direita. |
+| Política de Separador à Direita |Gera separadores à direita. <p>Selecione **Não permitido** para proibir delimitadores e separadores à direita no intercâmbio enviado. Se o intercâmbio tiver delimitadores e separadores à direita, o intercâmbio é declarado não válido. <p>Escolha **Opcional** para enviar intercâmbios com ou sem delimitadores e separadores à direita. <p>Selecione **Obrigatório** se o intercâmbio enviado deve ter delimitadores e separadores à direita. |
 
 ## <a name="find-your-created-agreement"></a>Como localizar seu contrato criado
 

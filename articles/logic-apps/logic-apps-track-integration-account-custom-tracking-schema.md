@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.date: 01/27/2017
 ms.openlocfilehash: f919e9a7cca210fa5920bcc6bed05a9a41fba8bf
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192377"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60847179"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>Criar esquemas de acompanhamento personalizados que monitorem fluxos de trabalho de ponta a ponta nos Aplicativos Lógicos do Azure
 

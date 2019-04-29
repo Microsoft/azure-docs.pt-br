@@ -1,15 +1,10 @@
 ---
-author: ecfan
-ms.service: logic-apps
-ms.topic: include
-ms.date: 11/03/2016
-ms.author: estfan
 ms.openlocfilehash: 3f4430631a664f81f53f9df1f46ebc27c635de36
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319596"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60860197"
 ---
 ### <a name="prerequisites"></a>Pré-requisitos
 * Uma conta do [Dropbox](https://www.Dropbox.com/) 

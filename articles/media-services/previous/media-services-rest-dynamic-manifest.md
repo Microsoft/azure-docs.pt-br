@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako;cenkdin
 ms.openlocfilehash: 5b023a152cf93ec6ff688674e991ad55db215965
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309482"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60767805"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Criando filtros com a API REST dos Serviços de Mídia do Azure 
 > [!div class="op_single_selector"]
@@ -68,7 +68,7 @@ Cabeçalhos de solicitação
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host:media.windows.net 
 
-Solicitar corpo 
+Corpo da solicitação 
 
     {  
        "Name":"GlobalFilter",
@@ -121,7 +121,7 @@ Cabeçalhos de solicitação
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net  
 
-Solicitar corpo 
+Corpo da solicitação 
 
     {   
        "Name":"AssetFilter", 
@@ -335,6 +335,6 @@ Os exemplos a seguir mostram como adicionar filtros às URLs de streaming.
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 [Visão geral de manifestos dinâmicos](media-services-dynamic-manifest-overview.md)
 

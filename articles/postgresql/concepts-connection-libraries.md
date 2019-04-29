@@ -1,17 +1,21 @@
 ---
 title: Bibliotecas de conexão para o Banco de Dados do Azure para PostgreSQL
 description: Este artigo descreve várias bibliotecas e vários drivers que os desenvolvedores podem usar ao codificar aplicativos para se conectar e consultar o Banco de Dados do Azure para PostgreSQL.
-author: rachel-msft
-ms.author: raagyema
+services: postgresql
+author: WenJason
+ms.author: v-jay
+manager: digimobile
+editor: jasonwhowell
 ms.service: postgresql
-ms.topic: conceptual
-ms.date: 02/28/2018
+ms.topic: article
+origin.date: 02/28/2018
+ms.date: 12/03/2018
 ms.openlocfilehash: 0e762a2d7cf82e2957fb276fcea0a20553f719e3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536008"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60559765"
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Bibliotecas de conexão para o Banco de Dados do Azure para PostgreSQL
 Este artigo lista as bibliotecas e os drivers que os desenvolvedores podem usar para desenvolver aplicativos para conexão e consulta do Banco de Dados do Azure para PostgreSQL.
@@ -28,7 +32,7 @@ A maioria das bibliotecas de cliente de linguagem usadas para se conectar ao ser
 | Ruby | [Pg gem](https://deveiate.org/code/pg/) | Interface Ruby | [Baixar](https://rubygems.org/downloads/pg-0.20.0.gem) |
 | Go | [Package pq](https://godoc.org/github.com/lib/pq) | Driver de postgres Go puro | [Instalar](https://github.com/lib/pq/blob/master/README.md) |
 | C\#/ .NET | [Npgsql](https://www.npgsql.org/) | Provedor de dados ADO.NET | [Baixar](https://www.microsoft.com/net/) |
-| ODBCODBC | [psqlODBC](https://odbc.postgresql.org/) | Driver ODBC | [Baixar](https://www.postgresql.org/ftp/odbc/versions/) |
+| ODBC | [psqlODBC](https://odbc.postgresql.org/) | Driver ODBC | [Baixar](https://www.postgresql.org/ftp/odbc/versions/) |
 | C | [libpq](https://www.postgresql.org/docs/9.6/static/libpq.html) | Interface primária de linguagem C | Incluso |
 | C++ | [libpqxx](http://pqxx.org/) | Interface de C++ com novo estilo | [Baixar](http://pqxx.org/download/software/) |
 

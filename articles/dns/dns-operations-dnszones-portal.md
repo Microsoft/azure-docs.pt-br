@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: victorh
 ms.openlocfilehash: d0a20de8738e8c7b2719a9de85d5fd16aa5778cf
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829675"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60926272"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Como gerenciar zonas DNS usando o Portal do Azure
 
@@ -43,7 +43,7 @@ Este artigo mostra como gerenciar suas zonas DNS usando o Portal do Azure. Você
    |---|---|---|
    |**Nome**|contoso.com|O nome da zona DNS|
    |**Assinatura**|[Sua assinatura]|Selecione uma assinatura para criar a zona DNS.|
-   |**Grupo de recursos**|**Criar um novo:** contosoDNSRG|Crie um grupos de recursos. O nome do grupo de recursos deve ser exclusivo na assinatura selecionada. Para saber mais sobre grupos de recursos, leia o artigo [Visão geral do Gerenciador de Recursos](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
+   |**Grupo de recursos**|**Criar um novo:** contosoDNSRG|Crie um grupo de recursos. O nome do grupo de recursos deve ser exclusivo na assinatura selecionada. Para saber mais sobre grupos de recursos, leia o artigo [Visão geral do Gerenciador de Recursos](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
    |**Localidade**|Oeste dos EUA||
 
 > [!NOTE]

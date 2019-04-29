@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 05/23/2018
 ms.author: tdykstra
 ms.custom: include file
-ms.openlocfilehash: a7ed3be6f3161b2152f88956b3eafe92232043aa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d75dbf8f2f3de6101358274ef41f1b229950633d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "58115447"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60713519"
 ---
 A tabela a seguir lista os atributos de gatilho e de associação disponíveis em um projeto de biblioteca de classes do Azure Functions. Todos os atributos estão no namespace `Microsoft.Azure.WebJobs`.
 

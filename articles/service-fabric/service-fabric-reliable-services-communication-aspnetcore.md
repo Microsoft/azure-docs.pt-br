@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
 ms.openlocfilehash: 5a4b7514005da9e9a998dba014fa0ea6c014397a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59268510"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60774554"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Núcleo do ASP.NET em Serviços Confiáveis do Service Fabric
 
@@ -510,7 +510,7 @@ Os serviços com monitoração de estado que são chamados apenas de dentro do c
 | Configuração de portas | atribuídas dinamicamente | Várias réplicas de um serviço com estado podem compartilhar um processo de host ou o sistema operacional do host e, assim, precisarão de portas exclusivas. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Com a atribuição dinâmica de portas essa configuração impede o problema de confusão de identidade descrito anteriormente. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Depurar seu aplicativo do Service Fabric usando o Visual Studio](service-fabric-debugging-your-application.md)
 
 <!--Image references-->

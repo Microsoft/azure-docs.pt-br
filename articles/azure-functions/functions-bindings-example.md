@@ -8,14 +8,15 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/18/2019
-ms.author: cshoe
+origin.date: 02/18/2019
+ms.date: 03/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 6d5f9b171a4efc5e52d281655de143ac9d40d437
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739947"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437881"
 ---
 # <a name="azure-functions-trigger-and-binding-example"></a>Exemplo de gatilho e associação de funções do Azure
 
@@ -141,3 +142,4 @@ Agora você tem uma função de trabalho que é disparada pelo armazenamento de 
 
 > [!div class="nextstepaction"]
 > [Padrões de expressões de associação de funções do Azure](./functions-bindings-expressions-patterns.md)
+

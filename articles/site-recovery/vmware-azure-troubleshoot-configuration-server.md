@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
 ms.openlocfilehash: f08d7bb2087ef4f30b325b3796a13e387ccdea22
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525833"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60725560"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Solucionar problemas do servidor de configuração
 
@@ -191,7 +191,7 @@ Você não tem permissões suficientes para criar um aplicativo no Azure Active 
 Para resolver o problema, entre no portal do Azure e siga um destes procedimentos:
 
 - Solicite a função de Desenvolvedor de Aplicativos no AAD. Para obter mais informações sobre a função de Desenvolvedor de Aplicativos, consulte [Permissões da função de Administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
-- Verifique se o sinalizador **Usuário pode criar aplicativo** está definido como *true* no AAD. Para obter mais informações, consulte [Como: Usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Verifique se o sinalizador **Usuário pode criar aplicativo** está definido como *true* no AAD. Para obter mais informações, confira [Como: Usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
 ## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>O servidor de processo e o destino mestre não conseguem se comunicar com o servidor de configuração 
 

@@ -8,11 +8,11 @@ ms.date: 03/31/2019
 ms.author: dharmas
 ms.reviewer: sngun
 ms.openlocfilehash: 84ce13ae3bb0a4b66b8167e61b720fe6cecbe95c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762405"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60888761"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribuição de dados global com o Azure Cosmos DB – nos bastidores
 

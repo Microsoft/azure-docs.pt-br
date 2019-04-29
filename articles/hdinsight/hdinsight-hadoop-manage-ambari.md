@@ -1,7 +1,6 @@
 ---
 title: Monitorar e gerenciar o Azure HDInsight usando a IU da Web do Ambari
 description: Aprenda a usar o Ambari para monitorar e gerenciar clusters HDInsight baseados em Linux. Neste documento, você aprenderá a usar a interface de usuário do Ambari Web com clusters HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 738ef5df0b2e2a7f31a7316a1d2ef4395168d41e
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
-ms.translationtype: MT
+ms.openlocfilehash: 1659ab72620b6bf91eb932f8414a0f6600350e37
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576949"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761106"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gerenciar clusters HDInsight usando a interface do usuário da Web do Apache Ambari
 
@@ -239,6 +238,6 @@ Não há suporte para as seguintes operações do Ambari no HDInsight:
 
 * __Mover o serviço do Coletor de métricas__. Ao exibir as informações sobre o serviço do Coletor de métricas, uma das ações disponíveis no menu de Ações do serviço é __Mover o Coletor de métricas__. Essa propriedade não tem suporte com o HDInsight.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como usar a [API REST do Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) com HDInsight.

@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
 ms.openlocfilehash: 4811e40f87962ecde75c7b2bb14e1d033e82ad44
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577823"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60605093"
 ---
 # <a name="translator-text-api-30-transliterate"></a>API de Tradução de Texto 3.0: Transliterate
 

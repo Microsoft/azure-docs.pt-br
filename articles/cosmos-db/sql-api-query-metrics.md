@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
 ms.openlocfilehash: c7b62f66830e17fd8f6607e0a629307a9ab6fc78
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983584"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60546412"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Ajustando o desempenho de consulta com o Azure Cosmos DB
 

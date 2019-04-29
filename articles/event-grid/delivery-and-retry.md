@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: spelluru
 ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991199"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561991"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e repetição de mensagens da Grade de Eventos
 
@@ -29,9 +29,9 @@ A Grade de Eventos usa uma política de repetição de retirada exponencial para
 1. 10 segundos
 1. 30 segundos
 1. 1 minuto
-1. 5 Minutos
+1. 5 minutos
 1. 10 minutos
-1. 30 Minutos
+1. 30 minutos
 1. 1 hora
 1. Por hora por até 24 horas
 

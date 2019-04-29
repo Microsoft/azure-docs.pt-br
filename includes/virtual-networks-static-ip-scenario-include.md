@@ -1,15 +1,16 @@
 ---
-author: genlin
+author: rockboyfor
 ms.service: virtual-network
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: genli
+origin.date: 11/09/2018
+ms.date: 01/21/2019
+ms.author: v-yeche
 ms.openlocfilehash: d40f8fb263c5838d523108a1df7be99aba587354
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52268672"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516438"
 ---
 ## <a name="scenario"></a>Cenário
 Para ilustrar melhor como configurar um endereço IP estático para uma VM, este documento usará o cenário a seguir.
@@ -17,4 +18,3 @@ Para ilustrar melhor como configurar um endereço IP estático para uma VM, este
 ![Cenário de Rede Virtual](./media/virtual-networks-static-ip-scenario-include/static-ip-scenario.png)
 
 Nesse cenário, você criará uma VM denominada **DNS01** na sub-rede **Front-end** e a definirá para usar um endereço IP estático **192.168.1.101**.
-

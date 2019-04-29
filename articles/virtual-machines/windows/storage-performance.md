@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
 ms.openlocfilehash: f84e81a5a9e9c9cf6f477adefa0869d776f7dd71
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013396"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61487334"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Otimizar o desempenho em máquinas virtuais série Lsv2
 

@@ -11,11 +11,11 @@ ms.topic: resources
 ms.date: 03/20/2019
 ms.author: kylestorck
 ms.openlocfilehash: 50de4d983ed24440d655cf5b9ba3fb5e33d8d7cd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309938"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61335340"
 ---
 # <a name="project-acoustics-known-issues"></a>Problemas conhecidos do projeto acústica
 Você pode encontrar os seguintes problemas conhecidos ao usar o Designer Preview for Project Acoustics.
@@ -43,6 +43,6 @@ Verifique se você usou as credenciais corretas para sua conta do Azure, se sua 
 ## <a name="canceling-a-bake-leaves-the-bake-tab-in-deleting-state"></a>Cancelar um bake deixa a guia Bake em estado de "exclusão"
 Projeto acústica limpará todos os recursos do Azure para um trabalho na conclusão bem-sucedida ou cancelamento. Isso pode levar até 5 minutos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Experimente o [Unity](unity-quickstart.md) ou [Unreal](unreal-quickstart.md) conteúdo de exemplo
 

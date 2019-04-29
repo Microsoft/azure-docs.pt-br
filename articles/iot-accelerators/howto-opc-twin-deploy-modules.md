@@ -9,11 +9,11 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: f470beb79e69b5a4a3febeb6a433c48490b96cf7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59491349"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61451065"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Implantar o módulo gêmeo de OPC e as dependências do zero
 
@@ -245,7 +245,7 @@ Para problemas de solução e depurá-lo são útil para executar os módulos do
    iotedgehubdev stop
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu como implantar o gêmeo do OPC do zero, aqui está a próxima etapa sugerida:
 

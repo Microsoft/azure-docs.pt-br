@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: f2e252a000c5633b2cc1ef34683d7d2c7c133c03
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: 7fd5b2051f81a5dc34270a608c1518e8a11678b5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045685"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542451"
 ---
 ## <a name="using-rbac-to-share-images"></a>Usar o RBAC para compartilhar imagens
 

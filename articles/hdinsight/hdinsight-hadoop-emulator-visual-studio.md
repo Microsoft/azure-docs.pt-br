@@ -1,7 +1,6 @@
 ---
 title: Ferramentas do Data Lake para Visual Studio com a Área Restrita da Hortonworks – Azure HDInsight
 description: Saiba como usar as Ferramentas do Azure Data Lake para Visual Studio com a área restrita da Hortonworks em execução em uma VM local. Com essas ferramentas, você pode criar e executar trabalhos Hive e Pig na área restrita e exibir a saída e o histórico do trabalho.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7c2a1c586b4d6f5f9f6e34a091702a35f994544f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 8172da3f573f78365cbe76f435a4817e64bc136c
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726622"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63762751"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Usar as Ferramentas do Azure Data Lake para Visual Studio com a Área Restrita da Hortonworks
 
@@ -198,7 +197,7 @@ Em seguida, você pode criar a tabela usando um formulário. Na parte inferior d
 
 ![Captura de tela do formulário usado para criar uma tabela](./media/hdinsight-hadoop-emulator-visual-studio/create-table-form.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Learning the ropes of the Hortonworks Sandbox](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Tutorial do Apache Hadoop – Introdução ao HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)

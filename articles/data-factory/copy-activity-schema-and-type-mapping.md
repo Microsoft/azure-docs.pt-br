@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267116"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615632"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapeamento de esquema na atividade de cópia
 Este artigo descreve como a atividade de cópia do Azure Data Factory faz o mapeamento de esquema e de tipo de dados dos dados de origem para os dados do coletor ao executar a cópia dos dados.
@@ -229,7 +229,7 @@ Você pode encontrar o mapeamento entre o tipo nativo para o tipo provisório na
 O Data Factory dá suporte aos seguintes tipos de dados provisórios: você pode especificar os valores a seguir ao configurar informações de tipo na configuração da [estrutura do conjunto de dados](concepts-datasets-linked-services.md#dataset-structure):
 
 * Byte[]
-* BOOLEAN
+* Boolean
 * DateTime
 * Datetimeoffset
 * Decimal

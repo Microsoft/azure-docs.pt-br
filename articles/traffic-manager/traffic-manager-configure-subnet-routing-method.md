@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
 ms.openlocfilehash: b3eb7995dac1adf3053d28b40cf322e78c69c55f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001321"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60716282"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tráfego direto para pontos de extremidade específicos com base na sub-rede do usuário usando o Gerenciador de Tráfego
 
@@ -73,7 +73,7 @@ Nesta seção, você cria duas VMs *myEndpointVMEastUS* e *myEndpointVMWEurope* 
 
 7. Conclua as etapas 1 a 6 novamente, com as seguintes alterações:
 
-    |Configuração|Valor|
+    |Configuração|Value|
     |---|---|
     |Grupo de recursos | Selecione **Novo**e digite *myResourceGroupTM2*|
     |Local padrão|Europa Ocidental|
@@ -158,7 +158,7 @@ Nesta seção, você pode criar uma VM (*mVMEastUS* e *myVMWestEurope*) em cada 
 
 7. Conclua as etapas 1 a 5 novamente, com as seguintes alterações:
 
-    |Configuração|Valor|
+    |Configuração|Value|
     |---|---|
     |Nome da VM | *myVMWEurope*|
     |Grupo de recursos | Selecione **Existente** e em seguida, digite *myResourceGroupTM2*|
@@ -192,7 +192,7 @@ Adicione as duas VMs executando o IIS servidores - *myIISVMEastUS* & *myIISVMWEu
 2. Em **Perfil do Gerenciador de Tráfego**, na seção **Configurações**, clique em **Pontos de Extremidade** e clique em **Adicionar**.
 3. Insira, ou selecione, as informações a seguir, aceite os padrões para as configurações restantes e, em seguida, selecione **OK**:
 
-    | Configuração                 | Valor                                              |
+    | Configuração                 | Value                                              |
     | ---                     | ---                                                |
     | Type                    | Ponto de extremidade do Azure                                   |
     | NOME           | myTestWebSiteEndpoint                                        |

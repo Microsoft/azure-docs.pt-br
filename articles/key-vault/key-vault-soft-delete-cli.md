@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: mbaldwin
 ms.openlocfilehash: aa9b89b9afec069e97236b7652e0f1d37644f5cf
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336058"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640473"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Como usar a exclusão reversível do Key Vault com a CLI
 
@@ -31,9 +31,9 @@ Para obter informações de referência específicas do Key Vault para CLI, conf
 
 As operações de Key Vault são gerenciadas separadamente por meio de permissões de RBAC (controle de acesso baseado em função) da seguinte maneira:
 
-| Operação | Descrição | Permissão de usuário |
+| Operação | DESCRIÇÃO | Permissão de usuário |
 |:--|:--|:--|
-|Lista|Lista os cofres de chaves excluídos.|Microsoft.KeyVault/deletedVaults/read|
+|Listar|Lista os cofres de chaves excluídos.|Microsoft.KeyVault/deletedVaults/read|
 |Recuperar|Recupera o cofre de chaves excluído.|Microsoft.KeyVault/vaults/write|
 |Limpar|Remove permanentemente um cofre de chaves excluído e todo o seu conteúdo.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
@@ -132,7 +132,7 @@ Quando você exclui uma chave em um cofre de chaves com exclusão reversível ha
 
 Assim como os cofres das chaves, uma chave, segredo ou certificado excluído permanecem no estado excluído por até 90 dias, a menos que você os recupere ou purga.
 
-#### <a name="keys"></a>Chaves
+#### <a name="keys"></a>simétricas
 
 Para recuperar uma chave excluída:
 

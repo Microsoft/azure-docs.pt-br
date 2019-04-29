@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.openlocfilehash: 8c081c6436939089565425a0f14bbf1856ca7ce8
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536756"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61230605"
 ---
 # <a name="azure-database-for-mysql-migration-partners"></a>Banco de Dados do Azure para parceiros de migração do MySQL
 Para dar suporte amplo à solução do Banco de Dados do Azure para MySQL, é possível escolher entre uma ampla variedade de ferramentas e parceiros líderes do setor. Este artigo destaca os parceiros da Microsoft com soluções de migração que dão suporte para Banco de Dados do Azure para MySQL.

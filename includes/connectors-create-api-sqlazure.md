@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/15/2018
 ms.author: estfan
 ms.custom: include file
-ms.openlocfilehash: 4ffda692da0ab7b63f7376c36dfab0bec914e334
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: da03c5247b8ebe0a3305b08a05d661264497663f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37138058"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540681"
 ---
 * Se você estiver usando o banco de dados do SQL do Microsoft Azure, siga as etapas em [Conectar-se ao Banco de Dados SQL do Azure](#connect-azure-sql-db). 
 
@@ -45,7 +45,7 @@ ms.locfileid: "37138058"
    <br>
    Asteriscos (*) indicam valores necessários.
 
-   | Propriedade | Valor | Detalhes | 
+   | Propriedade | Value | Detalhes | 
    |----------|-------|---------| 
    | Nome da Conexão | <*my-sql-connection*> | O nome para a sua conexão | 
    | Nome do SQL Server | <*my-sql-server*> | O nome para o seu SQL Server |
@@ -96,7 +96,7 @@ Antes de selecionar seu gateway, verifique se você já [configurou seu gateway 
    <br>
    Asteriscos (*) indicam valores necessários.
 
-   | Propriedade | Valor | Detalhes | 
+   | Propriedade | Value | Detalhes | 
    |----------|-------|---------| 
    | Conectar-se por meio do gateway local | Selecione essa opção primeiro para as configurações do SQL Server. | | 
    | Nome da Conexão | <*my-sql-connection*> | O nome para a sua conexão | 
@@ -104,7 +104,7 @@ Antes de selecionar seu gateway, verifique se você já [configurou seu gateway 
    | Nome do Banco de Dados SQL | <*my-sql-database*>  | O nome para o seu banco de dados SQL |
    | Nome de Usuário | <*my-sql-username*> | Nome de usuário para acessar o banco de dados |
    | Senha | <*my-sql-password*> | Senha para acessar o banco de dados | 
-   | Tipo de autenticação | Windows ou Basic | Opcional: O tipo de autenticação usado pelo seu SQL Server | 
+   | Tipo de autenticação | Windows ou Basic | Opcional: O tipo de autenticação usado pelo SQL server | 
    | Gateways | <*my-data-gateway*> | O nome do seu gateway de dados local | 
    |||| 
 

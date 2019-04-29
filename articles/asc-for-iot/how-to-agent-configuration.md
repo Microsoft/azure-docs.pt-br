@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 1e212e752309fd8347836d462a3394da2fca4a15
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58862770"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61358516"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: Configurar agentes de segurança
 
@@ -136,7 +136,7 @@ Valores padrão estão disponíveis no esquema adequado no [Github](https://aka.
 |Linha de base do sistema operacional| eventPriorityOSBaseline| Baixo|True|Verifique se o instantâneo de linha de base do dispositivo do sistema operacional.|
  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Entender o ASC para recomendações de IoT](concept-recommendations.md)
 - [Explore o ASC para alertas de IoT](concept-security-alerts.md)

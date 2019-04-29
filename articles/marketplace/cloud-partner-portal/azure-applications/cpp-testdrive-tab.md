@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
 ms.openlocfilehash: d51c7330acd37d8a861c136ea85a2ff456eb264e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446479"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744698"
 ---
 # <a name="azure-applications-test-drive-tab"></a>Guia Test Drive de aplicativos do Azure
 
@@ -62,9 +62,9 @@ A tabela a seguir descreve os campos necessários para configurar o test drive p
 
 |    **Campo**       |  **Descrição**  |
 |  ---------------   |  ---------------  |
-|      Descrição              |   Descreva o que pode ser feito em seu test drive. Você pode usar marcas HTML básicas para formatar essa descrição. Por exemplo, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; e títulos.                |
+|      DESCRIÇÃO              |   Descreva o que pode ser feito em seu test drive. Você pode usar marcas HTML básicas para formatar essa descrição. Por exemplo, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; e títulos.                |
 |    Manual do usuário                |     Faça upload de um manual do usuário que seus clientes podem usar para percorrer a experiência do test drive. Esse documento deve ser um arquivo .pdf.              |
-|         Vídeo de demonstração do test drive (opcional)           |       Você pode fornecer um vídeo com um passo a passo do test drive. Um cliente pode assistir a esse vídeo antes fazer o test drive. Forneça uma URL para o vídeo no YouTube ou Vimeo. Se selecionar **+ Adicionar Vídeo**, você será solicitado a fornecer as seguintes informações:<ul><li>Nome</li><li>URL</li><li>Miniatura (formato PNG, 533 x 324 pixels)</li></ul>            |
+|         Vídeo de demonstração do test drive (opcional)           |       Você pode fornecer um vídeo com um passo a passo do test drive. Um cliente pode assistir a esse vídeo antes fazer o test drive. Forneça uma URL para o vídeo no YouTube ou Vimeo. Se selecionar **+ Adicionar Vídeo**, você será solicitado a fornecer as seguintes informações:<ul><li>NOME</li><li>URL</li><li>Miniatura (formato PNG, 533 x 324 pixels)</li></ul>            |
 |       Instâncias             |        Configure a quantidade de instâncias que deseja, em quais regiões e em que velocidade seus clientes podem obter o test drive. Para obter mais informações, confira [Como publicar um test drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive#how-to-publish-a-test-drive).           |
 |       Duração do Test Drive (horas)             |       Insira um número inteiro para o número de horas. O intervalo permitido é de 1 a 999.            |
 |        Modelo ARM de test drive            |        Carregue um arquivo compactado (.zip) que tem os modelos do Azure Resource Manager para seu aplicativo. Para obter mais informações, confira [Test drive do Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).            |

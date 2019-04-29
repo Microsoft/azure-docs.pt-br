@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: thweiss
 ms.openlocfilehash: 67bc3076be91ade140b39b7dd8037299902546a9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005087"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61046311"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 
@@ -101,7 +101,7 @@ Ao trabalhar com as políticas de indexação, você pode encontrar os seguintes
 - `precision` um número é definido no nível do índice para caminhos incluídos. Ele agora é ignorado e pode ser definido como `-1`, quando a ferramenta que você está usando requer a ele.
 - `hash` é um tipo de índice que está sendo substituído pelo tipo de intervalo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Leia mais sobre indexação nos artigos a seguir:
 

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 55ff6d37f18f4ffa2f12e17bd33dd196b77f79af
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025769"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473052"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copiar dados do Sybase usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,13 +54,13 @@ As propriedades a seguir têm suporte para o serviço vinculado do Sybase:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Sybase** | SIM |
-| Servidor | Nome do servidor do Sybase. |SIM |
-| Banco de Dados | Nome do banco de dados do Sybase. |SIM |
-| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados Sybase.<br/>Valores permitidos são: **Básica** e **Windows**. |SIM |
-| Nome de Usuário | Especifique o nome de usuário para se conectar ao banco de dados Sybase. |SIM |
-| Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |SIM |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |SIM |
+| type | A propriedade type deve ser definida como: **Sybase** | Sim |
+| Servidor | Nome do servidor do Sybase. |Sim |
+| Banco de Dados | Nome do banco de dados do Sybase. |Sim |
+| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados Sybase.<br/>Valores permitidos são: **Básico** e **Windows**. |Sim |
+| Nome de Usuário | Especifique o nome de usuário para se conectar ao banco de dados Sybase. |Sim |
+| Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |Sim |
 
 **Exemplo:**
 
@@ -95,7 +95,7 @@ Para copiar dados do Sybase, defina a propriedade type do conjunto de dados como
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | SIM |
+| type | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
 | tableName | Nome da tabela no banco de dados do Sybase. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -124,7 +124,7 @@ Para copiar dados do Sybase, defina o tipo de origem na atividade de cópia como
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | SIM |
+| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

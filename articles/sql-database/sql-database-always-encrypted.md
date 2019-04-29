@@ -14,11 +14,11 @@ ms.reviwer: ''
 manager: craigg
 ms.date: 03/08/2019
 ms.openlocfilehash: 5226ec05af95cf305008968cf945070532274ee5
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726933"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61419947"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: proteger dados confidenciais e armazenar suas chaves de criptografia no repositório de certificados do Windows
 

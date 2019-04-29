@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
 ms.openlocfilehash: a1850ecfbb21eb9495bb0e6de362dc8dee3026a2
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242353"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60609571"
 ---
 # <a name="azure-security-and-compliance-blueprint---data-warehouse-for-nist-sp-800-171"></a>Blueprint de segurança e conformidade do Azure - Data Warehouse para NIST SP 800-171
 
@@ -50,7 +50,7 @@ A solução usa os serviços do Azure a seguir. Para obter mais informações, c
     - Testemunha e nós de cluster do SQL Server
 - Azure Active Directory
 - Catálogo de Dados do Azure
-- Cofre da Chave do Azure
+- Cofre de Chaves Azure
 - O Azure Monitor (logs)
 - Central de Segurança do Azure
 - Azure Load Balancer

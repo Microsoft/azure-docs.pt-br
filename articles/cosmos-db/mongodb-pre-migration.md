@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: roaror
 ms.openlocfilehash: 476a143555323bbb5058541000a5b1a26d23b71a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013299"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61330733"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Etapas de antes da migração para migrações de dados do MongoDB à API do Azure Cosmos DB para MongoDB
 
@@ -83,10 +83,10 @@ Por padrão, o Azure Cosmos DB indexa todos os seus campos de dados após a inge
 
 [Serviço de migração de banco de dados do Azure](../dms/tutorial-mongodb-cosmos-db.md) migra automaticamente as coleções do MongoDB com índices exclusivos. No entanto, os índices exclusivos devem ser criados antes da migração. O Azure Cosmos DB não suporta a criação de índices exclusivos, quando já houver dados em suas coleções. Para obter mais informações, veja [Chaves exclusivas no Azure Cosmos DB](unique-keys.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Migre os dados do MongoDB para o Cosmos DB usando o serviço de migração de banco de dados.](../dms/tutorial-mongodb-cosmos-db.md) 
 * [Provisionar a produtividade em contêineres do Cosmos do Azure e bancos de dados](set-throughput.md)
 * [Particionamento no Azure Cosmos DB](partition-data.md)
 * [Distribuição global no Azure Cosmos DB](distribute-data-globally.md)
 * [Indexação no Azure Cosmos DB](index-overview.md)
-* [Unidades de solicitação no Azure Cosmos DB](request-units.md)
+* [Unidades de Solicitação no Azure Cosmos DB](request-units.md)

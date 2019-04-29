@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: cf015f4857a22b755813d0be1af5a55a8b7b6535
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.openlocfilehash: 74a46c7788b0a0dc729ab977489ed6d97a387a6e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360465"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60619281"
 ---
 # <a name="microsoft-cloud-services-and-network-security"></a>Segurança de rede e serviços em nuvem da Microsoft
 Os serviços em nuvem da Microsoft entregam serviços e estrutura em larga escala, recursos de nível empresarial e várias opções de conectividade híbrida. Os clientes podem optar por acessar esses serviços através da Internet ou com a Azure ExpressRoute, que fornece conectividade de rede privada. A plataforma Microsoft Azure permite que os clientes estendam facilmente sua infra-estrutura para a nuvem e criem arquiteturas com várias camadas. Além disso, terceiros podem habilitar recursos avançados oferecendo serviços de segurança e soluções de virtualização. Este white paper fornece uma visão geral sobre segurança e problemas de arquitetura que os clientes devem considerar ao usar os serviços em nuvem da Microsoft acessados através do ExpressRoute. Ele também aborda a criação de serviços mais seguros em redes virtuais do Azure.
@@ -28,13 +28,13 @@ Os serviços em nuvem da Microsoft entregam serviços e estrutura em larga escal
 O gráfico lógico a seguir pode direcioná-lo a um exemplo específico das várias técnicas de segurança disponíveis na plataforma Azure. Para referência rápida, encontre o exemplo que melhor se ajusta a seu caso. Para obter explicações mais completas, continue lendo o artigo.
 [![0]][0]
 
-[Exemplo 1: crie uma rede de perímetro (também conhecida como DMZ, zona desmilitarizada ou sub-rede filtrada) para ajudar a proteger aplicativos com NSGs (grupos de segurança de rede).](#example-1-build-a-perimeter-network-to-help-protect-applications-with-nsgs)</br>
-[Exemplo 2: crie uma rede de perímetro para ajudar a proteger aplicativos com um firewall e NSGs.](#example-2-build-a-perimeter-network-to-help-protect-applications-with-a-firewall-and-nsgs)</br>
-[Exemplo 3: crie uma rede de perímetro para ajudar a proteger as redes com um firewall, UDR (rota definida pelo usuário) e NSG.](#example-3-build-a-perimeter-network-to-help-protect-networks-with-a-firewall-and-udr-and-nsg)</br>
-[Exemplo 4: adicione uma conexão híbrida com uma VPN (rede privada virtual) site a site de solução de virtualização.](#example-4-add-a-hybrid-connection-with-a-site-to-site-virtual-appliance-vpn)</br>
-[Exemplo 5: adicionar uma conexão híbrida com um gateway de VPN site a site do Azure.](#example-5-add-a-hybrid-connection-with-a-site-to-site-azure-vpn-gateway)</br>
-[Exemplo 6: adicione uma conexão híbrida com o ExpressRoute](#example-6-add-a-hybrid-connection-with-expressroute)</br>
-Exemplos para adicionar conexões entre redes virtuais, alta disponibilidade e encadeamento de serviços serão adicionados a esse documento durante os próximos meses.
+[Exemplo 1: Crie uma rede de perímetro (também conhecida como DMZ, zona desmilitarizada ou sub-rede filtrada) para ajudar a proteger aplicativos com grupos de segurança de rede (NSGs).](#example-1-build-a-perimeter-network-to-help-protect-applications-with-nsgs)</br>
+[Exemplo 2: Crie uma rede de perímetro para ajudar a proteger aplicativos com um firewall e NSGs.](#example-2-build-a-perimeter-network-to-help-protect-applications-with-a-firewall-and-nsgs)</br>
+[Exemplo 3: Crie uma rede de perímetro para ajudar a proteger redes com um firewall, uma rota definida pelo usuário (UDR) e um NSG.](#example-3-build-a-perimeter-network-to-help-protect-networks-with-a-firewall-and-udr-and-nsg)</br>
+[Exemplo 4: Adicione uma conexão híbrida com uma dispositivo virtual site a site, rede virtual privada (VPN).](#example-4-add-a-hybrid-connection-with-a-site-to-site-virtual-appliance-vpn)</br>
+[Exemplo 5: Adicione uma conexão híbrida com um gateway de VPN do Azure site a site.](#example-5-add-a-hybrid-connection-with-a-site-to-site-azure-vpn-gateway)</br>
+[Exemplo 6: Adicione uma conexão híbrida com o ExpressRoute.](#example-6-add-a-hybrid-connection-with-expressroute)</br>
+ Exemplos para adicionar conexões entre redes virtuais, alta disponibilidade e encadeamento de serviços serão adicionados a esse documento durante os próximos meses.
 
 ## <a name="microsoft-compliance-and-infrastructure-protection"></a>Proteção de infraestrutura e conformidade da Microsoft
 Para ajudar as organizações a atender os requisitos regionais, nacionais e específicos do setor que controlam a coleta e o uso de dados de indivíduos, a Microsoft oferece mais de 40 certificações e atestados. O conjunto mais abrangente de qualquer provedor de serviços de nuvem.
@@ -76,24 +76,24 @@ A próxima seção fornece uma visão geral das redes virtuais do Azure. As rede
 ## <a name="overview-of-azure-virtual-networks"></a>Visão geral das redes virtuais do Azure
 Antes que o tráfego da Internet possa acessar as redes virtuais do Azure, há duas camadas de segurança inerentes à plataforma Azure:
 
-1.    **Proteção DDoS**: a proteção DDoS é uma camada de rede física do Azure que protege a plataforma do Azure em si contra ataques em larga escala baseados na Internet. Esses ataques usam vários nós de "bot" em uma tentativa de sobrecarregar um serviço de Internet. O Azure tem uma malha de proteção sólida contra DDoS em todas as conexões de entrada, saída e entre regiões do Azure. Essa camada de proteção contra DDoS não tem atributos configuráveis pelo usuário e não é acessível ao cliente. A camada de proteção contra DDoS protege o Azure como uma plataforma de ataques em grande escala, além de monitorar o tráfego de saída e o tráfego entre regiões do Azure. Usando soluções de virtualização de rede na VNet, camadas adicionais de resiliência podem ser configuradas pelo cliente contra um ataque de menor escala que não ative a proteção no nível de plataforma. Um exemplo de DDoS em ação: se um endereço IP voltado para a Internet fosse atacado por um ataque de DDoS em larga escala, o Azure detectaria as origens dos ataques e eliminaria o tráfego ofensivo antes que este atingisse seu destino pretendido. Em quase todos os casos, o ponto de extremidade atacado não é afetado pelo ataque. Nos raros casos em que um ponto de extremidade é afetado, nenhum tráfego é afetado para outros pontos de extremidade, apenas para o ponto de extremidade atacado. Assim, outros clientes e serviços não veem nenhum impacto vindo desse ataque. É fundamental observar que o Azure DDoS está procurando apenas por ataques em grande escala. É possível que seu serviço específico seja sobrecarregado antes que os limites de proteção no nível de plataforma sejam excedidos. Por exemplo, um site da Web em um único servidor IIS A0 poderia ficar offline devido a um ataque de DDoS antes que a proteção contra DDoS no nível de plataforma do Azure registrasse uma ameaça.
+1.    **Proteção contra DDoS**: Proteção contra DDoS é uma camada de rede física do Azure que protege a própria plataforma do Azure contra ataques baseados na Internet em grande escala. Esses ataques usam vários nós de "bot" em uma tentativa de sobrecarregar um serviço de Internet. O Azure tem uma malha de proteção sólida contra DDoS em todas as conexões de entrada, saída e entre regiões do Azure. Essa camada de proteção contra DDoS não tem atributos configuráveis pelo usuário e não é acessível ao cliente. A camada de proteção contra DDoS protege o Azure como uma plataforma de ataques em grande escala, além de monitorar o tráfego de saída e o tráfego entre regiões do Azure. Usando soluções de virtualização de rede na VNet, camadas adicionais de resiliência podem ser configuradas pelo cliente contra um ataque de menor escala que não ative a proteção no nível de plataforma. Um exemplo de DDoS em ação: se um endereço IP voltado para a Internet fosse atacado por um ataque de DDoS em larga escala, o Azure detectaria as origens dos ataques e eliminaria o tráfego ofensivo antes que este atingisse seu destino pretendido. Em quase todos os casos, o ponto de extremidade atacado não é afetado pelo ataque. Nos raros casos em que um ponto de extremidade é afetado, nenhum tráfego é afetado para outros pontos de extremidade, apenas para o ponto de extremidade atacado. Assim, outros clientes e serviços não veem nenhum impacto vindo desse ataque. É fundamental observar que o Azure DDoS está procurando apenas por ataques em grande escala. É possível que seu serviço específico seja sobrecarregado antes que os limites de proteção no nível de plataforma sejam excedidos. Por exemplo, um site da Web em um único servidor IIS A0 poderia ficar offline devido a um ataque de DDoS antes que a proteção contra DDoS no nível de plataforma do Azure registrasse uma ameaça.
 
-2.  **Endereços IP públicos**: endereços IP públicos (habilitados por meio de pontos de extremidade de serviço, endereços IP públicos, Gateway de Aplicativo e outros recursos do Azure que apresentam um endereço IP público para a Internet roteado para o seu recurso) permitem que serviços de nuvem ou grupos de recursos tenham portas e endereços IP públicos de Internet expostos. O ponto de extremidade usa NAT (Conversão de Endereços de Rede) para rotear o tráfego para a porta e endereço internos na rede virtual do Azure. Esse caminho é a principal rota para que o tráfego externo passe para dentro da rede virtual. Os endereços IP públicos são configuráveis pelo usuário para determinar tanto qual tráfego pode passar quanto como e para onde esse tráfego deve ser convertido na rede virtual.
+2.  **Endereços IP públicos**: IP público endereços (habilitados por meio de pontos de extremidade de serviço, endereços IP públicos, Gateway de aplicativo e outros recursos do Azure que apresentam um endereço IP público para a internet roteado para o recurso) permitem que nuvem serviços ou grupos de recursos ter um IP público de Internet endereços e portas expostas. O ponto de extremidade usa NAT (Conversão de Endereços de Rede) para rotear o tráfego para a porta e endereço internos na rede virtual do Azure. Esse caminho é a principal rota para que o tráfego externo passe para dentro da rede virtual. Os endereços IP públicos são configuráveis pelo usuário para determinar tanto qual tráfego pode passar quanto como e para onde esse tráfego deve ser convertido na rede virtual.
 
 Depois que o tráfego alcança a rede virtual, há muitos recursos que entram em cena. Redes virtuais do Azure são a base para que clientes possam anexar suas cargas de trabalho e o local em que a segurança no nível da rede básica se aplica. É uma rede privada (uma sobreposição de rede virtual) no Azure para clientes com os seguintes recursos e características:
 
-* **Isolamento de tráfego**: uma rede virtual é o limite de isolamento de tráfego na plataforma Azure. As VMs (máquinas virtuais) em uma rede virtual não podem comunicar-se diretamente com VMs em uma rede virtual diferente, mesmo que ambas as redes virtuais sejam criadas pelo mesmo cliente. Isolamento é uma propriedade vital que garante que as VMs e as comunicações do cliente permaneçam privadas em uma rede virtual.
+* **Isolamento de tráfego**: Uma rede virtual é o limite de isolamento de tráfego na plataforma do Azure. As VMs (máquinas virtuais) em uma rede virtual não podem comunicar-se diretamente com VMs em uma rede virtual diferente, mesmo que ambas as redes virtuais sejam criadas pelo mesmo cliente. Isolamento é uma propriedade vital que garante que as VMs e as comunicações do cliente permaneçam privadas em uma rede virtual.
 
 >[!NOTE]
 >O isolamento de tráfego refere-se apenas ao tráfego *de entrada* para a rede virtual. Por padrão, o tráfego de saída da VNet para Internet é permitido, mas pode ser evitado se desejado por NSGs.
 >
 >
 
-* **Topologia multicamada**: as redes virtuais permitem que os clientes definam a topologia multicamada alocando sub-redes e designando os espaços de endereço separados para elementos ou "camadas" diferentes de suas cargas de trabalho. Esses agrupamentos e topologias lógicos permitem que os clientes definam políticas de acesso diferentes baseadas nos tipos de carga de trabalho e também controlam fluxos de tráfego entre as camadas.
-* **Conectividade entre locais**: os clientes podem estabelecer a conectividade entre locais entre uma rede virtual e vários sites locais ou outras redes virtuais no Azure. Para criar uma conexão, os clientes podem usar o emparelhamento de VNet, Gateways de VPN do Azure, soluções de virtualização de rede de terceiros ou ExpressRoute. O Azure dá suporte a VPNs site a site (S2S) usando protocolos padrão de IPsec/IKE e conectividade privada de ExpressRoute.
+* **Topologia de multicamadas**: Redes virtuais permitem que os clientes definam a topologia multicamada alocando sub-redes e designando espaços de endereço separados para diferentes elementos ou "camadas" de suas cargas de trabalho. Esses agrupamentos e topologias lógicos permitem que os clientes definam políticas de acesso diferentes baseadas nos tipos de carga de trabalho e também controlam fluxos de tráfego entre as camadas.
+* **Conectividade entre locais**: Os clientes podem estabelecer conectividade entre locais entre uma rede virtual e vários sites locais ou outras redes virtuais no Azure. Para criar uma conexão, os clientes podem usar o emparelhamento de VNet, Gateways de VPN do Azure, soluções de virtualização de rede de terceiros ou ExpressRoute. O Azure dá suporte a VPNs site a site (S2S) usando protocolos padrão de IPsec/IKE e conectividade privada de ExpressRoute.
 * **NSG** permite que os clientes criem regras (ACLs) no nível desejado de granularidade: sub-redes virtuais, VMs individuais ou interfaces de rede. Os clientes podem controlar o acesso permitindo ou negando a comunicação entre as cargas de trabalho em uma rede virtual, de sistemas nas redes do cliente por meio de conectividade entre locais ou comunicação direta via Internet.
 * **UDR** e **Encaminhamento IP** permitem que os clientes definam os caminhos de comunicação entre camadas diferentes em uma rede virtual. Os clientes podem implantar firewall, IDS/IPS e outras soluções de virtualização, além de rotear o tráfego de rede por meio dessas soluções de segurança para a aplicação, auditoria e inspeção das políticas de limites de segurança.
-* **Soluções de virtualização de rede** no Azure Marketplace: dispositivos de segurança, como firewalls, balanceadores de carga e IDS/IPS estão disponíveis no Azure Marketplace e na Galeria de Imagens de VM. Os clientes podem implantar essas soluções em suas redes virtuais e, especificamente, em seus limites de segurança (incluindo as sub-redes da rede de perímetro) para completar um ambiente de rede segura com várias camadas.
+* **Soluções de virtualização de rede** no Azure Marketplace: Dispositivos de segurança, como firewalls, balanceadores de carga e IDS/IPS estão disponíveis no Azure Marketplace e a Galeria de imagens de VM. Os clientes podem implantar essas soluções em suas redes virtuais e, especificamente, em seus limites de segurança (incluindo as sub-redes da rede de perímetro) para completar um ambiente de rede segura com várias camadas.
 
 Com esses recursos e funções, um exemplo de como uma arquitetura de rede de perímetro poderia ser criada no Azure é a mostrada no seguinte diagrama:
 
@@ -122,19 +122,19 @@ Algumas das características de uma boa rede de perímetro, referenciando a figu
 ### <a name="perimeter-network-requirements"></a>Requisitos de rede de perímetro
 Para habilitar essas características, siga essas diretrizes sobre requisitos de rede virtual para implementar uma rede de perímetro com êxito:
 
-* **Arquitetura de sub-rede:** especifique a rede virtual de modo que uma sub-rede inteira seja dedicada como a rede de perímetro, separada de outras sub-redes na mesma rede virtual. Essa separação garante o tráfego entre a rede de perímetro e outras camadas de sub-rede internas ou privadas flua por meio de um firewall ou solução de virtualização IDS/IPS.  Rotas definidas pelo usuário nas sub-redes de limite são necessárias para encaminhar esse tráfego para a solução de virtualização.
-* **NSG:** a sub-rede da rede de perímetro em si deve estar aberta para permitir a comunicação com a Internet, mas isso não significa que os clientes devem ignorar os NSGs. Siga as práticas de segurança comuns para minimizar as superfícies de rede expostas à Internet. Bloqueie os intervalos de endereços remotos com permissão para acessar as implantações ou os protocolos de aplicativo específicos e as portas que estão abertas. Pode haver circunstâncias, porém, em que um bloqueio total não é possível. Por exemplo, se os clientes têm um site externo no Azure, a rede de perímetro deve permitir solicitações de entrada da Web de endereços IP públicos, mas só deve abrir as portas do aplicativo Web: TCP na porta 80 e/ou TCP na porta 443.
-* **Tabela de roteamento:** a sub-rede da rede de perímetro em si deve ser capaz de se comunicar diretamente com a Internet, mas não deve permitir a comunicação direta de e para o back-end ou em redes locais sem passar por um dispositivo de firewall ou de segurança.
-* **Configuração de dispositivo de segurança:** para rotear e inspecionar os pacotes entre a rede de perímetro e o restante das redes protegidas, os dispositivos de segurança como dispositivos IPS, IDS e firewall podem ter vários locais de origem. Eles podem ter NICs separadas para a rede de perímetro e as sub-redes de back-end. As NICs na rede de perímetro se comunicarão diretamente de e para a Internet, com os NSGs correspondentes e a tabela de roteamento da rede de perímetro. As NICs conectadas às sub-redes de back-end têm NSGs e tabelas de roteamento mais restritos das sub-redes correspondentes do back-end.
-* **Funcionalidade de dispositivo de segurança:** os dispositivos de segurança implantados na rede de perímetro normalmente executam a seguinte funcionalidade:
-  * Firewall: imposição de regras de firewall ou políticas de controle de acesso para solicitações de entrada.
-  * Detecção e prevenção de ameaças: detecta ameaças e atenua ataques da Internet.
-  * Auditoria e registro em log: mantém logs detalhados de auditoria e análise.
-  * Proxy reverso: redireciona as solicitações de entrada para os servidores back-end correspondentes. Esse redirecionamento envolve o mapeamento e conversão de endereços de destino nos dispositivos de front-end, normalmente firewalls, para os endereços de servidores back-end.
-  * Proxy de encaminhamento: fornece NAT e também realiza auditoria para a comunicação iniciada de dentro da rede virtual para a Internet.
-  * Roteador: encaminha tráfego de entrada de sub-rede e entre sub-redes dentro da rede virtual.
-  * Dispositivo VPN: atua como os gateways de VPN entre instalações para conectividade VPN entre instalações entre redes locais do cliente e redes virtuais do Azure.
-  * Servidor VPN: aceita clientes VPN que se conectam a redes virtuais do Azure.
+* **Arquitetura de sub-rede:** Especifique a rede virtual, de modo que uma sub-rede inteira seja dedicada como a rede de perímetro, separada de outras sub-redes na mesma rede virtual. Essa separação garante o tráfego entre a rede de perímetro e outras camadas de sub-rede internas ou privadas flua por meio de um firewall ou solução de virtualização IDS/IPS.  Rotas definidas pelo usuário nas sub-redes de limite são necessárias para encaminhar esse tráfego para a solução de virtualização.
+* **NSG:** A sub-rede de rede de perímetro em si deve estar aberta para permitir a comunicação com a Internet, mas isso não significa que os clientes devem ignorar os NSGs. Siga as práticas de segurança comuns para minimizar as superfícies de rede expostas à Internet. Bloqueie os intervalos de endereços remotos com permissão para acessar as implantações ou os protocolos de aplicativo específicos e as portas que estão abertas. Pode haver circunstâncias, porém, em que um bloqueio total não é possível. Por exemplo, se os clientes têm um site externo no Azure, a rede de perímetro deve permitir que as solicitações de entrada da web de endereços IP públicos, mas só deve abrir as portas do aplicativo web: TCP na porta 80 e/ou TCP na porta 443.
+* **Tabela de roteamento:** A sub-rede de rede de perímetro em si deve ser capaz de se comunicar diretamente com a Internet, mas não deve permitir a comunicação direta de e para as redes de back-end ou em locais sem passar por meio de um dispositivo de firewall ou de segurança.
+* **Configuração de dispositivo de segurança:** Para rotear e inspecionar os pacotes entre a rede de perímetro e o restante das redes protegidas, os dispositivos de segurança, como firewall, IDS e IPS dispositivos podem ser multihomed. Eles podem ter NICs separadas para a rede de perímetro e as sub-redes de back-end. As NICs na rede de perímetro se comunicarão diretamente de e para a Internet, com os NSGs correspondentes e a tabela de roteamento da rede de perímetro. As NICs conectadas às sub-redes de back-end têm NSGs e tabelas de roteamento mais restritos das sub-redes correspondentes do back-end.
+* **Funcionalidade de dispositivo de segurança:** Os dispositivos de segurança implantados na rede de perímetro normalmente executam a seguinte funcionalidade:
+  * Firewall: Imposição de regras de firewall ou políticas de controle de acesso para solicitações de entrada.
+  * Detecção de ameaças e prevenção de: Detectando e atenua ataques da Internet.
+  * Auditoria e registro: Mantém logs detalhados de auditoria e análise.
+  * Proxy reverso: Redirecionar as solicitações de entrada para os servidores de back-end correspondentes. Esse redirecionamento envolve o mapeamento e conversão de endereços de destino nos dispositivos de front-end, normalmente firewalls, para os endereços de servidores back-end.
+  * Proxy de encaminhamento: Fornece NAT e realiza auditoria para a comunicação iniciada de dentro da rede virtual com a Internet.
+  * Roteador: Encaminhar o tráfego de entrada e entre sub-redes dentro da rede virtual.
+  * Dispositivo VPN: Atuando como os gateways VPN entre instalações para conectividade VPN entre locais entre redes de local de cliente e redes virtuais do Azure.
+  * Servidor VPN: Aceitando a clientes VPN conectando redes virtuais do Azure.
 
 > [!TIP]
 > Mantenha os dois grupos a seguir separados: as pessoas autorizadas a acessar o mecanismo de segurança da rede de perímetro e as pessoas autorizadas como administradores de operações, implantação ou desenvolvimento de aplicativos. Manter esses grupos separados permite uma diferenciação de deveres e impede que uma única pessoa ignore controles de segurança de aplicativos e de rede.
@@ -151,10 +151,10 @@ Além disso, as redes virtuais do Azure geralmente são usadas para estender red
 #### <a name="1-how-many-boundaries-are-needed"></a>1) Quantos limites são necessários?
 O primeiro ponto de decisão é decidir quantos limites de segurança são necessários em um determinado cenário:
 
-* Um único limite: um na rede de perímetro de front-end, entre a rede virtual e a Internet.
-* Dois limites: um do lado da Internet da rede de perímetro, outro entre a sub-rede da rede de perímetro e as sub-redes de back-end nas redes virtuais do Azure.
-* Três limites: o primeiro do lado da Internet da rede de perímetro, o segundo entre a sub-rede da rede de perímetro e as sub-redes de back-end e o terceiro entre as sub-redes de back-end e a rede local.
-* Limites de N: um número variável. Dependendo dos requisitos de segurança, pode-se aplicar qualquer número de limites de segurança a uma determinada rede.
+* Um único limite: Um na rede de perímetro de front-end, entre a rede virtual e a Internet.
+* Dois limites: Um no lado da Internet da rede de perímetro e outro entre a sub-rede da rede de perímetro e as sub-redes de back-end nas redes virtuais do Azure.
+* Três limites: No lado da Internet da rede de perímetro entre a rede de perímetro e as sub-redes de back-end e uma entre as sub-redes de back-end e a rede local.
+* Limites de N: Um número variável. Dependendo dos requisitos de segurança, pode-se aplicar qualquer número de limites de segurança a uma determinada rede.
 
 O número e tipo dos limites necessários variam dependendo da tolerância a riscos da empresa e do cenário específico que está sendo implementado. Geralmente essa é uma decisão conjunta tomada por vários grupos dentro de uma organização, muitas vezes incluindo uma equipe de risco e conformidade, uma equipe de rede e plataforma e uma equipe de desenvolvimento de aplicativos. As pessoas com conhecimento de segurança, os dados envolvidos e as tecnologias usadas devem pesar na decisão para garantir a postura de segurança apropriada em cada implementação.
 
@@ -191,7 +191,7 @@ Além disso, o tráfego entre redes virtuais no Azure pode ser necessário. Esse
 
 Depois de saber as respostas para as perguntas acima, a seção [Início Rápido](#fast-start) pode ajudá-lo a identificar quais exemplos são mais apropriados para um determinado cenário.
 
-## <a name="examples-building-security-boundaries-with-azure-virtual-networks"></a>Exemplos: criando limites de segurança com redes virtuais do Azure
+## <a name="examples-building-security-boundaries-with-azure-virtual-networks"></a>Exemplos: Criação de limites de segurança com redes virtuais do Azure
 ### <a name="example-1-build-a-perimeter-network-to-help-protect-applications-with-nsgs"></a>Exemplo 1: crie uma rede de perímetro para ajudar a proteger aplicativos com NSGs
 [Voltar ao Início rápido](#fast-start) | [Instruções detalhadas de build para este exemplo][Example1]
 
@@ -201,7 +201,7 @@ Depois de saber as respostas para as perguntas acima, a seção [Início Rápido
 Neste exemplo, há uma assinatura que contém os seguintes recursos:
 
 - Um único grupo de recursos
-- Uma rede virtual com duas sub-redes: “FrontEnd” e “BackEnd”
+- Uma rede virtual com duas sub-redes: "FrontEnd" e "BackEnd"
 - Um grupo de segurança de rede que é aplicado a ambas as sub-redes
 - Um servidor Windows que representa um servidor Web de aplicativos ("IIS01")
 - Dois servidores Windows que representam servidores de back-end de aplicativos ("AppVM01", "AppVM02")
@@ -249,7 +249,7 @@ Esse exemplo representa uma maneira relativamente simples e direta de isolar a s
 Neste exemplo, há uma assinatura que contém os seguintes recursos:
 
 * Um único grupo de recursos
-* Uma rede virtual com duas sub-redes: “FrontEnd” e “BackEnd”
+* Uma rede virtual com duas sub-redes: "FrontEnd" e "BackEnd"
 * Um grupo de segurança de rede que é aplicado a ambas as sub-redes
 * Uma solução de virtualização de rede, neste caso um firewall, conectada à sub-rede de front-end
 * Um servidor Windows que representa um servidor Web de aplicativos ("IIS01")
@@ -301,7 +301,7 @@ Este exemplo é uma maneira relativamente simples de proteger seu aplicativo com
 Neste exemplo, há uma assinatura que contém os seguintes recursos:
 
 * Um único grupo de recursos
-* Uma rede virtual com três sub-redes; “SecNet”, “FrontEnd” e “BackEnd”
+* Uma rede virtual com três sub-redes: "SecNet", "FrontEnd" e "BackEnd"
 * Uma solução de virtualização de rede, neste caso um firewall, conectada à sub-rede SecNet
 * Um servidor Windows que representa um servidor Web de aplicativos ("IIS01")
 * Dois servidores Windows que representam servidores de back-end de aplicativos ("AppVM01", "AppVM02")
@@ -388,17 +388,17 @@ No diagrama lógico anterior, a sub-rede de segurança não é mostrada porque o
 Para este exemplo, precisamos de sete tipos de regras:
 
 * Regras externas (para o tráfego de entrada):
-  1. Regra de gerenciamento de firewall: essa regra de Redirecionamento de Aplicativo permite que o tráfego passe para as portas de gerenciamento da solução de virtualização de rede.
-  2. Regras de RDP (para cada servidor Windows): essas quatro regras (uma para cada servidor) permitem o gerenciamento dos servidores individuais via RDP. As quatro regras de RDP também poderiam ser recolhidas em uma regra, dependendo dos recursos da solução de virtualização de rede usada.
-  3. Regras de tráfego do aplicativo: há duas regras desse tipo, a primeira para o tráfego da Web de front-end e a segunda para o tráfego de back-end (por exemplo, o servidor Web para a camada de dados). A configuração dessas regras depende da arquitetura de rede (na qual os servidores são colocados) e dos fluxos de tráfego (a direção na qual o tráfego flui e quais portas são usadas).
+  1. Regra de firewall de gerenciamento: essa regra de Redirecionamento de Aplicativo permite que o tráfego passe para as portas de gerenciamento do dispositivo virtual de rede.
+  2. Regras de RDP (para cada servidor do Windows): Essas quatro regras (uma para cada servidor) permitem o gerenciamento dos servidores individuais via RDP. As quatro regras de RDP também poderiam ser recolhidas em uma regra, dependendo dos recursos da solução de virtualização de rede usada.
+  3. Regras de tráfego do aplicativo: Há duas regras desse tipo, o primeiro para o tráfego da web de front-end e o segundo para o tráfego de back-end (por exemplo, o servidor web para a camada de dados). A configuração dessas regras depende da arquitetura de rede (na qual os servidores são colocados) e dos fluxos de tráfego (a direção na qual o tráfego flui e quais portas são usadas).
      * A primeira regra permite que o tráfego de aplicativo real alcance o servidor de aplicativos. Embora as outras regras permitam segurança e gerenciamento, as regras de aplicativo são as que permitem que usuários ou serviços externos acessem os aplicativos. Neste exemplo, há um único servidor Web na porta 80. Assim, uma única regra de aplicativo de firewall redireciona o tráfego de entrada para o IP externo, para o endereço IP interno dos servidores Web. A sessão de tráfego redirecionado seria movida por meio de NAT para o servidor interno.
      * A segunda regra de tráfego é a regra de back-end que permite que o servidor Web converse com o servidor AppVM01 (mas não com AppVM02) por meio de qualquer porta.
 * Regras internas (para tráfego entre redes virtuais)
-  1. Regra de saída para Internet: essa regra permite que o tráfego de qualquer rede passe para as redes selecionadas. Normalmente, essa regra é uma regra padrão que já existe no firewall, mas em um estado desabilitado. Essa regra deve ser habilitada para esse exemplo.
+  1. Saída a regra de Internet: Essa regra permite o tráfego de qualquer rede passe para as redes selecionadas. Normalmente, essa regra é uma regra padrão que já existe no firewall, mas em um estado desabilitado. Essa regra deve ser habilitada para esse exemplo.
   2. Regra DNS: essa regra permite que somente o tráfego DNS (porta 53) passe para o servidor DNS. Para esse ambiente, a maior parte do tráfego do front-end para o back-end está bloqueado. Essa regra permite especificamente DNS de qualquer sub-rede local.
-  3. Regra sub-rede para sub-rede: essa regra permite que qualquer servidor na rede de back-end se conecte a qualquer servidor na rede de front-end (mas não o contrário).
+  3. Regra sub-rede para sub-rede: Essa regra é permitir que qualquer servidor na sub-rede de back-end para se conectar a qualquer servidor na sub-rede de front-end (mas não o contrário).
 * Regra à prova de falhas (para tráfego que não atenda a nenhum dos itens acima):
-  1. Regra negar todo o tráfego: essa deverá ser sempre a última regra (em termos de prioridade) e, como tal, se um fluxo de tráfego falhar na correspondência a todas as regras anteriores, ele será removido por essa regra. Essa regra é uma regra padrão e geralmente in-loco e ativa. Geralmente, nenhuma modificação é necessária para essa regra.
+  1. Regra nega todo o tráfego: Essa regra de negação sempre deve ser a última regra (em termos de prioridade) e como tal, se um fluxo de tráfego falhar na correspondência a todas as regras anteriores serão descartados por essa regra. Essa regra é uma regra padrão e geralmente in-loco e ativa. Geralmente, nenhuma modificação é necessária para essa regra.
 
 > [!TIP]
 > Na segunda regra de tráfego de aplicativo, para simplificar este exemplo, qualquer porta é permitida. Em um cenário real, a porta mais específica e os intervalos de endereços devem ser usados para reduzir a superfície de ataque desta regra.

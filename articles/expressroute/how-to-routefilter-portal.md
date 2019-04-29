@@ -9,11 +9,11 @@ ms.date: 09/26/2018
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 0515b5e85c3bcf56f1f238620d6036d1be0bec7e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104196"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60839166"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configurar os filtros de rota para o emparelhamento da Microsoft: Portal do Azure
 > [!div class="op_single_selector"]

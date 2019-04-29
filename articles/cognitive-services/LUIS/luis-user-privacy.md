@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: eb125133138c6de173fdeb90024a9e5d961a929d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895149"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60597092"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportar e excluir dados do cliente no LUIS (Serviço Inteligente de Reconhecimento Vocal) nos Serviços Cognitivos
 

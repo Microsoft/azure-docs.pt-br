@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
-ms.openlocfilehash: 543135db8df69db7e0e6182c9d52b9c956ee80b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8afed4eb1add0ba3a7db474e54b2f78a0babab06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996988"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60789070"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>Endereços IP Reservados (implantação clássica)
 
@@ -39,7 +39,7 @@ Para saber mais sobre endereços IP no Azure, leia o artigo [Endereços IP](virt
 
 ## <a name="faqs"></a>Perguntas frequentes
 - Posso usar um IP reservado para todos os serviços do Azure?
-     Não. Os IPs reservados só podem ser usados para VMs e funções de instância de serviço de nuvem exposto através de um VIP.
+    Não. Os IPs reservados só podem ser usados para VMs e funções de instância de serviço de nuvem exposto através de um VIP.
 - Quantos IPs reservados eu posso ter?
     Para obter detalhes, consulte o artigo [Limites do Azure](../azure-subscription-service-limits.md#networking-limits).
 - Há uma cobrança para IPs reservados?
@@ -47,7 +47,7 @@ Para saber mais sobre endereços IP no Azure, leia o artigo [Endereços IP](virt
 - Como eu reservo um endereço IP?
     É possível usar o PowerShell, a [API REST de Gerenciamento do Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx) ou o [Portal do Azure](https://portal.azure.com) para reservar um endereço IP em uma região do Azure. Um endereço IP reservado é associado à sua assinatura.
 - Posso usar um IP reservado com VNets baseadas em grupos de afinidades?
-     Não. Os IPs reservados têm suporte apenas em redes virtuais regionais. VNets associadas a grupos de afinidades não dão suporte a IPs reservados. Para obter mais informações sobre a associação de uma VNet a uma região ou a um grupo de afinidades, veja o artigo [Sobre VNets regionais e grupos de afinidades](virtual-networks-migrate-to-regional-vnet.md).
+    Não. Os IPs reservados têm suporte apenas em redes virtuais regionais. VNets associadas a grupos de afinidades não dão suporte a IPs reservados. Para obter mais informações sobre a associação de uma VNet a uma região ou a um grupo de afinidades, veja o artigo [Sobre VNets regionais e grupos de afinidades](virtual-networks-migrate-to-regional-vnet.md).
 
 ## <a name="manage-reserved-vips"></a>Gerenciar VIPs reservados
 

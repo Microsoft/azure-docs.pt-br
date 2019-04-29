@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
 ms.openlocfilehash: 8883c1e7f2874e1e2e61b8eca122f2ec294c7849
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790919"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60808944"
 ---
 # <a name="azure-monitor-data-platform"></a>Plataforma de dados do Azure Monitor
 
@@ -87,7 +87,7 @@ Além de usar as ferramentas no Azure para analisar os dados de monitoramento, p
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Leia mais sobre [métricas no Azure Monitor](data-platform-metrics.md).
 - Leia mais sobre [registra em log no Azure Monitor](data-platform-logs.md).

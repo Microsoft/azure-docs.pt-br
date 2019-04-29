@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 26041bbf392f9b2afaaf5af38f758deb7708b651
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728039"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60734976"
 ---
 # <a name="publishing-checklist-for-azure-marketplace"></a>Lista de Verificação da Publicação para Azure Marketplace    
 Examine os componentes necessários antes de iniciar o processo de publicação.  

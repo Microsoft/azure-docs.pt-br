@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: 95c2e9d3f54f967b3ebb434c742f69251b80573e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872026"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61336749"
 ---
 # <a name="query-expression-syntax"></a>Sintaxe de expressão de consulta
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/04/2019
-ms.openlocfilehash: f25bc9bc3a958b2fa97ae4d5ab3715b602110393
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4159b2e7af83030f46d5aca150ef99a1380e711f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915468"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473001"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Status de cenários de migração com suporte pelo serviço de migração de banco de dados do Azure
 Serviço de migração de banco de dados do Azure foi projetado para dar suporte a diferentes cenários de migração (pares de origem/destino) para ambos off-line (uma vez) e migrações on-line (sincronização contínua). A cobertura de cenário fornecida pelo serviço de migração de banco de dados do Azure está sendo estendida ao longo do tempo. Novos cenários são adicionados regularmente. Este artigo identifica os cenários de migração com suporte no momento pelo serviço de migração de banco de dados do Azure e o status (versão prévia privada, visualização pública ou disponibilidade geral) para cada cenário.

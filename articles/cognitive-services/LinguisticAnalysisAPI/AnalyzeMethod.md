@@ -12,11 +12,11 @@ ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 02c41e2510fd77f4bb65143faf62737f0985d2b7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431130"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61401178"
 ---
 # <a name="analyze-method"></a>Método Analisar
 
@@ -36,13 +36,13 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 ```
 <br>
 
-## <a name="request-parameters"></a>Parâmetros de solicitação
+## <a name="request-parameters"></a>Parâmetros da solicitação
 
-Nome | Tipo | Obrigatório | Descrição
+NOME | Type | Obrigatório | DESCRIÇÃO
 -----|-------|----------|------------
-**language**    | cadeia de caracteres | Sim | As duas letras do código de idioma ISO a ser usado para análise. Por exemplo, inglês é "en".
+**linguagem**    | string | Sim | As duas letras do código de idioma ISO a ser usado para análise. Por exemplo, inglês é "en".
 **analyzerIds** | lista de cadeias de caracteres | Sim | Lista de GUIDs de analisadores para aplicar. Para obter mais informações, confira a documentação do Analisadores.
-**text**        | cadeia de caracteres | Sim | Entrada bruta a ser analisada. Isso pode ser uma cadeia de caracteres curta, como uma palavra ou frase, um período completo, ou um parágrafo completo ou discurso.
+**text**        | string | Sim | Entrada bruta a ser analisada. Isso pode ser uma cadeia de caracteres curta, como uma palavra ou frase, um período completo, ou um parágrafo completo ou discurso.
 
 ## <a name="response-json"></a>Resposta (JSON)
 
@@ -50,25 +50,25 @@ Uma matriz de saídas de análise, uma para cada atributo especificado na solici
 
 Os resultados são semelhantes ao seguinte:
 
-Nome | Tipo | Descrição
+NOME | Type | DESCRIÇÃO
 -----|------|--------------
-analyzerId | cadeia de caracteres | GUID do analisador especificado
-resultado | objeto | resultado do analisador
+analyzerId | string | GUID do analisador especificado
+result | objeto | resultado do analisador
 
 Observe que o tipo do resultado depende do tipo de analisador de entrada.
 
 ### <a name="tokens-response-json"></a>Resposta de Tokens (JSON)
 
-Nome | Tipo | Descrição
+NOME | Type | DESCRIÇÃO
 -----|------|-------------
-resultado | lista de objetos de frase | limites de frase identificados dentro do texto |
+result | lista de objetos de frase | limites de frase identificados dentro do texto |
 result[x].Offset | int | deslocamento de caractere inicial de cada frase |
 result[x].Len | int | comprimento em caracteres de cada frase |
 result[x].Tokens | lista de objetos de token | limites de tokens identificados dentro da frase |
 result[x].Tokens[y].Offset | int | deslocamento de caractere inicial de token |
 result[x].Tokens[y].Len | int | comprimento em caracteres do token |
-result[x].Tokens[y].RawToken | cadeia de caracteres | os caracteres dentro desse token, antes da normalização |
-result[x].Tokens[y].NormalizedToken | cadeia de caracteres | uma forma normalizada de caractere, seguro para uso em uma [árvore de análise](Constituency-Parsing.md); por exemplo, um caractere parêntese de abertura ' (' torna-se '- LRB-' |
+result[x].Tokens[y].RawToken | string | os caracteres dentro desse token, antes da normalização |
+result[x].Tokens[y].NormalizedToken | string | uma forma normalizada de caractere, seguro para uso em uma [árvore de análise](Constituency-Parsing.md); por exemplo, um caractere parêntese de abertura ' (' torna-se '- LRB-' |
 
 Entrada de exemplo: "Este é um teste. Olá.”
 Exemplo de resposta JSON:

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
 ms.openlocfilehash: c8b5cf840b8cb5eec2a993cfe35c8a8a7ac904fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079768"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60791301"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Replicação de máquinas virtuais do Azure para outra região do Azure
 
@@ -27,7 +27,7 @@ Este artigo pressupõe que você já tenha configurado o Site Recovery para este
 
 
 
-## <a name="enable-replication"></a>Habilitar replicação
+## <a name="enable-replication"></a>Habilitar a replicação
 
 Habilite a replicação. Este procedimento pressupõe que a região do Azure primária seja Leste da Ásia e a região secundária seja Sudeste Asiático.
 
@@ -39,7 +39,7 @@ Habilite a replicação. Este procedimento pressupõe que a região do Azure pri
    - **Assinatura do Azure**: A assinatura à qual suas máquinas virtuais de origem pertencem. Pode ser qualquer assinatura dentro do mesmo locatário do Azure Active Directory na qual existe o cofre dos serviços de recuperação.
    - **Grupo de Recursos**: O grupo de recursos ao qual suas máquinas virtuais de origem pertencem. Todas as máquinas virtuais do grupo de recursos selecionado são listadas para a proteção na próxima etapa.
 
-     ![Habilitar replicação](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
+     ![Habilitar a replicação](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
 
 3. Em **Máquinas Virtuais > Selecionar máquinas virtuais**, clique e selecione cada VM que você deseja replicar. Você só pode selecionar computadores para os quais a replicação pode ser habilitada. Em seguida, clique em **OK**.
     ![Habilitar a replicação](./media/site-recovery-replicate-azure-to-azure/virtualmachine_selection.png)
@@ -64,7 +64,7 @@ Habilite a replicação. Este procedimento pressupõe que a região do Azure pri
     
    - **Política de replicação**: Define as configurações para o histórico de retenção do ponto de recuperação e frequência de instantâneo consistente do aplicativo. Por padrão, o Azure Site Recovery cria uma nova política de replicação com configurações padrão de “24 horas” para retenção de pontos de recuperação e “60 minutos” para a frequência de instantâneo consistente do aplicativo.
 
-     ![Habilitar replicação](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
+     ![Habilitar a replicação](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
   
 ## <a name="customize-target-resources"></a>Personalizar os recursos de destino
 
@@ -78,7 +78,7 @@ Você pode modificar as configurações de destino padrão usadas pelo Site Reco
     - Em **Conjunto de disponibilidade**, você pode adicionar configurações do conjunto de disponibilidade à VM, caso elas façam parte de um conjunto de disponibilidade na região de origem.
     - Em **Contas de armazenamento de destino**, selecione a conta que você deseja usar.
 
-        ![Habilitar replicação](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
+        ![Habilitar a replicação](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
 1. Clique em **Personalizar** para modificar as configurações de replicação.
    - Em **Consistência de várias VMs**, selecione as VMs que você deseja replicar juntas 
    - Todos os computadores de um grupo de replicação terão pontos de recuperação consistentes com o aplicativo e consistentes com falhas quando passarem por failover. A habilitação da consistência de várias VMs pode afetar o desempenho da carga de trabalho (devido ao uso intensivo de CPU) e só deve ser usada se os computadores estiverem executando a mesma carga de trabalho e se você precisar de consistência entre vários computadores. Por exemplo, se um aplicativo tem duas máquinas virtuais SQL e dois servidores Web, você deve adicionar somente máquinas virtuais SQL como parte do grupo de replicação.

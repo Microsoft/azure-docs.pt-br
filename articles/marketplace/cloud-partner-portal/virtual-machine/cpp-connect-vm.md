@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: fd68846b9144c3efcc71dec369d64119427758a3
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638801"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744461"
 ---
 # <a name="connect-to-your-azure-based-virtual-machine"></a>Conectar-se à máquina virtual baseada no Azure
 
@@ -54,7 +54,7 @@ Para conectar-se a VM com base em Linux, é necessário um cliente do protocolo 
 7. Clique em **Abrir** para abrir um terminal do PuTTY.  
 8. Quando você for solicitado, insira o nome da conta e a senha da sua conta de VM do Linux. 
 
-   Se você estiver tendo problemas de conexão, consulte a documentação do cliente SSH, por exemplo [Capítulo 10: mensagens de erro comuns](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors).
+   Se você estiver tendo problemas de conexão, consulte a documentação do cliente SSH, por exemplo [capítulo 10: Mensagens de erro comuns](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors).
 
 Para obter mais informações, incluindo como adicionar uma área de trabalho a uma VM Linux provisionada, consulte [Instalar e configurar a área de trabalho remota para se conectar a uma VM do Linux no Azure](../../../virtual-machines/linux/use-remote-desktop.md).
 

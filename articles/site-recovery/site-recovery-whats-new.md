@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: raynew
-ms.openlocfilehash: fece1adc9ad2f5844a7d6cc1e0e9cc92d44de6d8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 5ee1328dddb6ae1e1c878384097b0e10aa32feeb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892924"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776281"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades do Site Recovery
 
@@ -126,7 +126,7 @@ A recuperação de desastre para VMs do Azure gera custos de licenciamento da VM
 **Atualização** | **Detalhes**
 --- | ---
 **Provedores e agentes** | Uma atualização para os agentes de recuperação de Site e provedores (conforme detalhado no valor acumulado)
-**Recuperação de desastre para Linux** | **VMs do Azure**: Adição de suporte para 6.10 de Linux do RedHat Enterprise; CentOS 6.10.<br/><br/> **VMs VMware**: RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> VMs com base em Linux, que agora há suporte para usar o estilo de partição GUID partição GPT (tabela) no modo de compatibilidade BIOS herdado.
+**Recuperação de desastre para Linux** | **VMs do Azure**: Adição de suporte para 6.10 de Linux do RedHat Enterprise; CentOS 6.10.<br/><br/> **VMs VMware**: RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> VMs com base em Linux, que agora há suporte para usar o estilo de partição GUID partição GPT (tabela) no modo de compatibilidade BIOS herdado. Ver [perguntas frequentes sobre discos de VM IaaS do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/faq-for-disks) para obter mais informações. 
 **Suporte de nuvem** | Suporte para recuperação de desastre para VMs do Azure no Germany cloud.
 **Recuperação de desastres entre assinaturas** | Suporte para replicar VMs do Azure em uma região para outra região em uma assinatura diferente, no mesmo locatário do Active Directory do Azure. [Saiba mais](https://aka.ms/cross-sub-blog).
 **Windows Server 2008** | Suporte para a migração de máquinas em execução do Windows Server 2008 R2/2008 64 bits e 32 bits.<br/><br/> Somente migração (replicação e failover). Não há suporte para failback.

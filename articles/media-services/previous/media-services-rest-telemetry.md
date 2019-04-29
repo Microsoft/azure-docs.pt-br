@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 9c654c65577c44b1773ff98cb1206beeb5206ba4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317639"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60761770"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Configurando a telemetria dos Serviços de Mídia do Azure com REST
 
@@ -46,7 +46,7 @@ As etapas descritas neste tópico são:
  
 ## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Obter a conta de armazenamento associada à conta dos Serviços de Mídia
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts HTTP/1.1
     x-ms-version: 2.13
@@ -74,7 +74,7 @@ As etapas descritas neste tópico são:
 
 ## <a name="get-the-notification-endpoints"></a>Obter os Pontos de extremidade de notificação
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
     x-ms-version: 2.13
@@ -84,7 +84,7 @@ As etapas descritas neste tópico são:
     Authorization: (redacted)
     Host: wamsbnp1clus001rest-hs.cloudapp.net
     
-### <a name="response"></a>Resposta
+### <a name="response"></a>Response
     HTTP/1.1 200 OK
     Cache-Control: no-cache
     Content-Length: 20
@@ -107,7 +107,7 @@ As etapas descritas neste tópico são:
  
 ## <a name="create-a-notification-endpoint-for-monitoring"></a>Criar um Ponto de extremidade de notificação para monitoramento
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
     x-ms-version: 2.13
@@ -128,7 +128,7 @@ As etapas descritas neste tópico são:
 > [!NOTE]
 > Não se esqueça de alterar o "https:\//telemetryvalidationstore.table.core.windows.net" valor à sua conta de armazenamento.
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>Response
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -149,7 +149,7 @@ As etapas descritas neste tópico são:
  
 ## <a name="get-the-monitoring-configurations"></a>Obter as configurações de monitoramento
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations HTTP/1.1
     x-ms-version: 2.13
@@ -159,7 +159,7 @@ As etapas descritas neste tópico são:
     Authorization: (redacted)
     Host: wamsbnp1clus001rest-hs.cloudapp.net
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>Response
     
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -179,7 +179,7 @@ As etapas descritas neste tópico são:
 
 ## <a name="add-a-monitoring-configuration"></a>Adicionar a configuração de monitoramento
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations HTTP/1.1
     x-ms-version: 2.13
@@ -201,7 +201,7 @@ As etapas descritas neste tópico são:
        ]
     }
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>Response
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -222,7 +222,7 @@ As etapas descritas neste tópico são:
 
 ## <a name="stop-telemetry"></a>Parar telemetria
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 
     DELETE https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')
     x-ms-version: 2.13

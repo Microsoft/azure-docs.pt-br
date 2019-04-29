@@ -11,11 +11,11 @@ ms.date: 04/12/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: f80c1817d5c0ce79f2dc53f40a2cc4e00dd5c72b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545549"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61420959"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Monitorando a atividade de consulta e a utilização de recursos no SQL Data Warehouse do Azure
 O SQL Data Warehouse do Azure oferece uma rica experiência de monitoramento no portal do Azure para gerar insights para sua carga de trabalho do data warehouse. O portal do Azure é a ferramenta recomendada ao monitorar seu data warehouse, pois ele fornece períodos de retenção configuráveis, alertas, recomendações e gráficos e painéis personalizáveis para métricas e logs. O portal também permite que a integração com outros serviços de monitoramento do Azure, como o Operations Management Suite (OMS) e o Azure Monitor (logs) para fornecer uma experiência holística de monitoramento para não apenas seu data warehouse, mas também sua análise do Azure inteiro plataforma para uma experiência integrada de monitoramento. Esta documentação descreve quais recursos de monitoramento estão disponíveis para otimizar e gerenciar sua plataforma de análise com o SQL Data Warehouse. 
@@ -49,7 +49,7 @@ Para exibir a lista de DMVs que o SQL Data Warehouse fornece, consulte esta [doc
 Métricas e logs podem ser exportados para o Azure Monitor, especificamente a [registra em log do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) componente e pode ser acessado programaticamente por meio [consultas de log](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata). A latência de log para o SQL Data Warehouse é cerca de 10 a 15 minutos. Para obter mais detalhes sobre os fatores que afetam a latência, visite a documentação a seguir.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Os guias de instruções a seguir descrevem cenários e casos de uso comuns ao monitorar e gerenciar seu data warehouse:
 
 - [Monitorar sua carga de trabalho do data warehouse com DMVs](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)

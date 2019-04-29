@@ -13,11 +13,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: d299a785d50657ef40c0c49cb2dce33b8939fd02
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575861"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60860977"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Transformar dados executando uma atividade de Jar no Azure Databricks
 
@@ -59,11 +59,11 @@ A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 |Propriedade|DESCRIÇÃO|Obrigatório|
 |:--|---|:-:|
 |Nome|Nome da atividade no pipeline.|Sim|
-|Descrição|Texto que descreve o que a atividade faz.|Não |
-|Tipo|Para a Atividade do Databricks Jar, o tipo de atividade é DatabricksSparkJar.|Sim|
+|description|Texto que descreve o que a atividade faz.|Não |
+|tipo|Para a Atividade do Databricks Jar, o tipo de atividade é DatabricksSparkJar.|Sim|
 |linkedServiceName|Nome do serviço vinculado ao Databricks no qual a atividade de Jar é executado. Para saber mais sobre esse serviço vinculado, consulte o artigo  [Serviços de computação vinculados](compute-linked-services.md) .|Sim|
 |mainClassName|O nome completo da classe que contém o método principal a ser executado. Essa classe deve estar contida em um JAR fornecido como uma biblioteca.|Sim|
-|parâmetros|Parâmetros que serão passados ao método principal.  Isto é uma matriz de cadeias de caracteres.|Não |
+|parameters|Parâmetros que serão passados ao método principal.  Isto é uma matriz de cadeias de caracteres.|Não |
 |bibliotecas|Uma lista de bibliotecas a serem instaladas no cluster, que executará o trabalho. Ele pode ser uma matriz de <string, object>|Sim (pelo menos um contendo o método mainClassName)|
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotecas com suporte para atividades do databricks

@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
 ms.openlocfilehash: e1e579233a5ad1af1ef8ee84019cd995959d3b2b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433766"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60712594"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referência de domínio predefinida para seu aplicativo LUIS
 Esta referência contém informações sobre o [domínios pré-compilada](luis-how-to-use-prebuilt-domains.md), que são conjuntos predefinidos de entidades que oferece LUÍS e tentativas.
@@ -26,29 +26,29 @@ Esta referência contém informações sobre o [domínios pré-compilada](luis-h
 ## <a name="list-of-prebuilt-domains"></a>Lista de domínios predefinidos
 LUIS oferece 20 domínios predefinidos. 
 
-| Domínio predefinido | Descrição | Idiomas com Suporte |
+| Domínio predefinido | DESCRIÇÃO | Idiomas com suporte |
 | ---------------- |-----------------------|:------:|
-| Calendário | O domínio de calendário fornece a intenção e entidades para adicionar, excluir, ou editar um compromisso, verificando a disponibilidade de participantes e localizar informações sobre um evento de calendário.| pt-BR<br/> zh-CN |
-| Câmera | O domínio de câmera fornece entidades e tentativas para tirar fotos, vídeos de gravação e transmitindo vídeo para um aplicativo.| pt-BR |
-| Comunicação | Envio de mensagens e chamadas telefônicas.| pt-BR <br/> zh-CN |
-| Entretenimento  | Tratamento de consultas relacionadas a música, filmes e TV.| pt-BR |
-| Eventos | Reserva de tíquetes de concertos, festivais, esportes e comédia mostra.| pt-BR |
-| Adequação | Tratar as solicitações relacionadas ao controle de atividades de adequação.| pt-BR |
-| Jogos | Tratar as solicitações relacionadas a uma parte de jogo em um jogo.| pt-BR |
-| HomeAutomation | Controlando dispositivos inteligentes de base como luzes e dispositivos.| pt-BR<br/> zh-CN |
-| MovieTickets | Permissões para filmes em um cinema de reserva.| pt-BR |
-| Música | Reproduzir música em um player de música.| pt-BR<br/> zh-CN |
-| Observação | O domínio de Observação fornece entidades relacionadas à criação, edição e localizar anotações e tentativas.| pt-BR<br/> zh-CN |
-| OnDevice | O domínio OnDevice fornece tentativas e entidades relacionadas ao controle do dispositivo.| pt-BR<br/> zh-CN |
-| Locais  | Manipulação de consultas relacionadas aos locais como as empresas, instituições, restaurantes, espaços públicos e endereços.| pt-BR<br/> zh-CN |
-| Lembrete | Tratar as solicitações relacionadas à criação, edição e localizar lembretes.| pt-BR<br/> zh-CN |
-| RestaurantReservation | Tratamento de solicitações para gerenciar reservas restaurante.| pt-BR<br/> zh-CN |
-| táxi | Reservas de tratamento para um táxi.| pt-BR<br/> zh-CN |
-| Traduzir | Convertendo texto para um idioma de destino.| pt-BR<br/> zh-CN |
-| TV | Controlando TVs.| pt-BR |
-| Utilidades  | Solicitações de manipulação que são comuns em vários domínios, como "Ajuda", "Repetir", "recomeçar".| pt-BR |
-| Clima | Obtendo boletins meteorológicos e previsões.| pt-BR<br/> zh-CN |
-| Web | Navegar para um site.| pt-BR<br/> zh-CN |
+| Calendário | O domínio de calendário fornece a intenção e entidades para adicionar, excluir, ou editar um compromisso, verificando a disponibilidade de participantes e localizar informações sobre um evento de calendário.| en-US<br/> zh-CN |
+| Câmera | O domínio de câmera fornece entidades e tentativas para tirar fotos, vídeos de gravação e transmitindo vídeo para um aplicativo.| en-US |
+| Comunicação | Envio de mensagens e chamadas telefônicas.| en-US <br/> zh-CN |
+| Entretenimento  | Tratamento de consultas relacionadas a música, filmes e TV.| en-US |
+| Eventos | Reserva de tíquetes de concertos, festivais, esportes e comédia mostra.| en-US |
+| Adequação | Tratar as solicitações relacionadas ao controle de atividades de adequação.| en-US |
+| Jogos | Tratar as solicitações relacionadas a uma parte de jogo em um jogo.| en-US |
+| HomeAutomation | Controlando dispositivos inteligentes de base como luzes e dispositivos.| en-US<br/> zh-CN |
+| MovieTickets | Permissões para filmes em um cinema de reserva.| en-US |
+| Música | Reproduzir música em um player de música.| en-US<br/> zh-CN |
+| Observação | O domínio de Observação fornece entidades relacionadas à criação, edição e localizar anotações e tentativas.| en-US<br/> zh-CN |
+| OnDevice | O domínio OnDevice fornece tentativas e entidades relacionadas ao controle do dispositivo.| en-US<br/> zh-CN |
+| Locais  | Manipulação de consultas relacionadas aos locais como as empresas, instituições, restaurantes, espaços públicos e endereços.| en-US<br/> zh-CN |
+| Reminder | Tratar as solicitações relacionadas à criação, edição e localizar lembretes.| en-US<br/> zh-CN |
+| RestaurantReservation | Tratamento de solicitações para gerenciar reservas restaurante.| en-US<br/> zh-CN |
+| táxi | Reservas de tratamento para um táxi.| en-US<br/> zh-CN |
+| Translate | Convertendo texto para um idioma de destino.| en-US<br/> zh-CN |
+| TV | Controlando TVs.| en-US |
+| Utilidades  | Solicitações de manipulação que são comuns em vários domínios, como "Ajuda", "Repetir", "recomeçar".| en-US |
+| Clima | Obtendo boletins meteorológicos e previsões.| en-US<br/> zh-CN |
+| Web | Navegar para um site.| en-US<br/> zh-CN |
 
 Para obter mais detalhes sobre cada domínio, consulte as seções a seguir.
 
@@ -57,7 +57,7 @@ Para obter mais detalhes sobre cada domínio, consulte as seções a seguir.
 O domínio de calendário fornece tentativas e entidades relacionadas a entradas do calendário. As tentativas de calendário incluem adicionar, excluir ou editar um compromisso, verificando a disponibilidade e localizar informações sobre uma entrada do calendário ou um compromisso.
 
 ### <a name="intents"></a>Intenções
-| Nome do método | Descrição | Exemplos |
+| Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | Adicionar | Adicione um novo item de uso único para o calendário.| Faça um compromisso com Lisa às 14: 00 no domingo <br/><br/>Desejo agendar uma reunião<br/><br/>Preciso configurar uma reunião|
 | CheckAvailability | Localize a disponibilidade de um compromisso ou reunião no calendário do usuário ou outra pessoa.| Quando é Jim disponível para atender a? <br/><br/>Mostrar quando Carol amanhã está disponível<br/><br/>Carlos é gratuito no sábado?|
@@ -66,16 +66,16 @@ O domínio de calendário fornece tentativas e entidades relacionadas a entradas
 | Localizar | Exiba meu calendário semanal.| Encontre a consulta de revisão do dentista. <br/><br/>Mostrar meu calendário<br/>|
 
 ### <a name="entities"></a>Entidades
-| Nome da entidade | Descrição | Exemplos |
+| Nome da entidade | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
-| Localizaçãoização | Local do item de calendário, reunião ou compromisso. Endereços, cidades e regiões são bons exemplos de locais.| Academia 209 Nashville <br/><br/>897 casa de panqueca<br/><br/>Garagem|
-| Assunto | O título de uma reunião ou compromisso.| Consulta odontológica <br/><br/>Almoçar com Julia<br/><br/>Consulta médica|
+| Local padrão | Local do item de calendário, reunião ou compromisso. Endereços, cidades e regiões são bons exemplos de locais.| Academia 209 Nashville <br/><br/>897 casa de panqueca<br/><br/>Garagem|
+| Subject | O título de uma reunião ou compromisso.| Consulta odontológica <br/><br/>Almoçar com Julia<br/><br/>Consulta médica|
 
 ## <a name="camera"></a>Câmera 
 O domínio da câmera fornece intenções e entidades relacionadas ao uso de uma câmera. As intenções cobrem a captura de uma foto, selfie, captura de tela ou vídeo e transmissão de vídeo para um aplicativo.
 
 ### <a name="intents"></a>Intenções
-| Nome do método | Descrição | Exemplos |
+| Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | CapturePhoto| Capture uma foto.| Tirar uma foto<br/><br/>Captura|
 | CaptureScreenshot | Fazer uma captura de tela.| Tirar instantâneo.<br/><br/>capturar a tela.|
@@ -86,7 +86,7 @@ O domínio da câmera fornece intenções e entidades relacionadas ao uso de uma
 | StopVideoRecording| Pare a gravação de um vídeo.| Isso é o suficiente<br/><br/>Parar a gravação|
 
 ### <a name="entities"></a>Entidades
-| Nome da entidade | Descrição | Exemplos |
+| Nome da entidade | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | AppName | O nome de um aplicativo para transmissão de vídeo.| OneNote<br/><br/>Facebook<br/><br/>Skype|
 
@@ -95,7 +95,7 @@ O domínio da câmera fornece intenções e entidades relacionadas ao uso de uma
 O domínio de comunicação fornece tentativas e entidades relacionadas a email, mensagens e chamadas telefônicas.
 
 ### <a name="intents"></a>Intenções
-| Nome do método | Descrição | Exemplos |
+| Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | AddContact| Adicione um novo contato à lista de contatos do usuário.|Adicionar novo contato <br/><br/>Salve esse número e coloque-o como Carol|
 | Adicionar mais| Adicione mais a um email ou texto, como parte de uma composição de texto ou email passo a passo.|Adicionar mais texto <br/><br/>Adicionar mais para o corpo do email|
@@ -120,37 +120,37 @@ O domínio de comunicação fornece tentativas e entidades relacionadas a email,
 | SendMessage| Envie uma mensagem de texto ou uma mensagem instantânea.|Enviar texto para Chris e Carol|
 | SetSpeedDial| Defina um atalho de discagem de velocidade para o número de telefone do contato.|Conjunto de discagem um para Carol.<br/>Configure discagem do mom.|
 | ShowNext| Consulte o próximo item, por exemplo, uma lista de mensagens de texto ou emails.|Mostre o outro.<br/>Vá para a próxima página.|
-| ShowPrevious| Consulte o item anterior, por exemplo, uma lista de mensagens de texto ou emails.|Mostre anterior.<br/>Anterior<br/>Ir para o anterior.|
-| StartOver| Iniciar o sistema novamente ou iniciar uma nova sessão.|Começar novamente<br/>Nova sessão<br/>reiniciar|
+| ShowPrevious| Consulte o item anterior, por exemplo, uma lista de mensagens de texto ou emails.|Mostre anterior.<br/>Voltar<br/>Ir para o anterior.|
+| StartOver| Iniciar o sistema novamente ou iniciar uma nova sessão.|Começar novamente<br/>Nova sessão<br/>restart|
 | TurnForwardingOff| Desative o encaminhamento de chamada.|Interromper o encaminhamento Minhas chamadas<br/>Desativar o encaminhamento de chamada|
 | TurnForwardingOn| Desligue o viva-voz.|Meu chamadas para 3333 de encaminhamento<br/>Ativar o encaminhamento de chamada para 3333|
 | TurnSpeakerOff| Desligue o viva-voz.|Tire-me do alto-falante.<br/>Desative viva-voz.<br/>|
 | TurnSpeakerOn| Ativar o viva-voz.|Modo de viva-voz.<br/>Coloque viva-voz em.<br/>|
 
 ### <a name="entities"></a>Entidades
-| Nome da entidade | Descrição | Exemplos |
+| Nome da entidade | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | AudioDeviceType | Tipo de dispositivo de áudio (locutor ouvido, microfone, etc).| Palestrante<br/>Viva-voz<br/>Bluetooth|
-| Categoria | A categoria de um email ou mensagem.| Importante<br/>Prioridade alta|
+| Category | A categoria de um email ou mensagem.| Importante<br/>Prioridade alta|
 | ContactAttribute | Um atributo de entre em contato com que o usuário solicita informações sobre.| Aniversários<br/>Endereço<br/>Número de telefone|
 | ContactName | O nome de um destinatário de mensagem ou contato.| Carol<br/>Jim<br/>Chris|
 | EmailSubject | O texto usado como a linha de assunto de um email.| RE: história interessante|
 | Linha | A linha que o usuário deseja usar para fazer uma chamada ou enviar um email/de texto de.| Linha de trabalho<br/>Célula Britânica<br/>Skype|
 | Mensagem | A mensagem a enviar um email ou texto.| Era grande reunião hoje. Vejo você em breve!|
-| messageType | O nome de um destinatário de mensagem ou contato.| Enviar SMS<br/>Email|
-| OrderReference | A posição ordinal ou relativa em uma lista, identificando um item a ser recuperado. Por exemplo, "last" ou "recent" em "Qual foi a última mensagem que enviei?"| Última<br/>Recente|
+| messageType | O nome de um destinatário de mensagem ou contato.| Text<br/>Email|
+| OrderReference | A posição ordinal ou relativa em uma lista, identificando um item a ser recuperado. Por exemplo, "last" ou "recent" em "Qual foi a última mensagem que enviei?"| Último<br/>Recente|
 | SenderName | O nome do remetente.| Patti Owens|
 
 ## <a name="entertainment"></a>Entretenimento  
 Mostra o domínio fornece entidades relacionadas à pesquisa de filmes, músicas, jogos e TV e tentativas de entretenimento.
 
 ### <a name="intents"></a>Intenções
-| Nome do método | Descrição | Exemplos |
+| Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
-| Pesquisa| A pesquisa de filmes, música, aplicativos, jogos e TV mostra.|Procure Halo na loja.<br/>Procure o Avatar.|
+| Search| A pesquisa de filmes, música, aplicativos, jogos e TV mostra.|Procure Halo na loja.<br/>Procure o Avatar.|
 
 ### <a name="entities"></a>Entidades
-| Nome de entidades | Descrição | Exemplos |
+| Nome de entidades | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | ContentRating | Classificação de conteúdo de mídia como G ou R para filmes.|Vídeo de crianças.<br/>PG classificado.|
 | Gênero | Gênero de filme, jogos, aplicativos ou música.|Comédias<br/>Dramas<br/>Cômicos|
@@ -162,33 +162,33 @@ Mostra o domínio fornece entidades relacionadas à pesquisa de filmes, músicas
 | Nacionalidade| O país em que foi criada um filme, mostrar ou música.|Francês<br/>Alemão<br/>Coreano|
 | Pessoa| O ator, diretor, produtor, músico ou artista associado a um filme, um aplicativo, jogos ou programa de TV.|Madonna<br/>Stanley Kubrick|
 | Função| Função desempenhada por uma pessoa na criação de mídia.|Faz grandes<br/>Direcionado por<br/>Por|
-| Cargo| O nome de um filme, um aplicativo, jogo, programa de TV ou música.|Friends<br/>Minecraft|
-| Digite| O formato de tipo ou a mídia de um filme, um aplicativo, jogo, programa de TV ou música.|Música<br/>MovieTV <br/>programas|
+| Title| O nome de um filme, um aplicativo, jogo, programa de TV ou música.|Friends<br/>Minecraft|
+| Type| O formato de tipo ou a mídia de um filme, um aplicativo, jogo, programa de TV ou música.|Música<br/>MovieTV <br/>programas|
 | UserRating| Estrela de usuário ou de classificação de miniaturas.|5 estrelas<br/>3 estrelas<br/>4 estrelas|
 
 ## <a name="events"></a>Eventos 
 O domínio de eventos fornece tentativas e entidades relacionadas ao reservar passagens para eventos como concertos, festivais, esportes e comédia mostra.
 
 ### <a name="intents"></a>Intenções
-| Nome do método | Descrição | Exemplos |
+| Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | Livro| Permissões para um evento de compra.|Gostaria de comprar um tíquete para o symphony esta semana.|
 
 
 ### <a name="entities"></a>Entidades
-| Nome de entidades | Descrição | Exemplos |
+| Nome de entidades | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | Endereço | Local do evento ou o endereço. |Palo Alto<br/>300 112th Ave SE <br/> Seattle |
-| Nome | O nome de um evento.|Shakespeare no parque|
+| NOME | O nome de um evento.|Shakespeare no parque|
 | Colocar nome| O nome do evento local.|Louvre<br/>Casa de ópera<br/>Broadway|
 | PlaceType | O tipo do local em que o evento será realizado.|Cafe<br/>Teatro<br/>Biblioteca|
-| Digite | O tipo de um evento.|Concerto<br/>Jogo de esportes|
+| Type | O tipo de um evento.|Concerto<br/>Jogo de esportes|
 
 ## <a name="fitness"></a>Adequação 
 O domínio de adequação fornece entidades relacionadas ao controle de atividades de adequação e tentativas. As tentativas de incluem salvando-as, o restante do tempo ou distância ou salvar os resultados da atividade.
 
 ### <a name="intents"></a>Intenções
-| Nome do método | Descrição | Exemplos |
+| Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | AddNote| Adiciona anotações complementares a uma atividade controlada.|A dificuldade dessa execução foi 6/10<br/>O terreno em que estou correndo é asfalto<br/>Estou usando uma bicicleta 3 velocidade|
 |GetRemaining| Obtém o tempo restante ou a distância de uma atividade.|Quanto tempo até a próxima volta?<br/>Quantos milhas permanecem em meu execução? Quanto tempo para a separação?|
@@ -196,27 +196,27 @@ O domínio de adequação fornece entidades relacionadas ao controle de atividad
 | LogWeight| Salvar ou registrar o peso atual do usuário.|Salve meu peso atual<br/>registre meu peso agora<br/>armazenar meu peso corporal atual|
 
 ### <a name="entities"></a>Entidades
-| Nome de entidades | Descrição | Exemplos |
+| Nome de entidades | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | activityType | O tipo de atividade para rastrear. |Executar<br/>Percorrer<br/>Nadar<br/>Ciclo |
 | Alimentos | Um tipo de alimentos para controlar em um aplicativo de adequação. |Banana<br/>Salmão<br/>Shake proteico|
 | Tipo de Refeição| O tipo de refeição para acompanhar em um aplicativo de saúde ou fitness.|Café da manhã<br/>Refeição<br/>Almoçar<br/>Supper|
 | Medida| Um tipo de medidas de tempo, distância ou peso, para uso em um aplicativo de fitness ou saúde.|quilômetros<br/>milhas<br/>minutos<br/>kg|
-| Número | Uma quantidade numérica para uso em um aplicativo de fitness ou saúde.|19<br/>três<br/>200<br/>um|
+| Número | Uma quantidade numérica para uso em um aplicativo de fitness ou saúde.|19<br/>três<br/>200<br/>one|
 | StatType | Um tipo de estatística em dados agregados, para uso em um aplicativo de fitness ou saúde.|Soma<br/>Média<br/>Máximo<br/>Mínimo|
 
 ## <a name="gaming"></a>Jogos 
 O domínio de jogos fornece entidades relacionadas ao gerenciamento de uma parte de jogo em um jogo e tentativas.
 
 ### <a name="intents"></a>Intenções
-| Nome do método | Descrição | Exemplos |
+| Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | InviteParty| Convide um contato para ingressar em uma parte de jogos.|Convidar este player para minha empresa<br/>Venha a minha empresa<br/>Unir meu proveito|
 |LeaveParty| Obtém o tempo restante ou a distância de uma atividade.|Estou fora<br/>Estou deixando essa parte para outra<br/>Estou desistindo|
 | StartParty| Inicie um parceiro comercial em um jogo.|Cara vamos começar uma entidade<br/>Comece uma entidade<br/>deve iniciar um proveito hoje|
 
 ### <a name="entities"></a>Entidades
-| Nome da entidade | Descrição | Exemplos |
+| Nome da entidade | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | Contato| Um nome de contato para usar em um jogo.|Carol<br/>Jim|
 
@@ -225,17 +225,17 @@ O domínio de jogos fornece entidades relacionadas ao gerenciamento de uma parte
 O domínio HomeAutomation fornece tentativas e entidades relacionadas ao controlar dispositivos inteligentes de base como luzes e dispositivos.
 
 ### <a name="intents"></a>Intenções
-| Nome do método | Descrição | Exemplos |
+| Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | Desativação| Desativar, fechar ou desbloquear um dispositivo.|Desligue o firewall<br/>Parar a máquina de café<br/>Fechar a porta da garagem|
 |Ativação| Ativar um dispositivo ou defina o dispositivo como uma configuração específica ou um modo.|ligar minha cafeteira<br/>você pode ligar minha cafeteira?<br/>Defina o termostato a 72 graus.|
 
 
 ### <a name="entities"></a>Entidades
-| Nome da entidade | Descrição | Exemplos |
+| Nome da entidade | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
-| Dispositivos | Um tipo de dispositivo que pode ser ativado ou desativado.|Cafeteira<br/>termostato<br/>Luzes|
-| Operação | O estado do dispositivo.|lock<br/>abrir<br/>em<br/>desativado|
+| Dispositivo | Um tipo de dispositivo que pode ser ativado ou desativado.|Cafeteira<br/>termostato<br/>Luzes|
+| Operação | O estado do dispositivo.|lock<br/>Abrir<br/>em<br/>Desligar|
 | Sala | O local ou a sala em que o dispositivo está.|Sala de estar<br/>quarto<br/>cozinha|
 
 ## <a name="movietickets"></a>MovieTickets 
@@ -250,14 +250,14 @@ O domínio MovieTickets fornece entidades relacionadas a tíquetes de reserva pa
 |Quando o capitão Omar está aparecendo?|
 
 ### <a name="intents"></a>Intenções
-| Nome do método | Descrição | Exemplos |
+| Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | Livro | Comprar tíquetes do filme.|Reserve-me dois ingressos para o capitão Omar e os dois mosqueteiros<br/>Eu quero comprar um ingresso para o filme de amanhã<br/>Eu quero um tíquete para Captain Omar parte 2 próxima quarta-feira|
 |GetShowTime| Obter o showtime de um filme.|Quando o capitão Omar está aparecendo?|
 
 
 ### <a name="entities"></a>Entidades
-| Nome da entidade | Descrição | Exemplos |
+| Nome da entidade | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | Endereço | O endereço de um cinema.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | MovieTitle | O título de um filme.|Vida de pi<br/>Jogos Vorazes<br/>Começo|
@@ -276,7 +276,7 @@ O domínio Música fornece intenções e entidades relacionadas à reprodução 
 |Vá para a próxima música|
 
 ### <a name="intents"></a>Intenções
-| Nome do método | Descrição | Exemplos |
+| Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | DecreaseVolume | Diminua o volume do dispositivo.|diminuir o volume da faixa<br/>volume baixo|
 | IncreaseVolume | Aumente o volume do dispositivo.|aumentar o volume da faixa<br/>aumentar volume|
@@ -287,11 +287,11 @@ O domínio Música fornece intenções e entidades relacionadas à reprodução 
 | Continuar | Continue a reproduzir música.|Retomar música<br/>Iniciar música novamente<br/>Retomar|
 | SkipBack | Pule para trás uma faixa.|Vá para a próxima música<br/>Executar a próxima música|
 | SkipForward |Pule uma faixa.|Reproduzir música anterior<br/>Volte para a etapa anterior |
-| Parar | Pare uma ação relacionadas a reprodução de música. |Pare a execução desse álbum.|
+| Stop | Pare uma ação relacionadas a reprodução de música. |Pare a execução desse álbum.|
 | Ativar mudo | Desativar o som de um dispositivo de reprodução de música.| Desativar mudo.|
 
 ### <a name="entities"></a>Entidades
-| Nome da entidade | Descrição | Exemplos |
+| Nome da entidade | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | ArtistName | O ator, diretor, produtor, gravador, músico ou artista associado a mídia para executar em um dispositivo.|Elvis Presley<br/>Taylor Swift<br/>Adele<br/>Mozart|
 | Gênero | Gênero da música que está sendo solicitado.|Música de país<br/>Clássicos Broadway<br/>Tocar minha música clássica do período barroco|
@@ -308,12 +308,12 @@ O domínio de Observação fornece entidades relacionadas à criação, edição
 |Remover todos os itens da minha lista de férias|
 
 ### <a name="intents"></a>Intenções
-| Nome do método | Descrição | Exemplos |
+| Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | AddToNote | Adicione informações a uma anotação.|Adicionar aos meus mantimentos nota alface tomate pão café<br/>Adicionar à lista de tarefas<br/>Adicionar Deliciosos ao meu Wunderlist|
 | CheckOffItem | Marque os itens de uma anotação já existente.|Marcar bananas da minha lista de compras<br/>Marcar cheese cake na minha lista de compras de férias como feito|
 | Limpar | Limpar todos os itens de uma nota pré-existente.|Remover todos os itens da minha lista de férias<br/>Limpar tudo da minha lista de leitura|
-| Confirmar | Confirme uma ação relacionada a uma nota.|Está okey para mim<br/>sim<br/>Estou confirmando a manter todos os itens na listas|
+| Confirmar | Confirme uma ação relacionada a uma nota.|Está okey para mim<br/>Sim<br/>Estou confirmando a manter todos os itens na listas|
 | Criar | Crie um novo bloco de anotações. | Cria uma lista<br/>Observação para lembrar-me que Jason é da cidade primeira semana de maio|
 | Excluir | Exclua toda a anotação. |Excluir minha lista de férias <br/>excluir minha nota de compra|
 | DeleteNoteItem | Deletar itens de uma nota pré-existente.| Excluir chips da minha lista de compras<br/>Remover canetas da minha lista de compras da escola|
@@ -321,14 +321,14 @@ O domínio de Observação fornece entidades relacionadas à criação, edição
 | ShowNext | Consulte o próximo item em uma lista de anotações.|Mostre o outro<br/>Próxima página<br/>Avançar|
 
 ### <a name="entities"></a>Entidades
-| Nome da entidade | Descrição | Exemplos |
+| Nome da entidade | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | AppName | O nome do aplicativo de anotações.|Wunderlist<br/>OneNote|
 | ContactName | O nome de um contato em uma anotação.|Carol<br/>Jim<br/>Chris|
 | DataSource | Localização das notas.|OneDrive<br/>Documentos do Google<br/>Meu Computador|
 | Tipo de dados | O tipo de arquivo ou documento, geralmente associado a programas de software específicos.|Slides<br/>Planilha<br/>Planilha|
-| Enviar SMS | O texto de uma nota ou lembrete.|esticar antes de caminhar<br/>longo prazo amanhã|
-| Cargo | Título de uma nota.|mantimentos<br/>pessoas para ligar<br/>tarefas pendentes|
+| Text | O texto de uma nota ou lembrete.|esticar antes de caminhar<br/>longo prazo amanhã|
+| Title | Título de uma nota.|mantimentos<br/>pessoas para ligar<br/>tarefas pendentes|
 
 ## <a name="ondevice"></a>OnDevice 
 O domínio OnDevice fornece tentativas e entidades relacionadas ao controle do dispositivo.
@@ -343,7 +343,7 @@ O domínio OnDevice fornece tentativas e entidades relacionadas ao controle do d
 
 
 ### <a name="intents"></a>Intenções
-| Nome do método | Descrição | Exemplos |
+| Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | AreYouListening | Pergunte se o dispositivo está escutando.|isso está ligado?<br/>você está ouvindo?|
 |Fechar aplicação|Feche o aplicativo do dispositivo.|fechar video player|
@@ -352,12 +352,12 @@ O domínio OnDevice fornece tentativas e entidades relacionadas ao controle do d
 |Ajuda| Solicite ajuda.|Ajuda por favor<br/>Olá<br/>O que você pode fazer?<br/>eu preciso de ajuda| 
 |LocateDevice|Localize o dispositivo.|Você pode localizar meu telefone<br/>Localize o iphone do tom<br/>Localizar meu telefone|
 |LogIn|Faça logon de um serviço usando o dispositivo.|Login por favor<br/>Entrar no Facebook<br/>Entre no LinkedIn|
-|LogOut|Efetue logout de um serviço usando o dispositivo.|Faça logoff do meu telefone<br/>Faça o login no twitter<br/>Fazer logoff|
+|LogOut|Efetue logout de um serviço usando o dispositivo.|Faça logoff do meu telefone<br/>Faça o login no twitter<br/>Faça logoff|
 |MainMenu|Exiba o menu principal de um dispositivo.|Exibir Menu.|
 |OpenApplication|Abra um aplicativo no dispositivo.|Abra o alarme por favor<br/>Ativar a câmera<br/>Iniciar o calendário|
 |OpenSetting|Abra uma configuração no dispositivo.|Configurações de rede.|
 |PairDevice|Par de dispositivo.|Você pode me ajudar no emparelhamento do sinal Bluetooth para o telefone<br/>Ligue o bluetooth e combine-o com o laptop<br/>Emparelhar sinal Bluetooth para o meu laptop|
-|PowerOff | Desative o dispositivo.|Você pode desligar meu computador<br/>Desligado<br/>Desativar o meu celular|
+|PowerOff | Desative o dispositivo.|Você pode desligar meu computador<br/>Shutdown<br/>Desativar o meu celular|
 |QueryBattery|Obter informações sobre a vida útil da bateria.|Mostre-me a vida útil da bateria.<br/>Qual é o status da bateria<br/>Quanta bateria resta agora?<br/>Me mostre bateria|
 |QueryWifi|Obtenha informações sobre o WiFi.|Obtenha informações sobre WiFi.|
 |Reiniciar|Reinicie o dispositivo.|Reinicie-o por favor.|
@@ -370,11 +370,11 @@ O domínio OnDevice fornece tentativas e entidades relacionadas ao controle do d
 |SwitchApplication|Alterne o aplicativo para usar no dispositivo.|Alterne para o media player.|
 |TurnDownBrightness|Diminua o brilho do dispositivo.|Dim a tela.|
 |TurnOffSetting|Desative uma configuração de dispositivo.|Desativar Bluetooth<br/>Desabilitar dados<br/>Desconectar bluetooth|
-|TurnOnSetting|Ative uma configuração de dispositivo.|Ligar <br/> Desativar|
+|TurnOnSetting|Ative uma configuração de dispositivo.|Por <br/> Desativar|
 |TurnUpBrightness|Aumentar o brilho do dispositivo.|Você pode tornar a tela mais brilhante?|
 
 ### <a name="entities"></a>Entidades
-| Nome da entidade | Descrição | Exemplos |
+| Nome da entidade | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | AppName | Nome de um aplicativo no dispositivo.|SoundCloud<br/>YouTube|
 | BrightnessLevel | Defina o nível de brilho no dispositivo.|Cem por cento<br/>Cinquenta<br/>40%|
@@ -396,7 +396,7 @@ Locais de domínio fornece tentativas para manipular consultas relacionadas aos 
 
 
 ### <a name="intents"></a>Intenções
-| Nome do método | Descrição | Exemplos |
+| Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | AddFavoritePlace | Adicione um local à lista de favoritos do usuário.|Salve este local nos meus favoritos<br/>Adicionar esse endereço em Meus Favoritos|
 |CheckAccident|Pergunte se há um acidente em um caminho especificado.|Há um acidente na 880?<br/>Mostrar informações de acidente|
@@ -425,13 +425,13 @@ Locais de domínio fornece tentativas para manipular consultas relacionadas aos 
 |SelectItem|Escolha um item de uma lista de opções relacionadas a um local ou lugares.|Escolha o segundo<br/>Selecione o primeiro|
 |Mostrar mapa|Mostrar um mapa de uma área.|Mostrar um mapa para o segundo<br/>Mostrar mapa<br/>Encontre São Francisco no mapa|
 |ShowNext|Mostrar o próximo item de uma série.|Mostre o outro<br/>Vá para a página seguinte|
-|ShowPrevious|Mostrar o item anterior de uma série.|mostre o anterior<br/>anterior<br/>go to previous|
+|ShowPrevious|Mostrar o item anterior de uma série.|mostre o anterior<br/>previous<br/>go to previous|
 |StartOver|Reinicie o aplicativo ou iniciar uma nova sessão.|Começar novamente<br/>Nova sessão<br/>
-reiniciar|
+restart|
 |TakesReservations|Pergunte se um local aceita reservas.|A galeria de arte aceita reservas<br/>É possível fazer uma reserva no Olive Garden
 
 ### <a name="entities"></a>Entidades
-| Nome da entidade | Descrição | Exemplos |
+| Nome da entidade | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | AbsoluteLocation | A localização ou endereço de um local.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | Facilidades | As características / benefícios objetivos de um lugar.|as crianças comem de graça<br/>beira<br/>estacionamento grátis|
@@ -442,7 +442,7 @@ reiniciar|
 | DestinationPlaceType | O tipo de destino que é uma empresa local, um restaurante, uma atração pública ou uma instituição. |Restaurante<br/>Opera<br/>Cinema|
 | Distância | A distância até um lugar.|15 milhas<br/>5 milhas<br/>10 milhas de distância|
 | Tipo de Refeição | Tipo de refeição como da manhã ou almoçar. |Café da manhã<br/>Refeição<br/>Almoçar<br/>Supper|
-| OpenStatus | Indica se um local é aberto ou fechado.|Abrir<br/>fechada<br/>Abrindo|
+| OpenStatus | Indica se um local é aberto ou fechado.|Aberto<br/>closed<br/>Abrindo|
 | Colocar nome | O nome de um local.|Fábrica de cheesecake|
 | PlaceType | O tipo de lugar.|Cafe<br/>Teatro<br/>Biblioteca|
 | PreferredRoute | A rota preferida especificada pelo usuário. | 101 <br/>202 <br/>Rota 401|
@@ -454,7 +454,7 @@ reiniciar|
 | TransportationCompany | O nome de um provedor de transporte.|Amtrak<br/>Acela<br/>Raça|
 | TransportationType | O tipo de transporte.|ônibus<br/>Treinar<br/>Automóvel|
 
-## <a name="reminder"></a>Lembrete 
+## <a name="reminder"></a>Reminder 
 O domínio de lembrete fornece intenções e entidades para criar, editar e encontrar lembretes.
 
 ### <a name="examples"></a>Exemplos
@@ -467,7 +467,7 @@ O domínio de lembrete fornece intenções e entidades para criar, editar e enco
 
 
 ### <a name="intents"></a>Intenções
-| Nome do método | Descrição | Exemplos |
+| Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | Alterar| Altere um lembrete.|Mude minha entrevista para as 9 da manhã de amanhã<br/>Mover meu lembrete de atribuição para amanhã|
 | Criar| Crie um novo lembrete.|Crie um lembrete<br/>Lembre-me de comprar leite<br/>Eu quero lembrar de ligar para Rebecca quando estou em casa|
@@ -475,9 +475,9 @@ O domínio de lembrete fornece intenções e entidades para criar, editar e enco
 | Localizar | Encontre um lembrete.|Eu tenho um lembrete sobre o meu aniversário?<br/>Você pode verificar se eu tenho um lembrete sobre o aniversário de Christine?|
 
 ### <a name="entities"></a>Entidades
-| Nome da entidade | Descrição | Exemplos |
+| Nome da entidade | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
-| Enviar SMS | A descrição de texto de um lembrete.|pegar a limpeza a seco<br/>largando meu carro no centro de serviço|
+| Text | A descrição de texto de um lembrete.|pegar a limpeza a seco<br/>largando meu carro no centro de serviço|
 
 ## <a name="restaurantreservation"></a>RestaurantReservation 
 O domínio RestaurantReservation fornece intenções e entidades relacionadas ao gerenciamento de reservas em restaurantes.
@@ -491,12 +491,12 @@ O domínio RestaurantReservation fornece intenções e entidades relacionadas ao
 |Mesa para 3 pessoas em Palo Alto às 7|
 
 ### <a name="intents"></a>Intenções
-| Nome do método | Descrição | Exemplos |
+| Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | Reservar | Solicite uma reserva para um restaurante. |Reserve na Zucca para duas pessoas esta noite<br/>Reserve uma mesa para amanhã<br/>Mesa para 3 pessoas em Palo Alto às 7|
 
 ### <a name="entities"></a>Entidades
-| Nome da entidade | Descrição | Exemplos |
+| Nome da entidade | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | Endereço| Um local de evento ou endereço para uma reserva.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | Facilidades | Um local de evento ou endereço para uma reserva.|vista do oceano<br/>não fumante|
@@ -521,14 +521,14 @@ O domínio Taxi fornece intenções e entidades para criar e gerenciar reservas 
 |Cancelar meu Uber|
 
 ### <a name="intents"></a>Intenções
-| Nome do método | Descrição | Exemplos |
+| Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | Livro | Chame um táxi. |Me pegue um CAB<br/>Encontre um taxi<br/>Reserve-me um uber x|
 | Cancelar | Cancele uma ação relacionada à reserva de um táxi.|Cancelar meu táxi<br/>Cancelar meu Uber|
 | Rastrear | Rastrear uma rota de táxi.|Quanto tempo tenho que esperar pelo meu táxi?<br/>Onde está meu Uber?|
 
 ### <a name="entities"></a>Entidades
-| Nome da entidade | Descrição | Exemplos |
+| Nome da entidade | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | Endereço| O endereço associado à reserva de um táxi. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | DestinationAddress| Um local de destino ou endereço. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
@@ -539,7 +539,7 @@ O domínio Taxi fornece intenções e entidades para criar e gerenciar reservas 
 | TransportationCompany | O nome de um provedor de transporte.|Amtrak<br/>Acela<br/>Raça|
 | TransportationType | O tipo de transporte.|ônibus<br/>Treinar<br/>Automóvel|
 
-## <a name="translate"></a>Traduzir 
+## <a name="translate"></a>Translate 
 O domínio do Google Tradutor fornece intenções e entidades relacionadas à tradução de texto para um idioma de destino.
 
 ### <a name="examples"></a>Exemplos
@@ -552,16 +552,16 @@ O domínio do Google Tradutor fornece intenções e entidades relacionadas à tr
 
 
 ### <a name="intents"></a>Intenções
-| Nome do método | Descrição | Exemplos |
+| Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
-| Traduzir| Traduzir texto para outro idioma.|Traduzir para francês<br/>Traduzir olá para alemão|
+| Translate| Traduzir texto para outro idioma.|Traduzir para francês<br/>Traduzir olá para alemão|
 
 
 ### <a name="entities"></a>Entidades
-| Nome da entidade | Descrição | Exemplos |
+| Nome da entidade | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | TargetLanguage | O idioma de destino de uma tradução.|Francês<br/>Alemão<br/>Coreano|
-| Enviar SMS | O texto para traduzir.|Olá Mundo<br/>Bom Dia<br/>Boa noite|
+| Text | O texto para traduzir.|Olá Mundo<br/>Bom Dia<br/>Boa noite|
 
 ## <a name="tv"></a>TV 
  
@@ -576,14 +576,14 @@ O domínio da TV fornece intenções e entidades para o controle de TVs.
 |Assista National Geographic|
 
 ### <a name="intents"></a>Intenções
-| Nome do método | Descrição | Exemplos |
+| Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | ChangeChannel| Alterar um canal em uma TV.|Mude de canal para CNN<br/>Mudar de canal para a BBC<br/>Vá para o canal 4|
 | ShowGuide| Mostrar o guia da TV.|Mostrar guia de TV<br/>o que está no canal de filmes agora?<br/>mostre minha lista de programa|
 | WatchTV| Peça para assistir a um canal de TV.|Eu quero assistir o canal da Disney<br/>vá para a TV por favor<br/>Assista National Geographic|
 
 ### <a name="entities"></a>Entidades
-| Nome da entidade | Descrição | Exemplos |
+| Nome da entidade | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | ChannelName | O nome de um canal de TV.|CNN<br/>BBC<br/>Canal de filme|
 
@@ -600,7 +600,7 @@ O domínio Utilitários fornece intenções para tarefas comuns a muitas tarefas
 
 
 ### <a name="intents"></a>Intenções
-| Nome do método | Descrição | Exemplos |
+| Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | Cancelar | Cancelar uma ação.|Cancelar a mensagem<br/>Eu não quero mais enviar o email|
 | Confirmar | Confirme uma ação.|Sim, eu confirmo<br/>Bom eu estou confirmando<br/>Ok estou confirmando|
@@ -610,8 +610,8 @@ O domínio Utilitários fornece intenções para tarefas comuns a muitas tarefas
 | Repetir | Repita uma ação.|Repetir a última pergunta por favor<br/>repetir a última música|
 | ShowNext | Mostrar o próximo item de uma série. |Mostre o outro<br/>Vá para a página seguinte|
 | ShowPrevious | Mostrar o item anterior de uma série.|mostre o anterior|
-| StartOver | Reinicie o aplicativo ou iniciar uma nova sessão.|Começar novamente<br/>Nova sessão<br/>reiniciar|
-| Parar | Pare uma ação.| Pare de dizer isso por favor<br/>Cale-se<br/>Pare por favor|
+| StartOver | Reinicie o aplicativo ou iniciar uma nova sessão.|Começar novamente<br/>Nova sessão<br/>restart|
+| Stop | Pare uma ação.| Pare de dizer isso por favor<br/>Cale-se<br/>Pare por favor|
 
 ## <a name="weather"></a>Clima 
 O domínio Meteorologia fornece intenções e entidades para obter relatórios e previsões do tempo.
@@ -626,15 +626,15 @@ O domínio Meteorologia fornece intenções e entidades para obter relatórios e
 
 
 ### <a name="intents"></a>Intenções
-| Nome do método | Descrição | Exemplos |
+| Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | GetCondition | Obtenha fatos históricos relacionados ao clima. |tempo em Londres em setembro<br/>Qual é a temperatura média na Índia em setembro?|
 | GetForecast | Obter o tempo atual e previsão para os próximos dias. |Como está o tempo hoje?<br/>Qual é a previsão de 10 dias?<br/>Como será o clima neste fim de semana?|
 
 ### <a name="entities"></a>Entidades
-| Nome da entidade | Descrição | Exemplos |
+| Nome da entidade | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
-| Localizaçãoização| A localização absoluta para um pedido de tempo.|Seattle<br/>Paris<br/>Palo Alto|
+| Local padrão| A localização absoluta para um pedido de tempo.|Seattle<br/>Paris<br/>Palo Alto|
 
 ## <a name="web"></a>Web 
 O domínio da Web fornece uma intenção de navegar para um site.
@@ -648,7 +648,7 @@ O domínio da Web fornece uma intenção de navegar para um site.
 |Navegue até www.bing.com|
 
 ### <a name="intents"></a>Intenções
-| Nome do método | Descrição | Exemplos |
+| Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
 | Navegar | Um pedido para navegar para um site especificado. |Navegue para facebook.com<br/>Vá para www.twitter.com|
 

@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: eb8e98f66d000290ce7eb07d3d73e82fbc43514a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548689"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60692848"
 ---
 # <a name="set-alerts-in-application-insights"></a>Definir alertas no Application Insights
 O [Azure Application Insights][start] pode alertá-lo sobre as alterações nas métricas de desempenho ou de uso do aplicativo Web. 

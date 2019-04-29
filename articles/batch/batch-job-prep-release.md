@@ -3,7 +3,7 @@ title: Criar tarefas para preparar e concluir trabalhos em nós de computação 
 description: Use tarefas de preparação de nível de trabalho para minimizar a transferência de dados para nós de computação do Lote do Azure e libere as tarefas para limpeza de nó na conclusão do trabalho.
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: dlepow
 manager: jeconnoc
 editor: ''
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
@@ -12,15 +12,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 02/27/2017
-ms.author: lahugh
-ms.custom: seodec18
+origin.date: 02/27/2017
+ms.date: 06/29/2018
+ms.author: v-junlch
+ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 517ac0f612b9e5fc5909a7f0fe2ce088c9b367d9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548690"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776180"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Executar tarefas de preparação e liberação do trabalho em nós de computação do Lote
 
@@ -195,11 +196,11 @@ Essa postagem no fórum da MSDN fornece uma visão geral dos vários métodos de
 
 Escrito por um dos membros da equipe do Lote do Azure, ele aborda várias técnicas que você pode usar para implantar aplicativos e dados em nós de computação.
 
-[api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
-[api_rest]: https://msdn.microsoft.com/library/azure/dn820158.aspx
-[azure_storage]: https://azure.microsoft.com/services/storage/
-[portal]: https://portal.azure.com
+[api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
+[azure_storage]: https://www.azure.cn/home/features/storage/
+[portal]: https://portal.azure.cn
 [job_prep_release_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/JobPrepRelease
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [net_batch_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
@@ -225,3 +226,5 @@ Escrito por um dos membros da equipe do Lote do Azure, ele aborda várias técni
 [net_list_tasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx
 
 [1]: ./media/batch-job-prep-release/portal-jobprep-01.png
+
+<!-- Update_Description: wording update -->

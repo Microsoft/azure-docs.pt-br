@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 8b8810d3dc899a87b99422c093b6901ed9683325
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195209"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101125"
 ---
 # <a name="saas-application-offer-settings-tab"></a>Guia Configurações da Oferta de aplicativo SaaS
 

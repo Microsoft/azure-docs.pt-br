@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: iainfou
 ms.openlocfilehash: 29180d6c1bb5f0991a4f33c3b7c9418f84d8260c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785882"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61027959"
 ---
 # <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Visualização - proteger o tráfego entre os pods usando diretivas de rede no serviço de Kubernetes do Azure (AKS)
 

@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 7b748c507d5c848cc83a8a0c55cb7b05903bc542
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958517"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473120"
 ---
 # <a name="personname-prebuilt-entity-for-a-luis-app"></a>Entidade predefinida PersonName para um aplicativo LUIS
 A entidade personName pré-criada detecta nomes de pessoas. Como essa entidade já está treinada, não é necessário adicionar enunciados de exemplo contendo personName nas intenções do aplicativo. A entidade personName tem suporte nas [culturas](luis-reference-prebuilt-entities.md) em inglês e em chinês.

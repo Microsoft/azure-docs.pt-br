@@ -2,18 +2,18 @@
 title: Pontos de extremidade de segurança no Serviço de Provisionamento de Dispositivo IoT | Microsoft Docs
 description: Conceitos - como controlar o acesso ao Serviço de Provisionamento de Dispositivos no IoT para aplicativos de back-end. Inclui informações sobre tokens de autenticação de segurança.
 author: wesmc7777
-manager: philmea
+manager: timlt
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 04/09/2019
+ms.date: 09/28/2017
 ms.author: wesmc
 ms.openlocfilehash: 7ff622ceac9c49eda7ba6bca1a8bb3aaabccb816
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495423"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626632"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Controlar o acesso ao Serviço de Provisionamento de Dispositivo do Hub IoT do Azure
 
@@ -39,7 +39,7 @@ Você pode conceder [permissões](#device-provisioning-service-permissions) das 
 > [!NOTE]
 > Para obter informações detalhadas, consulte [permissões](#device-provisioning-service-permissions).
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 O Serviço de Provisionamento do Hub IoT do Azure concede acesso aos pontos de extremidade, verificando um token com base nas políticas de acesso compartilhado. As credenciais de segurança, como as chaves simétricas, nunca são enviadas pela conexão.
 
@@ -75,7 +75,7 @@ O token de segurança tem o seguinte formato:
 
 Veja os valores esperados:
 
-| Valor | DESCRIÇÃO |
+| Value | DESCRIÇÃO |
 | --- | --- |
 | {signature} |Uma cadeia de caracteres de assinatura HMAC-SHA256 no formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: a chave é decodificada da base64 e usada como chave para executar o cálculo de HMAC-SHA256.|
 | {expiry} |As cadeias de caracteres UTF8 para o número de segundos desde a época 00:00:00 UTC em 1º de janeiro de 1970. |

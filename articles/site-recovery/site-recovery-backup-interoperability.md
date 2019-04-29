@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: sideeksh
 ms.openlocfilehash: e902f70225ec0eb0caa98f7e19a16c87220cb6f9
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312879"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61035708"
 ---
 # <a name="support-for-using-site-recovery-with-azure-backup"></a>Suporte para usar o Site Recovery com o Backup do Azure
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
 ms.openlocfilehash: 6da2b63b7a9c8dc490bd30bb02ae6e7d932b2f7b
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683912"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60595986"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Detalhes da coleta de dados para soluções de gerenciamento no Azure
 Este artigo inclui uma lista de [soluções de gerenciamento](solutions.md) disponíveis na Microsoft com links para a documentação detalhada.  Ele também fornece informações sobre o método e frequência de coleta de dados no Azure Monitor.  É possível usar as informações deste artigo para identificar as diferentes soluções disponíveis e compreender o fluxo de dados e os requisitos de conexão para diferentes soluções de gerenciamento. 

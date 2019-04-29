@@ -10,11 +10,11 @@ ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: dae0ea3e564a3dfafcd7f072f9b0d8854df17ed7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074736"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61304181"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Exibir o conteúdo de um arquivo que está sendo controlado com o Controle de Alterações
 
@@ -34,7 +34,7 @@ O controle de conteúdo do arquivo permite que você exiba o conteúdo de um arq
 2. No menu superior, selecione **Editar Configurações**.
 3. Selecione **Conteúdo do Arquivo** e clique em **Link**. Isso abre o painel **Adicionar local de conteúdo para o Controle de Alterações**.
 
-   ![habilitar](./media/change-tracking-file-contents/enable.png)
+   ![enable](./media/change-tracking-file-contents/enable.png)
 
 4. Selecione a assinatura e a conta de armazenamento a serem usadas para armazenar o conteúdo do arquivo. Se você deseja habilitar o controle de conteúdo de arquivo para todos os arquivos controlados existentes, selecione **Habilitado** para **Carregar conteúdo do arquivo para todas as configurações**. Você poderá alterar isso para cada caminho de arquivo mais tarde.
 

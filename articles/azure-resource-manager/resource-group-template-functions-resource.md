@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/09/2019
 ms.author: tomfitz
 ms.openlocfilehash: 4d5e6d20cb93c339d75c12ca1c0f56eaa5cc8cdd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490751"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60783000"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos do Azure Resource Manager
 
@@ -45,8 +45,8 @@ A sintaxe dessa função varia de acordo com o nome das operações de lista. Ca
 
 | Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| resourceName ou resourceIdentifier |Sim |cadeia de caracteres |Identificador exclusivo para o recurso. |
-| apiVersion |Sim |cadeia de caracteres |Versão de API do estado de tempo de execução do recurso. Normalmente, no formato **aaaa-mm-dd**. |
+| resourceName ou resourceIdentifier |Sim |string |Identificador exclusivo para o recurso. |
+| apiVersion |Sim |string |Versão de API do estado de tempo de execução do recurso. Normalmente, no formato **aaaa-mm-dd**. |
 | functionValues |Não  |objeto | Um objeto que tem valores para a função. Fornecer apenas este objeto para funções que dão suporte ao recebimento de um objeto com valores de parâmetro, como **listAccountSas** em uma conta de armazenamento. Um exemplo de passar valores de função é mostrado neste artigo. | 
 
 ### <a name="implementations"></a>Implementações
@@ -256,8 +256,8 @@ Retorna informações sobre um provedor de recursos e seus tipos de recursos com
 
 | Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Sim |cadeia de caracteres |Namespace do provedor |
-| resourceType |Não  |cadeia de caracteres |O tipo de recurso no namespace especificado. |
+| providerNamespace |Sim |string |Namespace do provedor |
+| resourceType |Não  |string |O tipo de recurso no namespace especificado. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -331,9 +331,9 @@ Retorna um objeto que representa o estado de tempo de execução de um recurso.
 
 | Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| resourceName ou resourceIdentifier |Sim |cadeia de caracteres |Nome ou identificador exclusivo de um recurso. |
-| apiVersion |Não  |cadeia de caracteres |Versão da API do recurso especificado. Inclua esse parâmetro quando o recurso não estiver provisionado no mesmo modelo. Normalmente, no formato **aaaa-mm-dd**. |
-| 'Full' |Não  |cadeia de caracteres |Valor que especifica se o objeto de recurso completo deve ser retornado. Se você não especificar `'Full'`, apenas o objeto de propriedades do recurso será retornado. O objeto completo inclui valores como a ID do recurso e o local. |
+| resourceName ou resourceIdentifier |Sim |string |Nome ou identificador exclusivo de um recurso. |
+| apiVersion |Não  |string |Versão da API do recurso especificado. Inclua esse parâmetro quando o recurso não estiver provisionado no mesmo modelo. Normalmente, no formato **aaaa-mm-dd**. |
+| 'Full' |Não  |string |Valor que especifica se o objeto de recurso completo deve ser retornado. Se você não especificar `'Full'`, apenas o objeto de propriedades do recurso será retornado. O objeto completo inclui valores como a ID do recurso e o local. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -584,7 +584,7 @@ O exemplo anterior retorna um objeto no seguinte formato:
 }
 ```
 
-## <a name="resourceid"></a>ResourceId
+## <a name="resourceid"></a>resourceId
 
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
 
@@ -595,10 +595,10 @@ Retorna o identificador exclusivo de um recurso. Você pode usar essa função q
 | Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Não  |string (no formato GUID) |O valor padrão é a assinatura atual. Especifique esse valor quando você precisar recuperar um recurso em outra assinatura. |
-| resourceGroupName |Não  |cadeia de caracteres |O valor padrão é o grupo de recursos atual. Especifique esse valor quando você precisar recuperar um recurso em outro grupo de recursos. |
-| resourceType |Sim |cadeia de caracteres |Tipo de recurso, incluindo o namespace do provedor de recursos. |
-| resourceName1 |Sim |cadeia de caracteres |Nome do recurso. |
-| resourceName2 |Não  |cadeia de caracteres |Próximo segmento de nome do recurso se o recurso está aninhado. |
+| resourceGroupName |Não  |string |O valor padrão é o grupo de recursos atual. Especifique esse valor quando você precisar recuperar um recurso em outro grupo de recursos. |
+| resourceType |Sim |string |Tipo de recurso, incluindo o namespace do provedor de recursos. |
+| resourceName1 |Sim |string |Nome do recurso. |
+| resourceName2 |Não  |string |Próximo segmento de nome do recurso se o recurso está aninhado. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -718,7 +718,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| NOME | Tipo | Valor |
+| NOME | Tipo | Value |
 | ---- | ---- | ----- |
 | sameRGOutput | Cadeia de caracteres | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | Cadeia de caracteres | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |

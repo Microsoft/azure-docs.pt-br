@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: danlep
 ms.openlocfilehash: 5d8904b5906adbdab68989b3a5cf9c3975c23533
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697578"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61347049"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticação do Registro de Contêiner do Azure com entidades de serviço
 

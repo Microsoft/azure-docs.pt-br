@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: 86ad6fce34f323d94f7b9c318ba81f547360d4df
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804943"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61038477"
 ---
-# <a name="networking"></a>Em Rede
+# <a name="networking"></a>Rede
 
 Conforme você cria e gerencia clusters do Azure Service Fabric, você fornece conectividade de rede para seus nós e seus aplicativos. Os recursos de rede incluem intervalos de endereços IP, redes virtuais, balanceadores de carga e grupos de segurança de rede. Neste artigo, você aprenderá as melhores práticas para esses recursos.
 
@@ -60,7 +60,7 @@ A expansão da infraestrutura é necessária para habilitar a Rede Acelerada em 
 
 * Os clusters do Service Fabric podem ser implantados em uma rede virtual existente seguindo as etapas descritas em [Padrões de rede do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking).
 
-* Os NSGs (grupos de segurança de rede) são recomendados para tipos de nós que restringem o tráfego de entrada e saída para o cluster. Verifique se as portas necessárias estão abertas no NSG. Por exemplo: ![Regras NSG do Service Fabric][NSGSetup]
+* Os NSGs (grupos de segurança de rede) são recomendados para tipos de nós que restringem o tráfego de entrada e saída para o cluster. Verifique se as portas necessárias estão abertas no NSG. Por exemplo:  ![Regras NSG do Service Fabric][NSGSetup]
 
 * O tipo de nó primário, que contém os serviços do sistema do Service Fabric, não precisa ser exposto por meio do balanceador de carga externo e pode ser exposto por um [balanceador de carga interno](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)
 

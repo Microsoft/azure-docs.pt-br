@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: magattus
 ms.openlocfilehash: f82675f1e93a5471f98c1778e9394f9eaec1a07b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813034"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60636790"
 ---
 # <a name="how-caching-works"></a>Como funciona o cache
 

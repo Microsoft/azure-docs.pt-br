@@ -17,11 +17,11 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
 ms.openlocfilehash: 1d0f3bfa03eb4bafdd10222e28782c318848b7f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995171"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60592168"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Conclua os pré-requisitos para a criação de grupos de disponibilidade AlwaysOn em máquinas virtuais do Azure
 
@@ -81,7 +81,7 @@ Para criar a rede virtual:
 
     A tabela a seguir mostra as configurações para a rede virtual:
 
-   | **Campo** | Valor |
+   | **Campo** | Value |
    | --- | --- |
    | **Nome** |autoHAVNET |
    | **Espaço de endereço** |10.33.0.0/24 |
@@ -121,7 +121,7 @@ A nova rede virtual tem uma sub-rede, chamada **Admin**. Os controladores de dom
 
 A tabela a seguir resume as definições de configuração de rede:
 
-| **Campo** | Valor |
+| **Campo** | Value |
 | --- | --- |
 | **Nome** |**autoHAVNET** |
 | **Espaço de endereço** |Este valor depende dos espaços de endereço disponíveis em sua assinatura. Um valor típico é 10.0.0.0/16. |
@@ -174,7 +174,7 @@ Repita as etapas anteriores para criar duas máquinas virtuais. Nomeie as duas m
 
 A tabela a seguir mostra as configurações para esses dois computadores:
 
-| **Campo** | Valor |
+| **Campo** | Value |
 | --- | --- |
 | **Nome** |Primeiro controlador de domínio: *ad-primary-dc*.</br>Segundo controlador de domínio *ad-secondary-dc*. |
 | **Tipo de disco da VM** |SSD |
@@ -190,7 +190,7 @@ A tabela a seguir mostra as configurações para esses dois computadores:
 | **Endereço IP público** |*Mesmo nome que a VM* |
 | **Grupo de segurança de rede** |*Mesmo nome que a VM* |
 | **Conjunto de disponibilidade** |adavailabilityset </br>**Domínios de falha**: 2 </br>**Domínio de atualização**: 2|
-| **Diagnostics** |habilitado |
+| **Diagnostics** |Enabled |
 | **Conta de armazenamento de diagnóstico** |*Criada automaticamente* |
 
    >[!IMPORTANT]

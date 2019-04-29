@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: f69fd7af23c360edc208561f915bd351c3fd373c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 593cd83dab6e0cd93cdd1aedac278f4d94a27cc5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60336789"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760596"
 ---
 # <a name="translator-text-api-30-translate"></a>API de Tradução de Texto 3.0: Translate
 
@@ -42,11 +42,11 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   </tr>
   <tr>
     <td>de</td>
-    <td><em>Parâmetro opcional</em>.<br/>Especifica o idioma do texto de entrada. Localize quais idiomas estão disponíveis para tradução, consultando [idiomas com suporte](./v3-0-languages.md) usando o escopo <code>translation</code>. Se o parâmetro <code>from</code> não for especificado, a detecção automática de idioma será aplicada para determinar o idioma de origem.</td>
+    <td><em>Parâmetro opcional</em>.<br/>Especifica o idioma do texto de entrada. Localize quais idiomas estão disponíveis para tradução, consultando <a href="./v3-0-languages.md">idiomas com suporte</a> usando o escopo <code>translation</code>. Se o parâmetro <code>from</code> não for especificado, a detecção automática de idioma será aplicada para determinar o idioma de origem.</td>
   </tr>
   <tr>
     <td>para</td>
-    <td><em>Parâmetro obrigatório</em>.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos [idiomas com suporte](./v3-0-languages.md) incluídos no escopo <code>translation</code>. Por exemplo, use <code>to=de</code> para traduzir para alemão.<br/>É possível traduzir para vários idiomas simultaneamente, repetindo o parâmetro na cadeia de caracteres de consulta. Por exemplo, use <code>to=de&to=it</code> para traduzir para alemão e italiano.</td>
+    <td><em>Parâmetro obrigatório</em>.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos <a href="./v3-0-languages.md">idiomas com suporte</a> incluídos no escopo <code>translation</code>. Por exemplo, use <code>to=de</code> para traduzir para alemão.<br/>É possível traduzir para vários idiomas simultaneamente, repetindo o parâmetro na cadeia de caracteres de consulta. Por exemplo, use <code>to=de&to=it</code> para traduzir para alemão e italiano.</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -54,15 +54,15 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   </tr>
   <tr>
     <td>category</td>
-    <td><em>Parâmetro opcional</em>.<br/>Uma cadeia de caracteres especificando a categoria (domínio) da tradução. Esse parâmetro é usado para obter traduções de um sistema personalizado compilado com [Tradutor Personalizado](../customization.md). Adicione a ID da categoria do seu projeto de Tradutor Personalizado a esse parâmetro para usar o sistema personalizado implantado. O valor padrão é: <code>general</code>.</td>
+    <td><em>Parâmetro opcional</em>.<br/>Uma cadeia de caracteres especificando a categoria (domínio) da tradução. Esse parâmetro é usado para obter traduções de um sistema personalizado compilado com <a href="../customization.md">Tradutor Personalizado</a>. Adicione a ID da categoria do seu projeto de Tradutor Personalizado a esse parâmetro para usar o sistema personalizado implantado. O valor padrão é: <code>general</code>.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
-    <td><em>Parâmetro opcional</em>.<br/>Especifica como os conteúdos ofensivos devem ser tratados nas traduções. Os valores possíveis são: <code>NoAction</code> (padrão), <code>Marked</code> ou <code>Deleted</code>. Para reconhecer maneiras de tratar conteúdo ofensivo, consulte [Tratamento de conteúdo ofensivo](#handle-profanity).</td>
+    <td><em>Parâmetro opcional</em>.<br/>Especifica como os conteúdos ofensivos devem ser tratados nas traduções. Os valores possíveis são: <code>NoAction</code> (padrão), <code>Marked</code> ou <code>Deleted</code>. Para reconhecer maneiras de tratar conteúdo ofensivo, consulte <a href="#handle-profanity">Tratamento de conteúdo ofensivo</a>.</td>
   </tr>
   <tr>
     <td>profanityMarker</td>
-    <td><em>Parâmetro opcional</em>.<br/>Especifica como os conteúdos ofensivos devem ser marcados nas traduções. Os valores possíveis são: <code>Asterisk</code> (padrão) ou <code>Tag</code>. Para reconhecer maneiras de tratar conteúdo ofensivo, consulte [Tratamento de conteúdo ofensivo](#handle-profanity).</td>
+    <td><em>Parâmetro opcional</em>.<br/>Especifica como os conteúdos ofensivos devem ser marcados nas traduções. Os valores possíveis são: <code>Asterisk</code> (padrão) ou <code>Tag</code>. Para reconhecer maneiras de tratar conteúdo ofensivo, consulte <a href="#handle-profanity">Tratamento de conteúdo ofensivo</a>.</td>
   </tr>
   <tr>
     <td>includeAlignment</td>

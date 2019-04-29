@@ -2,18 +2,19 @@
 title: Arquivo de inclusão
 description: Arquivo de inclusão
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
-ms.author: cherylmc
+origin.date: 03/21/2018
+ms.date: 03/04/2019
+ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: e368b1590f263618969423d57cdf0531fc2bb54d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246146"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60652837"
 ---
 ### <a name="to-modify-the-local-network-gateway-gatewayipaddress"></a>Para modificar o 'gatewayIpAddress' para um gateway de rede local
 

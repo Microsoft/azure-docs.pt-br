@@ -12,11 +12,11 @@ ms.date: 01/30/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: fa79f519c8f3eb8baeaab04870f22a1cfefa59ab
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884317"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61431257"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Usar um bot com o QnA Maker e o LUIS para distribuir uma base de dados de conhecimento
 À medida que sua base de dados de conhecimento do QnA Maker aumentar, ficará difícil mantê-la como um único conjunto monolítico definido e haverá a necessidade de dividir a base de dados de conhecimento em partes lógicas menores.
@@ -237,7 +237,7 @@ No portal do Azure, selecione **Testar no Webchat** para testar o bot. Digite me
 
 ![teste de chat na Web](../media/qnamaker-tutorials-qna-luis/qnamaker-web-chat.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Criar um plano de continuidade de negócios para o QnA Maker](../How-To/business-continuity-plan.md)

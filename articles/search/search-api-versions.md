@@ -11,11 +11,11 @@ ms.date: 06/28/2018
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: c07a0c8f5440033455c69fe40806adf9b548c16f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631141"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61126950"
 ---
 # <a name="api-versions-in-azure-search"></a>Versões de API no Azure Search
 O Azure Search lança atualizações de recurso regularmente. Às vezes, mas não sempre, essas atualizações exigem uma nova versão da API para preservar a compatibilidade com versões anteriores. A publicação de uma nova versão permite controlar quando e como as atualizações de serviço de pesquisa são integradas ao seu código.

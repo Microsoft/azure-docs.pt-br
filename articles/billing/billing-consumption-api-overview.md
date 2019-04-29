@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/07/2018
 ms.author: erikre
-ms.openlocfilehash: 88b7909e78f8bd36ce456eee60587acbbb94b6cd
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
-ms.translationtype: HT
+ms.openlocfilehash: 16e0bdfa0fc70d5239cb4127e61891a013bf54a3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286741"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615892"
 ---
 # <a name="azure-consumption-api-overview"></a>Visão geral da API de consumo do Azure 
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 3b7b821227478d8c6b5859f24c50407f9eb213fe
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312335"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61235247"
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos dos Serviços de Mídia do Azure 
 
@@ -46,7 +46,7 @@ Você não deve tentar alterar o conteúdo de contêineres de blob que foram ger
 Dependendo do tipo de conteúdo que você deseja carregar, armazenar e fornecer, o Serviços de Mídia fornece várias opções de criptografia dentre as quais você pode escolher.
 
 >[!NOTE]
->Nenhuma criptografia é usada. Este é o valor padrão. Ao usar essa opção, seu conteúdo não é protegido quando está em trânsito ou em repouso no armazenamento.
+>Nenhuma criptografia é usada. Esse é o valor padrão. Ao usar essa opção, seu conteúdo não é protegido quando está em trânsito ou em repouso no armazenamento.
 
 Se você pretende enviar um MP4 usando o download progressivo, use essa opção para carregar seu conteúdo.
 
@@ -156,11 +156,11 @@ Para obter mais informações, consulte os seguintes artigos:
 - [Proteger com AES-128](media-services-protect-with-aes128.md)
 - [Proteger com PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
-## <a name="delivering"></a>Entregando
+## <a name="delivering"></a>Fornecimento
 ### <a name="a-iddynamicpackagingdynamic-packaging"></a><a id="dynamic_packaging"/>Empacotamento dinâmico
 Ao trabalhar com os Serviços de Mídia, é recomendado codificar seus arquivos de mezanino em uma conjunto MP4 de taxa de bits adaptável e, em seguida, converter o conjunto para o formato desejado usando o [Empacotamento Dinâmico](media-services-dynamic-packaging-overview.md).
 
-### <a name="streaming-endpoint"></a>Ponto de extremidade de streaming
+### <a name="streaming-endpoint"></a>ponto de extremidade de streaming
 Um StreamingEndpoint representa um serviço de streaming que pode fornecer conteúdo diretamente a um aplicativo de player de cliente ou para uma CDN (Rede de Distribuição de Conteúdo) para a distribuição (os Serviços de Mídia do Azure agora fornecem a integração com o Azure CDN). O fluxo de saída de um serviço de ponto de extremidade de streaming pode ser uma transmissão ao vivo ou um Ativo de vídeo sob demanda em sua conta dos Serviços de Mídia. Os clientes de Serviços de Mídia escolhem um ponto de extremidade de streaming **Standard** ou um ou mais pontos de extremidade de streaming **Premium** de acordo com suas necessidades. O ponto de extremidade de streaming Standard é adequado para a maioria das cargas de trabalho de streaming. 
 
 O Ponto de Extremidade de Streaming Standard é adequado para a maior parte de cargas de trabalho de streaming. Os Pontos de Extremidade de Streaming Standard proporcionam flexibilidade para distribuição de conteúdo a praticamente qualquer dispositivo por meio de empacotamento dinâmico em HLS, MPEG-DASH e Smooth Streaming, bem como a criptografia dinâmica para o Microsoft PlayReady, Google Widevine, Apple Fairplay e AES128.  Eles também são dimensionados para públicos-alvo muito pequenos para muito grandes com milhares de visualizadores simultâneos por meio da integração de CDN do Azure. Se você tiver uma carga de trabalho avançada, ou os requisitos de capacidade de streaming não se ajustarem às metas de taxa de transferência do ponto de extremidade de streaming padrão, ou se você quiser controlar a capacidade do serviço StreamingEndpoint para lidar com as crescentes necessidades de largura de banda, é recomendável alocar unidades de escala (também conhecidas como unidades de streaming Premium).
@@ -187,7 +187,7 @@ O download progressivo permite iniciar a reprodução da mídia antes do arquivo
 >[!NOTE]
 >Será necessário descriptografar ativos criptografados se você desejar que eles estejam disponíveis para download progressivo.
 
-Para fornecer aos usuários URLs de download progressivo, você deve primeiro criar um localizador OnDemandOrigin. Criar o localizador oferece a você o caminho base para o ativo. Em seguida, é necessário acrescentar o nome do arquivo MP4. Por exemplo:
+Para fornecer aos usuários URLs de download progressivo, você deve primeiro criar um localizador OnDemandOrigin. Criar o localizador oferece a você o caminho base para o ativo. Em seguida, é necessário acrescentar o nome do arquivo MP4. Por exemplo: 
 
 http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 

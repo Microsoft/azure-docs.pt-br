@@ -12,11 +12,11 @@ ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 9e6bc1264e668ba5c6593ce36e721f54e685c391
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59008485"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61461248"
 ---
 # <a name="what-is-speech-to-text"></a>O que é a conversão de fala em texto?
 
@@ -107,7 +107,7 @@ Se seus aplicativos, ferramentas ou produtos estiver usando as APIs de fala do B
 * [API REST: conversão de texto em fala](rest-text-to-speech.md)
 * [API REST: transcrição e personalização em lote](https://westus.cris.ai/swagger/ui/index)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Obter gratuitamente uma chave de assinatura do Serviço de Fala](get-started.md)
 * [Obtenha o SDK da fala](speech-sdk.md)

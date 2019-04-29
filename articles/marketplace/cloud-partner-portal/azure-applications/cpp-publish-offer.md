@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: pbutlerm
 ms.openlocfilehash: fdca47877d4cb2192eef0a26448cd21e8afe4b77
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217930"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60740211"
 ---
 # <a name="publish-azure-application-offer"></a>Publicar oferta de aplicativo do Azure
 

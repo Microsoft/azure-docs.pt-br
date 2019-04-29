@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
 ms.openlocfilehash: a931de8be07d41cf4daab63aa7691973ee158452
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005036"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60545054"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opções de suporte do Azure Service Fabric
 
@@ -71,7 +71,7 @@ O [Fórum de Comentários do Azure sobre o Service Fabric][uservoice-forum] é o
 De tempos em tempos, lançamos versões com recursos significativos sobre os quais queremos comentários e que são lançadas como versões prévias. Essas versões prévias devem ser usadas apenas para fins de teste. O cluster de produção sempre deve estar executando uma versão do Service Fabric estável e com suporte. Uma versão prévia sempre começa com um número de versão principal e secundária de 255. Por exemplo, se você vir uma versão 255.255.5703.949 do Service Fabric, essa versão só deverá ser usada em clusters de teste e é uma versão prévia. Esses lançamentos de versões prévias também serão comunicados no [Blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) e terão detalhes sobre os recursos incluídos.
 Não há nenhuma opção de suporte pago para essas versões prévias. Use uma das opções listadas em [Relatar problemas do Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) para fazer perguntas ou fornecer comentários.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Versões do Service Fabric com suporte](service-fabric-versions.md)
 

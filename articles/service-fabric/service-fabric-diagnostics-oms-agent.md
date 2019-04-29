@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
 ms.openlocfilehash: 819f6ee4ab079361279a567bceeb74c33fe14186
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661999"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60952334"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Monitoramento de desempenho com logs do Azure Monitor
 

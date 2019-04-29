@@ -12,11 +12,11 @@ ms.date: 03/21/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: a6304a93b1409cff871ed1c4c1d7e66d6c8c6f53
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497679"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736703"
 ---
 # <a name="language-support-for-qna-maker"></a>Suporte ao idioma para o QnA Maker
 

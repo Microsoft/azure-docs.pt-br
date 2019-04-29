@@ -14,11 +14,11 @@ ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
 ms.openlocfilehash: b1a3b04427839736359c88f8ad6a8db5eedf8488
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121236"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61294013"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detecção Inteligente - anomalias de desempenho
 
@@ -69,7 +69,7 @@ Emails sobre anomalias de desempenho de Detecção Inteligente são limitados a 
 ## <a name="faq"></a>Perguntas frequentes
 
 * *Portanto, a equipe da Microsoft examina os meus dados?*
-  *  Não. O serviço é totalmente automático. Somente você recebe as notificações. Os dados são [privados](../../azure-monitor/app/data-retention-privacy.md).
+  * Não. O serviço é totalmente automático. Somente você recebe as notificações. Os dados são [privados](../../azure-monitor/app/data-retention-privacy.md).
 * *Todos os dados coletados pelo Application Insights são analisados?*
   * Não no momento. Atualmente, analisamos o tempo de resposta de solicitação, o tempo de resposta da dependência e o tempo de carregamento da página. A análise de métricas adicionais está em nossa lista de pendências para o futuro.
 
@@ -85,7 +85,7 @@ Emails sobre anomalias de desempenho de Detecção Inteligente são limitados a 
 
   * Executamos diariamente a análise da telemetria do dia anterior (dia inteiro no fuso-horário UTC).
 * *Então isso substitui os [alertas de métrica](../../azure-monitor/app/alerts.md)?*
-  *  Não.  Nosso compromisso não é detectar todos os comportamentos que você pode considerar anormais.
+  * Não.  Nosso compromisso não é detectar todos os comportamentos que você pode considerar anormais.
 
 
 * *Se eu não fizer nada em resposta a uma notificação, receberei um lembrete?*

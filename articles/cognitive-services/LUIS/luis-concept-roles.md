@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 5fa922cb91d34483256faf4dcf70569aa2f17b97
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522479"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813834"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>Funções de entidade para os subtipos contextuais
 
-As funções permitem que entidades tiver nomeado subtipos. Uma função pode ser usada com qualquer tipo de entidade predefinidas ou personalizadas e usada em declarações de exemplo e padrões. 
+As funções permitem que entidades tiver nomeado subtipos. Uma função pode ser usada com qualquer tipo de entidade predefinida ou personalizada e usada em padrões e enunciados de exemplo. 
 
 <a name="example-role-for-entities"></a>
 <a name="roles-with-prebuilt-entities"></a>
@@ -48,7 +48,7 @@ Na declaração "Agendar a reunião de 8 a 9", ambos os números indicam um temp
 Schedule the meeting from 8 to 9
 ```
 
-|Tipo de entidade|Nome da função|Valor|
+|Tipo de entidade|Nome da função|Value|
 |--|--|--|
 |datetimeV2 predefinido|StartTime|8|
 |datetimeV2 predefinido|EndTime|9|

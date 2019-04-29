@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: v-gedod
 ms.openlocfilehash: e395fc96c560c6c6c1671e472840ba0f2a316d98
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006770"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127558"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Suporte de idioma e região para a API de Pesquisa Personalizada do Bing
 

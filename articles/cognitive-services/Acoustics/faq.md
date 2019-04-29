@@ -11,11 +11,11 @@ ms.topic: resources
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 3426681aad19bbe01c0f7e88ca16e79c0b490c36
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317299"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61335323"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>Perguntas frequentes sobre o projeto acústica
 
@@ -45,7 +45,7 @@ Acústica leva aproximadamente 0,01% da CPU por origem por quadro. Uso de RAM de
  
 ## <a name="do-i-need-to-simplify-the-level-geometry-control-triangle-count-make-meshes-watertight"></a>Preciso simplificar a geometria do nível? Contagem do triângulo de controle? Verifique as malhas watertight?
 
-Nº. O sistema ingerirá geometria de nível detalhada diretamente. Será voxelizado para processamento interno.
+Não. O sistema ingerirá geometria de nível detalhada diretamente. Será voxelizado para processamento interno.
  
 ## <a name="whats-in-the-runtime-lookup-table"></a>O que há na tabela de consulta de tempo de execução?
 
@@ -57,7 +57,7 @@ Sim, o projeto acústica consulta a tabela de pesquisa e atualiza o DSP de áudi
  
 ## <a name="can-project-acoustics-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>Projeto acústica pode lidar com a geometria dinâmica? Fechando portas? Paredes surpreso?
 
-Nº. Os parâmetros acústicos são pré-computados com base no estado estático de um nível de jogo. Sugerimos deixando a geometria de porta fora acústica e, em seguida, aplicando oclusão adicional com base no estado de destrutível e objetos do jogo móveis usando estabelecida técnicas.
+Não. Os parâmetros acústicos são pré-computados com base no estado estático de um nível de jogo. Sugerimos deixando a geometria de porta fora acústica e, em seguida, aplicando oclusão adicional com base no estado de destrutível e objetos do jogo móveis usando estabelecida técnicas.
  
 ## <a name="does-project-acoustics-use-acoustic-materials"></a>O projeto acústica usa materiais acústicos?
 

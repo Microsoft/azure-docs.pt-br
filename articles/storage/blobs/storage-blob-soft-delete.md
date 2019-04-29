@@ -5,15 +5,15 @@ services: storage
 author: MichaelHauss
 ms.service: storage
 ms.topic: article
-ms.date: 07/15/2018
+ms.date: 04/23/2019
 ms.author: mihauss
 ms.subservice: blobs
-ms.openlocfilehash: 08d51b1b6a09bb4df3986bd8c4c44d3834882def
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: d9055b0c0decbeca0bb43969af4e854c396c3bb6
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506117"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764223"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Exclusão reversível para blobs do Armazenamento do Azure
 O Armazenamento do Azure agora oferece a exclusão reversível para objetos de blob para que você possa recuperar os dados mais facilmente quando eles forem modificados ou excluídos erroneamente por outro usuário de conta de armazenamento ou um aplicativo.
@@ -278,6 +278,9 @@ blockBlob.StartCopy(copySource);
 Se houver uma possibilidade de que seus dados sejam acidentalmente modificados ou excluídos por outro usuário de conta de armazenamento ou um aplicativo, é recomendável ativar a exclusão reversível. A exclusão reversível é uma parte de uma estratégia de proteção de dados e pode ajudar a evitar a perda acidental de dados.
 
 ## <a name="faq"></a>Perguntas frequentes
+**Existem considerações especiais para usar a exclusão reversível?**  
+Habilitando exclusão reversível para dados substituídos com frequência pode resultar em encargos de capacidade de armazenamento maior e aumento da latência ao listar blobs. Você pode mitigar isso ao armazenar dados substituídos com frequência em uma conta de armazenamento separada com exclusão reversível desabilitado. 
+
 **Para quais tipos de armazenamento posso utilizar a exclusão reversível?**  
 Atualmente, a exclusão reversível só está disponível para armazenamento de blob (objeto).
 

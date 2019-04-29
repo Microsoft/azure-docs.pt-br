@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: c1d4ef640e2ae072dacba7a665b6689e3224c55c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756305"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60607290"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Revisões de moderação de conteúdo, os fluxos de trabalho e trabalhos
 
@@ -72,7 +72,7 @@ Um trabalho de moderação serve como um tipo de wrapper para a funcionalidade d
 
 Consulte a [guia da API REST](./try-review-api-job.md) para começar a usar os trabalhos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Teste o [Console de API de Trabalho](try-review-api-job.md) e use os exemplos de código de API REST. Se você estiver familiarizado com Visual Studio e C#, consulte também o [Início rápido do .NET de Trabalhos](moderation-jobs-quickstart-dotnet.md). 
 * Para revisões, comece com o [console de API de revisão](try-review-api-review.md) e use os exemplos de código da API REST. Em seguida, consulte o [início rápido do .NET de Análises](moderation-reviews-quickstart-dotnet.md).

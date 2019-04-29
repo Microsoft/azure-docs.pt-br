@@ -11,11 +11,11 @@ ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779132"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60996557"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Tratar erros e exceções em Aplicativos Lógicos do Azure
 
@@ -71,7 +71,7 @@ Ou você pode especificar manualmente a política de repetição na seção `inp
 
 *Obrigatório*
 
-| Valor | Type | DESCRIÇÃO |
+| Value | Type | DESCRIÇÃO |
 |-------|------|-------------|
 | <*tipo de política de repetição*> | Cadeia de caracteres | O tipo de política de repetição que você deseja usar: `default`, `none`, `fixed`, ou `exponential` | 
 | <*intervalo de repetição*> | Cadeia de caracteres | O intervalo de repetição em que o valor deve usar [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O intervalo mínimo de padrão é `PT5S` e o intervalo máximo é `PT1D`. Ao usar a política de intervalo exponencial, você pode especificar valores mínimos e máximos diferentes. | 
@@ -80,7 +80,7 @@ Ou você pode especificar manualmente a política de repetição na seção `inp
 
 *Opcional*
 
-| Valor | Type | DESCRIÇÃO |
+| Value | Type | DESCRIÇÃO |
 |-------|------|-------------|
 | <*intervalo mínimo*> | Cadeia de caracteres | Para a política de intervalo exponencial, o menor intervalo para o intervalo selecionado aleatoriamente no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 | <*intervalo máximo*> | Cadeia de caracteres | Para a política de intervalo exponencial, o maior intervalo para o intervalo selecionado aleatoriamente no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 

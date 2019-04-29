@@ -1,7 +1,6 @@
 ---
 title: Otimizar consultas do Hive no Azure HDInsight | Microsoft Docs
 description: Este artigo descreve como otimizar suas consultas do Apache Hive para Hadoop no HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.openlocfilehash: 63def1464c3c219b5181a31bf19cc80a1e487025
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 1610678b0ae1d94c3f3b8f91913beceb211d08d6
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521730"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761171"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Otimizar as consultas do Apache Hive no Azure HDInsight
 
@@ -192,7 +191,7 @@ Há mais métodos de otimização que você pode considerar, por exemplo:
 * **Otimização de junção:** otimização do planejamento da execução de consultas do Hive para melhorar a eficiência de junções e reduzir a necessidade de dicas de usuário. Para obter mais informações, consulte [Otimização de junção](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
 * **Aumentar redutores**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, você aprendeu a vários métodos comuns de otimização de consultas do Hive. Para saber mais, consulte os seguintes artigos:
 
 * [Usar o Apache Hive no HDInsight](hadoop/hdinsight-use-hive.md)

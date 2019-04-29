@@ -3,21 +3,22 @@ title: Copiar dados do SAP Business Warehouse via Open Hub com o Azure Data Fact
 description: Saiba como copiar dados do SAP BW (Business Warehouse) via Open Hub para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/08/2019
-ms.author: jingwang
+origin.date: 03/08/2019
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: c64842dc89c9519c738701558f510940f4cc148d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103903"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848855"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse via Open Hub com o Azure Data Factory
 
@@ -98,7 +99,7 @@ As propriedades a seguir têm suporte no serviço vinculado do SAP BW Open Hub (
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **SapOpenHub** | Sim |
+| type | A propriedade type deve ser definida como: **SapOpenHub** | Sim |
 | Servidor | Nome do servidor no qual reside a instância do SAP BW. | Sim |
 | systemNumber | Número de sistema do sistema SAP BW.<br/>Valor permitido: número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim |
 | clientId | ID de Cliente do cliente no sistema SAP W.<br/>Valor permitido: número decimal de três dígitos representado como uma cadeia de caracteres. | Sim |

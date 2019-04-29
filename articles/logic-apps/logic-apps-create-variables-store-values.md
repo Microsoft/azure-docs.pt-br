@@ -11,11 +11,11 @@ ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: e525e5584e4835b0f2b73203c818c3f799b77cf5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075707"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61004383"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Criar variáveis para salvar e gerenciar valores nos Aplicativos Lógicos do Azure
 
@@ -72,7 +72,7 @@ Você pode criar uma variável e declarar seu tipo de dados e o valor inicial, t
 
 4. Forneça essas informações para sua variável:
 
-   | Propriedade | Obrigatório | Value |  DESCRIÇÃO |
+   | Propriedade | Necessário | Value |  DESCRIÇÃO |
    |----------|----------|-------|--------------|
    | Name | Sim | <*variable-name*> | O nome da variável para incrementar | 
    | Type | Sim | <*variable-type*> | O tipo de dados para a variável | 
@@ -208,7 +208,7 @@ Para aumentar ou *incrementar* uma variável com um valor constante, adicione a 
 
 3. Forneça essas informações para incrementar sua variável:
 
-   | Propriedade | Obrigatório | Value |  DESCRIÇÃO |
+   | Propriedade | Necessário | Value |  DESCRIÇÃO |
    |----------|----------|-------|--------------|
    | Name | Sim | <*variable-name*> | O nome da variável para incrementar | 
    | Value | Não  | <*increment-value*> | O valor usado para incrementar a variável. O valor padrão é um. <p><p>**Dica**: embora seja opcional, defina esse valor como uma prática recomendada para que você sempre saiba o valor específico para incrementar sua variável. | 
@@ -328,7 +328,7 @@ Para reduzir ou *diminuir* uma variável com um valor constante, execute as etap
 
 Estas são as propriedades para a ação **Diminuir variável**:
 
-| Propriedade | Obrigatório | Value |  DESCRIÇÃO |
+| Propriedade | Necessário | Value |  DESCRIÇÃO |
 |----------|----------|-------|--------------|
 | Name | Sim | <*variable-name*> | O nome da variável para diminuir | 
 | Value | Não  | <*increment-value*> | O valor para diminuição da variável. O valor padrão é um. <p><p>**Dica**: embora seja opcional, defina esse valor como uma prática recomendada para sempre conhecer o valor específico para diminuir a variável. | 
@@ -363,7 +363,7 @@ O valor é necessário porque essa ação não tem um valor padrão.
 
 Estas são as propriedades para a ação **Definir variável**:
 
-| Propriedade | Obrigatório | Value |  DESCRIÇÃO | 
+| Propriedade | Necessário | Value |  DESCRIÇÃO | 
 |----------|----------|-------|--------------| 
 | Name | Sim | <*variable-name*> | O nome da variável para alterar | 
 | Value | Sim | <*new-value*> | O valor que você quer atribuir à variável. Ambos devem ter o mesmo tipo de dados. | 
@@ -422,7 +422,7 @@ Para variáveis que armazenam cadeias de caracteres ou matrizes, você pode inse
 
 Estas são as propriedades para as ações **Acrescentar a...**:
 
-| Propriedade | Obrigatório | Value |  DESCRIÇÃO | 
+| Propriedade | Necessário | Value |  DESCRIÇÃO | 
 |----------|----------|-------|--------------| 
 | Name | Sim | <*variable-name*> | O nome da variável para alterar | 
 | Value | Sim | <*append-value*> | O valor que você deseja acrescentar, que pode ser de qualquer tipo | 
@@ -457,7 +457,7 @@ Este exemplo cria uma variável de matriz e adiciona outro valor como o último 
 },
 ```
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
 ms.openlocfilehash: f5dfa34760bcef23bf54d65b35e3ad8f48cc2ee5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008062"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831820"
 ---
 # <a name="application-gateway-components"></a>Componentes do gateway de aplicativo
 
@@ -145,7 +145,7 @@ Além de usar o monitoramento da investigação de integridade padrão, você ta
 
 Para obter mais informações, consulte [monitorar a integridade do seu gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Criar um Application Gateway:
 

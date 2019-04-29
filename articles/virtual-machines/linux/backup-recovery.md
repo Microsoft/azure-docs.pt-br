@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 67278c4f258fc8d437804e3637877f07089cab34
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: HT
+ms.openlocfilehash: dcb96b73b93dae759c06995152d032271dbf9234
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30833397"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60543695"
 ---
 # <a name="backup-and-restore-options-for-linux-virtual-machines-in-azure"></a>Opções de backup e restauração para máquinas virtuais Linux no Azure
 

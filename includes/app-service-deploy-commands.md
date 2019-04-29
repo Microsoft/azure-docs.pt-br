@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 2be66b742d7a4572d3613a8b1fdeafd5fb7ed271
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825460"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343710"
 ---
 Para implantar os recursos no Azure, você deve estar conectado à sua conta do Azure e usar o módulo do Gerenciador de Recursos do Azure. Para obter informações sobre como usar o Gerenciador de Recursos do Azure com o Azure PowerShell ou CLI do Azure, consulte:
 

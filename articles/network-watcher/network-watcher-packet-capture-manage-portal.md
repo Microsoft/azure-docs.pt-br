@@ -3,8 +3,8 @@ title: Gerenciar as capturas de pacotes com o Observador de Rede do Azure - port
 description: Aprenda a gerenciar o recurso de captura de pacote do Observador de Rede usando o portal do Azure.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 59edd945-34ad-4008-809e-ea904781d918
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: 22bdd50f129a48ade97db323f904f7e652a00d39
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889974"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60725849"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gerenciar as capturas de pacotes com o Observador de Rede do Azure usando o portal
 
@@ -98,7 +98,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 Se você selecionou **Arquivo** ao criar a captura, pode exibir ou baixar o arquivo do caminho configurado na máquina virtual.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber como automatizar a captura de pacote com alertas de máquina virtual, veja [Criar uma captura de pacote acionada por alerta](network-watcher-alert-triggered-packet-capture.md).
 - Para determinar se um tráfego específico é permitido dentro ou fora de uma máquina virtual, veja [Diagnosticar um problema de filtro de tráfego de rede de máquina virtual](diagnose-vm-network-traffic-filtering-problem.md).

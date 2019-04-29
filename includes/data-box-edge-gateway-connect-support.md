@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/06/2019
 ms.author: alkohli
 ms.openlocfilehash: 796b6280c2814e6358ce1942a230488cd484415d
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58405926"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462438"
 ---
 Para solucionar problemas no dispositivo, você precisa interagir com a equipe do Microsoft Support. Microsoft Support talvez precise usar uma sessão de suporte para entrar no seu dispositivo.
 

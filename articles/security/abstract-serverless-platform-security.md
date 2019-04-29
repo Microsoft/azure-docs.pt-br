@@ -7,11 +7,11 @@ ms.date: 06/21/2018
 ms.topic: article
 ms.service: security
 ms.openlocfilehash: 87010b3256fb8eef6871d76f80db2999760386b4
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320727"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587488"
 ---
 # <a name="azure-functions-and-serverless-platform-security"></a>Azure Functions e segurança da plataforma sem servidor
 ## <a name="abstract"></a>Resumo

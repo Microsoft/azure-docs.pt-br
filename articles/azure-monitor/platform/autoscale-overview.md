@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
-ms.subservice: autoscale
+ms.component: autoscale
 ms.openlocfilehash: 05f20aec536ebdb702caea37051a65af9bbc659f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085636"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787542"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Visão geral do dimensionamento automático em Aplicativos Web, Serviços de Nuvem e Máquinas Virtuais do Microsoft Azure
 Este artigo descreve o que é dimensionamento automático do Microsoft Azure, seus benefícios e como começar a usá-lo.  
@@ -102,6 +102,7 @@ Você pode configurar o dimensionamento automático via
 * [API REST do Monitor do Azure](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## <a name="supported-services-for-autoscale"></a>Serviços com suporte para o dimensionamento automático
+
 | Serviço | Esquema e Documentos |
 | --- | --- |
 | Aplicativos Web |[Dimensionamento de Aplicativos Web](../../azure-monitor/platform/autoscale-get-started.md) |
@@ -120,4 +121,3 @@ Para saber mais sobre o dimensionamento automático, use as Explicações Passo 
 * [Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [API REST do Dimensionamento Automático](https://msdn.microsoft.com/library/dn931953.aspx)
 * [Solução de Problemas do Dimensionamento Automático dos Conjuntos de Dimensionamento da Máquina Virtual](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
-

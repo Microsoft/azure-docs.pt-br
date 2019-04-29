@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 0d743d89c344ce9cb6eec116ed9c3e0cbe56f86e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878640"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60720841"
 ---
 <a name="api-prerequisites"></a>Pré-requisitos de API
 ================

@@ -2,18 +2,18 @@
 title: Usar o Arquivos do Azure com o Linux | Microsoft Docs
 description: Saiba como montar um compartilhamento de arquivos do Azure com SMB no Linux.
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c79c405c81d6e89314a765ea45d83cc46eb804cd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 75987c7838846aacb099b725e2a222967b32fe64
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834941"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763819"
 ---
 # <a name="use-azure-files-with-linux"></a>Usar o Arquivos do Azure com o Linux
 
@@ -142,7 +142,7 @@ Usuários do Linux, queremos ouvir sua opinião!
 
 O grupo do Arquivos do Azure para usuários do Linux oferece um fórum para que você possa compartilhar comentários à medida que você avalia e adota o Armazenamento de Arquivos no Linux. Envie um email para [Usuários do Linux do Arquivos do Azure](mailto:azurefileslinuxusers@microsoft.com) para ingressar no grupo de usuários.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Veja estes links para obter mais informações sobre o Arquivos do Azure:
 

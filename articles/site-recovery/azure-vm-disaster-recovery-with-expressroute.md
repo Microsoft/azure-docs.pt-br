@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618069"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60772345"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrar o ExpressRoute do Azure à recuperação de desastres para VMs do Azure
 
@@ -106,10 +106,10 @@ Geralmente, as implantações corporativas têm cargas de trabalho divididas em 
 
 **Direção** | **Configuração** | **State**
 --- | --- | ---
-Do spoke para o hub | Permitir que o endereço de rede virtual | habilitado
-Do spoke para o hub | Permitir tráfego encaminhado | habilitado
+Do spoke para o hub | Permitir que o endereço de rede virtual | Enabled
+Do spoke para o hub | Permitir tráfego encaminhado | Enabled
 Do spoke para o hub | Permitir trânsito de gateway | Desabilitado
-Do spoke para o hub | Use remover gateways | habilitado
+Do spoke para o hub | Use remover gateways | Enabled
 
  ![Configuração do emparelhamento spoke-hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
@@ -117,9 +117,9 @@ Do spoke para o hub | Use remover gateways | habilitado
 
 **Direção** | **Configuração** | **State**
 --- | --- | ---
-Do hub para o spoke | Permitir que o endereço de rede virtual | habilitado
-Do hub para o spoke | Permitir tráfego encaminhado | habilitado
-Do hub para o spoke | Permitir trânsito de gateway | habilitado
+Do hub para o spoke | Permitir que o endereço de rede virtual | Enabled
+Do hub para o spoke | Permitir tráfego encaminhado | Enabled
+Do hub para o spoke | Permitir trânsito de gateway | Enabled
 Do hub para o spoke | Use remover gateways | Desabilitado
 
  ![Configuração do emparelhamento hub-spoke](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)

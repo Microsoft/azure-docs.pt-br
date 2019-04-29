@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3fea858f23c6b271a117f2edcc749e0c6b737e27
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
-ms.translationtype: HT
+ms.openlocfilehash: 346ebd9636623a2fc8b08d42c2170a21a5e9a316
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159984"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121071"
 ---
 # <a name="enable-lead-sharing"></a>Habilitar compartilhamento de cliente potencial
 Garantir que o gerenciamento de clientes potenciais está habilitado para sua listagem no [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com) ou no [Microsoft AppSource](https://appsource.microsoft.com) pode ajudá-lo a receber informações de contato dos públicos a seguir:
@@ -60,4 +60,4 @@ Os clientes potenciais nas vitrines do Marketplace são diferentes dos clientes 
 Para obter mais informações sobre como acessar o programa de Venda Conjunta, consulte [Promover seu negócio com a Microsoft](./promote-your-business-with-microsoft.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-Revise o [Guia de publicação do Microsoft Azure Marketplace e AppSource](./marketplace-publishers-guide.md).
+Examine o [Guia de publicação do Microsoft Azure Marketplace e AppSource](./marketplace-publishers-guide.md).

@@ -12,11 +12,11 @@ ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
 ms.openlocfilehash: b389d86fe4d23e3f4ee1c66e4270a74351098129
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579352"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61059598"
 ---
 # <a name="why-use-batch-transcription"></a>Por que usar a transcrição do lote?
 
@@ -126,6 +126,6 @@ Você pode encontrar o exemplo no diretório `samples/batch` do [repositório de
 > [!NOTE]
 > Trabalhos em lotes de transcrição são agendados por melhor esforço, não há nenhum tempo estimado para quando um trabalho será alterado para o estado de execução. Uma vez no estado de execução, a transcrição real é processada mais rapidamente do que o áudio em tempo real.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)

@@ -9,11 +9,11 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 345e07fac30f4ad0c8e9918cb8a1ff0fb8aeb811
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59288945"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60770493"
 ---
 # <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Tutorial: Consulta de um contêiner de Docker do Linux do SQL Server em uma rede virtual de um bloco de anotações do Azure Databricks
 
@@ -195,11 +195,11 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, exclua o grupo de recursos, o espaço de trabalho do Databricks do Azure e todos os recursos relacionados. Exclusão do trabalho evita a cobrança desnecessária. Se você estiver planejando usar o espaço de trabalho do Databricks do Azure no futuro, você pode parar o cluster e reiniciar mais tarde. Se você não pretende continuar a usar esse espaço de trabalho do Databricks do Azure, exclua todos os recursos criados neste tutorial, usando as seguintes etapas:
+Quando não forem mais necessário, exclua o grupo de recursos, o workspace do Azure Databricks e todos os recursos relacionados. Excluir o trabalho evita cobrança desnecessária. Se você está planejando usar o workspace do Azure Databricks no futuro, pode parar o cluster e reiniciá-lo mais tarde. Se você não pretende continuar a usar esse workspace do Azure Databricks, exclua todos os recursos criados neste tutorial usando as seguintes etapas:
 
-1. No menu à esquerda no portal do Azure, clique em **grupos de recursos** e, em seguida, clique no nome do grupo de recursos que você criou.
+1. No menu à esquerda no portal do Azure, clique em **Grupos de recursos** e depois clique no nome do grupo de recursos criado.
 
-2. Na página de grupo de recursos, selecione **exclua**, digite o nome do recurso para excluir na caixa de texto e, em seguida, selecione **excluir** novamente.
+2. Em sua página de grupo de recursos, selecione **Excluir**, digite o nome do recurso a ser excluído na caixa de texto e selecione **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

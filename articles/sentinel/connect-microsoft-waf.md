@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 5316fa7e3aa4465349b762b99bec9171f821062f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798990"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60714737"
 ---
 # <a name="connect-data-from-microsoft-web-application-firewall"></a>Conectar dados de firewall do aplicativo web Microsoft
 
@@ -49,7 +49,7 @@ Depois que seu firewall de aplicativo do Microsoft web é implantado e recebendo
     1. Selecione os tipos de log que você deseja analisar. É recomendável: ApplicationGatewayAccessLog e ApplicationGatewayFirewallLog.
 1. Para usar o esquema relevante no Log Analytics para os alertas de firewall de aplicativo do Microsoft web, pesquise **AzureDiagnostics**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a conectar-se o firewall do aplicativo web Microsoft para Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [Obtenha visibilidade sobre seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Introdução ao [detecção de ameaças com o Azure Sentinel](tutorial-detect-threats.md).

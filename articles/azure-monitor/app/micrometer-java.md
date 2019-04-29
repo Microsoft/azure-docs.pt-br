@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: lagayhar
 ms.openlocfilehash: 778690fb2796cea3154b3acbb662341fdaea87da
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259590"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60699130"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Como usar o micrômetro com o Java SDK do Azure Application Insights
 O monitoramento de aplicativos de micrômetros mede as métricas para código de aplicativo baseado em JVM e permite exportar os dados para seus sistemas de monitoramento favoritos. Este artigo ensinará como usar o Micrômetro com o Application Insights para aplicativos Spring Boot e não-Spring Boot.

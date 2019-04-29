@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
 ms.openlocfilehash: 6339b49d0bc9c635457f305dad7b1a075327a1dd
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650267"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60609949"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Use o PowerShell para criar uma VM do Azure com um servidor de relatório em modo nativo
 > [!IMPORTANT] 
@@ -125,7 +125,7 @@ Um certificado autoassinado foi criado na VM quando a VM foi provisionada. O cer
        Por exemplo, na imagem a seguir, o nome da VM é **ssrsnativecloud** e o nome de usuário é **testuser**.
       
        ![logon inclui o nome da vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
-   2. Execute mmc.exe. Para obter mais informações, consulte [Como: exibir certificados com o Snap-in do MMC](https://msdn.microsoft.com/library/ms788967.aspx).
+   2. Execute mmc.exe. Para obter mais informações, confira [Como: exibir certificados com o Snap-in do MMC](https://msdn.microsoft.com/library/ms788967.aspx).
    3. No menu **Arquivo** do aplicativo do console, adicione o snap-in **Certificados**, selecione **Conta de Computador** quando solicitado e clique em **Próximo**.
    4. Selecione **Computador Local** para gerenciar e clique em **Concluir**.
    5. Clique em **Ok**, expanda os nós **Certificados - Pessoal** e clique em **Certificados**. O certificado recebe o nome com base no nome DNS da VM e termina com **cloudapp.net**. Clique com o botão direito do mouse no nome do certificado e clique em **Copiar**.

@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 22167de6676837c45c48a0bafd19b1ba69578827
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003673"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60888301"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Criar ações de webhook em regras no Microsoft Azure IoT Central
 
@@ -39,7 +39,7 @@ Neste exemplo, conecte-se para o RequestBin para ser notificado quando as regras
 
 Agora quando a regra é disparada, você verá uma nova solicitação aparecem no RequestBin.
 
-## <a name="payload"></a>Conteúdo
+## <a name="payload"></a>Carga útil
 
 Quando uma regra é acionada, uma solicitação HTTP POST é feita para a URL de retorno de chamada que contém uma carga json com as medidas, dispositivo, regra e detalhes do aplicativo. Para uma regra de telemetria, a carga é semelhante ao seguinte:
 

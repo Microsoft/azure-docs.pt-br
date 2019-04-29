@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 9431cc7fa12b86371ce6b2325aca8e13d264442e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880569"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60885330"
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Introdução ao Azure Data Lake Storage usando a CLI do Azure
 
@@ -40,7 +40,7 @@ Antes de começar este artigo, você deve ter o seguinte:
 
 * **CLI do Azure** – Confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) para obter instruções.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 Este artigo usa uma abordagem de autenticação mais simples com o Data Lake Storage Gen1, em que você faz logon como um usuário final. O nível de acesso à conta do Data Lake Storage Gen1 e ao sistema de arquivos é controlado pelo nível de acesso do usuário conectado. No entanto, há outras abordagens para autenticar com o Data Lake Storage Gen1, que são a **autenticação de usuário final** ou a **autenticação serviço a serviço**. Para obter instruções e saber mais sobre como se autenticar, veja [Autenticação do usuário final](data-lake-store-end-user-authenticate-using-active-directory.md) ou [Autenticação de serviço a serviço](data-lake-store-authenticate-using-active-directory.md).
 
@@ -232,7 +232,7 @@ az dls account delete --account mydatalakestoragegen1
 
 Quando solicitado, insira **Y** para excluir a conta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Use o Armazenamento de Data Lake do Azure Gen1 para requisitos de big data](data-lake-store-data-scenarios.md) 
 * [Proteger dados no Armazenamento do Data Lake Gen1](data-lake-store-secure-data.md)
 * [Usar o Azure Data Lake Analytics com o Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

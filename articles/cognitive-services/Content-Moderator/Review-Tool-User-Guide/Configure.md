@@ -11,13 +11,13 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: sajagtap
 ms.openlocfilehash: f88ccbabc925b651abbc06f571a9d4220ed8aeb2
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756514"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61285316"
 ---
-# <a name="configure-the-review-tool"></a>Configurar a ferramenta de revisão
+# <a name="configure-the-review-tool"></a>Configurar a ferramenta de análise
 
 O [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com) tem vários recursos importantes que você pode acessar por meio de **configurações** menu no painel.
 
@@ -138,6 +138,6 @@ Para usar a chave do Azure com as APIs de análise, você precisa recuperar a ID
 
 Se você inseriu sua chave de assinatura em ambos os locais, a chave de avaliação que vem com sua conta da ferramenta de revisão não será usada, mas permanecerão disponível.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Siga as [início rápido de ferramenta de revisão](../quick-start.md) para começar a usar a ferramenta de análise em cenários de moderação de conteúdo.

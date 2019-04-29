@@ -9,11 +9,11 @@ ms.date: 04/04/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9132cf438cab518e20e6c2ddfdb7d0928753bd19
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53443964"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60407477"
 ---
 1. No portal, navegue até a rede virtual para a qual você deseja criar um gateway de rede virtual.
 2. Na seção **Configurações** da página VNet, clique em **Sub-redes** para expandir a página Sub-redes.

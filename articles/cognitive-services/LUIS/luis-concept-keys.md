@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
 ms.openlocfilehash: 1f5aab607c5046df0dee4db5caf36b0b7de53c4d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57998748"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813896"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Chaves de ponto de extremidade de previsão de consulta e criação no LUIS
 O LUIS usa duas chaves: [criação](#programmatic-key) e [ponto de extremidade](#endpoint-key). A chave de criação é criada para você automaticamente quando você cria sua conta LUIS. Quando estiver pronto para publicar seu aplicativo LUIS, será necessário [criar a chave do ponto de extremidade](luis-how-to-azure-subscription.md), [atribuí-la](luis-how-to-azure-subscription.md) ao seu aplicativo LUIS e [usá-la com a consulta de ponto de extremidade](#use-endpoint-key-in-query). 

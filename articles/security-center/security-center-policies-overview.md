@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
 ms.openlocfilehash: ec674641991a1b5a1e0ca92c133be235dd91dfae
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666487"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703516"
 ---
 # <a name="security-center-settings"></a>Configurações da Central de Segurança
 Este artigo apresenta uma visão geral das configurações na Central de Segurança.

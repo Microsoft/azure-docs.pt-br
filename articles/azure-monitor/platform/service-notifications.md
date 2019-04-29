@@ -9,11 +9,11 @@ ms.date: 4/12/2018
 ms.author: dukek
 ms.subservice: logs
 ms.openlocfilehash: ab4aa2f37d5a883c83b8ee09b5de6551ebf13d2e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995146"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883590"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Exibir as notificações de integridade do serviço usando o Portal do Azure
 
@@ -45,8 +45,8 @@ submissionTimestamp | Carimbo de hora quando o evento tornou-se disponível para
 subscriptionId | A assinatura do Azure na qual esse evento foi registrado.
 status | Cadeia de caracteres que descreve o status da operação. Alguns valores comuns são: **Started**, **In Progress**, **Succeeded**, **Failed**, **Active** e **Resolved**.
 operationName | O nome da operação.
-categoria | Esta propriedade é sempre **ServiceHealth**.
-ResourceId | ID do recurso afetado.
+category | Esta propriedade é sempre **ServiceHealth**.
+resourceId | ID do recurso afetado.
 Properties.title | O título localizado dessa comunicação. Inglês é o padrão.
 Properties.communication | Os detalhes localizados da comunicação com marcação HTML. Inglês é o padrão.
 Properties.incidentType | Um dos seguintes valores: **ActionRequired**, **Informational**, **Incident**, **Maintenance** ou **Security**.

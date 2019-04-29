@@ -8,11 +8,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.openlocfilehash: af2225d749283c7124f89d5a7cd735b2f6bfd121
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792609"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61347952"
 ---
 # <a name="mapping-data-flow-union-transformation"></a>Mapeamento de transformação union de fluxo de dados
 

@@ -10,11 +10,11 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: 3b234ca37783fe557baf307f198de9636b06a382
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579488"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60904870"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressões de estilo orientado a dados (SDK da Web)
 
@@ -82,11 +82,11 @@ Expressões de dados fornecem acesso aos dados de propriedade em um recurso.
 | Expression | Tipo de retorno | DESCRIÇÃO |
 |------------|-------------|-------------|
 | `['at', number, array]` | objeto | Recupera um item de uma matriz. |
-| `['geometry-type']` | cadeia de caracteres | Obtém o tipo de geometria do recurso: Ponto, MultiPoint, LineString, MultiLineString, MultiPolygon, polígono. |
+| `['geometry-type']` | string | Obtém o tipo de geometria do recurso: Ponto, MultiPoint, LineString, MultiLineString, MultiPolygon, polígono. |
 | `['get', string]` | value | Obtém o valor da propriedade das propriedades do recurso atual. Retorna nulo se a propriedade solicitada está ausente. |
 | `['get', string, object]` | value | Obtém o valor da propriedade das propriedades do objeto fornecido. Retorna nulo se a propriedade solicitada está ausente. |
-| `['has', string]` | booleano | Determina se as propriedades de um recurso têm a propriedade especificada. |
-| `['has', string, object]` | booleano | Determina se as propriedades do objeto tem a propriedade especificada. |
+| `['has', string]` | boolean | Determina se as propriedades de um recurso têm a propriedade especificada. |
+| `['has', string, object]` | boolean | Determina se as propriedades do objeto tem a propriedade especificada. |
 | `['id']` | value | Obtém a ID do recurso se ele tiver um. |
 | `['length', string | array]` | número | Obtém o comprimento de uma cadeia de caracteres ou matriz. |
 
@@ -173,15 +173,15 @@ Ao comparar valores, a comparação é digitada. Valores de tipos diferentes sã
 
 | Expression | Tipo de retorno | DESCRIÇÃO |
 |------------|-------------|-------------|
-| `['! ', boolean]` | booleano | Negação lógica. Retorna `true` se a entrada for `false`, e `false` se a entrada for `true`. |
-| `['!= ', value, value]` | booleano | Retorna `true` se os valores de entrada não forem iguais, `false` caso contrário. |
-| `['<', value, value]` | booleano | Retorna `true` se a primeira entrada é estritamente menor que o segundo, `false` caso contrário. Os argumentos são necessários para estar ambos cadeias de caracteres ou os dois números. |
-| `['<=', value, value]` | booleano | Retorna `true` se a primeira entrada é menor ou igual ao segundo, `false` caso contrário. Os argumentos são necessários para estar ambos cadeias de caracteres ou os dois números. |
-| `['==', value, value]` | booleano | Retorna `true` se os valores de entrada forem iguais, `false` caso contrário. Os argumentos são necessários para estar ambos cadeias de caracteres ou os dois números. |
-| `['>', value, value]` | booleano | Retorna `true` se a primeira entrada é estritamente maior que o segundo, `false` caso contrário. Os argumentos são necessários para estar ambos cadeias de caracteres ou os dois números. |
-| `['>=' value, value]` | booleano | Retorna `true` se a primeira entrada é maior que ou igual ao segundo, `false` caso contrário. Os argumentos são necessários para estar ambos cadeias de caracteres ou os dois números. |
-| `['all', boolean, boolean, …]` | booleano | Retorna `true` se todas as entradas forem `true`, `false` caso contrário. |
-| `['any', boolean, boolean, …]` | booleano | Retorna `true` se qualquer uma das entradas forem `true`, `false` caso contrário. |
+| `['! ', boolean]` | boolean | Negação lógica. Retorna `true` se a entrada for `false`, e `false` se a entrada for `true`. |
+| `['!= ', value, value]` | boolean | Retorna `true` se os valores de entrada não forem iguais, `false` caso contrário. |
+| `['<', value, value]` | boolean | Retorna `true` se a primeira entrada é estritamente menor que o segundo, `false` caso contrário. Os argumentos são necessários para estar ambos cadeias de caracteres ou os dois números. |
+| `['<=', value, value]` | boolean | Retorna `true` se a primeira entrada é menor ou igual ao segundo, `false` caso contrário. Os argumentos são necessários para estar ambos cadeias de caracteres ou os dois números. |
+| `['==', value, value]` | boolean | Retorna `true` se os valores de entrada forem iguais, `false` caso contrário. Os argumentos são necessários para estar ambos cadeias de caracteres ou os dois números. |
+| `['>', value, value]` | boolean | Retorna `true` se a primeira entrada é estritamente maior que o segundo, `false` caso contrário. Os argumentos são necessários para estar ambos cadeias de caracteres ou os dois números. |
+| `['>=' value, value]` | boolean | Retorna `true` se a primeira entrada é maior que ou igual ao segundo, `false` caso contrário. Os argumentos são necessários para estar ambos cadeias de caracteres ou os dois números. |
+| `['all', boolean, boolean, …]` | boolean | Retorna `true` se todas as entradas forem `true`, `false` caso contrário. |
+| `['any', boolean, boolean, …]` | boolean | Retorna `true` se qualquer uma das entradas forem `true`, `false` caso contrário. |
 
 ## <a name="conditional-expressions"></a>Expressões condicionais
 
@@ -337,11 +337,11 @@ Expressões de tipo fornecem ferramentas para teste e convertendo tipos de dados
 | Expression | Tipo de retorno | DESCRIÇÃO |
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | matriz \| objeto | Retorna um valor literal de matriz ou objeto. Use essa expressão para impedir que uma matriz ou objeto que está sendo avaliada como uma expressão. Isso é necessário quando uma matriz ou objeto precisa ser retornado por uma expressão. |
-| `['to-boolean', value]` | booleano | Converte o valor de entrada em um booliano. O resultado será `false` quando a entrada é uma cadeia de caracteres vazia `0`, `false`, `null`, ou `NaN`; caso contrário, seu `true`. |
+| `['to-boolean', value]` | boolean | Converte o valor de entrada em um booliano. O resultado será `false` quando a entrada é uma cadeia de caracteres vazia `0`, `false`, `null`, ou `NaN`; caso contrário, seu `true`. |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | cor | Converte o valor de entrada para uma cor. Se vários valores são fornecidos, cada um deles é avaliado na ordem até que a primeira conversão bem-sucedida seja obtida. Se nenhuma das entradas podem ser convertidas, a expressão é um erro. |
 | `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | número | Converte o valor de entrada para um número, se possível. Se a entrada for `null` ou `false`, o resultado é 0. Se a entrada for `true`, o resultado será 1. Se a entrada for uma cadeia de caracteres, ele será convertido em um número usando a [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) cadeia de caracteres a função da especificação da linguagem ECMAScript. Se vários valores são fornecidos, cada um deles é avaliado na ordem até que a primeira conversão bem-sucedida seja obtida. Se nenhuma das entradas podem ser convertidas, a expressão é um erro. |
-| `['to-string', value]` | cadeia de caracteres | Converte o valor de entrada em uma cadeia de caracteres. Se a entrada for `null`, o resultado é `""`. Se a entrada for um valor booliano, o resultado será `"true"` ou `"false"`. Se a entrada for um número, ele será convertido em uma cadeia de caracteres usando o [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) número de função da especificação da linguagem ECMAScript. Se a entrada for uma cor, ele será convertido em cadeia de caracteres de cor CSS RGBA `"rgba(r,g,b,a)"`. Caso contrário, a entrada é convertida em uma cadeia de caracteres usando o [JSON. stringify](https://tc39.github.io/ecma262/#sec-json.stringify) função da especificação da linguagem ECMAScript. |
-| `['typeof', value]` | cadeia de caracteres | Retorna uma cadeia de caracteres que descreve o tipo do valor fornecido. |
+| `['to-string', value]` | string | Converte o valor de entrada em uma cadeia de caracteres. Se a entrada for `null`, o resultado é `""`. Se a entrada for um valor booliano, o resultado será `"true"` ou `"false"`. Se a entrada for um número, ele será convertido em uma cadeia de caracteres usando o [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) número de função da especificação da linguagem ECMAScript. Se a entrada for uma cor, ele será convertido em cadeia de caracteres de cor CSS RGBA `"rgba(r,g,b,a)"`. Caso contrário, a entrada é convertida em uma cadeia de caracteres usando o [JSON. stringify](https://tc39.github.io/ecma262/#sec-json.stringify) função da especificação da linguagem ECMAScript. |
+| `['typeof', value]` | string | Retorna uma cadeia de caracteres que descreve o tipo do valor fornecido. |
 
 > [!TIP]
 > Se uma mensagem de erro semelhante à `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` aparecer no console do navegador-significa que há uma expressão em algum lugar no seu código que possui uma matriz que não tem uma cadeia de caracteres para o primeiro valor. Se você quiser que a expressão para retornar uma matriz, encapsule a matriz com o `literal` expressão. O exemplo a seguir define o ícone `offset` opção de uma camada de símbolo, o que precisa ser uma matriz que contém dois números, usando um `match` expressão para escolher entre dois valores de deslocamento com base no valor da `entityType` propriedade do ponto recurso.
@@ -399,9 +399,9 @@ Expressões do operador de cadeia de caracteres executam operações de convers�
 
 | Expression | Tipo de retorno | DESCRIÇÃO |
 |------------|-------------|-------------|
-| `['concat', string, string, …]` | cadeia de caracteres | Concatena várias cadeias de caracteres. Cada valor deve ser uma cadeia de caracteres. Use o `to-string` digite a expressão para converter outros tipos de valor para cadeia de caracteres, se necessário. |
-| `['downcase', string]` | cadeia de caracteres | Converte a cadeia de caracteres especificada em minúsculas. |
-| `['upcase', string]` | cadeia de caracteres | Converte a cadeia de caracteres especificada em maiusculas. |
+| `['concat', string, string, …]` | string | Concatena várias cadeias de caracteres. Cada valor deve ser uma cadeia de caracteres. Use o `to-string` digite a expressão para converter outros tipos de valor para cadeia de caracteres, se necessário. |
+| `['downcase', string]` | string | Converte a cadeia de caracteres especificada em minúsculas. |
+| `['upcase', string]` | string | Converte a cadeia de caracteres especificada em maiusculas. |
 
 **Exemplo**
 

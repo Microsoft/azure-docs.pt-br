@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: wolfma
 ms.openlocfilehash: bb28972469ca33a7fb33a50a8ce2e9bf326222b8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59425790"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61460399"
 ---
 # <a name="about-the-speech-sdk"></a>Sobre o SDK de Fala
 
@@ -89,7 +89,7 @@ O SDK do Java também faz parte do [SDK dos Dispositivos de Fala](speech-devices
 
 [!INCLUDE [Get the samples](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
 * [Veja como reconhecer fala em C#](quickstart-csharp-dotnet-windows.md)

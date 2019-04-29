@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: diberry
 ms.openlocfilehash: 383ce4c4248f7e21f745f503c74a29cb613983e2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121750"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60814000"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Pontuações de previsão indicam a precisão da previsão de intenções e entidades
 
@@ -71,6 +71,6 @@ As pontuações de previsão podem usar a notação exponencial, *aparecendo* ac
 
 Pontuação é um token separado no LUIS. Uma expressão que contém um ponto no final em comparação com uma expressão que não contém um ponto no final são duas declarações separadas e pode receber duas diferentes de previsões. Certifique-se de que o modelo manipule pontuação nos [exemplos de expressões](luis-concept-utterance.md) (com e sem pontuação) ou nos [padrões](luis-concept-patterns.md), onde é mais fácil ignorar a pontuação com a sintaxe especial: `I am applying for the {Job} position[.]`
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Confira [Adicionar entidades](luis-how-to-add-entities.md) para saber como adicionar entidades ao seu aplicativo LUIS.

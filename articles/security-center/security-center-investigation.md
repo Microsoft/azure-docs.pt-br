@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
 ms.openlocfilehash: 6ba21c6eacd5b72d13706c08f0cc9883ccc91388
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107467"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60704689"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Investigar os incidentes e alertas na Central de Segurança do Azure (Versão prévia)
 Este documento ajuda você a usar o recurso de investigação na Central de Segurança do Azure para investigar alertas e incidentes de segurança.
@@ -38,7 +38,7 @@ A intenção é facilitar o processo de investigação vinculando todas as entid
 ## <a name="how-investigation-works"></a>Como a investigação funciona?
 A investigação é composta por um grafo que ocupa a área central do painel de investigação. O grafo sempre se concentra em uma entidade específica e apresenta as entidades que estão relacionadas a ela. Uma entidade pode ser um alerta de segurança, um usuário, um computador ou um incidente.
 
-![Mapa](./media/security-center-investigation/security-center-investigation-fig1.png)
+![Mapear](./media/security-center-investigation/security-center-investigation-fig1.png)
 
 O usuário pode navegar de uma entidade para outra clicando no grafo. O grafo centraliza na entidade selecionada e nas entidades relacionadas automaticamente. As entidades que não são mais relevantes podem ser removidas do grafo.
 

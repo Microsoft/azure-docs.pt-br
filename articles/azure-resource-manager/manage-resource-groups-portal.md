@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
 ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484688"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551176"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gerenciar grupos de recursos do Azure Resource Manager usando o portal do Azure
 
@@ -123,7 +123,7 @@ Há duas maneiras de exportar um modelo:
 Esse método exporta os modelos para algumas implantações. Se você tiver alterado os recursos do portal ou adicionados/removidos recursos em várias implantações, consulte [exportar modelos de grupos de recursos](#export-templates-from-resource-groups).
 
 1. Abra o grupo de recursos que você deseja exportar.  Ver [grupos de recursos de abrir](#open-resource-groups).
-2. No painel esquerdo, selecione **implantações**, ou selecione o link sob **implantações**.  Na seguinte captura de tela, ele mostra **bem-sucedido 4** porque não havia quatro implantações separadas com quatro nomes de implantação diferentes. Você pode ver **1 com êxito**.
+2. No painel esquerdo, selecione **Implantações** ou selecione o link em **Implantações**.  Na seguinte captura de tela, ele mostra **bem-sucedido 4** porque não havia quatro implantações separadas com quatro nomes de implantação diferentes. Você pode ver **1 com êxito**.
 
     ![modelos de exportação de grupo de recursos do Azure](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
 

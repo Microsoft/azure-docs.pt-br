@@ -9,11 +9,11 @@ ms.date: 02/19/2019
 ms.author: bwren
 ms.subservice: alerts
 ms.openlocfilehash: 429770b7651a93473c03f5e386d8f7b72692c161
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784374"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60995863"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Consultas de alertas de log no Azure Monitor
 [As regras de alerta baseadas em logs do Azure Monitor](alerts-unified-log.md) são executadas em intervalos regulares. Portanto, você deve garantir que sejam escritas para minimizar a sobrecarga e a latência. Este artigo fornece recomendações sobre como escrever consultas eficientes para alertas de log e um processo de conversão de consultas existentes. 
@@ -216,7 +216,7 @@ on Hour
 | count 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre os [alertas de log](alerts-log.md) no Azure Monitor.
 - Saiba mais sobre [consultas de log](../log-query/log-query-overview.md).
 

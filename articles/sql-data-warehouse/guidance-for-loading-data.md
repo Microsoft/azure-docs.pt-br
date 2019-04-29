@@ -12,11 +12,11 @@ ms.author: cakarst
 ms.reviewer: jrasnick
 ms.custom: seoapril2019
 ms.openlocfilehash: a8cb3714d11994b36991e56df7fc0f97d08c89ff
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791363"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075275"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Práticas recomendadas para carregar dados no SQL Data Warehouse do Azure
 
@@ -136,7 +136,7 @@ ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SE
 
 Não é necessária nenhuma outra alteração nas fontes de dados externas subjacentes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre o PolyBase e a criação de um processo de Extrair, carregar e transformar (ELT), consulte [Projetar ELT para o SQL Data Warehouse](design-elt-data-loading.md).
 - Para ver um tutorial de carregamento, [Usar o PolyBase para carregar dados do armazenamento de blobs do Azure para o SQL Data Warehouse do Azure](load-data-from-azure-blob-storage-using-polybase.md).

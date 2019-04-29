@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 1/7/2019
 ms.author: dkshir
 ms.openlocfilehash: 9cfcdc879e36b93e21bff6f91886536d799553bb
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200948"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60924487"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Como usar as APIs de gerenciamento de Gêmeos Digitais do Azure
 

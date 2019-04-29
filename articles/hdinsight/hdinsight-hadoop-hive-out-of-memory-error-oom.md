@@ -2,7 +2,6 @@
 title: Corrigir um erro Hive sem memória no Azure HDInsight
 description: Corrija um erro Hive sem memória no HDInsight. O cenário de cliente é uma consulta em várias tabelas grandes.
 keywords: erro de memória insuficiente, OOM, configurações do Hive
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: c0017d0b0255f5b585f9d8e6f6ec2f3a12752625
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 2e7328b95aecc8e644d7b9e2ec407a62551fff79
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691480"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764196"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Consertar um erro de memória insuficiente do Apache Hive no Azure HDInsight
 
@@ -119,6 +118,6 @@ Como uma máquina D12 tem 28 GB de memória, decidimos usar um tamanho de contê
 
 Com as novas configurações, a consulta foi executada com êxito em menos de dez minutos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 O recebimento de um erro de memória insuficiente não significa necessariamente que o tamanho do contêiner é muito pequeno. Em vez disso, você deve definir as configurações de memória para que o tamanho do heap seja aumentado para pelo menos 80% do tamanho da memória do contêiner. Para otimizar consultas do Hive, veja [Otimizar consultas do Apache Hive para Apache Hadoop no HDInsight](hdinsight-hadoop-optimize-hive-query.md).

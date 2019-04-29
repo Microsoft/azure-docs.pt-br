@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
-ms.openlocfilehash: 0e7d7f44a70278a7777ba6c32c8e546074953fdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b5490c4e79ee1458b498f539c0db2cc189fce7f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108564"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60723299"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Usar o serviço de Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple
 
@@ -37,7 +37,7 @@ Neste artigo, você aprenderá:
 O serviço Gerenciador de Dispositivo do StorSimple é executado no Microsoft Azure e se conecta a vários dispositivos StorSimple. Você usa um portal central do Microsoft Azure em execução em um navegador para gerenciar esses dispositivos. Para se conectar ao serviço do StorSimple Device Manager, faça o seguinte.
 
 #### <a name="to-connect-to-the-service"></a>Para conectar-se ao serviço
-1. Navegue para [https://portal.azure.com/](https://portal.azure.com/).
+1. Navegue até [https://portal.azure.com/](https://portal.azure.com/).
 2. Usando suas credenciais de conta da Microsoft, faça logon no Portal do Microsoft Azure (localizado na parte superior direita do painel).
 3. Role para baixo o painel de navegação esquerdo para acessar o serviço do StorSimple Device Manager.
 

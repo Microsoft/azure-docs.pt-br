@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
 ms.openlocfilehash: 679a1c60e44694bde86cafba21d7f1d2c6fb94d9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995618"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60616544"
 ---
 # <a name="creating-and-using-resource-files"></a>Criar e usar arquivos de recurso
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 1/7/2019
 ms.author: dkshir
 ms.openlocfilehash: ff8638042fa10c939ff9c5fa7af99a660fcdc753
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198636"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60924729"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Como consultar as APIs dos Gêmeos Digitais do Azure para tarefas comuns
 

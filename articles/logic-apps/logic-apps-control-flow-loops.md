@@ -11,11 +11,11 @@ manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
 ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522994"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60683819"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar loops que repetem ações de fluxo de trabalho ou processam matrizes nos Aplicativos Lógicos do Azure
 
@@ -177,7 +177,7 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
 
    ![Configurar o agendamento de recorrência](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
-   | Propriedade | Valor |
+   | Propriedade | Value |
    | -------- | ----- |
    | **Intervalo** | 1 | 
    | **Frequência** | Dia |
@@ -337,12 +337,12 @@ Neste exemplo, o loop "Until" chama um ponto de extremidade HTTP, que cria um re
 }
 ```
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em recursos e sugestões, visite o [site de comentários do usuário de Aplicativos Lógicos do Azure](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Executar etapas baseadas em uma condição (instruções condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Executar etapas baseadas em valores diferentes (instruções de comutador)](../logic-apps/logic-apps-control-flow-switch-statement.md)

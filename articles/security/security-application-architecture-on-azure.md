@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/14/2019
 ms.author: terrylan
 ms.openlocfilehash: 76f5627a28c2c0ab326197893a9b9739628af0fb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108068"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60597837"
 ---
 # <a name="application-architecture-on-azure"></a>Arquitetura de aplicativo no Azure
 Para ajudar a proteger suas soluções baseadas em nuvem no Microsoft Azure, uma base sólida de arquitetura é fundamental. Arquitetos, designers e implementadores se beneficiam de um conhecimento sólido sobre a arquitetura de aplicativos e serviços. Esse conhecimento básico ajuda você a entender todos os componentes de suas soluções baseadas em nuvem e torna mais fácil integrar a segurança em todos os aspectos de seu design e implementação.

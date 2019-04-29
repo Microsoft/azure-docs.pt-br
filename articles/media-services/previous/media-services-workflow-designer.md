@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako;johndeu;anilmur
 ms.openlocfilehash: 0ade52d3ae9714f2b370308253e455bcde7ac7a5
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314017"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60825125"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Criar fluxos de trabalho de codificação avançada com o Designer de Fluxo de Trabalho  
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 O **Designer de Fluxo de Trabalho** é uma ferramenta de área de trabalho do Windows usada para projetar e criar fluxos de trabalho personalizados para codificação com **Fluxo de Trabalho do Media Encoder Premium**.
 Usando o poder da ferramenta de designer de fluxo de trabalho, você pode projetar e criar fluxos de trabalho complexos que serão executados no **Media Encoder Premium**.  
 
@@ -88,6 +88,6 @@ Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 Se precisar de suporte ou se tiver perguntas sobre a criação de fluxos de trabalho personalizados na ferramenta Designer de Fluxo de Trabalho, envie um email para mepd@microsoft.com.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 [Vídeos de treinamento de Designer de Fluxo de Trabalho do Azure Premium Encoder](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 

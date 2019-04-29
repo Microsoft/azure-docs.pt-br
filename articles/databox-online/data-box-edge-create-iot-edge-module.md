@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 522dddde4994bb019e6547fcd18465b201f048d8
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: c2803ba598895834bb197f4a06ff0635354fcaca
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401721"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759992"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Desenvolver um C# módulo do IoT Edge para mover arquivos de dados de caixa de borda
 
@@ -36,7 +36,7 @@ Seu dispositivo Data Box Edge pode implantar e executar módulos do IoT Edge. Os
 2. O gerador de evento de arquivo cria um evento de arquivo para cada arquivo gravado no compartilhamento local. Os eventos de arquivo também são gerados quando um arquivo é modificado. Depois, os eventos de arquivo são enviados ao Hub IoT Edge (no tempo de execução do IoT Edge).
 3. O módulo personalizado do IoT Edge processa o evento de arquivo para criar um objeto de evento de arquivo que também contém um caminho relativo para o arquivo. O módulo gera um caminho absoluto usando o caminho relativo do arquivo e copia o arquivo do compartilhamento local para o compartilhamento na nuvem. Em seguida, o módulo exclui o arquivo do compartilhamento local.
 
-![Como o módulo do Azure IoT Edge funciona no Data Box Edge](./media/data-box-edge-create-iot-edge-module/how-module-works.png)
+![Como o módulo do Azure IoT Edge funciona no Data Box Edge](./media/data-box-edge-create-iot-edge-module/how-module-works-1.png)
 
 Assim que o arquivo chega ao compartilhamento na nuvem, ele é carregado automaticamente em sua conta do Armazenamento do Azure.
 
@@ -271,6 +271,6 @@ Na seção anterior, você criou uma solução do IoT Edge e adicionou o código
 
 4. Você pode conferir o endereço de imagem de contêiner completo com marca no terminal integrado do VS Code. O endereço da imagem é criado a partir de informações que estão no arquivo module.json com o formato `<repository>:<version>-<platform>`. Para este artigo, ele deve se parecer com `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64`.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para implantar e executar esse módulo na borda da caixa de dados, consulte as etapas em [adicionar um módulo](data-box-edge-deploy-configure-compute.md#add-a-module).

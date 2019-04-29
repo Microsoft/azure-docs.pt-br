@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
 ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361245"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736132"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Conectar-se à API de v3 de serviços de mídia - .NET
 

@@ -8,11 +8,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.openlocfilehash: 9fac78f21f2f128ccb040e176891c33d39bf2820
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732782"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61348824"
 ---
 # <a name="azure-data-factory-mapping-data-flow-new-branch-transformation"></a>Transformação de Ramificação do Novo Fluxo de Dados de Mapeamento do Azure Data Factory
 

@@ -8,11 +8,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.openlocfilehash: 3a7eaacc4c234ec7d1d3d88455bd423256a07e90
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005820"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614847"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Usar regras e pontos de extremidade de serviço de Rede Virtual para Banco de Dados do Azure para MySQL
 

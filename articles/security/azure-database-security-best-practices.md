@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: tomsh
 ms.openlocfilehash: 3e244f89904ce9aca161ed1ea435f4137e42bc5d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117962"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587506"
 ---
 # <a name="azure-database-security-best-practices"></a>Melhores práticas de segurança do banco de dados do Azure
 A segurança é uma das principais preocupações para o gerenciamento de bancos de dados e sempre foi uma prioridade para o [Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/). Seus bancos de dados podem ser totalmente protegidos para ajudar a atender a maioria dos requisitos regulamentares ou de segurança, como HIPAA, ISO 27001/27002 e PCI DSS Nível 1. Uma lista atual das certificações de conformidade de segurança está disponível no [site da Central de Confiabilidade da Microsoft](https://azure.microsoft.com/support/trust-center/services/). Você também pode optar por colocar seus bancos de dados em datacenters do Azure específico com base em requisitos regulamentares.
@@ -55,7 +55,7 @@ Como parte do processo de conexão, as conexões de máquinas virtuais do Azure 
 Para obter mais informações sobre as regras de firewall no Banco de Dados SQL, confira [Regras de firewall de Banco de Dados SQL](../sql-database/sql-database-firewall-configure.md).
 
 > [!Note]
-> Além das regras IP, o firewall gerencia regras da rede virtual. As regras da rede virtual são baseadas nos pontos de extremidade de serviço da rede virtual. Regras da rede virtual podem ser preferíveis a regras de IP em alguns casos. Para saber mais, confira [Pontos de extremidade de serviço de rede virtual para o Banco de Dados SQL do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md).
+> Além das regras IP, o firewall gerencia regras da rede virtual. As regras de rede virtual são baseadas nos pontos de extremidade de serviço de rede virtual. Regras da rede virtual podem ser preferíveis a regras de IP em alguns casos. Para saber mais, confira [Pontos de extremidade de serviço de rede virtual para o Banco de Dados SQL do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md).
 
 ## <a name="enable-database-authentication"></a>Habilitar a autenticação de banco de dados
 O Banco de Dados SQL dá suporte a dois tipos de autenticação: autenticação do SQL Server e autenticação do Azure AD.
@@ -77,7 +77,7 @@ Se você usar a autenticação do SQL Server, deverá:
 
 - Gerenciar você mesmo as credenciais de alta segurança.
 - Proteger as credenciais na cadeia de conexão.
-- (Possivelmente) proteger as credenciais passadas pela rede do servidor Web para o banco de dados. Para obter mais informações, consulte [Como: Conectar-se ao SQL Server usando Autenticação do SQL no ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
+- (Possivelmente) proteger as credenciais passadas pela rede do servidor Web para o banco de dados. Para obter mais informações, confira [Como: Conectar-se ao SQL Server usando Autenticação do SQL no ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Autenticação do Azure AD (Active Directory)*
 A autenticação do Azure AD é um mecanismo de conexão com o Banco de Dados SQL do Azure e o [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando identidades no Azure AD. Com a autenticação do Azure AD, é possível gerenciar as identidades de usuários do banco de dados e outros serviços da Microsoft em uma única localização central. O gerenciamento central de IDs fornece um único local para gerenciar os usuários do banco de dados e simplifica o gerenciamento de permissões.

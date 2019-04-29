@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
 ms.date: 01/27/2017
 ms.openlocfilehash: 1db324006e1e6332b5fdd8afd28ebed8a32ac707
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195176"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845759"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-integration-accounts-for-azure-logic-apps"></a>Criar esquemas para acompanhamento de mensagens X12 em contas de integração para os Aplicativos Lógicos do Azure
 
@@ -72,10 +72,10 @@ Você pode usar esses esquemas de acompanhamento X12 em sua conta de integraçã
 | transactionSetControlNumber | Cadeia de caracteres | Número de controle de conjunto de transações. (Opcional) |
 | CorrelationMessageId | Cadeia de caracteres | ID de mensagem de correlação. Uma combinação de {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber}. (Opcional) |
 | messageType | Cadeia de caracteres | Tipo de documento ou conjunto de transações. (Opcional) |
-| isMessageFailed | BOOLEAN | Se a mensagem X12 falha ou não. (Obrigatório) |
-| isTechnicalAcknowledgmentExpected | BOOLEAN | Se a confirmação técnica está configurada ou não no contrato X12. (Obrigatório) |
-| isFunctionalAcknowledgmentExpected | BOOLEAN | Se a confirmação funcional está configurada ou não no contrato X12. (Obrigatório) |
-| needAk2LoopForValidMessages | BOOLEAN | Se o loop AK2 é ou não necessário para uma mensagem válida. (Obrigatório) |
+| isMessageFailed | Boolean | Se a mensagem X12 falha ou não. (Obrigatório) |
+| isTechnicalAcknowledgmentExpected | Boolean | Se a confirmação técnica está configurada ou não no contrato X12. (Obrigatório) |
+| isFunctionalAcknowledgmentExpected | Boolean | Se a confirmação funcional está configurada ou não no contrato X12. (Obrigatório) |
+| needAk2LoopForValidMessages | Boolean | Se o loop AK2 é ou não necessário para uma mensagem válida. (Obrigatório) |
 | segmentsCount | Número inteiro | O número de segmentos no conjunto de transações do X12. (Opcional) |
 ||||
 
@@ -131,11 +131,11 @@ Você pode usar esses esquemas de acompanhamento X12 em sua conta de integraçã
 | respondingFunctionalGroupId | Cadeia de caracteres | A ID de grupo funcional de resposta, que mapeia para AK101 na confirmação. (Opcional) |
 | respondingtransactionSetControlNumber | Cadeia de caracteres | Número de controle de conjunto de transações de resposta. (Opcional) |
 | respondingTransactionSetId | Cadeia de caracteres | A ID de conjunto de transações de resposta, que mapeia para AK201 na confirmação. (Opcional) |
-| statusCode | BOOLEAN | O código de status de confirmação do conjunto de transações. (Obrigatório) |
+| statusCode | Boolean | O código de status de confirmação do conjunto de transações. (Obrigatório) |
 | segmentsCount | Enum | O código de status de confirmação. Os valores aceitos são **Accepted**, **Rejected**, **AcceptedWithErrors**. (Obrigatório) |
 | processingStatus | Enum | O status de processamento da confirmação. Os valores permitidos são **Received**, **Generated**, **Sent**. (Obrigatório) |
 | CorrelationMessageId | Cadeia de caracteres | ID de mensagem de correlação. Uma combinação de {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber}. (Opcional) |
-| isMessageFailed | BOOLEAN | Se a mensagem X12 falha ou não. (Obrigatório) |
+| isMessageFailed | Boolean | Se a mensagem X12 falha ou não. (Obrigatório) |
 | ak2Segment | Cadeia de caracteres | A confirmação de um conjunto de transações no grupo funcional recebido. (Opcional) |
 | ak3Segment | Cadeia de caracteres | Relata erros em um segmento de dados. (Opcional) |
 | ak5Segment | Cadeia de caracteres | Relata se o conjunto de transações identificado no segmento AK2 foi aceito ou rejeitado e a razão. (Opcional) |
@@ -183,8 +183,8 @@ Você pode usar esses esquemas de acompanhamento X12 em sua conta de integraçã
 | direction | Enum | Indica a direção do fluxo de mensagens, receber ou enviar. (Obrigatório) |
 | interchangeControlNumber | Cadeia de caracteres | Número de controle de intercâmbio. (Opcional) |
 | isaSegment | Cadeia de caracteres | Segmento ISA de mensagem. (Opcional) |
-| isTechnicalAcknowledgmentExpected | BOOLEAN | Se a confirmação técnica está configurada ou não no contrato X12. (Obrigatório) |
-| isMessageFailed | BOOLEAN | Se a mensagem X12 falha ou não. (Obrigatório) |
+| isTechnicalAcknowledgmentExpected | Boolean | Se a confirmação técnica está configurada ou não no contrato X12. (Obrigatório) |
+| isMessageFailed | Boolean | Se a mensagem X12 falha ou não. (Obrigatório) |
 | isa09 | Cadeia de caracteres | A data de intercâmbio do documento X12. (Opcional) |
 | isa10 | Cadeia de caracteres | A hora de intercâmbio do documento X12. (Opcional) |
 | isa11 | Cadeia de caracteres | O identificador de Padrões de Controle de intercâmbio X12. (Opcional) |
@@ -235,7 +235,7 @@ Você pode usar esses esquemas de acompanhamento X12 em sua conta de integraçã
 | interchangeControlNumber | Cadeia de caracteres | O número de controle de intercâmbio da confirmação técnica recebida dos parceiros. (Opcional) |
 | isaSegment | Cadeia de caracteres | O segmento ISA da confirmação técnica recebida dos parceiros. (Opcional) |
 | respondingInterchangeControlNumber |Cadeia de caracteres | O número de controle de intercâmbio da confirmação técnica recebida dos parceiros. (Opcional) |
-| isMessageFailed | BOOLEAN | Se a mensagem X12 falha ou não. (Obrigatório) |
+| isMessageFailed | Boolean | Se a mensagem X12 falha ou não. (Obrigatório) |
 | statusCode | Enum | O código de status de confirmação do intercâmbio. Os valores aceitos são **Accepted**, **Rejected**, **AcceptedWithErrors**. (Obrigatório) |
 | processingStatus | Enum | Status de confirmação. Os valores permitidos são **Received**, **Generated**, **Sent**. (Obrigatório) |
 | ta102 | Cadeia de caracteres | Data do intercâmbio. (Opcional) |
@@ -288,9 +288,9 @@ Você pode usar esses esquemas de acompanhamento X12 em sua conta de integraçã
 | interchangeControlNumber | Cadeia de caracteres | Número de controle de intercâmbio. (Opcional) |
 | functionalGroupControlNumber | Cadeia de caracteres | Número de controle funcional. (Opcional) |
 | gsSegment | Cadeia de caracteres | Segmento GS de mensagem. (Opcional) |
-| isTechnicalAcknowledgmentExpected | BOOLEAN | Se a confirmação técnica está configurada ou não no contrato X12. (Obrigatório) |
-| isFunctionalAcknowledgmentExpected | BOOLEAN | Se a confirmação funcional está configurada ou não no contrato X12. (Obrigatório) |
-| isMessageFailed | BOOLEAN | Se a mensagem X12 falha ou não. (Obrigatório)|
+| isTechnicalAcknowledgmentExpected | Boolean | Se a confirmação técnica está configurada ou não no contrato X12. (Obrigatório) |
+| isFunctionalAcknowledgmentExpected | Boolean | Se a confirmação funcional está configurada ou não no contrato X12. (Obrigatório) |
+| isMessageFailed | Boolean | Se a mensagem X12 falha ou não. (Obrigatório)|
 | gs01 | Cadeia de caracteres | O código do identificador funcional. (Opcional) |
 | gs02 | Cadeia de caracteres | O código do remetente do aplicativo. (Opcional) |
 | gs03 | Cadeia de caracteres | O código do receptor do aplicativo. (Opcional) |
@@ -347,7 +347,7 @@ Você pode usar esses esquemas de acompanhamento X12 em sua conta de integraçã
 | gsSegment | Cadeia de caracteres | O mesmo que o número de controle de grupo funcional, só é populado em casos específicos. (Opcional) |
 | respondingfunctionalGroupControlNumber | Cadeia de caracteres | Número de controle do grupo funcional original. (Opcional) |
 | respondingFunctionalGroupId | Cadeia de caracteres | Mapeia para AK101 na ID do grupo funcional de confirmação. (Opcional) |
-| isMessageFailed | BOOLEAN | Se a mensagem X12 falha ou não. (Obrigatório) |
+| isMessageFailed | Boolean | Se a mensagem X12 falha ou não. (Obrigatório) |
 | statusCode | Enum | O código de status de confirmação. Os valores aceitos são **Accepted**, **Rejected**, **AcceptedWithErrors**. (Obrigatório) |
 | processingStatus | Enum | O status de processamento da confirmação. Os valores permitidos são **Received**, **Generated**, **Sent**. (Obrigatório) |
 | ak903 | Cadeia de caracteres | Número de conjuntos de transação recebidos. (Opcional) |

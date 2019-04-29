@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: anantr
 ms.subservice: alerts
 ms.openlocfilehash: cb93f38c05156d7ab5acb89ffff810949583e507
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089396"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551769"
 ---
 # <a name="manage-alert-instances"></a>Gerenciar instâncias de alerta
 Com a [experiência de alertas unificada](https://aka.ms/azure-alerts-overview) no Azure Monitor, agora você pode ver todos os tipos de alertas no Azure, que abrangem várias assinaturas, em um único painel de vidro. Este artigo orienta você por meio de como exibir suas instâncias de alerta e como fazer uma análise aprofundada sobre o portal para localizar instâncias de alerta específicas para a solução de problemas.

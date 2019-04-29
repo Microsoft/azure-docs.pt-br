@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.date: 03/18/2019
 ms.author: troyhop
 ms.openlocfilehash: 4401d4b93a27e76554368ce72d256b38de61df4c
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286118"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61448967"
 ---
 # <a name="create-an-advanced-device-model"></a>Criar um modelo de dispositivo avançados
 
@@ -161,8 +161,8 @@ Os campos listados no esquema podem ser dos tipos a seguir:
 
 * Objeto - serializado usando JSON
 * Binário - serializado usando base64
-* Texto
-* BOOLEAN
+* Text
+* Boolean
 * Número inteiro
 * Double
 * DateTime

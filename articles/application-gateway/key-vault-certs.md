@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/19/2019
+ms.date: 4/25/2019
 ms.author: victorh
 ms.openlocfilehash: 9ab1a42578081d4e6537f221e3f3a8f4c7babde0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013376"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759628"
 ---
 # <a name="ssl-termination-with-key-vault-certificates"></a>Terminação SSL com certificados do Key Vault
 
@@ -51,6 +51,6 @@ Integração com o Key Vault requer um processo de configuração de três etapa
 
 ![Certificados do Key Vault](media/key-vault-certs/ag-kv.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Configura a terminação SSL com certificados do Key Vault usando o Azure PowerShell](configure-keyvault-ps.md).

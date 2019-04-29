@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
 ms.openlocfilehash: 601ee706adedf522890acc3f3996a7d36b349348
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577822"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61357771"
 ---
 # <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Implantar uma central de segurança do Azure para IoT C#-com base em agente de segurança para Windows
 

@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 02/08/2019
 ms.author: v-musehg
 ms.openlocfilehash: 74a3674e632f8dc3f0755bc2ad48376708c7966f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007654"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60861847"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-maps"></a>Esquema de eventos da Grade de Eventos do Azure para Azure Mapas
 
-Este artigo fornece as propriedades e o esquema dos eventos do Azure Mapas. Para uma obter introdução aos esquemas de eventos, consulte [esquema de eventos da Grade de Eventos do Azure](https://docs.microsoft.com/azure/event-grid/event-schema).
+Este artigo fornece as propriedades e o esquema dos eventos do Azure Mapas. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](https://docs.microsoft.com/azure/event-grid/event-schema).
 
 ## <a name="available-event-types"></a>Tipos de evento disponíveis
 
@@ -134,7 +134,7 @@ O objeto ErrorDetails é retornado quando ocorre um erro na API de Mapas. O Erro
 | Propriedade | Type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
 | código | string | O código de status do HTTP. |
-| Message | string | Se disponível, uma descrição do erro em formato legível por humanos. |
+| message | string | Se disponível, uma descrição do erro em formato legível por humanos. |
 | innererror | InnerError | Se disponível, um objeto contendo informações específicas do serviço sobre o erro. |
 
 O InnerError é um objeto que contém informações específicas do serviço sobre o erro. O objeto InnerError tem as seguintes propriedades: 
@@ -161,9 +161,9 @@ O objeto de dados tem as seguintes propriedades:
 | expiredGeofenceGeometryId | string[] | Listas da ID de geometria da cerca geográfica que é expirada em relação ao tempo do usuário na solicitação. |
 | geometries | geometries[] |Lista as geometrias de delimitação que contêm a posição da coordenada ou sobrepõem o searchBuffer em torno da posição. |
 | invalidPeriodGeofenceGeometryId | string[]  | Listas da ID de geometria da cerca geográfica que está em período inválido em relação ao tempo do usuário na solicitação. |
-| isEventPublished | booleano | True se pelo menos um evento for publicado no assinante de evento do Azure Mapas e false se nenhum evento for publicado no assinante de evento do Azure Mapas. |
+| isEventPublished | boolean | True se pelo menos um evento for publicado no assinante de evento do Azure Mapas e false se nenhum evento for publicado no assinante de evento do Azure Mapas. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma introdução à Grade de Eventos do Azure, consulte [O que é Grade de Eventos?](overview.md)
-* Para obter mais informações sobre como criar uma assinatura da Grade de Eventos do Azure, consulte [Esquema de assinatura da Grade de Eventos](subscription-creation-schema.md).
+* Para ver uma introdução à Grade de Eventos do Azure, confira [O que é uma Grade de eventos?](overview.md)
+* Para obter mais informações sobre como criar uma assinatura da Grade de Eventos do Azure, confira [Event Grid subscription schema](subscription-creation-schema.md) (Esquema de assinatura da Grade de Eventos).

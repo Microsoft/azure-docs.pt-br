@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: danlep
 ms.openlocfilehash: 55c84907ab41f6da9d7a0989c68a1c1f90c5e424
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551017"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60827265"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Armazenamento de imagens de contêiner no Registro de Contêiner do Azure
 
@@ -34,7 +34,7 @@ Para cenários que exigem ainda mais garantia de alta disponibilidade, utilize o
 
 A tabela a seguir descreve os limites de armazenamento e imagem de contêiner em vigor para os registros de contêiner do Azure.
 
-| Recurso | Limite |
+| Resource | Limite |
 | -------- | :---- |
 | Repositórios | Sem limite |
 | Imagens | Sem limite |

@@ -9,11 +9,11 @@ ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 03b504524b2f489f1ee042c6e825ccffe0a60bb3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315055"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478463"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparando discos rígidos para um trabalho de importação
 Para preparar um ou mais discos rígidos para um trabalho de importação, execute estas etapas:
@@ -102,10 +102,10 @@ Para preparar um ou mais discos rígidos para um trabalho de importação, execu
 
  O comando usado para a primeira sessão de cópia de cada unidade exige parâmetros diferentes dos comandos para sessões de cópia subsequentes. A tabela a seguir lista os parâmetros adicionais disponíveis para a primeira sessão de cópia:
 
-|Parâmetro de linha de comando|Descrição|
+|Parâmetro de linha de comando|DESCRIÇÃO|
 |-----------------------------|-----------------|
 |**/sk:**<StorageAccountKey\>|`Optional.` A chave da conta de armazenamento na qual os dados serão importados. Você deve incluir **/sk:**<StorageAccountKey\> ou **/csas:**<ContainerSas\> no comando.|
-|**/csas:**<ContainerSas\>|`Optional`. O SAS do contêiner a ser usado para importar dados na conta de armazenamento. Você deve incluir **/sk:**<StorageAccountKey\> ou **/csas:**<ContainerSas\> no comando.<br /><br /> O valor desse parâmetro deve começar com o nome do contêiner, seguido por um ponto de interrogação (?) e o token SAS. Por exemplo:<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> As permissões, especificadas na URL ou em uma política de acesso armazenada, devem incluir Leitura, Gravação e Exclusão para trabalhos de importação, e Leitura, Gravação e Lista para trabalhos de exportação.<br /><br /> Quando este parâmetro for especificado, todos os blobs a serem importados ou exportados deverão estar dentro do contêiner especificado na assinatura de acesso compartilhado.|
+|**/csas:**<ContainerSas\>|`Optional`. O SAS do contêiner a ser usado para importar dados na conta de armazenamento. Você deve incluir **/sk:**<StorageAccountKey\> ou **/csas:**<ContainerSas\> no comando.<br /><br /> O valor desse parâmetro deve começar com o nome do contêiner, seguido por um ponto de interrogação (?) e o token SAS. Por exemplo: <br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> As permissões, especificadas na URL ou em uma política de acesso armazenada, devem incluir Leitura, Gravação e Exclusão para trabalhos de importação, e Leitura, Gravação e Lista para trabalhos de exportação.<br /><br /> Quando este parâmetro for especificado, todos os blobs a serem importados ou exportados deverão estar dentro do contêiner especificado na assinatura de acesso compartilhado.|
 |**/t:**<TargetDriveLetter\>|`Required.` A letra da unidade do disco rígido de destino para a sessão de cópia atual, sem os dois-pontos no final.|
 |**/format**|`Optional.` Especifique esse parâmetro quando for necessário formatar a unidade; caso contrário, omita-o. Antes de a ferramenta formatar a unidade, ela solicitará uma confirmação no console. Para suprimir a confirmação, especifique o parâmetro /silentmode.|
 |**/silentmode**|`Optional.` Especifique esse parâmetro para suprimir a confirmação para formatar a unidade de destino.|
@@ -118,14 +118,14 @@ Para preparar um ou mais discos rígidos para um trabalho de importação, execu
 
 |||
 |-|-|
-|Parâmetro de linha de comando|Descrição|
+|Parâmetro de linha de comando|DESCRIÇÃO|
 |**/j:**<JournalFile\>|`Required.` O caminho para o arquivo de diário. Cada unidade deve ter exatamente um arquivo de diário. Observe que o arquivo de diário não deve residir na unidade de destino. A extensão do arquivo de diário é `.jrn`.|
 |**/id:**<SessionId\>|`Required.` A ID de sessão identifica uma sessão de cópia. Ela é usada para garantir a recuperação correta de uma sessão de cópia interrompida. Os arquivos copiados em uma sessão de cópia são armazenados em um diretório nomeado como a ID de sessão na unidade de destino.|
 
 ### <a name="parameters-for-copying-a-single-directory"></a>Parâmetros para copiar um único diretório
  Ao copiar um único diretório, os seguintes parâmetros obrigatórios e opcionais serão aplicáveis:
 
-|Parâmetro de linha de comando|Descrição|
+|Parâmetro de linha de comando|DESCRIÇÃO|
 |----------------------------|-----------------|
 |**/srcdir:**<SourceDirectory\>|`Required.` O diretório de origem que contém os arquivos a serem copiados para a unidade de destino. O caminho do diretório deve ser um caminho absoluto (não um caminho relativo).|
 |**/dstdir:**<DestinationBlobVirtualDirectory\>|`Required.` O caminho até o diretório virtual de destino em sua conta de armazenamento do Microsoft Azure. O diretório virtual pode ou não existir.<br /><br /> Você pode especificar um contêiner ou um prefixo de blob como `music/70s/`. O diretório de destino deve começar com o nome do contêiner, seguido por uma barra "/" e, opcionalmente, pode incluir um diretório virtual de blob que termina com "/".<br /><br /> Quando o contêiner de destino for o contêiner raiz, especifique explicitamente o contêiner raiz, incluindo a barra, como `$root/`. Como os blobs no contêiner raiz não podem incluir "/" em seus nomes, quaisquer subdiretórios no diretório de origem não serão copiados quando o diretório de destino for o contêiner raiz.<br /><br /> Certifique-se de usar nomes de contêineres válidos ao especificar diretórios virtuais ou blobs de destino. Tenha em mente que os nomes de contêiner devem estar em minúsculas. Para conhecer as regras de nomenclatura de contêineres, consulte [Nomenclatura e referência de contêineres, blobs e metadados](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).|
@@ -137,7 +137,7 @@ Para preparar um ou mais discos rígidos para um trabalho de importação, execu
 ### <a name="parameters-for-copying-a-single-file"></a>Parâmetros para copiar um único arquivo
  Ao copiar um único arquivo, os seguintes parâmetros obrigatórios e opcionais serão aplicáveis:
 
-|Parâmetro de linha de comando|Descrição|
+|Parâmetro de linha de comando|DESCRIÇÃO|
 |----------------------------|-----------------|
 |**/srcfile:**<SourceFile\>|`Required.` O caminho completo até o arquivo a ser copiado. O caminho do diretório deve ser um caminho absoluto (não um caminho relativo).|
 |**/dstblob:**<DestinationBlobPath\>|`Required.` O caminho até o blob de destino em sua conta de armazenamento do Windows Azure. O blob pode ou não existir.<br /><br /> Especifique o nome do blob, começando com o nome do contêiner. O nome do blob não pode começar com "/" ou com o nome da conta de armazenamento. Para conhecer as regras de nomenclatura de blobs, consulte [Nomenclatura e referência de contêineres, blobs e metadados](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).<br /><br /> Quando o contêiner de destino for o contêiner raiz, especifique explicitamente `$root` como o contêiner, por exemplo `$root/sample.txt`. Observe que os blobs no contêiner raiz não podem incluir "/" em seus nomes.|

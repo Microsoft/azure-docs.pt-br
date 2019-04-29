@@ -9,11 +9,11 @@ ms.date: 04/11/2019
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: d89a9c4c4498e249dbfbd453ef9772d18ffd213f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59550128"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60541586"
 ---
 Esta seção fornece informações sobre as gerações anteriores de tamanhos de máquina virtual. Esses tamanhos ainda têm suporte, mas não receberá a capacidade adicional. Há mais recentes ou alternativos tamanhos que estão disponíveis. Consulte a [máquinas virtuais de tamanhos para Windows no Azure](../articles/virtual-machines/windows/sizes.md) ou [tamanhos para máquinas virtuais Linux no Azure](../articles/virtual-machines/linux/sizes.md) para escolher a VM tamanhos que serão melhor se ajustar a sua necessidade.  
 
@@ -137,9 +137,9 @@ Cache de Armazenamento Premium:  Sem suporte
 
 ACU: 160-250 <sup>1</sup>
 
-Armazenamento Premium:  Suportado
+Armazenamento Premium:  Com suporte
 
-Cache de Armazenamento Premium:  Suportado
+Cache de Armazenamento Premium:  Com suporte
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência de disco sem cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -158,9 +158,9 @@ Cache de Armazenamento Premium:  Suportado
 
 ACU: 160-250 <sup>1,2</sup>
 
-Armazenamento Premium:  Suportado
+Armazenamento Premium:  Com suporte
 
-Cache de Armazenamento Premium:  Suportado
+Cache de Armazenamento Premium:  Com suporte
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência de disco sem cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |

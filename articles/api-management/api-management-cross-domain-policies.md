@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: ecbc1af97ce5ed158138f2bcf47f5729842c0fe9
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098521"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657485"
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -129,7 +129,7 @@ Este exemplo demonstra como dar suporte a solicitações preliminares, como as c
 |allowed-origins|Contém elementos `origin` que descrevem as origens permitidas para solicitações entre domínios. `allowed-origins` pode conter um único elemento `origin` que especifica `*` para permitir qualquer origem, ou um ou mais elementos `origin` que contêm uma URI.|Sim|N/D|
 |origin|O valor pode ser `*` para permitir todas as origens ou um URI que especifica uma origem única. O URI deve incluir um esquema, um host e uma porta.|Sim|Se a porta for omitida em um URI, a porta 80 é usada para HTTP e a porta 443 é usada para HTTPS.|
 |allowed-methods|Esse elemento é necessário se métodos diferentes de GET ou POST forem permitidos. Contém elementos `method` que especificam os verbos HTTP compatíveis.|Não |Se esta seção não estiver presente, GET e POST são compatíveis.|
-|estático|Especifica um verbo HTTP.|Pelo menos um elemento `method` é necessário se a seção `allowed-methods` estiver presente.|N/D|
+|method|Especifica um verbo HTTP.|Pelo menos um elemento `method` é necessário se a seção `allowed-methods` estiver presente.|N/D|
 |allowed-headers|Esse elemento contém elementos `header` que especificam os nomes dos cabeçalhos que podem ser incluídos na solicitação.|Não |N/D|
 |expose-headers|Esse elemento contém elementos `header` que especificam os nomes dos cabeçalhos que ficarão acessíveis para o cliente.|Não |N/D|
 |cabeçalho|Especifica um nome de cabeçalho.|Pelo menos um elemento `header` é necessário em `allowed-headers` ou `expose-headers` se a seção estiver presente.|N/D|

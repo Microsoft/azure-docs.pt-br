@@ -10,11 +10,11 @@ ms.date: 01/11/2019
 ms.author: adgera
 ms.custom: seodec18
 ms.openlocfilehash: ffd7d71c33b569b396b9f8babf8105968ee525b9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263060"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60926355"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Adicionar blobs a objetos nos Gêmeos Digitais do Azure
 
@@ -51,7 +51,7 @@ Metadados de blobs JSON são compatíveis com o seguinte modelo:
   }
 ```
 
-| Atributo | Tipo | DESCRIÇÃO |
+| Atributo | Type | DESCRIÇÃO |
 | --- | --- | --- |
 | **parentId** | Cadeia de caracteres | A entidade pai a ser associada ao blob (espaços, dispositivos ou usuários) |
 | **name** |Cadeia de caracteres | Um nome amigável para humanos para o blob |
@@ -108,7 +108,7 @@ Blobs retornados individualmente estão em conformidade com o seguinte esquema J
 }
 ```
 
-| Atributo | Tipo | DESCRIÇÃO |
+| Atributo | Type | DESCRIÇÃO |
 | --- | --- | --- |
 | **ID** | Cadeia de caracteres | O identificador exclusivo do blob |
 | **name** |Cadeia de caracteres | Um nome amigável para humanos para o blob |
@@ -159,7 +159,7 @@ This is my blob content. In this case, some text, but I could also be uploading 
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Valor | Substitua por |
+| Value | Substitua por |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | Um nome de limite de conteúdo com diversas partes |
 
@@ -195,7 +195,7 @@ curl
  -F "text=PATH_TO_FILE;type=text/plain"
 ```
 
-| Valor | Substitua por |
+| Value | Substitua por |
 | --- | --- |
 | YOUR_TOKEN | Seu token OAuth 2.0 válido |
 | YOUR_SPACE_ID | A ID do espaço a ser associado ao blob |

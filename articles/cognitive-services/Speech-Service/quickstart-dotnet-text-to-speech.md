@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.openlocfilehash: 5ae63b1738824095073ac6b9e1071f6b4a3e5ae1
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518840"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61460466"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>Início Rápido: converter o texto em fala usando o .NET Core
 

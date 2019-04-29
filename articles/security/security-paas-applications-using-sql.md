@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 22db43413b5c752decf6785a75dff22ff4a68039
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109361"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596666"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Melhores práticas para proteger bancos de dados de PaaS no Azure
 

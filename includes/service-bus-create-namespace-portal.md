@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: a95f5ee5105c45ba9e5b1705e83d60bf24b1dc12
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57457837"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60333172"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Criar um namespace no Portal do Azure
 Para começar a usar as entidades de mensagens do Barramento de Serviço no Azure, primeiro é necessário criar um namespace com um nome exclusivo no Azure. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo.
@@ -25,7 +25,7 @@ Para criar um namespace:
 
     ![Criar um recurso -> Integração -> Barramento de Serviço](./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png)
 3. Na caixa de diálogo **Criar namespace**, execute as seguintes etapas: 
-    1. Insira um **nome para o namespace**. O sistema imediatamente verifica para ver se o nome está disponível. Para obter uma lista de regras de nomenclatura de namespaces, consulte [criar API de REST do Namespace](/rest/api/servicebus/create-namespace).
+    1. Insira um **nome para o namespace**. O sistema imediatamente verifica para ver se o nome está disponível. Para obter uma lista de regras para nomear namespaces, consulte [Criar a API REST do Namespace](/rest/api/servicebus/create-namespace).
     2. Selecione o tipo de preço (Básico, Standard ou Premium) do namespace. Se você quiser usar [tópicos e assinaturas](../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions), escolha Standard ou Premium. Não há suporte para os tópicos/assinaturas no tipo de preço básico.
     3. Se você tiver selecionado o tipo de preço **Premium**, siga estas etapas: 
         1. Especifique o número de **unidades do sistema de mensagens**. A camada Premium fornece isolamento de recursos no nível de CPU e memória, de modo que cada carga de trabalho seja executada isoladamente. Esse contêiner de recursos é chamado de unidade do sistema de mensagens. Um namespace premium tem pelo menos uma unidade de sistema de mensagens. Você pode selecionar 1, 2 ou 4 unidades do sistema de mensagens para cada namespace Premium do Barramento de Serviço. Para saber mais, confira [Sistema de Mensagens Premium do Barramento de Serviço](../articles/service-bus-messaging/service-bus-premium-messaging.md).
@@ -35,7 +35,7 @@ Para criar um namespace:
     6. Em **Localização**, escolha a região na qual o namespace deve ser hospedado.
     7. Selecione **Criar**. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
    
-        ![Criar namespace](./media/service-bus-create-namespace-portal/create-namespace.png)
+        ![Criar um namespace](./media/service-bus-create-namespace-portal/create-namespace.png)
 4. Confirme se o namespace do barramento de serviço foi implantado com êxito. Para ver as notificações, selecione o **ícone de sino (Alertas)** na barra de ferramentas. Selecione o **nome do grupo de recursos** na notificação, conforme mostrado na imagem. Você vê o grupo de recursos que contém o namespace do barramento de serviço.
 
     ![Alerta de implantação](./media/service-bus-create-namespace-portal/deployment-alert.png)

@@ -10,16 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 4d802b9f71edee1eec4b2c92881e2a8796db2865
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 33a03b24de56ab1090cc8e07c9619eda17f33e27
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58005513"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61293528"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Notas de versão do SDK dos Dispositivos de Fala dos Serviços Cognitivos
 
 As seções a seguir listam as alterações nas versões mais recentes.
+
+## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>Serviços cognitivos de fala dispositivos SDK 1.4.0: Versão de abril de 2019 
+
+* Atualizado o [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) componente para a versão 1.4.0. Para obter mais informações, consulte [notas de versão](https://aka.ms/csspeech/whatsnew). 
 
 ## <a name="cognitive-services-speech-devices-sdk-131-2019-mar-release"></a>Serviços cognitivos de fala dispositivos SDK 1.3.1: Versão de março de 2019 
 

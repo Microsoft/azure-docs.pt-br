@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/18/2019
 ms.author: tomfitz
 ms.openlocfilehash: 94ed3c876ece827e4decd2b5b14332f5e854ab83
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004424"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60727993"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager
 
@@ -42,7 +42,7 @@ Em sua estrutura mais simples, um modelo tem os seguintes elementos:
 }
 ```
 
-| Nome do elemento | Necessário | DESCRIÇÃO |
+| Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--- |:--- |:--- |
 | $schema |Sim |Local do arquivo de esquema JSON que descreve a versão da linguagem do modelo.<br><br> Para implantações de grupo de recursos, use: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Para implantações de assinatura, use: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Sim |Versão do modelo (como 1.0.0.0). Você pode fornecer qualquer valor para esse elemento. Use esse valor para documentar alterações significativas em seu modelo. Ao implantar recursos com o modelo, esse valor pode ser usado para garantir que o modelo certo esteja sendo usado. |
@@ -119,10 +119,10 @@ As propriedades disponíveis para um parâmetro são:
 }
 ```
 
-| Nome do elemento | Necessário | DESCRIÇÃO |
+| Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--- |:--- |:--- |
 | parameterName |Sim |Nome do parâmetro. Deve ser um identificador JavaScript válido. |
-| tipo |Sim |Tipo do valor do parâmetro. Os valores e tipos permitidos são **cadeia de caracteres**, **securestring**, **int**, **bool**, **objeto**, **secureObject**, e **matriz**. |
+| Tipo |Sim |Tipo do valor do parâmetro. Os valores e tipos permitidos são **cadeia de caracteres**, **securestring**, **int**, **bool**, **objeto**, **secureObject**, e **matriz**. |
 | defaultValue |Não  |Valor padrão do parâmetro, se nenhum valor for fornecido para o parâmetro. |
 | allowedValues |Não  |Matriz de valores permitidos para o parâmetro para garantir que o valor correto seja fornecido. |
 | minValue |Não  |O valor mínimo para parâmetros de tipo int, esse valor é inclusivo. |
@@ -491,11 +491,11 @@ Você define recursos com a seguinte estrutura:
 ]
 ```
 
-| Nome do elemento | Necessário | DESCRIÇÃO |
+| Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--- |:--- |:--- |
 | condition | Não  | Valor booliano que indica se o recurso será provisionado durante esta implantação. Quando for `true`, o recurso será criado durante a implantação. Quando `false`, o recurso será ignorado para essa implantação. Ver [condição](#condition). |
 | apiVersion |Sim |Versão da API REST a ser usada para criar o recurso. Para determinar os valores disponíveis, consulte [referência de modelo](/azure/templates/). |
-| tipo |Sim |Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso (como **Microsoft.Storage/storageAccounts**). Para determinar os valores disponíveis, consulte [referência de modelo](/azure/templates/). Para um recurso filho, o formato do tipo depende de se ele tem aninhados no recurso pai ou definido fora do recurso pai. Ver [recursos filho](#child-resources). |
+| Tipo |Sim |Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso (como **Microsoft.Storage/storageAccounts**). Para determinar os valores disponíveis, consulte [referência de modelo](/azure/templates/). Para um recurso filho, o formato do tipo depende de se ele tem aninhados no recurso pai ou definido fora do recurso pai. Ver [recursos filho](#child-resources). |
 | Nome |Sim |Nome do recurso. O nome deve seguir as restrições de componente URI definidas em RFC3986. Além disso, os serviços do Azure que expõem o nome do recurso a terceiros validam o nome para garantir que ele não é uma tentativa de falsificar outra identidade. Para um recurso filho, o formato do nome depende se ele tem aninhados no recurso pai ou definido fora do recurso pai. Ver [recursos filho](#child-resources). |
 | location |Varia |Locais geográficos com suporte do recurso fornecido. Você pode selecionar qualquer uma das localizações disponíveis, mas geralmente faz sentido escolher um que esteja perto de seus usuários. Normalmente, também faz sentido colocar recursos que interagem entre si na mesma região. A maioria dos tipos de recurso exige um local, ao contrário de alguns deles (como uma atribuição de função). |
 | marcas |Não  |Marcas que são associadas ao recurso. Aplique marcas para organizar recursos logicamente em toda a sua assinatura. |
@@ -732,7 +732,7 @@ O exemplo a seguir mostra a estrutura de uma definição de saída:
 }
 ```
 
-| Nome do elemento | Necessário | DESCRIÇÃO |
+| Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--- |:--- |:--- |
 | outputName |Sim |Nome do valor de saída. Deve ser um identificador JavaScript válido. |
 | condition |Não  | Valor booliano que indica se esse valor de saída é retornado. Quando `true`, o valor é incluído na saída para a implantação. Quando `false`, o valor de saída é ignorado para esta implantação. Quando não especificado, o valor padrão é `true`. |

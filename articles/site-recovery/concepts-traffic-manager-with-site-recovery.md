@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 6c77cd43231d4596535c11564313a0fe90633cdb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788742"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60947697"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Traffic Manager com o Azure Site Recovery
 
@@ -115,7 +115,7 @@ Também é possível otimizar o valor de tempo de vida de DNS para o perfil do G
 
 O tempo de vida no cliente também não aumenta se o número de resolvedores de DNS entre o cliente e o servidor DNS autorizado aumentar. Os resolvedores de DNS "contam regressivamente" o tempo de vida e transmitem apenas um valor de tempo de vida que reflete o tempo decorrido desde que o registro foi armazenado em cache. Isso garante que o registro DNS seja atualizado no cliente após o tempo de vida, independentemente do número de Resolvedores de DNS na cadeia.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre [métodos de roteamento](../traffic-manager/traffic-manager-routing-methods.md) do Gerenciador de Tráfego.
 - Saiba mais sobre [perfis aninhados do Gerenciador de Tráfego](../traffic-manager/traffic-manager-nested-profiles.md).
 - Saiba mais sobre [monitoramento do ponto de extremidade](../traffic-manager/traffic-manager-monitoring.md).

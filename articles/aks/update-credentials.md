@@ -2,17 +2,18 @@
 title: Redefinir as credenciais para um cluster do AKS (Serviço de Kubernetes do Azure)
 description: Saiba como atualizar ou redefinir as credenciais da entidade de serviço de um cluster no AKS (Serviço de Kubernetes do Azure)
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: article
-ms.date: 01/30/2019
-ms.author: iainfou
+origin.date: 01/30/2019
+ms.date: 03/04/2019
+ms.author: v-yeche
 ms.openlocfilehash: d880615d0d132403c935fe39e8478d7b3fc48dbe
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490066"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61029344"
 ---
 # <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>Atualizar ou girar as credenciais para uma entidade de serviço no AKS (Serviço de Kubernetes do Azure)
 
@@ -35,7 +36,7 @@ Caso deseje criar uma entidade de serviço e, em seguida, atualizar o cluster do
 
 Para atualizar as credenciais para a entidade de serviço existente, obtenha a ID da entidade de serviço do cluster usando o comando [az aks show][az-aks-show]. O exemplo a seguir obtém a ID do cluster chamado *myAKSCluster* no grupo de recursos *myResourceGroup*. A ID da entidade de serviço é definida como uma variável para uso em comando adicional.
 
-```azurecli-interactive
+```azurecli
 SP_ID=$(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
 ```
 
@@ -43,7 +44,7 @@ SP_ID=$(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalP
 
 Com um conjunto de variáveis que contém a ID da entidade de serviço, redefina agora as credenciais usando [az ad sp credential reset][az-ad-sp-credential-reset]. O exemplo a seguir permite que a plataforma Azure gere um novo segredo seguro para a entidade de serviço. Esse novo segredo seguro também é armazenado como uma variável.
 
-```azurecli-interactive
+```azurecli
 SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
 ```
 
@@ -55,7 +56,7 @@ Se você optar por atualizar as credenciais da entidade de serviço existente na
 
 Para criar uma entidade de serviço e, em seguida, atualizar o cluster do AKS para usar essas novas credenciais, use o comando [az ad sp create-for-rbac][az-ad-sp-create]. No exemplo abaixo, o parâmetro `--skip-assignment` impede que outras atribuições padrão sejam atribuídas:
 
-```azurecli-interactive
+```azurecli
 az ad sp create-for-rbac --skip-assignment
 ```
 
@@ -72,7 +73,7 @@ A saída deverá ser semelhante ao seguinte exemplo: Anote seu próprio `appId` 
 
 Agora defina as variáveis para a ID da entidade de serviço e o segredo do cliente usando a saída do próprio comando [az ad sp create-for-rbac][az-ad-sp-create], conforme mostrado no exemplo a seguir. A *SP_ID* é sua *appId* e o *SP_SECRET* é sua *password*:
 
-```azurecli-interactive
+```azurecli
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
 SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 ```
@@ -81,7 +82,7 @@ SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 
 Independentemente se você optou por atualizar as credenciais da entidade de serviço existente ou criar uma entidade de serviço, agora você atualizará o cluster do AKS com suas novas credenciais usando o comando [az aks update-credentials][az-aks-update-credentials]. As variáveis para *--service-principal* e *--client-secret* são usadas:
 
-```azurecli-interactive
+```azurecli
 az aks update-credentials \
     --resource-group myResourceGroup \
     --name myAKSCluster \
@@ -97,9 +98,9 @@ Serão necessários alguns instantes para que as credenciais da entidade de serv
 Neste artigo, a entidade de serviço do próprio cluster do AKS foi atualizada. Para obter mais informações sobre como gerenciar a identidade para cargas de trabalho em um cluster, confira [Melhores práticas de autenticação e autorização no AKS][best-practices-identity].
 
 <!-- LINKS - internal -->
-[install-azure-cli]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-aks-update-credentials]: /cli/azure/aks#az-aks-update-credentials
+[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show
+[az-aks-update-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-update-credentials
 [best-practices-identity]: operator-best-practices-identity.md
-[az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[az-ad-sp-create]: https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
+[az-ad-sp-credential-reset]: https://docs.azure.cn/zh-cn/cli/ad/sp/credential?view=azure-cli-latest#az-ad-sp-credential-reset

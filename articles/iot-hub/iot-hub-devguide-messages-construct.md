@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 08eb7171249c42348877afedc80c6c6338265422
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 49a28c120ae71224195edcdb3809335aeea1fa3a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861717"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61363966"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Criar e ler mensagens do Hub IoT
 
@@ -47,15 +47,15 @@ Para obter mais informações de como codificar e decodificar mensagens enviadas
 
 A tabela a seguir lista o conjunto de propriedades do sistema em mensagens do Hub IoT.
 
-| Propriedade | Descrição | O usuário é configurável? |
+| Propriedade | DESCRIÇÃO | O usuário é configurável? |
 | --- | --- | --- |
 | message-id |Um identificador configurável pelo usuário para a mensagem utilizada para padrões de resposta à solicitação. Formato: Uma cadeia de caracteres que diferencia maiúsculas de minúsculas (com até 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. | Sim |
 | número de sequência |Um número (exclusivo por fila de dispositivos) atribuído pelo Hub IoT a cada mensagem da nuvem para o dispositivo. | Não para mensagens C2D, caso contrário, sim. |
-| a |Um destino especificado em mensagens [Da nuvem para o dispositivo](iot-hub-devguide-c2d-guidance.md) . | Não para mensagens C2D, caso contrário, sim. |
+| para |Um destino especificado em mensagens [Da nuvem para o dispositivo](iot-hub-devguide-c2d-guidance.md) . | Não para mensagens C2D, caso contrário, sim. |
 | absolute-expiry-time |Data e hora de expiração da mensagem. | Sim |
 | iothub-enqueuedtime |Data e hora que a mensagem [Nuvem para Dispositivo](iot-hub-devguide-c2d-guidance.md) foi recebida pelo Hub IoT. | Não para mensagens C2D, caso contrário, sim. |
 | correlation-id |Uma cadeia de propriedade em uma mensagem de resposta que geralmente contém a MessageId da solicitação em padrões de solicitação-resposta. | Sim |
-| user-id |Uma ID usada para especificar a origem das mensagens. Quando as mensagens são geradas pelo Hub IoT, são definidas como `{iot hub name}`. | Não |
+| user-id |Uma ID usada para especificar a origem das mensagens. Quando as mensagens são geradas pelo Hub IoT, são definidas como `{iot hub name}`. | Não  |
 | iothub-ack |Um gerador de mensagem de comentários. Essa propriedade é usada em mensagens da nuvem para o dispositivo para solicitar ao Hub IoT a geração de mensagens de comentários como resultado do consumo da mensagem pelo dispositivo. Valores possíveis: **nenhum** (padrão): nenhuma mensagem de comentários é gerada, **positivo**: ocorrerá o recebimento de uma mensagem de comentários se a mensagem estiver completa, **negativo**: ocorrerá o recebimento de uma mensagem de comentários se a mensagem expirar (ou se a contagem máxima de entrega tiver sido atingida) sem ser concluída pelo dispositivo ou **total**: positivos e negativos. <!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | Sim |
 | iothub-connection-device-id |Uma ID definida pelo Hub IoT em mensagens do dispositivo para a nuvem. Contém a **deviceId** do dispositivo que enviou a mensagem. | Não para mensagens D2C, caso contrário, sim. |
 | iothub-connection-auth-generation-id |Uma ID definida pelo Hub IoT em mensagens do dispositivo para a nuvem. Contém a **generationId** (de acordo com as [Propriedades de identidade de dispositivo](iot-hub-devguide-identity-registry.md#device-identity-properties)) do dispositivo que enviou a mensagem. | Não para mensagens D2C, caso contrário, sim. |

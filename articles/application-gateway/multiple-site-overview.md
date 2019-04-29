@@ -4,15 +4,16 @@ description: Este artigo fornece uma visão geral do suporte a vários sites do 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 1/17/2019
-ms.author: amsriva
+origin.date: 01/17/2019
+ms.date: 04/16/2019
+ms.author: v-junlch
 ms.topic: conceptual
 ms.openlocfilehash: 335545f86c9c23feefb6ac21ca9cc5c8fcb5e7fb
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790605"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60715831"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hospedagem de vários sites do Gateway de Aplicativo
 
@@ -124,3 +125,5 @@ Não há nenhuma alteração necessária na regra de roteamento. A regra de rote
 
 Depois de conhecer várias opções de hospedagem de site, vá para [criar um Application Gateway usando a hospedagem de vários sites](tutorial-multiple-sites-powershell.md) para criar um Application Gateway com capacidade de dar suporte a mais de um aplicativo Web.
 
+
+<!-- Update_Description: update metedata properties -->

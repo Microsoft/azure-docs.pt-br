@@ -9,11 +9,11 @@ ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: e2b2621ac8ee5b9ee84aaa978e8b915c98c5b702
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998441"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61095515"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 

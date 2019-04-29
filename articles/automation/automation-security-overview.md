@@ -12,11 +12,11 @@ ms.topic: conceptual
 manager: carmonm
 ROBOTS: NOINDEX
 ms.openlocfilehash: 60175a5b9309c08d5fdab997469a9d0526afaefe
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437956"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60737016"
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Introdução à autenticação na Automação do Azure  
 A Automação do Azure permite automatizar tarefas em relação a recursos no Azure, locais e com outros provedores de nuvem, como AWS (Amazon Web Services).  Para que um runbook execute as ações necessárias, ele deve ter permissões para acessar os recursos com segurança e apenas com os direitos mínimos necessários na assinatura.

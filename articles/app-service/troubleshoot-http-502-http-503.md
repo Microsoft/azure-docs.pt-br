@@ -18,11 +18,11 @@ ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 5edd3e51e83b5ab324d1e110a1882b20d935a9b5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899121"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60833028"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Solucionar problemas de erros HTTP de "502 Gateway Incorreto" e "503 Serviço Indisponível" em seu Serviço de Aplicativo do Azure
 "502 Gateway Incorreto" e "503 Serviço Indisponível" são os erros comuns em seu aplicativo hospedado no [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Este artigo ajuda você a solucionar esses erros.
@@ -63,7 +63,7 @@ Algumas das métricas que você talvez queira monitorar para o aplicativo são
 * Tempo médio de resposta
 * Tempo de CPU
 * Conjunto de trabalho de memória
-* Solicitações
+* Requests
 
 ![monitorar aplicativo para solucionar problemas de erros HTTP de 502 Gateway Incorreto e 503 Serviço Indisponível](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
 

@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9484cf0f549db94be8f1ac2363addca952a3cff3
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805278"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61096056"
 ---
 <a name="retrieve-a-specific-offer"></a>Recuperar uma oferta específica
 =========================

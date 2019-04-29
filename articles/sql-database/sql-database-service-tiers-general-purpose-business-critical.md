@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 02/23/2019
-ms.openlocfilehash: 067ea8eee297eb8572bd37e240b8d13afe458ca7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a027e6c0afd526139484240f288205fa946d557
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331852"
+ms.locfileid: "62111792"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Camadas de serviço do Banco de Dados SQL do Azure
 
@@ -63,5 +63,5 @@ O armazenamento para backups de banco de dados é alocado para dar suporte a rec
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Para obter detalhes sobre tamanhos da computação e opções de tamanho de armazenamento específicos disponíveis para um único banco de dados nas camadas General Purpose e Business Critical Service, consulte [Limites de recursos baseados no Banco de Dados SQL vCore para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
+- Para obter detalhes sobre tamanhos da computação e opções de tamanho de armazenamento específicos disponíveis para um único banco de dados nas camadas General Purpose e Business Critical Service, consulte [Limites de recursos baseados no Banco de Dados SQL vCore para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier)
 - Para obter detalhes sobre específicas de tamanhos da computação e opções de tamanho de armazenamento disponíveis para pools Elásticos nas camadas de serviço críticos de negócios e de uso geral, veja [limites de recurso baseado em vCore do banco de dados SQL para pools Elásticos](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

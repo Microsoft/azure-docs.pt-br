@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: diberry
 ms.openlocfilehash: 4152cf90d9de2eda15a798fbf6b5b4aa4f5646f7
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677775"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60815388"
 ---
 # <a name="configure-face-docker-containers"></a>Configurar contêineres do Docker de Detecção Facial
 
@@ -63,7 +63,7 @@ As definições de configuração na seção `CloudAI` fornecem opções especí
 
 | NOME | Tipo de dados | DESCRIÇÃO |
 |------|-----------|-------------|
-| `Storage` | Objeto | O cenário de armazenamento usado pelo contêiner de Detecção Facial. Para obter mais informações sobre cenários de armazenamento e configurações associadas para o objeto `Storage`, confira [Configurações de cenário de armazenamento](#storage-scenario-settings) |
+| `Storage` | Object | O cenário de armazenamento usado pelo contêiner de Detecção Facial. Para obter mais informações sobre cenários de armazenamento e configurações associadas para o objeto `Storage`, confira [Configurações de cenário de armazenamento](#storage-scenario-settings) |
 
 ### <a name="storage-scenario-settings"></a>Configurações de cenário de armazenamento
 
@@ -136,7 +136,7 @@ Os exemplos a seguir usam as definições de configuração para ilustrar como e
 
 Substitua {_argument_name_} pelos seus próprios valores:
 
-| Placeholder | Valor | Formato ou exemplo |
+| Placeholder | Value | Formato ou exemplo |
 |-------------|-------|---|
 |{BILLING_KEY} | A chave do ponto de extremidade do recurso dos serviços Cognitivos. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | O valor de ponto de extremidade cobrança incluindo roteamento de face e região.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
@@ -168,6 +168,6 @@ Os seguintes exemplos do Docker são para o contêiner de Detecção Facial.
   Logging:Console:LogLevel:Default=Information
   ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Reveja [Como instalar e executar contêineres](face-how-to-install-containers.md)

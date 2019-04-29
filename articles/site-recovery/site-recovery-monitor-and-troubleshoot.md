@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: rayne-wiselman
 ms.openlocfilehash: 605421196c2ec7f62826e2f6c823d50262af8144
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316636"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61278051"
 ---
 # <a name="monitor-site-recovery"></a>Recuperação de Site do monitor
 
@@ -35,11 +35,11 @@ Neste artigo, você aprenderá como usar os recursos internos de monitoramento d
 
 A seção de itens replicados mostra a integridade de todos os computadores que tenham replicação habilitada no cofre.
 
-**Estado** | **Detalhes**
+**State** | **Detalhes**
 --- | ---
-Adequado | A replicação está progredindo normalmente. Nenhum erro ou sintomas de aviso são detectados.
+Healthy | A replicação está progredindo normalmente. Nenhum erro ou sintomas de aviso são detectados.
 Aviso | Um ou mais sintomas de aviso que podem afetar a replicação são detectados.
-Crítica | Um ou mais sintomas de erro de replicação críticos foram detectados.<br/><br/> Esses sintomas de erro geralmente são indicadores de que a replicação está paralisada ou não progrediu tão rapidamente quanto a taxa de alteração de dados.
+Crítico | Um ou mais sintomas de erro de replicação críticos foram detectados.<br/><br/> Esses sintomas de erro geralmente são indicadores de que a replicação está paralisada ou não progrediu tão rapidamente quanto a taxa de alteração de dados.
 Não aplicável | Servidores que atualmente não parecem estar replicando. Isso pode incluir computadores que tenham feito failover.
 
 ## <a name="monitor-test-failovers"></a>Monitorar failovers de teste
@@ -49,7 +49,7 @@ Não aplicável | Servidores que atualmente não parecem estar replicando. Isso 
 - É recomendável executar um failover de teste nos computadores replicados pelo menos uma vez a cada seis meses. É uma maneira de verificar se o failover está funcionando conforme o esperado sem interromper o ambiente de produção. 
 - Um failover de teste será considerado com êxito somente após o failover e a limpeza pós-failover forem concluídos com êxito.
 
-**Estado** | **Detalhes**
+**State** | **Detalhes**
 --- | ---
 Teste recomendado | Computadores que não executaram um failover de teste desde que a proteção foi habilitada.
 Realizado com êxito | Computadores com um ou mais failovers de teste.
@@ -62,7 +62,7 @@ A seção **Problemas de configuração** mostra uma lista de problemas que pode
 - Os problemas de configuração (exceto a disponibilidade da atualização de software) são detectados por uma operação periódica do validador que é executada a cada 12 horas, por padrão. É possível forçar a operação do validador a ser executada imediatamente, clicando no ícone de atualização próximo ao cabeçalho da seção **Problemas de configuração**.
 - Clique nos links para obter mais detalhes. Para problemas que afetam computadores específicos, clique em**requer atenção** na coluna **Configurações de destino**. Os detalhes incluem recomendações de correção.
 
-**Estado** | **Detalhes**
+**State** | **Detalhes**
 --- | ---
 Configurações ausentes | Uma configuração necessária está ausente, como uma rede de recuperação ou um grupo de recursos.
 Recursos ausentes | Um recurso especificado não pode ser localizado ou não está disponível na assinatura. Por exemplo, o recurso foi excluído ou migrado. Os recursos monitorados incluíram o grupo de recursos de destino, subrede/VNet de destino, conta de armazenamento de destino/log, conjunto de disponibilidade de destino, endereço IP de destino.
@@ -95,14 +95,14 @@ A **Exibição de infraestrutura** mostra os componentes de infraestrutura envol
 - Para usar todos os recursos na exibição de infraestrutura, é necessário estar executando o [pacote cumulativo de atualizações 22](https://support.microsoft.com/help/4072852) para esses componentes.
 - Para usar a exibição de infraestrutura, selecione o cenário de replicação apropriado no ambiente. É possível fazer busca detalhada na exibição para obter mais detalhes. A tabela a seguir mostra quais cenários são representados.
 
-    **Cenário** | **Estado**  | **Exibição disponível?**
+    **Cenário** | **State**  | **Exibição disponível?**
     --- |--- | ---
-    **Replicação entre sites locais** | Todos os estados | Não 
+    **Replicação entre sites locais** | Todos os estados | Não  
     **Replicação da VM do Azure entre regiões do Azure**  | Replicação habilitada/replicação inicial em andamento | Sim
-    **Replicação da VM do Azure entre regiões do Azure** | Com failover/failback | Não   
+    **Replicação da VM do Azure entre regiões do Azure** | Com failover/failback | Não    
     **Replicação do VMware para Azure** | Replicação habilitada/replicação inicial em andamento | Sim     
-    **Replicação do VMware para Azure** | Com failover/failback | Não      
-    **Replicação do Hyper-V para Azure** | Com failover/failback | Não
+    **Replicação do VMware para Azure** | Com failover/failback | Não       
+    **Replicação do Hyper-V para Azure** | Com failover/failback | Não 
 
 - Para ver a exibição de infraestrutura de um único computador de replicação, no menu do cofre, clique em **Itens replicados** e selecione um servidor.  
 

@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 1/22/2019
 ms.openlocfilehash: 843107b8d251c2073ba9e02beacb16ab7615eca6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470725"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60559839"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitações no Banco de Dados do Azure para PostgreSQL
 As seções a seguir descrevem a capacidade e os limites funcionais no serviço de banco de dados.

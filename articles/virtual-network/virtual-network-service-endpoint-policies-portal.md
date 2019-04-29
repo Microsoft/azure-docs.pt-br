@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Neste artigo, saiba como configurar e associar políticas de ponto de extremidade de serviço usando o portal do Azure.
 services: virtual-network
 documentationcenter: virtual-network
-author: anithaa
+author: KumudD
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
-ms.author: anithaa
+ms.author: kumud
 ms.openlocfilehash: aaa07759ed8b10578d024d5838ac1d2658778695
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999883"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61034535"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Criar, alterar ou excluir a política de ponto de extremidade de serviço usando o portal do Azure
 
@@ -118,6 +118,6 @@ No exemplo abaixo, o NSG é restrito para acessar apenas recursos de Armazenamen
 ![Negar todo NSG](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-nsg-rules.PNG)
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, você criou uma política de ponto de extremidade de serviço e a associou a uma sub-rede. Para saber mais sobre políticas de ponto de extremidade de serviço, confira [visão geral de políticas de ponto de extremidade de serviço.](virtual-network-service-endpoint-policies-overview.md)
 

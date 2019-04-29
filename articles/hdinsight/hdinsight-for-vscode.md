@@ -2,7 +2,6 @@
 title: Ferramentas do Azure HDInsight – Use o Visual Studio Code para o Hive, o LLAP ou PySpark | Microsoft Docs
 description: Saiba como usar as Ferramentas do Azure HDInsight para Visual Studio Code para criar e enviar consultas e scripts.
 Keywords: Código do Visual Studio, ferramentas do Azure HDInsight, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, Hive interativo, consulta interativa
-services: HDInsight
 documentationcenter: ''
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/04/2019
-ms.openlocfilehash: 71e12e661c704af028ac4dc48f255bdee980619c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 04e607517bc806b60d7e76e5076f9d3518e530eb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100319"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098330"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Usar a Ferramenta do Azure HDInsight para Visual Studio Code
 
@@ -307,35 +306,35 @@ Envie um arquivo, observe que a pasta .vscode é adicionada automaticamente à p
     **POST /batches**   
     Corpo da solicitação
 
-    | Nome | Descrição | Tipo | 
+    | Nome | description | Tipo | 
     | :- | :- | :- | 
     | file | Arquivo que contém o aplicativo a ser executado | caminho (obrigatório) | 
-    | proxyUser | Usuário a ser representado ao executar o trabalho | cadeia de caracteres | 
-    | className | Classe principal Java/Spark do aplicativo | cadeia de caracteres |
+    | proxyUser | Usuário a ser representado ao executar o trabalho | string | 
+    | className | Classe principal Java/Spark do aplicativo | string |
     | args | Argumentos de linha de comando do aplicativo | lista de cadeias de caracteres | 
     | jars | jars a serem usados nesta sessão | Lista de cadeias de caracteres | 
     | pyFiles | Arquivos Python a serem usados nesta sessão | Lista de cadeias de caracteres |
     | de entrada | arquivos a serem usados nesta sessão | Lista de cadeias de caracteres |
-    | driverMemory | Quantidade de memória a ser usada para o processo de driver | cadeia de caracteres |
+    | driverMemory | Quantidade de memória a ser usada para o processo de driver | string |
     | driverCores | Quantidade de núcleos a ser usado para o processo de driver | int |
-    | executorMemory | Quantidade de memória a ser usada por processo de executor | cadeia de caracteres |
+    | executorMemory | Quantidade de memória a ser usada por processo de executor | string |
     | executorCores | Número de núcleos a serem usados para cada executor | int |
     | numExecutors | Número de executores a serem iniciados para esta sessão | int |
     | archives | Arquivos a serem usados nesta sessão | Lista de cadeias de caracteres |
-    | fila | O nome da fila YARN ao qual foi enviado | cadeia de caracteres |
-    | Nome | O nome desta sessão | cadeia de caracteres |
+    | fila | O nome da fila YARN ao qual foi enviado | string |
+    | Nome | O nome desta sessão | string |
     | conf | Propriedades de configuração do Spark | Mapa de key=val |
 
     Corpo da resposta   
     O objeto de lote criado.
 
-    | Nome | Descrição | Tipo | 
+    | Nome | description | tipo | 
     | :- | :- | :- | 
     | ID | A id da sessão | int | 
     | appId | A ID de aplicativo desta sessão |  Cadeia de caracteres |
     | appInfo | As informações detalhadas do aplicativo | Mapa de key=val |
     | log | As linhas do log | lista de cadeias de caracteres |
-    | state |   O estado do lote | cadeia de caracteres |
+    | state |   O estado do lote | string |
 
 >[!NOTE]
 >A configuração de Livy atribuída será exibida no painel de saída ao enviar o script.

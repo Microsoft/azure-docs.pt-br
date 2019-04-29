@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
 ms.openlocfilehash: 54f6473954c73de6ec29602c3d1563579b3e8cc6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007010"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60754367"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Solucionar problemas do Azure Data Box Gateway 
 
@@ -106,6 +106,6 @@ Quaisquer erros ocorridos durante os processos de upload e de atualização são
     |    16002           |    RefreshWorkNeededException                              |    Não foi possível atualizar este arquivo, pois ele não está totalmente carregado.                                                                                                                                                                          | 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre os [problemas conhecidos nesta versão](data-box-gateway-release-notes.md).

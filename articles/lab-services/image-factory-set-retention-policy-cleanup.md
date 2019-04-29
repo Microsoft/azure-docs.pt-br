@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 48412b3006a462fcc9c77219f42fb41d08f2df61
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490732"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622520"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Criar uma fábrica de imagem personalizada no Azure DevTest Labs
 Este artigo aborda a configuração de uma política de retenção, limpando a fábrica e desativação imagens antigas de todos os outros laboratórios de desenvolvimento/teste na organização. 
@@ -72,7 +72,7 @@ Agora você tem uma fábrica de imagem em execução que pode gerar e distribuir
 Adicionar uma nova imagem para sua fábrica também é simple. Quando você deseja incluir uma nova imagem em sua fábrica que você abrir o [portal do Azure](https://portal.azure.com), navegue até sua fábrica DevTest Labs, selecione o botão para adicionar uma VM e escolha a imagem do marketplace desejado e os artefatos. Em vez de selecionar o **criar** botão para tornar a nova VM, selecione **modelo de exibição do Azure Resource Manager**"e salve o modelo como um arquivo. JSON em algum lugar dentro do **GoldenImages** pasta no seu repositório. Na próxima vez que você executar sua fábrica de imagem, ele criará sua imagem personalizada.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 1. [Agendar seu build/versão](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) para executar a fábrica de imagem periodicamente. Atualiza as imagens geradas de fábrica regularmente.
 2. Verifique mais imagens de ouro para sua fábrica. Você também pode considerar [criação de artefatos](devtest-lab-artifact-author.md) partes extras de suas tarefas de configuração VM de script e incluir os artefatos em suas imagens de fábrica.
 4. Criar uma [build/versão de separar](/azure/devops/pipelines/overview?view=azure-devops-2019) para executar o **DistributeImages** script separadamente. Você pode executar esse script quando você fizer alterações Labs.json e obter imagens copiadas para laboratórios de destino sem precisar recriar todas as imagens novamente.

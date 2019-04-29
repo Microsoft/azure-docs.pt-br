@@ -10,11 +10,11 @@ ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b53cb65ec99637dadb16ed9d97c495571be956d7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451188"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61073876"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Exemplo de uso: Implantação contínua em Máquinas Virtuais usando a Configuração de Estado da Automação e o Chocolatey
 

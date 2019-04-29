@@ -10,11 +10,11 @@ ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
 ms.openlocfilehash: bfefb1fe44959bc7e5186a0f14813f41256cf2d5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775434"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60583342"
 ---
 # <a name="what-is-a-dictionary"></a>O que é um dicionário?
 

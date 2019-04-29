@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 1/18/2019
 ms.author: mayg
 ms.openlocfilehash: 8f76d4e54133e4e899e707e666703a67310e8702
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082085"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61280447"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Fazer failover de VMs e servidores físicos 
 

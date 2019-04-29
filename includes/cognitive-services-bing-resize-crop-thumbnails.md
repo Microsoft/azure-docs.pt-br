@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: f96c3a693ce8fc099374c998b35ce2fa90f4bb3f
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753763"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60513541"
 ---
 Algumas respostas Bing incluem URLs para imagens em miniatura servidas pelo Bing. Você pode redimensionar e cortar as imagens em miniatura. 
 

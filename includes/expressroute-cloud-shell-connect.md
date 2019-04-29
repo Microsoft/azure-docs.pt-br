@@ -9,11 +9,11 @@ ms.date: 02/01/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1aca39a7ff162aa3c42fdb3ca5999c71091ec02e
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410650"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60364731"
 ---
  Se você estiver usando o Azure Cloud Shell, você entrar sua conta do Azure automaticamente depois de clicar em 'Try'. Para entrar no local, abra o console do PowerShell com privilégios elevados e execute o cmdlet para se conectar.
 

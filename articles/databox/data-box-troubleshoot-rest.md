@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: ee2820d78e95924e09a0219753f87d6910c0e736
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013366"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782949"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Solucionar problemas relacionados ao armazenamento de blobs de caixa de dados do Azure
 
@@ -66,6 +66,6 @@ Esses erros não são específicos para qualquer aplicativo.
 |---------|---------|
 |A conexão expire. |Entre no dispositivo Data Box e verifique se ele está desbloqueado. Sempre que o dispositivo é reiniciado, ele permanece bloqueado até que alguém faz logon.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [requisitos de sistema de armazenamento de Blob de caixa de dados](data-box-system-requirements-rest.md).

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/18/2019
 ms.openlocfilehash: 54c34690e678f07d6309a1877b0ca5d0a0b274f5
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59606898"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831225"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Visão geral do suporte para WebSocket no Gateway de Aplicativo
 
@@ -121,6 +121,6 @@ O back-end deve ter um servidor Web HTTP/HTTPS em execução na porta configurad
 
 Outro motivo é que a investigação de integridade de back-end do gateway de aplicativo dá suporte apenas aos protocolos HTTP e HTTPS. Se o servidor back-end não responder às investigações de HTTP ou HTTPS, ele será retirado do pool de back-end.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de aprender sobre o suporte ao WebSocket, vá para [criar um gateway de aplicativo](quick-create-powershell.md) para começar a usar um aplicativo Web habilitado para WebSocket.

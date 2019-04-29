@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 4e6f5095081f0549bc127b9b6949908a64214aee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857803"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61064805"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>Conformidade com GDPR do Portal do Cloud Partner
 ====================================

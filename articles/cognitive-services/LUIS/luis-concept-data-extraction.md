@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 35f1521884de3a4a0971b6e1c00f92a9094a8550
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526282"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60812827"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrair dados de texto de expressão com as intenções e entidades
 O LUIS oferece a capacidade de obter informações de declarações de idioma natural de um usuário. As informações são extraídas de forma que possam ser usadas por um programa, aplicativo ou chat bot para executar uma ação. Nas seções a seguir, saiba quais dados são retornados de intenções e entidades com exemplos de JSON.
@@ -46,7 +46,7 @@ Os dados primários são o **nome da intenção** da pontuação mais alta. Usan
 }
 ```
 
-|Objeto de dados|Tipo de Dados|Local dos dados|Valor|
+|Objeto de dados|Tipo de Dados|Local dos dados|Value|
 |--|--|--|--|
 |Intenção|Cadeia de caracteres|topScoringIntent.intent|"GetStoreInfo"|
 
@@ -75,7 +75,7 @@ Se o chatbot ou o aplicativo que chama o LUIS tomar uma decisão com base em mai
 
 As intenções são ordenadas da pontuação mais alta para a mais baixa.
 
-|Objeto de dados|Tipo de Dados|Local dos dados|Valor|Pontuação|
+|Objeto de dados|Tipo de Dados|Local dos dados|Value|Pontuação|
 |--|--|--|--|:--|
 |Intenção|Cadeia de caracteres|intents[0].intent|"GetStoreInfo"|0,984749258|
 |Intenção|Cadeia de caracteres|intents[1].intent|"None"|0,0168218873|
@@ -106,7 +106,7 @@ Se você adicionar domínios predefinidos, o nome da intenção indicará o dom�
 }
 ```
 
-|Domínio|Objeto de dados|Tipo de Dados|Local dos dados|Valor|
+|Domínio|Objeto de dados|Tipo de Dados|Local dos dados|Value|
 |--|--|--|--|--|
 |Utilidades|Intenção|Cadeia de caracteres|intents[0].intent|"<b>Utilities</b>.ShowNext"|
 |Comunicação|Intenção|Cadeia de caracteres|intents[1].intent|<b>Communication</b>.StartOver"|
@@ -168,7 +168,7 @@ Os dados retornados do ponto de extremidade incluem o nome da entidade, o texto 
 ]
 ```
 
-|Objeto de dados|Nome da entidade|Valor|
+|Objeto de dados|Nome da entidade|Value|
 |--|--|--|
 |Entidade simples|`Customer`|`bob jones`|
 
@@ -196,7 +196,7 @@ Os dados retornados do ponto de extremidade incluem o nome da entidade e o nome 
 ]
 ```
 
-|Objeto de dados|Pai|Filho|Valor|
+|Objeto de dados|Pai|Filho|Value|
 |--|--|--|--|
 |Entidade hierárquica|Local padrão|ToLocation|"paris"|
 
@@ -255,7 +255,7 @@ Entidades compostas são retornadas em uma matriz `compositeEntities` e todas as
   ]
 ```    
 
-|Objeto de dados|Nome da entidade|Valor|
+|Objeto de dados|Nome da entidade|Value|
 |--|--|--|
 |Entidade predefinida – número|"builtin.number"|"2"|
 |Entidade hierárquica – local|"Location::ToLocation"|"paris"|

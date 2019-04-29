@@ -12,11 +12,11 @@ ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 2c5c2bc2b8dd1930efef9833bd442fcad5566e2a
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578774"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61460262"
 ---
 # <a name="what-is-text-to-speech"></a>O que é o texto em fala?
 

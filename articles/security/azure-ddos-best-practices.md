@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
 ms.openlocfilehash: 11f3dcefd283ada00e915c2d6cb8abf654590ec1
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247334"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587975"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Proteção contra DDoS do Azure: Melhores práticas e arquiteturas de referência
 

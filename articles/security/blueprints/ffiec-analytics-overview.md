@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
 ms.openlocfilehash: a4e989778f041c586293e79005af2c8e87c8213c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241163"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585841"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-ffiec-financial-services"></a>Blueprint de Segurança e Conformidade do Azure: Análise para serviços financeiros FFIEC
 
@@ -55,7 +55,7 @@ A solução usa os serviços do Azure a seguir. Há detalhes da arquitetura de i
 - Azure Machine Learning
 - O Azure Monitor (logs)
 - Central de Segurança do Azure
-- Banco de dados SQL do Azure
+- Banco de Dados SQL do Azure
 - Armazenamento do Azure
 - Rede Virtual do Azure
     - (1) /16 rede
@@ -115,7 +115,7 @@ A arquitetura protege dados em repouso usando criptografia, auditoria de banco d
 - A [Segurança em nível de linha](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) permite aos usuários definir políticas para restringir o acesso aos dados para interromper o processamento.
 - A [Máscara de Dados Dinâmicos do Banco de Dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limita a exposição de dados confidenciais mascarando os dados para usuários ou aplicativos não privilegiados. A Máscara de Dados Dinâmicos pode descobrir automaticamente dados potencialmente confidenciais e sugerir as máscaras apropriadas a serem aplicadas. Isso ajuda a identificar e reduzir o acesso aos dados, para que eles não saiam do banco de dados por meio de acesso não autorizado. Os clientes são responsáveis por ajustar as configurações da máscara de dados dinâmicos para seguir seu esquema de banco de dados.
 
-### <a name="identity-management"></a>Gerenciamento de identidade
+### <a name="identity-management"></a>Gerenciamento de identidades
 
 As seguintes tecnologias oferecem funcionalidades para gerenciar o acesso a dados no ambiente do Azure:
 

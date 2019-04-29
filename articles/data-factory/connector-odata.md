@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
 ms.openlocfilehash: eeab0311519d7e3410ddb625c1801101ad63ad18
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550409"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61400107"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copiar dados de uma fonte OData usando o Azure Data Factory
 
@@ -58,7 +58,7 @@ As propriedades a seguir são compatíveis com o serviço vinculado do OData:
 | servicePrincipalKey | Especifique a chave do aplicativo do Azure Active Directory. Marque esse campo como **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Não  |
 | servicePrincipalEmbeddedCert | Especifique o certificado codificado em base64 de seu aplicativo registrado no Azure Active Directory. Marque esse campo como **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Não  |
 | servicePrincipalEmbeddedCertPassword | Especifique a senha de seu certificado se o certificado for protegido por senha. Marque esse campo como **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md).  | Não |
-| locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. Para recuperá-lo, passe o mouse no canto superior direito do portal do Azure. | Não  |
+| tenant | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. Para recuperá-lo, passe o mouse no canto superior direito do portal do Azure. | Não  |
 | aadResourceId | Especifique o recurso do AAD para o qual você está solicitando autorização.| Não  |
 | connectVia | O [Tempo de Integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode escolher o Azure Integration Runtime ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não especificado, o Tempo de Execução de Integração do Azure padrão será usado. |Não  |
 
@@ -197,7 +197,7 @@ Para copiar dados do OData, defina a propriedade **type** do conjunto de dados c
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **type** do conjunto de dados precisa ser definida como **ODataResource**. | Sim |
+| tipo | A propriedade **type** do conjunto de dados precisa ser definida como **ODataResource**. | Sim |
 | caminho | O caminho para o recurso OData. | Sim |
 
 **Exemplo**

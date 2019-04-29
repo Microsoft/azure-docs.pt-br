@@ -2,23 +2,19 @@
 title: O que é o Cofre da Chave do Azure? | Microsoft Docs
 description: Saiba como o Azure Key Vault protege chaves criptográficas e segredos que aplicativos e serviços de nuvem usam.
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: e759df6f-0638-43b1-98ed-30b3913f9b82
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
 ms.openlocfilehash: 48ac0c3efe74723099e87a77871aa1a78834efbd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958519"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640526"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o Cofre da Chave do Azure?
 

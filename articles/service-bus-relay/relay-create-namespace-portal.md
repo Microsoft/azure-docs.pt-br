@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/20/2017
 ms.author: spelluru
 ms.openlocfilehash: a7bb26cdfec4042a1963f929f92e5505045124a7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763292"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749233"
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Criar um namespace de retransmissão usando o Portal do Azure
 

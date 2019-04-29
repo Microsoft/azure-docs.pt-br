@@ -1,7 +1,6 @@
 ---
 title: Operacionalize um pipeline de análise de dados - Azure
 description: Configure e execute um exemplo de pipeline de dados que é disparado por novos dados e produz resultados concisos.
-services: hdinsight
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: b5e7864eae56a6f066590191373d35cb57693f37
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 524386c046534b0ef0050e15d326118b84822822
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311672"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760422"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operacionalize um pipeline de análise de dados
 
@@ -426,7 +425,7 @@ A tabela a seguir resume cada uma das propriedades e indica onde você pode enco
 | hiveDataFolder | O caminho no Armazenamento do Azure até os dados contidos na tabela de preparo. |
 | sqlDatabaseConnectionString | A cadeia de conexão da sintaxe JDBC para o seu Banco de Dados SQL do Azure. |
 | sqlDatabaseTableName | O nome da tabela no Banco de Dados SQL do Azure na qual os resumos de linha são inseridos. Deixe como `dailyflights`. |
-| ano | O componente ano do dia para o qual os resumos de voo são computados. Deixe como está. |
+| year | O componente ano do dia para o qual os resumos de voo são computados. Deixe como está. |
 | month | O componente mês do dia para o qual os resumos de voo são computados. Deixe como está. |
 | dia | O componente dia do mês do dia para o qual os resumos de voo são computados. Deixe como está. |
 
@@ -649,7 +648,7 @@ Para executar o pipeline com um coordenador, faça mais ou menos como no caso do
 
     Cada ação nesta lista corresponde a uma instância do fluxo de trabalho que processa um dia inteiro de dados, em que o início do dia é indicado pelo tempo nominal.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Documentação do Apache Oozie](https://oozie.apache.org/docs/4.2.0/index.html)
 

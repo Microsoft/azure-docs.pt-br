@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: mbullwin
 ms.openlocfilehash: b383a4f85a039eb8eed87e2e78940aaf48b30a33
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59425909"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60897761"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP usados pelo Application Insights e pelo Log Analytics
 O serviço [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) usa vários endereços IP. Talvez seja necessário conhecer esses endereços se o aplicativo que você está monitorando estiver hospedado atrás de um firewall.

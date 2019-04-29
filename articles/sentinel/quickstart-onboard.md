@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 5c6dfa359a85b5330e70a2618d59ffab15cf24f4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276636"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60804830"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Visualização de sentinela do Azure integrado
 

@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: cc301855e4cdcb8eb687e753835577399cfe72b0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58806764"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60789530"
 ---
 # <a name="geofencing-and-geospatial-aggregation-scenarios-with-azure-stream-analytics"></a>Cenários de agregação de delimitação geográfica e geoespaciais com o Azure Stream Analytics
 
@@ -123,7 +123,7 @@ A imagem a seguir ilustra a saída da consulta para o painel do Power BI.
 ![Saída do resultado no painel do Power BI](./media/geospatial-scenarios/power-bi-output.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução às funções geoespaciais de Stream Analytics](stream-analytics-geospatial-functions.md)
 * [Funções geoespaciais (Azure Stream Analytics)](https://docs.microsoft.com/stream-analytics-query/geospatial-functions)

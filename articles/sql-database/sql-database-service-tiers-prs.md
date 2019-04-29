@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: f8fc1f7e338f69b42df69d9a8983e8ce3bb409e3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d7d1bc95a646527ccdf9d2808aefe6b8f46d7e9a
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359636"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62111758"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>A camada de serviço Premium RS do Banco de Dados SQL do Azure (versão prévia) está sendo desativada - opções para migração
 
@@ -100,5 +100,5 @@ A migração de um banco de dados de uma camada de serviço Premium RS para uma 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter detalhes sobre os tamanhos da computação específicos e as opções de tamanho de armazenamento disponíveis para bancos de dados individuais, confira [Limites de recursos baseados em vCore do Banco de Dados SQL para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
+- Para obter detalhes sobre os tamanhos da computação específicos e as opções de tamanho de armazenamento disponíveis para bancos de dados individuais, confira [Limites de recursos baseados em vCore do Banco de Dados SQL para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier)
 - Para obter detalhes sobre tamanhos da computação específicos e opções de tamanho de armazenamento disponíveis para pools elásticos, veja [Limites de recursos baseados em vCore do Banco de Dados SQL para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7153a6ed4a91e59eea936f1e17d827a40bb99371
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883234"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60948496"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Recuperação de desastre no Azure Service Fabric
 Uma parte crítica da entrega de alta disponibilidade é garantir que os serviços possam sobreviver a todos os tipos diferentes de falhas. Isso é especialmente importante para falhas não planejadas e fora de seu controle. Este artigo descreve alguns modos de falha comuns que poderão se transformar em desastres se não forem modelados e gerenciados corretamente. Ele também aborda mitigações e ações a serem tomadas se, ainda assim, um desastre acontecer. A meta é limitar ou eliminar o risco de que haja tempo de inatividade ou perda de dados quando ocorrerem falhas, sejam elas planejadas ou não.
@@ -136,7 +136,7 @@ O Service Fabric tem o conceito de Nós de Semente. Trata-se de nós que mantêm
 
 Em clusters independentes do Service Fabric e no Azure, o "Tipo de nó primário" é aquela que executa as propagações. Ao definir um tipo de nó primário, o Service Fabric aproveitará automaticamente o número de nós fornecidos, criando até nove nós iniciais e 7 réplicas de cada um dos serviços do sistema. Se um conjunto de falhas aleatórias desativar a maior parte dessas réplicas do serviço de sistema ao mesmo tempo, os serviços de sistema entrarão em perda de quorum, conforme descrito acima. Se a maioria desses nós de semente for perdida, o cluster será desligado logo em seguida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba como simular várias falhas usando a [estrutura de capacidade de teste](service-fabric-testability-overview.md)
 - Leia outros recursos de recuperação de desastres e alta disponibilidade. A Microsoft publicou várias orientações sobre estes tópicos. Embora alguns desses documentos mencionem técnicas específicas para uso em outros produtos, eles contêm várias práticas recomendadas gerais que também se aplicam ao contexto do Service Fabric:
   - [Lista de verificação de disponibilidade](../best-practices-availability-checklist.md)

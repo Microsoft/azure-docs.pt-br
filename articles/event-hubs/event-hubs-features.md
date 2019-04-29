@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: e7f292db06d4da9206aabd14a68e6acde867f92d
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336993"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821994"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Recursos e terminologia em Hubs de Eventos do Azure
 
@@ -61,7 +61,7 @@ Os Hubs de Eventos permitem um controle granular sobre os editores de eventos po
 
 Você não precisa criar nomes de editor com antecedência, mas eles devem coincidir com o token SAS usado ao publicar um evento, para garantir identidades de editores independentes. Ao usar políticas de editor, o valor **PartitionKey** é definido como o nome do editor. Para funcionar adequadamente, esses valores devem corresponder.
 
-## <a name="capture"></a>Capturar
+## <a name="capture"></a>Captura
 
 A [Captura dos Hubs de Eventos](event-hubs-capture-overview.md) permite que você capture automaticamente os dados de streaming em Hubs de Eventos e salve-os em uma conta de armazenamento de blobs ou em uma conta de serviço do Azure Data Lake de sua escolha. Você pode habilitar a Captura do Portal do Azure e especificar um tamanho mínimo e a janela de tempo para executar a captura. A Captura de Hubs de Eventos permite que você especifique sua própria conta de Armazenamento de Blobs do Azure e o contêiner, ou conta de serviço do Azure Data Lake, uma das quais será usada para armazenar os dados capturados. Os dados capturados são gravados no formato Apache Avro.
 
@@ -144,7 +144,7 @@ Ao se conectar a partições, é uma prática comum usar um mecanismo de concess
 Depois de uma sessão do AMQP 1.0 e o link ser aberto para uma partição específica, os eventos são entregues ao cliente AMQP 1.0 pelo serviço de Hubs de Evento. Esse mecanismo de entrega permite uma maior taxa de transferência e menor latência que mecanismos baseado em pull, como HTTP GET. Como os eventos são enviados para o cliente, cada instância de dados do evento contém metadados importantes, como o deslocamento e número da sequência que são usados para facilitar o ponto de verificação na sequência de eventos.
 
 Dados de evento:
-* Deslocamento
+* Offset
 * Número de sequência
 * Corpo
 * Propriedades do usuário
@@ -155,10 +155,10 @@ Ele é responsável por gerenciar o deslocamento.
 ## <a name="scaling-with-event-hubs"></a>Dimensionamento com os Hubs de eventos
 
 Há dois fatores que influenciam o dimensionamento com os Hubs de eventos.
-*   Unidades de produtividade
+*   Unidades de transferência
 *   Partições
 
-### <a name="throughput-units"></a>Unidades de produtividade
+### <a name="throughput-units"></a>Unidades de transferência
 
 A capacidade de transferência dos Hubs de Eventos é controlada pelas *unidades de transferência*. As unidades de taxa de transferência são unidades de capacidade pré-adquiridas. Uma única taxa de transferência permite que você:
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: yegu
 ms.openlocfilehash: eea74e8f1291901fea3c77b70ba3c636f40bd132
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56231782"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829745"
 ---
 # <a name="azure-cli-samples-for-azure-cache-for-redis"></a>Exemplos de CLI do Azure o Azure Cache para Redis
 

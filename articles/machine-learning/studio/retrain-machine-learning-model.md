@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 903f2700ad127c9bcc69e69ee125ba62fccf52e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 395a231fcf43378a51e22427254abb196a46081e
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196368"
+ms.locfileid: "62107849"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Treinar novamente e implantar um modelo de machine learning
 
@@ -132,7 +132,7 @@ Salve *BaseLocation*, *RelativeLocation* e *SasBlobToken* dos resultados de saí
 
 ### <a name="sign-in-to-azure-resource-manager"></a>Entre no Azure Resource Manager
 
-Primeiro, entre sua conta do Azure no ambiente do PowerShell usando o [AzAccount Connect](/powershell/module/az.profile/connect-azaccount) cmdlet.
+Primeiro, entre sua conta do Azure no ambiente do PowerShell usando o [AzAccount Connect](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ### <a name="get-the-web-service-definition-object"></a>Obter o objeto de definição do serviço Web
 
@@ -188,7 +188,7 @@ Por fim, use o [AzMlWebService atualização](https://docs.microsoft.com/powersh
 
     Update-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre como gerenciar serviços Web ou acompanhar várias execuções de testes, confira os seguintes artigos:
 

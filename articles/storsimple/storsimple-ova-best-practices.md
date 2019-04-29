@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: alkohli
 ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300907"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630131"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Práticas recomendadas do StorSimple Virtual Array
 ## <a name="overview"></a>Visão geral
@@ -75,7 +75,7 @@ Primeiro, para cada volume/compartilhamento em camadas, a reserva local seria ig
 * reserva local de 120 GB (para um compartilhamento/volume em camadas de 1 TB)
 * 330 GB para compartilhamento ou volume localmente fixado (adicionando 10% de reserva local ao tamanho de 300 GB provisionado)
 
-O espaço total necessário na camada local até o momento é de: 240 GB + 120 GB + 330 GB = 690 GB.
+O espaço total necessário na camada local até o momento é: 240 GB + 120 GB + 330 GB = 690 GB.
 
 Em segundo lugar, precisamos de pelo menos um espaço na camada local do tamanho da maior reserva única. Esse valor extra será usado caso você precise restaurar de um instantâneo de nuvem. Neste exemplo, a maior reserva local é 330 GB (incluindo a reserva para o sistema de arquivos) e, portanto, você adicionaria isso aos 690 GB: 690 GB + 330 GB = 1020 GB.
 Se executamos as restaurações adicionais subsequentes, sempre será possível liberar o espaço da operação de restauração anterior.
@@ -99,7 +99,7 @@ Com base em 12% de reserva do espaço local para volumes/compartilhamentos em ca
 * uma reserva local de 240 GB (para um compartilhamento/volume em camadas de 2 TB)
 * 330 GB para compartilhamento ou volume localmente fixado (adicionando 10% de reserva local ao espaço provisionado de 300 GB)
 
-O espaço total necessário na camada local é de: 240 GB + 330 GB = 570 GB
+Espaço total necessário na camada local é: 240 GB + 330 GB = 570 GB
 
 O espaço local mínimo necessário para restauração é de 330 GB.
 

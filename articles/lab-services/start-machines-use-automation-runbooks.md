@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: spelluru
 ms.openlocfilehash: 8d3885ba25e479316f97ecbb0681a1680650fc09
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996655"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61083611"
 ---
 # <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Iniciar máquinas virtuais em um laboratório na ordem por meio de runbooks de automação do Azure
 O [autostart](devtest-lab-set-lab-policy.md#set-autostart) recurso do DevTest Labs permite que você configure as VMs para iniciar automaticamente em um horário especificado. No entanto, esse recurso não oferece suporte a máquinas para iniciar em uma ordem específica. Há vários cenários em que esse tipo de automação seria útil.  Um cenário é onde uma VM Jumpbox em um laboratório precisa ser iniciado pela primeira vez, antes de outras VMs, como o Jumpbox é usado como o ponto de acesso às outras VMs.  Este artigo mostra como configurar uma conta de automação do Azure com um runbook do PowerShell que execute um script. O script usa marcas nas VMs no laboratório para permitir que você controle a ordem de inicialização sem ter que alterar o script.

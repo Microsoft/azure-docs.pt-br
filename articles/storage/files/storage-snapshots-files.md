@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8d6bca12ae1df0cab7be3e1c54467d32063bacaf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7305c6a5047bd09f6c9bda018748643ff81fe893
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444088"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763486"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Visão geral de instantâneos de compartilhamento para Arquivos do Azure 
 Os Arquivos do Azure fornecem a funcionalidade de tirar instantâneos de compartilhamentos de arquivos. Os instantâneos de compartilhamento capturam o estado de compartilhamento naquele ponto no tempo. Neste artigo, descreveremos quais recursos os instantâneos de compartilhamento fornecem e como você pode aproveitá-los no seu caso de uso personalizado.
@@ -83,7 +83,7 @@ Antes de implantar o agendador de instantâneos de compartilhamento, leve em con
 
 Compartilhamentos de instantâneos fornecem apenas a proteção no nível de arquivo. Compartilhamentos de instantâneos não impedem exclusões de digitação acidental em uma conta de armazenamento ou compartilhamento de arquivos. Para ajudar a proteger a conta de armazenamento de exclusões acidentais, você pode bloquear a conta de armazenamento ou o grupo de recursos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Trabalhar com instantâneos de compartilhamento em:
     - [PowerShell](storage-how-to-use-files-powershell.md)
     - [CLI](storage-how-to-use-files-cli.md)

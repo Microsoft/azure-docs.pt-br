@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
 ms.openlocfilehash: 5aa26aeb27d962e6e6289a754ef57b49158b68db
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456282"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61439189"
 ---
 # <a name="using-t-sql-loops-in-sql-data-warehouse"></a>Usando loops T-SQL no SQL Data Warehouse
 Dicas para usar os loops do T-SQL e para substituir cursores no SQL Data Warehouse do Azure para desenvolver soluções.

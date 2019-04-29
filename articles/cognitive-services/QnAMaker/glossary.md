@@ -12,11 +12,11 @@ ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: bb3b262f3bde0599cb6dea009d0fbbeafb1c529a
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649434"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61430674"
 ---
 # <a name="glossary-for-qna-maker-knowledge-base-and-service"></a>Glossário do serviço e base de dados de conhecimento do QnA Maker
 
@@ -26,7 +26,7 @@ Um serviço QnA Maker é um pré-requisito para começar a usar o QnA Maker. Com
 ## <a name="knowledge-base"></a>Base de Dados de Conhecimento
 Uma base de dados de conhecimento é o repositório de perguntas e respostas criado, mantido e usado por meio do QnA Maker. Cada camada do QnA Maker pode ser usada para várias bases de dados de conhecimento.
 
-## <a name="endpoint"></a>Ponto de Extremidade
+## <a name="endpoint"></a>Ponto de extremidade
 Um ponto de extremidade HTTP baseado em REST mantendo o conteúdo da sua base de conhecimento que pode ser integrada ao seu aplicativo, geralmente um chatbot. 
 
 ## <a name="test-knowledge-base"></a>Base de Dados de Conhecimento de Teste
@@ -35,10 +35,10 @@ Uma base de dados de conhecimento tem dois estados - testada e publicada. A base
 ## <a name="published-knowledge-base"></a>Base de Dados de Conhecimento Publicada
 Uma base de dados de conhecimento tem dois estados - Testada e Publicada.  A base de dados de conhecimento publicada é a versão que é usada no aplicativo/bot de chat. A ação de publicação de uma base de dados de conhecimento coloca o conteúdo da base de dados de conhecimento de Teste na versão Publicada da base de dados de conhecimento. Como a base de dados de conhecimento publicada é a versão que usa o aplicativo por meio do ponto de extremidade, tome cuidado para garantir que o conteúdo está correto e bem testado.
 
-## <a name="query"></a>Consulta
+## <a name="query"></a>Consultar
 Uma consulta de usuário é a pergunta que o usuário final ou o testador faz para a base de dados de conhecimento. A consulta é feita geralmente em um formato de idioma natural ou em algumas palavras-chave que representam a pergunta.
 
-## <a name="response"></a>Resposta
+## <a name="response"></a>Response
 A resposta é a resposta recuperada da base de dados de conhecimento, com base na melhor correspondência para uma consulta de determinado usuário.
 
 ## <a name="confidence-score"></a>Pontuação de Confiança

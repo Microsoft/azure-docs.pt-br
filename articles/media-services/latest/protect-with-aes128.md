@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 2216deb7a59dda2a7c3b99c55956ef8541925425
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa6b4ef76b039e9e24b4a72cfb6e76dcfae8378d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326370"
+ms.locfileid: "62111980"
 ---
 # <a name="tutorial-use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Tutorial: Use a criptografia dinâmica AES-128 e o serviço de distrbuição de chaves
 
@@ -158,6 +158,11 @@ Execute este comando da CLI:
 ```azurecli
 az group delete --name amsResourceGroup
 ```
+
+## <a name="provide-feedback"></a>Fornecer comentários
+
+Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]

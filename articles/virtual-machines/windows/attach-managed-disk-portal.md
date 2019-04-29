@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 81fbf650597813baaf6618f82ef55a937f1870d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e3641960131d23bf5a8e5b2310a09e7a4dbd70b9
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60478167"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766115"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Anexar um disco de dados gerenciado a uma VM Windows usando o portal do Azure
 
@@ -54,7 +54,7 @@ Este artigo mostra como anexar um novo disco de dados gerenciados a uma VM (máq
 9. Será exibido um aviso informando que formatar os discos apaga todos os dados. Selecione **OK**.
 10. Quando a formatação estiver concluída, selecione **OK**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Você também pode [anexar um disco de dados usando o PowerShell](attach-disk-ps.md).
 - Caso seu aplicativo precise usar a unidade *D:* para armazenar dados, é possível [alterar a letra da unidade do disco temporário do Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

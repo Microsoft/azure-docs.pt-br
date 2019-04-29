@@ -12,11 +12,11 @@ ms.date: 02/08/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 09cc38cd5343e8b01b3e704191ea40c133d724f8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103716"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60541405"
 ---
 # <a name="try-speech-services-for-free"></a>Experimente os Serviços de Fala gratuitamente
 
@@ -118,7 +118,7 @@ Para alternar de uma assinatura para outra, por exemplo, quando a avaliação gr
 
 As chaves criadas para uma região são válidas somente nessa região. A tentativa de usá-las com outras regiões resultará em erros de autenticação.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Conclua um de nossos inícios rápidos de 10 minutos ou confira nossas amostras de SDK:
 

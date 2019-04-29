@@ -13,11 +13,11 @@ ms.workload: big-compute
 ms.date: 02/07/2019
 ms.author: lahugh
 ms.openlocfilehash: 9902f38ddfd3035adcce697c2eb5b77bdc1d8c9c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57874754"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782218"
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Variáveis de ambiente do nó de computação do Lote do Azure
 

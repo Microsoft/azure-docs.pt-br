@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: 8707a9cb90afe1bf72f3aef6377f8ada409a1c64
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667116"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60837752"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos em um manifesto do serviço
 ## <a name="overview"></a>Visão geral

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: 83c7e808e48733487e84d668236cdb327c21c44c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249071"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60688531"
 ---
 # <a name="managing-user-data"></a>Gerenciar dados de usuário
 

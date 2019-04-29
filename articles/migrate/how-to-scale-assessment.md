@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
 ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490629"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596713"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Descobrir e avaliar um grande ambiente VMware
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 27536b0a3d7e0858a5660b4c7b33cb6679b5fbf1
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452098"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60874540"
 ---
 # <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Enviar notificações por Push seguro com Hubs de Notificação do Azure
 

@@ -8,14 +8,15 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/18/2019
-ms.author: cshoe
+origin.date: 02/18/2019
+ms.date: 03/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 3865f748a9ca2fe09660d6454542d64f73a8e3c1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58889831"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61020955"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de gatilhos e de associações do Azure Functions
 
@@ -96,3 +97,5 @@ Para obter informações sobre quais associações estão na visualização ou s
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Registrar as extensões de associação de funções do Azure](./functions-bindings-register.md)
+
+<!-- Update_Description: wording update -->

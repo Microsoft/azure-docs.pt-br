@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: alinast
 ms.openlocfilehash: e93811a56f934a95dde45633c4fb64312b3696df
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994803"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60924798"
 ---
 # <a name="egress-and-endpoints"></a>Pontos de extremidade e de saída
 
@@ -47,7 +47,7 @@ Eventos são enviados por objetos de IoT (por exemplo, dispositivos e sensores) 
 }
 ```
 
-| Atributo | Tipo | DESCRIÇÃO |
+| Atributo | Type | DESCRIÇÃO |
 | --- | --- | --- |
 | ID | string | Identificador exclusivo do evento. |
 | subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
@@ -122,7 +122,7 @@ Formatos de eventos para cada um dos tipos de eventos são descritos nas seçõe
 }
 ```
 
-| Valor | Substitua por |
+| Value | Substitua por |
 | --- | --- |
 | YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
@@ -153,7 +153,7 @@ Formatos de eventos para cada um dos tipos de eventos são descritos nas seçõe
 }
 ```
 
-| Valor | Substitua por |
+| Value | Substitua por |
 | --- | --- |
 | YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
@@ -188,7 +188,7 @@ Formatos de eventos para cada um dos tipos de eventos são descritos nas seçõe
 }
 ```
 
-| Valor | Substitua por |
+| Value | Substitua por |
 | --- | --- |
 | YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
@@ -223,7 +223,7 @@ Formatos de eventos para cada um dos tipos de eventos são descritos nas seçõe
 }
 ```
 
-| Valor | Substitua por |
+| Value | Substitua por |
 | --- | --- |
 | YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
@@ -268,7 +268,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valor | Substitua por |
+    | Value | Substitua por |
     | --- | --- |
     | YOUR_NAMESPACE | O namespace do seu ponto de extremidade |
     | YOUR_PRIMARY_KEY | A cadeia de conexão primária usada para autenticar |
@@ -291,7 +291,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valor | Substitua por |
+    | Value | Substitua por |
     | --- | --- |
     | YOUR_PRIMARY_KEY | A cadeia de conexão primária usada para autenticar|
     | YOUR_SECONDARY_KEY | A cadeia de conexão secundária usada para autenticar |
@@ -313,7 +313,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valor | Substitua por |
+    | Value | Substitua por |
     | --- | --- |
     | YOUR_NAMESPACE | O namespace do seu ponto de extremidade |
     | YOUR_PRIMARY_KEY | A cadeia de conexão primária usada para autenticar |
@@ -334,7 +334,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valor | Substitua por |
+    | Value | Substitua por |
     | --- | --- |
     | YOUR_NAMESPACE | O namespace do seu ponto de extremidade |
     | YOUR_PRIMARY_KEY | A cadeia de conexão primária usada para autenticar |

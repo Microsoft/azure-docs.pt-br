@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: b1fd31a758501620129fdbbc532b8defcf927045
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607339"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648492"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Pontos de verificação e reprodução nas Funções Duráveis (Azure Functions)
 
@@ -169,7 +169,7 @@ O comportamento de execução descrito aqui deve ajudar você a entender por que
 
 Se quiser obter mais informações sobre como o Framework de Tarefa Durável executa funções de orquestrador, a melhor coisa a fazer é consultar o [Código-fonte da Tarefa Durável no GitHub](https://github.com/Azure/durabletask). Em particular, consulte [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) e [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre o gerenciamento de instâncias](durable-functions-instance-management.md)

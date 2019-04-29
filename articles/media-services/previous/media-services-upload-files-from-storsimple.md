@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 8a2972b8fbc31a3f945f40949128b3f37f2f4b77
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312471"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60544935"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Carregar arquivos em uma conta dos Serviços de Mídia do Azure do Azure StorSimple  
 
@@ -30,7 +30,7 @@ Este artigo fornece uma breve visão geral do Gerenciador de Dados do Azure Stor
 > O Gerenciador de Dados do Azure StorSimple está em visualização privada. 
 > 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. O Ativo pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos). Depois que os arquivos são carregados, o conteúdo é armazenado com segurança na nuvem para processamento adicional e transmissão.
 

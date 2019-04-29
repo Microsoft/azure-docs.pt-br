@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: asgang
 ms.openlocfilehash: b97bf56c23dfa96acf7cb5af5ac28b4270de117d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879774"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61281380"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurar a recuperação de desastre para um aplicativo do Dynamics AX de várias camadas   
 

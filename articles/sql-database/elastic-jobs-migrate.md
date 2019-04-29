@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 03/13/2019
 ms.openlocfilehash: f71fe4ff14e5a6f5fd6b91713970a097e4e56fb9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844119"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475789"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrar para os novos trabalhos de Banco de Dados Elástico
 
@@ -34,7 +34,7 @@ A versão atualizada dos trabalhos de Banco de Dados Elástico tem um novo conju
 
 Se você ainda não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Instalar o **Az.Sql** módulo 1.1.1-visualização para obter os cmdlets de trabalho Elástico mais recente. Execute os comandos do PowerShell a seguir com acesso administrativo.
+Instale o módulo **Az.Sql** 1.1.1-preview mais recente para obter os cmdlets de Trabalho Elástico. Execute os comandos do PowerShell a seguir com acesso administrativo.
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowerShellGet v1.6.5 is dependent on

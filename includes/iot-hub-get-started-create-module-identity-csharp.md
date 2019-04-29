@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: include file
-ms.openlocfilehash: 603a4892cc19991532c2858edd8d4ca90f850d1f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: e78c9a490d2ad02fb132d62b0ab0b55f15d3d4ed
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43086383"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60741794"
 ---
 ## <a name="create-a-module-identity"></a>Criar uma identidade de módulo
 

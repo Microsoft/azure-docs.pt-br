@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
 ms.openlocfilehash: 6a2ffef9a1384ac2e2a678404171f33312b5d63a
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247436"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60609552"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-pci-dss"></a>Blueprint de Segurança e Conformidade do Azure: Análise para PCI DSS
 
@@ -46,11 +46,11 @@ O Banco de Dados SQL do Azure normalmente é gerenciado por meio do SSMS (SQL Se
 A solução usa os serviços do Azure a seguir. Há detalhes da arquitetura de implantação na seção [Arquitetura de implantação](#deployment-architecture).
 
 - Application Insights
-- Active Directory do Azure
+- Azure Active Directory
 - Catálogo de Dados do Azure
 - Azure Disk Encryption
 - Grade de Eventos do Azure
-- Azure Functions
+- Funções do Azure
 - Cofre de Chaves Azure
 - Azure Machine Learning
 - Azure Monitor

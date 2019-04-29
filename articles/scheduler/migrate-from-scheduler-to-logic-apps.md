@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2018
-ms.openlocfilehash: c841f29adbe9911193227cced2856d953d820b08
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 25ed66fd75301475542dbac8e8a01670ee37563c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997262"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531686"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrar trabalhos do Agendador do Azure para Aplicativos Lógicos do Azure
 
@@ -45,9 +45,9 @@ Para saber mais, confira [O que são Aplicativos Lógicos do Azure?](../logic-ap
 
 1. No [portal do Azure](https://portal.azure.com), crie um aplicativo lógico em branco no Designer de Aplicativo Lógico. 
 
-   Para obter as etapas básicas, siga [Início Rápido: Crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   Para obter as etapas básicas, siga [guia de início rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Na caixa de pesquisa, insira "quando uma solicitação http" como o filtro. Na lista de gatilhos, selecione este gatilho: **Quando uma solicitação HTTP for recebida** 
+1. Na caixa de pesquisa, insira "quando uma solicitação http" como o filtro. Na lista de gatilhos, selecione este gatilho: **Quando uma solicitação HTTP é recebida** 
 
    ![Adicionar gatilho de solicitação](./media/migrate-from-scheduler-to-logic-apps/request-trigger.png)
 
@@ -104,7 +104,7 @@ Por exemplo, usando o aplicativo Postman, é possível criar uma solicitação P
 
 | Método de solicitação | URL | Corpo | Cabeçalhos |
 |----------------|-----|------|---------| 
-| **POST** | <*endpoint-URL*> | **raw** <p>**JSON(aplicativo/json)** <p>Na caixa **raw**, insira o conteúdo que você deseja enviar na solicitação. <p>**Observação**: essa configuração define automaticamente os valores **Cabeçalhos**. | **Chave**: Content-Type <br>**Valor**: aplicativo/json
+| **POST** | <*endpoint-URL*> | **raw** <p>**JSON(aplicativo/json)** <p>Na caixa **raw**, insira o conteúdo que você deseja enviar na solicitação. <p>**Observação**: Essa configuração automaticamente configura a **cabeçalhos** valores. | **Chave**: Tipo de conteúdo <br>**Valor**: aplicativo/json
  |||| 
 
 ![Enviar solicitação para disparar manualmente seu aplicativo lógico](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
@@ -129,7 +129,7 @@ Nos Aplicativos Lógicos, cada trabalho único é executado como uma instância 
 
 1. No [portal do Azure](https://portal.azure.com), crie um aplicativo lógico em branco no Designer de Aplicativo Lógico. 
 
-   Para obter as etapas básicas, siga [Início Rápido: Crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   Para obter as etapas básicas, siga [guia de início rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 1. Na caixa de pesquisa, insira "recorrência" como filtro. Na lista de gatilhos, selecione este gatilho: **Recorrência** 
 
@@ -195,20 +195,20 @@ Para saber mais sobre a manipulação da exceção, confira [Lidar com erros e e
 
 <a name="retire-date"></a> 
 
-**P**: quando o Agendador do Azure será desativado? <br>
-**R**: o Agendador do Azure está programado para desativação em 30 de setembro de 2019.
+**P**: Quando está desativando o Agendador do Azure? <br>
+**R**: O Agendador do Azure está programado para desativação em 30 de setembro de 2019.
 
-**P**: o que acontecerá com meus trabalhos e coleções de trabalhos do Agendador após a desativação do serviço? <br>
-**R**: todos os trabalhos e coleções de trabalhos do Agendador serão excluídos do sistema.
+**P**: O que acontece com Meus coleções de trabalhos do Agendador e trabalhos após desativa o serviço? <br>
+**R**: Todos os trabalhos e coleções de trabalhos do Agendador serão excluídos do sistema.
 
-**P**: é necessário fazer backup ou executar outras tarefas antes de migrar meus trabalhos do Agendador para o Aplicativos Lógicos? <br>
-**R**: como melhor prática, sempre faça backup do seu trabalho. Verifique se os aplicativos lógicos criados estão sendo executados conforme o esperado antes de excluir ou desabilitar seus trabalhos do Agendador. 
+**P**: É necessário que fazer backup ou executar outras tarefas antes de migrar Meus trabalhos do Agendador para aplicativos lógicos? <br>
+**R**: Como prática recomendada, sempre fazer o seu trabalho. Verifique se os aplicativos lógicos criados estão sendo executados conforme o esperado antes de excluir ou desabilitar seus trabalhos do Agendador. 
 
-**P**: há uma ferramenta que possa me ajudar a migrar meus trabalhos do Agendador para o Aplicativos Lógicos? <br>
-**R**: cada trabalho do Agendador é único, portanto não há uma ferramenta uniformizada. No entanto, vários scripts estarão disponíveis para modificação de acordo para suas necessidades. Para obter disponibilidade de scripts, volte novamente mais tarde.
+**P**: Há uma ferramenta que pode me ajudar a migrar Meus trabalhos do Agendador para aplicativos lógicos? <br>
+**R**: Cada trabalho do Agendador é exclusivo, portanto, uma ferramenta única não existe. No entanto, vários scripts estarão disponíveis para modificação de acordo para suas necessidades. Para obter disponibilidade de scripts, volte novamente mais tarde.
 
-**P**: onde posso obter suporte para a migração dos meus trabalhos do Agendador? <br>
-**R**: veja algumas maneiras de obter suporte: 
+**P**: Onde posso obter suporte para a migração de Meus trabalhos do Agendador? <br>
+**R**: Aqui estão algumas maneiras de obter suporte: 
 
 **Portal do Azure**
 
@@ -218,7 +218,7 @@ Se a assinatura do Azure tiver um plano de suporte pago, será possível criar u
 
 1. Em **Suporte**, selecione **Nova solicitação de suporte**. Forneça estes detalhes para sua solicitação:
 
-   | Configuração | Valor |
+   | Configuração | Value |
    |---------|-------|
    | **Tipo de problema** | **Técnico** | 
    | **Assinatura** | <*sua-assinatura-Azure*> | 
@@ -235,4 +235,4 @@ Se a assinatura do Azure tiver um plano de suporte pago, será possível criar u
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Crie tarefas e fluxos de trabalho de execução regular com os Aplicativos Lógicos do Azure](../connectors/connectors-native-recurrence.md)
-* [Tutorial: verificar o tráfego com um aplicativo lógico baseado em agendamento](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
+* [Tutorial: Verificar o tráfego com um aplicativo lógico baseado em agendamento](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)

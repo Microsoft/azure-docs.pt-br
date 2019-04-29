@@ -9,11 +9,11 @@ ms.date: 03/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
 ms.openlocfilehash: afe8d3971a51d57498e3e32b7e1cf5bf5a3263d6
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295191"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883214"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Pré-requisitos e lista de verificação do ExpressRoute
 Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, você precisa verificar se os requisitos listados nas seções a seguir foram atendidos.

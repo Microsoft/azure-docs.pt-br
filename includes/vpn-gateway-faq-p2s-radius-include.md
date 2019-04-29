@@ -2,18 +2,18 @@
 title: Arquivo de inclusão
 description: Arquivo de inclusão
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
-ms.author: cherylmc
+ms.date: 09/02/2018
+ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: 857d29f407c9939143fbb8263be40dadb040efdc
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53439198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456403"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
@@ -23,7 +23,7 @@ A autenticação RADIUS tem suporte nos SKUs VpnGw1, VpnGw2 e VpnGw3. Se você e
  
 ### <a name="is-radius-authentication-supported-for-the-classic-deployment-model"></a>Há suporte para autenticação RADIUS para o modelo de implantação clássico?
  
- Não. Não há suporte para autenticação RADIUS para o modelo de implantação clássico.
+Não. Não há suporte para autenticação RADIUS para o modelo de implantação clássico.
  
 ### <a name="are-3rd-party-radius-servers-supported"></a>Há suporte para os servidores RADIUS de terceiros?
 
@@ -35,7 +35,7 @@ Uma conexão VPN Site a Site com o site local, com as rotas apropriadas configur
  
 ### <a name="can-traffic-to-an-on-premises-radius-server-from-the-azure-vpn-gateway-be-routed-over-an-expressroute-connection"></a>O tráfego para um servidor RADIUS local (do gateway de VPN do Azure) pode ser roteado por uma conexão de ExpressRoute?
 
- Não. Ele só pode ser roteado através de uma conexão Site a Site.
+Não. Ele só pode ser roteado através de uma conexão Site a Site.
  
 ### <a name="is-there-a-change-in-the-number-of-sstp-connections-supported-with-radius-authentication-what-is-the-maximum-number-of-sstp-and-ikev2-connections-supported"></a>Há uma alteração no número de conexões SSTP com suporte na autenticação RADIUS? Qual é o número máximo de conexões SSTP e IKEv2 com suporte?
 

@@ -7,16 +7,15 @@ manager: jillfra
 ms.prod: visual-studio
 ms.technology: vs-azure
 ms.custom: vs-azure
-ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: ghogen
 ms.openlocfilehash: d95bd114be712953b79ef5afbb0915173f6de26c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339271"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764450"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adicione o Key Vault ao seu aplicativo Web usando os Serviços Conectados do Visual Studio
 
@@ -152,7 +151,7 @@ Esta seção identifica as alterações exatas feitas em um projeto do ASP.NET q
 
 Afeta a referências de .NET do arquivo de projeto e referências de pacote do NuGet.
 
-| Digite | Referência |
+| Type | Referência |
 | --- | --- |
 | NuGet | Microsoft.AspNetCore.AzureKeyVault.HostingStartup |
 
@@ -188,7 +187,7 @@ Esta seção identifica as alterações exatas feitas em um projeto do ASP.NET q
 
 Afeta as referências de arquivo de projeto do .NET e `packages.config` (referências de NuGet).
 
-| Digite | Referência |
+| Type | Referência |
 | --- | --- |
 | .NET; NuGet | Microsoft.Azure.KeyVault |
 | .NET; NuGet | Microsoft.Azure.KeyVault.WebKey |

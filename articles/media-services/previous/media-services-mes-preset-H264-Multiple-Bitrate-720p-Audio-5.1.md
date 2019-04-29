@@ -1,8 +1,8 @@
 ---
 title: H264 Taxas de Bits Múltiplas 720p Audio 5.1 | Microsoft Docs
 description: O tópico fornece uma visão geral da predefinição de tarefa **H264 Taxas de Bits Múltiplas 720p Audio 5.1**.
-author: Juliako
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
+origin.date: 03/19/2019
+ms.date: 04/01/2019
+ms.author: v-jay
 ms.openlocfilehash: ac21558b1480f43b398f44949e18416284c3f606
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202224"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61129486"
 ---
 # <a name="h264-multiple-bitrate-720p-audio-51"></a>H264 Taxas de Bits Múltiplas 720p Audio 5.1
 `Media Encoder Standard` define um conjunto de predefinições de codificação que pode ser usado ao criar trabalhos de codificação. Você pode usar um `preset name` para especificar em qual formato deseja codificar o arquivo de mídia. Ou, pode criar suas próprias predefinições com base em JSON ou XML (usando a codificação UTF-8 ou UTF-16). Em seguida, você passaria a predefinição personalizada ao codificador. Para obter a lista de todos os nomes de predefinição com suporte por este codificador `Media Encoder Standard`, consulte [Predefinições de tarefa para o Media Encoder Standard](media-services-mes-presets-overview.md).  

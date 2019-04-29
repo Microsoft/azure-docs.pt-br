@@ -10,11 +10,11 @@ ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 63bb5c6338cf230c2bb47cb0a2c03810053f970a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002571"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61087261"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Solucionar problemas de configuração de estado desejado (DSC)
 

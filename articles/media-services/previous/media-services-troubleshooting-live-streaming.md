@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: f502e3228274840d23b9f52512280fc0d9f0553b
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309887"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60544687"
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>Guia de solução de problemas da transmissão ao vivo  
 
@@ -45,7 +45,7 @@ Esta seção fornece sugestões sobre como solucionar problemas relacionados aos
     **Etapas de solução de problemas:** verifique se o codificador não está mais fazendo envios por push para o AMS, pare e redefina o canal. Quando estiver em execução novamente, tente conectar seu codificador com as novas configurações. Se isso ainda não corrigir o problema, tente criar um novo canal, pois, às vezes, os canais podem ser corrompidos após várias tentativas com falha.  
 * **Problema em potencial**: o tamanho do GOP ou as configurações de quadro-chave não são ideais. 
   
-    **Etapas de solução de problemas:** o tamanho do GOP ou o intervalo do quadro-chave recomendado é de dois segundos. Alguns codificadores calculam essa configuração em número de quadros, enquanto que outras usam segundos. Por exemplo: na saída de 30 fps, o tamanho do GOP seria de 60 quadros, que é equivalente a 2 segundos.  
+    **Etapas de solução de problemas:** o tamanho do GOP ou o intervalo do quadro-chave recomendado é de dois segundos. Alguns codificadores calculam essa configuração em número de quadros, enquanto que outras usam segundos. Por exemplo:  na saída de 30 fps, o tamanho do GOP seria de 60 quadros, que é equivalente a 2 segundos.  
 * **Problema em potencial**: portas fechadas estão bloqueando a transmissão. 
   
     **Etapas de solução de problemas:** ao transmitir via RTMP, verifique as configurações de firewall e/ou proxy para confirmar se as portas TCP de saída 1935 e 1936 estão abertas. 

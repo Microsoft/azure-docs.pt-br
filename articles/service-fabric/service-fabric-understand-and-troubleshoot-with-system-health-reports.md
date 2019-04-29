@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: caeef04a27cec7bbeda5dd96335d9b7bd1a8eca0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007450"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60716261"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usar relatórios de integridade do sistema para solução de problemas
 Os componentes do Service Fabric do Azure apresentam relatórios de integridade do sistema em todas as entidades no cluster prontos para uso. O [repositório de integridade](service-fabric-health-introduction.md#health-store) cria e exclui entidades baseado nos relatórios do sistema. Ele também os organiza em uma hierarquia que captura interações de entidade.
@@ -861,7 +861,7 @@ System.Hosting relata um aviso se as capacidades de nó não estiverem definidas
 * **Propriedade**: **ResourceGovernance**.
 * **Próximas etapas**: A maneira preferencial para superar esse problema é alterar o manifesto do cluster para habilitar a detecção automática de recursos disponíveis. Outra maneira é atualizar o manifesto do cluster com as capacidades do nó especificadas corretamente para essas métricas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Como exibir relatórios de integridade do Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
 * [Como relatar e verificar a integridade do serviço](service-fabric-diagnostics-how-to-report-and-check-service-health.md)

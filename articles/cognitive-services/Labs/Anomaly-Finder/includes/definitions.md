@@ -11,11 +11,11 @@ ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
 ms.openlocfilehash: 5ad589c4adb60369f81979e214935f73d9eb0755
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228877"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309475"
 ---
 <a name="definitions"></a>
 ## <a name="definitions"></a>Definições

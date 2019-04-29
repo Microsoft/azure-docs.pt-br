@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 5/8/2017
 ms.author: aljo
 ms.openlocfilehash: ee19be45915b3ff1253ec721f4334fead19647b8
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522375"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60723418"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serialização de objeto de Coleções Confiáveis no Azure Service Fabric
 As Coleções Confiáveis replicam e persistem seus itens para garantir que eles são duráveis durante falhas do computador e interrupções de energia.
@@ -40,7 +40,7 @@ O Gerenciador de Estado Confiável tem um serializador interno para os seguintes
 - sbyte
 - byte[]
 - char
-- cadeia de caracteres
+- string
 - decimal
 - double
 - flutuante
@@ -148,7 +148,7 @@ Os usuários do serializador personalizado devem seguir as diretrizes do seriali
 Uma maneira comum de dar suporte a todas as versões é adicionar informações de tamanho ao início e adicionar somente propriedades opcionais.
 Dessa forma, cada versão pode ler o máximo que puder e pular para a parte restante do fluxo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
   * [Serialização e atualização](service-fabric-application-upgrade-data-serialization.md)
   * [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
   * [Atualização do aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante a atualização de aplicativo usando o Visual Studio.

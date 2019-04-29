@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 29af70a2713e7b4aebf611d8f2b547e38c6c5d3d
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546358"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60623081"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnosticar falhas de artefato no laboratório 
 Depois de criar um artefato, você pode verificar se ele foi bem-sucedido ou falhou. Os logs de artefato no Azure DevTest Labs fornecem informações que você pode usar para diagnosticar uma falha de artefato. Você tem duas opções para exibir as informações de logs do artefato para uma VM do Windows:
@@ -57,6 +57,6 @@ Depois de criar um artefato, você pode verificar se ele foi bem-sucedido ou fal
 ## <a name="related-blog-posts"></a>Postagens de blogs relacionadas
 * [Ingresse uma VM em um domínio do Active Directory existente usando um modelo do Resource Manager no DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Saiba como [adicionar um repositório Git a um laboratório](devtest-lab-add-artifact-repo.md).
 

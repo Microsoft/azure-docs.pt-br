@@ -10,18 +10,18 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/27/2017
-ms.openlocfilehash: 9c8b8611347840dcf49759dac51fb506815cd782
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 926c9ebe8675d8b50d4544be813ae0b15492ae35
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122001"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60681639"
 ---
 # <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>Manipular documentos EDIFACT com segmentos UNH 2.5 nos Aplicativos Lógicos do Azure
 
 Quando está presente no documento EDIFACT, UNH2.5 está sendo usado para pesquisa de esquema. 
 
-Exemplo: o campo UNH é **EAN008** na mensagem EDIFACT  
+Exemplo: É o campo UNH **EAN008** na mensagem EDIFACT  
 UNH+SSDD1+ORDERS:D:03B:UN:**EAN008**'  
 
 Etapas a seguir para manipular a mensagem 

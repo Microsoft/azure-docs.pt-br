@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: fddd2291fe7fbb46c57d31e9aebc7fc6244df971
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884793"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61336959"
 ---
 # <a name="json-search-syntax"></a>Sintaxe de pesquisa JSON
 

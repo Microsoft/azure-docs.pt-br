@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
 ms.openlocfilehash: 704aefd68f35ca20f72a2a0c46bf11912c139e65
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490698"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61024647"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: criar e gerenciar orçamentos do Azure
 
@@ -65,7 +65,7 @@ Clique em **Adicionar**.
 
 Na janela **Criar orçamento**, insira um nome de orçamento e o valor do orçamento. Em seguida, escolha um período de duração mensal, trimestral ou anual. Em seguida, selecione uma data de término. Orçamentos exigem pelo menos um limite de custo (% do orçamento) e um endereço de email correspondente. Opcionalmente, você pode incluir até cinco limites e cinco endereços de email em um único orçamento. Quando um limite de orçamento é atingido, as notificações por email são recebidas normalmente em menos de oito horas. Para obter mais informações sobre as notificações, confira [Alertas de custo de uso](cost-mgt-alerts-monitor-usage-spending.md).
 
-Se você tiver uma assinatura pré-paga, do MSDN ou do Visual Studio, seu período de cobrança de fatura pode não estar alinhados ao mês calendário. Para esses tipos de assinaturas e grupos de recursos, você pode criar um orçamento que está alinhado ao período de fatura ou para os meses do calendário. Para criar um orçamento alinhado ao período de nota fiscal, selecione um período de redefinição de mês de cobrança, a cobrança trimestre ou ano de cobrança. Para criar um orçamento alinhado ao mês calendário, selecione um período de redefinição de mensal, trimestral ou anualmente.
+Se você tiver uma assinatura de Pagamento Conforme o Uso, do MSDN ou do Visual Studio, o período de cobrança da fatura talvez não esteja alinhado ao mês do calendário. Para esses tipos de assinaturas e grupos de recursos, você pode criar um orçamento que está alinhado ao período de fatura ou para os meses do calendário. Para criar um orçamento alinhado ao período de nota fiscal, selecione um período de redefinição de mês de cobrança, a cobrança trimestre ou ano de cobrança. Para criar um orçamento alinhado ao mês calendário, selecione um período de redefinição de mensal, trimestral ou anualmente.
 
 Aqui está um exemplo de criação de um orçamento mensal de US$ 4.500. Um alerta por email é gerado quando 90% do orçamento é atingido.
 

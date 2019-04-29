@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 8be546c5dba4c6c694c8cef03a4bdd6005d68189
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771558"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60811111"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-setup"></a>Interoperabilidade em recursos de conectividade de back-end do Azure: Configuração de teste
 

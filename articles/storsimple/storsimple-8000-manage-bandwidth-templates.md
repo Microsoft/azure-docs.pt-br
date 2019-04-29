@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 50d0a920bef097013feddc828d2c37133b9057b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 13a3e57bb27c075fc045e87790dbe13369ed9f8e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108614"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60699438"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar modelos de largura de banda do StorSimple
 
@@ -154,7 +154,7 @@ A agenda composta terá início na hora de sua escolha e será executa o dia tod
 
 **R**. Um dos sinais que indicam que é preciso modificar os modelos de largura de banda é quando você começa a perceber a lentidão da rede ou reduções várias vezes no dia. Se isso acontecer, monitore a rede de armazenamento e uso examinando os gráficos do desempenho de E/S e da taxa de transferência de rede.
 
-Com os dados de taxa de transferência da rede, identifique a hora do dia e os contêineres de volume em que ocorre o afunilamento da rede. Se isso ocorre quando dados estão sendo dispostos em camada na nuvem (obtenha essa informação do desempenho de E/S de todos os contêineres de volume do dispositivo para nuvem), você precisará modificar os modelos de largura de banda associados aos seus contêineres de volume.
+Com os dados de taxa de transferência da rede, identifique a hora do dia e os contêineres de volume em que ocorre o gargalo da rede. Se isso ocorre quando dados estão sendo dispostos em camada na nuvem (obtenha essa informação do desempenho de E/S de todos os contêineres de volume do dispositivo para nuvem), você precisará modificar os modelos de largura de banda associados aos seus contêineres de volume.
 
 Depois que os modelos modificados estiverem em uso, você precisara monitorar a rede novamente em busca de latências significativas. Se elas ainda existirem, você precisará rever seus modelos de largura de banda.
 

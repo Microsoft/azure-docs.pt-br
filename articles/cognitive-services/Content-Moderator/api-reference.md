@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 06/25/2017
 ms.author: sajagtap
 ms.openlocfilehash: 320638c958799bbf7fea73880fd3e27b6d598d23
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756052"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61269491"
 ---
 # <a name="content-moderator-api-reference"></a>Referência da API do Content Moderator
 

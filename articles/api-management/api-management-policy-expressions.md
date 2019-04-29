@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
 ms.openlocfilehash: 90b2dfdbec0d6dc81a05b845832fda92fe36d98c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403084"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60656584"
 ---
 # <a name="api-management-policy-expressions"></a>Expressões de política de Gerenciamento de API
 Este artigo descreve a sintaxe das expressões de política C# 7. Cada expressão tem acesso à variável de [contexto](api-management-policy-expressions.md#ContextVariables) fornecida implicitamente e a um [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos do .NET Framework.
@@ -210,7 +210,7 @@ Uma variável chamada `context` está implicitamente disponível em toda [expres
 
 |Variável de contexto|Valores de métodos, propriedades e parâmetros permitidos|
 |----------------------|-------------------------------------------------------|
-|context|API: IApi<br /><br /> Implantação<br /><br /> Decorrido: TimeSpan – intervalo de tempo entre o valor de carimbo de data/hora e a hora atual<br /><br /> LastError<br /><br /> Operação<br /><br /> Produto<br /><br /> Solicitação<br /><br /> RequestId: Guid – identificador exclusivo de solicitação<br /><br /> Response<br /><br /> Assinatura<br /><br /> Carimbo de data/hora: DateTime – ponto no tempo em que a solicitação foi recebida<br /><br /> Rastreamento: bool - indica que se o rastreamento está ativado ou desativado <br /><br /> Usuário<br /><br /> Variáveis: IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|
+|context|API: IApi<br /><br /> Implantação<br /><br /> Decorrido: TimeSpan – intervalo de tempo entre o valor de carimbo de data/hora e a hora atual<br /><br /> lastError<br /><br /> Operação<br /><br /> Produto<br /><br /> Solicitação<br /><br /> RequestId: Guid – identificador exclusivo de solicitação<br /><br /> Response<br /><br /> Assinatura<br /><br /> Carimbo de data/hora: DateTime – ponto no tempo em que a solicitação foi recebida<br /><br /> Rastreamento: bool - indica que se o rastreamento está ativado ou desativado <br /><br /> Usuário<br /><br /> Variáveis: IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|
 |context.Api|Id: string<br /><br /> IsCurrentRevision: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: IUrl<br /><br /> Version: string |
 |context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificados: IReadOnlyDictionary<string, X509Certificate2>|
 |context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Para obter mais informações sobre context.LastError, consulte [Error handling](api-management-error-handling-policies.md) (Tratamento de erro).|

@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 2c99b20e554d92dbe63594d63525dd8e1d765423
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806803"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726159"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Guia de detalhes da vitrine eletrônica de aplicativo do Power BI
 

@@ -9,11 +9,11 @@ ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
 ms.openlocfilehash: 8439da94c770bee313a1ae1d1da5df30683cd2ad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57964065"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61224287"
 ---
 ## <a name="cli-shell"></a>Shell da CLI
 
@@ -45,6 +45,6 @@ Caminho de arquivo absoluto no sistema operacional Linux/Mac e Windows
 * `@ "/usr/home/mytestfile.json"`
 *   `@"c:\tmp\user\mytestfile.json"`
 
-Use `{file}` se o comando está pedindo para um caminho para o arquivo. Por exemplo, `az ams transform create -a amsaccount -g resourceGroup -n custom --preset .\customPreset.json`. <br/> Use `@{file}` se o comando irá carregar o arquivo especificado. Por exemplo, `az ams account-filter create -a amsaccount -g resourceGroup -n filterName --tracks @tracks.json`.
+Use `{file}` se o comando estiver solicitando um caminho para o arquivo. Por exemplo, `az ams transform create -a amsaccount -g resourceGroup -n custom --preset .\customPreset.json`. <br/> Use `@{file}` se o comando for carregar o arquivo especificado. Por exemplo, `az ams account-filter create -a amsaccount -g resourceGroup -n filterName --tracks @tracks.json`.
 
 [Carregar arquivos]: ./media/media-services-cli/upload-download-files.png

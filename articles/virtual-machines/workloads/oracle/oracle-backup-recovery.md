@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 93fbd5bbba91b45e1afd123a2466b249302e2354
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
-ms.translationtype: HT
+ms.openlocfilehash: c41f13a6437f69121d3bbb387c96d8e13f2be0b3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492833"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60566611"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Fazer backup e recuperar um banco de dados Oracle Database 12c em uma máquina virtual Linux do Azure
 
@@ -30,7 +30,7 @@ Antes de começar, verifique se a CLI do Azure está instalada. Para obter mais 
 
 ## <a name="prepare-the-environment"></a>Preparar o ambiente
 
-### <a name="step-1-prerequisites"></a>Etapa 1: pré-requisitos
+### <a name="step-1-prerequisites"></a>Etapa 1: Pré-requisitos
 
 *   Para executar o processo de backup e recuperação, você precisa primeiro criar uma VM Linux com uma instância do Bando de Dados Oracle 12c instalada. A imagem do Marketplace usada para criar a VM chama-se *Oracle:Oracle-Database-Ee:12.1.0.2:latest*.
 
@@ -133,7 +133,7 @@ Antes de começar, verifique se a CLI do Azure está instalada. Para obter mais 
     RMAN> backup database plus archivelog;
     ```
 
-### <a name="step-4-application-consistent-backup-for-linux-vms"></a>Etapa 4: backup consistente com aplicativo para VMs Linux
+### <a name="step-4-application-consistent-backup-for-linux-vms"></a>Etapa 4: Backup consistente com aplicativo para VMs do Linux
 
 Os backups consistentes com aplicativo são um novo recurso do Backup do Azure. Você pode criar e selecione os scripts para serem executados antes e depois do instantâneo da VM (pré-instantâneo e pós-instantâneo).
 
@@ -266,7 +266,7 @@ Os backups consistentes com aplicativo são um novo recurso do Backup do Azure. 
 Para saber mais, consulte [Backup consistente com aplicativo para VMs Linux](https://azure.microsoft.com/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/).
 
 
-### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>Etapa 5: Usar cofres dos Serviços de Recuperação do Azure para fazer backup da VM
+### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>Etapa 5: Cofres dos serviços de recuperação do uso do Azure para fazer backup da VM
 
 1.  No Portal do Azure, pesquise por **Cofres dos Serviços de Recuperação**.
 
@@ -307,7 +307,7 @@ Para saber mais, consulte [Backup consistente com aplicativo para VMs Linux](htt
 
     ![Comando Fazer backup agora dos cofres dos Serviços de Recuperação](./media/oracle-backup-recovery/recovery_service_09.png)
 
-10. Clique no botão **Backup**. Aguarde o processo de backup ser concluído. Em seguida, acesse [Etapa 6: remover os arquivos de banco de dados](#step-6-remove-the-database-files).
+10. Clique no botão **Backup**. Aguarde o processo de backup ser concluído. Em seguida, vá para [etapa 6: Remover os arquivos de banco de dados](#step-6-remove-the-database-files).
 
     Para exibir o status do trabalho de backup, clique em **Trabalhos**.
 
@@ -452,13 +452,13 @@ Para restaurar os arquivos excluídos, conclua o as etapas a seguir:
 
 Em vez de restaurar os arquivos excluídos dos cofres dos Serviços de Recuperação, você pode restaurar toda a VM.
 
-### <a name="step-1-delete-myvm"></a>Etapa 1: excluir myVM
+### <a name="step-1-delete-myvm"></a>Etapa 1: Excluir myVM
 
 *   No Portal do Azure, acesse o cofre **myVM1** e selecione **Excluir**.
 
     ![Comando Excluir cofre](./media/oracle-backup-recovery/recover_vm_01.png)
 
-### <a name="step-2-recover-the-vm"></a>Etapa 2: Recuperar a VM
+### <a name="step-2-recover-the-vm"></a>Etapa 2: Recupere a VM
 
 1.  Vá para os **cofres dos Serviços de Recuperação**e selecione **myVault**.
 
@@ -496,7 +496,7 @@ Em vez de restaurar os arquivos excluídos dos cofres dos Serviços de Recupera�
 
     ![Status do processo de restauração](./media/oracle-backup-recovery/recover_vm_09.png)
 
-### <a name="step-3-set-the-public-ip-address"></a>Etapa 3: Criar o endereço IP público
+### <a name="step-3-set-the-public-ip-address"></a>Etapa 3: Defina o endereço IP público
 Depois que a VM for restaurada, configure o endereço IP público.
 
 1.  Na caixa de pesquisa, digite **endereços IP públicos**.
@@ -537,9 +537,9 @@ Depois que a VM for restaurada, configure o endereço IP público.
     ```
 
     > [!IMPORTANT]
-    > Se o comando **startup** do banco de dados gerar um erro, consulte [Etapa 6: usar RMAN para recuperar o banco de dados](#step-6-optional-use-rman-to-recover-the-database) para recuperar o banco de dados.
+    > Se o banco de dados **inicialização** comando gera um erro, para recuperar o banco de dados, consulte [etapa 6: Use RMAN para recuperar o banco de dados](#step-6-optional-use-rman-to-recover-the-database).
 
-### <a name="step-6-optional-use-rman-to-recover-the-database"></a>Etapa 6: (opcional) usar RMAN para recuperar o banco de dados
+### <a name="step-6-optional-use-rman-to-recover-the-database"></a>Etapa 6: (Opcional) Use RMAN para recuperar o banco de dados
 *   Use o script a seguir para recuperar o banco de dados:
 
     ```bash
@@ -564,7 +564,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Tutorial: criar VMs altamente disponíveis](../../linux/create-cli-complete.md)
+[Tutorial: Criar VMs altamente disponíveis](../../linux/create-cli-complete.md)
 
 [Explorar exemplos da CLI do Azure de implantação de VM](../../linux/cli-samples.md)
 

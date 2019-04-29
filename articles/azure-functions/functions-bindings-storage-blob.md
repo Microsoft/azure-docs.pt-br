@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: c1c20e225e15769a8cb09f60dfc371f4ec4d81f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e67737e26edfee94a5a4d740d6c575817c66ff0
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306859"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766181"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Associações de armazenamento do Blob do Azure para o Azure Functions
 
@@ -426,7 +426,7 @@ O Azure Functions armazena recibos do blob em um contêiner denominado *azure-we
 * O nome do blob
 * O ETag (um identificador de versão de blob, por exemplo: "0x8D1DC6E70A277EF")
 
-Para forçar o reprocessamento de um blob, exclua manualmente o recebimento desse blob do contêiner *azure-webjobs-hosts*.
+Para forçar o reprocessamento de um blob, exclua manualmente o recebimento desse blob do contêiner *azure-webjobs-hosts*. Enquanto o reprocessamento pode não ocorrer imediatamente, é garantida para ocorrer em um momento posterior no tempo.
 
 ## <a name="trigger---poison-blobs"></a>Gatilho - mensagens suspeitas
 
@@ -450,9 +450,13 @@ As funções de JavaScript e Java carregam todo o blob na memória, e as funçõ
 
 ## <a name="trigger---polling"></a>Disparar - sondagem
 
-Se o contêiner de blob que está sendo monitorado contiver mais de 10.000 blobs (em todos os contêineres), as verificações de tempo de execução do Functions varrerão os arquivos para observar blobs novos ou alterados de log. Esse processo pode resultar em atrasos. Uma função não poderá ser disparada até que se passem vários minutos ou mais tempo depois da criação do blob. Além disso, [logs de armazenamento são criados da "melhor forma dentro do possível"](/rest/api/storageservices/About-Storage-Analytics-Logging). Não há nenhuma garantia de que todos os eventos são capturados. Sob algumas condições, logs poderão ser perdidos.
+Se o contêiner de blob que está sendo monitorado contiver mais de 10.000 blobs (em todos os contêineres), as verificações de tempo de execução do Functions varrerão os arquivos para observar blobs novos ou alterados de log. Esse processo pode resultar em atrasos. Uma função não poderá ser disparada até que se passem vários minutos ou mais tempo depois da criação do blob.
 
-Se você precisar de um processamento de blob mais rápido ou confiável, crie uma [mensagem de fila](../storage/queues/storage-dotnet-how-to-use-queues.md) ao criar o blob. Em seguida, use um [gatilho de fila](functions-bindings-storage-queue.md) em vez de um gatilho de blob para processar o blob. Outra opção é usar a Grade de Eventos; consulte o tutorial [Automatize redimensionamento de imagens carregadas usando a Grade de Eventos](../event-grid/resize-images-on-storage-blob-upload-event.md).
+> [!WARNING]
+> Além disso, [logs de armazenamento são criados da "melhor forma dentro do possível"](/rest/api/storageservices/About-Storage-Analytics-Logging). Não há nenhuma garantia de que todos os eventos são capturados. Sob algumas condições, logs poderão ser perdidos.
+> 
+> Se você precisar de um processamento de blob mais rápido ou confiável, crie uma [mensagem de fila](../storage/queues/storage-dotnet-how-to-use-queues.md) ao criar o blob. Em seguida, use um [gatilho de fila](functions-bindings-storage-queue.md) em vez de um gatilho de blob para processar o blob. Outra opção é usar a Grade de Eventos; consulte o tutorial [Automatize redimensionamento de imagens carregadas usando a Grade de Eventos](../event-grid/resize-images-on-storage-blob-upload-event.md).
+>
 
 ## <a name="input"></a>Entrada
 

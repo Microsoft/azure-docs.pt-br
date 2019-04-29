@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 00fe3aa7a641b9d07aad90a9d008a99efc6e9d97
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: dc2126276e3e8e0d35ce8ed1f835544386659eff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993454"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736167"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>Regeneração de URL (caminho personalizado de encaminhamento)
 O Azure Front Door Service é compatível com a regeneração de URL ao permitir que você configure um **Caminho de Encaminhamento Personalizado** opcional para ser usado ao construir a solicitação a ser encaminhada para o back-end. Por padrão, se nenhum caminho de encaminhamento personalizado for fornecido, o Front Door copiará o caminho de URL de entrada para a URL usada na solicitação encaminhada. O cabeçalho do Host usado na solicitação encaminhada ficará conforme configurado no back-end selecionado. Leia [Cabeçalho de host de back-end](front-door-backend-pool.md#hostheader) para saber o que ele faz e como configurá-lo.
@@ -30,7 +30,7 @@ Considere uma regra de roteamento com os seguintes hosts de front-end e os camin
 
 | Hosts      | Caminhos       |
 |------------|-------------|
-| www.contoso.com | /\*         |
+| www\.contoso.com | /\*         |
 |            | /foo        |
 |            | /foo/\*     |
 |            | /foo/bar/\* |
@@ -42,12 +42,12 @@ Por exemplo, se lermos na segunda linha, veremos que para a solicitação de ent
 
 | Solicitação de entrada       | Caminho de correspondência mais específica | /          | /fwd/          | /foo/          | /foo/bar/          |
 |------------------------|--------------------------|------------|----------------|----------------|--------------------|
-| www.contoso.com/            | /\*                      | /          | /fwd/          | /foo/          | /foo/bar/          |
-| www.contoso.com/**sub**     | /\*                      | /**sub**   | /fwd/**sub**   | /foo/**sub**   | /foo/bar/**sub**   |
-| www.contoso.com/**a/b/c**   | /\*                      | /**a/b/c** | /fwd/**a/b/c** | /foo/**a/b/c** | /foo/bar/**a/b/c** |
-| www.contoso.com/foo         | /foo                     | /          | /fwd/          | /foo/          | /foo/bar/          |
-| www.contoso.com/foo/        | /foo/\*                  | /          | /fwd/          | /foo/          | /foo/bar/          |
-| www.contoso.com/foo/**bar** | /foo/\*                  | /**bar**   | /fwd/**bar**   | /foo/**bar**   | /foo/bar/**bar**   |
+| www\.contoso.com/            | /\*                      | /          | /fwd/          | /foo/          | /foo/bar/          |
+| www\.contoso.com/**sub**     | /\*                      | /**sub**   | /fwd/**sub**   | /foo/**sub**   | /foo/bar/**sub**   |
+| www\.contoso.com/**a/b/c**   | /\*                      | /**a/b/c** | /fwd/**a/b/c** | /foo/**a/b/c** | /foo/bar/**a/b/c** |
+| www\.contoso.com/foo         | /foo                     | /          | /fwd/          | /foo/          | /foo/bar/          |
+| www\.contoso.com/foo/        | /foo/\*                  | /          | /fwd/          | /foo/          | /foo/bar/          |
+| www\.contoso.com/foo/**bar** | /foo/\*                  | /**bar**   | /fwd/**bar**   | /foo/**bar**   | /foo/bar/**bar**   |
 
 
 ## <a name="optional-settings"></a>Configurações opcionais

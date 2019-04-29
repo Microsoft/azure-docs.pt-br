@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: danlep
 ms.openlocfilehash: 4c0845b9cf5194ecbd0ab813997e17e070840f44
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099892"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61331334"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referência de webhook do Registro de Contêiner do Azure
 

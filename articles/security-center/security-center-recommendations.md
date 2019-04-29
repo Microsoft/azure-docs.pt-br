@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/13/2018
 ms.author: rkarlin
 ms.openlocfilehash: e3b4da1c1d835e9d630c000055af058aa7b45968
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109181"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60905906"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Gerenciando recomendações de segurança na Central de Segurança do Azure
 Este documento mostra como usar as recomendações na Central de Segurança do Azure para ajudar a proteger os recursos do Azure.
@@ -57,7 +57,7 @@ Você pode filtrar as recomendações. Para filtrar as recomendações, selecion
 * **RECOMENDAÇÕES**: A recomendação.
 * **PROTEGER O IMPACTO DE PONTUAÇÃO**:
 * **RECURSO:** lista os recursos aos quais essa recomendação se aplica.
-* **BARRAS DE STATUS**:  descreve a gravidade dessa recomendação específica:
+* **BARRAS DE STATUS**:  Descreve a gravidade dessa recomendação específica:
    * **Alta (vermelho)**: existe uma vulnerabilidade em um recurso significativo (como um aplicativo, uma VM ou um grupo de segurança de rede) e ela requer atenção.
    * **Médio (laranja)**: existe uma vulnerabilidade e etapas não críticas ou adicionais são necessárias para eliminá-la ou para concluir um processo.
    * **Baixa (azul)**: existe uma vulnerabilidade que deve ser resolvida, mas não exige atenção imediata. (Por padrão, não são apresentadas recomendações baixas, mas você pode filtrar as recomendações baixas caso deseje vê-las.) 

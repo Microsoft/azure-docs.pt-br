@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
 ms.openlocfilehash: 635c8d0f149895798eece8cf3b48712ab74374ea
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759875"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60887037"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-azure-logic-apps"></a>Criar fluxos de trabalho com o conector do IoT Central em Aplicativos Lógicos do Azure
 
@@ -38,7 +38,7 @@ Esta seção mostra como postar uma mensagem no Microsoft Teams quando uma regra
 
     ![Criar aplicativo lógico no portal do Azure](./media/howto-build-azure-logic-apps/createinazureportal.png)
 
-1. Depois que seu aplicativo lógico foi criado com êxito, você será direcionado automaticamente para o Designer de aplicativos lógicos. Selecione **aplicativo lógico em branco**. 
+1. Depois que seu aplicativo lógico foi criado com êxito, você será direcionado automaticamente para o Designer de aplicativos lógicos. Selecione **Aplicativo lógico em branco**. 
 
     ![Criar um aplicativo lógico em branco](./media/howto-build-azure-logic-apps/blanklogicapp.png)
 

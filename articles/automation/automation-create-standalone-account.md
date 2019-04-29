@@ -10,11 +10,11 @@ ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: cdffc339bee1f5456e4eeb619e566b1f9c34b143
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093170"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61076741"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Como criar conta autônoma de automação do Azure
 
@@ -89,7 +89,7 @@ Para criar uma conta da Automação do Azure no portal do Azure, execute as segu
 
 Quando a criação da conta de Automação tiver sido criada com êxito, vários recursos serão criados automaticamente para você. Após a criação, esses runbooks poderão ser excluídos com segurança se você não quiser mantê-los. As contas Executar como poderão ser usadas para autenticar a conta em um runbook e deverão ser mantidas, exceto se você criar outra ou não forem mais necessárias. A tabela a seguir resume os recursos para a conta Executar como.
 
-| Recurso | DESCRIÇÃO |
+| Resource | DESCRIÇÃO |
 | --- | --- |
 | Runbook AzureAutomationTutorial |Um runbook gráfico de exemplo que demonstra como fazer a autenticação usando a conta Executar como. O runbook obtém todos os recursos do Resource Manager. |
 | Runbook do AzureAutomationTutorialScript |Um runbook de exemplo do PowerShell que demonstra como fazer a autenticação usando a conta Executar como. O runbook obtém todos os recursos do Resource Manager. |
@@ -99,7 +99,7 @@ Quando a criação da conta de Automação tiver sido criada com êxito, vários
 
 A tabela a seguir resume os recursos para a conta Executar como Clássica.
 
-| Recurso | DESCRIÇÃO |
+| Resource | DESCRIÇÃO |
 | --- | --- |
 | Runbook do AzureClassicAutomationTutorial |Um runbook gráfico de exemplo. O runbook obtém todas as VMs clássicas de uma assinatura usando a Conta Executar como Clássica (certificado). Em seguida, ele exibe os nomes e status da VM. |
 | Runbook do script AzureClassicAutomationTutorial |Um runbook de exemplo do PowerShell. O runbook obtém todas as VMs clássicas de uma assinatura usando a Conta Executar como Clássica (certificado). Em seguida, ele exibe os nomes e status da VM. |

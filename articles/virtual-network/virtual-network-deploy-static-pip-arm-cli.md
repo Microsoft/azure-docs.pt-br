@@ -3,8 +3,8 @@ title: Criação de uma VM com um endereço IP público estático - CLI do Azure
 description: Aprenda a criar uma VM com um endereço IP público estático usando a interface de linha de comando (CLI) do Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: eafdbf731ce6ae37c321712d7574ce578e704cc0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108419"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743047"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-cli"></a>Crie uma máquina virtual com um endereço IP público estático usando a CLI do Azure
 

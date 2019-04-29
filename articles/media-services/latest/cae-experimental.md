@@ -13,11 +13,11 @@ ms.date: 04/05/2019
 ms.author: sethm
 ms.custom: ''
 ms.openlocfilehash: 3c50502a8b873503ee937914fac5f2d92cb23a2b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59288375"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733416"
 ---
 # <a name="experimental-preset-for-content-aware-encoding"></a>Experimental predefinição de codificação com suporte a conteúdo
 

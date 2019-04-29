@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
 ms.openlocfilehash: bae180e2ceae6fe0768a5f7951c18dc5147870fa
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545239"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626818"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SDK do .NET Core do Azure Cosmos DB para API do SQL: Notas sobre a versão e recursos
 > [!div class="op_single_selector"]
@@ -235,7 +235,7 @@ Se você tiver dúvidas relacionadas a esse SDK, poste no [StackOverflow](https:
 
 ## <a name="release--retirement-dates"></a>Datas de lançamento e desativação
 
-| Versão | Data do lançamento | Data de desativação |
+| Version | Data do lançamento | Data de desativação |
 | --- | --- | --- |
 | [2.2.3](#2.2.3) |11 de março de 2019 |--- |
 | [2.2.2](#2.2.2) |06 de fevereiro de 2019 |--- |

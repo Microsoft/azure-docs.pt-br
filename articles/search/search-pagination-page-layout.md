@@ -11,11 +11,11 @@ ms.date: 02/14/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 7a4423449931b74afa15ca238c611f54b071402f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339288"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61283752"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Como trabalhar com os resultados da pesquisa no Azure Search
 Este artigo fornece orientação sobre como implementar elementos padrão da página de resultados da pesquisa, por exemplo, contagem total, recuperação de documentos, ordens de classificação e navegação. As opções relacionadas à página que colaboram com dados ou informações para os resultados da pesquisa são especificadas por meio de solicitações de [Documento de Pesquisa](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) enviadas ao Serviço de Azure Search. 
@@ -100,7 +100,7 @@ Você pode enviar um filtro com ou sem uma expressão de pesquisa. Por exemplo, 
 
 Confira [Pesquisar Documentos (API de Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para saber mais sobre expressões `$filter`.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 * [API REST do Serviço de Azure Search](https://docs.microsoft.com/rest/api/searchservice)
 * [Operações de índice](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
 * [Operações de documento.](https://docs.microsoft.com/rest/api/searchservice/Document-operations)

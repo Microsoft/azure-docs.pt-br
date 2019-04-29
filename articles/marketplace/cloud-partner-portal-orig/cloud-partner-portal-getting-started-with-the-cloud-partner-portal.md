@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 00558b9effed39e160aef93c22431863daf6aa0d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804980"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61067374"
 ---
 # <a name="getting-started-with-the-cloud-partner-portal"></a>Introdução ao Portal do Cloud Partner
 
@@ -34,7 +34,7 @@ O Portal do Cloud Partner contém tudo o que você precisa para oferecer e opera
 
 Ao acessar o portal pela primeira vez, você verá a barra de navegação recolhível. É onde você pode navegar entre os itens do menu.
 
-![Portal do Cloud Partner](./media/cloud-partner-portal-getting-started-with-the-cloud-partner-portal/cloud-partner-portal-page.png)
+![Portal de Parceiros de Nuvem](./media/cloud-partner-portal-getting-started-with-the-cloud-partner-portal/cloud-partner-portal-page.png)
 
 Use a barra de menus para obter mais informações sobre cada um dos seguintes itens:
 
@@ -51,7 +51,7 @@ Continuando o tour, depois que você inicia uma nova oferta ou voltar para edita
 ![Página de ofertas](./media/cloud-partner-portal-getting-started-with-the-cloud-partner-portal/offer-page.png)
 
 Na página de ofertas, você pode:
-- Adicionar conteúdo ou verificar o status da oferta, alternando entre dois modos de nível superior: **Editor** e **Status**.
+- Adicione conteúdo ou verifique o status da oferta alternando entre dois modos de nível superior: **Editor** e **Status**.
 - Usar a **Barra de ação** para gerenciar explicitamente as alterações da oferta, salvando e descartando sua entrada.
 - Navegar entre os **Formulários** exigidos para cada oferta enquanto altera as configurações da oferta.
 

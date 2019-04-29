@@ -10,11 +10,11 @@ ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
 ms.openlocfilehash: d380c8bcdcb4954901df0b460269493c5be0a6de
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777381"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61456407"
 ---
 # <a name="view-document-details"></a>Exibir detalhes do documento
 
@@ -40,6 +40,6 @@ Para excluir um documento, o usuário deverá ser um proprietário do espaço de
 
     ![Confirmar exclusão](media/how-to/how-to-delete-document-confirm.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba [como treinar um modelo](how-to-train-model.md).

@@ -12,11 +12,11 @@ ms.date: 02/21/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 6bd7a014e765d32349951d99d3027c90f61f7eb7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726121"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62118002"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Como inscrever-se na API de Tradução de Texto
 

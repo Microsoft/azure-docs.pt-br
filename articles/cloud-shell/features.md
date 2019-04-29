@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: damaerte
 ms.openlocfilehash: 46c9350dd2a33d0d25fe193b2ae50c954f2d1f95
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500610"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614350"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Recursos e ferramentas do Azure Cloud Shell
 
@@ -57,7 +57,7 @@ O Cloud Shell inclui autenticação pré-configurada para ferramentas de softwar
 
 ## <a name="tools"></a>Ferramentas
 
-|Categoria   |NOME   |
+|Category   |NOME   |
 |---|---|
 |Ferramentas do Linux            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
 |Ferramentas do Azure            |[CLI do Azure](https://github.com/Azure/azure-cli) e [CLI clássica do Azure](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#writing-your-first-azcopy-command)<br> [CLI do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Shipyard de lote](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
@@ -70,7 +70,7 @@ O Cloud Shell inclui autenticação pré-configurada para ferramentas de softwar
 
 ## <a name="language-support"></a>Suporte ao idioma
 
-|Linguagem   |Versão   |
+|Linguagem   |Version   |
 |---|---|
 |.NET Core  |2.0.0       |
 |Go         |1.9        |
@@ -79,7 +79,7 @@ O Cloud Shell inclui autenticação pré-configurada para ferramentas de softwar
 |PowerShell |[6.2.0](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 e 3.5 (padrão)|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Início rápido do Bash no Cloud Shell](quickstart.md) <br>
 [Início Rápido do PowerShell no Cloud Shell](quickstart-powershell.md) <br>
 [Saiba mais sobre a CLI do Azure](https://docs.microsoft.com/cli/azure/) <br>

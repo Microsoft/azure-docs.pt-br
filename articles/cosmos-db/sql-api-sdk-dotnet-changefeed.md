@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
 ms.openlocfilehash: a878ab1937b06f06a27b18f793fc1bfa190969ed
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090331"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626980"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do Processador do Feed de Alterações do .NET: download e notas sobre a versão
 > [!div class="op_single_selector"]
@@ -161,7 +161,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 
 <br/>
 
-| Versão | Data do lançamento | Data de desativação |
+| Version | Data do lançamento | Data de desativação |
 | --- | --- | --- |
 | [2.2.6](#2.2.6) |29 janeiro de 2019 |--- |
 | [2.2.5](#2.2.5) |13 de dezembro de 2018 |--- |

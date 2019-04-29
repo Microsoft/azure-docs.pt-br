@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
 ms.openlocfilehash: 0788a62de701cb85a65c7053006e28cf4fffe5cb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789067"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61357196"
 ---
 # <a name="access-your-security-data"></a>Acessar seus dados de segurança 
 
@@ -177,7 +177,7 @@ SecurityRecommendation
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Média        | 4   |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Leia o ASC para IoT [visão geral](overview.md)
 - Saiba mais sobre o ASC para IoT [arquitetura](architecture.md)

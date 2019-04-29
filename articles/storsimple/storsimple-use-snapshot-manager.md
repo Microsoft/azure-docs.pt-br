@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.custom: ''
-ms.openlocfilehash: b48c507e38eb7cadff56259f617e336e4efe5708
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 46225e5a332e035e4d1cc256e71c4b5d8686fd47
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23113524"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845064"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Usar a interface de usuário do StorSimple Snapshot Manager para gerenciar trabalhos de backup e catálogo de backups
 
@@ -67,7 +67,7 @@ Para exibir o menu **Arquivo**, clique em **Arquivo** na barra de menus. O segui
 #### <a name="menu-description"></a>Descrição do menu
 A tabela a seguir descreve os itens que aparecem no menu **Arquivo** .
 
-| Item de menu | Descrição |
+| Item de menu | DESCRIÇÃO |
 |:--- |:--- |
 | Novo |Clique em **Novo** para criar um novo console com base no StorSimple Snapshot Manager. |
 | Aberto |Clique em **Abrir** para abrir um console existente. |
@@ -107,7 +107,7 @@ A tabela a seguir contém uma lista em ordem alfabética das ações do StorSimp
 > 
 > 
 
-| Ação | Navegação | Descrição |
+| Ação | Navegação | DESCRIÇÃO |
 |:--- |:--- |:--- |
 | Autenticar |Clique no nó **Dispositivos** e clique com o botão direito do mouse em um dispositivo no painel **Resultados**. |Clique em **Autenticar** para digitar a senha que você configurou para o dispositivo. |
 | Clone |Expanda **Catálogo de Backup**s, expanda **Instantâneos em Nuvem**, clique em um backup com data e selecione um volume no painel **Resultados**. |Clique em **Clone** para criar uma cópia de um instantâneo de nuvem e armazená-la em um local que você designar. |
@@ -139,7 +139,7 @@ Você pode acessar o menu **Exibir** na barra de menus ou no painel **Ações**.
 #### <a name="menu-description"></a>Descrição do menu
 A tabela a seguir descreve os itens que aparecem no menu **Exibir** .
 
-| Item de menu | Descrição |
+| Item de menu | DESCRIÇÃO |
 |:--- |:--- |
 | Adicionar/Remover Colunas |Clique em **Adicionar/Remover Colunas** para adicionar ou remover colunas do painel **Resultados**. |
 | Personalizar |Clique em **Personalizar** para mostrar ou ocultar itens na janela do console do StorSimple Snapshot Manager. |
@@ -155,7 +155,7 @@ Você pode acessar o menu **Favoritos** na barra de menus.
 #### <a name="menu-description"></a>Descrição do menu
 A tabela a seguir descreve os itens que aparecem no menu **Favoritos** .
 
-| Item de menu | Descrição |
+| Item de menu | DESCRIÇÃO |
 |:--- |:--- |
 | Adicionar aos Favoritos |Clique em **Adicionar aos Favoritos** para adicionar a exibição atual à sua lista de favoritos. |
 | Organizar Favoritos |Clique em **Organizar Favoritos** para organizar o conteúdo da pasta Favoritos. |
@@ -173,7 +173,7 @@ A lista numerada na parte inferior do menu mostra as janelas que estão abertas.
 #### <a name="menu-description"></a>Descrição do menu
 A tabela a seguir descreve os itens que aparecem no menu da Janela.
 
-| Item de menu | Descrição |
+| Item de menu | DESCRIÇÃO |
 |:--- |:--- |
 | Nova Janela |Clique em **Nova Janela** para abrir uma nova janela do console (além da janela existente). |
 | Em cascata |Clique em **Em cascata** para exibir as janelas abertas do console no estilo em cascata. |
@@ -190,7 +190,7 @@ Você pode acessar o menu **Ajuda** na barra de menus. Você também pode acessa
 #### <a name="menu-description"></a>Descrição do menu
 A tabela a seguir descreve os itens que aparecem no menu Ajuda.
 
-| Item de menu | Descrição |
+| Item de menu | DESCRIÇÃO |
 |:--- |:--- |
 | Ajuda no StorSimple Snapshot Manager |Clique em **Ajuda no StorSimple Snapshot Manager** para abrir a ajuda do StorSimple Snapshot Manager em uma janela separada. |
 | Tópicos de Ajuda |Clique em **Tópicos de Ajuda** para abrir a ajuda online do MMC em uma janela separada. |
@@ -204,7 +204,7 @@ A barra de ferramentas, localizada abaixo da barra de menus, contém ícones de 
 ### <a name="icon-descriptions"></a>Descrições dos ícones
 A tabela a seguir descreve os ícones que aparecem na barra de ferramentas. 
 
-| ícone | Descrição |
+| ícone | DESCRIÇÃO |
 |:--- |:--- |
 | ![Seta para a esquerda](./media/storsimple-use-snapshot-manager/HCS_SSM_LeftArrow.png) |Clique no ícone de seta para a esquerda para retornar à página anterior. |
 | ![Seta para a direita](./media/storsimple-use-snapshot-manager/HCS_SSM_RightArrow.png) |Clique na seta para a direita para ir para a próxima página (se a seta estiver cinza, a ação estará indisponível). |
@@ -359,7 +359,7 @@ A tabela a seguir descreve as combinações de teclas de atalho da barra de menu
 | ALT + F |Abre o menu **Arquivo** . |N |Abre uma nova instância do console. |
 |  |O |Abre a página **Ferramentas Administrativas** . | |
 |  |S |Salva o console do StorSimple Snapshot Manager. | |
-|  |Uma |Abre a página **Salvar Como** . | |
+|  |O  |Abre a página **Salvar Como** . | |
 |  |M |Abre a página **Adicionar/Remover Snap-in** . | |
 |  |P |Abre a página **Opções** . | |
 |  |H |Abre a Ajuda online. | |
@@ -368,9 +368,9 @@ A tabela a seguir descreve as combinações de teclas de atalho da barra de menu
 |  |F |Atualiza o console do StorSimple Snapshot Manager. | |
 |  |L |Abre a página **Exportar Lista** . | |
 |  |H |Abre a Ajuda online. | |
-| ALT+V |Abre o menu **Exibição** . |Uma |Abre a página **Adicionar/Remover Colunas** . |
+| ALT+V |Abre o menu **Exibição** . |O  |Abre a página **Adicionar/Remover Colunas** . |
 |  |U |Abre a página **Personalizar Modo de Exibição** . | |
-| ALT+O |Abre o menu **Favoritos** . |Uma |Abre a página **Adicionar aos Favoritos** . |
+| ALT+O |Abre o menu **Favoritos** . |O  |Abre a página **Adicionar aos Favoritos** . |
 |  |O |Abre a página **Organizar Favoritos** . | |
 | ALT+W |Abre o menu **Janela** . |N |Abre outra janela do StorSimple Snapshot Manager. |
 |  |C |Exibe todas as janelas de console abertas em um estilo em cascata. | |
@@ -378,7 +378,7 @@ A tabela a seguir descreve as combinações de teclas de atalho da barra de menu
 |  |I |Organiza os ícones em uma linha horizontal na parte inferior da tela. | |
 | ALT+H |Abre o menu **Ajuda** . |H |Abre a Ajuda online. |
 |  |T |Abre a página da Web do Microsoft TechNet Tech Center. | |
-|  |Uma |Abre a página **Sobre o Console de Gerenciamento Microsoft** . | |
+|  |O  |Abre a página **Sobre o Console de Gerenciamento Microsoft** . | |
 
 ### <a name="scope-pane-shortcut-keys"></a>Teclas de atalho do painel Escopo
 As tabelas a seguir mostram as combinações de teclas de atalho para cada nó no painel **Escopo** . 
@@ -424,7 +424,7 @@ As tabelas a seguir mostram as combinações de teclas de atalho para cada nó n
 #### <a name="backup-policies-node-shortcut-keys"></a>Teclas de atalho do nó Políticas de Backup
 | Atalho de menu | Result |
 |:--- |:--- |
-| B |Abre a página **Criar uma Política** . |
+| b |Abre a página **Criar uma Política** . |
 | V |Abre o menu **Exibição** . |
 | W |Abre um novo console do StorSimple Snapshot Manager voltado para o nó **Grupos de Volumes** . |
 | F |Atualiza o console do StorSimple Snapshot Manager. |

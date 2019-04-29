@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.openlocfilehash: 1a70d1b2ea504d0ccfba925810a2d19d0c7583cc
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012639"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60759598"
 ---
 # <a name="language-support-for-computer-vision"></a>Suporte ao idioma para pesquisa Visual computacional
 

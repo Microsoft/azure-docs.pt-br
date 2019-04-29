@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: rosh
 ms.openlocfilehash: 39a95e877c766eb8f491c166edeb9d96f21db7dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493938"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829507"
 ---
 # <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>Localizar imagens semelhantes de pesquisas anteriores usando ImageInsightsToken
 
@@ -141,7 +141,7 @@ O aplicativo completo retorna as seguintes URLs:
 
 Como mostrado acima, os tipos `TopicResults` e `ImageResults` contêm consultas de imagens relacionadas. As URLs na lista vinculam os resultados de pesquisa do Bing.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Criar um aplicativo web de página única de pesquisa Visual](tutorial-bing-visual-search-single-page-app.md)
+> [Criar um aplicativo Web de página única da Pesquisa Visual](tutorial-bing-visual-search-single-page-app.md)

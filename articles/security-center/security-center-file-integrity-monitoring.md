@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: monhaber
 ms.openlocfilehash: f8bc10edcdc31dd2ae3995dcb8321a5523e1e51c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901570"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60705546"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoramento de integridade de arquivo na Central de Segurança do Azure
 Saiba como configurar o FIM (Monitoramento de Integridade de Arquivo) na Central de Segurança do Azure usando este passo a passo.

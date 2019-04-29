@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 52fb32a8b34c62fe94ab35e2c051d996ab8bef10
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449197"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60755127"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Especificações técnicas de borda da caixa de dados do Azure
 
@@ -38,7 +38,7 @@ The following table lists the typical power consumption data (actual values may 
 
 Os dispositivos de borda da caixa de dados têm 10 X 2,5" NVMe SSDs, cada um com uma capacidade de 1,6 TB. Esse SSDs, 2 são discos do sistema operacional e os outros 8 são discos de dados. A capacidade útil total para o dispositivo é de aproximadamente 12,5 TB. A tabela a seguir tem os detalhes para a capacidade de armazenamento do dispositivo.
 
-|     Especificação                          |     Valor             |
+|     Especificação                          |     Value             |
 |--------------------------------------------|-----------------------|
 |    Número de SSDs (unidades de estado sólido)     |    8                  |
 |    Capacidade de SSD único                     |    1,6 TB             |

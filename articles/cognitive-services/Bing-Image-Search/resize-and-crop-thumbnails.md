@@ -13,11 +13,11 @@ ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ms.openlocfilehash: c53b84f31100ab72458ab6fb79b2009450eda15c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789933"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60914578"
 ---
 # <a name="resize-and-crop-thumbnail-images"></a>Redimensionar e recortar miniaturas de imagens
 

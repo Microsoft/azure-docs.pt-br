@@ -9,11 +9,11 @@ ms.date: 01/09/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 8c7da8d04b456642b158dda77d9c745891aa18e6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58051885"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60620325"
 ---
 Galeria de Imagens Compartilhadas é um serviço que ajuda você a criar a estrutura e a organização em torno de suas imagens de VM gerenciadas personalizadas. Usando uma Galeria de Imagens Compartilhadas, é possível compartilhar suas imagens com diferentes usuários, entidades de serviço ou grupos do AD dentro de sua organização. As imagens compartilhadas podem ser replicadas para várias regiões para dimensionar suas implantações mais rápido.
 
@@ -23,7 +23,7 @@ Se você tem um grande número de imagens gerenciadas que precisa manter e gosta
 
 O recurso Galeria de Imagens Compartilhadas tem vários tipos de recursos:
 
-| Recurso | DESCRIÇÃO|
+| Resource | DESCRIÇÃO|
 |----------|------------|
 | **Imagem gerenciada** | Esta é uma imagem básica que pode ser usada sozinha ou para criar uma **versão da imagem** em uma galeria de imagens. Imagens gerenciadas são criadas de VMs generalizadas. Uma imagem gerenciada é um tipo especial de VHD que pode ser usado para criar várias VMs e agora pode ser usado para criar versões de imagem compartilhada. |
 | **Galeria de imagens** | Como o Azure Marketplace, uma **galeria de imagens** é um repositório para gerenciar e compartilhar imagens, mas você controla quem tem acesso. |

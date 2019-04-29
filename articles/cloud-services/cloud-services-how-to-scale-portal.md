@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 29ee71e7946145e50cc875df96b674abec3e12df
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: f5597773b3127852481d5e14844bed889c4d6f83
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004329"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61435186"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Como configurar o dimensionamento automático para um Serviço de Nuvem no portal
 
@@ -41,14 +41,14 @@ Você deve considerar as seguintes informações antes de configurar a colocaç�
 
 * Para habilitar a alta disponibilidade do seu aplicativo, você deverá garantir que ele esteja implantado com duas ou mais instâncias de função. Para obter mais informações, consulte [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/).
 
-* O Dimensionamento automático ocorrerá apenas quando todas as funções estiverem no estado **Pronto**.  
+* O Dimensionamento automático ocorrerá apenas quando todas as funções estiverem no estado **Pronto**.  
 
 
 ## <a name="where-scale-is-located"></a>Onde a escala está localizada
 Após selecionar o serviço de nuvem, a folha de serviço de nuvem deverá estar visível.
 
 1. Na folha de serviço de nuvem, no bloco **Funções e Instâncias** , selecione o nome do serviço de nuvem.   
-   **IMPORTANTE**: certifique-se de clicar na função de serviço de nuvem, não na instância de função que está abaixo da função.
+   **IMPORTANTE**: Certifique-se de clique a função de serviço de nuvem, não da instância de função que está abaixo da função.
 
     ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Selecione o bloco **escala** .

@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 7f69d77ac7a6c2a17ef2568f0c7edaef2e1ee3f5
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 7da382a644c1db92b9915f1d3f1f3a459e8893b8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174287"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60563321"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Visão geral de zonas e registros DNS
 
@@ -59,7 +59,7 @@ Para criar um conjunto de registros curinga, use o nome do conjunto de registros
 ### <a name="caa-records"></a>Registros CAA
 
 Os registros CAA permitem aos proprietários do domínio especificar quais ACs (Autoridades de Certificação) estão autorizadas a emitir certificados para seus domínios. Isso permite que as ACs evitem emitir certificados incorretamente em algumas circunstâncias. Os registros CAA têm três propriedades:
-* **Sinalizadores**: esse é um inteiro entre 0 e 255, usado para representar o sinalizador crítico que tem um significado especial, conforme o [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Sinalizadores de**: Esse é um inteiro entre 0 e 255, usado para representar o sinalizador crítico que tem um significado especial pelo [RFC](https://tools.ietf.org/html/rfc6844#section-3)
 * **Marcação**: uma string ASCII que pode ser uma das seguintes:
     * **issue**: use essa opção se desejar especificar as ACs que têm permissão para emitir certificados (todos os tipos)
     * **issuewild**: use essa opção se desejar especificar as ACs que têm permissão para emitir certificados (somente certificados curinga)

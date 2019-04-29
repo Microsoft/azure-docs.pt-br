@@ -7,17 +7,18 @@ ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: WenJason
+ms.author: v-jay
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 01/25/2019
+manager: digimobile
+origin.date: 01/25/2019
+ms.date: 03/04/2019
 ms.openlocfilehash: 8d0d81d9c140c15f2e60d3f6e3033a8b0b629228
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100886"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60702462"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Carregar dados do CSV para o Banco de Dados SQL do Azure (arquivos simples)
 
@@ -124,3 +125,4 @@ Para migrar um banco de dados do SQL Server, confira [Migração de banco de dad
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
+<!--Update_Description: update metadata-->

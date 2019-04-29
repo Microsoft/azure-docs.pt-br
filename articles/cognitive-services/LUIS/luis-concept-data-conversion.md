@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: diberry
 ms.openlocfilehash: bdf2d87e558726937fa4221a0d95179216c66051
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859193"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813820"
 ---
 # <a name="convert-data-format-of-utterances"></a>Converter o formato de dados de declarações
 O LUIS usa o serviço de Fala dos Serviços Cognitivos para converter enunciados falados em enunciados de texto antes da previsão. 
@@ -33,7 +33,7 @@ Essa integração usa um modelo de [preço](luis-boundaries.md#key-limits) difer
 ### <a name="quota-usage"></a>Uso da cota
 Consulte [limites de chave](luis-boundaries.md#key-limits) para obter informações. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Usar Conversão de fala em texto](luis-tutorial-speech-to-intent.md)

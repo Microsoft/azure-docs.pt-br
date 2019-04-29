@@ -14,11 +14,11 @@ ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik
 ms.openlocfilehash: facdcd162826e6f77ace098391459cba00061c4f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661608"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60711077"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Conteúdo do pacote Autônomo do Service Fabric para Windows Server
 No pacote Autônomo do Service Fabric [baixado](https://go.microsoft.com/fwlink/?LinkId=730690), você encontrará os seguintes arquivos:

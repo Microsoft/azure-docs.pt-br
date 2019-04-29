@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: scottwhi
 ms.openlocfilehash: 94f8d4ea98f42ad919597ef53dc63281825f0e6b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786415"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610472"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Exemplos de uso de insights do Bing
 

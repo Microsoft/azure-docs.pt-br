@@ -3,21 +3,22 @@ title: Copiar dados do Greenplum usando Azure Data Factory | Microsoft Docs
 description: Saiba como copiar dados do Greenplum para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.author: jingwang
+origin.date: 02/01/2019
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: cdd1810ec1120e9918974e0978880aa894ff62e0
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660316"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60927564"
 ---
 # <a name="copy-data-from-greenplum-using-azure-data-factory"></a>Copiar dados do Greenplum utilizando o Azure Data Factory
 
@@ -41,8 +42,8 @@ As propriedades a seguir têm suporte para o serviço vinculado do Greenplum:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Greenplum** | Sim |
-| connectionString | Uma cadeia de conexão ODBC para se conectar ao Greenplum. <br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar uma senha no Azure Key Vault e efetuar pull da configuração `pwd` da cadeia de conexão. Consulte os exemplos a seguir e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
+| type | A propriedade type deve ser definida como: **Greenplum** | Sim |
+| connectionString | Uma cadeia de conexão ODBC para se conectar ao Greenplum. <br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar uma senha no Azure Key Vault e extrair a configuração `pwd` da cadeia de conexão. Confira os exemplos a seguir e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) que oferece mais detalhes. | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime auto-hospedado ou o Integration Runtime do Azure (se seu armazenamento de dados estiver publicamente acessível). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 **Exemplo:**
@@ -103,7 +104,7 @@ Para copiar dados do Greenplum, defina a propriedade type do conjunto de dados c
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **GreenplumTable** | Sim |
+| type | A propriedade type do conjunto de dados deve ser definida como: **GreenplumTable** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -132,7 +133,7 @@ Para copiar dados do Greenplum, defina o tipo de fonte na atividade de cópia co
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da origem da atividade de cópia deve ser definida como: **GreenplumSource** | Sim |
+| type | A propriedade type da origem da atividade de cópia deve ser definida como: **GreenplumSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

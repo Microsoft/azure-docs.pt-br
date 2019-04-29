@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/27/2018
 ms.author: raynew
 ms.openlocfilehash: d52aa3b39a17c42c0f0e0cb669c69d336b41ba48
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973190"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61035805"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Criar e personalizar planos de recuperação
 

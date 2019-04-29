@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
 ms.openlocfilehash: 6f577530c42952c6340a15110bcd37383a5fca57
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526581"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60693529"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Assinaturas no Gerenciamento de API do Azure
 
@@ -60,7 +60,7 @@ Quando introduzimos o nível de [Consumo](https://aka.ms/apimconsumptionblog) do
 
     ![Assinaturas flexíveis](./media/api-management-subscriptions/flexible-subscription.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre o Gerenciamento de API:
 
 + Conheça outros [conceitos](api-management-terminology.md) no Gerenciamento de API.

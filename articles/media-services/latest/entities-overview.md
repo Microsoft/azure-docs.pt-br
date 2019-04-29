@@ -13,11 +13,11 @@ ms.date: 04/08/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 28c880e8709074d808a41d9920361eaa2b20ecc4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496566"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60732358"
 ---
 # <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtragem, classificação, paginação de entidades dos Serviços de Mídia
 
@@ -66,7 +66,7 @@ A tabela a seguir mostra como as opções de filtragem e classificação podem s
 |properties.lastModified |||
 |properties.storageAccountName |||
 |properties.storageEncryptionFormat | ||
-|Tipo|||
+|tipo|||
 
 O exemplo C# a seguir filtra a data da criação:
 

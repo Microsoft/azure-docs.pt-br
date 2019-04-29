@@ -9,11 +9,11 @@ ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: include file
 ms.openlocfilehash: ea1d331eefe07980547ffae18fbbca920475ec06
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500841"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193043"
 ---
 > [!IMPORTANT]
 > Atualmente, o Firewall do Azure é uma versão prévia pública gerenciada. Você a habilita explicitamente usando o comando `Register-AzProviderFeature` do PowerShell.

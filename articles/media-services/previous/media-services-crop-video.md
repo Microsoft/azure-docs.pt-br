@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur;juliako;
 ms.openlocfilehash: 9a81050fca935f688f2ff58cb04a148bf676f04b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176643"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61217133"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Cortar vídeos com o Codificador de Mídia Padrão  
 

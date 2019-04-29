@@ -11,11 +11,11 @@ ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: ebe45bf8f562b5be9ae2afda9d5940296396f155
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787625"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60679300"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Faça o backup e restauração no SQL Data Warehouse
 

@@ -13,11 +13,11 @@ ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 0973c86d055ff4ebbe7e5a3c4a2ca4e3dcabc6a0
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117683"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60900453"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetria de métrica: Modelo de dados do Application Insights
 
@@ -45,7 +45,7 @@ Métrica representando os contadores de processo e de sistema:
 
 Nome da métrica que você gostaria de ver na interface do usuário e no portal do Application Insights. 
 
-## <a name="value"></a>Valor
+## <a name="value"></a>Value
 
 Valor único para medida. Soma de medidas individuais para a agregação.
 

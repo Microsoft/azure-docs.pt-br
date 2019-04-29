@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: f86931aad4eab697e4a0d2dfc47a6d4ff5bfc256
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565676"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61401171"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-preview"></a>Copiar dados do Impala utilizando o Azure Data Factory (versão prévia)
 
@@ -44,7 +44,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Impala.
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como **Impala**. | Sim |
+| tipo | A propriedade type deve ser definida como **Impala**. | Sim |
 | host | O endereço IP ou nome do host do servidor Impala (que é 192.168.222.160).  | Sim |
 | porta | A porta TCP usada pelo servidor Impala para ouvir conexões de cliente. O valor padrão é 21050.  | Não  |
 | authenticationType | O tipo de autenticação a ser usado. <br/>Valores permitidos são: **Anônimo**, **SASLUsername** e **UsernameAndPassword**. | Sim |
@@ -90,7 +90,7 @@ Para copiar dados do Impala, defina a propriedade type do conjunto de dados como
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **ImpalaObject** | Sim |
+| type | A propriedade type do conjunto de dados deve ser definida como: **ImpalaObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**

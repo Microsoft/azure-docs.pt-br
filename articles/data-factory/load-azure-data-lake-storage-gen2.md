@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
 ms.openlocfilehash: 8e3a23b38dc95f05ed9a6d99d303f3d86eac60ad
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269258"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60547463"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Carregar dados no Azure Data Lake Storage Gen2 com o Azure Data Factory
 
@@ -138,7 +138,7 @@ Ao copiar um grande volume de dados do armazenamento de dados baseado em arquivo
 - Particione os arquivos em conjuntos de arquivos de 10 TB a 30 TB cada.
 - Não dispare muitas execuções de cópia simultâneas para evitar a limitação de armazenamentos de dados de coletor ou origem. É possível iniciar com uma execução de cópia e monitorar a taxa de transferência e, em seguida, adicionar mais gradualmente, conforme necessário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral da atividade de cópia](copy-activity-overview.md)
 * [Conector do Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md)

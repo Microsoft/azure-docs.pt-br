@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.openlocfilehash: 22996b277aba96cbbfedbb3e9cc67644d1a535ca
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799007"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60714163"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introdução às filas do Barramento de Serviço
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]

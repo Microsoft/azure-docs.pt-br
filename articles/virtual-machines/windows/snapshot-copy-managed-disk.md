@@ -2,8 +2,8 @@
 title: Crie um instantâneo de um VHD no Azure | Microsoft Docs
 description: Saiba como criar uma cópia de uma VM do Azure como um backup ou para solução de problemas.
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 15eb778e-fc07-45ef-bdc8-9090193a6d20
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
-ms.author: cynthn
+ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: dea8547905cb558cb0be7dc23f89099773e84ff0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: b3b9095cd7ee3fa12523b14f59cc06820b9e4382
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074771"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763939"
 ---
 # <a name="create-a-snapshot"></a>Criar um instantâneo
 
@@ -44,7 +44,7 @@ Se você pretende usar o instantâneo para criar uma nova VM, recomendamos desli
 
 As etapas a seguir mostram como copiar o disco VHD, criar a configuração de instantâneo e tirar um instantâneo do disco usando o cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot). 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 1. Defina alguns parâmetros: 
 

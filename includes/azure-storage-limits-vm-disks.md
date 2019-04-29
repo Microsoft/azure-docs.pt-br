@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
 ms.openlocfilehash: 2936fd318f08c74675f7e8b382c861f4a28319fc
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58261487"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386274"
 ---
 Você pode anexar um número de discos de dados para uma máquina virtual do Azure. Com base nas metas de escalabilidade e desempenho para discos de dados da VM, você pode determinar o número e tipo de disco que você precisa para atender aos seus requisitos de capacidade e desempenho.
 
@@ -20,7 +20,7 @@ Você pode anexar um número de discos de dados para uma máquina virtual do Azu
 
 A tabela a seguir ilustra o padrão e os limites máximo do número de recursos por região e assinatura
 
-> | Recurso | Limite padrão  | Limite máximo |
+> | Resource | Limite padrão  | Limite máximo |
 > | --- | --- | --- |
 > | Standard Managed Disks | 25.000 | 50.000 |
 > | Discos gerenciados SSD Standard | 25.000 | 50.000 |

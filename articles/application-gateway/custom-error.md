@@ -5,14 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 2/14/2019
-ms.author: victorh
+origin.date: 02/14/2019
+ms.date: 02/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: abfe33ff679bef125d9bf5b78e1790a1a4c64863
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301597"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831992"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Criar páginas de erro personalizadas do Gateway de Aplicativo
 
@@ -34,7 +35,6 @@ As páginas de erro personalizadas podem ser definidas no nível global e no ní
 - **Ambos** – a página de erro personalizada definida no nível de ouvinte substitui a definida no nível global.
 
 Para criar uma página de erro personalizada, você precisa de:
-
 - um código de status de resposta HTTP.
 - o local correspondente para a página de erro. 
 - um Azure Storage Blob acessível publicamente para o local.
@@ -48,10 +48,10 @@ Depois que você especificar uma página de erro, o Gateway de Aplicativo a baix
 
 1. Navegue até o Gateway de Aplicativo no portal e escolha um gateway de aplicativo.
 
-    ![ag-overview](media/custom-error/ag-overview.png)
+    ![ag-overview](./media/custom-error/ag-overview.png)
 2. Clique em **Ouvintes** e navegue até um ouvinte específico no qual você deseja especificar uma página de erro.
 
-    ![Ouvintes do Gateway de Aplicativo](media/custom-error/ag-listener.png)
+    ![Ouvintes do Gateway de Aplicativo](./media/custom-error/ag-listener.png)
 3. Configure uma página de erro personalizada para um erro 403 do WAF ou uma página de manutenção 502 no nível de ouvinte.
 
     > [!NOTE]
@@ -59,7 +59,7 @@ Depois que você especificar uma página de erro, o Gateway de Aplicativo a baix
 
 4. Especifique uma URL de blob publicamente acessível para um determinado código de status de erro e clique em **Salvar**. O Gateway de Aplicativo agora está configurado com a página de erro personalizada.
 
-   ![Códigos de erro do Gateway de Aplicativo](media/custom-error/ag-error-codes.png)
+   ![Códigos de erro do Gateway de Aplicativo](./media/custom-error/ag-error-codes.png)
 
 ## <a name="azure-powershell-configuration"></a>Configuração do Azure PowerShell
 
@@ -76,3 +76,5 @@ Para obter mais informações, confira [Add-AzApplicationGatewayCustomError](htt
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter informações sobre diagnóstico do Gateway de Aplicativo, confira [Integridade do back-end, logs de diagnóstico e métricas do Gateway de Aplicativo](application-gateway-diagnostics.md).
+
+<!-- Update_Description: wording update -->

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rkarlin
 ms.openlocfilehash: bec9be627937913c268d65bb6cdadcf68c7a3fb4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244291"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60909206"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Gerenciar dados de usuário encontrados em uma investigação da Central de Segurança do Azure
 Este artigo fornece informações sobre como gerenciar dados de usuário encontrados no recurso de investigação da Central de Segurança do Azure. Investigação de dados é armazenada em [registra em log do Azure Monitor](../log-analytics/log-analytics-overview.md) e exposto na Central de segurança. O gerenciamento de dados de usuário inclui a capacidade de excluir dados ou exportar dados.

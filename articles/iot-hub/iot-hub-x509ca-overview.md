@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: b7464e5cc052ecade4a10102de947d37a63c962a
-ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59571147"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615027"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticação de dispositivo usando certificados de AC X.509
 

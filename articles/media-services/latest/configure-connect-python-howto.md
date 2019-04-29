@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
 ms.openlocfilehash: 971e36b600a2c6be516e39ce84ca5780a2f23bbd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59700184"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733089"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Conectar-se à API de v3 de serviços de mídia - Python
 
@@ -98,7 +98,7 @@ pip3 install azure-mgmt-media==1.1.1
 
 1. Execute o arquivo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Use o [SDK do Python](https://aka.ms/ams-v3-python-sdk).
 - Examine a documentação de [referência do Python](https://aka.ms/ams-v3-python-ref) dos Serviços de Mídia.

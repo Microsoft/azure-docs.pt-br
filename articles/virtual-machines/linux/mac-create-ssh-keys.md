@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: cynthn
 ms.openlocfilehash: d442d09c8c8ded3aa50faf74e28c8d95ded24a5e
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300185"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614415"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Etapas rápidas: Criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure
 

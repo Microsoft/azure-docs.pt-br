@@ -1,7 +1,6 @@
 ---
 title: Migrar clusters do Apache Hadoop local para o Azure HDInsight – segurança e melhores práticas de DevOps
 description: Saiba mais sobre as melhores práticas de segurança e de DevOps para a migração de clusters locais do Hadoop para o Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7cfb327a3eb6cbf2ae90c9d258a470797732acaa
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1d13b52d253562a24946e6df2fc069f41b485fef
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437496"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095363"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – segurança e melhores práticas de DevOps
 

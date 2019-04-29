@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: cdf01fbbcc8ef1f90b2e0f8973f59c46c5bf70f8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694084"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60577752"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Coletar rastreamentos distribuídos do Go (versão prévia)
 
@@ -42,7 +42,7 @@ Primeiro, você precisa criar um recurso do Application Insights que vai gerar u
 
    Uma caixa de configuração é exibida. Use a tabela a seguir para preencher os campos de entrada.
 
-    | Configurações        | Valor           | DESCRIÇÃO  |
+    | Configurações        | Value           | DESCRIÇÃO  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor Globalmente Exclusivo | Nome que identifica o aplicativo que você está monitorando |
    | **Tipo de Aplicativo** | Geral | O tipo do aplicativo que você está monitorando |

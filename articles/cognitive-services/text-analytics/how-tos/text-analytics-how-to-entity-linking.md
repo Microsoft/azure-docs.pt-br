@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
 ms.openlocfilehash: c179620d6858658dface5f706f7994d51f1a199b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997301"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829711"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como usar o reconhecimento de entidade nomeada na análise de texto
 
@@ -52,14 +52,14 @@ O uso da vinculação de entidade em vários idiomas exige o uso de uma base de 
 | Quantidade      | Moeda      | "US$ 10,99"     | 
 | Quantidade      | Dimensão     | "10 milhas", "40 cm"     | 
 | Quantidade      | Temperatura   | "32 graus"    |
-| Datetime      | N/D\*         | "18h30 em 4 de fevereiro de 2012"      | 
-| Datetime      | Data          | "2 de maio de 2017", "02/05/2017"   | 
-| Datetime      | Hora          | "8h", "8:00"  | 
-| Datetime      | DateRange     | "2 de maio a 5 de maio"    | 
-| Datetime      | TimeRange     | "18h às 19h"     | 
-| Datetime      | Duration      | "1 minuto e 45 segundos"   | 
-| Datetime      | Definir           | "toda terça-feira"     | 
-| Datetime      | timeZone      |    | 
+| DateTime      | N/D\*         | "18h30 em 4 de fevereiro de 2012"      | 
+| DateTime      | Data          | "2 de maio de 2017", "02/05/2017"   | 
+| DateTime      | Hora          | "8h", "8:00"  | 
+| DateTime      | DateRange     | "2 de maio a 5 de maio"    | 
+| DateTime      | TimeRange     | "18h às 19h"     | 
+| DateTime      | Duration      | "1 minuto e 45 segundos"   | 
+| DateTime      | Definir           | "toda terça-feira"     | 
+| DateTime      | timeZone      |    | 
 | URL           | N/D\*         | "https:\//www.bing.com"    |
 | Email         | N/D\*         | "support@contoso.com" |
 
@@ -69,7 +69,7 @@ O uso da vinculação de entidade em vários idiomas exige o uso de uma base de 
 
 ## <a name="preparation"></a>Preparação
 
-Você deve ter documentos JSON neste formato: ID de texto, o idioma
+Você deve ter documentos JSON neste formato: ID, texto, idioma
 
 Para os idiomas atualmente suportados, veja [esta lista](../text-analytics-supported-languages.md).
 

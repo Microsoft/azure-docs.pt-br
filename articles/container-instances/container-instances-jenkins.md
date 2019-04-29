@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 08/31/2018
 ms.author: danlep
 ms.openlocfilehash: 2687a64bfd952888086862d929a3e5869aee5a4f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003426"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60583935"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Usar as Instâncias de Contêiner do Azure como um agente de build Jenkins
 

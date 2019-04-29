@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
 ms.openlocfilehash: 89e73a4578134493a25ec3cbd2385433a2b36156
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003489"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60775873"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Visão geral dos agentes de monitoramento do Azure 
 O Microsoft Azure fornece várias maneiras de coletar diferentes tipos de dados de máquinas virtuais que executam o Microsoft Windows e o Linux hospedados no Azure, no seu datacenter ou em outros provedores de nuvem. Os três tipos de agentes disponíveis para monitorar uma VM são:
@@ -74,7 +74,7 @@ O agente de dependência foi desenvolvido como parte da solução Mapa do servi�
 
 Você pode precisar de alguma combinação desses agentes para monitorar sua VM. Os agentes podem ser instalados lado a lado como extensões do Azure, no entanto, no Linux, o agente do Log Analytics *deve* ser instalado primeiro ou a instalação falhará. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Confira [Visão geral do agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para revisar os requisitos e métodos com suporte para implantar o agente em máquinas hospedadas no Azure, em seu datacenter ou em outro ambiente de nuvem.
 

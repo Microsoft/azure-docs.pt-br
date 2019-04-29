@@ -9,11 +9,11 @@ ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: b596af8ae9fbbaee6964622df44d316a11582cb9
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337916"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60686095"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implantar nas Instâncias de Contêiner do Azure por meio do Registro de Contêiner do Azure
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
 ms.openlocfilehash: 16491ccc8a9cdc24b82c4c4e27705fa30da61088
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671145"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800241"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do Azure Monitor de dependência para Linux
 
@@ -74,11 +74,11 @@ O JSON a seguir mostra o esquema para a extensão do agente de dependência de V
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| NOME | Valor/Exemplo |
+| Nome | Valor/Exemplo |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publicador | Microsoft.Azure.Monitoring.DependencyAgent |
-| Tipo | DependencyAgentLinux |
+| tipo | DependencyAgentLinux |
 | typeHandlerVersion | 9,5 |
 
 ## <a name="template-deployment"></a>Implantação de modelo
@@ -144,7 +144,7 @@ az vm extension set \
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
-### <a name="troubleshoot"></a>Solucionar problemas
+### <a name="troubleshoot"></a>Solução de problemas
 
 Dados sobre o estado das implantações de extensão podem ser recuperados do Portal do Azure usando a CLI do Azure. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir usando a CLI do Azure.
 

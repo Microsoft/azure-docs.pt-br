@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
 ms.openlocfilehash: 254269ccedc92b9dfc164cc4665a8a8513682773
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881998"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60607520"
 ---
 # <a name="create-human-reviews-rest"></a>Criar análises humanas (REST)
 
@@ -190,6 +190,6 @@ Observe os seguintes campos na resposta:
 - **reviewerResultTags**: Isso será exibida se todas as marcas foram adicionadas manualmente pela equipe de análise humana (mostrado o **createdBy** campo).
 - **metadados**: Isso mostra as marcas que foram adicionadas inicialmente na revisão, antes das alterações da equipe feita de análise humana.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste guia, você aprendeu a criar as revisões de moderação de conteúdo usando a API REST. Em seguida, integre revisões em um cenário de moderação de ponta a ponta, como o [moderação de comércio eletrônico](./ecommerce-retail-catalog-moderation.md) tutorial.

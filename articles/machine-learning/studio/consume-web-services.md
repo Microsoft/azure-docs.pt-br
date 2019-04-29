@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
 ms.openlocfilehash: a537227a7003391122e10f7f39233040cef49db3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57870054"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60751290"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Como consumir um serviço da Web do Azure Machine Learning Studio
 
@@ -29,7 +29,7 @@ Você pode encontrar mais informações sobre como criar e implantar um serviço
 
 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Com o serviço Web do Azure Machine Learning, um aplicativo externo se comunica com um modelo de pontuação do fluxo de trabalho do Machine Learning em tempo real. Uma chamada do serviço Web do Machine Learning retorna resultados de previsão para um aplicativo externo. Para fazer uma chamada de serviço Web do Machine Learning, transmita uma chave de API que é criada quando você implanta uma previsão. O serviço Web do Machine Learning baseia-se em REST, uma opção popular de arquitetura para projetos de programação da Web.
 
 O Azure Machine Learning Studio tem dois tipos de serviços:

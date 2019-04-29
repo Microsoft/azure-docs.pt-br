@@ -16,11 +16,11 @@ ms.date: 06/01/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e228e73283685988247c8d419ba0a97b8c7b2974
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546958"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776145"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Provisionar os nós de computação do Linux em pools do Lote
 
@@ -48,7 +48,7 @@ Quando você configura uma referência de imagem de máquina virtual, especifica
 | Publicador |Canônico |
 | Oferta |UbuntuServer |
 | SKU |14.04.4-LTS |
-| Versão |mais recente |
+| Version |mais recente |
 
 > [!TIP]
 > Você pode saber mais sobre essas propriedades e como relacionar as imagens do Marketplace em [Navegue e selecione imagens da máquina virtual Linux no Azure com o PowerShell ou a CLI](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Observe que nem todas as imagens do Marketplace são compatíveis com o Lote no momento. Para saber mais, confira [SKU do agente do nó](#node-agent-sku).

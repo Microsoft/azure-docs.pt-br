@@ -1,8 +1,8 @@
 ---
 title: H264 Taxas de Bits Múltiplas 4x3 SD | Microsoft Docs
 description: O tópico fornece uma visão geral da predefinição de tarefa **H264 Taxas de Bits Múltiplas 4x3 SD**.
-author: Juliako
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+origin.date: 03/18/2019
+ms.date: 04/01/2019
+ms.author: v-jay
 ms.openlocfilehash: e5a0251ffd7d013a2e90d05609c04cec5c9dc1e0
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189403"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61129573"
 ---
 # <a name="h264-multiple-bitrate-4x3-sd"></a>H264 Taxas de Bits Múltiplas 4x3 SD
 `Media Encoder Standard` define um conjunto de predefinições de codificação que pode ser usado ao criar trabalhos de codificação. Você pode usar um `preset name` para especificar em qual formato deseja codificar o arquivo de mídia. Ou, pode criar suas próprias predefinições com base em JSON ou XML (usando a codificação UTF-8 ou UTF-16). Em seguida, você passaria a predefinição personalizada ao codificador. Para obter a lista de todos os nomes de predefinição com suporte por este codificador `Media Encoder Standard`, consulte [Predefinições de tarefa para o Media Encoder Standard](media-services-mes-presets-overview.md).  

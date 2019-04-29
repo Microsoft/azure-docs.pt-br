@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
-ms.subservice: autoscale
+ms.component: autoscale
 ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474822"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787488"
 ---
 # <a name="understand-autoscale-settings"></a>Compreender configurações de Autoescala
 As configurações de Autoescala ajudam a garantir que você tenha a quantidade certa de recursos em execução para lidar com a carga flutuante do seu aplicativo. Você pode definir as configurações de Autoescala para serem disparadas com base em métricas que indicam carga ou desempenho ou para serem disparadas em uma data e hora agendadas. Este artigo analisa detalhadamente a anatomia de uma configuração de Autoescala. O artigo começa com o esquema e as propriedades de uma configuração e, em seguida, percorre os diferentes tipos de perfil que podem ser configurados. Por fim, o artigo aborda como o recurso de Autoescala no Azure decide qual o perfil a ser executado em um determinado momento.
@@ -310,4 +310,3 @@ Saiba mais sobre a Autoescala consultando o seguinte:
 * [Práticas recomendadas para dimensionamento automático do Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
 * [Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [API REST do Dimensionamento Automático](https://msdn.microsoft.com/library/dn931953.aspx)
-

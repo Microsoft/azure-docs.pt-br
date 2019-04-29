@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: d1f9d77d1f87e8d201e2cb034401bb3cae14f41b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58862906"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61359042"
 ---
 # <a name="security-agent-authentication-methods"></a>Métodos de autenticação do agente de segurança 
 

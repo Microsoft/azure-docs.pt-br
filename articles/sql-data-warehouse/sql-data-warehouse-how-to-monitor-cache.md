@@ -11,11 +11,11 @@ ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 26791aecb2ca57b31358d3385d07230c73c84904
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903854"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474380"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Como monitorar o cache Gen2
 A arquitetura de armazenamento Gen2 divide automaticamente em camadas seus segmentos columnstore consultados com mais frequência em um cache que reside em SSDs baseados em NVMe projetado para data warehouses Gen2. O melhor desempenho é alcançado quando suas consultas recuperam segmentos que residem no cache. Este artigo descreve como monitorar e solucionar problemas de desempenho de consultas lentas determinando se sua carga de trabalho está aproveitando da forma ideal o cache Gen2.  

@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 3bb372c4c3ddb79429df20c24c691c847e927e2a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57975603"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60567343"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Copiar dados de/para o Data Lake Storage Gen1 usando o Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um 
 
 1. Criar uma **data factory**. Um data factory pode conter um ou mais pipelines.
 2. Criar **serviços vinculados** para vincular repositórios de dados de entrada e saída ao seu data factory. Por exemplo, se você está copiando dados de um Armazenamento de Blobs do Azure para um Azure Data Lake Store, crie dois serviços vinculados para vincular sua Conta de Armazenamento do Azure e o Azure Data Lake Store ao data factory. Para propriedades do serviço vinculado que são específicas do Azure Data Lake Store, consulte a seção de [propriedades do serviço vinculado](#linked-service-properties).
-2. Criar **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia. No exemplo mencionado na última etapa, você cria um conjunto de dados para especificar o contêiner de blobs e a pasta que contém os dados de entrada. Em seguida, você cria outro conjunto de dados para o caminho de pasta e arquivo no Data Lake Store que contém os dados copiados do Armazenamento de Blobs. Para propriedades do conjunto de dados que são específicas do Azure Data Lake Store, consulte a seção [propriedades do conjunto de dados](#dataset-properties).
+2. Criar **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia. No exemplo mencionado na última etapa, você cria um conjunto de dados para especificar o contêiner de blob e a pasta que contém os dados de entrada. Em seguida, você cria outro conjunto de dados para o caminho de pasta e arquivo no Data Lake Store que contém os dados copiados do Armazenamento de Blobs. Para propriedades do conjunto de dados que são específicas do Azure Data Lake Store, consulte a seção [propriedades do conjunto de dados](#dataset-properties).
 3. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída. No exemplo mencionado anteriormente, você usa BlobSource como fonte e AzureDataLakeStoreSink como coletor para a atividade de cópia. De modo similar, se você estiver copiando do Azure Data Lake Storage para o Armazenamento de Blobs do Azure, use AzureDataLakeStoreSource e BlobSink na atividade de cópia. Para propriedades da atividade de cópia que são específicas do Azure Data Lake Store, consulte a seção de [propriedades da atividade de cópia](#copy-activity-properties). Para obter detalhes sobre como usar um armazenamento de dados como uma origem ou um coletor, clique no link na seção anterior para o seu armazenamento de dados.
 
 Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON. Para obter exemplos com definições de JSON das entidades do Data Factory usadas para copiar dados bidirecionalmente em um Azure Data Lake Store, confira a seção [Exemplos de JSON](#json-examples-for-copying-data-to-and-from-data-lake-store) neste artigo.

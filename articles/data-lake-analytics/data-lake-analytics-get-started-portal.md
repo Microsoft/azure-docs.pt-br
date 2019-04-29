@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 1e6c71a68c4357d82d086f3e2ca098e4039def5a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: 25d58bdc5791de868c6302b4d2763fa34e98af17
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295743"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615034"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Introdução ao Azure Data Lake Analytics usando o Portal do Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -32,11 +32,11 @@ Agora, você criará uma conta do Data Lake Analytics e do Azure Data Lake Stora
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Clique em **Criar um recurso** >  **Dados + Análise** > **Data Lake Analytics**.
 3. Selecione os valores para os seguintes itens:
-   * **Nome**: Nome de sua conta do Data Lake Analytics (são permitidos somente letras minúsculas e números).
-   * **Assinatura**: escolha a assinatura do Azure usada para a conta da Análise.
+   * **Nome**: Nome de sua conta do Data Lake Analytics (somente letras minúsculas e números são permitidos).
+   * **Assinatura**: Escolha a assinatura do Azure usada para a conta da análise.
    * **Grupo de Recursos**. Selecione um Grupo de Recursos do Azure existente ou crie um novo.
    * **Local**. Selecione um datacenter do Azure para a conta da Análise Data Lake.
-   * **Data Lake Storage Gen1**: siga as instruções para criar uma nova conta Data Lake Storage Gen1 ou selecione uma existente. 
+   * **Data Lake Storage Gen1**: Siga as instruções para criar uma nova conta do Data Lake armazenamento Gen1, ou selecione um existente. 
 4. Opcionalmente, selecione um tipo de preço para sua conta Data Lake Analytics.
 5. Clique em **Criar**. 
 

@@ -12,11 +12,11 @@ ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
 ms.openlocfilehash: 8a2c149faa0ec9d135713a123a33d7c220522496
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58495996"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60995595"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migrar do Serviço de Fala Personalizado para o Serviço de Fala
 

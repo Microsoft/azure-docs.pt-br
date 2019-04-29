@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
 ms.openlocfilehash: 2ed92486b55aa4fd7dce32f54f0b6567c7bb3cf2
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486726"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60710992"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de Metadados do Azure: Eventos Agendados para VMs do Windows
 
@@ -64,7 +64,7 @@ Se a Máquina Virtual não for criada em uma Rede Virtual, casos padrão para se
 ### <a name="version-and-region-availability"></a>Disponibilidade de Versão e Região
 O serviço de eventos agendados tem controle de versão. As versões são obrigatórias e a versão atual é `2017-11-01`.
 
-| Versão | Tipo de Versão | Regiões | Notas de versão | 
+| Version | Tipo de Versão | Regiões | Notas de versão | 
 | - | - | - | - |
 | 2017-11-01 | Disponibilidade geral | Todos | <li> Adicionado suporte para remoção de VMs de baixa prioridade EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidade geral | Todos | <li> Removido o sublinhado inicial dos nomes de recursos para as VMs de IaaS<br><li>Requisito de cabeçalho de metadados imposto para todas as solicitações | 

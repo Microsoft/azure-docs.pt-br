@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 01/17/2019
 ms.openlocfilehash: 5ebdf45bec4e7cfceb75354af40c7a21c22c6eef
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54446775"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60846090"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Gerenciar metadados de artefato em contas de integração a Aplicativos Lógicos do Azure e o Enterprise Integration Pack
 
@@ -63,10 +63,10 @@ ms.locfileid: "54446775"
 
 1. Forneça estas informações para o artefato que você deseja localizar:
 
-   | Propriedade | Obrigatório | Valor | DESCRIÇÃO | 
+   | Propriedade | Necessário | Value | DESCRIÇÃO | 
    |----------|---------|-------|-------------| 
-   | **Tipo de Artefato** | SIM | **Esquema**, **Mapa**, **Parceiro**, **Contrato** ou um tipo personalizado | O tipo do artefato que você deseja | 
-   | **Nome do Artefato** | SIM | <*artifact-name*> | O nome do artefato que você deseja | 
+   | **Tipo de Artefato** | Sim | **Esquema**, **Mapa**, **Parceiro**, **Contrato** ou um tipo personalizado | O tipo do artefato que você deseja | 
+   | **Nome do Artefato** | Sim | <*artifact-name*> | O nome do artefato que você deseja | 
    ||| 
 
    Por exemplo, imagine que você deseje obter os metadados para um artefato de parceiro comercial:
@@ -85,10 +85,10 @@ ms.locfileid: "54446775"
 
       Por exemplo, imagine que você deseje obter os metadados `routingUrl` que foram adicionados anteriormente neste tópico. Aqui estão os valores de propriedade que você poderá especificar: 
 
-      | Propriedade | Obrigatório | Valor | DESCRIÇÃO | 
+      | Propriedade | Necessário | Value | DESCRIÇÃO | 
       |----------|----------|-------|-------------| 
-      | **Método** | SIM | <*operation-to-run*> | A operação de HTTP a ser executada no artefato. Por exemplo, essa ação HTTP usa p método **GET**. | 
-      | **URI** | SIM | <*metadata-location*> | Para acessar o valor de metadados `routingUrl` do artefato recuperado, você poderá usar uma expressão, por exemplo: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
+      | **Método** | Sim | <*operation-to-run*> | A operação de HTTP a ser executada no artefato. Por exemplo, essa ação HTTP usa p método **GET**. | 
+      | **URI** | Sim | <*metadata-location*> | Para acessar o valor de metadados `routingUrl` do artefato recuperado, você poderá usar uma expressão, por exemplo: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
       | **Cabeçalhos** | Não  | <*header-values*> | Qualquer cabeçalho de saídas do gatilho que você deseja passar para a ação HTTP. Por exemplo, para passar o valor de propriedade `headers` do gatinho: é possível usar uma expressão: <p>`@triggeroutputs()['headers']` | 
       | **Corpo** | Não  | <*conteúdo do corpo*> | Qualquer outro conteúdo que você deseje passar por meio da propriedade `body` da ação HTTP. Este exemplo passa os valores `properties` do artefato para a ação HTTP: <p>1. Clique dentro da propriedade **Corpo** para que seja exibida a lista de conteúdo dinâmico. Se nenhuma propriedade aparecer, escolha **Ver mais**. <br>2. Na lista de conteúdo dinâmico, em **Pesquisa de artefato da conta de integração**, selecione **Propriedades**. | 
       |||| 

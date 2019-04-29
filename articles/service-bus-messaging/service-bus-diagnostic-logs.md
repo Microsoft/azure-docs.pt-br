@@ -16,11 +16,11 @@ ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 7d4cb8e55c5d1561c09cf85122550a66e3671f17
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216332"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60714094"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Logs de diagnóstico do Barramento de Serviço
 
@@ -68,13 +68,13 @@ Nome | Descrição
 ------- | -------
 ActivityId | ID interna, usada para acompanhamento
 EventName | Nome da operação           
-ResourceId | ID de recurso do Azure Resource Manager
+resourceId | ID de recurso do Azure Resource Manager
 SubscriptionId | ID da assinatura
 EventTimeString | Tempo de operação
 EventProperties | Propriedades da operação
 Status | Status da operação
 Chamador | Chamador da operação (portal do Azure ou cliente de gerenciamento)
-categoria | OperationalLogs
+category | OperationalLogs
 
 Este é um exemplo de uma cadeia de caracteres JSON do log operacional:
 

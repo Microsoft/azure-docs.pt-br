@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: c862de2eec4e6c116218457a20b567dc02778685
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58190015"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463728"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Codecs e formatos padrão do codificador de mídia
 
@@ -53,7 +53,7 @@ O Padrão do Codificador de Mídia oferece suporte à execução dos seguintes f
 
 * Arquivos do MXF, GXF e QuickTime que têm faixas de áudio com exemplos em estéreo intercalado ou de 5.1
 
-ou
+ou o
 
 * Arquivos MXF, GXF e QuickTime onde o áudio é executado como faixas PCM separadas, mas o mapeamento de canal (para estéreo ou 5.1) pode ser deduzido dos metadados do arquivo
 
@@ -68,7 +68,7 @@ ou
 | MPEG-2 (até perfil e de alto nível 422; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs ® e D10) |Até perfil 422 |
 | MPEG-1 |Sim |
 | VC-1/WMV9 |Sim |
-| Canopus HQ/HQX |Não |
+| Canopus HQ/HQX |Não  |
 | MPEG-4, parte 2 |Sim |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |Sim |
 | YUV420 descompactado, ou mezzanine |Sim |
@@ -92,10 +92,10 @@ ou
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Sim |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sim |
 | AMR (multitaxa adaptável) |Sim |
-| AES (SMPTE 331M e 302M, AES3-2003) |Não |
-| Dolby® E |Não |
-| Dolby® Digital (AC3) |Não |
-| Dolby® Digital Plus (E-AC3) |Não |
+| AES (SMPTE 331M e 302M, AES3-2003) |Não  |
+| Dolby® E |Não  |
+| Dolby® Digital (AC3) |Não  |
+| Dolby® Digital Plus (E-AC3) |Não  |
 
 ## <a name="output-formats-and-codecs"></a>Codecs e formatos de saída
 A tabela a seguir lista os codecs e formatos de arquivo com suporte para exportação.

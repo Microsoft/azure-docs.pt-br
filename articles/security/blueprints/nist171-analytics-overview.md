@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
 ms.openlocfilehash: f79ba9ae60454d4e73c914fc1c8af675a6d07d5d
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245821"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60608860"
 ---
 # <a name="azure-security-and-compliance-blueprint---data-analytics-for-nist-sp-800-171"></a>Blueprint de segurança e conformidade do Azure - Data Analytics para NIST SP 800-171
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 A [Publicação Especial do NIST 800-171](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-171.pdf) fornece diretrizes para proteção de CUI (Controlled Unclassified Information) que reside em organizações e sistemas de informações não federais. O NIST SP 800-171 estabelece 14 famílias de requisitos de segurança para proteger a confidencialidade de CUI.
 
 Este blueprint de segurança e conformidade do Azure fornece diretrizes para ajudar os clientes a implantar uma arquitetura de análise de dados no Azure que implementa um subconjunto de controles do NIST SP 800-171. Esta solução demonstra maneiras em que os clientes podem atender a requisitos de conformidade e segurança específicos. Ela também funciona como base para os clientes criarem e configurarem suas próprias soluções de análise de dados no Azure.
@@ -44,11 +44,11 @@ O Banco de Dados SQL geralmente é gerenciado por meio do SQL Server Management 
 A solução usa os serviços do Azure a seguir. Para obter mais informações, confira a seção [Arquitetura de implantação](#deployment-architecture).
 
 - Application Insights
-- Active Directory do Azure
+- Azure Active Directory
 - Catálogo de Dados do Azure
 - Azure Disk Encryption
 - Grade de Eventos do Azure
-- Azure Functions
+- Funções do Azure
 - Cofre de Chaves Azure
 - Azure Machine Learning
 - O Azure Monitor (logs)
@@ -177,7 +177,7 @@ O [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polyba
 ### <a name="azure-ad-setup"></a>Configuração do Azure AD
 O [Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) é essencial para gerenciar a implantação e provisionar acesso para pessoas que interagem com o ambiente. Um Active Directory local pode ser integrado ao Azure AD em [quatro cliques](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Os clientes também podem vincular a infraestrutura do Active Directory implantada (controladores de domínio) para o Azure AD. Para fazer isso, torne a infraestrutura do Active Directory implantada em um subdomínio de uma floresta do Azure AD.
 
-## <a name="disclaimer"></a>Aviso de isenção de responsabilidade
+## <a name="disclaimer"></a>Isenção de responsabilidade
 
  - Este documento serve apenas para fins informativos. A MICROSOFT NÃO FORNECE NENHUMA GARANTIA, EXPRESSA, IMPLÍCITA OU REGULAMENTAR, QUANTO ÀS INFORMAÇÕES PRESENTES NESTE DOCUMENTO. Este documento é fornecido "no estado em que se encontra". As informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio. Os clientes que estão lendo este documento arcarão com o risco de usá-lo.
  - Este documento não fornece aos clientes nenhum direito legal a qualquer propriedade intelectual de qualquer produto ou solução da Microsoft.

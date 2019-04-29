@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
 ms.openlocfilehash: 31d4829c6adaf4bd5392ef393dcaefbeb7dc6255
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992428"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60618448"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notificações de manutenção planejada para conjuntos de dimensionamento de máquinas virtuais
 
@@ -86,7 +86,7 @@ Quando uma onda de manutenção planejada é agendada, é possível exibir a lis
 
 A **Manutenção de autoatendimento** agora aparece na lista de conjuntos de dimensionamento de máquinas virtuais. Cada conjunto de dimensionamento de máquina virtual pode ter um dos seguintes valores para a coluna de manutenção de autoatendimento:
 
-| Valor | DESCRIÇÃO |
+| Value | DESCRIÇÃO |
 |-------|-------------|
 | Sim | Pelo menos uma VM no conjunto de dimensionamento de máquinas virtuais está em uma janela de autoatendimento. Você pode iniciar a manutenção a qualquer momento durante essa janela de autoatendimento. | 
 | Não  | Nenhuma VM está em uma janela de autoatendimento no conjunto de dimensionamento de máquinas virtuais afetado. | 

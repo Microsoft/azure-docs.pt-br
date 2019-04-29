@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 414ca7156fd59ec1dc08e45c73e9eb30835078d4
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259917"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60693936"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gerenciar autenticação no Azure Mapas
 

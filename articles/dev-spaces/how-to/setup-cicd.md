@@ -1,5 +1,5 @@
 ---
-title: Usando o CI/CD com espaços de desenvolvimento do Azure
+title: Usar CI/CD com o Azure Dev Spaces
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -11,11 +11,11 @@ manager: yuvalm
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contêiner do Azure, contêineres
 ms.openlocfilehash: 983af0dd75e6ae62630c85d04ac3819c7e260439
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768273"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60687241"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Usar CI/CD com o Azure Dev Spaces
 
@@ -33,7 +33,7 @@ Embora este artigo oriente você com o Azure DevOps, os mesmos conceitos se apli
     * Detalhes disponíveis da [conta do administrador](../../container-registry/container-registry-authentication.md#admin-account) do Registro de Contêiner do Azure
 * [Autorizar o cluster do AKS para efetuar pull de seu Registro de Contêiner do Azure](../../container-registry/container-registry-auth-aks.md)
 
-## <a name="download-sample-code"></a>Código de exemplo de download
+## <a name="download-sample-code"></a>Baixar código de exemplo
 Por uma questão de tempo, vamos criar uma bifurcação do nosso repositório GitHub de código de amostra. Acesse https://github.com/Azure/dev-spaces e selecione **Bifurcação**. Quando o processo de bifurcação estiver completo, **Clone** sua versão com bifurcação do repositório localmente. Por padrão o branch _mestre_ será verificado, mas incluímos algumas alterações de economia de tempo no branch _azds_updates_, que também deve ter sido transferido durante o processo de bifurcação. O branch _azds_updates_ contém atualizações que pedimos que você faça manualmente nas seções do tutorial do Dev Spaces, bem como alguns arquivos YAML e JSON pré-criados para simplificar a implantação do sistema CI/CD. Você pode usar um comando como `git checkout -b azds_updates origin/azds_updates` para verificar o branch _azds_updates_ em seu repositório local.
 
 ## <a name="dev-spaces-setup"></a>Configuração do Dev Spaces

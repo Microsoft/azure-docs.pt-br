@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: 679c1fc8775ad4481bc99c9aea79fe16e9bcac8f
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: 602514df69977891167f341db0ab20913bcacc9f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2017
-ms.locfileid: "23479262"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60634398"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Usar o serviço Gerenciador de Dispositivos do StorSimple para monitorar seu dispositivo StorSimple
 
@@ -28,7 +28,7 @@ ms.locfileid: "23479262"
 
 Para exibir as informações de monitoramento de um dispositivo específico, no Portal do Azure, selecione o serviço Gerenciador de Dispositivos do StorSimple. Na lista de dispositivos, selecione seu dispositivo e acesse **Monitorar**. Em seguida, é possível ver os gráficos **Capacidade**, **Uso** e **Desempenho** para o dispositivo selecionado.
 
-## <a name="capacity"></a>Capacidade
+## <a name="capacity"></a>Capacity
 **Capacidade** controla o espaço provisionado e o espaço restante no dispositivo. A capacidade restante é exibida como fixado localmente ou em camadas.
 
 A capacidade provisionada e restante é dividida por volumes fixados localmente e em camadas. Para cada volume, a capacidade provisionada e a capacidade restante no dispositivo são exibidas.
@@ -130,7 +130,7 @@ Para o mesmo dispositivo, um instantâneo de nuvem foi capturado para dados de v
 ### <a name="network-throughput-for-device-network-interfaces"></a>Taxa de transferência de rede para adaptadores de rede do dispositivo
 **Taxa de transferência de rede** acompanha as métricas relacionadas à quantidade de dados transferidos de interfaces de rede do iniciador iSCSI no servidor host e o dispositivo e entre o dispositivo e a nuvem. Você pode monitorar essa métrica para cada uma das interfaces de rede iSCSI em seu dispositivo.
 
-Os gráficos a seguir mostram a taxa de transferência de rede para a rede Data 0, 1 1 GbE em seu dispositivo, que foi habilitado para a nuvem e para iSCSI. Nesse dispositivo, em 14 de junho, em torno das 21h, os dados foram organizações em camadas na nuvem (nenhum instantâneo de nuvem foi tirado nesse horário que aponta para disposição em camadas que é o mecanismo para mover os dados para a nuvem) que resultou na E/S sendo veiculada para a nuvem. Há um pico correspondente no gráfico de taxa de transferência de rede para a mesma hora e a maioria do tráfego de rede é de saída para a nuvem.
+Os gráficos a seguir mostram a taxa de transferência de rede para a rede Data 0, 1 1 GbE em seu dispositivo, que foi habilitado para a nuvem e para iSCSI. Nesse dispositivo, em 14 de junho, em torno das 21h, os dados foram organizações em camadas na nuvem (nenhum instantâneo de nuvem foi tirado nesse horário que aponta para disposição em camadas que é o mecanismo para mover os dados para a nuvem) que resultou na E/S sendo veiculada para a nuvem. Há um pico correspondente no grafo de taxa de transferência de rede para a mesma hora e a maioria do tráfego de rede é de saída para a nuvem.
 
 ![Taxa de transferência de rede para Data 0](./media/storsimple-8000-monitor-device/device-network-throughput-data0.png)
 

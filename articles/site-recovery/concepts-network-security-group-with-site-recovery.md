@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 0c06283080a4ee51f863714e4c515672299b420d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799279"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60773003"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>Grupos de Segurança de Rede com Azure Site Recovery
 

@@ -16,11 +16,11 @@ ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ca6918b809a9b4ede3fffb151c7fa5183ae03b47
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730792"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550338"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Crie dependências de tarefas para executar tarefas que dependam de outras tarefas
 

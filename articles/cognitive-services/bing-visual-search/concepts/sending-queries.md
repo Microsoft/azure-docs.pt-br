@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 4/03/2019
 ms.author: aahi
 ms.openlocfilehash: 62d34b859a0cf71320c478b7cab4a2914e5ee308
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011683"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60579857"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Enviar consultas de pesquisa para a API da Pesquisa Visual do Bing
 
@@ -73,7 +73,7 @@ As solicitações precisam ser enviadas como apenas solicitações HTTP POST.
 
 Veja a seguir os parâmetros de consulta que devem ser especificados pela solicitação. No mínimo, você deve incluir o `mkt` parâmetro de consulta:
 
-| NOME | Value | Type | Necessário |
+| NOME | Value | Type | Obrigatório |
 | --- | --- | --- | --- |
 | <a name="cc" />cc  | Um código de país de dois caracteres que representa onde vêm os resultados.<br /><br /> Se você definir esse parâmetro, também precisará especificar o cabeçalho [Accept-Language](#acceptlanguage). O Bing usa o primeiro idioma compatível encontrado na lista de idiomas e combina o idioma com o código do país especificado para determinar o mercado do qual os resultados são retornados. Se a lista de idiomas não incluir um idioma compatível, o Bing encontrará o idioma e o mercado mais próximos que dão suporte à solicitação. Ou ele pode usar um mercado agregado ou padrão para os resultados, em vez daquele especificado.<br /><br /> Você deverá usar esse parâmetro de consulta e o parâmetro de consulta `Accept-Language` somente se especificar vários idiomas; caso contrário, use os parâmetros de consulta `mkt` e `setLang`.<br /><br /> Esse parâmetro e o parâmetro de consulta [mkt](#mkt) são mutuamente exclusivos – não especifique ambos. | Cadeia de caracteres | Não        |
 | <a name="mkt" />mkt   | O mercado do qual os resultados são obtidos. <br /><br /> **OBSERVAÇÃO:** Você sempre deve especificar o mercado, se conhecido. A especificação do mercado ajuda o Bing a encaminhar a solicitação e retornar uma resposta apropriada e ideal.<br /><br /> Esse parâmetro e o parâmetro de consulta [cc](#cc) são mutuamente exclusivos – não especifique ambos. | Cadeia de caracteres | Sim      |

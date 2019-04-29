@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 8777a7504c48b22d0e670dd9f0d28016ac8918db
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009456"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60627904"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introdução ao Azure Data Lake Storage Gen2
 
@@ -81,7 +81,7 @@ Várias plataformas de software livre suportam o Data Lake Storage Gen2. Essas p
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1+ | [Versão do Databricks Runtime](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
 |[Hortonworks](https://hortonworks.com/)| 3.1.x++ | [Configurar o acesso de dados de nuvem](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Os artigos a seguir descrevem alguns dos principais conceitos do Data Lake Storage Gen2 e detalham como armazenar, acessar, gerenciar e obter insights de seus dados:
 

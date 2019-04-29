@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
 ms.openlocfilehash: 569e90c7908ce435689a80f7917b20275703f537
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990413"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473732"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Criar uma VM Linux usando a CLI do Azure clássica
 
@@ -50,7 +50,7 @@ A instrução a seguir tem uma VM UbuntuLTS sendo implantada, passo a passo, com
 
 Uma maneira rápida de escolher uma distribuição é usar os aliases da CLI do Azure mapeados para as distribuições do SO mais comuns. A tabela a seguir lista os aliases (a partir da CLI do Azure versão 0.10). Todas as implantações que usam `quick-create` são por padrão VMs com suporte de armazenamento SSD (unidade de estado sólido), que oferecem provisionamento mais rápido e acesso a disco de alto desempenho. (Esses aliases do representam uma pequena parte das distribuições disponíveis no Azure. Veja mais imagens no Azure Marketplace [pesquisando uma imagem no PowerShell](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [na Web](https://azure.microsoft.com/marketplace/virtual-machines/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) ou [carregando sua própria imagem personalizada](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
 
-| Alias | Editor | Oferta | SKU | Versão |
+| Alias | Publicador | Oferta | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |
 | CentOS |OpenLogic |CentOS |7,2 |mais recente |
 | CoreOS |CoreOS |CoreOS |Estável |mais recente |
@@ -67,7 +67,7 @@ O exemplo de `quick-create` anterior somente chamou o sinalizador `-M` para iden
 * Nome da VM
 * local (`westus` ou `westeurope` são bons padrões)
 * Linux (para permitir que o Azure saiba qual é o sistema operacional desejado)
-* nome de usuário
+* Nome de Usuário
 
 O exemplo a seguir especifica todos os valores para que nenhuma outra notificação seja necessária. Enquanto houver um `~/.ssh/id_rsa.pub` como arquivo de chave pública de formato ssh-rsa, ele funcionará como está:
 

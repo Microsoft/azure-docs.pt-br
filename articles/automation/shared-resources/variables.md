@@ -10,11 +10,11 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: fc26c0357dcb071c4c75e8684fe47144a04177e4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58806744"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60880228"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Ativos variáveis na Automação do Azure
 
@@ -44,7 +44,7 @@ A seguir está uma lista de tipos de variáveis disponíveis na automação:
 * Cadeia de caracteres
 * Número inteiro
 * DateTime
-* BOOLEAN
+* Boolean
 * Nulo
 
 ## <a name="azurerm-powershell-cmdlets"></a>Cmdlets do AzureRM PowerShell

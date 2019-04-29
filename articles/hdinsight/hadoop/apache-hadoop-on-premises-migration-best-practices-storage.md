@@ -1,7 +1,6 @@
 ---
 title: Migrar clusters do Apache Hadoop local para o Azure HDInsight – melhores práticas de armazenamento
 description: Aprenda as práticas de armazenamento para migrar clusters do Hadoop locais para o Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: f3ac60eb45c86b6cd2ded0340ac6bde478086464
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c62a5384edf66fd9309bc7afcb50ada48e3fca7d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000055"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095267"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – melhores práticas de armazenamento
 
@@ -172,11 +171,11 @@ Por padrão, o HDInsight tem acesso completo aos dados nas contas de Armazenamen
 
 5. Para limitar o acesso a um contêiner com Assinatura de Acesso Compartilhado, adicione uma entrada personalizada à configuração do site central para o cluster na propriedade Adicionar do site central de Configurações Avançadas Personalizadas do Ambari HDFS.
 
-6. Use os seguintes valores para os campos **Chave** e **Valor** :
+6. Use os valores a seguir para os campos **Chave** e **Valor**:
 
     **Chave**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **Valor**: A SAS KEY retornada pela etapa 4 FROM do aplicativo Python acima.
 
-7. Clique no botão **Adicionar** para salvar essa chave e esse valor e clique no botão **Salvar** para salvar as alterações de configuração. Quando solicitado, adicione uma descrição da alteração ("adicionando acesso de armazenamento SAS", por exemplo) e clique em **Salvar**.
+7. Clique no botão **Adicionar** para salvar essa chave e esse valor e clique no botão **Salvar** para salvar as alterações de configuração. Quando solicitado, adicione uma descrição da alteração ("adicionando acesso de armazenamento SAS", por exemplo) e clique em **Salvar**.
 
 8. Na interface do usuário da Web do Ambari, selecione HDFS na lista à esquerda e, em seguida, selecione **Reiniciar Todos os Afetados** na lista suspensa Ações de Serviço à direita. Quando solicitado, selecione **Confirmar Reiniciar Tudo**.
 
@@ -222,7 +221,7 @@ A conta de armazenamento extra pode ser adicionada das seguintes maneiras:
 Para obter mais informações, consulte os seguintes artigos:
 - [Adicionar outras contas de armazenamento ao HDInsight](../hdinsight-hadoop-add-storage.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Leia o próximo artigo desta série:
 

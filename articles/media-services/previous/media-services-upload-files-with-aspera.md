@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: e522883da7fddad44741599107f2dbc4c99aace6
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316364"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60826820"
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Carregar arquivos em uma conta de Serviços de Mídia usando o serviço Aspera Server On-Demand no Azure 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 **Aspera** é um software de transferência de arquivos de alta velocidade. O **Servidor Aspera sob demanda** para o Azure permite um carregamento de alta velocidade e download de arquivos grandes diretamente no armazenamento do objeto de Blob do Azure. Para obter informações sobre o **Aspera sob demanda**, confira o site [Nuvem do Aspera](http://cloud.asperasoft.com/). 
   

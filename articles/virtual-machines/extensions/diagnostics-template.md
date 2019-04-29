@@ -17,11 +17,11 @@ ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 00b4a145da9104cab410c5a07f6d7ec5ded5c45d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893536"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800004"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Usar monitoramento e diagnóstico com uma VM Windows e modelos do Azure Resource Manager
 A Extensão Diagnóstico do Azure fornece funcionalidades de monitoramento e diagnóstico em uma máquina virtual do Azure baseada no Windows. É possível habilitar esses recursos na máquina virtual incluindo a extensão como parte do modelo do Azure Resource Manager. Para saber mais sobre como incluir extensões como parte de um modelo de máquina virtual, confira [Criando modelos do Gerenciador de Recursos do Azure com extensões de VM](../windows/template-description.md#extensions) . Este artigo descreve como adicionar a extensão de diagnóstico do Microsoft Azure para a um modelo de máquina virtual do Windows.  

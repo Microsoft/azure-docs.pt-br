@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
 ms.openlocfilehash: 33348e637143b923719425b9674f99a475d848d9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58806652"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60815816"
 ---
 # <a name="specify-a-face-recognition-model"></a>Especificar um modelo de reconhecimento facial
 

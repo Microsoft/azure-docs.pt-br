@@ -9,11 +9,11 @@ ms.date: 05/02/2018
 ms.author: clemensv
 ms.custom: include file
 ms.openlocfilehash: 5c7c2fe101315959d07ce4912905bbf59a7ee664
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452795"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749489"
 ---
 ### <a name="create-a-console-application"></a>Criar um aplicativo de console
 

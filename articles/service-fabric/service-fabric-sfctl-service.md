@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: e0454d0124efba04434884fbac9056c5e324710d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670873"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60556365"
 ---
 # <a name="sfctl-service"></a>Serviço sfctl
 Crie, exclua e gerencie o serviço, os tipos de serviço e os pacotes de serviço.
@@ -34,7 +34,7 @@ Crie, exclua e gerencie o serviço, os tipos de serviço e os pacotes de serviç
 | excluir | Exclui um serviço existente do Service Fabric. |
 | deployed-type | Obtém as informações sobre um tipo de serviço especificado do aplicativo implantado em um nó em um cluster do Service Fabric. |
 | deployed-type-list | Obtém a lista que contém as informações sobre os tipos de serviço dos aplicativos implantados em um nó em um cluster do Service Fabric. |
-| Descrição | Obtém a descrição de um serviço do Service Fabric existente. |
+| description | Obtém a descrição de um serviço do Service Fabric existente. |
 | get-container-logs | Obtém os logs de contêiner para um contêiner implantado em um nó do Service Fabric. |
 | integridade | Obtém a integridade do serviço do Service Fabric especificado. |
 | informações | Obtém as informações sobre o serviço específico pertencentes ao aplicativo do Service Fabric. |

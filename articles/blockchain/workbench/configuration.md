@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 4d29d8e86a30f105c4aa50ec9615f8165fa238d3
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578740"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60578973"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Referência de configuração do Azure Blockchain Workbench
 
@@ -81,9 +81,9 @@ Tipos de dados com suporte.
 | int      | Tipo de dados Integer. |
 | money    | Tipo de dados money. |
 | state    | Estado do fluxo de trabalho. |
-| cadeia de caracteres  | Tipos de dados String. No máximo 4000 caracteres. Confira o [exemplo de configuração](#example-configuration-of-type-string). |
+| string  | Tipos de dados String. No máximo 4000 caracteres. Confira o [exemplo de configuração](#example-configuration-of-type-string). |
 | usuário     | Endereços do usuário de tipo. |
-| tempo real     | Tipo de dados time. |
+| time     | Tipo de dados time. |
 |`[ Application Role Name ]`| Qualquer nome especificado na função de aplicativo. Limita os usuários desse tipo de função. |
 
 ### <a name="example-configuration-of-type-array"></a>Exemplo de configuração da matriz de tipos

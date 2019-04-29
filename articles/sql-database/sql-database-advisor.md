@@ -13,11 +13,11 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: d09adbfa7cb2782d710ef3116cbd7bc68ee247b7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787793"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61417576"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Recomendações de desempenho do Banco de Dados SQL
 

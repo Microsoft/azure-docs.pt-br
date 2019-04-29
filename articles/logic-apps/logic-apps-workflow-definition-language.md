@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 04/30/2018
 ms.openlocfilehash: d80ffa862546f56e93a338a7a1db031e2cb55990
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616791"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845726"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de esquema para linguagem de definição de fluxo de trabalho nos Aplicativos Lógicos do Azure
 
@@ -42,7 +42,7 @@ Esta é a estrutura de alto nível de uma definição de fluxo de trabalho:
 | definição | Sim | O elemento inicial da definição de fluxo de trabalho |
 | $schema | Somente ao referenciar uma definição de fluxo de trabalho externamente | O local do arquivo de esquema JSON que descreve a versão da Linguagem de Definição de Fluxo de Trabalho, que pode ser encontrado aqui: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
 | contentVersion | Não  | O número de versão da definição de fluxo de trabalho, que é "1.0.0.0" por padrão. Para ajudar a identificar e confirmar a definição correta ao implantar um fluxo de trabalho, especifique um valor a ser usado. |
-| parâmetros | Não  | As definições de um ou mais parâmetros que passam dados para o fluxo de trabalho <p><p>Máximo de parâmetros: 50 |
+| parameters | Não  | As definições de um ou mais parâmetros que passam dados para o fluxo de trabalho <p><p>Máximo de parâmetros: 50 |
 | gatilhos | Não  | As definições de um ou mais gatilhos que criam uma instância do fluxo de trabalho. É possível definir mais de um gatilho, mas apenas com a Linguagem de Definição de Fluxo de Trabalho, e não visualmente por meio do Designer de Aplicativos Lógicos. <p><p>Máximo da gatilhos: 10 |
 | Ações | Não  | As definições de uma ou mais ações a serem executadas no tempo de execução do fluxo de trabalho <p><p>Máximo de ações: 250 |
 | outputs | Não  | As definições das saídas retornadas de uma execução do fluxo de trabalho <p><p>Máximo de saídas: 10 |
@@ -71,7 +71,7 @@ Esta é a estrutura geral de uma definição de parâmetro:
 
 | Elemento | Obrigatório | Type | DESCRIÇÃO |
 |---------|----------|------|-------------|
-| tipo | Sim | int, float, string, securestring, bool, array, objeto JSON, secureobject <p><p>**Observação**: Para todas as senhas, chaves e segredos, use os tipos `securestring` e `secureobject`, porque a operação `GET` não retorna esses tipos. Para obter mais informações sobre como proteger parâmetros, consulte [proteger seu aplicativo lógico](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | O tipo do parâmetro |
+| Tipo | Sim | int, float, string, securestring, bool, array, objeto JSON, secureobject <p><p>**Observação**: Para todas as senhas, chaves e segredos, use os tipos `securestring` e `secureobject`, porque a operação `GET` não retorna esses tipos. Para obter mais informações sobre como proteger parâmetros, consulte [proteger seu aplicativo lógico](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | O tipo do parâmetro |
 | defaultValue | Sim | O mesmo que `type` | O valor de parâmetro padrão quando nenhum valor é especificado ao criar uma instância do fluxo de trabalho |
 | allowedValues | Não  | O mesmo que `type` | Uma matriz com valores que o parâmetro pode aceitar |
 | metadata | Não  | Objeto JSON | Quaisquer outros detalhes de parâmetros, por exemplo, o nome ou uma descrição legível para seu aplicativo lógico, fluxo ou os dados de tempo de design usados pelo Visual Studio ou outras ferramentas |
@@ -217,7 +217,7 @@ No caso de [expressões](#expressions) e [funções](#functions), os operadores 
 
 Algumas expressões obtêm seus valores de ações de tempo de execução que não podem existir ainda quando sua definição de fluxo de trabalho começa a ser executado. Para referenciar ou trabalhar com esses valores em expressões, você pode usar as [*funções*](../logic-apps/workflow-definition-language-functions-reference.md) fornecidas pela linguagem de definição de fluxo de trabalho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [Workflow Definition Language actions and triggers](../logic-apps/logic-apps-workflow-actions-triggers.md) (Ações e gatilhos da Linguagem de Definição de Fluxo de Trabalho)
 * Saiba mais sobre como criar e gerenciar Aplicativos Lógicos de forma programática com a [API REST de fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/workflows)

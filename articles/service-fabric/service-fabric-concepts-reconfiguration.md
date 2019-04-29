@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: a24aa6aa1695a3d1166816b7960bdd7b551e1a37
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212799"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60882190"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Reconfiguração no Azure Service Fabric
 Uma *configuração* é definida como as réplicas e suas funções para uma partição de um serviço com estado.
@@ -32,28 +32,28 @@ O Gerenciador de Failover inicia as reconfigurações em resposta a diferentes e
 As reconfigurações podem ser classificadas em dois tipos:
 
 - Reconfigurações em que a primária está sendo alterada:
-    - **Failover**: failovers são reconfigurações em resposta à falha de uma primária em execução.
-    - **SwapPrimary**: permutas são reconfigurações em que o Service Fabric precisa mover uma primária em execução de um nó para outro, geralmente em resposta ao balanceamento de carga ou uma atualização.
+    - **Failover**: Failovers são reconfigurações em resposta à falha de uma primária em execução.
+    - **SwapPrimary**: Permutas são reconfigurações em que o Service Fabric precisa mover uma primária em execução de um nó para outro, geralmente em resposta ao balanceamento de carga ou uma atualização.
 
 - Reconfigurações em que a primária não está sendo alterada.
 
 ## <a name="reconfiguration-phases"></a>Fases da reconfiguração
 Uma reconfiguração ocorre em várias fases:
 
-- **Phase0**: esta fase ocorre em reconfigurações de permuta primária em que a primária atual transfere seu estado para a nova primária e faz a transição para a secundária ativa.
+- **Phase0**: Esta fase ocorre em reconfigurações de permuta primária em que a réplica primária atual transfere seu estado para a nova primária e faz a transição para o secundário ativo.
 
-- **Phase1**: esta fase ocorre durante as reconfigurações em que a primária está sendo alterada. Durante esta fase, o Service Fabric identifica a primária correta entre as réplicas atuais. Essa fase não é necessária durante reconfigurações de permuta primária, porque a nova primária já foi escolhida. 
+- **Fase 1**: Esta fase ocorre durante as reconfigurações em que a primária está sendo alterada. Durante esta fase, o Service Fabric identifica a primária correta entre as réplicas atuais. Essa fase não é necessária durante reconfigurações de permuta primária, porque a nova primária já foi escolhida. 
 
-- **Phase2**: durante esta fase, o Service Fabric garante que todos os dados estejam disponíveis na maioria das réplicas da configuração atual.
+- **Phase2**: Durante essa fase, o Service Fabric garante que todos os dados estão disponíveis na maioria das réplicas da configuração atual.
 
 Há várias outras fases que são somente para uso interno.
 
 ## <a name="stuck-reconfigurations"></a>Reconfigurações paralisadas
 As reconfigurações podem ficar *paralisadas* por diversos motivos. Alguns dos principais motivos incluem:
 
-- **Réplicas inoperantes**: algumas fases de reconfiguração exigem que a maioria das réplicas na configuração esteja operante.
-- **Problemas de rede ou de comunicação**: as reconfigurações exigem conectividade de rede entre diferentes nós.
-- **Falhas de API**: o protocolo de reconfiguração requer que as implementações de serviço concluam determinadas APIs. Por exemplo, não respeitar o token de cancelamento em um serviço confiável faz as reconfigurações SwapPrimary ficarem paralisadas.
+- **Réplicas inoperantes**: Algumas fases da reconfiguração exigem que a maioria das réplicas na configuração esteja operante.
+- **Problemas de rede ou de comunicação**: As reconfigurações exigem conectividade de rede entre nós diferentes.
+- **Falhas de API**: O protocolo de reconfiguração requer que as implementações de serviço concluam determinadas APIs. Por exemplo, não respeitar o token de cancelamento em um serviço confiável faz as reconfigurações SwapPrimary ficarem paralisadas.
 
 Use relatórios de integridade de componentes do sistema, como System.FM, System.RA e System.RAP, para diagnosticar onde uma reconfiguração está paralisada. A [página do relatório de integridade do sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) descreve esses relatórios de integridade.
 

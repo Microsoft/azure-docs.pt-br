@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: mjbrown
 ms.openlocfilehash: 04a88558e3aea33c6d99bd0e4f1354c4316f5529
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579200"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61054100"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Exemplos de consulta SQL para o Azure Cosmos DB
 
@@ -2166,7 +2166,7 @@ Uma consulta aninhada aplica-se a consulta interna para cada elemento do contêi
 - Lu, Ooi, Tan. "Processamento de consultas em sistemas de banco de dados relacional paralelo." *IEEE Computer sociedade pressione* (1994).
 - Olston, Christopher, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, and Andrew Tomkins. "Pig Latin: Uma linguagem não-para-externo para processamento de dados." *SIGMOD* (2008).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Introdução ao Azure Cosmos DB][introduction]
 - [Amostras do .NET no Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)

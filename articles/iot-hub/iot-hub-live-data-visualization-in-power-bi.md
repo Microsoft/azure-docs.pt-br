@@ -10,11 +10,11 @@ ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: robinsh
 ms.openlocfilehash: 7c770aced36e4c90f654de8d31c12d55ad80c8d0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677979"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60779943"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualizar dados de sensor em tempo real do Hub IoT usando o Power BI
 

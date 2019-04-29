@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: victorh
 ms.openlocfilehash: 8434340bb7ed95cc36115c05048b2b67682b5796
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224491"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831278"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Suporte do Gateway de aplicativo para vários locatário back termina, como o serviço de aplicativo
 

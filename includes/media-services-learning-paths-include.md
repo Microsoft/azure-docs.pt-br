@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 135232e3e9894bcef1ef657e41f5ad3a5e307289
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352433"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60407192"
 ---
 ### <a name="media-services-v3-latest"></a>Serviços de mídia v3 (mais recente)
 

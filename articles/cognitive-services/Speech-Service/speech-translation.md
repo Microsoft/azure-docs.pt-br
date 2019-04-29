@@ -12,11 +12,11 @@ ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 95682612b4b0fdb1baa5038039630e74abddb1a9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890458"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61460313"
 ---
 # <a name="what-is-speech-translation"></a>O que é a tradução de fala?
 
@@ -67,11 +67,11 @@ Se seus aplicativos, ferramentas ou produtos estiver usando a tradução de fala
 
 * [SDK da fala](speech-sdk-reference.md)
 * [SDK de Dispositivos de Fala](speech-devices-sdk.md)
-* [API REST: Speech-to-text](rest-speech-to-text.md)
-* [API REST: Text-to-speech](rest-text-to-speech.md)
-* [API REST: Personalização e transcrição de lote](https://westus.cris.ai/swagger/ui/index)
+* [API REST: conversão de fala em texto](rest-speech-to-text.md)
+* [API REST: conversão de texto em fala](rest-text-to-speech.md)
+* [API REST: transcrição e personalização em lote](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Obtenha uma chave de assinatura de serviços de fala gratuitamente](get-started.md)
+* [Obter gratuitamente uma chave de assinatura do Serviço de Fala](get-started.md)
 * [Obtenha o SDK da fala](speech-sdk.md)

@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 01/02/2019
 ms.author: babanisa
 ms.openlocfilehash: 9464ab89e08f53f61cb6f5a4b1e91da35b785af0
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460815"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60822795"
 ---
 # <a name="event-grid-subscription-schema"></a>Esquema de assinatura de Grade de Eventos
 
@@ -33,21 +33,21 @@ O nome da assinatura de evento deve ter 3 a 64 caracteres de comprimento e só p
  
 ## <a name="event-subscription-properties"></a>Propriedades da assinatura do evento
 
-| Propriedade | Tipo | DESCRIÇÃO |
+| Propriedade | Type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
 | destino | objeto | O objeto que define o ponto de extremidade. |
 | filtro | objeto | Um campo opcional para filtrar os tipos de eventos. |
 
 ### <a name="destination-object"></a>objeto de destino
 
-| Propriedade | Tipo | DESCRIÇÃO |
+| Propriedade | Type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
 | endpointType | string | O tipo de ponto de extremidade para a assinatura (webhook/HTTP, o Hub de evento ou fila). | 
 | endpointUrl | string | A URL de destino para eventos nesta assinatura de evento. | 
 
 ### <a name="filter-object"></a>objeto filter
 
-| Propriedade | Tipo | DESCRIÇÃO |
+| Propriedade | Type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
 | includedEventTypes | matriz | Correspondência quando o tipo de evento na mensagem de evento é uma correspondência exata para esses nomes de tipo de evento. Gera um erro quando o nome do evento não coincide com os nomes de tipo de evento registrados para a origem do evento. O padrão corresponde a todos os tipos de evento. |
 | subjectBeginsWith | string | Uma correspondência de prefixo de filtro para o campo de assunto no evento mensagem. A cadeia de caracteres padrão ou vazia corresponde a tudo. | 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: aahi
 ms.openlocfilehash: 35f970e81d27511bd35610bc2988a5ea4832906b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898628"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60995611"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrar da API de Tradução de Fala para o Serviço de Fala
 
@@ -59,7 +59,7 @@ Se você ou sua organização tiver aplicativos em desenvolvimento ou em produç
 
 * Diferentemente da API de fala de tradução, os serviços de fala pode concluir as traduções em vários idiomas em uma única solicitação.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Experimente gratuitamente o serviços de fala](get-started.md)
 * [Início Rápido: reconhecer a fala em um aplicativo UWP usando o SDK de Fala](quickstart-csharp-uwp.md)

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 4943b730bb46ee00200d84faf95a7ccb069d3aa8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678948"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60790959"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicar máquinas virtuais habilitadas para criptografia de disco do Azure para outra região do Azure
 
@@ -88,7 +88,7 @@ Neste exemplo, a região do Azure primária seja Leste da Ásia e a região secu
     - **Local de origem**: A região do Azure onde você deseja proteger suas máquinas virtuais. Neste exemplo, o local de origem é "East Asia".
     - **Modelo de implantação**: O modelo de implantação do Azure a computadores de origem.
     - **Assinatura do Azure**: A assinatura à qual suas máquinas virtuais de origem pertencem. Ele pode ser qualquer assinatura que está no mesmo locatário do Azure Active Directory que seu cofre dos serviços de recuperação.
-    - **Grupo de Recursos**: O grupo de recursos ao qual suas máquinas virtuais de origem pertencem. Todas as VMs no grupo de recursos selecionado são listadas para proteção na próxima etapa.
+    - **Grupo de recursos**: O grupo de recursos ao qual suas máquinas virtuais de origem pertencem. Todas as VMs no grupo de recursos selecionado são listadas para proteção na próxima etapa.
 
 3. Na **máquinas virtuais** > **selecionar máquinas virtuais**, selecione cada VM que você deseja replicar. Você só pode selecionar computadores para os quais a replicação pode ser habilitada. Depois, selecione **OK**.
 
@@ -152,6 +152,6 @@ Você tem todas as permissões no cofre de chaves de região de origem. Mas dura
 
 **Como corrigir:** Vá para **página inicial** > **Keyvaults** > **ContososourceKeyvault** > **políticas de acesso**. Adicionar permissões sob **permissões de chave** > **operações criptográficas**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Saiba mais](site-recovery-test-failover-to-azure.md) sobre a execução de failovers de teste.

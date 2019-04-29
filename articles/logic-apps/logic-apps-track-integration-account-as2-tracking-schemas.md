@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.date: 01/27/2017
 ms.openlocfilehash: 180d90450497b38f107f3601944385a003f50282
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193501"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845776"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>Criar esquemas para acompanhamento de mensagens AS2 e MDNs em contas de integração para os Aplicativos Lógicos do Azure
 
@@ -67,14 +67,14 @@ Você pode usar esses esquemas de acompanhamento AS2 em sua conta de integraçã
 | messageId | Cadeia de caracteres | ID da mensagem AS2, dos cabeçalhos da mensagem AS2 (Opcional) |
 | dispositionType |Cadeia de caracteres | Valor do tipo de disposição MDN (notificação de disposição de mensagem). (Opcional) |
 | fileName | Cadeia de caracteres | Nome do arquivo, do cabeçalho da mensagem AS2. (Opcional) |
-| isMessageFailed |BOOLEAN | Se a mensagem AS2 falha ou não. (Obrigatório) |
-| isMessageSigned | BOOLEAN | Se a mensagem AS2 foi ou não assinada. (Obrigatório) |
-| isMessageEncrypted | BOOLEAN | Se a mensagem AS2 foi ou não criptografada. (Obrigatório) |
-| isMessageCompressed |BOOLEAN | Se a mensagem AS2 foi ou não comprimida. (Obrigatório) |
+| isMessageFailed |Boolean | Se a mensagem AS2 falha ou não. (Obrigatório) |
+| isMessageSigned | Boolean | Se a mensagem AS2 foi ou não assinada. (Obrigatório) |
+| isMessageEncrypted | Boolean | Se a mensagem AS2 foi ou não criptografada. (Obrigatório) |
+| isMessageCompressed |Boolean | Se a mensagem AS2 foi ou não comprimida. (Obrigatório) |
 | correlationMessageId | Cadeia de caracteres | ID da mensagem AS2 para correlacionar mensagens com MDNs. (Opcional) |
 | incomingHeaders |Dicionário de JToken | Detalhes do cabeçalho da mensagem de entrada AS2. (Opcional) |
 | outgoingHeaders |Dicionário de JToken | Detalhes do cabeçalho da mensagem de saída AS2. (Opcional) |
-| isNrrEnabled | BOOLEAN | Use o valor padrão se o valor não for conhecido. (Obrigatório) |
+| isNrrEnabled | Boolean | Use o valor padrão se o valor não for conhecido. (Obrigatório) |
 | isMdnExpected | Booliano | Use o valor padrão se o valor não for conhecido. (Obrigatório) |
 | mdnType | Enum | Os valores permitidos são **NotConfigured**, **Sync** e **Async**. (Obrigatório) |
 ||||
@@ -120,9 +120,9 @@ Você pode usar esses esquemas de acompanhamento AS2 em sua conta de integraçã
 | messageId | Cadeia de caracteres | ID da mensagem AS2. (Opcional) |
 | originalMessageId |Cadeia de caracteres | ID da mensagem AS2 original. (Opcional) |
 | dispositionType | Cadeia de caracteres | Valor do tipo de disposição MDN. (Opcional) |
-| isMessageFailed |BOOLEAN | Se a mensagem AS2 falha ou não. (Obrigatório) |
-| isMessageSigned |BOOLEAN | Se a mensagem AS2 foi ou não assinada. (Obrigatório) |
-| isNrrEnabled | BOOLEAN | Use o valor padrão se o valor não for conhecido. (Obrigatório) |
+| isMessageFailed |Boolean | Se a mensagem AS2 falha ou não. (Obrigatório) |
+| isMessageSigned |Boolean | Se a mensagem AS2 foi ou não assinada. (Obrigatório) |
+| isNrrEnabled | Boolean | Use o valor padrão se o valor não for conhecido. (Obrigatório) |
 | statusCode | Enum | Os valores aceitos são **Accepted**, **Rejected**, **AcceptedWithErrors**. (Obrigatório) |
 | micVerificationStatus | Enum | Os valores permitidos são **NotApplicable**, **Succeeded** ou **Failed**. (Obrigatório) |
 | correlationMessageId | Cadeia de caracteres | ID de correlação. A ID da mensagem original (a ID da mensagem para a qual o MDN está configurado). (Opcional) |

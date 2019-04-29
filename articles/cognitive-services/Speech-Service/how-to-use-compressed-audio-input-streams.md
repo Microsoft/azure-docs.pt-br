@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: amishu
 ms.openlocfilehash: 2066dc3e20ab9fc92b23fd071728ea6a920d3324
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59012417"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60697631"
 ---
 # <a name="stream-compressed-audio-with-the-speech-sdk"></a>Áudio de Stream compactado com o SDK de fala
 

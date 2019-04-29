@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
 ms.openlocfilehash: bbad72b41a177bdbafd6cf98bfd2025190d98b16
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237630"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128950"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configurar experiência de sugestão automática personalizada
 

@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop;kumud
 ms.openlocfilehash: ad35d440904c7b65e27b4ead75cec00daa20f8ff
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878495"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596310"
 ---
 # <a name="virtual-network-traffic-routing"></a>Roteamento de tráfego de rede virtual
 

@@ -11,11 +11,11 @@ ms.date: 03/13/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.openlocfilehash: b97e27b86ecad1f7f87a6de4d43b09d69c167c6f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792027"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075307"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Use agendas de manutenção para gerenciar atualizações e manutenção de serviços
 
@@ -43,7 +43,7 @@ Todos os eventos de manutenção ativos são exibidos na seção **Service Healt
 
 Mesmo que o agendamento de manutenção não esteja disponível em sua região selecionada, você poderá visualizar e editar sua programação de manutenção a qualquer momento. Quando o agendamento de manutenção estiver disponível em sua região, o agendamento identificado ficará imediatamente ativo em seu data warehouse.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Saiba mais](viewing-maintenance-schedule.md) sobre como exibir um agendamento de manutenção.
 - [Saiba mais](changing-maintenance-schedule.md) sobre como alterar um agendamento de manutenção.

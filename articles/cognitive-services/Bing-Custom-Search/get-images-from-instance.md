@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
 ms.openlocfilehash: 42679635aab8df7174eb06928631e2b677d0a20b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55855907"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60591895"
 ---
 # <a name="get-images-from-your-custom-view"></a>Obter imagens do modo de exibição personalizado
 

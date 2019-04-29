@@ -15,11 +15,11 @@ ms.date: 03/29/2018
 ms.author: magoedte
 ms.subservice: ''
 ms.openlocfilehash: a2f90c52823664df5fdc71c55220cc660c2f68e3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878138"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782818"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics-in-azure-monitor"></a>Gerenciar o uso e custos para o Log Analytics no Azure Monitor
 

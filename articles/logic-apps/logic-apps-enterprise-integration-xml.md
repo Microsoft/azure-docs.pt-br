@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: 47672dc4-1caa-44e5-b8cb-68ec3a76b7dc
 ms.date: 02/27/2017
 ms.openlocfilehash: a75ac9773072423c13eef85ecad29c632c13d024
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873246"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60996552"
 ---
 # <a name="xml-messages-and-flat-files-in-azure-logic-apps-with-enterprise-integration-pack"></a>Mensagens XML e arquivos simples nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 

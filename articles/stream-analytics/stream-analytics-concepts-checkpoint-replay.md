@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 9dcfbd4b5fcc8462c88b16f585424166ecd3d499
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088228"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61361868"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Conceitos de ponto de verificação e de reprodução em trabalhos do Azure Stream Analytics
 Este artigo descreve os conceitos internos de ponto de verificação e de reprodução no Azure Stream Analytics e o impacto deles na recuperação de trabalho. Sempre que um trabalho do Stream Analytics é executado, as informações de estado são mantidas internamente. Essas informações de estado são salvas em um ponto de verificação periodicamente. Em alguns cenários, as informações de ponto de verificação são usadas para a recuperação de trabalho se ocorrer uma falha de trabalho ou de atualização. Em outras circunstâncias, o ponto de verificação não pode ser usado para a recuperação, e é necessária uma reprodução.

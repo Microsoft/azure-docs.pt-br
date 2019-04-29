@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 256d530590fadc9e2aeb1ea1efb7a52608014978
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 59a3bac39437b91eeee3b005bd23476a34a308b7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988556"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736574"
 ---
 # <a name="health-probes"></a>Investigações de integridade
 
@@ -29,7 +29,7 @@ O Front Door dá suporte para envio de investigações via protocolos HTTP ou HT
 
 ## <a name="health-probe-responses"></a>Respostas de investigação de integridade
 
-| Respostas  | Descrição | 
+| Respostas  | DESCRIÇÃO | 
 | ------------- | ------------- |
 | Determinar integridade  |  Um código de status 200 OK indica que o back-end está íntegro. Quaisquer outros resultados são considerados uma falha. Se por algum motivo (incluindo falha de rede) uma resposta HTTP válida não for recebida para uma investigação, a investigação será contada como uma falha.|
 | Medir latência  | A latência é o tempo total medido a partir do momento imediatamente antes de enviarmos a solicitação de investigação até o momento em que recebemos o último byte da resposta. Usamos uma nova conexão TCP para cada solicitação, portanto, essa medida não é tendenciosa em relação aos back-ends com conexões passivas existentes.  |

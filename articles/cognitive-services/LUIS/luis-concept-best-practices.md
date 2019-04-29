@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: diberry
 ms.openlocfilehash: 9a6f9d54c52f36b8f709eacaf25d3fea31dbe516
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895808"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60812922"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Melhores práticas para criação de um aplicativo de reconhecimento vocal com os Serviços Cognitivos
 Use o processo de criação de aplicativos para criar seu aplicativo LUIS. 
@@ -178,6 +178,6 @@ Para mais informações:
 * Instruções: [Usar versões para editar e testar sem afetar aplicativos de preparo ou produção](luis-how-to-manage-versions.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como [planejar seu aplicativo](luis-how-plan-your-app.md) no aplicativo LUIS.

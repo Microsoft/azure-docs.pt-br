@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
 ms.openlocfilehash: 4ba42850ee28e2e212d9bc2b7b64be103218757c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094217"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736965"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Cabeçalhos HTTP Verizon X-EC-Debug para o Mecanismo de regras de CDN do Azure
 O cabeçalho da solicitação de depuração de cache `X-EC-Debug` fornece informações adicionais sobre a política de cache que é aplicada para o ativo solicitado. Esses cabeçalhos são específicos para **Premium do Azure CDN dos produtos Verizon**.
@@ -103,10 +103,10 @@ O `X-EC-Debug` cabeçalho de reposta relatando se uma solicitação pode ter sid
 
 Os termos usados na sintaxe são definidos da seguinte maneira:
 
-Valor  | DESCRIÇÃO
+Value  | DESCRIÇÃO
 -------| --------
 SIM    | Indica que o conteúdo solicitado estava elegível para cache.
-NÃO     | Indica que o conteúdo solicitado estava inelegível para cache. Esse status pode ser devido a um dos seguintes motivos: <br /> - Configuração Específica do cliente: uma configuração específica do cliente para a sua conta pode impedir que os servidores pop armazenem um ativo em cache. Por exemplo, mecanismo de regras pode impedir um ativo que está sendo armazenado em cache, permitindo que o recurso Ignorar Cache qualifique as solicitações.<br /> - Cabeçalhos de resposta cache: Cabeçalhos de Cache-Control e Expires do ativo podem impedir que os servidores POP sejam armazenados em cache.
+NÃO     | Indica que o conteúdo solicitado estava inelegível para cache. Esse status pode ser devido a um dos seguintes motivos: <br /> Configuração específica do cliente: Uma configuração específica à sua conta pode impedir que os servidores pop armazenem um ativo de cache. Por exemplo, mecanismo de regras pode impedir um ativo que está sendo armazenado em cache, permitindo que o recurso Ignorar Cache qualifique as solicitações.<br /> -Cabeçalhos de resposta de cache: Cabeçalhos de Cache-Control e Expires do ativo solicitado podem impedir que os servidores POP em cache.
 DESCONHECIDO | Indica que os servidores não foram puderam avaliar se o recurso solicitado foi armazenável em cache. Normalmente, esse status ocorre quando a solicitação for negada devido a autenticação baseada em token.
 
 ### <a name="sample-response-header"></a>Exemplo de cabeçalho de resposta
@@ -147,23 +147,23 @@ O `X-EC-Debug` cabeçalho de resposta relata informações de estado de cache no
 
 Os termos usados na sintaxe são definidos da seguinte maneira:
 
-- MASeconds: Indica a idade máxima (em segundos), conforme definido por cabeçalhos de controle de Cache-Control do conteúdo solicitado.
+- MASeconds: Indica a idade máxima (em segundos), conforme definido por cabeçalhos de controle de Cache do conteúdo solicitado.
 
 - MATimePeriod: Converte o valor de idade máxima (ou seja, MASeconds) aproximado equivalente a uma unidade maior (por exemplo, em dias). 
 
-- UnixTime: Indica o carimbo de hora do cache do conteúdo solicitado no tempo de Unix (também conhecido como hora POSIX ou época do Unix). O carimbo de hora de cache indica a data/hora inicial do qual será calculado um TTL do ativo. 
+- UnixTime: Indica o carimbo de hora do cache do conteúdo solicitado no horário do Unix (também conhecido como hora POSIX ou época do Unix). O carimbo de hora de cache indica a data/hora inicial do qual será calculado um TTL do ativo. 
 
-    Se o servidor de origem não utiliza um servidor de cache HTTP de terceiros ou se o servidor não retorna o cabeçalho de resposta de Idade, em seguida, o carimbo de data/hora sempre será a data/hora quando o ativo foi recuperado ou revalidado. Caso contrário, os servidores POP usarão o campo de idade para calcular o tempo de vida do ativo da seguinte maneira: Recuperação/RevalidateDateTime - Idade.
+    Se o servidor de origem não utiliza um servidor de cache HTTP de terceiros ou se o servidor não retorna o cabeçalho de resposta de Idade, em seguida, o carimbo de data/hora sempre será a data/hora quando o ativo foi recuperado ou revalidado. Caso contrário, os servidores POP usará o campo de idade para calcular a TTL do ativo da seguinte maneira: Recuperação/RevalidateDateTime - idade.
 
-- ddd, dd MMM yyyy HH:mm:ss GMT: Indica o carimbo de hora/data do cache do conteúdo solicitado. Para mais informações, consulte o termo UnixTime acima.
+- DDD, dd MMM AAAA HH: mm ss GMT: Indica o carimbo de hora do cache do conteúdo solicitado. Para mais informações, consulte o termo UnixTime acima.
 
-- CASeconds: Indica o número de segundos decorridos desde o carimbo de data/hora do cache.
+- CASeconds: Indica o número de segundos decorridos desde o carimbo de hora do cache.
 
 - RTSeconds: Indica o número de segundos restantes para o qual o conteúdo em cache será considerado atualizado. Esse valor é calculado da seguinte maneira: RTSeconds = max-age - idade do cache.
 
-- RTTimePeriod: Converte o valor de TTL remanescente máxima (ou seja, MASeconds) aproximado equivalente a uma unidade maior (por exemplo, em dias).
+- RTTimePeriod: Converte o valor de TTL remanescente (ou seja, Maseconds) aproximado equivalente a uma unidade maior (por exemplo, em dias).
 
-- ExpiresSeconds: Indica o número de segundos restantes antes da data/hora especificada no `Expires` cabeçalho de resposta. Se o `Expires` cabeçalho de resposta não foi incluído na resposta, em seguida, o valor do termo é *nenhum*.
+- ExpiresSeconds: Indica o número de segundos restantes antes que a data/hora especificada no `Expires` cabeçalho de resposta. Se o `Expires` cabeçalho de resposta não foi incluído na resposta, em seguida, o valor do termo é *nenhum*.
 
 ### <a name="sample-response-header"></a>Exemplo de cabeçalho de resposta
 

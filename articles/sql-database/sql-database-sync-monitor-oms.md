@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
 ms.openlocfilehash: 6e94aac47ce5b45e700e2413d2e86d5f36596348
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482429"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614935"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Monitorar a sincronização de dados do SQL com logs do Azure Monitor 
 

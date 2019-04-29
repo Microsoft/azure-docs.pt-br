@@ -10,11 +10,11 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 4fce8eae25942d098bb3f3277938bfaa3dafa00b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499176"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60770441"
 ---
 # <a name="interact-with-the-map---mouse-events"></a>Interagir com o mapa - eventos de mouse
 

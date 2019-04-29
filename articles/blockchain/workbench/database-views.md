@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
 ms.openlocfilehash: 06b7fb678bc79203589cfa75e8afb457d6ed344f
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594314"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60866506"
 ---
 # <a name="database-views-in-azure-blockchain-workbench"></a>Exibições de banco de dados no Azure Blockchain Workbench
 

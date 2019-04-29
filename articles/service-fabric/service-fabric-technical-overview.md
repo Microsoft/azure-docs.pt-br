@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/17/2018
 ms.author: masnider
 ms.openlocfilehash: 085d5e560eec090ab76c263f8f93140786f2d734
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668426"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60543199"
 ---
 # <a name="service-fabric-terminology-overview"></a>Visão geral da terminologia do Service Fabric
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, implantação e gerenciamento de microsserviços escalonáveis e confiáveis.  É possível [hospedar clusters de Service Fabric em qualquer lugar](service-fabric-deploy-anywhere.md): Azure, em um datacenter local ou em qualquer provedor de nuvem.  O Service Fabric é o orquestrador que fornece energia à [Malha do Azure Service Fabric](/azure/service-fabric-mesh). É possível usar qualquer estrutura para gravar os serviços e escolher onde executar o aplicativo a partir de várias opções de ambiente. Este artigo apresenta detalhes da terminologia usada pelo Service Fabric para compreensão dos termos usados na documentação.

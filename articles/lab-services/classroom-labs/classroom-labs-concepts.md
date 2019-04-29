@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: spelluru
 ms.openlocfilehash: 82f9d7090d7283e0b00b36e0928fffb3395ca4c0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102628"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60679078"
 ---
 # <a name="classroom-labs-concepts"></a>Conceitos dos laboratórios de sala de aula
 A lista a seguir contém definições e principais conceitos de serviços de laboratório:
 
-## <a name="quota"></a>Cota
+## <a name="quota"></a>Quota
 Cota é o limite de tempo (em horas) que um professor pode definir para um aluno usar um laboratório de VM. Ele pode ser definido como 0, ilimitado, ou um número específico de horas. Se a cota é definida como 0, um aluno pode usar apenas a máquina virtual quando uma agenda está em execução ou quando um professor ativa manualmente a máquina virtual para o aluno.
  
-## <a name="schedules"></a>Agendamentos
+## <a name="schedules"></a>Agendas
 As agendas são os slots de tempo (uma vez ou recorrente) que um professor pode criar para a classe. Todas as máquinas virtuais no laboratório são iniciadas automaticamente no início para a agenda e eles são interrompidos no final da agenda. Horas de cota não são usadas quando uma agenda está em execução.
 
 ## <a name="template-virtual-machine"></a>Máquina virtual de modelo
@@ -52,7 +52,7 @@ Normalmente, os usuários como um professor ou um instrutor online criam laborat
 - Especifica quem pode acessar o laboratório.
 - Fornece um link de registro para o laboratório para alunos.
 
-### <a name="student"></a>Estudante
+### <a name="student"></a>Aluno
 Um estudante executa as seguintes tarefas:
 
 - Usa o link de registro que o usuário do laboratório recebe de um criador do laboratório para registrar com o laboratório. 

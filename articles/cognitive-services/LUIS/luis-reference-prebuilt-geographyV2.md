@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 17f612f2ee6c7d27dcec9f72ed3df1ed418eb3d2
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961594"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60712592"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>Entidade GeographyV2 predefinida para um aplicativo LUIS
 A entidade geographyV2 predefinida detecta locais. Como essa entidade já está treinada, não é necessário adicionar enunciados contendo GeographyV2 às intenções do aplicativo. Há suporte para a entidade GeographyV2 na [cultura](luis-reference-prebuilt-entities.md) de inglês.
@@ -90,6 +90,6 @@ O exemplo a seguir mostra a resolução da entidade **builtin.geographyV2**.
 } 
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as entidades [email](luis-reference-prebuilt-email.md), [número](luis-reference-prebuilt-number.md) e [ordinal](luis-reference-prebuilt-ordinal.md). 

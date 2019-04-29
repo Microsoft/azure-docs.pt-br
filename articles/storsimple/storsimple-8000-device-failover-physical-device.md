@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: f3ac9545a341fc24ca12c9f2547805d6956cd98a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5fcf95a1a3033a5150945dbd841f12d50ebb023b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108264"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60577138"
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>Fazer failover para um dispositivo físico StorSimple da série 8000
 

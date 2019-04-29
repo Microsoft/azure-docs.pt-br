@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: milanga;juliako;
 ms.openlocfilehash: 0fcacf68f4b41ed8945a6a40d7da125aef499947
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313253"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60825516"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Usar as Miniaturas de Vídeo de Mídia do Azure para criar um resumo de vídeo  
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 O MP (processador de mídia) das **Miniaturas de Vídeo de Mídia do Azure** permite criar o resumo de um vídeo que é grande utilidade para clientes que desejam apenas visualizar um resumo de um vídeo de longa duração. Por exemplo, os clientes talvez queiram ver um breve “vídeo resumido” ao focalizar uma miniatura. Ao ajustar os parâmetros das **Miniaturas de Vídeo de Mídia do Azure** por meio de uma predefinição de configuração, é possível usar a avançada tecnologia de detecção de captura e concatenação do MP para gerar de forma algorítmica um subclipe descritivo.  
 
 No momento, o MP da **Miniatura de Vídeo de Mídia do Azure** está em Preview.
@@ -53,7 +53,7 @@ Ao criar uma tarefa de miniatura de vídeo com as **Miniaturas de Vídeo de Míd
 
 No momento, é possível alterar os seguintes parâmetros:
 
-| Param | Descrição |
+| Param | DESCRIÇÃO |
 | --- | --- |
 | outputAudio |Especifica se o vídeo resultante conterá áudio. <br/>Valores permitidos são: Verdadeiro ou falso. Padrão: True. |
 | fadeInFadeOut |Especifica se as transições de esmaecimento serão usadas entre as miniaturas de movimento separadas.  <br/>Valores permitidos são: Verdadeiro ou falso.  Padrão: True. |

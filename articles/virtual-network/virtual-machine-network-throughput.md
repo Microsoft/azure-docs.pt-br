@@ -3,8 +3,8 @@ title: Taxa de transferência de rede da máquina virtual do Azure | Microsoft D
 description: Saiba mais sobre a taxa de transferência de rede da máquina virtual do Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
-ms.author: jdial
-ms.openlocfilehash: f22b6f361f0c5bea547721309bb0f75b62f18d92
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.author: kumud
+ms.openlocfilehash: 29c4926f56070874fe17622170e697986df0fbc3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27778948"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743065"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Largura de banda de rede da máquina virtual
 
@@ -39,10 +39,10 @@ As máquinas virtuais do Azure devem ter um, mas podem ter vários adaptadores d
 A taxa de transferência de saída esperada e o número de adaptadores de rede com suporte em cada tamanho de VM são detalhados em Tamanhos de VM [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure. Selecione um tipo, como Uso geral e, em seguida, uma série de tamanho na página resultante, como a série Dv2. Cada série tem uma tabela com as especificações de rede na última coluna intitulada **Máx. de NICs/Desempenho de rede esperado (Mbps)**. 
 
 O limite de taxa de transferência se aplica à máquina virtual. A taxa de transferência não é afetada pelos seguintes fatores:
-- **Número de adaptadores de rede**: o limite de largura de banda é cumulativo de todo o tráfego de saída da máquina virtual.
-- **Rede acelerada**: embora o recurso possa ser útil para alcançar o limite publicado, ele não altera o limite.
-- **Destino do tráfego**: todos os destinos contam para o limite de saída.
-- **Protocolo**: todo o tráfego de saída em todos os protocolos contam para o limite.
+- **Número de adaptadores de rede**: O limite de largura de banda é cumulativo de todo o tráfego de saída da máquina virtual.
+- **Rede acelerada**: Embora o recurso pode ser útil para alcançar o limite publicado, ele não altera o limite.
+- **Destino do tráfego**: Todos os destinos contam para o limite de saída.
+- **Protocolo**: Todo o tráfego de saída em todos os protocolos conta para o limite.
 
 ## <a name="next-steps"></a>Próximas etapas
 

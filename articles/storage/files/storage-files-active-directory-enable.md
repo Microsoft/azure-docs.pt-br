@@ -2,17 +2,17 @@
 title: Ativar a autenticação do Active Directory do Azure em SMB para arquivos do Azure (visualização) - Armazenamento do Azure
 description: Saiba como habilitar a autenticação baseada em identidade em SMB (Bloqueio de Mensagens do Servidor) (visualização) para os Arquivos do Azure por meio dos Serviços de Domínio do Azure AD (Azure Active Directory). As máquinas virtuais Windows (VMs) associadas ao domínio podem acessar os compartilhamentos de arquivos do Azure usando as credenciais do Azure AD.
 services: storage
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
-ms.author: tamram
-ms.openlocfilehash: 796e104dd0b3b2cfdef2ee3515625cba0a9fdc1e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.author: rogarana
+ms.openlocfilehash: 974a4341bd140da60c5e229a644657fe7ab02535
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497100"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766411"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Ativar a autenticação do Active Directory do Azure em SMB para arquivos do Azure (visualização)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]

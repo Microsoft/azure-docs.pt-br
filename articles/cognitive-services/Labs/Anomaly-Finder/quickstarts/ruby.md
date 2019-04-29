@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
 ms.openlocfilehash: 020c957baf6673365d64c613bd908a440bc3d05c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735026"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729198"
 ---
 # <a name="use-the-anomaly-finder-api-with-ruby"></a>Usar a API de Localização de Anomalias com Ruby
 
@@ -81,7 +81,7 @@ puts response.body
 Uma resposta com êxito é retornada em JSON. A seguir está a resposta de exemplo.
 [!INCLUDE [Response](../includes/response.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Referência da API REST](https://dev.labs.cognitive.microsoft.com/docs/services/anomaly-detection/operations/post-anomalydetection)

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: kraigb
 ms.openlocfilehash: 311f4d612c9deab23e7537b0c53ff3932c312cd4
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608003"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631988"
 ---
 # <a name="your-user-account-for-azure-notebooks"></a>Sua conta de usuário para o Microsoft Azure Notebooks
 
@@ -71,7 +71,7 @@ O administrador de uma conta organizacional deve fornecer o consentimento em nom
 
 Para fornecer consentimento como um administrador, use a [página de consentimento do administrador](https://notebooks.azure.com/account/adminConsent), que orienta você pelo processo.
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Próximas etapas  
 
 > [!div class="nextstepaction"]
 > [Editar seu perfil e ID de usuário](azure-notebooks-user-profile.md)

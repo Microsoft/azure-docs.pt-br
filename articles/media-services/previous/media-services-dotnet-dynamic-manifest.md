@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako;cenkdin
 ms.openlocfilehash: 05b899658b5c58e15b2f30ab759eb49319979fee
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313797"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61465551"
 ---
 # <a name="creating-filters-with-media-services-net-sdk"></a>Criar filtros com o SDK do .NET dos Serviços de Mídia 
 > [!div class="op_single_selector"]
@@ -134,6 +134,6 @@ Os exemplos a seguir mostram como adicionar filtros às URLs de streaming.
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 [Visão geral de manifestos dinâmicos](media-services-dynamic-manifest-overview.md)
 

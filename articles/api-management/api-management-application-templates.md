@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 732fdf3f9210a1484895e0b43e061b4bbc586b43
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541257"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657866"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Modelos de aplicativo no Gerenciamento de API do Azure
 O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configura o respectivo conteúdo. Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como o [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), bem como um conjunto fornecido de [Recursos de cadeia de caracteres](api-management-template-resources.md#strings), [Recursos do Glyph](api-management-template-resources.md#glyphs) e [Controles de página](api-management-page-controls.md) localizados, você tem grande flexibilidade para configurar o conteúdo das páginas, conforme a necessidade, usando esses modelos.  
@@ -83,7 +83,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 |--------------|----------|-----------------|  
 |`Paging`|Entidade de [paginação](api-management-template-data-model-reference.md#Paging).|As informações de paginação da coleção de aplicativos.|  
 |`Applications`|Coleção de entidades de [Aplicativo](api-management-template-data-model-reference.md#Application).|Os aplicativos visíveis para o usuário atual.|  
-|`CategoryName`|cadeia de caracteres|A categoria do aplicativo.|  
+|`CategoryName`|string|A categoria do aplicativo.|  
   
 ### <a name="sample-template-data"></a>Amostra de dados do modelo  
   

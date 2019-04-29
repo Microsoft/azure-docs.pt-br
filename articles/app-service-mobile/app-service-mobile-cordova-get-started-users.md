@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: b5cce832ae7ae83552c2a5ded2f5f5bda0ac76bf
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: HT
+ms.openlocfilehash: 23b5967782cf237ed5af2b802aabbbf9c2f781e7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27591939"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114203"
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>Adicionar autenticação ao aplicativo Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -105,7 +105,7 @@ Saiba como usar os SDKs.
 
 <!-- URLs. -->
 [Introdução aos Aplicativos Móveis]: app-service-mobile-cordova-get-started.md
-[Documentação de Content-Security-Policy]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
+[documentação de Content-Security-Policy]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
 [Notificações por push]: app-service-mobile-cordova-get-started-push.md
 [Sobre autenticação]: app-service-mobile-auth.md
 [SDK do Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md

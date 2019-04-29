@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2018
 ms.author: alexwun
 ms.openlocfilehash: 4a56b48c0041e963b89312c59335b45cabacc1bb
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60720156"
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Noções básicas sobre a configuração ImageStoreConnectionString
 

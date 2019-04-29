@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: f977a48338f784562ec84355aabb212e5a3dade4
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59543661"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60946531"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Microsoft Azure Service Fabric para Visual Studio Code
 
@@ -133,7 +133,7 @@ O **do Service Fabric: Limpar aplicativo** comando exclui todos os arquivos jar 
 2.  Selecione o **do Service Fabric: Limpar aplicativo** comando.
 3.  A saída do processo de compilação é enviada para o terminal integrado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como [Desenvolver aplicativos Service Fabric do C# com Visual Studio Code](./service-fabric-develop-csharp-applications-with-vs-code.md).
 * Saiba como [desenvolver aplicativos Microsoft Azure Service Fabric Java com Visual Studio Code](./service-fabric-develop-java-applications-with-vs-code.md).

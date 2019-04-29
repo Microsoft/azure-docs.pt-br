@@ -1,6 +1,6 @@
 ---
 title: Relatórios de núcleo da Verizon | Microsoft Docs
-description: 'É possível exibir os padrões de uso da CDN usando os seguintes relatórios: largura de banda, dados transferidos, ocorrências, status do cache, taxa de ocorrências no cache, dados IPV4/IPV6 transferidos.'
+description: 'Você pode exibir os padrões de uso para o CDN usando os relatórios a seguir: Largura de banda, dados transferidos, acertos, status do Cache, taxa de IPV4/IPV6 dados transferidos de acertos do Cache.'
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: d10a40d03f0f76676e70afdec94e9adfaa0dd09f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
-ms.translationtype: HT
+ms.openlocfilehash: 6eb0fe592196466f7f49c21ce38afdf13b254d86
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162063"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61061432"
 ---
 # <a name="core-reports-from-verizon"></a>Relatórios de núcleo da Verizon
 
@@ -86,10 +86,10 @@ Para reduzir correspondências de cache expiradas, defina um ativo `max-age` com
 ![Relatório Status do cache](./media/cdn-reports/cdn-cache-statuses.png)
 
 ### <a name="main-cache-statuses-include"></a>Os status do cache principal incluem:
-* TCP_HIT: servido pelo servidor do edge. O objeto estava no cache e não excedeu sua idade máxima.
-* TCP_MISS: servido pelo servidor de origem. O objeto não estava no cache e a resposta voltou para a origem.
-* TCP_EXPIRED _MISS: servido pelo servidor de origem após revalidação com a origem. O objeto estava no cache, mas tinha excedido sua idade máxima. A revalidação com a origem resultou na substituição do objeto por uma nova resposta da origem.
-* TCP_EXPIRED _HIT: servido do Edge após revalidação com a origem. O objeto estava no cache mas excedeu sua idade máxima. Uma revalidação com o servidor de origem resultou na não modificação do objeto do cache.
+* TCP_HIT: Servido do servidor de borda. O objeto estava no cache e não excedeu sua idade máxima.
+* TCP_MISS: Servido do servidor de origem. O objeto não estava no cache e a resposta voltou para a origem.
+* TCP_EXPIRED _ MISS: Servido do servidor de origem após revalidação com a origem. O objeto estava no cache, mas tinha excedido sua idade máxima. A revalidação com a origem resultou na substituição do objeto por uma nova resposta da origem.
+* TCP_EXPIRED _ HIT: Servido do Edge Após revalidação com a origem. O objeto estava no cache mas excedeu sua idade máxima. Uma revalidação com o servidor de origem resultou na não modificação do objeto do cache.
 
 ### <a name="full-list-of-cache-statuses"></a>Lista completa de status do cache
 * TCP_HIT - esse status é relatado quando uma solicitação é servida diretamente do POP para o cliente. Um ativo é servido imediatamente de um POP quando é armazenado em cache no POP mais próximo ao cliente e tem uma TTL (vida útil) válida. O TTL é determinado pelos seguintes cabeçalhos de resposta:
@@ -97,16 +97,16 @@ Para reduzir correspondências de cache expiradas, defina um ativo `max-age` com
   * Cache-Control: período máximo s
   * Cache-Control: período máximo
   * Expira
-* TCP_MISS: esse status indica que uma versão armazenada em cache do ativo solicitado não foi encontrada no POP mais próximo ao cliente. O ativo é solicitado de um servidor de origem ou de um servidor de escudo de origem. Se o servidor de origem ou o servidor de escudo de origem retornar um ativo, ele será servido ao cliente e armazenado em cache no cliente e no servidor de borda. Caso contrário, será retornado um código de status diferente de 200 (por exemplo, 403 Proibido ou 404 Não encontrado).
-* TCP_EXPIRED _HIT: esse status é relatado quando uma solicitação que direciona um ativo com uma TTL expirada foi servida diretamente do POP ao cliente. Por exemplo, quando a idade máxima do ativo tiver expirado. 
+* TCP_MISS: Este status indica que uma versão em cache do ativo solicitado não foi encontrada no POP mais próximo ao cliente. O ativo é solicitado de um servidor de origem ou de um servidor de escudo de origem. Se o servidor de origem ou o servidor de escudo de origem retornar um ativo, ele será servido ao cliente e armazenado em cache no cliente e no servidor de borda. Caso contrário, será retornado um código de status diferente de 200 (por exemplo, 403 Proibido ou 404 Não encontrado).
+* TCP_EXPIRED_HIT: Esse status é relatado quando uma solicitação que direciona um ativo com uma TTL expirada foi servida diretamente do POP ao cliente. Por exemplo, quando a idade máxima do ativo tiver expirado. 
   
    Normalmente, uma solicitação expirada resulta em uma solicitação de revalidação para o servidor de origem. Para que um status TCP_EXPIRED _HIT ocorra, o servidor de origem deverá indicar que não há uma versão mais recente do ativo. Normalmente, essa situação resulta em uma atualização dos cabeçalhos Cache-Control e Expires do ativo.
-* TCP_EXPIRED _MISS: esse status é relatado quando uma versão mais recente de um ativo em cache expirado é servida do POP ao cliente. Esse status ocorrerá quando a TTL de um ativo armazenado em cache tiver expirado (por exemplo, idade máxima expirada) e o servidor de origem retornar uma versão mais recente desse ativo. Essa nova versão do ativo é servida para o cliente em vez da versão armazenada em cache. Além disso, ela é armazenada em cache no servidor de borda e no cliente.
-* CONFIG_NOCACHE: esse status indica que uma configuração específica do cliente no nosso POP do edge impediu que o ativo fosse armazenado em cache.
+* TCP_EXPIRED MISS: Esse status é relatado quando uma versão mais recente de um ativo em cache expirado é servida do POP ao cliente. Esse status ocorrerá quando a TTL de um ativo armazenado em cache tiver expirado (por exemplo, idade máxima expirada) e o servidor de origem retornar uma versão mais recente desse ativo. Essa nova versão do ativo é servida para o cliente em vez da versão armazenada em cache. Além disso, ela é armazenada em cache no servidor de borda e no cliente.
+* CONFIG_NOCACHE: Este status indica que uma configuração específica do cliente POP do edge impediu que o ativo fosse armazenado em cache.
 * NONE - esse status indica que uma verificação de atualização de conteúdo do cache não foi executada.
-* TCP_ CLIENT_REFRESH _MISS: esse status é relatado quando um cliente HTTP, por exemplo, o navegador, força um POP do edge a recuperar uma nova versão de um ativo obsoleto do servidor de origem. Por padrão, os servidores impedem que um cliente HTTP force os servidores do edge a recuperar uma nova versão do ativo do servidor de origem.
-* TCP_ PARTIAL_HIT: esse status é relatado quando uma solicitação de intervalo de bytes resulta em um acerto de um ativo parcialmente armazenado em cache. O intervalo de bytes solicitado é servido imediatamente do POP ao cliente.
-* UNCACHEABLE: esse status é relatado quando os cabeçalhos `Cache-Control` e `Expires` de um ativo indicam que ele não deve ser armazenado em cache em um POP ou pelo cliente HTTP. Esses tipos de solicitações são servidos do servidor de origem.
+* TCP_CLIENT_REFRESH_MISS: Esse status é relatado quando um cliente HTTP, como um navegador, força um POP de borda a recuperar uma nova versão de um ativo obsoleto do servidor de origem. Por padrão, os servidores impedem que um cliente HTTP force os servidores do edge a recuperar uma nova versão do ativo do servidor de origem.
+* TCP_PARTIAL_HIT: Esse status é relatado quando uma solicitação de intervalo de bytes resulta em um acerto de um ativo parcialmente armazenado em cache. O intervalo de bytes solicitado é servido imediatamente do POP ao cliente.
+* UNCACHEABLE: Esse status é relatado quando um ativo `Cache-Control` e `Expires` cabeçalhos indicam que ele deve não ser armazenado em cache em um POP ou pelo cliente HTTP. Esses tipos de solicitações são servidos do servidor de origem.
 
 ## <a name="cache-hit-ratio"></a>Taxa de Acertos do Cache
 Este relatório indica a porcentagem de solicitações em cache que foram servidas diretamente do cache.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan, dwgeo
 ms.openlocfilehash: 31da745727d567e1b3b85b3508df368d78ad84a0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002656"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60557234"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Streaming de FairPlay Offline para iOS 
 

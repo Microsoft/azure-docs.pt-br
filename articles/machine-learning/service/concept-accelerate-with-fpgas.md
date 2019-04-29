@@ -12,11 +12,11 @@ ms.reviewer: jmartens
 ms.date: 1/10/2019
 ms.custom: seodec18
 ms.openlocfilehash: 716de6d491be753c5c32c0a2774404140010f72c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823307"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821235"
 ---
 # <a name="what-are-fpgas-and-project-brainwave"></a>O que são FPGAs e o Project Brainwave?
 
@@ -83,7 +83,7 @@ Para começar a implantar modelos DNN treinados em FPGAs na nuvem do Azure, conf
 
 Confira estes vídeos e blogs:
 
-+ [Hardware em hiperescala: ML em escala no Azure + FPGA: Build 2018 (vídeo)](https://www.youtube.com/watch?v=BMgQAHIx2eY)
++ [Hardware da Hiperescala: ML em escala no Azure + FPGA: Build 2018 (vídeo)](https://www.youtube.com/watch?v=BMgQAHIx2eY)
 
 + [Por dentro da nuvem configurável baseada em FPGA da Microsoft (vídeo)](https://channel9.msdn.com/Events/Build/2017/B8063)
 

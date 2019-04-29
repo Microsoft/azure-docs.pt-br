@@ -9,11 +9,11 @@ ms.date: 04/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
 ms.openlocfilehash: d0802cfcf05874044b6e116ba194c16a79f9d309
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59550127"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60541584"
 ---
 Esta seção fornece informações sobre as gerações anteriores de tamanhos de máquina virtual. Esses tamanhos ainda podem ser usados, mas as gerações mais recentes estão disponíveis. 
 
@@ -43,9 +43,9 @@ A série Fs fornece todas as vantagens da série F, além do armazenamento Premi
 
 ACU: 210 - 250
 
-Armazenamento Premium:  Suportado
+Armazenamento Premium:  Com suporte
 
-Cache de Armazenamento Premium:  Suportado
+Cache de Armazenamento Premium:  Com suporte
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência de disco sem cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -67,7 +67,7 @@ A série Ls não é compatível com a criação de um cache local para aumentar 
 
 ACU: 180-240
 
-Armazenamento Premium:  Suportado
+Armazenamento Premium:  Com suporte
 
 Cache de Armazenamento Premium:  Sem suporte
  

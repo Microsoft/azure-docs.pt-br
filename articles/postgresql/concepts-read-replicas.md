@@ -1,17 +1,18 @@
 ---
 title: Réplicas de leitura no Banco de Dados do Azure para PostgreSQL
 description: Este artigo descreve o recurso de réplica de leitura no Banco de Dados do Azure para PostgreSQL.
-author: rachel-msft
-ms.author: raagyema
+author: WenJason
+ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/01/2019
+origin.date: 04/01/2019
+ms.date: 04/22/2019
 ms.openlocfilehash: f340f1e42b6993a1f834ab05570c669d4241222b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789967"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564350"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>Réplicas de leitura no Banco de Dados do Azure para PostgreSQL
 
@@ -50,7 +51,7 @@ A réplica herda a conta do administrador do servidor mestre. Todas as contas de
 Você pode se conectar à réplica usando seu nome de host e uma conta de usuário válida, assim como faria em um servidor regular do Banco de Dados do Azure para PostgreSQL. Para um servidor chamado **myreplica** com o nome de usuário admin **myadmin**, você pode se conectar à réplica usando o psql:
 
 ```
-psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
+psql -h myreplica.postgres.database.chinacloudapi.cn -U myadmin@myreplica -d postgres
 ```
 
 No prompt, insira a senha da conta de usuário.
@@ -125,5 +126,5 @@ Se você interromper a replicação entre um servidor mestre e uma réplica de l
 ### <a name="deleted-master-and-standalone-servers"></a>Servidores mestre e autônomo excluídos
 Quando um servidor mestre é excluído, todas as suas réplicas de leitura se tornam servidores autônomos. As réplicas são reiniciadas para refletir essa alteração.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba como [criar e gerenciar réplicas de leitura no portal do Azure](howto-read-replicas-portal.md).

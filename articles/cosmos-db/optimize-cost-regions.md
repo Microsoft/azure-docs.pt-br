@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.openlocfilehash: 012eacb172acfdeb0b82343c484c664a3f75310e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876695"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60929297"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Otimizar o custo de várias regiões no Azure Cosmos DB
 
@@ -49,7 +49,7 @@ Se você tiver uma utilização ineficaz, por exemplo, uma ou mais regiões subu
 
 3. Monitore a atividade em suas regiões e você pode adicionar e remover regiões sob demanda para dimensionar sua taxa de transferência de leitura e gravação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 A seguir, você poderá saber mais sobre a otimização de custos no Azure Cosmos DB nos seguintes artigos:
 

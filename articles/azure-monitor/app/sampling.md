@@ -14,11 +14,11 @@ ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
 ms.openlocfilehash: b35b0c66c29805d9cd7ecd00ffaad4fc1cfe253b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046574"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60653783"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -485,7 +485,7 @@ O SDK do lado do cliente (JavaScript) participa da amostragem de taxa fixa em co
 
 *Telemetria pode ser exemplificada mais de uma vez?*
 
-*  Não. SamplingTelemetryProcessors Ignorar itens da amostragem considerações, se o item já é obtida como amostra. O mesmo é verdadeiro para amostragem de ingestão como bem, que aplicará a amostragem a esses itens já obtida como amostras no SDK em si.'
+* Não. SamplingTelemetryProcessors Ignorar itens da amostragem considerações, se o item já é obtida como amostra. O mesmo é verdadeiro para amostragem de ingestão como bem, que aplicará a amostragem a esses itens já obtida como amostras no SDK em si.'
 
 *Por que a amostragem não se trata apenas de “coletar X% de cada tipo de telemetria”?*
 
@@ -526,6 +526,6 @@ O SDK do lado do cliente (JavaScript) participa da amostragem de taxa fixa em co
     }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [filtragem](../../azure-monitor/app/api-filtering-sampling.md) pode fornecer um controle mais restrito do que o SDK envia.

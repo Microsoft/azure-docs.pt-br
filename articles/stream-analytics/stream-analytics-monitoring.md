@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: ce6fc0a90ad093a6bba5a4720777e409202c73ea
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439818"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61479316"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Noções básicas sobre o monitoramento de trabalhos do Stream Analytics e como monitorar consultas
 
@@ -36,16 +36,16 @@ A janela será exibida conforme mostrado:
 | Solicitações de função com falha | Número de chamadas à função Azure Machine Learning com falha (se presente). |
 | Eventos de função        | Número de eventos enviados à função Azure Machine Learning (se presente). |
 | Solicitações de função      | Número de chamadas à função Azure Machine Learning (se presente). |
-| Erros de Desserialização de Entrada       | Número de eventos de entrada que não puderam ser desserializados.  |
+| Erros de desserialização de entrada       | Número de eventos de entrada que não puderam ser desserializados.  |
 | Bytes de evento de entrada      | Quantidade de dados recebidos pelo trabalho do Stream Analytics, em bytes. Isso pode ser usado para validar que os eventos estão sendo enviados para a fonte de entrada. |
 | Eventos de entrada           | Número de registros desserializados nos eventos de entrada. |
 | Fontes de Entrada Recebidas       | Número de eventos recebidos pelo trabalho. Isso pode ser usado para validar que os eventos estão sendo enviados para a fonte de entrada. |
-| Eventos de entrada tardia      | Eventos que chegaram mais tarde do que a janela de tolerância de chegada tardia configurada. Saiba mais sobre [Considerações sobre a ordem dos eventos do Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md). |
+| Eventos de entrada atrasados      | Eventos que chegaram mais tarde do que a janela de tolerância de chegada tardia configurada. Saiba mais sobre [Considerações sobre a ordem dos eventos do Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md). |
 | Eventos fora de ordem    | Número de eventos recebidos fora de ordem que foram descartados ou que receberam um carimbo de data/hora ajustado, com base na Política de ordenação de evento. Isso pode ser afetado pela configuração da definição da Janela de tolerância fora de ordem. |
 | Eventos de saída          | Quantidade de dados enviados pelo trabalho do Stream Analytics para o destino de saída, em números de evento. |
 | Erros de tempo de execução         | Número total de erros relacionados ao processamento de consulta (exceto os erros encontrados durante a ingestão de eventos ou a saída de resultados) |
 | % de utilização do SU       | A utilização das unidades de Streaming é atribuída a um trabalho na guia Escala do trabalho. Se esse indicador alcançar 80% ou acima, há grande probabilidade de que o processamento de eventos se atrase ou pare. |
-| Atraso de Marca d'água       | O atraso máximo de marca d'água em todas as partições de todas as saídas no trabalho. |
+| Atraso de Marca-d'água       | O atraso máximo de marca d'água em todas as partições de todas as saídas no trabalho. |
 
 É possível usar essas métricas para [monitorar o desempenho de seu trabalho do Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor). 
 
@@ -59,7 +59,7 @@ Você pode ajustar o tipo de gráfico, as métricas mostradas e o intervalo de h
 Outro ponto de dados interessante para monitorar o trabalho é a hora da última saída, mostrada na página Visão geral.
 Essa é o tempo de aplicação (ou seja, a hora usando o carimbo de data/hora dos dados de evento) da saída mais recente do trabalho.
 
-## <a name="get-help"></a>Obtenha ajuda
+## <a name="get-help"></a>Obter ajuda
 Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas

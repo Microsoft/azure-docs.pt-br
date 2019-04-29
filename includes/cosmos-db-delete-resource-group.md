@@ -1,27 +1,27 @@
 ---
-author: SnehaGunda
+author: rockboyfor
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: sngun
-ms.openlocfilehash: 30efb963f34ff567c70d845a4a8891ead285b178
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+origin.date: 03/23/2019
+ms.date: 04/15/2019
+ms.author: v-yeche
+ms.openlocfilehash: e7fc8f57c0fe290809354ce19fe92337178a84b6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51571745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60890192"
 ---
-Se você não pretende continuar a usar este aplicativo, exclua todos os recursos criados por esse início rápido com as seguintes etapas para não incorrer em alterações:
+Quando você concluir seu aplicativo Web e a conta do Azure Cosmos DB, poderá excluir os recursos do Azure criados para não incorrer em mais cobranças. Para excluir os recursos:
 
-1. No portal do Azure, selecione **Grupos de recursos** na extremidade esquerda, depois selecione o recurso de grupo que você criou.  
+1. No portal do Azure, selecione **Grupos de recursos** no canto esquerdo. Se o menu esquerdo estiver recolhido, selecione ![Expandir botão](./media/cosmos-db-delete-resource-group/expand.png) para expandi-lo.
 
-    Se o menu à esquerda estiver recolhido, clique no ![botão Expandir](./media/cosmos-db-delete-resource-group/expand.png) para expandi-lo.
+2. Selecione o grupo de recursos que você criou para este início rápido.  
 
-   ![Métricas no portal do Azure](./media/cosmos-db-delete-resource-group/delete-resources-select.png)
+    ![Métricas no portal do Azure](./media/cosmos-db-delete-resource-group/delete-resources-select.png)
 
-2. Na nova janela, selecione o grupo de recursos e clique em **Excluir grupo de recursos**.
+2. Na nova janela, selecione **Excluir grupo de recursos**.
 
-   ![Métricas no portal do Azure](./media/cosmos-db-delete-resource-group/delete-resources.png)   
+    ![Métricas no portal do Azure](./media/cosmos-db-delete-resource-group/delete-resources.png)   
 
-3. Na nova janela, digite o nome do grupo de recursos a ser excluído, depois clique em **Excluir**.
-
+3. Na próxima janela, digite o nome do grupo de recursos a ser excluído e selecione **Excluir**.

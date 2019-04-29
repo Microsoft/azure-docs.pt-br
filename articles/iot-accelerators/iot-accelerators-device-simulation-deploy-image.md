@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: c1f321f452b65016c11cb66d08ebab108509cc62
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285318"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61448385"
 ---
 # <a name="deploy-a-custom-device-simulation-docker-image"></a>Implantar uma imagem personalizada do Docker da Simulação de Dispositivo
 

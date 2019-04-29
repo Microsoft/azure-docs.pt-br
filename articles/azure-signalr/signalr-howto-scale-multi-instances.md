@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: zhshang
 ms.openlocfilehash: e284a0492774e02cab79db6d9006c1718a7fcfc9
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58623177"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60809140"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Como dimensionar o SignalR Service com várias instâncias?
 O SDK mais recente do serviço SignalR dá suporte a vários pontos de extremidade para instâncias de SignalR Service. Você pode usar esse recurso para dimensionar as conexões simultâneas, ou usá-lo para mensagens entre regiões.

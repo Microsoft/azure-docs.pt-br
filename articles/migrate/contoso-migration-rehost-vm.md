@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
 ms.openlocfilehash: 4a6ed900753747c1d5bf394aced54da11177320f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118384"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60668077"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Migração para Contoso: Hospedar novamente um aplicativo local para VMs do Azure
 
@@ -171,7 +171,7 @@ Eles configuram estes da seguinte forma:
    - A conta de armazenamento deve estar na mesma região do cofre de Serviços de Recuperação.
    - Eles usam uma conta de propósito geral, com armazenamento padrão e replicação de LRS.
 
-     ![Armazenamento do Site Recovery](./media/contoso-migration-rehost-vm/asr-storage.png)
+     ![Armazenamento de recuperação de site](./media/contoso-migration-rehost-vm/asr-storage.png)
 
 3. Criar um cofre – com a rede e a conta de armazenamento prontas, a Contoso agora cria um cofre dos Serviços de Recuperação (ContosoMigrationVault) e coloca-o no grupo de recursos ContosoFailoverRG na região Leste dos EUA 2 primária.
 
@@ -182,7 +182,7 @@ Eles configuram estes da seguinte forma:
 [Saiba mais sobre](https://docs.microsoft.com/azure/site-recovery/tutorial-prepare-azure) como configurar o Azure para o Site Recovery.
 
 
-## <a name="step-2-prepare-on-premises-vmware-for-site-recovery"></a>Etapa 2: Preparar o VMware local para o Site Recovery
+## <a name="step-2-prepare-on-premises-vmware-for-site-recovery"></a>Etapa 2: Preparar VMware local para Site Recovery
 
 Aqui está o que a Contoso prepara localmente:
 

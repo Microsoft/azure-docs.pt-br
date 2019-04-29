@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
 ms.openlocfilehash: f112bdf9eacf51852659ab49a5673b0c8bfb0e46
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997557"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61438101"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associações do Microsoft Graph do Azure Functions
 
@@ -207,7 +207,7 @@ Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atri
 
 ### <a name="auth-token---configuration"></a>Token de autenticação - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `Token`.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `Token` atributo.
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
@@ -342,7 +342,7 @@ Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atri
 
 ### <a name="excel-input---configuration"></a>Entrada do Excel - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `Excel`.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `Excel` atributo.
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
@@ -361,7 +361,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 Esta associação exige as seguintes permissões do Azure AD:
 
-|Recurso|Permissão|
+|Resource|Permissão|
 |--------|--------|
 |Microsoft Graph|Ler arquivos de usuário|
 
@@ -504,7 +504,7 @@ Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atri
 
 ### <a name="excel-output---configuration"></a>Saída do Excel - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `Excel`.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `Excel` atributo.
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
@@ -524,7 +524,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 Esta associação exige as seguintes permissões do Azure AD:
 
-|Recurso|Permissão|
+|Resource|Permissão|
 |--------|--------|
 |Microsoft Graph|Ter acesso completo aos arquivos do usuário|
 
@@ -650,7 +650,7 @@ Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atri
 
 ### <a name="file-input---configuration"></a>Entrada do arquivo - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `OneDrive`.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `OneDrive` atributo.
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
@@ -667,14 +667,14 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 Esta associação exige as seguintes permissões do Azure AD:
 
-|Recurso|Permissão|
+|Resource|Permissão|
 |--------|--------|
 |Microsoft Graph|Ler arquivos de usuário|
 
 A associação expõe os seguintes tipos a funções .NET:
 - byte[]
 - Fluxo
-- cadeia de caracteres
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -798,7 +798,7 @@ Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atri
 
 ### <a name="file-output---configuration"></a>Saída do arquivo - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `OneDrive`.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `OneDrive` atributo.
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
@@ -815,14 +815,14 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 Esta associação exige as seguintes permissões do Azure AD:
 
-|Recurso|Permissão|
+|Resource|Permissão|
 |--------|--------|
 |Microsoft Graph|Ter acesso completo aos arquivos do usuário|
 
 A associação expõe os seguintes tipos a funções .NET:
 - byte[]
 - Fluxo
-- cadeia de caracteres
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -949,7 +949,7 @@ Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atri
 
 ### <a name="outlook-output---configuration"></a>Saída do Outlook - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `Outlook`.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `Outlook` atributo.
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
@@ -965,14 +965,14 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 Esta associação exige as seguintes permissões do Azure AD:
 
-|Recurso|Permissão|
+|Resource|Permissão|
 |--------|--------|
 |Microsoft Graph|Enviar email como usuário|
 
 A associação expõe os seguintes tipos a funções .NET:
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
-- cadeia de caracteres
+- string
 - Tipos de objetos personalizados (usando o model binding estrutural)
 
 
@@ -1092,7 +1092,7 @@ Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atri
 
 ### <a name="webhook-trigger---configuration"></a>Gatilho de webhook - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `GraphWebHookTrigger`.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `GraphWebHookTrigger` atributo.
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
@@ -1244,7 +1244,7 @@ Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atri
 
 ### <a name="webhook-input---configuration"></a>Entrada de webhook - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `GraphWebHookSubscription`.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `GraphWebHookSubscription` atributo.
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
@@ -1385,7 +1385,7 @@ Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atri
 
 ### <a name="webhook-output---configuration"></a>Saída de webhook - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `GraphWebHookSubscription`.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `GraphWebHookSubscription` atributo.
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
@@ -1402,7 +1402,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 ### <a name="webhook-output---usage"></a>Saída de webhook - uso
 
 A associação expõe os seguintes tipos a funções .NET:
-- cadeia de caracteres
+- string
 - Microsoft.Graph.Subscription
 
 

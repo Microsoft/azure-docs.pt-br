@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: alkohli
 ms.openlocfilehash: 68f8ad903f967812c4a416c732b35fa1712404cd
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998559"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60756588"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-edge"></a>Usar o portal do Azure para gerenciar usuários no Azure Data Box Edge
 

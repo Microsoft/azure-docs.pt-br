@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: ec16e6daec099adbede625c5ec6fe6909059143b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116738"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60906887"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Guia estratégico de segurança na Central de Segurança do Azure (versão prévia)
 Este documento ensina a usar guias estratégicos de segurança na Central de Segurança do Azure para responder a problemas de segurança.

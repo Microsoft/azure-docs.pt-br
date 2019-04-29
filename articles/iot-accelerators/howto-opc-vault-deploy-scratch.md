@@ -9,15 +9,15 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: dedba42d7e4b8d603d97522cf0173f41efd20b3a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496889"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450322"
 ---
 # <a name="deploy-opc-vault-from-scratch"></a>Implantar o cofre OPC do zero
 
-Cofre de OPC é um microsserviço que pode configurar, registrar e gerenciar o ciclo de vida de certificado para o servidor OPC UA e aplicativos de cliente na nuvem. Este artigo mostra como implantar o cofre do OPC do zero.
+O OPC Vault é um microsserviço que pode configurar, registrar e gerenciar o ciclo de vida do certificado para aplicativos servidor e cliente da UA de OPC na nuvem. Este artigo mostra como implantar o cofre do OPC do zero.
 
 ## <a name="configuration-and-environment-variables"></a>Configuração e variáveis de ambiente
 

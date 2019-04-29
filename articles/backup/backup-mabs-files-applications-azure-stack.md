@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
 ms.openlocfilehash: 67d79f2aa41bab8a14d693098538d22ffeb05a4e
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301468"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848588"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Fazer backup no Microsoft Azure Stack
 É possível usar o Backup do Azure para proteger (ou fazer backup) de arquivos e aplicativos no Azure Stack. Para fazer backup de arquivos e aplicativos, instale o Servidor de Backup do Microsoft Azure como uma máquina virtual em execução no Azure Stack. Você pode proteger os arquivos no servidor do Azure Stack na mesma rede virtual. Após instalar o Servidor de Backup do Azure, adicione os discos do Azure para aumentar o armazenamento local disponível para dados de backup de curto prazo. O Servidor de Backup do Azure usa o armazenamento do Azure para retenção de longo prazo.
@@ -51,13 +51,13 @@ Para configurar o Servidor de Backup do Azure para proteger máquinas virtuais d
 
     A Microsoft recomenda colocar todos os dados que compartilharão uma política de proteção em um grupo de proteção. Para obter informações completas sobre planejamento e implantação de grupos de proteção, consulte o artigo do System Center DPM, [Implantar Grupos de Proteção](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
 
-4. Na tela **Selecionar Método de Proteção de Dados**, digite um nome para o grupo de proteção. Selecione a caixa de seleção para **Desejo proteção a curto prazo usando:** e **Desejo proteção online**. Clique em **Próximo**.
+4. Na tela **Selecionar Método de Proteção de Dados**, digite um nome para o grupo de proteção. Selecione a caixa de seleção para **Desejo proteção a curto prazo usando:** e **Desejo proteção online**. Clique em **Avançar**.
 
     ![O assistente de Novo Grupo de Proteção se abre](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
     Para selecionar **Desejo proteção online**, primeiro você deve selecionar **Desejo proteção a curto prazo usando:** Disk. O Servidor de Backup do Azure não protege em fita, então o disco é a única opção de proteção a curto prazo.
 
-5. Na tela **Especificar Objetivos De Curto Prazo**, escolha por quanto tempo manter os pontos de recuperação salvos em disco e quando salvar backups incrementais. Clique em **Próximo**.
+5. Na tela **Especificar Objetivos De Curto Prazo**, escolha por quanto tempo manter os pontos de recuperação salvos em disco e quando salvar backups incrementais. Clique em **Avançar**.
 
     > [!IMPORTANT]
     > **Não** retenha os dados de recuperação operacional (backup) nos discos anexados ao Servidor de Backup do Azure por mais de cinco dias.

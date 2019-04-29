@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
 ms.openlocfilehash: 200f9c5df0d4165341e38ca9d4dd85ad75c8403c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010355"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60675516"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Migração para Contoso: Hospede novamente um aplicativo Linux local para VMs do Azure
 

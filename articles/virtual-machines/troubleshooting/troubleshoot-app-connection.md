@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 81535d51617a419174331dbf9b18ea558913dfa9
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413155"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60922022"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Solucionar problemas de conectividade do aplicativo em máquinas virtuais no Azure
 
@@ -69,7 +69,7 @@ Para computadores cliente que acessam o aplicativo em uma conexão VPN site a si
 
 Para determinar a origem do problema e sua correção, siga estas etapas.
 
-## <a name="step-1-access-application-from-target-vm"></a>Etapa 1: Acessar o aplicativo da VM de destino
+## <a name="step-1-access-application-from-target-vm"></a>Etapa 1: Aplicativo de acesso da VM de destino
 Tente acessar o aplicativo com o programa cliente apropriado na VM em que ele está sendo executado. Use o nome de host local, o endereço IP local ou o endereço de loopback (127.0.0.1).
 
 ![iniciar o aplicativo diretamente da VM](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
@@ -85,7 +85,7 @@ Se não conseguir acessar o aplicativo, verifique as seguintes configurações:
 
 Em máquinas virtuais baseadas em Linux e Windows, use o comando **netstat -a** para mostrar as portas de escuta ativas. Examine a saída para as portas esperadas no qual seu aplicativo deve estar escutando. Reinicie o aplicativo ou configure-o para usar as portas esperadas, como necessário e tente acessar o aplicativo localmente outra vez.
 
-## <a id="step2"></a>Etapa 2: Acessar o aplicativo de outra VM na mesma rede virtual
+## <a id="step2"></a>Etapa 2: Aplicativo de acesso de outra VM na mesma rede virtual
 Tente acessar o aplicativo de uma VM diferente, mas na mesma rede virtual, usando o nome de host da VM ou seu endereço IP público, privado ou do provedor atribuído ao Azure. Em máquinas virtuais criadas usando o modelo de implantação clássica, não use o endereço IP público do serviço de nuvem.
 
 ![Iniciar o aplicativo de uma VM diferente](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
@@ -105,7 +105,7 @@ Se não conseguir acessar o aplicativo, verifique as seguintes configurações:
 
 Em uma máquina virtual baseada no Windows, use o Firewall do Windows com Segurança avançada para determinar se as regras de firewall excluem o tráfego de entrada e de saída do seu aplicativo.
 
-## <a id="step3"></a>Etapa 3: Acessar o aplicativo de fora da rede virtual
+## <a id="step3"></a>Etapa 3: Aplicativo de acesso de fora da rede virtual
 Tente acessar o aplicativo em um computador fora da rede virtual em que está a VM na qual o aplicativo está sendo executado. Use uma rede diferente do computador cliente original.
 
 ![Iniciar o aplicativo em um computador fora da rede virtual](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)

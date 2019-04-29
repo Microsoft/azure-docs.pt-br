@@ -17,11 +17,11 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003442"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60593790"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Tutorial: Configurar grupos de disponibilidade Sempre ativo na VM do Azure manualmente
 
@@ -39,12 +39,12 @@ O tutorial supõe que você tem uma compreensão básica dos Grupos de Disponibi
 
 A tabela a seguir lista os pré-requisitos que precisam ser concluídos antes de iniciar este tutorial:
 
-|  |Requisito |Descrição |
+|  |Requisito |DESCRIÇÃO |
 |----- |----- |----- |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Dois servidores SQL | -Em um conjunto de disponibilidade do Azure <br/> -Em um único domínio <br/> -Com o recurso Cluster de Failover instalado |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Compartilhamento de arquivos para a testemunha do cluster |  
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server | Conta do domínio |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta do serviço SQL Server Agent | Conta de domínio |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta do serviço SQL Server Agent | Conta do domínio |  
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Portas de firewall abertas | - SQL Server: **1433** para instância padrão <br/> - Ponto de extremidade de espelhamento de banco de dados: **5022** ou qualquer porta disponível <br/> - Investigação de integridade de endereço IP do balanceador de carga do grupo de disponibilidade: **59999** ou qualquer porta disponível <br/> - Investigação de integridade de endereço IP do balanceador de carga do núcleo do cluster: **58888** ou qualquer porta disponível |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Adicionar o recurso Cluster de Failover à VM | Os dois SQL Servers precisam desse recurso |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta do domínio de instalação | - Administrador local em cada SQL Server <br/> - Membro da função de servidor fixa sysadmin do SQL Server para cada instância do SQL Server  |
@@ -362,7 +362,7 @@ Um Azure Load Balancer pode ser um Standard Load Balancer ou um Balanceador de C
    | **Tipo** |Interna |
    | **Rede virtual** |Use o nome da rede virtual do Azure. |
    | **Sub-rede** |Use o nome da sub-rede em que a máquina virtual está.  |
-   | **Atribuição de endereço IP** |Static |
+   | **Atribuição de endereço IP** |estático |
    | **Endereço IP** |Use um endereço disponível da sub-rede. Use este endereço para o ouvinte do grupo de disponibilidade. Observe que isso é diferente do endereço IP de cluster.  |
    | **Assinatura** |Use a mesma assinatura da máquina virtual. |
    | **Localidade** |Use o mesmo local da máquina virtual. |
@@ -400,9 +400,9 @@ Para configurar o balanceador de carga, você precisará criar um pool de back-e
 
 1. Defina a investigação de integridade do ouvinte, conforme a seguir:
 
-   | Configuração | Descrição | Exemplo
+   | Configuração | DESCRIÇÃO | Exemplo
    | --- | --- |---
-   | **Nome** | Texto | SQLAlwaysOnEndPointProbe |
+   | **Nome** | Text | SQLAlwaysOnEndPointProbe |
    | **Protocolo** | Escolher TCP | TCP |
    | **Porta** | Qualquer porta não utilizada | 59999 |
    | **Intervalo**  | O tempo entre as tentativas de investigação, em segundos |5 |
@@ -416,9 +416,9 @@ Para configurar o balanceador de carga, você precisará criar um pool de back-e
 
 1. Defina as regras de balanceamento de carga do ouvinte, conforme a seguir.
 
-   | Configuração | Descrição | Exemplo
+   | Configuração | DESCRIÇÃO | Exemplo
    | --- | --- |---
-   | **Nome** | Texto | SQLAlwaysOnEndPointListener |
+   | **Nome** | Text | SQLAlwaysOnEndPointListener |
    | **Endereço IP de front-end** | Escolher um endereço |Use o endereço que você criou ao criar o balanceador de carga. |
    | **Protocolo** | Escolher TCP |TCP |
    | **Porta** | Usar a porta para o ouvinte do grupo de disponibilidade | 1433 |
@@ -426,7 +426,7 @@ Para configurar o balanceador de carga, você precisará criar um pool de back-e
    | **Investigação** |O nome especificado para o teste | SQLAlwaysOnEndPointProbe |
    | **Persistência de sessão** | Lista suspensa | **Nenhum** |
    | **Tempo limite de ociosidade** | Minutos para manter uma conexão TCP aberta | 4 |
-   | **IP flutuante (retorno de servidor direto)** | |Habilitada |
+   | **IP flutuante (retorno de servidor direto)** | |Enabled |
 
    > [!WARNING]
    > O retorno de servidor direto é definido durante a criação. Ele não pode ser alterado.
@@ -443,9 +443,9 @@ O endereço IP do WSFC também precisa estar no balanceador de carga.
 
 1. Defina a investigação de integridade do endereço IP principal de cluster do WSFC, conforme a seguir:
 
-   | Configuração | Descrição | Exemplo
+   | Configuração | DESCRIÇÃO | Exemplo
    | --- | --- |---
-   | **Nome** | Texto | WSFCEndPointProbe |
+   | **Nome** | Text | WSFCEndPointProbe |
    | **Protocolo** | Escolher TCP | TCP |
    | **Porta** | Qualquer porta não utilizada | 58888 |
    | **Intervalo**  | O tempo entre as tentativas de investigação, em segundos |5 |
@@ -457,9 +457,9 @@ O endereço IP do WSFC também precisa estar no balanceador de carga.
 
 1. Defina as regras de balanceamento de carga de endereço IP do núcleo do cluster, conforme a seguir.
 
-   | Configuração | Descrição | Exemplo
+   | Configuração | DESCRIÇÃO | Exemplo
    | --- | --- |---
-   | **Nome** | Texto | WSFCEndPoint |
+   | **Nome** | Text | WSFCEndPoint |
    | **Endereço IP de front-end** | Escolher um endereço |Use o endereço que você criou quando configurou o endereço IP do WSFC. Isso é diferente do endereço IP do ouvinte |
    | **Protocolo** | Escolher TCP |TCP |
    | **Porta** | Use a porta para o endereço IP de cluster. Essa é uma porta disponível que não é usada para a porta de investigação do ouvinte. | 58888 |
@@ -467,7 +467,7 @@ O endereço IP do WSFC também precisa estar no balanceador de carga.
    | **Investigação** |O nome especificado para o teste | WSFCEndPointProbe |
    | **Persistência de sessão** | Lista suspensa | **Nenhum** |
    | **Tempo limite de ociosidade** | Minutos para manter uma conexão TCP aberta | 4 |
-   | **IP flutuante (retorno de servidor direto)** | |Habilitada |
+   | **IP flutuante (retorno de servidor direto)** | |Enabled |
 
    > [!WARNING]
    > O retorno de servidor direto é definido durante a criação. Ele não pode ser alterado.

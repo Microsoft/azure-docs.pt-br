@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: d3d1769766053b513a98df153cb635ae148f26b1
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
-ms.translationtype: HT
+ms.openlocfilehash: fc35077e00bc6322a815a52ca6ab3571a4e06d3d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867363"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60937375"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Backup do Azure do SAP HANA no nível do arquivo
 
@@ -26,7 +26,7 @@ ms.locfileid: "37867363"
 
 Este artigo faz parte de uma série dividida em três partes com artigos relacionados ao backup do SAP HANA. [Guia de backup do SAP HANA em máquinas virtuais do Azure](./sap-hana-backup-guide.md) fornece uma visão geral e informações sobre como começar, e [Backup do SAP HANA com base em instantâneos de armazenamento](./sap-hana-backup-storage-snapshots.md) aborda a opção de backup baseado em instantâneo de armazenamento.
 
-Diferentes tipos de VM no Azure permitem que um número diferente de VHDs sejam anexados. Os detalhes exatos estão documentados em [Tamanhos das Máquinas Virtuais do Linux no Azure](../../linux/sizes.md). Para os testes mencionados nesta documentação, usamos uma VM GS5 do Azure que permite 64 discos de dados anexados. Para sistemas SAP HANA maiores, um número significativo de discos já pode estar ocupado com arquivos de log e de dados, possivelmente em combinação com a distribuição de software para obter a taxa de transferência de E/S de disco ideal. Para obter mais detalhes sobre as configurações de disco sugeridas para implantações do SAP HANA em VMs do Azure, leia o artigo [SAP HANA no guia de operações do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations). As sugestões também incluem recomendações de espaço em disco para backups locais.
+Diferentes tipos de VM no Azure permitem que um número diferente de VHDs sejam anexados. Os detalhes exatos estão documentados em [Tamanhos de máquinas virtuais Linux no Azure](../../linux/sizes.md). Para os testes mencionados nesta documentação, usamos uma VM GS5 do Azure que permite 64 discos de dados anexados. Para sistemas SAP HANA maiores, um número significativo de discos já pode estar ocupado com arquivos de log e de dados, possivelmente em combinação com a distribuição de software para obter a taxa de transferência de E/S de disco ideal. Para obter mais detalhes sobre as configurações de disco sugeridas para implantações do SAP HANA em VMs do Azure, leia o artigo [SAP HANA no guia de operações do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations). As sugestões também incluem recomendações de espaço em disco para backups locais.
 
 No momento, não há integração de backup do SAP HANA disponível com o serviço de Backup do Azure. O modo padrão de gerenciamento de backup/restauração no nível do arquivo é com um backup baseado em arquivo via declarações do SAP HANA Studio ou do SAP HANA SQL. Confira [SAP HANA SQL e referência de exibições do sistema](https://help.sap.com/hana/SAP_HANA_SQL_and_System_Views_Reference_en.pdf) para saber mais.
 
@@ -34,9 +34,9 @@ No momento, não há integração de backup do SAP HANA disponível com o servi�
 
 Esta figura mostra a caixa de diálogo do item de menu de backup no SAP HANA Studio. Ao escolher o tipo de &quot;arquivo,&quot;, é preciso especificar um caminho no sistema de arquivos no qual o SAP HANA gravará os arquivos de backup. A restauração funciona da mesma maneira.
 
-Embora essa opção pareça simples e direta, há algumas considerações. Conforme mencionado anteriormente, uma VM do Azure tem uma limitação no número de discos de dados que podem ser anexados. Talvez não haja capacidade para armazenar arquivos de backup do SAP HANA nos sistemas de arquivos da VM, dependendo dos requisitos de tamanho do banco de dados e de taxa de transferência do disco, que podem envolver a distribuição de software entre vários discos de dados. Posteriormente, este artigo fornece várias opções para mover esses arquivos de backup e gerenciar as restrições de tamanho de arquivo e desempenho ao lidar com terabytes de dados.
+Embora essa opção pareça simples e direta, há algumas considerações. Conforme mencionado anteriormente, uma VM do Azure tem uma limitação no número de discos de dados que podem ser anexados. Talvez não haja capacidade para armazenar arquivos de backup do SAP HANA nos sistemas de arquivos da VM, dependendo dos requisitos de tamanho do banco do dedos e de taxa de transferência do disco, que podem envolver a distribuição de software entre vários discos de dados. Posteriormente, este artigo fornece várias opções para mover esses arquivos de backup e gerenciar as restrições de tamanho de arquivo e desempenho ao lidar com terabytes de dados.
 
-Outra opção, que oferece mais liberdade com relação à capacidade total, é o Armazenamento de Blobs do Azure. Embora um único blob também esteja restrito a 1 TB, a capacidade total de um único contêiner de blob é atualmente de 500 TB. Além disso, ele oferece aos clientes a opção de selecionar o chamado armazenamento de blobs &quot;estático&quot;, que tem um bom custo-benefício. Confira [Armazenamento de Blobs do Azure: camadas de armazenamento dinâmica e estática](../../../storage/blobs/storage-blob-storage-tiers.md) para obter detalhes sobre o armazenamento de blobs frio.
+Outra opção, que oferece mais liberdade com relação à capacidade total, é o Armazenamento de Blobs do Azure. Embora um único blob também esteja restrito a 1 TB, a capacidade total de um único contêiner de blob é atualmente de 500 TB. Além disso, ele oferece aos clientes a opção de selecionar o chamado armazenamento de blobs &quot;estático&quot;, que tem um bom custo-benefício. Consulte [o armazenamento de BLOBs do Azure: Camadas de armazenamento dinâmica e estática](../../../storage/blobs/storage-blob-storage-tiers.md) para obter detalhes sobre o armazenamento de BLOBs esporádico.
 
 Para obter mais segurança, use uma conta de armazenamento com replicação geográfica para armazenar os backups do SAP HANA. Confira [Replicação de Armazenamento do Azure](../../../storage/common/storage-redundancy.md) para obter mais detalhes sobre a replicação da conta de armazenamento.
 
@@ -70,7 +70,7 @@ A repetição do mesmo backup no RAID de software com distribuição nos cinco d
 
 ## <a name="copy-sap-hana-backup-files-to-azure-blob-storage"></a>Copiar arquivos de backup do SAP HANA para o Armazenamento de Blobs do Azure
 
-Outra opção para armazenar rapidamente arquivos de backup do SAP HANA é o Armazenamento de Blobs do Azure. Um único contêiner de blob tem um limite de 500 TB, que é suficiente para alguns sistemas SAP HANA menores, usando os tipos de VM M32ts, M32ls, M64ls e GS5 do Azure, para manter backups suficientes do SAP HANA. Os clientes têm a opção de armazenamento de blobs &quot;dinâmico&quot; e &quot;estático&quot; (confira [Armazenamento de Blobs do Azure: camadas de armazenamento dinâmica e estática](../../../storage/blobs/storage-blob-storage-tiers.md)).
+Outra opção para armazenar rapidamente arquivos de backup do SAP HANA é o Armazenamento de Blobs do Azure. Um único contêiner de blob tem um limite de 500 TB, que é suficiente para alguns sistemas SAP HANA menores, usando os tipos de VM M32ts, M32ls, M64ls e GS5 do Azure, para manter backups suficientes do SAP HANA. Os clientes têm a opção entre &quot;hot&quot; e &quot;frio&quot; armazenamento de BLOBs (consulte [o armazenamento de BLOBs do Azure: Camadas de armazenamento dinâmica e estática](../../../storage/blobs/storage-blob-storage-tiers.md)).
 
 Com a ferramenta blobxfer, é fácil copiar os arquivos de backup do SAP HANA diretamente no Armazenamento de Blobs do Azure.
 

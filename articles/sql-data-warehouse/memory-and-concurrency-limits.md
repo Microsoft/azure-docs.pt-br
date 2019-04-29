@@ -11,11 +11,11 @@ ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.openlocfilehash: 141112b8b6b44706a750d8a97780e018d96a5006
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890774"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61435006"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Memória e limites simultâneos para SQL Data Warehouse do Azure
 Exiba os limites de memória e simultaneidade alocados para os vários níveis de desempenho e classes de recursos no SQL Data Warehouse do Azure. Para obter mais informações e aplicar esses recursos em seu plano de gerenciamento de carga de trabalho, consulte [Classes de recursos para gerenciamento de carga de trabalho](resource-classes-for-workload-management.md). 

@@ -15,15 +15,15 @@ ms.date: 04/03/2019
 ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a2965fecd3aca17d6c4df7e49ad466377de9762
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b63118a7c5fae49edebe4ae4976a1362781ae8cf
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291616"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759782"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar os mapeamentos de atributos de provisionamento de usuário para aplicativos SaaS no Azure Active Directory
-O AD do Microsoft Azure dá suporte para provisionamento de usuário para aplicativos SaaS de terceiros, como Salesforce, Google Apps e outros. Se você habilitar o provisionamento de usuário para um aplicativo de SaaS de terceiros, o portal do Azure controla seus valores de atributo por meio de mapeamentos de atributo.
+Microsoft Azure AD oferece suporte para provisionamento de usuário para aplicativos SaaS de terceiros, como Salesforce, G Suite e outros. Se você habilitar o provisionamento de usuário para um aplicativo de SaaS de terceiros, o portal do Azure controla seus valores de atributo por meio de mapeamentos de atributo.
 
 Há um conjunto pré-configurado de atributos e mapeamentos de atributo entre objetos de usuário do Azure AD e objetos de usuário de cada aplicativo SaaS. Alguns aplicativos gerenciam outros tipos de objetos, juntamente com os usuários, como grupos.
 
@@ -84,7 +84,7 @@ Juntamente com essa propriedade, mapeamentos de atributo também dão suporte os
 
 ## <a name="editing-group-attribute-mappings"></a>Editar mapeamentos de atributos de grupo
 
-Um número selecionado de aplicativos, como ServiceNow, Box e Google Apps, dão suporte a capacidade de provisionar objetos de grupo e objetos de usuário. Objetos de grupo podem conter propriedades de grupo, como nomes de exibição e aliases de email, juntamente com os membros do grupo.
+Um número selecionado de aplicativos, como ServiceNow, Box e G Suite, suporte à capacidade de provisionar objetos de grupo e objetos de usuário. Objetos de grupo podem conter propriedades de grupo, como nomes de exibição e aliases de email, juntamente com os membros do grupo.
 
 ![ServiceNow](./media/customize-application-attributes/24.png)
 
@@ -151,7 +151,7 @@ Selecionar esta opção efetivamente forçará uma ressincronização de todos o
 * Uma prática recomendada é manter o número de alterações consecutivas aos seus mapeamentos de atributos no mínimo.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Automatizar o provisionamento/desprovisionamento de usuários para aplicativos SaaS](user-provisioning.md)
 * [Escrevendo expressões para mapeamentos de atributo](functions-for-customizing-application-data.md)

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
 ms.openlocfilehash: 0af36fa68b2d801eed52e6f081b040fb56929c91
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101305"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613641"
 ---
 # <a name="paging-through-video-search-results"></a>Paginação de resultados de pesquisa de vídeo
 
@@ -74,7 +74,7 @@ Por exemplo, se você quiser paginar 30 vídeos por vez, defina `count` como 30 
 > [!NOTE]
 > O `TotalEstimatedAnswers` campo é uma estimativa do número total de resultados de pesquisa, você pode recuperar da consulta atual.  Quando você define `count` e `offset` parâmetros, o `TotalEstimatedAnswers` número pode ser alterado. 
   
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Obter insights para vídeos](video-insights.md)

@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: f2228726d4edc25efe46a660d25d398959c3ea59
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851667"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596012"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-modules-for-azure-iot-edge-preview"></a>Usar o Visual Studio 2017 para desenvolver e depurar os módulos do Azure IoT Edge (versão prévia)
 

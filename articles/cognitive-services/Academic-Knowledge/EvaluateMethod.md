@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: d2e628fb7fc502ef9ba81d20680d66f24fd7d138
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004933"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61339073"
 ---
 # <a name="evaluate-method"></a>Método Avaliar
 
@@ -30,20 +30,20 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 
 ## <a name="request-parameters"></a>Parâmetros de solicitação  
 
-Nome     | Valor | Obrigatório?  | Descrição
+NOME     | Value | Obrigatório?  | DESCRIÇÃO
 -----------|-----------|---------|--------
 **expr**       | Cadeia de caracteres de texto | Sim | Uma expressão de consulta que especifica quais entidades devem ser retornadas.
-**modelo**      | Cadeia de caracteres de texto | Não  | Nome do modelo que você quer consultar.  Atualmente, o valor padrão é o *mais recente*.        
-**atributos** | Cadeia de caracteres de texto | Não<br>padrão: ID | Uma lista delimitada por vírgulas que especifica os valores de atributo que são incluídos na resposta. Os nomes de atributo diferenciam maiúsculas de minúsculas.
-**count**        | Número | Não<br>Padrão: 10 | Número de resultados para retornar.
-**offset**     | Número |   Não<br>Padrão: 0    | Índice do primeiro resultado para retornar.
-**orderby** |   Cadeia de caracteres de texto | Não<br>Padrão: diminuindo prob | Nome de um atributo que é usado para classificar as entidades. Opcionalmente, pode ser especificado ascendente/descendente. O formato é: *name:asc* ou *name:desc*.
+**modelo**      | Cadeia de caracteres de texto | Não   | Nome do modelo que você quer consultar.  Atualmente, o valor padrão é o *mais recente*.        
+**atributos** | Cadeia de caracteres de texto | Não <br>padrão: ID | Uma lista delimitada por vírgulas que especifica os valores de atributo que são incluídos na resposta. Os nomes de atributo diferenciam maiúsculas de minúsculas.
+**count**        | Número | Não <br>Padrão: 10 | Número de resultados para retornar.
+**offset**     | Número |   Não <br>Padrão: 0    | Índice do primeiro resultado para retornar.
+**orderby** |   Cadeia de caracteres de texto | Não <br>Padrão: diminuindo prob | Nome de um atributo que é usado para classificar as entidades. Opcionalmente, pode ser especificado ascendente/descendente. O formato é: *name:asc* ou *name:desc*.
   
  <br>
 
 ## <a name="response-json"></a>Resposta (JSON)
 
-Nome | Descrição
+NOME | DESCRIÇÃO
 -------|-----   
 **expr** |  O parâmetro *expr* da solicitação.
 **entidades** |  Uma matriz de 0 ou mais entidades que correspondem à expressão de consulta. Cada entidade contém um valor de probabilidade de log natural e os valores de outros atributos solicitados.

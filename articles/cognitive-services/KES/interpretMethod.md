@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 88776e2f4167c950d60c0405dcf950b5173fb989
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870914"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60814141"
 ---
 # <a name="interpret-method"></a>Método Interpretar
 
@@ -25,7 +25,7 @@ O método *interpretar* utiliza uma cadeia de caracteres de consulta de linguage
 
 `http://<host>/interpret?query=<query>[&<options>]`
 
-NOME|Valor| DESCRIÇÃO
+NOME|Value| DESCRIÇÃO
 ----|----|----
 query    | Cadeia de caracteres de texto | Consulta inserida pelo usuário.  Se o parâmetro completo estiver definido como 1, a consulta será interpretada como um prefixo para gerar sugestões de preenchimento automático de consulta.        
 concluído | 0 (padrão) ou 1 | 1 significa que as sugestões de preenchimento automático são geradas com base nos dados de índice e gramática.         

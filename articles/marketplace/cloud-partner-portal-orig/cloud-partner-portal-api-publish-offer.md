@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: cb1293a771a137f4df7e36a2b412f68b384f16ef
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805337"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094318"
 ---
 <a name="publish-an-offer"></a>Publicar uma oferta
 ================
@@ -33,9 +33,9 @@ Inicia o processo de publicação da oferta especificada. Essa ligação é uma 
 
 |  **Nome**      |    **Descrição**                               |  **Tipo de dados** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | Identificador do publicador, por exemplo `contoso`      |   Cadeia de caracteres       |
+|  publisherId   | Identificador do editor, por exemplo `contoso`      |   Cadeia de caracteres       |
 |  offerId       | Identificador da oferta                                 |   Cadeia de caracteres       |
-|  api-version   | Versão mais recente da API                        |   Data         |
+|  api-version   | Última versão da API                        |   Data         |
 |  |  |
 
 
@@ -63,7 +63,7 @@ Inicia o processo de publicação da oferta especificada. Essa ligação é uma 
   }
 ```
 
-### <a name="request-body-properties"></a>Propriedades do corpo da solicitação
+### <a name="request-body-properties"></a>Solicitar propriedades do corpo
 
 |  **Nome**               |   **Descrição**                                                                                 |
 |  ---------------------  | ------------------------------------------------------------------------------------------------- |
@@ -88,7 +88,7 @@ Inicia o processo de publicação da oferta especificada. Essa ligação é uma 
 
 | **Código** |  **Descrição**                                                                                                                           |
 | ------   |  ----------------------------------------------------------------------------------------------------------------------------------------- |
-| 202   | `Accepted` – A solicitação foi aceita com êxito. A resposta contém um local que pode ser usado para rastrear a operação iniciada. |
+| 202   | `Accepted` – a solicitação foi aceita com êxito. A resposta contém um local que pode ser usado para rastrear a operação iniciada. |
 | 400   | `Bad/Malformed request` – O corpo da resposta de erro pode fornecer mais informações.                                                               |
 | 422   | `Un-processable entity` – Indica que a entidade a ser publicada apresentou falha na validação.                                                        |
 | 404   | `Not found` – A entidade especificada pelo cliente não existe.                                                                              |

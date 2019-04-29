@@ -9,11 +9,11 @@ ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 72dec14dde47580313e57bb3b8d7315604929277
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59288420"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844504"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>Como criar um compartilhamento de arquivos do Azure premium
 
@@ -79,7 +79,7 @@ Se você quiser limpar todos os recursos criados neste artigo, você pode simple
 
 Primeiro, instale a última versão do módulo [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget) do PowerShell.
 
-Em seguida, atualize seu módulo do powershell, entre sua assinatura do Azure, crie um grupo de recursos e, em seguida, crie uma conta de armazenamento.
+Em seguida, atualize seu módulo PowerShell, entre em sua assinatura do Azure, crie um grupo de recursos e, em seguida, crie uma conta de armazenamento.
 
 ### <a name="upgrade-your-powershell-module"></a>Atualizar seu módulo do powershell
 
@@ -93,7 +93,7 @@ Instale o módulo Az.Storage:
 Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
 ```
 
-### <a name="sign-in-to-your-azure-subscription"></a>Entre sua assinatura do Azure
+### <a name="sign-in-to-your-azure-subscription"></a>Entre em sua Assinatura do Azure
 
 Use o comando `Login-AzAccount` e siga as instruções na tela para fazer a autenticação.
 
@@ -144,7 +144,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="create-a-premium-file-share-using-azure-cli"></a>Criar um compartilhamento de arquivos do premium usando a CLI do Azure
 
-Para iniciar o Azure Cloud Shell, entrar para o [portal do Azure](https://portal.azure.com).
+Para iniciar o Azure Cloud Shell, entre no [portal do Azure](https://portal.azure.com).
 
 Se desejar fazer logon na instalação local da CLI, execute o comando de logon:
 
@@ -214,7 +214,7 @@ Para remover o grupo de recursos e seus recursos associados, incluindo a nova co
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você criou uma conta de armazenamento de arquivos de premium. Para saber mais sobre o desempenho que oferece essa conta, continue na seção de camada de desempenho do guia de planejamento.
 

@@ -10,11 +10,11 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
 ms.openlocfilehash: 815aeb9ae6036f08fc87e41980a623e2be8414e5
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371087"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60751224"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Fazer uma pergunta que você possa responder com dados
 ## <a name="video-3-data-science-for-beginners-series"></a>Vídeo 3: série de ciência de dados para iniciantes

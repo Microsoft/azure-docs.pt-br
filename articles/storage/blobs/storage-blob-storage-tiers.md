@@ -9,11 +9,11 @@ ms.date: 03/23/2019
 ms.author: mhopkins
 ms.subservice: blobs
 ms.openlocfilehash: 9be62e09fbf65081f166c89f5358cdb6677c22c6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004220"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61426792"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>O armazenamento de BLOBs do Azure: quente, frio e arquivar as camadas de acesso
 
@@ -197,7 +197,7 @@ Sim, você pode alterar a camada de acesso padrão definindo a **camada de acess
 
 **Posso configurar minha camada de acesso de conta padrão para arquivar?**
 
- Não. Apenas as camadas de acesso quente e frio podem ser definidas como a camada de acesso de conta padrão. A camada arquivo só pode ser definida no nível do objeto.
+Não. Apenas as camadas de acesso quente e frio podem ser definidas como a camada de acesso de conta padrão. A camada arquivo só pode ser definida no nível do objeto.
 
 **Em quais regiões são frequente, esporádica em arquivar as camadas de acesso disponíveis no?**
 

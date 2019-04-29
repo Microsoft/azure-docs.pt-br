@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: v-gedod
 ms.openlocfilehash: fcae25ea0ef3f48beac6c221a11ca8a91443f7ce
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336133"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60917549"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Pontos de extremidade da API de Pesquisa de Imagem do Bing
 

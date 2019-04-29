@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
 ms.openlocfilehash: fd8fa690c508b8bf748490668c1e9aaa811ac247
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300271"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60731159"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implantação contínua para Azure Functions
 As Funções do Azure facilitam a implantação do seu aplicativo de função utilizando a integração contínua do Serviço de Aplicativo. O Functions integra-se com BitBucket, Dropbox, GitHub e Azure DevOps. Isso permite que um fluxo de trabalho em que atualizações de código de função feitas utilizando um desses serviços integrados acione a implantação ao Azure. Se você for iniciante no Azure Functions, comece pela [Visão geral do Azure Functions](functions-overview.md).

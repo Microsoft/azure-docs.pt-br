@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3398c6d318e0e3c51d3f6cfe8af651a6e3f55c9c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094813"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61448000"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualizar dados de monitoramento remoto usando o Power BI
 

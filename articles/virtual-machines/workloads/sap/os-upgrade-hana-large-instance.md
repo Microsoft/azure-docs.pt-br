@@ -15,11 +15,11 @@ ms.date: 06/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d7d451f3831309b4755170915b35a23da8910510
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100747"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60935629"
 ---
 # <a name="operating-system-upgrade"></a>Atualização do Sistema Operacional
 Este documento descreve os detalhes sobre as atualizações de sistema operacional em Instâncias Grandes de HANA.

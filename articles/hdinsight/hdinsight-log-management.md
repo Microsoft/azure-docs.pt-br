@@ -1,7 +1,6 @@
 ---
 title: Gerenciar logs para um cluster HDInsight - HDInsight do Azure
 description: Determine os tipos, tamanhos e as políticas de retenção para arquivos de log de atividade de HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7ff89e12a1011c0a16644324584eb1610302b1b3
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: b42eb51b510423ffc0d15ee3a646bca3d4392f7f
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544256"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766782"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerenciar logs para um cluster HDInsight
 
@@ -173,7 +172,7 @@ Você também pode verificar se o log de depuração está habilitado para um ou
 
 Para coletar os logs de todos os nós para um local central, você pode criar um fluxo de dados, como a inclusão de todas as entradas de log em Solr.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Monitoramento e prática de registro em log para HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
 * [Logs de aplicativo do Apache Hadoop YARN de acesso no HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)

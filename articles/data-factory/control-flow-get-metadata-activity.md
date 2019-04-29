@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: jingwang
 ms.openlocfilehash: 78f63b4f46fe5479d4d0fd5849ad80536d8a137c
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730690"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61346801"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>A atividade de obtenção de metadados no Azure Data Factory
 
@@ -47,7 +47,7 @@ A Atividade GetMetadata coleta um conjunto de dados como uma entrada obrigatóri
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | Google Cloud Storage | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| Blob do Azure | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| blob do Azure | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | Azure Data Lake Storage Gen1 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Azure Data Lake Storage Gen2 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Armazenamento de Arquivos do Azure | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |

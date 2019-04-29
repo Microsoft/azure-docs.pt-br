@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 56c5e0582afe55dcd63aa056817898d3d4942419
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594059"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60859066"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Controle de versão de cliente e servidor em Aplicativos Móveis e Serviços Móveis
 A versão mais recente dos Serviços Móveis do Azure é o recurso **Aplicativos Móveis** do Serviço de Aplicativo do Azure.
@@ -70,7 +70,7 @@ Os SDKs de cliente na tabela a seguir são compatíveis com **Serviços Móveis*
 Observação: os SDKs do cliente dos Serviços Móveis *não* enviam um valor de cabeçalho para `ZUMO-API-VERSION`. Se o serviço receber esse cabeçalho ou o valor de cadeia de consulta, um erro será retornado, a menos que você tenha recusado expressamente conforme descrito acima.
 
 ### <a name="MobileServicesClients"></a> SDKs de clientes de *Serviços* Móveis
-| Plataforma cliente | Versão | Valor de cabeçalho de versão |
+| Plataforma cliente | Version | Valor de cabeçalho de versão |
 | --- | --- | --- |
 | Cliente gerenciado (Windows, Xamarin) |[1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) |n/d |
 | iOS |[2.2.2](https://aka.ms/gc6fex) |n/d |
@@ -78,7 +78,7 @@ Observação: os SDKs do cliente dos Serviços Móveis *não* enviam um valor de
 | HTML |[1.2.7](https://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) |n/d |
 
 ### <a name="mobile-services-server-sdks"></a>SDKs de servidor de *Serviços* Móveis
-| Plataforma servidor | Versão | Cabeçalho de versão aceito |
+| Plataforma servidor | Version | Cabeçalho de versão aceito |
 | --- | --- | --- |
 | .NET |[WindowsAzure.MobileServices.Backend.* versão 1.0. x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**Nenhum cabeçalho de versão** |
 | Node.js |(em breve) |**Nenhum cabeçalho de versão** |
@@ -96,7 +96,7 @@ Observação: os SDKs do cliente dos Serviços Móveis *não* enviam um valor de
 ### <a name="MobileAppsClients"></a> SDKs de cliente de *Aplicativos* Móveis
 A verificação de versão foi introduzida começando com as seguintes versões do SDK do cliente para **Aplicativos Móveis do Azure**:
 
-| Plataforma cliente | Versão | Valor de cabeçalho de versão |
+| Plataforma cliente | Version | Valor de cabeçalho de versão |
 | --- | --- | --- |
 | Cliente gerenciado (Windows, Xamarin) |[2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) |2.0.0 |
 | iOS |[3.0.0](https://go.microsoft.com/fwlink/?LinkID=529823) |2.0.0 |

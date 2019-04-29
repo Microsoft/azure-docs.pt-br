@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
 ms.openlocfilehash: 93136c7d685bd9fc8ec4bcdea3a900b28029059b
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652902"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60695131"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Use uma galeria de imagem compartilhada no Azure Lab Services
 Este artigo mostra como o administrador de professores/laboratório pode economizar uma imagem de máquina virtual de modelo para que ele seja reutilizado por outros. Essas imagens são salvas no Azure [Galeria de imagens compartilhadas](../../virtual-machines/windows/shared-image-galleries.md). Como uma primeira etapa, o administrador de laboratório anexa uma galeria de imagem compartilhada existente para a conta de laboratório. Depois que a Galeria de imagens compartilhadas é anexada, laboratórios criados na conta de laboratório podem salvar imagens de galeria de imagens compartilhadas. Outros professores podem selecionar essa imagem da Galeria de imagens compartilhadas para criar um modelo para suas classes. 
@@ -30,9 +30,9 @@ Criar uma galeria de imagem compartilhada usando um [Azure PowerShell](../../vir
 O procedimento a seguir mostra como anexar uma galeria de imagens compartilhadas para uma conta de laboratório. 
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Selecione **Todos os serviços** no menu esquerdo. Selecione **Lab Services** na **DEVOPS** seção. Se você selecionar a estrela (`*`) ao lado **Lab Services**, ele é adicionado para o **Favoritos** seção no menu à esquerda. Na próxima vez em diante, você selecionar **Lab Services** sob **Favoritos**.
+2. Selecione **Todos os serviços** no menu esquerdo. Selecione **Serviços de Laboratório** na seção **DEVOPS**. Se você selecionar a estrela (`*`) ao lado de **Serviços de Laboratório**, ela será adicionada à seção **FAVORITOS** no menu esquerdo. Na próxima vez em diante, selecione **Serviços de Laboratório** em **FAVORITOS**.
 
-    ![Todos os serviços -> Serviços de laboratório](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
+    ![Todos os Serviços -> Serviços de Laboratório](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
 3. Selecione sua conta de laboratório para ver os **conta de laboratório** página. 
 4. Selecione **Galeria de imagens compartilhadas** no menu à esquerda e selecione **Attach** na barra de ferramentas. 
 

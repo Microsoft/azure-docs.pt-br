@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: yegu
 ms.openlocfilehash: f4900242c9b6e5eecd5364d74bfcd8e2bc4efb2b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232004"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60607753"
 ---
 # <a name="create-an-azure-cache-for-redis"></a>Criar um Cache do Azure para Redis
 

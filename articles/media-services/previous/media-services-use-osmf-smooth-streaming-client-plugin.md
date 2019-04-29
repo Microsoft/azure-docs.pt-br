@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: c40d8b93a7487619cc94586c7e6b4cdc550435cd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314052"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60825518"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Como usar o plug-in do Microsoft Smooth Streaming para o Adobe Open Source Media Framework  
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 O plug-in do Microsoft Smooth Streaming para o Open Source Media Framework 2.0 (SS para OSMF) estende os recursos padrão do OSMF e adiciona a reprodução de conteúdo do Microsoft Smooth Streaming para players do OSMF novos e existentes. O plug-in também adiciona recursos de reprodução de Smooth Streaming para Strobe Media Playback (SMP).
 
 O SS para OSMF inclui duas versões do plug-in:
@@ -391,6 +391,6 @@ Para obter mais informações sobre o desenvolvimento de OSMF geral, consulte a 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 [plug-in Microsoft Adaptive Streaming para atualização OSMF](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/) 
 

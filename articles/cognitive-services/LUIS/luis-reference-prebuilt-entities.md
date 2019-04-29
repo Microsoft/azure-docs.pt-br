@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: diberry
 ms.openlocfilehash: 96157511c0255774a64c0f64a333fe88a37f80d6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261405"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60712681"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por cultura em seu modelo do LUIS
 
@@ -44,7 +44,7 @@ Há suporte para as seguintes entidades:
 ------|:------:|
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    ✔   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>tempo real<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    ✔   | 
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -65,7 +65,7 @@ Há suporte para as seguintes entidades:
 ------|:------:|
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    ✔   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>tempo real<br>timerange   |    -   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   | 
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -86,7 +86,7 @@ Há suporte para as seguintes entidades:
 ------|:------:|
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    ✔   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>tempo real<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    ✔   | 
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    ✔   | 
@@ -107,7 +107,7 @@ Há suporte para as seguintes entidades:
 ------|:------:|
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    ✔   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>tempo real<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    ✔   | 
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -128,7 +128,7 @@ Há suporte para as seguintes entidades:
 ------|:------:|
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    ✔   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>tempo real<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    ✔   | 
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -149,7 +149,7 @@ Há suporte para as seguintes entidades:
 ------|:------:|
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    ✔   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>tempo real<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    ✔   | 
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -170,7 +170,7 @@ Há suporte para as seguintes entidades:
 ------|:------:|
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    ✔   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>tempo real<br>timerange   |    -   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   | 
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -191,7 +191,7 @@ Há suporte para as seguintes entidades:
 ------|:------:|
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    ✔   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>tempo real<br>timerange   |    -   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   | 
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -212,7 +212,7 @@ Há suporte para as seguintes entidades:
 ------|:------:|
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    -   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>tempo real<br>timerange   |    -   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   | 
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    -   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -233,7 +233,7 @@ Há suporte para as seguintes entidades:
 ------|:------:|
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    ✔   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>tempo real<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    ✔   | 
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -254,7 +254,7 @@ Há suporte para as seguintes entidades:
 ------|:------:|
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    ✔   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>tempo real<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    ✔   | 
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -275,7 +275,7 @@ Há suporte para as seguintes entidades:
 ------|:------:|
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    -   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>tempo real<br>timerange   |    -   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   | 
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    -   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -326,6 +326,6 @@ As entidades predefinidas são desenvolvidas no projeto de software livre Recogn
 
 GeographyV2 e PersonName não estão incluídos no projeto reconhecedores de texto. Para problemas com essas entidades predefinidas, abra uma [solicitação de suporte](../../azure-supportability/how-to-create-azure-support-request.md). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as entidades [número](luis-reference-prebuilt-number.md), [datetimeV2](luis-reference-prebuilt-datetimev2.md) e [moeda](luis-reference-prebuilt-currency.md). 

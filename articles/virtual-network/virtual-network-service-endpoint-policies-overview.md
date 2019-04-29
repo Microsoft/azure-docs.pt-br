@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
 ms.openlocfilehash: b39f365c8b66f7cab074a20bc574803e12f93422
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59494160"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61033893"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Políticas de ponto de extremidade de serviço de rede virtual (versão prévia)
 
@@ -182,7 +182,7 @@ Não há custo adicional para usar políticas de ponto de extremidade de serviç
 
 Os limites a seguir são impostos em políticas de ponto de extremidade de serviço: 
 
- |Recurso | Limite padrão |
+ |Resource | Limite padrão |
  |---------|---------------|
  |ServiceEndpointPoliciesPerSubscription |500 |
  |ServiceEndpintPoliciesPerSubnet|100 |

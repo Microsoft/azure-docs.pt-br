@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 3/21/2019
 ms.author: victorh
 ms.openlocfilehash: 87ca7cae8e9170c8c437d0961cb1acb2e0dd0eb1
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337639"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60790531"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Visão geral dos registros de alias do DNS do Azure
 
@@ -20,14 +20,14 @@ Os registros de alias do DNS do Azure são qualificações em um conjunto de reg
 
 Um conjunto de registros de alias é suportado para os seguintes tipos de registro em uma zona DNS do Azure: 
 
-- A
+- O 
 - AAAA
 - CNAME
 
 > [!NOTE]
 > Se você pretende usar um registro de alias para os tipos de registros A ou AAAA para apontar para um [perfil do Gerenciador de Tráfego do Azure](../traffic-manager/quickstart-create-traffic-manager-profile.md), verifique se o perfil do Gerenciador de Tráfego tem apenas [pontos de extremidade externos](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Você deve fornecer o endereço IPv4 ou IPv6 para pontos de extremidade externos no Gerenciador de Tráfego. O ideal é usar endereços IP estáticos.
 
-## <a name="capabilities"></a>Recursos
+## <a name="capabilities"></a>Funcionalidades
 
 - **Aponte para um recurso IP público de um conjunto de registros DNS A / AAAA.** Você pode criar um conjunto de registros A / AAAA e torná-lo um conjunto de registros de alias para apontar para um recurso IP público. O conjunto de registros de DNS é automático se o endereço IP público é alterado ou é excluído. Registros DNS pendentes que apontem para endereços IP incorretos são evitados.
 

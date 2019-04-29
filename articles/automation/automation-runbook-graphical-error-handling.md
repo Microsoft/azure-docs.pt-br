@@ -2,19 +2,25 @@
 title: Tratamento de erros em runbooks gráficos na Automação do Azure
 description: Este artigo descreve como implementar a lógica de tratamento de erros em runbooks gráficos na Automação do Azure.
 services: automation
+documentationcenter: ''
+author: yunan2016
+manager: digimobile
+editor: tysonn
+ms.assetid: ''
 ms.service: automation
-ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 03/16/2018
-ms.topic: conceptual
-manager: carmonm
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+origin.date: 03/16/2018
+ms.date: 05/14/2018
+ms.author: v-nany
 ms.openlocfilehash: d7fe38334b71334d4dae9235643117efdf5fbd5d
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436681"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61233002"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Tratamento de erros em runbooks gráficos na Automação do Azure
 
@@ -69,4 +75,3 @@ Links de erro de fluxo dessas atividades em uma única **gerenciamento erro** at
 * Para saber mais sobre links e tipos de link em runbooks gráficos, confira [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md#links-and-workflow).
 
 * Para saber mais sobre a execução de runbooks, como monitorar trabalhos de runbook e outros detalhes técnicos, confira [Acompanhar um trabalho de runbook](automation-runbook-execution.md).
-

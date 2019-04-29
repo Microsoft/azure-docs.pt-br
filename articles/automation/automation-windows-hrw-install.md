@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/17/2018
+ms.date: 04/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7c6d8fbe54d89fc587c8841b8983d7fdcba29b7d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 0cc00b4f2075ba77490d310080b9968bedb8dc1f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787963"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61304931"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implantar um Windows híbrido Runbook Worker
 
@@ -91,9 +91,13 @@ Se você ainda não possui um espaço de trabalho do Log Analytics, crie uma usa
 
 #### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Adicione a solução de automação ao espaço de trabalho do Log Analytics
 
-As soluções adicionam funcionalidade aos logs do Azure Monitor. A solução de automação adiciona funcionalidade para automação do Azure, incluindo suporte para Hybrid Runbook Worker. Quando você adiciona a solução ao seu workspace, ele envia automaticamente os componentes do trabalhador para o computador do agente que você instalará na próxima etapa.
+A solução de logs de automação do Azure Monitor adiciona a funcionalidade de automação do Azure, incluindo suporte para o Hybrid Runbook Worker. Quando você adiciona a solução ao seu workspace, ele envia automaticamente os componentes do trabalhador para o computador do agente que você instalará na próxima etapa.
 
-Para adicionar a solução **Automation** ao seuespaço de trabalho do Log Analytics, siga as instruções em [Para adicionar uma solução usando a Galeria de soluções](../log-analytics/log-analytics-add-solutions.md).
+Para adicionar o **automação** Azure Monitor registra a solução ao espaço de trabalho, execute o seguinte PowerShell.
+
+```powershell-interactive
+Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <LogAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
+```
 
 #### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Instalar o Microsoft Monitoring Agent
 

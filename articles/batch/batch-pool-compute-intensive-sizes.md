@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
 ms.openlocfilehash: 3974be886b57fbf685b211369094edf844d96ab6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57975552"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776517"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Usar instâncias de GPU ou RDMA em pools do Lote
 
@@ -107,7 +107,7 @@ Para executar aplicativos CUDA em um pool de nós da NC do Windows, é necessár
 3. Carregue o pacote na sua conta do Lote. Para obter as etapas, consulte as diretrizes sobre [pacotes de aplicativos](batch-application-packages.md). Especifique uma ID de aplicativo como *GPUDriver* e uma versão como *411.82*.
 1. Usando as APIs do Lote ou o portal do Azure, crie um pool na configuração da máquina virtual com o número desejado de nós e escala. A tabela a seguir mostra as configurações de exemplo para instalar os drivers GPU NVIDIA silenciosamente usando uma tarefa inicial:
 
-| Configuração | Valor |
+| Configuração | Value |
 | ---- | ----- | 
 | **Tipo de imagem** | Marketplace (Linux/Windows) |
 | **Publicador** | MicrosoftWindowsServer |
@@ -128,7 +128,7 @@ Para executar aplicativos CUDA em um conjunto de nós da NC do Linux, é necess�
 4. Crie uma conta do Lote em uma região que dá suporte a VMs NC.
 5. Usando as APIs do Lote ou o Portal do Azure, crie um pool [usando a imagem personalizada](batch-custom-images.md) com o número de nós e escala desejados. A tabela a seguir mostra configurações de exemplo do pool para a imagem:
 
-| Configuração | Valor |
+| Configuração | Value |
 | ---- | ---- |
 | **Tipo de imagem** | Imagem personalizada |
 | **Imagem personalizada** | *Nome da imagem* |
@@ -147,7 +147,7 @@ Para executar aplicativos Windows MPI em um pool de nós de VM do Azure H16r, é
 1. Siga as etapas para criar um instantâneo [e uma imagem personalizada da VM do Windows](batch-custom-images.md) para Lote.
 1. Usando as APIs do Lote ou o Portal do Azure, crie um pool [usando a imagem personalizada](batch-custom-images.md) com o número de nós e escala desejados. A tabela a seguir mostra configurações de exemplo do pool para a imagem:
 
-| Configuração | Valor |
+| Configuração | Value |
 | ---- | ---- |
 | **Tipo de imagem** | Imagem personalizada |
 | **Imagem personalizada** | *Nome da imagem* |
@@ -162,7 +162,7 @@ Para executar aplicativos MPI em um pool de nós da série H do Linux, uma opç�
 
 Usando as APIs do Lote ou o portal do Azure, crie um pool usando essa imagem e com o número desejado de nós e escala. A tabela a seguir mostra as configurações do pool de exemplo:
 
-| Configuração | Valor |
+| Configuração | Value |
 | ---- | ---- |
 | **Tipo de imagem** | Marketplace (Linux/Windows) |
 | **Publicador** | OpenLogic |

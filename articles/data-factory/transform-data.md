@@ -12,11 +12,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 2c674f77ef0f779c9764771e2e0ae7a4aea47548
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575215"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622100"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados no Azure Data Factory
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "57575215"
 > * [Databricks Python](transform-data-databricks-python.md)
 > * [Personalizado do .NET](transform-data-using-dotnet-custom-activity.md)
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Este artigo explica as atividades de transformação de dados no Azure Data Factory que você pode usar para transformar e processar dados brutos em previsões e ideias. Uma atividade de transformação é executada em um ambiente de cálculo, como um cluster do Azure HDInsight ou um Lote do Azure. Ela fornece links para artigos com informações detalhadas sobre cada atividade de transformação.
 
 O Data Factory dá suporte às seguintes atividades de transformação de dados, que podem ser adicionadas aos [pipelines](concepts-pipelines-activities.md) individualmente ou encadeadas a outra atividade.
@@ -60,10 +60,10 @@ Ao longo do tempo, os modelos de previsão nos testes de pontuação do Machine 
 
 Confira [Usar atividades de Machine Learning](transform-data-using-machine-learning.md) para obter detalhes sobre essas atividades de Machine Learning. 
 
-## <a name="stored-procedure-activity"></a>Atividade de procedimento armazenada
+## <a name="stored-procedure-activity"></a>Atividade de procedimento armazenado
 Você pode usar a atividade Procedimento Armazenado do SQL Server em um pipeline do Data Factory para invocar um procedimento armazenado em um dos seguintes armazenamentos de dados: Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, Banco de Dados do SQL Server em sua empresa ou uma VM do Azure. Consulte o artigo [Stored Procedure activity](transform-data-using-stored-procedure.md) (Atividade de Procedimento Armazenado) para obter detalhes.  
 
-## <a name="data-lake-analytics-u-sql-activity"></a>Atividade U-SQL do Data Lake Analytics
+## <a name="data-lake-analytics-u-sql-activity"></a>Atividade do U-SQL do Data Lake Analytics
 A atividade de U-SQL do Data Lake Analytics executa um script U-SQL em um cluster do Azure Data Lake Analytics. Consulte o artigo [Data Analytics U-SQL activity](transform-data-using-data-lake-analytics.md) (atividade de U-SQL do Data Analytics) para obter detalhes. 
 
 ## <a name="databricks-notebook-activity"></a>Atividade de Notebook do Databricks

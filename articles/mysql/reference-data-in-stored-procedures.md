@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.openlocfilehash: a3c88953eea95871529e8ab257f52b694db443a9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544848"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61244303"
 ---
 # <a name="azure-database-for-mysql-data-in-replication-stored-procedures"></a>Procedimentos Armazenados de Replicação nos Dados do Banco de Dados do Azure para MySQL
 

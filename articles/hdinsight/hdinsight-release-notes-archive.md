@@ -1,7 +1,6 @@
 ---
 title: Notas da versão mais recente do Microsoft Azure HDInsight
 description: Notas da versão mais recente do Microsoft Azure HDInsight. Obtenha detalhes e dicas de desenvolvimento para Hadoop, Spark, Microsoft R Server, Hive e muito mais.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 9ca3635e93c8d66d23c74c3774ccee2c563d85b4
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 95a530ea57237453a3b0d7d8dd42963f4b9c3dde
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618219"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760388"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Notas da versão mais recente do Microsoft Azure HDInsight
 
@@ -39,7 +38,7 @@ Os recursos e novas atualizações se enquadram nas categorias a seguir:
 
 *  ***Suporte ao armazenamento de dados do Azure Data Lake Gen2*** - o HDInsight suportará a versão de visualização do Armazenamento de dados do Windows Azure Gen2. Nas regiões disponíveis, os clientes poderão escolher uma conta ADLS Gen2 como uma loja Primária ou Secundária para seus clusters HDInsight.
 
-*  ***HDInsight Enterprise Security Package Updates (Preview)*** – (Preview) [Virtual Network Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) suporte para Azure Blob Storage, ADLS Gen1, Cosmos DB, e Microsoft Azure Cosmos DB.
+*  ***HDInsight Enterprise Security Package Updates (Preview)*** – (Preview) Suporte para [Pontos de Extremidade de Serviço de Rede Virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) para Azure Blob Storage, ADLS Gen1, Cosmos DB, e Microsoft Azure Cosmos DB.
 
 ## <a name="component-versions"></a>Versões do componente
 

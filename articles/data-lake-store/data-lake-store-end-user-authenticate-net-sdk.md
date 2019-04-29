@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 78a290d8136f8804e853d36a9bc95571625ed89c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876761"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60880274"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticação de usuário final com o Armazenamento de dados do Windows Azure Gen1 usando o .NET SDK
 > [!div class="op_single_selector"]
@@ -41,9 +41,9 @@ Neste artigo, você aprende sobre como usar o .NET SDK para fazer a autenticaç�
 2. No menu **Arquivo**, clique em **Novo** e em **Projeto**.
 3. Em **Novo Projeto**, digite ou selecione os seguintes valores:
 
-   | Propriedade | Valor |
+   | Propriedade | Value |
    | --- | --- |
-   | Categoria |Modelos/Visual C#/Windows |
+   | Category |Modelos/Visual C#/Windows |
    | Modelo |Aplicativo de console |
    | NOME |CreateADLApplication |
 

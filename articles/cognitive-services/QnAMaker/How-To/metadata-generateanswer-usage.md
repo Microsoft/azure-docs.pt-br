@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: tulasim
-ms.openlocfilehash: c18ededc428b215720f8a6a6857a2eabd93bff8b
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: b634467381dc97e4a733e862e86632a089bf5f67
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683564"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63765653"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Obter uma resposta de dados de conhecimento com a API GenerateAnswer e metadados
 
@@ -69,10 +69,10 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 
 |Propriedade de solicitação HTTP|NOME|Type|Finalidade|
 |--|--|--|--|
-|Parâmetro de rota de URL|ID da base de dados de Conhecimento|cadeia de caracteres|o GUID da base de dados de conhecimento.|
-|Parâmetro de rota de URL|Host do ponto de extremidade QnAMaker|cadeia de caracteres|o nome do host do ponto de extremidade implantado na sua assinatura do Azure. Isso está disponível na página de configurações depois de publicar a base de Conhecimento. |
-|Cabeçalho|Tipo de conteúdo|cadeia de caracteres|o tipo de mídia do corpo enviado para a API. Valor padrão é: '|
-|Cabeçalho|Autorização|cadeia de caracteres|sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Parâmetro de rota de URL|ID da base de dados de Conhecimento|string|o GUID da base de dados de conhecimento.|
+|Parâmetro de rota de URL|Host do ponto de extremidade QnAMaker|string|o nome do host do ponto de extremidade implantado na sua assinatura do Azure. Isso está disponível na página de configurações depois de publicar a base de Conhecimento. |
+|Cabeçalho|Tipo de conteúdo|string|o tipo de mídia do corpo enviado para a API. Valor padrão é: '|
+|Cabeçalho|Autorização|string|sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Corpo do POST|Objeto JSON|JSON|A pergunta com configurações|
 
 
@@ -80,11 +80,12 @@ O corpo JSON tem várias configurações:
 
 |Propriedade de corpo JSON|Obrigatório|Type|Finalidade|
 |--|--|--|--|
-|`question`|obrigatório|cadeia de caracteres|Uma pergunta do usuário a serem enviados para sua base de dados de Conhecimento.|
+|`question`|obrigatório|string|Uma pergunta do usuário a serem enviados para sua base de dados de Conhecimento.|
 |`top`|opcional|inteiro|o número de resultados classificados para incluir na saída. O valor padrão é 1.|
-|`userId`|opcional|cadeia de caracteres|ID exclusiva para identificar o usuário. Essa ID será registrada nos logs de chat.|
-|`isTest`|opcional|booleano|Se definido como true, retorna os resultados dos `testkb` índice de pesquisa em vez de índice publicado.|
-|`strictFilters`|opcional|cadeia de caracteres|se especificado, informa ao QnA Maker para retornar apenas as respostas com os metadados especificados. Use `none` para indicar a resposta não deve ter nenhum filtro de metadados. |
+|`userId`|opcional|string|ID exclusiva para identificar o usuário. Essa ID será registrada nos logs de chat.|
+|`scoreThreshold`|opcional|inteiro|Somente respostas com pontuação de confiança acima desse limite serão retornadas. O valor padrão é 0.|
+|`isTest`|opcional|boolean|Se definido como true, retorna os resultados dos `testkb` índice de pesquisa em vez de índice publicado.|
+|`strictFilters`|opcional|string|se especificado, informa ao QnA Maker para retornar apenas as respostas com os metadados especificados. Use `none` para indicar a resposta não deve ter nenhum filtro de metadados. |
 
 Um exemplo de corpo JSON é semelhante a:
 
@@ -93,6 +94,7 @@ Um exemplo de corpo JSON é semelhante a:
     "question": "qna maker and luis",
     "top": 6,
     "isTest": true,
+    "scoreThreshold": 20,
     "strictFilters": [
     {
         "name": "category",

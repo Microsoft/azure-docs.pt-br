@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 27028903daeaf62a25584300944538341a861c80
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905215"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610577"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Estrutura de segurança: dados confidenciais | Atenuações 
 | Produto/Serviço | Artigo |

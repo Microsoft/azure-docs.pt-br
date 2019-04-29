@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
 ms.openlocfilehash: ad4b40d649d4e4cbc17d6aec5d8bc7308012b927
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677418"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60913728"
 ---
 # <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>Início Rápido: obter uma resposta da base de dados de conhecimento usando cURL
 

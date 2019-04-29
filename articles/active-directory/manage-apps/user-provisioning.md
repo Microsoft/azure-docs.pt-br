@@ -15,12 +15,12 @@ ms.date: 04/02/2019
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e8aaa60359fcfb85c79c4210f7c5cc14633c7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 516faed0f41ae36079d0f26f0311b35d5582d57a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291124"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759796"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatize o provisionamento e o desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory
 
@@ -143,7 +143,7 @@ Quando o serviço de provisionamento é iniciado, a primeira sincronização nun
 6. Se os mapeamentos de atributo contiverem atributos "reference", o serviço faz atualizações adicionais no sistema de destino para criar e vincular os objetos referenciados. Por exemplo, um usuário pode ter um atributo "Manager" no sistema de destino, vinculado a outro usuário criado no sistema de destino.
 7. Manter uma marca d'água ao final da sincronização inicial, que fornece o ponto de partida para as sincronizações incrementais mais tarde.
 
-Alguns aplicativos, como ServiceNow, Google Apps e Box, dão suporte não apenas ao provisionamento de usuários, mas também ao provisionamento de grupos e seus membros. Nesses casos, se o provisionamento de grupo está habilitado no [mapeamentos](customize-application-attributes.md), o serviço de provisionamento sincronizará os usuários e grupos e sincroniza as associações de grupo mais tarde. 
+Alguns aplicativos, como ServiceNow, o G Suite e a caixa de suporte não apenas o provisionamento de usuários, mas também ao provisionamento de grupos e seus membros. Nesses casos, se o provisionamento de grupo está habilitado no [mapeamentos](customize-application-attributes.md), o serviço de provisionamento sincronizará os usuários e grupos e sincroniza as associações de grupo mais tarde. 
 
 ### <a name="incremental-syncs"></a>Sincronizações incrementais
 
@@ -196,7 +196,7 @@ Para **inicial sincronizações**, o tempo de trabalho depende de vários fatore
 
 Para **sincronizações incrementais**, o tempo de trabalho depende do número de alterações detectadas nesse ciclo de sincronização. Se houver menos de 5.000 alterações de usuários ou de associação de grupo, o trabalho poderá terminar dentro de um único ciclo de sincronização incremental. 
 
-A tabela a seguir resume os tempos de sincronização para cenários comuns de provisionamento. Nesses cenários, o sistema de origem é o Azure AD e o sistema de destino é um aplicativo SaaS. Os tempos de sincronização são derivados de uma análise estatística dos trabalhos de sincronização dos aplicativos SaaS ServiceNow, Workplace, Salesforce e Google Apps.
+A tabela a seguir resume os tempos de sincronização para cenários comuns de provisionamento. Nesses cenários, o sistema de origem é o Azure AD e o sistema de destino é um aplicativo SaaS. Os tempos de sincronização são derivados de uma análise estatística dos trabalhos de sincronização para os aplicativos de SaaS G Suite, no local de trabalho, Salesforce e ServiceNow.
 
 
 | Configuração de escopo | Usuários, grupos e membros no escopo | Tempo de sincronização inicial | Tempo de sincronização incremental |

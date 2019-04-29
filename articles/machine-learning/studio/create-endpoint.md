@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/15/2019
 ms.openlocfilehash: ac434a696f6e77e5ce61b430232166e7727eda38
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084684"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60751171"
 ---
 # <a name="create-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>Criar pontos de extremidade para serviços Web implantados do Azure Machine Learning Studio
 

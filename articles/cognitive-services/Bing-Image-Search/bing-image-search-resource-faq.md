@@ -11,11 +11,11 @@ ms.topic: troubleshooting
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 20b8dbcae36555baf3913ab160575a631e204dd9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049414"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60917796"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>FAQ (perguntas frequentes) sobre a API de Pesquisa de Imagem do Bing
 

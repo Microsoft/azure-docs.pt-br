@@ -10,11 +10,11 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.openlocfilehash: fe28aa8b88f557d4bbcdabf1de1c4bc6491743ce
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496173"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60628503"
 ---
 # <a name="export-a-u-sql-database"></a>Exportar um banco de dados U-SQL
 
@@ -82,7 +82,7 @@ Para importar o banco de dados para outra conta do Data Lake Analytics:
 
 Atualmente, se você selecionar a opção **Esquema e dados** na Etapa 3, a ferramenta executa um trabalho de U-SQL para exportar os dados armazenados em tabelas. Por isso, o processo de exportação de dados pode ser lento e você pode incorrer em custos. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba mais sobre bancos de dados U-SQL](/u-sql/data-definition-language-ddl-statements) 
 * [Testar e depurar trabalhos U-SQL usando execução local e o SDK para U-SQL do Azure Data Lake](data-lake-analytics-data-lake-tools-local-run.md)

@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako;
 ms.openlocfilehash: 1fe003ae13bc5f195932f4f140e17c4dc2791959
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188247"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61247309"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Edição facial com o Azure Media Analytics 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 **Azure Media Redactor** é um MP (processador de mídia) do [Azure Media Analytics](media-services-analytics-overview.md) que oferece edição facial escalonável na nuvem. A edição facial permite que você modifique seu vídeo para desfocar rostos de pessoas selecionadas. Você pode querer usar o serviço de edição facial em cenários de segurança pública e de notícias veiculadas. Alguns minutos de vídeo com vários rostos podem levar horas para serem editados manualmente, mas, com esse serviço, o processo de edição facial exigirá apenas algumas etapas simples. Para saber mais, confira [este](https://azure.microsoft.com/blog/azure-media-redactor/)blog.
 
 Este artigo fornece detalhes sobre o **Azure Media Redactor** e mostra como usá-lo com o SDK dos Serviços de Mídia para .NET.
@@ -34,7 +34,7 @@ Além de um modo totalmente automatizado, há um fluxo de trabalho de duas etapa
 ### <a name="combined-mode"></a>Modo Combinado
 Esse procedimento produz um mp4 editado automaticamente sem qualquer entrada manual.
 
-| Estágio | Nome do Arquivo | Anotações |
+| Estágio | Nome do Arquivo | Observações |
 | --- | --- | --- |
 | Ativo de entrada |foo.bar |Vídeo em formato WMV, MOV ou MP4 |
 | Configuração de entrada |Predefinição de configuração de tarefa |{'version':'1.0', 'options': {'mode':'combined'}} |
@@ -49,7 +49,7 @@ Esse procedimento produz um mp4 editado automaticamente sem qualquer entrada man
 ### <a name="analyze-mode"></a>Modo Analisar
 A etapa **Analisar** do fluxo de trabalho de duas etapas utiliza uma entrada de vídeo e produz um arquivo JSON com a localização dos rostos, e imagens jpg de cada rosto detectado.
 
-| Estágio | Nome do Arquivo | Anotações |
+| Estágio | Nome do Arquivo | Observações |
 | --- | --- | --- |
 | Ativo de entrada |foo.bar |Vídeo em formato WMV, MPV ou MP4 |
 | Configuração de entrada |Predefinição de configuração de tarefa |{'version':'1.0', 'options': {'mode':'analyze'}} |
@@ -114,7 +114,7 @@ Isso inclui uma lista de IDs a serem desfocados, o vídeo original e o JSON de a
 
 O resultado da etapa Analisar não inclui o vídeo original. O vídeo precisa ser carregado no ativo de entrada para a tarefa do modo Editar e selecionado como o arquivo primário.
 
-| Estágio | Nome do Arquivo | Anotações |
+| Estágio | Nome do Arquivo | Observações |
 | --- | --- | --- |
 | Ativo de entrada |foo.bar |Vídeo em formato WMV, MPV ou MP4. O mesmo vídeo da etapa 1. |
 | Ativo de entrada |foo_annotations.json |arquivo de metadados de anotações da fase 1, com modificações opcionais. |
@@ -147,7 +147,7 @@ Encontre exemplos dos tipos de desfoque abaixo.
 
 #### <a name="low"></a>Baixo
 
-![Baixa](./media/media-services-face-redaction/blur1.png)
+![Baixo](./media/media-services-face-redaction/blur1.png)
  
 #### <a name="med"></a>Med
 
@@ -157,9 +157,9 @@ Encontre exemplos dos tipos de desfoque abaixo.
 
 ![Alto](./media/media-services-face-redaction/blur3.png)
 
-#### <a name="box"></a>Quadrado
+#### <a name="box"></a>Box
 
-![Quadrado](./media/media-services-face-redaction/blur4.png)
+![Box](./media/media-services-face-redaction/blur4.png)
 
 #### <a name="black"></a>Preto
 

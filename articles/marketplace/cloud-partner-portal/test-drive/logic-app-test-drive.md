@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 4fd946b53956509844ad0a9396575f1ee2450414
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338591"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61070169"
 ---
 <a name="logic-app-test-drive"></a>Test Drive de Aplicativo Lógico
 ====================

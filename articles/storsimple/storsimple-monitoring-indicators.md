@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 9ae0caec211dc1199f0abd2ce9bc0c7ad11c02ec
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
-ms.translationtype: HT
+ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
-ms.locfileid: "24030350"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630539"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Usar indicadores de monitoramento do StorSimple para gerenciar seu dispositivo
 
@@ -38,7 +38,7 @@ O restante deste artigo descreve os vários LEDs indicadores de monitoramento, s
 ## <a name="front-panel-indicator-leds"></a>LEDs indicadores no painel frontal
 O painel frontal, também conhecido como o *painel de operações* ou *painel ops*, exibe o status da agregação de todos os módulos no sistema. O painel frontal é idêntico no compartimento StorSimple primário e no compartimento EBOD, e é ilustrado abaixo.  
 
-   ![Painel frontal do dispositivo][1]
+   ![ Painel frontal do dispositivo][1]
 
 O painel frontal contém os seguintes indicadores:  
 
@@ -136,7 +136,7 @@ A ilustração a seguir ajuda a identificar os LEDs no controlador primário. (T
 Use a tabela a seguir para determinar se o módulo do controlador está operando corretamente.  
 
 ### <a name="controller-indicator-leds"></a>LEDs indicadores do controlador
-| LED | Descrição |
+| LED | DESCRIÇÃO |
 | --- | --- |
 | LED de ID (azul) |Indica se o módulo está sendo identificado. Se o LED azul estiver piscando em um controlador em execução, então o controlador é o controlador ativo e o outro é o controlador standby. Para saber mais, consulte [Identificar o controlador ativo no seu dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | LED de falha (âmbar) |Indica uma falha no controlador. |
@@ -203,7 +203,7 @@ A tabela a seguir descreve os vários estados de alarme.
 | Estado de alarme | Ação | Ação com o botão de mudo pressionado |
 | --- | --- | --- |
 | S0 |Modo normal: silencioso |Dois bipes |
-| S1 |Modo de falha: 1 segundo ligado/1 segundo desligado |Transição para S2 ou S3 (consulte as observações) |
+| S1 |Modo com falha: 1 segundo em/1 segundo desligado |Transição para S2 ou S3 (consulte as observações) |
 | S2 |Modo lembrete: bipe intermitente |Nenhum |
 | S3 |Modo mudo: silencioso |Nenhum |
 | S4 |Modo de falha crítica: alarme contínuo |Não disponível: mudo não ativo |
@@ -219,7 +219,7 @@ Você pode silenciar o alarme audível apertando o botão de mudo no painel de o
 A tabela a seguir descreve as várias condições de alarme.
 
 ### <a name="alarm-conditions"></a>Condições de alarme.
-| Status | Severidade | Alarme | LED do painel de operações |
+| Status | Severity | Alarme | LED do painel de operações |
 | --- | --- | --- | --- |
 | Alerta de PCM – perda de energia de CC de um único PCM |Falha – nenhuma perda de redundância |S1 |Falha do módulo |
 | Alerta de PCM – perda de energia de CC de um único PCM |Falha – perda de redundância |S1 |Falha do módulo |

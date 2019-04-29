@@ -10,11 +10,11 @@ ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18
 ms.openlocfilehash: ae4680c948ce8e1efd32207dc37821d61182f2d8
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60774127"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Arquiteturas de referência para renderização do Azure
 

@@ -11,11 +11,11 @@ ms.date: 05/04/2018
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 609b5d990cffce10733f6fc82e6b1032ad0f06bb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314594"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60951779"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>Recursos de documentação para cargas de trabalho de pesquisa cognitivas
 

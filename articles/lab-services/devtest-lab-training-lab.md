@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 85eddaaf101c3e85eca7514b04660163d23c1c80
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 0a7ce1640636c6fba246584d098043a91990b9a0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666787"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622824"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>Usar o Azure DevTest Labs para treinamento
 O Azure DevTest Labs pode ser usado para implementar muitos cenários essenciais além de desenvolvimento e teste. Um desses cenários é configurar um laboratório para treinamento. O Azure DevTest Labs permite que você crie um laboratório onde pode fornecer modelos personalizados que cada estagiário pode usar para criar ambientes idênticos e isolados para treinamento. Você pode aplicar políticas para garantir que os ambientes de treinamento estejam disponíveis para cada estagiário apenas quando necessário e contém recursos suficientes, como máquinas virtuais, para o treinamento. Por fim, você pode compartilhar facilmente o laboratório com estagiários, que podem acessá-lo com apenas um clique.

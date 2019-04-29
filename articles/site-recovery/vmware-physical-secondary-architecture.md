@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: raynew
 ms.openlocfilehash: 5df82d811d3807b988cb950bccddd1767baba5c6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361840"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60565933"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>Arquitetura para replicação do VMware/servidor físico para um site local secundário
 
@@ -44,6 +44,6 @@ Este artigo descreve a arquitetura e os processos utilizados ao fazer a recupera
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Configurar](vmware-physical-secondary-disaster-recovery.md) a recuperação de desastres das VMs do VMware e dos servidores físicos em um site secundário.

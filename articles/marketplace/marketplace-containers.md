@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
 ms.openlocfilehash: e81f2b42e725e50473c09622a486586fb6721ad5
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214836"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60882173"
 ---
 # <a name="containers-offer-publishing-guide"></a>Guia de Publicação da Oferta de Contêineres
 

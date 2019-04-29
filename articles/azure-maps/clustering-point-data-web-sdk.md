@@ -10,11 +10,11 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: d4dc6f0c8fd2dff74a1997c9dca5a31abc70c03a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580817"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60795938"
 ---
 # <a name="clustering-point-data"></a>Clustering de ponto de dados
 
@@ -86,10 +86,10 @@ Quando ocorrem eventos de mouse em uma camada que contêm pontos de dados em clu
 
 | Nome da propriedade | Type | DESCRIÇÃO |
 |---------------|------|-------------|
-| cluster | booleano | Indica se o recurso representa um cluster. |
-| cluster_id | cadeia de caracteres | Uma ID exclusiva para o cluster que pode ser usado com a fonte de dados `getClusterExpansionZoom`, `getClusterChildren`, e `getClusterLeaves` métodos. |
+| cluster | boolean | Indica se o recurso representa um cluster. |
+| cluster_id | string | Uma ID exclusiva para o cluster que pode ser usado com a fonte de dados `getClusterExpansionZoom`, `getClusterChildren`, e `getClusterLeaves` métodos. |
 | point_count | número | O número de pontos que contém o cluster. |
-| point_count_abbreviated | cadeia de caracteres | Uma cadeia de caracteres que abrevia o valor de point_count se ela for longa. (por exemplo, 4.000 se torna 4K) |
+| point_count_abbreviated | string | Uma cadeia de caracteres que abrevia o valor de point_count se ela for longa. (por exemplo, 4.000 se torna 4K) |
 
 Este exemplo usa uma camada de bolha que renderiza os pontos de cluster e adiciona um evento de clique que quando disparado, calcular e aplique zoom no mapa para o próximo nível de zoom no qual o cluster será interrompido entre eles usando o `getClusterExpansionZoom` método da `DataSource` classe e o `cluster_id` ponto de dados em cluster de propriedade do clicado. 
 

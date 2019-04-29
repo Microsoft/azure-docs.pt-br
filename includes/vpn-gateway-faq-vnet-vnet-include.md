@@ -9,11 +9,11 @@ ms.date: 12/03/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 72ddd0b6cd6c3e12417d3698c403f89312b531f4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53111821"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411758"
 ---
 As perguntas frequentes sobre redes virtuais para redes virtuais se aplicam a conexões de Gateway de VPN. Para obter informações sobre o emparelhamento de rede virtual, consulte [emparelhamento de rede Virtual](../articles/virtual-network/virtual-network-peering-overview.md).
 
@@ -23,7 +23,7 @@ O tráfego de VNet para VNet na mesma região é gratuito para ambas as direçõ
 
 ### <a name="does-vnet-to-vnet-traffic-travel-across-the-internet"></a>O tráfego de Rede Virtual para Rede Virtual viaja pela Internet?
 
- Não. O tráfego de rede virtual com rede virtual viaja pelo backbone do Microsoft Azure, não pela Internet.
+Não. O tráfego de rede virtual com rede virtual viaja pelo backbone do Microsoft Azure, não pela Internet.
 
 ### <a name="can-i-establish-a-vnet-to-vnet-connection-across-azure-active-directory-aad-tenants"></a>Posso estabelecer uma conexão VNet a VNet entre os Locatários do Azure Active Directory (AAD)?
 
@@ -35,19 +35,19 @@ Sim, ele é protegido por criptografia IPsec/IKE.
 
 ### <a name="do-i-need-a-vpn-device-to-connect-vnets-together"></a>É necessário um dispositivo VPN para conectar redes virtuais?
 
- Não. A conexão de várias redes virtuais do Azure entre si não exige um dispositivo VPN, a menos que a conectividade entre locais seja necessária.
+Não. A conexão de várias redes virtuais do Azure entre si não exige um dispositivo VPN, a menos que a conectividade entre locais seja necessária.
 
 ### <a name="do-my-vnets-need-to-be-in-the-same-region"></a>Minhas redes virtuais precisam estar na mesma região?
 
- Não. As redes virtuais podem estar na mesma região ou em regiões diferentes do Azure (locais).
+Não. As redes virtuais podem estar na mesma região ou em regiões diferentes do Azure (locais).
 
 ### <a name="if-the-vnets-arent-in-the-same-subscription-do-the-subscriptions-need-to-be-associated-with-the-same-active-directory-tenant"></a>Se as Redes Virtuais não estiverem na mesma assinatura, as assinaturas precisam ser associadas ao mesmo locatário do Active Directory?
 
- Não.
+Não.
 
 ### <a name="can-i-use-vnet-to-vnet-to-connect-virtual-networks-in-separate-azure-instances"></a>Posso usar VNet para VNet a fim de conectar a redes virtuais em instâncias separadas do Azure? 
 
- Não. VNet para VNet dá suporte à conexão de redes virtuais na mesma instância do Azure. Por exemplo, você não pode criar uma conexão entre a instância do Azure global e a instâncias chinesa/alemã/do governo dos EUA. Considere o uso de uma conexão VPN Site a Site para esses cenários.
+Não. VNet para VNet dá suporte à conexão de redes virtuais na mesma instância do Azure. Por exemplo, você não pode criar uma conexão entre a instância do Azure global e a instâncias chinesa/alemã/do governo dos EUA. Considere o uso de uma conexão VPN Site a Site para esses cenários.
 
 ### <a name="can-i-use-vnet-to-vnet-along-with-multi-site-connections"></a>Posso usar Rede Virtual para Rede Virtual com conexões multissite?
 
@@ -59,15 +59,15 @@ Veja a tabela [Requisitos de gateway](../articles/vpn-gateway/vpn-gateway-about-
 
 ### <a name="can-i-use-vnet-to-vnet-to-connect-vms-or-cloud-services-outside-of-a-vnet"></a>Posso usar Rede Virtual para Rede Virtual para me conectar a máquinas virtuais ou serviços de nuvem fora de uma rede virtual?
 
- Não. A rede virtual com rede virtual dá suporte à conexão de redes virtuais. Ele não dá suporte à conexão de máquinas virtuais ou serviços de nuvem que não estão em uma rede virtual.
+Não. A rede virtual com rede virtual dá suporte à conexão de redes virtuais. Ele não dá suporte à conexão de máquinas virtuais ou serviços de nuvem que não estão em uma rede virtual.
 
 ### <a name="can-a-cloud-service-or-a-load-balancing-endpoint-span-vnets"></a>Um serviço de nuvem ou um ponto de extremidade de balanceamento de carga pode abranger redes virtuais?
 
- Não. Um serviço de nuvem ou um ponto de extremidade de balanceamento de carga não pode abranger redes virtuais, mesmo que elas estejam conectadas entre si.
+Não. Um serviço de nuvem ou um ponto de extremidade de balanceamento de carga não pode abranger redes virtuais, mesmo que elas estejam conectadas entre si.
 
 ### <a name="can-i-use-a-policybased-vpn-type-for-vnet-to-vnet-or-multi-site-connections"></a>Posso usar um tipo de VPN PolicyBased para conexões de Rede Virtual para Rede Virtual ou Multissite?
 
- Não. As conexões de rede virtual para rede virtual e de vários sites exigem gateways de VPN com tipos de VPN RouteBased (anteriormente chamado de Roteamento Dinâmico).
+Não. As conexões de rede virtual para rede virtual e de vários sites exigem gateways de VPN com tipos de VPN RouteBased (anteriormente chamado de Roteamento Dinâmico).
 
 ### <a name="can-i-connect-a-vnet-with-a-routebased-vpn-type-to-another-vnet-with-a-policybased-vpn-type"></a>Posso conectar uma rede virtual a um tipo de VPN RouteBased para outra rede virtual com um tipo de VPN PolicyBased?
 
@@ -83,11 +83,11 @@ Os túneis redundantes entre um par de redes virtuais terão suporte quando um g
 
 ### <a name="can-i-have-overlapping-address-spaces-for-vnet-to-vnet-configurations"></a>Posso ter espaços de endereço sobrepostos para configurações de Rede Virtual para Rede Virtual?
 
- Não. Você não pode ter intervalos de endereços IP sobrepostos.
+Não. Você não pode ter intervalos de endereços IP sobrepostos.
 
 ### <a name="can-there-be-overlapping-address-spaces-among-connected-virtual-networks-and-on-premises-local-sites"></a>Pode haver sobreposição de espaços de endereço entre as redes virtuais conectadas e sites local locais?
 
- Não. Você não pode ter intervalos de endereços IP sobrepostos.
+Não. Você não pode ter intervalos de endereços IP sobrepostos.
 
 
 

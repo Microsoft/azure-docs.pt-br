@@ -9,15 +9,15 @@ ms.date: 08/16/2016
 ms.author: deli
 ms.custom: include file
 ms.openlocfilehash: b3788ede23a423bebf96661ea88b227bfb5fdf4c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553220"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531273"
 ---
 A tabela a seguir descreve cada uma das principais cotas, limites, padrões e limitações no Agendador do Azure.
 
-| Recurso | Descrição de limite |
+| Resource | Descrição de limite |
 | -------- | ----------------- |
 | **Tamanho do trabalho** | O tamanho máximo do trabalho é 16.000. Se uma operação PUT ou uma PATCH resultar em um tamanho de trabalho maior do que esse limite, um código de status 400 Solicitação incorreta será retornado. | 
 | **Coleções de trabalho** | O número máximo de coleções de trabalho por assinatura do Azure é de 200.000. | 

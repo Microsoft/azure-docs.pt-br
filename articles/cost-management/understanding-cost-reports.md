@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 6f856aeae74ea285cd6a0326fd225e454a1cbe43
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265824"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61003690"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Noções básicas dos relatórios de gerenciamento de custos do Cloudyn
 
@@ -201,7 +201,7 @@ Você pode executar relatórios em intervalos agendados, e você pode enviá-los
 
 Ao exibir qualquer relatório, clique em **Ações** e, em seguida, selecione **Exportar todos os dados do relatório**. Uma janela pop-up será exibida e um arquivo CSV é baixado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre os relatórios incluídos no Cloudyn em [Usar relatórios do Cloudyn](use-reports.md).
 - Saiba como usar relatórios para criar [painéis](dashboards.md).

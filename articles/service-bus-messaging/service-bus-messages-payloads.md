@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 09/26/2018
 ms.author: aschhab
 ms.openlocfilehash: 3158f0255810c66605d28856133112181c2916db
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733919"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61315632"
 ---
 # <a name="messages-payloads-and-serialization"></a>Mensagens, payloads e serialização
 

@@ -1,17 +1,17 @@
 ---
 title: Folhas de referências de consulta PDF do Azure Cosmos DB
 description: Folhas de referências de PDF para impressão que ajudam a utilizar APIs de Tabela, Graph, MongoDB, SQL do Azure Cosmos DB para consultar os dados
-author: SnehaGunda
+author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/20/2018
-ms.author: sngun
+ms.date: 03/18/2019
+ms.author: v-yeche
 ms.openlocfilehash: 848b5a75e4e957b2ad61072ff2e229cacdba2019
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035061"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60928166"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Folhas de referências de consulta do Azure Cosmos DB
 

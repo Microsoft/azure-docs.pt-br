@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: a1398d172a5c578ec3c0f16627eadd1da3fd1e45
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437604"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60777926"
 ---
 # <a name="configure-lead-management-for-dynamics-crm-online"></a>Configurar o gerenciamento de leads para o Dynamics CRM Online
 

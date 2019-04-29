@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 072864d565e2edbddd4b7df851ad0e30daf7e5fa
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505842"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387922"
 ---
 O diagnóstico de problemas com um serviço de nuvem do Microsoft Azure exige a coleta dos arquivos de log do serviço em máquinas virtuais à medida que os problemas ocorrem. É possível usar a extensão AzureLogCollector sob demanda para executar uma coleta avulsa de logs de uma ou mais VMs do Serviço de Nuvem (de funções Web e funções de trabalho) e transferir os arquivos coletados para uma conta de armazenamento do Azure – tudo sem precisar fazer logon remotamente em qualquer uma das VMs.
 

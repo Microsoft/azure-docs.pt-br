@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 57efc718a51398b577a0078ba829d2f6209cab54
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880739"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60878810"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operações de sistema de arquivos no Azure Data Lake Storage Gen1 usando Python
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ pip install azure-datalake-store
 
 3. Salve as alterações a mysample.py.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 Nesta seção, falamos sobre as diferentes maneiras de autenticação com o Azure AD. As opções disponíveis são:
 
@@ -126,7 +126,7 @@ O trecho de código a seguir primeiro cria o cliente da conta do Data Lake Stora
     ## Delete a directory
     adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Operações de gerenciamento de conta no Data Lake Storage Gen1 usando Python](data-lake-store-get-started-python.md).
 
 ## <a name="see-also"></a>Consulte também

@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 860c00b876427af7395e3c04e0626131c27aca67
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878074"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60896414"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integração de mensagens do Azure Blockchain Workbench
 
@@ -118,7 +118,7 @@ A solicitação exige os seguintes campos:
 | applicationName      | Nome do aplicativo |
 | version              | Versão do aplicativo. Necessário se você tiver várias versões do aplicativo habilitadas. Caso contrário, a versão é opcional. Para obter mais informações sobre o controle de versão do aplicativo, confira [Controle de versão do aplicativo do Azure Blockchain Workbench](version-app.md). |
 | workflowName         | Nome do fluxo de trabalho |
-| parâmetros           | Parâmetros de entrada para criação de contrato |
+| parameters           | Parâmetros de entrada para criação de contrato |
 | ConnectionId         | Identificador exclusivo para a conexão blockchain |
 | messageSchemaVersion | Versão do esquema de mensagens |
 | messageName          | **CreateContractRequest** |
@@ -222,7 +222,7 @@ A solicitação exige os seguintes campos:
 | contractLedgerIdentifier | Endereço do contrato no razão |
 | version                  | Versão do aplicativo. Necessário se você tiver várias versões do aplicativo habilitadas. Caso contrário, a versão é opcional. Para obter mais informações sobre o controle de versão do aplicativo, confira [Controle de versão do aplicativo do Azure Blockchain Workbench](version-app.md). |
 | WorkflowFunctionName     | Nome da função de fluxo de trabalho |
-| parâmetros               | Parâmetros de entrada para criação de contrato |
+| parameters               | Parâmetros de entrada para criação de contrato |
 | ConnectionId             | Identificador exclusivo para a conexão blockchain |
 | messageSchemaVersion     | Versão do esquema de mensagens |
 | messageName              | **CreateContractActionRequest** |
@@ -567,7 +567,7 @@ Contém informações sobre quando uma função de contrato é invocada, como o 
 | contractId                  | Identificador exclusivo para o contrato dentro do Azure Blockchain Workbench |
 | contractLedgerIdentifier    | Identificador exclusivo do contrato no razão |
 | functionName                | Nome da função |
-| parâmetros                  | [Informações sobre parâmetros](#parameter-information) |
+| parameters                  | [Informações sobre parâmetros](#parameter-information) |
 | transaction                 | Informações sobre a transação |
 | inTransactionSequenceNumber | O número de sequência da transação no bloco |
 | ConnectionId                | Identificador exclusivo para a conexão |
@@ -579,7 +579,7 @@ Contém informações sobre quando uma função de contrato é invocada, como o 
 
 | NOME | DESCRIÇÃO |
 |------|-------------|
-| Tipo | Tipo do chamador, como um usuário ou um contrato |
+| tipo | Tipo do chamador, como um usuário ou um contrato |
 | ID | Identificador exclusivo do chamador no Azure Blockchain Workbench |
 | ledgerIdentifier | Identificador exclusivo do chamador no razão |
 
@@ -688,7 +688,7 @@ Contém informações sobre quando um aplicativo é carregado no Workbench, como
 |------|-------------|
 | ID | Identificador exclusivo da função de fluxo de trabalho do aplicativo no Azure Blockchain Workbench |
 | Nome | Nome da função |
-| parâmetros | Parâmetros da função |
+| parameters | Parâmetros da função |
 
 ##### <a name="workflow-state-information"></a>Informações do estado do fluxo de trabalho
 
@@ -861,7 +861,7 @@ Contém informações sobre quando um usuário recebe uma função no Workbench,
 | NOME | DESCRIÇÃO |
 |------|-------------|
 | ID | Identificador exclusivo do usuário no Azure Blockchain Workbench |
-| Tipo | Tipo do atribuidor |
+| tipo | Tipo do atribuidor |
 | chainIdentifier | Identificador exclusivo do usuário no razão |
 
 #### <a name="roleassignment-assignee"></a>Destinatário da RoleAssignment
@@ -869,7 +869,7 @@ Contém informações sobre quando um usuário recebe uma função no Workbench,
 | NOME | DESCRIÇÃO |
 |------|-------------|
 | ID | Identificador exclusivo do usuário no Azure Blockchain Workbench |
-| Tipo | Tipo do destinatário |
+| tipo | Tipo do destinatário |
 | chainIdentifier | Identificador exclusivo do usuário no razão |
 
 Exemplo de uma *EventMessage RoleAssignment* do Blockchain Workbench:

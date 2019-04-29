@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: nitinme
 ms.openlocfilehash: 2464424b537f6187542fb612626cff115711d6e5
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336279"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60608967"
 ---
 # <a name="what-are-azure-cognitive-services"></a>O que são os Serviços Cognitivos do Azure?
 
@@ -22,7 +22,7 @@ Os Serviços Cognitivos do Azure são APIs, SDKs e serviços disponíveis para a
 
 ## <a name="vision-apis"></a>APIs de visão
 
-|Nome de Serviço|Descrição do Serviço|
+|Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
 |[Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "Pesquisa Visual Computacional")|O serviço de Pesquisa Visual Computacional fornece a você acesso a algoritmos avançados para processar imagens e retornar informações.|
 |[Serviço de Visão Personalizada](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Serviço de Visão Personalizada") (Versão prévia)|O Serviço de Visão Personalizada permite criar classificadores de imagem personalizada.|
@@ -32,7 +32,7 @@ Os Serviços Cognitivos do Azure são APIs, SDKs e serviços disponíveis para a
 
 ## <a name="speech-apis"></a>Speech APIs
 
-|Nome de Serviço|Descrição do Serviço|
+|Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
 |[Serviço de Fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Serviço de Fala") (Versão prévia)|O Serviço de Fala adiciona recursos habilitados para fala aos aplicativos.|
 |[API de Fala do Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home "API de Fala do Bing")|A API de Fala do Bing fornece uma maneira fácil de criar recursos habilitados para fala em seus aplicativos.|
@@ -41,16 +41,16 @@ Os Serviços Cognitivos do Azure são APIs, SDKs e serviços disponíveis para a
 
 ## <a name="language-apis"></a>APIs de Linguagem
 
-|Nome de Serviço|Descrição do Serviço|
+|Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
 |[Verificação Ortográfica do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "Verificação Ortográfica do Bing")|A Verificação Ortográfica do Bing permite fazer verificações de gramática contextual e ortográfica.|
 |[Reconhecimento Vocal LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "Reconhecimento Vocal")|O serviço de Reconhecimento Vocal (LUIS) permite que seu aplicativo entenda o que uma pessoa quer com suas próprias palavras.|
 |[Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Análise de Texto")|A Análise de Texto oferece processamento de linguagem natural sobre texto bruto para análise de sentimento, extração de frases-chave e detecção de idioma.|
 |[Tradução de Texto](https://docs.microsoft.com/azure/cognitive-services/translator/ "Tradução de Texto")|Fornece de tradução de texto para tradução de máquina com base em texto em tempo quase real.|
 
-## <a name="search-apis"></a>APIs de Pesquisa
+## <a name="search-apis"></a>APIs de pesquisa
 
-|Nome de Serviço|Descrição do Serviço|
+|Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
 |[Pesquisa de Notícias do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/ "Pesquisa de Notícias do Bing")|A Pesquisa de Notícias do Bing retorna uma lista de artigos de notícias determinados como relevantes para a consulta do usuário.|
 |[Pesquisa de Vídeo do Bing](https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search/ "Pesquisa de Vídeo do Bing")|A Pesquisa de Vídeo do Bing retorna uma lista de vídeos determinados como relevantes para a consulta do usuário.|
@@ -64,7 +64,7 @@ Os Serviços Cognitivos do Azure são APIs, SDKs e serviços disponíveis para a
 
 ## <a name="knowledge-apis"></a>APIs de Conhecimento
 
-|Nome de Serviço|Descrição do Serviço|
+|Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
 |[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|A QnA Maker permite que você crie um serviço de perguntas e respostas do seu conteúdo semiestruturado.|
 
@@ -72,7 +72,7 @@ Os Serviços Cognitivos do Azure são APIs, SDKs e serviços disponíveis para a
 
 [Inscreva-se em avaliações gratuitas](https://azure.microsoft.com/try/cognitive-services/ "A Ajuda para inscrição") só recebe um e-mail e algumas etapas simples. Você precisa de uma Conta Microsoft, caso ainda não tenha uma. Você receberá um par exclusivo de chaves para cada API solicitada. A segunda é apenas uma reserva. Não compartilhe as chaves secretas com ninguém. As avaliações têm um limite de taxa, transações por segundo ou minuto, e um limite de uso mensal. Uma transação é simplesmente uma chamada à API. Você pode atualizar para as camadas pagas para desbloquear as restrições.
 
-## <a name="subscription-management"></a>Gerenciamento de assinatura
+## <a name="subscription-management"></a>Gerenciamento de assinaturas
 
 Depois de fazer login na sua conta da Microsoft, você pode acessar [Minhas inscrições](https://www.microsoft.com/cognitive-services/en-us/subscriptions "Minhas inscrições") para mostrar os produtos que você está usando, a cota restante e a capacidade de adicionar produtos à sua inscrição.
 

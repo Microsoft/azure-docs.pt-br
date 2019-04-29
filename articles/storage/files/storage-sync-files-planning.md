@@ -2,18 +2,18 @@
 title: Planejando uma implantação de Sincronização de Arquivos do Azure | Microsoft Docs
 description: Saiba o que considerar ao planejar uma implantação de Arquivos do Azure.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 2/7/2019
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e5078176b14835938c190daa031c12055ba9ffc3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f29625ed8ddd6eabf8b75380d84d7a7b64396d7a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996349"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766851"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -245,6 +245,8 @@ A Sincronização de Arquivos do Azure está disponível apenas nas seguintes re
 | Ásia Oriental | RAE de Hong Kong |
 | Leste dos EUA | Virgínia |
 | Leste dos EUA 2 | Virgínia |
+| Coreia Central| Seul |
+| Sul da Coreia| Busan |
 | Leste do Japão | Tóquio |
 | Oeste do Japão | Osaka |
 | Centro-Norte dos EUA | Illinois |

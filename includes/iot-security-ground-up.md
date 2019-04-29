@@ -9,11 +9,11 @@ ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 14e8eb7c73a1e2cf5047410d3571008c1cd1e1ca
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289267"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626446"
 ---
 # <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Segurança para a Internet das Coisas (IoT) a partir do zero
 
@@ -103,14 +103,14 @@ Os aceleradores de solução incorporam medidas de segurança por projeto, permi
 
 Cada acelerador de solução cria instâncias de serviços do Azure, como:
 
-* [**Hub IoT do Azure**](https://azure.microsoft.com/services/iot-hub/): seu gateway que conecta a nuvem aos dispositivos. Você pode dimensionar para milhões de conexões por hub e processar grandes volumes de dados com suporte de autenticação por dispositivo, que ajuda você a proteger sua solução.
+* [**O Hub IoT**](https://azure.microsoft.com/services/iot-hub/): Seu gateway que conecta a nuvem para dispositivos. Você pode dimensionar para milhões de conexões por hub e processar grandes volumes de dados com suporte de autenticação por dispositivo, que ajuda você a proteger sua solução.
 
-* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): um serviço de banco de dados escalonável e totalmente indexado para dados semiestruturados que gerencia os metadados para os dispositivos que você provisiona, como atributos, configuração e propriedades de segurança. O Azure Cosmos DB oferece processamento de alto desempenho e alta produtividade, indexação de dados independente de esquema e uma interface de consulta SQL avançada.
+* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): Um serviço de banco de dados escalonável e totalmente indexado para dados semiestruturados que gerencia os metadados para os dispositivos que você provisiona, como atributos, configuração e propriedades de segurança. O Azure Cosmos DB oferece processamento de alto desempenho e alta produtividade, indexação de dados independente de esquema e uma interface de consulta SQL avançada.
 
-* [**Stream Analytics do Azure**](https://azure.microsoft.com/services/stream-analytics/): processamento de transmissão em tempo real na nuvem, que permite que você desenvolva e implante com rapidez uma solução de análise econômica a fim de descobrir insights em tempo real de dispositivos, sensores, infraestrutura e aplicativos. Os dados desse serviço totalmente gerenciado podem ser dimensionados para qualquer volume enquanto ainda atingem alta taxa de transferência, baixa latência e resiliência.
+* [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): Processamento na nuvem que permite que você desenvolva e implante com rapidez uma solução de análise de baixo custo para descobrir insights em tempo real de dispositivos, sensores, infraestrutura e aplicativos de fluxo em tempo real. Os dados desse serviço totalmente gerenciado podem ser dimensionados para qualquer volume enquanto ainda atingem alta taxa de transferência, baixa latência e resiliência.
 
-* [**Serviços de Aplicativos do Azure**](https://azure.microsoft.com/services/app-service/): uma plataforma de nuvem para compilar aplicativos Web e móveis avançados que se conectam aos dados em qualquer lugar, na nuvem ou local. Compile aplicativos móveis atraentes para iOS, Android e Windows. Integre-se com seu SaaS (software como serviço) e com aplicativos empresariais com conectividade integrada para dezenas de serviços baseados em nuvem e aplicativos empresariais. Codifique na sua linguagem e IDE favoritos (.NET, NodeJS, PHP, Python ou Java) para compilar aplicativos Web e APIs com mais rapidez do que nunca.
+* [**Serviços de aplicativo do Azure**](https://azure.microsoft.com/services/app-service/): Uma plataforma de nuvem para criar poderosos aplicativos web e móveis que se conectam aos dados em qualquer lugar; na nuvem ou local. Compile aplicativos móveis atraentes para iOS, Android e Windows. Integre-se com seu SaaS (software como serviço) e com aplicativos empresariais com conectividade integrada para dezenas de serviços baseados em nuvem e aplicativos empresariais. Codifique na sua linguagem e IDE favoritos (.NET, NodeJS, PHP, Python ou Java) para compilar aplicativos Web e APIs com mais rapidez do que nunca.
 
-* [**Aplicativos lógicos**](https://azure.microsoft.com/services/app-service/logic/): o recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure ajuda a integrar sua solução de IoT para sua linha de sistemas de negócios existentes e a automatizar processos de fluxo de trabalho. Os Aplicativos Lógicos permitem que os desenvolvedores projetem fluxos de trabalho iniciados de um gatilho e, em seguida, executem uma série de etapas — regras e ações que usam conectores poderosos para integrar seus processos de negócios. Os Aplicativos Lógicos oferecem conectividade pronta para uso para um vasto ecossistema de aplicativos de SaaS, baseados em nuvem e locais.
+* [**Aplicativos lógicos**](https://azure.microsoft.com/services/app-service/logic/): O recurso aplicativos lógicos do serviço de aplicativo do Azure ajuda a integrar sua solução de IoT para seus sistemas de linha de negócios existentes e automatizar processos de fluxo de trabalho. Os Aplicativos Lógicos permitem que os desenvolvedores projetem fluxos de trabalho iniciados de um gatilho e, em seguida, executem uma série de etapas — regras e ações que usam conectores poderosos para integrar seus processos de negócios. Os Aplicativos Lógicos oferecem conectividade pronta para uso para um vasto ecossistema de aplicativos de SaaS, baseados em nuvem e locais.
 
-* [**Armazenamento de Blobs do Azure**](https://azure.microsoft.com/services/storage/): Armazenamento em nuvem confiável e econômico para os dados que os dispositivos enviam para a nuvem.
+* [**O armazenamento de BLOBs do Azure**](https://azure.microsoft.com/services/storage/): Armazenamento em nuvem confiável e econômico para os dados que os dispositivos enviam para a nuvem.

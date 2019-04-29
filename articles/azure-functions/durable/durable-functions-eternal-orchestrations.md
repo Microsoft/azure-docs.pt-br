@@ -2,20 +2,21 @@
 title: Orquestrações eternas nas Funções Duráveis – Azure
 description: Saiba como implementar orquestrações eternas usando a extensão de Funções Duráveis do Azure Functions.
 services: functions
-author: ggailey777
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: azfuncdf
+origin.date: 12/07/2018
+ms.date: 12/25/2018
+ms.author: v-junlch
 ms.openlocfilehash: c4adffd457338ffebfd1c9c7727023f82088dc57
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607731"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60732409"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orquestrações eternas nas Funções Duráveis (Azure Functions)
 
@@ -80,7 +81,8 @@ Se uma função de orquestrador precisar ser concluída, tudo que você precisa 
 
 Se uma função de orquestrador for um loop infinito e precisar ser interrompido, use o método [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) para pará-la. Para obter mais informações, consulte [Gerenciamento de Instâncias](durable-functions-instance-management.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Saiba como implementar orquestrações singleton](durable-functions-singletons.md)
+

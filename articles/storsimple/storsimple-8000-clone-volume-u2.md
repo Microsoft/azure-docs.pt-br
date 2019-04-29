@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 12/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 84734aefb72a3330d99c5707b461de2cd5e30484
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097228"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60637826"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple no Portal do Azure para clonar um volume
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Este tutorial descreve como usar um conjunto de backup para clonar um volume individual pela folha **Catálogo de backup**. Ele também explica a diferença entre os clones *transitório* e *permanente*. As diretrizes neste tutorial se aplicam a todos os dispositivos StorSimple série 8000 que executam a Atualização 3 ou posterior.
 

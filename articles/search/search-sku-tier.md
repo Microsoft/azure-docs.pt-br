@@ -11,11 +11,11 @@ ms.date: 04/15/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: b50d0c0ca9a4000cc0c725453a3ef04b4bed9275
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681551"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61282429"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolher um tipo de preço para o Azure Search
 

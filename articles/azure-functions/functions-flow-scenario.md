@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 662c78fc7074b0dafc53c393962aa4b578779095
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
-ms.translationtype: HT
+ms.openlocfilehash: 31e18285bf6211e73d994e037a91adc396972715
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092251"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106963"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Chamar uma função do Microsoft Flow
 
@@ -132,7 +132,7 @@ Você primeiro cria um fluxo de espaço em branco (sem um modelo) e adiciona um 
 
     ![Adicione uma condição](media/functions-flow-scenario/add-condition.png)
 
-    O Microsoft Flow adiciona duas ramificações ao fluxo: **Se Sim** e **Se não**. Você adiciona etapas a uma ou ambas as ramificações depois de definir a condição que você deseja corresponder.
+    Microsoft Flow adiciona duas ramificações ao fluxo: **Em caso afirmativo** e **se nenhum**. Você adiciona etapas a uma ou ambas as ramificações depois de definir a condição que você deseja corresponder.
 
     ![Ramificações de condição](media/functions-flow-scenario/condition-branches.png)
 
@@ -224,12 +224,12 @@ Agora que o fluxo está concluído, você adiciona uma linha à lista do SharePo
 
 2. Insira os valores a seguir na grade de edição.
 
-    | Coluna de lista     | Valor           |
+    | Coluna de lista     | Value           |
     |-----------------|---------------------|
     | **Título**           | Turbina 60 |
     | **LastServiceDate** | 08/04/2017 |
     | **MaxOutput**       | 2500 |
-    | **ServiceRequired** | SIM |
+    | **ServiceRequired** | Sim |
     | **EstimatedEffort** | 10 |
 
 3. Clique em **Concluído**.

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: aahi
 ms.openlocfilehash: f5e75b30a7c196bb238c7bcb9c4704c1aec5e771
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999104"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61430893"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Suporte de idioma e região para a API de Pesquisa na Web do Bing
 

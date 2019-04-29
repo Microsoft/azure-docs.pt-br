@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a79184a5e08aa43a4675194adf5f10b9807418db
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
-ms.translationtype: HT
+ms.openlocfilehash: 52084b065ef65a69a6691b6646d1e199f011910d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36329545"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419570"
 ---
 ### <a name="gwipnoconnection"></a> Para modificar o endereço IP do gateway de rede local - sem conexão de gateway
 

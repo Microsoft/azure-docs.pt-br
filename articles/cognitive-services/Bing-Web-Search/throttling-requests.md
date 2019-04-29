@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: b29e4a52565247080e8be3124bd2a43575ecbf63
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341708"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60641136"
 ---
 # <a name="throttling-requests-to-the-bing-web-search-api"></a>Limitar solicitações para a API de Pesquisa na Web do Bing
 

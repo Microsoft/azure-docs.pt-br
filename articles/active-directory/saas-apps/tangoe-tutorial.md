@@ -17,11 +17,11 @@ ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c9f410fa890df7aac3c3bf4d89468b92e69ba38
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883225"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60869049"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Tutorial: Integração do Azure Active Directory ao Tangoe Command Premium Mobile
 
@@ -71,7 +71,7 @@ Para configurar a integração do Tangoe Command Premium Mobile ao Azure AD, voc
     
 1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![APLICATIVOS][3]
+    ![Aplicativos][3]
 
 1. Na caixa de pesquisa, digite **Tangoe Command Premium Mobile**, selecione **Tangoe Command Premium Mobile** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 

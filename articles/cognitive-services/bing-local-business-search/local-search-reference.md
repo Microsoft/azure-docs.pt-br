@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: bc38b4457179c11f9d6b2656aacb8aa66848c444
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992467"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60581030"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referência da API v7 da Pesquisa de empresa local do Bing
 
@@ -70,7 +70,7 @@ Veja a seguir os cabeçalhos que podem ser incluídos em uma solicitação e uma
 A solicitação pode incluir os parâmetros de consulta a seguir. Confira a coluna Obrigatório para obter os parâmetros necessários. É necessário codificar os parâmetros de consulta em URL.  
   
   
-|NOME|Valor|Type|Obrigatório|  
+|NOME|Value|Type|Obrigatório|  
 |----------|-----------|----------|--------------|
 |<a name="count" />Contagem|O número de resultados a serem retornados, começando com o índice especificado pelo `offset` parâmetro.|Cadeia de caracteres|Não |   
 |<a name="localCategories" />localCategories|Lista de opções que definem a pesquisa por categoria de negócio.  Consulte [categorias de negócios locais de pesquisa](local-categories.md)|Cadeia de caracteres|Não |  
@@ -86,7 +86,7 @@ A solicitação pode incluir os parâmetros de consulta a seguir. Confira a colu
 A seguir estão os objetos de resposta JSON que a resposta pode incluir. Se a solicitação for bem-sucedida, o objeto de nível superior na resposta é o objeto [SearchResponse](#searchresponse). Se a solicitação falha, o objeto de nível superior é o objeto [ErrorResponse](#errorresponse).
 
 
-|Objeto|DESCRIÇÃO|  
+|Object|DESCRIÇÃO|  
 |------------|-----------------|  
 |[Local](#place)|Define informações sobre uma empresa local, como um restaurante ou hotel.|  
 
@@ -107,7 +107,7 @@ Define o erro ocorrido.
 ### <a name="errorresponse"></a>ErrorResponse  
 O objeto de nível superior incluído pela resposta quando a solicitação falha.  
   
-|NOME|Valor|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo.|Cadeia de caracteres|  
 |<a name="errors" />errors|Uma lista de erros que descreve os motivos pelos quais a solicitação falhou.|[Error](#error)[]|  
@@ -117,7 +117,7 @@ O objeto de nível superior incluído pela resposta quando a solicitação falha
 ### <a name="license"></a>Licença  
 Define a licença sob a qual a foto ou o texto pode ser usado.  
   
-|NOME|Valor|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
 |Nome|O nome da licença.|Cadeia de caracteres|  
 |url|A URL para um site em que o usuário pode obter mais informações sobre a licença.<br /><br /> Use o nome e a URL para criar um hiperlink.|Cadeia de caracteres|  
@@ -126,7 +126,7 @@ Define a licença sob a qual a foto ou o texto pode ser usado.
 ### <a name="link"></a>Link  
 Define os componentes de um hiperlink.  
   
-|NOME|Valor|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo.|Cadeia de caracteres|  
 |text|O texto de exibição.|Cadeia de caracteres|  
@@ -140,7 +140,7 @@ Define um editor.
   
 Observe que um editor pode fornecer seu nome, seu site ou ambos.  
   
-|NOME|Valor|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
 |Nome|O nome do editor.|Cadeia de caracteres|  
 |url|A URL para o site do editor.<br /><br /> Observe que o editor pode não fornecer um site.|Cadeia de caracteres|  
@@ -150,7 +150,7 @@ Observe que um editor pode fornecer seu nome, seu site ou ambos.
 ### <a name="place"></a>Posicionar  
 Define informações sobre uma empresa local, como um restaurante ou hotel.  
   
-|NOME|Valor|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
 |_type|Digite hint, que pode ser definido como um dos seguintes:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurante</ul><li>|Cadeia de caracteres|  
 |endereço|O endereço postal em que a entidade está localizada.|PostalAddress|  
@@ -166,29 +166,29 @@ Define o contexto de consulta usado pelo Bing para a solicitação.
   
 |Elemento|DESCRIÇÃO|Type|  
 |-------------|-----------------|----------|  
-|adultIntent|Um valor booliano que indica se a consulta especificada é direcionada para adultos. O valor é **true** se a consulta é direcionada para adultos; caso contrário, **false**.|BOOLEAN|  
+|adultIntent|Um valor booliano que indica se a consulta especificada é direcionada para adultos. O valor é **true** se a consulta é direcionada para adultos; caso contrário, **false**.|Boolean|  
 |alterationOverrideQuery|A cadeia de caracteres de consulta a ser usada para forçar o Bing a usar a cadeia de caracteres original. Por exemplo, se a cadeia de caracteres de consulta for *velejando na direção do vento*, a cadeia de caracteres de consulta de substituição será *+velejando na direção do vento*. Lembre-se de codificar a cadeia de caracteres de consulta que resulta em *%2Bvelejando+na direção do vento*.<br /><br /> Esse campo é incluído somente se a cadeia de caracteres de consulta original contém um erro de ortografia.|Cadeia de caracteres|  
 |alteredQuery|A cadeia de caracteres de consulta usada pelo Bing para executar a consulta. O Bing usa a cadeia de caracteres de consulta alterada se a cadeia de caracteres de consulta original contém erros de ortografia. Por exemplo, se a cadeia de caracteres de consulta for `saling downwind`, a cadeia de caracteres de consulta alterada será `sailing downwind`.<br /><br /> Esse campo é incluído somente se a cadeia de caracteres de consulta original contém um erro de ortografia.|Cadeia de caracteres|  
-|askUserForLocation|Um valor booliano que indica se o Bing exige o local do usuário para fornecer resultados precisos. Se você especificou o local do usuário usando os cabeçalhos [X-MSEdge-ClientIP](#clientip) e [X-Search-Location](#location), ignore esse campo.<br /><br /> Para consultas com reconhecimento de local, como "clima de hoje" ou "restaurantes próximos ao meu local" que precisam do local do usuário para fornecer resultados precisos, esse campo é definido como **true**.<br /><br /> Para consultas com reconhecimento de local que incluem o local (por exemplo, "clima de Seattle"), esse campo é definido como **false**. Esse campo também é definido como **false** para consultas sem reconhecimento de local, como "campeões de venda".|BOOLEAN|  
+|askUserForLocation|Um valor booliano que indica se o Bing exige o local do usuário para fornecer resultados precisos. Se você especificou o local do usuário usando os cabeçalhos [X-MSEdge-ClientIP](#clientip) e [X-Search-Location](#location), ignore esse campo.<br /><br /> Para consultas com reconhecimento de local, como "clima de hoje" ou "restaurantes próximos ao meu local" que precisam do local do usuário para fornecer resultados precisos, esse campo é definido como **true**.<br /><br /> Para consultas com reconhecimento de local que incluem o local (por exemplo, "clima de Seattle"), esse campo é definido como **false**. Esse campo também é definido como **false** para consultas sem reconhecimento de local, como "campeões de venda".|Boolean|  
 |originalQuery|A cadeia de caracteres de consulta especificada na solicitação.|Cadeia de caracteres|  
 
 ### <a name="identifiable"></a>Identifiable
 
-|NOME|Valor|Type|  
+|NOME|Value|Type|  
 |-------------|-----------------|----------|
 |ID|Um identificador de recurso|Cadeia de caracteres|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Define um grupo de resultados da pesquisa, como linha principal.
 
-|NOME|Valor|Type|  
+|NOME|Value|Type|  
 |-------------|-----------------|----------|
 |itens|Uma lista de resultados da pesquisa a serem exibidos no grupo.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Define um item de resultado da pesquisa a ser exibido.
 
-|NOME|Valor|Type|  
+|NOME|Value|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Um índice baseado em zero do item na resposta a ser exibido. Se o item não incluir esse campo, exiba todos os itens na resposta. Por exemplo, exiba todos os artigos de notícias na resposta Notícias.|Número inteiro|
 |answerType|A resposta que contém o item a ser exibido. Por exemplo, Notícias.<br /><br />Use o tipo para encontrar a resposta no objeto SearchResponse. O tipo é o nome de um campo SearchResponse.<br /><br /> No entanto, use o tipo de resposta somente se esse objeto incluir o campo de valor; caso contrário, ignore-o.|Cadeia de caracteres|
@@ -198,7 +198,7 @@ Define um item de resultado da pesquisa a ser exibido.
 ### <a name="rankingresponse"></a>RankingResponse  
 Define o local em que o conteúdo da página de resultados da pesquisa deve ser colocado e em qual ordem.  
   
-|NOME|Valor|  
+|NOME|Value|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|Os resultados da pesquisa a serem exibidos na linha principal.|  
 |<a name="ranking-pole" />pole|Os resultados da pesquisa que devem receber o tratamento mais visível (por exemplo, exibidos acima da linha principal e da barra lateral).|  
@@ -209,7 +209,7 @@ Define o objeto de nível superior incluído pela resposta quando a solicitaçã
   
 Observe que se o serviço suspeitar de um ataque de negação de serviço, a solicitação será bem-sucedida (o código de status HTTP é 200 OK); no entanto, o corpo da resposta estará vazio.  
   
-|NOME|Valor|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo, que é definida como SearchResponse.|Cadeia de caracteres|  
 |Locais|Uma lista de entidades que são relevantes para a consulta de pesquisa.|Objeto JSON|  
@@ -268,7 +268,7 @@ Veja a seguir os possíveis valores de código de erro e de código de suberro.
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|O Bing retorna InvalidAuthorization quando o Bing não pode autenticar o chamador. Por exemplo, o cabeçalho `Ocp-Apim-Subscription-Key` está ausente ou a chave de assinatura não é válida.<br/><br/>A redundância ocorrerá se você especificar mais de um método de autenticação.<br/><br/>Se o erro for InvalidAuthorization, o código de status HTTP será 401.
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|O Bing retorna InsufficientAuthorization quando o chamador não tem permissões para acessar o recurso. Isso pode ocorrer se a chave de assinatura foi desabilitada ou expirou. <br/><br/>Se o erro for InsufficientAuthorization, o código de status HTTP será 403.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [ Início Rápido da Pesquisa de empresa local ](quickstarts/local-quickstart.md)
 - [Início rápido de negócios pesquisa Java local](quickstarts/local-search-java-quickstart.md)
 - [Início rápido de negócios o nó de pesquisa local](quickstarts/local-search-node-quickstart.md)

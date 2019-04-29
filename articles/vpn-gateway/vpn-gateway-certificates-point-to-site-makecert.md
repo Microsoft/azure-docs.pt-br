@@ -3,17 +3,18 @@ title: 'Gerar e exportar certificados para ponto a site: MakeCert : Azure | Micr
 description: Criar um certificado raiz autoassinado, exportar a chave pública e gerar certificados do cliente usando o MakeCert.
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/05/2018
-ms.author: cherylmc
+origin.date: 09/05/2018
+ms.date: 10/01/2018
+ms.author: v-jay
 ms.openlocfilehash: 973c0aa3bd187e963f15adbe34955d6bc9fa612d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102070"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60768099"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Gerar e exportar certificados para conexões Ponto a Site usando o MakeCert
 

@@ -15,11 +15,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: ca8b3930b9d9f708d83dc760be3ee89737b074dc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541580"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60583359"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Usar modelos para criar entidades do Azure Data Factory
 > [!NOTE]

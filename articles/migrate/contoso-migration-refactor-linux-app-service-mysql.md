@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
 ms.openlocfilehash: 4ff3f129838a43bd7684dc10e1653dab969e9c1e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086999"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60669127"
 ---
 # <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Migração para Contoso: Refatore um aplicativo da central de serviços do Contoso Linux em várias regiões com o Serviço de Aplicativo do Azure, o Gerenciador de Tráfego e o MySQL do Azure
 
@@ -48,7 +48,7 @@ A equipe de liderança de TI trabalhou em conjunto com seus parceiros comerciais
 - **Escala**: A solução deve ser criada para que a Contoso possa adicionar mais agentes de atendimento ao cliente à medida que os negócios crescem.
 - **Aumento da resiliência**:  No passado, os problemas com o sistema só afetavam os usuários internos. Com o novo modelo de negócios, os usuários externos serão afetados, e a Contoso precisará ter o aplicativo em funcionamento sempre.
 
-## <a name="migration-goals"></a>Objetivos da migração
+## <a name="migration-goals"></a>Metas de migração
 
 A equipe de nuvem Contoso fixou metas para essa migração a fi de determinar o melhor método de migração:
 
@@ -216,7 +216,7 @@ Os administradores da Contoso provisionam uma instância do banco de dados MySQL
 
 Os administradores da Contoso migram o banco de dados usando backup e restauração, com as ferramentas do MySQL. Ela instala o Workbench do MySQL, faz backup do banco de dados de OSTICKETMYSQL e, em seguida, o restaura no servidor do Banco de Dados do Azure para MySQL.
 
-### <a name="install-mysql-workbench"></a>Instalar MySQL Workbench
+### <a name="install-mysql-workbench"></a>Instalar o MySQL Workbench
 
 1. Eles verificam os [pré-requisitos e downloads do MySQL Workbench](https://dev.mysql.com/downloads/workbench/?utm_source=tuicool).
 2. Ela instala o Workbench do MySQL para Windows de acordo com as [instruções de instalação](https://dev.mysql.com/doc/workbench/en/wb-installing.html). O computador no qual ela instala deverá ser acessível para a VM OSTICKETMYSQL e para o Azure por meio da Internet.

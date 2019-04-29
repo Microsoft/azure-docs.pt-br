@@ -2,20 +2,21 @@
 title: Suborquestrações para Funções Duráveis – Azure
 description: Como chamar orquestrações de orquestrações na extensão de Funções Duráveis do Azure Functions.
 services: functions
-author: ggailey777
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: azfuncdf
+origin.date: 12/07/2018
+ms.date: 12/25/2018
+ms.author: v-junlch
 ms.openlocfilehash: 1ab9a5714a7ef24b51957bd48b1b67240cf13adb
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607659"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60730235"
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Suborquestrações em Funções Duráveis (Azure Functions)
 
@@ -119,7 +120,8 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Saiba o que são hubs de tarefas e como configurá-los](durable-functions-task-hubs.md)
+

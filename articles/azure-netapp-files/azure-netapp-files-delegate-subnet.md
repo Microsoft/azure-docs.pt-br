@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 03/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 1cac267be026d0e472db9a7a321f5fff6ab3e917
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: fd8e380ad68b86b9ffd0f1e40efde8bdadfb19c5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434765"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763300"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegar uma sub-rede ao Azure NetApp Files 
 
@@ -30,7 +30,7 @@ ms.locfileid: "58434765"
 * Em cada Vnet (Rede virtual) do Azure, apenas uma sub-rede pode ser delegada para o Azure NetApp Files.
 * Não é possível designar um grupo de segurança de rede nem um ponto de extremidade de serviço na sub-rede delegada. Fazer isso causa a falha da delegação da sub-rede.
 * Atualmente, não há suporte para acesso a um volume de uma rede virtual emparelhada globalmente.
-* Criando [rotas personalizadas definidas pelo usuário](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) em sub-redes VM com endereço de prefixo (destino) a uma sub-rede delegada aos arquivos do Azure NetApp não tem suporte e afeta a conectividade da VM.
+* Criando [rotas personalizadas definidas pelo usuário](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) em sub-redes VM com endereço de prefixo (destino) a uma sub-rede delegada aos arquivos do Azure NetApp é sem suporte. Isso afetará a conectividade da VM.
 
 ## <a name="steps"></a>Etapas 
 1.  Acesse a folha **Redes virtuais** no portal do Azure e selecione a rede virtual que você deseja usar para o Azure NetApp Files.    
@@ -46,7 +46,7 @@ ms.locfileid: "58434765"
     
 Também é possível criar e delegar uma sub-rede quando você [cria um volume do Azure NetApp Files](azure-netapp-files-create-volumes.md). 
 
-## <a name="next-steps"></a>Próximas etapas  
+## <a name="next-steps"></a>Próximos passos  
 * [Criar um volume do Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Saiba mais sobre a integração de rede virtual para os serviços do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
 

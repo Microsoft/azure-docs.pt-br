@@ -12,11 +12,11 @@ ms.author: clauren
 ms.date: 1/23/2019
 ms.custom: seodec18
 ms.openlocfilehash: 2cd2d328d33744854bc525e5ecf1dfa3b6e4bcc8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59275429"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821125"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Gerenciar, implantar e monitorar modelos com os Serviços do Azure Machine Learning
 
@@ -105,7 +105,7 @@ Para obter mais informações, consulte [Como habilitar a coleta de dados de mod
 
 Atualizações em seu modelo não são registradas automaticamente. Da mesma forma, registrar uma nova imagem não atualiza automaticamente as implantações que foram criadas de uma versão anterior da imagem. Em vez disso, você deve registrar manualmente o modelo, registrar a imagem e, em seguida, atualizar o modelo. Para obter mais informações, consulte a seção sobre atualização em [Implantar modelos](how-to-deploy-and-where.md#update).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre [como e em que local você pode implantar modelos](how-to-deploy-and-where.md) com o serviço do Azure Machine Learning. Para obter um exemplo de implantação, consulte [Tutorial: Implantar um modelo de classificação de imagem em instâncias de contêiner do Azure](tutorial-deploy-models-with-aml.md).
 

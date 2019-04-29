@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
 ms.openlocfilehash: 5dfe768ddb3509f896b90f913ffecdf33907357a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876673"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60682132"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - implantar uma infraestrutura de migração
 
@@ -45,7 +45,7 @@ Artigo 2: Implantar uma infraestrutura do Azure | A Contoso prepara a infraestru
 Neste artigo, a Contoso configura todos os elementos de infraestrutura de que precisa para concluir todos os cenários de migração. 
 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Antes de a Contoso poder migrar para o Azure, é fundamental preparar uma infraestrutura do Azure.  Em geral, há cinco áreas amplas sobre as quais a Contoso precisa pensar:
 
@@ -56,7 +56,7 @@ Antes de a Contoso poder migrar para o Azure, é fundamental preparar uma infrae
 **Etapa 5: Segurança**: Como protegerá a implantação do Azure/híbrida?  
 **Etapa 6: Governança**: Como a Contoso manterá a implantação alinhada aos requisitos de governança e de segurança?
 
-## <a name="before-you-start"></a>Antes de iniciar
+## <a name="before-you-start"></a>Antes de começar
 
 Antes de começar olhando para a infraestrutura, você talvez queira ler algumas informações básicas sobre os recursos do Azure que discutimos neste artigo:
 
@@ -94,7 +94,7 @@ A Contoso acompanha um [EA (Contrato Enterprise)](https://azure.microsoft.com/pr
 - Se, por algum motivo, a Contoso exceder seu compromisso e gastar mais, a Microsoft a cobrará pela diferença.
 - Qualquer custo incorrido acima do compromisso será nas mesmas taxas e no contrato da Contoso. Não há penalidades para ultrapassar.
 
-### <a name="manage-subscriptions"></a>Gerenciar assinaturas
+### <a name="manage-subscriptions"></a>Gerenciar Assinaturas
 
 Depois de pagar pelo Azure, a Contoso precisa descobrir como gerenciar as assinaturas do Azure. A Contoso tem um Contrato Enterprise e, portanto, nenhum limite no número de assinaturas do Azure que podem ser configuradas.
 
@@ -683,7 +683,7 @@ As políticas entram em vigor imediatamente e a Contoso pode verificar recursos 
 1. No portal do Azure, clique no link **Compliance**.
 2. O painel de conformidade é exibido. Você pode detalhar mais detalhes.
 
-    ![Conformidade com a política](./media/contoso-migration-infrastructure/policy-compliance.png)
+    ![Conformidade da política](./media/contoso-migration-infrastructure/policy-compliance.png)
 
 
 ### <a name="set-up-locks"></a>Configurar bloqueios
@@ -715,7 +715,7 @@ ServiceManager | Alias de e-mail do Gerenciador de serviços da ITIL para o recu
 COBPriority | Prioridade definida pela empresa de BCDR. Valores de 1 a 5.
 ENV | DEV, STG, PROD são os valores possíveis. Representando desenvolvimento, encenação e produção.
 
-Por exemplo: 
+Por exemplo:  
 
  ![Marcas do Azure](./media/contoso-migration-infrastructure/azure-tag.png)
 
@@ -744,7 +744,7 @@ A Contoso está procurando uma visão rápida da postura de segurança de sua no
 
 Com o gerenciamento centralizado de políticas, a Contoso garantirá a conformidade com os requisitos de segurança gerenciando centralmente as políticas de segurança em todo o ambiente. Ela pode implementar de forma simples e rápida uma política que se aplica a todos os seus recursos do Azure.
 
-![Política de Segurança](./media/contoso-migration-infrastructure/security-policy.png)
+![Política de segurança](./media/contoso-migration-infrastructure/security-policy.png)
 
 #### <a name="assess-and-action"></a>Avaliar e ação
 
@@ -783,9 +783,9 @@ Os NSGs associados aos ASGs serão configurados com o menor privilégio para gar
 
 **Ação** | **Nome** | **Fonte** | **Destino** | **Porta**
 --- | --- | --- | --- | --- 
-Permitir | AllowiInternetToFE | VNET-HUB-EUS1/IB-TrustZone | APP1-FE 80, 443
-Permitir | AllowWebToApp | APP1-FE | APP1-DB | 1433
-Permitir | AllowAppToDB | APP1-APP | Qualquer | Qualquer
+PERMITIR | AllowiInternetToFE | VNET-HUB-EUS1/IB-TrustZone | APP1-FE 80, 443
+PERMITIR | AllowWebToApp | APP1-FE | APP1-DB | 1433
+PERMITIR | AllowAppToDB | APP1-APP | Qualquer | Qualquer
 Negar | DenyAllInBound | Qualquer | Qualquer | Qualquer
 
 ### <a name="encrypt-data"></a>Criptografar dados

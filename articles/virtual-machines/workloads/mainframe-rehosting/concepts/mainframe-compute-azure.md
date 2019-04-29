@@ -7,11 +7,11 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 8aea4a74ba84855f011dada70ea75ec0d5fb64fe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58896225"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485428"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>Mover computação de mainframe para o Azure
 
@@ -112,7 +112,7 @@ Cada camada também pode fornecer desastres apropriada dos serviços de recupera
 
 ![Implantação altamente disponível que dá suporte à recuperação de desastres](media/mainframe-compute-dr.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Migração de mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
 - [Mainframe rehosting em máquinas virtuais do Azure](/azure/virtual-machines/workloads/mainframe-rehosting/overview)

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 467af776af95cf035121250fdcadd2fee65d9805
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889259"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60724535"
 ---
 #### <a name="to-create-a-volume-container"></a>Para criar um contêiner de volume
 1. Acesse o serviço Gerenciador de Dispositivo StorSimple e clique em **Dispositivos**. Na listagem tabular dos dispositivos, selecione e clique em um dispositivo. 

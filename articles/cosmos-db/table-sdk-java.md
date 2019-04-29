@@ -9,11 +9,11 @@ ms.date: 11/20/2017
 author: wmengmsft
 ms.author: wmeng
 ms.openlocfilehash: 724f0b9eb09b9eecad5b0a360d9301616d1494f1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035113"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60576213"
 ---
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>API de Tabela do Azure Cosmos DB para Java: Notas sobre a versão e recursos
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ A Microsoft fornecerá uma notificação pelo menos **12 meses** antes de desati
 
 Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SDK atual. Portanto, é recomendável atualizar sempre que possível para a versão do SDK mais recente. 
 
-| Versão | Data do lançamento | Data de desativação |
+| Version | Data do lançamento | Data de desativação |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 de novembro de 2017 |--- |
 

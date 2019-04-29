@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: c43d3738b23037432ecdfe3aa872950f6a7b863e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860585"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60812788"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Alterar os dados de declaração antes ou durante a previsão
 O LUIS fornece maneiras de manipular a declaração antes ou durante a previsão. Isso inclui a correção de ortografia e a correção de problemas de fuso horário do datetimeV2 pré-criado. 
@@ -30,9 +30,9 @@ O uso da chave no painel de teste e no ponto de extremidade são contados na cot
 
 O ponto de extremidade requer dois parâmetros para as correções ortográfica funcionarem:
 
-|Param|Valor|
+|Param|Value|
 |--|--|
-|`spellCheck`|booleano|
+|`spellCheck`|boolean|
 |`bing-spell-check-subscription-key`|Chave de ponto de extremidade de [API de Verificação Ortográfica do Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/)|
 
 Quando a [API de Verificação Ortográfica do Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) detecta um erro, a declaração original e a declaração corrigida são retornadas junto com as previsões do ponto de extremidade.
@@ -58,7 +58,7 @@ Quando um aplicativo LUIS usa a entidade datetimeV2 predefinida, um valor dateti
 ### <a name="endpoint-querystring-parameter"></a>Parâmetro querystring do ponto de extremidade
 O fuso horário é corrigido adicionando o fuso horário do usuário ao [ponto de extremidade](https://aka.ms/luis-endpoint-apis) usando o parâmetro `timezoneOffset`. O valor de `timezoneOffset` deve ser o número positivo ou negativo, em minutos, para alterar a hora.  
 
-|Param|Valor|
+|Param|Value|
 |--|--|
 |`timezoneOffset`|O número positivo ou negativo, em minutos|
 

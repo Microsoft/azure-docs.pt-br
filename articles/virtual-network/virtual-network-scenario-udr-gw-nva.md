@@ -3,7 +3,7 @@ title: Conexão híbrida com o aplicativo de 2 camadas | Microsoft Docs
 description: Aprenda a implantar dispositivos virtuais e UDR para criar um ambiente de aplicativo de várias camadas no Azure
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 manager: carmonm
 editor: tysonn
 ms.assetid: 1f509bec-bdd1-470d-8aa4-3cf2bb7f6134
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
-ms.author: jdial
-ms.openlocfilehash: 544ba6484b23da425d53594622122b1e18b92359
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: kumud
+ms.openlocfilehash: c959ee3bea24955e3281feb9db66e4e0cadc8bf9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
-ms.locfileid: "23643860"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61034111"
 ---
 # <a name="virtual-appliance-scenario"></a>Cenário de dispositivo virtual
 Um cenário comum entre os maiores clientes do Azure é a necessidade de fornecer um aplicativo de duas camadas exposto à Internet, permitindo acesso para a camada traseira de um datacenter local. Este documento explica um cenário usando UDR (Rotas Definidas pelo Usuário), um Gateway de VPN e dispositivos virtuais de rede para implantar um ambiente de duas camadas que atende aos seguintes requisitos:
@@ -134,19 +134,19 @@ Conforme descrito acima, somente encaminhamento de IP garante que os pacotes sej
 ### <a name="opfw"></a>OPFW
 OPFW representa um dispositivo local que contém as seguintes regras:
 
-* **Rota**: todo o tráfego para 10.0.0.0/16 (**azurevnet**) deve ser enviado pelo túnel **ONPREMAZURE**.
-* **Política**: permitir todo o tráfego bidirecional entre **port2** e **ONPREMAZURE**.
+* **rota**: Todo o tráfego para 10.0.0.0/16 (**azurevnet**) deve ser enviado pelo túnel **ONPREMAZURE**.
+* **Política**: Permitir todo o tráfego bidirecional entre **port2** e **ONPREMAZURE**.
 
 ### <a name="azf1"></a>AZF1
 O AZF1 representa um dispositivo virtual do Azure que contém as seguintes regras:
 
-* **Política**: permitir todo o tráfego bidirecional entre **port1** e **port2**.
+* **Política**: Permitir todo o tráfego bidirecional entre **port1** e **port2**.
 
 ### <a name="azf2"></a>AZF2
 O AZF2 representa um dispositivo virtual do Azure que contém as seguintes regras:
 
-* **Rota**: todo o tráfego para 10.0.0.0/16 (**onpremvnet**) deve ser enviado para o endereço IP do gateway do Azure (ou seja, 10.0.0.1) por meio de **port1**.
-* **Política**: permitir todo o tráfego bidirecional entre **port1** e **port2**.
+* **rota**: Todo o tráfego para 10.0.0.0/16 (**onpremvnet**) deve ser enviada para o gateway do Azure endereço IP (ou seja, 10.0.0.1) por meio de **port1**.
+* **Política**: Permitir todo o tráfego bidirecional entre **port1** e **port2**.
 
 ## <a name="network-security-groups-nsgs"></a>Grupos de segurança de rede (NSG)
 Nesse cenário, os NSGs não estão sendo usados. No entanto, você pode aplicar NSGs a cada sub-rede para restringir o tráfego de entrada e saído. Por exemplo, você pode aplicar as seguintes regras de NSG à sub-rede FW externa.

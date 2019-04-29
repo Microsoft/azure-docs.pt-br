@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: b679f1da0ada3e61fca79cdb985a43dc445877ce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57975484"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61338445"
 ---
 # <a name="interpret-method"></a>Método Interpretar
 
@@ -29,7 +29,7 @@ Para fornecer uma experiência interativa, é possível chamar esse método repe
 
 ## <a name="request-parameters"></a>Parâmetros de solicitação
 
-NOME     | Valor | Obrigatório?  | DESCRIÇÃO
+NOME     | Value | Obrigatório?  | DESCRIÇÃO
 ---------|---------|---------|---------
 **query**    | Cadeia de caracteres de texto | Sim | Consulta inserida pelo usuário.  Se o parâmetro completo estiver definido como 1, a consulta será interpretada como um prefixo para gerar sugestões de preenchimento automático de consulta.        
 **modelo**    | Cadeia de caracteres de texto | Não   | Nome do modelo que você quer consultar.  Atualmente, o valor padrão é o *mais recente*.        

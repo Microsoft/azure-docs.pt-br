@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/02/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 527567ee3f3a939c7358fb6a62271cbe38e16974
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
-ms.translationtype: HT
+ms.openlocfilehash: c15d695e072e72c6e7be6dcf49f3ea049a9b70b7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42915198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560447"
 ---
 Ao enviar notificações de modelo, será necessário somente fornecer um conjunto de propriedades. Nesse cenário, o conjunto de propriedades contém a versão localizada das notícias atuais.
 

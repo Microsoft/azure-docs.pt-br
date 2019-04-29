@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 91fad34073d7505c596bedfb6c93946ee7393dd7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315123"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60825601"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Usar a Análise de Mídia do Azure para converter o conteúdo de texto em arquivos de vídeo em texto digital  
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Se for necessário extrair o conteúdo de texto de seus arquivos de vídeo e gerar um texto digital editável e pesquisável, você deverá usar o OCR (reconhecimento óptico de caracteres) da Análise de Mídia do Azure. Esse Processador de Mídia do Azure detecta o conteúdo de texto em seus arquivos de vídeo e gera arquivos de texto para seu uso. O OCR permite que você automatize a extração de metadados significativos do sinal de vídeo de sua mídia.
 
 Quando usado em conjunto com um mecanismo de pesquisa, você pode facilmente indexar sua mídia por texto e melhorar a capacidade de descoberta do seu conteúdo. Isso é extremamente útil em vídeo altamente textual, como uma gravação de vídeo ou captura de tela de uma apresentação de slides. O Processador de Mídia OCR do Azure é otimizado para texto digital.
@@ -42,7 +42,7 @@ Configuração de tarefa (predefinição). Ao criar uma tarefa com o **OCR de M�
 >
 
 ### <a name="attribute-descriptions"></a>Descrições de atributos
-| Nome do atributo | Descrição |
+| Nome do atributo | DESCRIÇÃO |
 | --- | --- |
 |AdvancedOutput| Se você definir AdvancedOutput como true, a saída JSON conterá dados posicionais para cada palavra (além de frases e regiões). Se você não quiser ver esses detalhes, defina o sinalizador como false. O valor padrão é falso. Para saber mais, confira [este blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
 | Linguagem |(opcional) descreve o idioma do texto a ser procurado. Um dos seguintes: Detecção Automática (padrão), árabe, chinês simplificado, chinês tradicional, tcheco, dinamarquês, holandês, inglês, finlandês, francês, alemão, grego, húngaro, italiano, japonês, coreano, norueguês, polonês, português, romeno, russo, sérvio (alfabeto cirílico), sérvio (alfabeto latino), eslovaco, espanhol, sueco, turco. |
@@ -103,7 +103,7 @@ A saída de OCR de vídeo fornece dados segmentados por tempo sobre os caractere
 
 A saída contém os seguintes atributos:
 
-| Elemento | Descrição |
+| Elemento | DESCRIÇÃO |
 | --- | --- |
 | Escala de tempo |"Tiques" por segundo do vídeo |
 | Deslocamento |diferença de tempo para carimbos de data/hora. Na versão 1.0 das APIs de Vídeo, sempre será 0. |
@@ -112,14 +112,14 @@ A saída contém os seguintes atributos:
 | height |altura do vídeo em pixels |
 | Fragmentos |matriz de partes com base em tempo do vídeo nas quais os metadados estão em bloco |
 | iniciar |hora de início de um fragmento em "tiques" |
-| duração |duração de um fragmento em "tiques" |
+| duration |duração de um fragmento em "tiques" |
 | intervalo |intervalo de cada evento dentro do fragmento determinado |
-| eventos |matriz que contém regiões |
-| Região |objeto representando palavras ou frases detectadas |
+| events |matriz que contém regiões |
+| region |objeto representando palavras ou frases detectadas |
 | Linguagem |idioma do texto detectado dentro de uma região |
 | orientation |orientação do texto detectado dentro de uma região |
 | lines |matriz de linhas de texto detectadas em uma região |
-| texto |o texto real |
+| text |o texto real |
 
 ### <a name="json-output-example"></a>Exemplo de saída JSON
 O exemplo de saída a seguir contém as informações gerais de vídeo e vários fragmentos de vídeo. Em cada fragmento de vídeo, ele contém todas as regiões que são detectadas pelo MP de OCR com o idioma e sua orientação de texto. A região também contém todas as linhas de palavras nessa região com texto da linha, posição da linha e todas as informações de palavra (conteúdo, posição e confiança da palavra) nesta linha. A seguir está um exemplo e coloquei alguns comentários embutidos.

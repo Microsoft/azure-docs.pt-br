@@ -12,11 +12,11 @@ ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 9ae7795381f036bb819ce24554d8cea94ceb5552
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548535"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60818361"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Treinar modelos PyTorch com o Serviço do Azure Machine Learning
 

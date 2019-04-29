@@ -8,11 +8,11 @@ ms.date: 04/08/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 568f47aacf39793d4c2da46798682abc002ca33b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279493"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60889348"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Controle de transações e simultaneidade otimista
 
@@ -57,7 +57,7 @@ Cada item armazenado em um contêiner do Azure Cosmos tem uma propriedade `_etag
 
 O item `_etag` o valor é alterado toda vez que o item é atualizado. Para operações de item de substituição, `if-match` devem ser expressos explicitamente como parte das opções de solicitação. Para obter um exemplo, confira o código de exemplo no [GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446). `_etag` valores implicitamente são verificados para todos os itens escritos tocados pelo procedimento armazenado. Se qualquer conflito for detectado, o procedimento armazenado será reverter a transação e lançar uma exceção. Com esse método, toda ou nenhuma gravação dentro do procedimento armazenado é aplicada de maneira atômica. Isso é um sinal para o aplicativo reaplicar atualizações e repetir a solicitação original do cliente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre controle de transações e simultaneidade otimista do banco de dados nos seguintes artigos:
 

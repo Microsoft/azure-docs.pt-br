@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7af578cf282c1bb8d8d7d00fee57bafed32b9a0e
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
-ms.translationtype: HT
+ms.openlocfilehash: 80ef63cdd9de8cb2340fe15d761402bb9f00fae9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44030191"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60795946"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Arquitetura do SAP HANA (Instâncias Grandes) no Azure
 
@@ -34,24 +34,24 @@ A arquitetura geral do SAP HANA do Azure (Instâncias Grandes) fornece uma confi
 
 A arquitetura mostrada é dividida em três seções:
 
-- **Direita**: mostra uma infraestrutura local que executa aplicativos diferentes em data centers para que os usuários finais possam acessar aplicativos de linha de negócios, como o SAP. O ideal é que essa infraestrutura local seja conectada ao Azure com [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+- **à direita**: Mostra uma infraestrutura local que executa aplicativos diferentes em data centers para que os usuários finais possam acessar aplicativos, como o SAP de LOB. O ideal é que essa infraestrutura local seja conectada ao Azure com [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
-- **Centro**: mostra a IaaS do Azure e, nesse caso, o uso de VMs para hospedar o SAP ou outros aplicativos que usam o SAP HANA, como um sistema de DBMS. Instâncias menores do HANA que funcionam com a memória que as VMs fornecem são implantadas em VMs em conjunto com a camada de aplicativo. Para obter mais informações sobre máquinas virtuais, consulte [Máquinas virtuais](https://azure.microsoft.com/services/virtual-machines/).
+- **Centro de**: Mostra a IaaS do Azure e, nesse caso, uso de VMs para hospedar SAP ou outros aplicativos que usam o SAP HANA como um sistema DBMS. Instâncias menores do HANA que funcionam com a memória que as VMs fornecem são implantadas em VMs em conjunto com a camada de aplicativo. Para obter mais informações sobre máquinas virtuais, consulte [Máquinas virtuais](https://azure.microsoft.com/services/virtual-machines/).
 
    Os serviços de rede do Azure são usados para agrupar sistemas SAP em conjunto com outros aplicativos em redes virtuais. Essas redes virtuais conectam-se a sistemas locais, bem como ao SAP HANA do Azure (Instâncias Grandes).
 
-   Para bancos de dados e aplicativos do SAP NetWeaver com suporte para execução no Azure, consulte a [Nota de Suporte SAP nº 1928533 – Aplicativos do SAP no Azure: Produtos com suporte e tipos de VM do Azure](https://launchpad.support.sap.com/#/notes/1928533). Para obter documentação sobre como implantar soluções SAP no Azure, consulte:
+   Para aplicativos SAP NetWeaver e bancos de dados que têm suporte para execução no Azure, consulte [suporte a nota SAP n º 1928533 – aplicativos SAP no Azure: Produtos com suporte e tipos de VM do Azure](https://launchpad.support.sap.com/#/notes/1928533). Para obter documentação sobre como implantar soluções SAP no Azure, consulte:
 
   -  [Usar o SAP em máquinas virtuais do Windows](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   -  [Usar as soluções SAP em máquinas virtuais do Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-- **Esquerda**: mostra o hardware certificado por TDI do SAP HANA no carimbo da Instância Grande do Azure. As unidades do SAP HANA em Instâncias Grandes são conectadas às redes virtuais da assinatura, usando a mesma tecnologia que a conectividade do local para o Azure.
+- **Left**: Mostra o hardware certificado por TDI do SAP HANA no carimbo da instância grande do Azure. As unidades do SAP HANA em Instâncias Grandes são conectadas às redes virtuais da assinatura, usando a mesma tecnologia que a conectividade do local para o Azure.
 
 O carimbo de Instância Grande do Azure em si combina os seguintes componentes:
 
-- **Computação:** servidores baseados em processadores Intel Xeon E7-8890v3 ou Intel Xeon E7-8890v4 que fornecem a capacidade de computação necessária e são certificados pelo SAP HANA.
-- **Rede:** uma malha de rede unificada de alta velocidade que interconecta os componentes de LAN, armazenamento e computação.
-- **Armazenamento:** uma infraestrutura de armazenamento que é acessada por meio de uma malha de rede unificada. A capacidade de armazenamento específica fornecida depende da configuração específica do SAP HANA do Azure (Instâncias Grandes) implantada. Mais capacidade de armazenamento está disponível por um custo mensal adicional.
+- **Computação**: Servidores baseados em processadores Intel Xeon E7-8890v3 ou Intel Xeon E7-8890v4 que fornecem a capacidade de computação necessária e são certificados pelo SAP HANA.
+- **Rede**: Uma malha de rede unificada de alta velocidade que interconexões de computação, armazenamento e componentes de LAN.
+- **Armazenamento**: Uma infraestrutura de armazenamento que é acessada por meio de uma malha de rede unificada. A capacidade de armazenamento específica fornecida depende da configuração específica do SAP HANA do Azure (Instâncias Grandes) implantada. Mais capacidade de armazenamento está disponível por um custo mensal adicional.
 
 Na infraestrutura multilocatária do carimbo de Instância Grande, os clientes são implantados como locatários isolados. Na implantação do locatário, você nomeia uma assinatura do Azure na inscrição do Azure. Essa assinatura do Azure é aquela com a qual o SAP HANA em Instâncias Grandes é cobrado. Esses locatários têm uma relação de 1:1 para a assinatura do Azure. Para uma rede, é possível acessar uma unidade SAP HANA em Instâncias Grandes implantada em um locatário em uma região do Azure, a partir de diferentes redes virtuais que pertencem a diferentes assinaturas do Azure. Essas assinaturas do Azure devem pertencer à mesma inscrição do Azure. 
 

@@ -13,11 +13,11 @@ ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ms.openlocfilehash: 38b2244d68de25f53d59dd4eb0a6beba03f0e51d
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339531"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60916675"
 ---
 # <a name="page-through-the-images-results"></a>Paginar pelos resultados de imagens
 

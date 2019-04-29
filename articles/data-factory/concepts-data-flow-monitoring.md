@@ -8,11 +8,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.openlocfilehash: 90aa6261aebb9d1f7da89c101854bad8061dd6ff
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737851"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61268952"
 ---
 # <a name="monitor-data-flows"></a>Monitorar Fluxo de Dados
 
@@ -42,7 +42,7 @@ Quando o Fluxo de Dados é executado em Databricks, o Azure Data Factory determi
 
 * Ao selecionar transformações individuais, você receberá comentários adicionais no painel direito que mostrará as estatísticas de partição, contagens de colunas, assimetria (como os dados estão distribuídos uniformemente em partições) e curtose (o quão "pontiagudo" estão os dados).
 
-* Ao clicar no Coletor na exibição do nó, a linhagem da coluna é exibida. Há três métodos diferentes em que as colunas são acumuladas ao longo do fluxo de dados para chegar ao Coletor. São eles:
+* Ao clicar no Coletor na exibição do nó, a linhagem da coluna é exibida. Há três métodos diferentes em que as colunas são acumuladas ao longo do fluxo de dados para chegar ao Coletor. Eles são:
 
   * Computado: Você usa a coluna para processamento condicional ou dentro de uma expressão no fluxo de dados, mas não a coloca no Coletor
   * Derivado: A coluna é uma nova coluna que você gerou no fluxo, ou seja, ela não estava presente na Origem

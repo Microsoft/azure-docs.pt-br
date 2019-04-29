@@ -7,14 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/15/2018
+origin.date: 04/30/2018
+ms.date: 02/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 03c86aa069300f88b61752ebd3223e424f6e9c96
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 0361539cefbacb8fc0473a1f863cf2ae4638b444
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382618"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766763"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Usar o Túnel SSH para acessar a interface do usuário da Web do Apache Ambari, JobHistory, NameNode, Apache Oozie e outras UIs da Web
 
@@ -34,7 +35,7 @@ As seguintes interfaces do usuário da Web exigem um túnel SSH:
 
 Se você usar as Ações de Script para personalizar seu cluster, todos os serviços ou utilitários que forem instalados e que expuserem um serviço Web exigirão um túnel SSH. Por exemplo, se você instalar o Hue usando uma Ação de Script, deverá usar um túnel SSH para acessar a interface do usuário da Web do Hue.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Se tiver acesso direto ao HDInsight por meio de uma rede virtual, você não precisará usar túneis SSH. Para obter um exemplo de acesso direto ao HDInsight por meio de uma rede virtual, consulte o documento [Conectar HDInsight em sua rede local](connect-on-premises-network.md).
 
 ## <a name="what-is-an-ssh-tunnel"></a>O que é um túnel SSH
@@ -47,7 +48,7 @@ Se você usar as Ações de Script para personalizar seu cluster, todos os servi
 
 * Um navegador da Web que pode ser configurado para usar um proxy SOCKS5.
 
-    > [!WARNING]  
+    > [!WARNING]
     > O suporte a proxy SOCKS integrado das configurações de Internet do Windows não dá suporte a SOCKS5 e não funciona com as etapas neste documento. Os navegadores a seguir contam com as configurações de proxy do Windows e não funcionam com as etapas neste documento:
     >
     > * Microsoft Edge
@@ -110,14 +111,14 @@ O [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty) é um cliente SSH 
 
 ## <a name="use-the-tunnel-from-your-browser"></a>Usar o túnel de seu navegador
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > As etapas nesta seção usam o navegador Mozilla FireFox, pois ele fornece as mesmas configurações de proxy em todas as plataformas. Outros navegadores modernos como Google Chrome podem exigir uma extensão como o FoxyProxy para trabalhar com o túnel.
 
 1. Configure o navegador para usar **localhost** e a porta usada ao criar o túnel como um proxy **SOCKS v5**. Aqui está a aparência das configurações do Firefox. Se você tiver usado uma porta diferente da 9876, altere a porta que usou:
    
     ![imagem das configurações do Firefox](./media/hdinsight-linux-ambari-ssh-tunnel/firefoxproxy.png)
    
-   > [!NOTE]  
+   > [!NOTE]
    > Selecionar **DNS Remoto** resolve as solicitações de DNS (Sistema de Nomes de Domínio) usando o cluster HDInsight. Essa configuração resolve o DNS usando o nó principal do cluster.
 
 2. Verifique se o túnel funciona, visitando um site como [https://www.whatismyip.com/](https://www.whatismyip.com/). O IP retornado deve ser um IP usado pelo data center do Microsoft Azure.
@@ -139,7 +140,7 @@ Assim que o cluster tiver sido estabelecido, use as etapas a seguir para verific
 
     ![Imagem do menu Links Rápidos expandido](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
 
-   > [!NOTE]  
+   > [!NOTE]
    > Quando você seleciona __Links rápidos__, pode receber um indicador de espera. Essa condição poderá ocorrer se você tiver uma conexão de Internet lenta. Aguarde um minuto ou dois pelos dados a serem recebidos do servidor e experimente a lista novamente.
    >
    > Algumas entradas no menu **Links rápidos** podem ser cortadas pelo lado direito da tela. Nesse caso, expanda o menu usando o mouse e a tecla de seta para a direita para rolar a tela para a direita e ver o restante do menu.

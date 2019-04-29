@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
 ms.openlocfilehash: 21396a10543d388b6ac360f426272f1841b2f510
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314103"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60673558"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Migração para Contoso:  Refatorar uma implantação do Team Foundation Server para o Azure DevOps Services
 
@@ -22,7 +22,7 @@ Este documento é um de uma série de artigos que mostram como a empresa fictíc
 
 **Artigo** | **Detalhes** | **Status**
 --- | --- | ---
-[Artigo 1: Visão Geral](contoso-migration-overview.md) | Fornece uma visão geral de estratégia de migração da Contoso, a série de artigos e os aplicativos de exemplo que usamos. | Disponível
+[Artigo 1: Visão geral](contoso-migration-overview.md) | Fornece uma visão geral de estratégia de migração da Contoso, a série de artigos e os aplicativos de exemplo que usamos. | Disponível
 [Artigo 2: Implantar uma infraestrutura do Azure](contoso-migration-infrastructure.md) | Descreve como Contoso prepara seu local e a infraestrutura do Azure para a migração. A mesma infraestrutura é usada para todos os cenários de migração da Contoso. | Disponível
 [Artigo 3: Avaliar recursos locais](contoso-migration-assessment.md)  | Mostra como a Contoso executa uma avaliação de seu aplicativo SmartHotel local de duas camadas em execução na VMware. As VMs de aplicativo são avaliadas com o serviço [Migrações para Azure](migrate-overview.md) e o banco de dados do SQL Server do aplicativo com o [Assistente de Migração de Dados do Azure](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponível
 [Artigo 4: Mudar o host para VMs do Azure e para uma Instância Gerenciada do SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstra como a Contoso migra o aplicativo SmartHotel para o Azure. Elas migram a VM Web do aplicativo usando o [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) e o banco de dados de aplicativo usando o serviço [Migração de Banco de Dados do Azure](https://docs.microsoft.com/azure/dms/dms-overview) para migrar para uma Instância Gerenciada do SQL. | Disponível
@@ -46,7 +46,7 @@ A equipe de liderança de TI trabalhou em conjunto com parceiros de negócios pa
 - **Eficiência**: a Contoso precisa simplificar o processo e remover os procedimentos desnecessários para desenvolvedores e usuários. Isso permitirá que a empresa cumpra os requisitos do cliente com mais eficiência. Os negócios precisam que a TI seja rápida, sem perda de tempo ou de dinheiro.
 - **Agilidade**:  a Contoso precisa que a TI responda às necessidades de negócios e reaja mais rapidamente do que o marketplace para permitir o sucesso em uma economia global. A TI não deve ser um bloqueador para os negócios.
 
-## <a name="migration-goals"></a>Objetivos da migração
+## <a name="migration-goals"></a>Metas de migração
 
 A equipe de nuvem da Contoso fixou metas para a migração para o Azure DevOps Services:
 
@@ -311,27 +311,27 @@ Depois que o DACPAC é criado, a Contoso o carrega no Armazenamento do Azure.
 
 1. Eles [baixam e instalam](https://azure.microsoft.com/features/storage-explorer/) o Gerenciador de Armazenamento do Azure.
 
-    ![Upload](./media/contoso-migration-tfs-vsts/backup5.png)
+    ![Carregar](./media/contoso-migration-tfs-vsts/backup5.png)
 
 4. Eles se conectam à sua assinatura e localizam a conta de armazenamento que criaram para a migração (**contosodevmigration**). Eles criam um novo contêiner de blobs, **azuredevopsmigration**.
 
-    ![Upload](./media/contoso-migration-tfs-vsts/backup6.png)
+    ![Carregar](./media/contoso-migration-tfs-vsts/backup6.png)
 
 5. Eles especificam o arquivo DACPAC para upload como um blob de blocos.
 
-    ![Upload](./media/contoso-migration-tfs-vsts/backup7.png)
+    ![Carregar](./media/contoso-migration-tfs-vsts/backup7.png)
     
 7. Depois que o arquivo é carregado, eles clicam no nome do arquivo > **Gerar SAS**. Eles expandem os contêineres de blobs sob a conta de armazenamento, selecionam o contêiner com os arquivos de importação e clicam em **Obter Assinatura de Acesso Compartilhado**.
 
-    ![Upload](./media/contoso-migration-tfs-vsts/backup8.png)
+    ![Carregar](./media/contoso-migration-tfs-vsts/backup8.png)
 
 8. Eles aceitam os padrões e clicam em **Criar**. Isso habilita o acesso por 24 horas.
 
-    ![Upload](./media/contoso-migration-tfs-vsts/backup9.png)
+    ![Carregar](./media/contoso-migration-tfs-vsts/backup9.png)
 
 9. Eles copiam a URL da Assinatura de Acesso Compartilhado para que ela possa ser usada pela Ferramenta de Migração do TFS.
 
-    ![Upload](./media/contoso-migration-tfs-vsts/backup10.png)
+    ![Carregar](./media/contoso-migration-tfs-vsts/backup10.png)
 
 > [!NOTE]
 > A migração deve ocorrer antes dentro da janela de tempo permitida ou as permissões expirarão.

@@ -12,11 +12,11 @@ ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 0887f58ca455dfec0474c8d6a1acba584224f0d7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074403"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60929443"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Perguntas frequentes sobre bancos de dados MySql do ClearDB com o Serviço de Aplicativo do Azure
 Estas perguntas frequentes respondem a dúvidas comuns sobre como usar e adquirir os bancos de dados MySQL do ClearDB para aplicativos Web do Azure.
@@ -74,7 +74,7 @@ Se você tiver criado um banco de dados ClearDB no modo clássico, você não po
 Entre em contato com o [Suporte do ClearDB](https://www.cleardb.com/developers/help/support) para quaisquer problemas relacionados ao banco de dados. Esteja preparado para fornecer as informações de sua assinatura do Azure.
 
 ## <a name="can-i-create-additional-users-for-my-cleardb-mysql-database-cluster-solution"></a>Posso criar usuários adicionais para minha solução de cluster de banco de dados MySQL ClearDB?
- Não. Não é possível criar usuários adicionais, mas você pode criar bancos de dados adicionais no cluster do banco de dados ClearDB.  
+Não. Não é possível criar usuários adicionais, mas você pode criar bancos de dados adicionais no cluster do banco de dados ClearDB.  
 
 ## <a name="can-basicpro-series-databases-be-upgraded-in-place-similar-to-planetary-plans-today-on-cleardb-portal"></a>Os bancos de dados das séries Basic/Pro podem ser atualizados no local semelhante aos planos Planetary atualmente no portal ClearDB?
 Sim, a série de bancos de dados Basic pode ser atualizada no local (Basic 60 à Basic 500). A série Pro pode ser atualizada in-loco (Pro 125 à Pro 1000), com exceção da Pro 60. Não damos suporte para atualizar o banco de dados Pro 60 atualmente. 

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.openlocfilehash: 26f2131fd62ddc83c2a6d93c4cff557402a88463
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281107"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61060770"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configurar o firewall de IP no Azure Cosmos DB
 

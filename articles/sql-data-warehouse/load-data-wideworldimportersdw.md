@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
 ms.openlocfilehash: 44ad37120034d59161fe3b5f0ed521fc6f630b0f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454327"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61081261"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Tutorial: Carregar dados no SQL Data Warehouse do Azure
 
@@ -151,7 +151,7 @@ Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) 
     | ------------ | --------------- | ----------- | 
     | Tipo de servidor | Mecanismo de banco de dados | Esse valor é obrigatório |
     | Nome do servidor | O nome do servidor totalmente qualificado | Por exemplo, **sample-svr.database.windows.net** é um nome do servidor totalmente qualificado. |
-    | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação configurado neste tutorial. |
+    | Authentication | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação configurado neste tutorial. |
     | Logon | A conta do administrador do servidor | Esta é a conta que você especificou quando criou o servidor. |
     | Senha | A senha para sua conta do administrador do servidor | Esta é a senha que você especificou quando criou o servidor. |
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: fa4487b07f130947ac5da2a5dbae6776b06acbe7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009882"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463762"
 ---
 # <a name="input-metadata"></a>Metadados de entrada 
 
@@ -50,12 +50,12 @@ Consulte um exemplo de XML no final deste artigo: [Exemplo de XML](media-service
 ### <a name="attributes"></a>Atributos
 | NOME | Type | DESCRIÇÃO |
 | --- | --- | --- |
-| **Nome**<br /><br /> Necessário |**xs:string** |Nome do arquivo de ativo. |
-| **Tamanho**<br /><br /> Necessário |**xs:long** |Tamanho do arquivo de ativo em bytes. |
-| **Duração**<br /><br /> Necessário |**xs:duration** |Duração da reprodução de conteúdo. Exemplo: Duration="PT25M37.757S". |
-| **NumberOfStreams**<br /><br /> Necessário |**xs:int** |Número de fluxos no arquivo de ativo. |
-| **FormatNames**<br /><br /> Necessário |**xs: string** |Nomes de formato. |
-| **FormatVerboseNames**<br /><br /> Necessário |**xs: string** |Nomes detalhados de formato. |
+| **Nome**<br /><br /> Obrigatório |**xs:string** |Nome do arquivo de ativo. |
+| **Tamanho**<br /><br /> Obrigatório |**xs:long** |Tamanho do arquivo de ativo em bytes. |
+| **Duração**<br /><br /> Obrigatório |**xs:duration** |Duração da reprodução de conteúdo. Exemplo: Duration="PT25M37.757S". |
+| **NumberOfStreams**<br /><br /> Obrigatório |**xs:int** |Número de fluxos no arquivo de ativo. |
+| **FormatNames**<br /><br /> Obrigatório |**xs: string** |Nomes de formato. |
+| **FormatVerboseNames**<br /><br /> Obrigatório |**xs: string** |Nomes detalhados de formato. |
 | **StartTime** |**xs:duration** |Hora de início do conteúdo. Exemplo: StartTime="PT2.669S". |
 | **OverallBitRate** |**xs: int** |Taxa de bits média do arquivo de ativo em kbps. |
 
@@ -78,10 +78,10 @@ Consulte um exemplo de XML no final deste artigo: [Exemplo de XML](media-service
 ### <a name="attributes"></a>Atributos
 | NOME | Type | DESCRIÇÃO |
 | --- | --- | --- |
-| **Id**<br /><br /> Necessário |**xs:int** |Índice baseado em zero da faixa de áudio ou de vídeo.<br /><br /> Essa não é necessariamente a TrackID como usada em um arquivo MP4. |
+| **Id**<br /><br /> Obrigatório |**xs:int** |Índice baseado em zero da faixa de áudio ou de vídeo.<br /><br /> Essa não é necessariamente a TrackID como usada em um arquivo MP4. |
 | **Codec** |**xs:string** |Cadeia de caracteres de codec de faixa de vídeo. |
 | **CodecLongName** |**xs: string** |Nome longo de codec de faixa de áudio ou vídeo. |
-| **TimeBase**<br /><br /> Necessário |**xs:string** |Base de tempo. Exemplo: TimeBase="1/48000" |
+| **TimeBase**<br /><br /> Obrigatório |**xs:string** |Base de tempo. Exemplo: TimeBase="1/48000" |
 | **NumberOfFrames** |**xs:int** |Número de quadros (presentes em faixas de vídeo). |
 | **StartTime** |**xs: duration** |Hora de início da faixa. Exemplo: StartTime="PT2.669S" |
 | **Duração** |**xs:duration** |Duração da faixa. Exemplo: Duration="PTSampleFormat M37.757S". |
@@ -109,8 +109,8 @@ Consulte um exemplo de XML no final deste artigo: [Exemplo de XML](media-service
 | --- | --- | --- |
 | **SampleFormat** |**xs:string** |Formato de exemplo. |
 | **ChannelLayout** |**xs: string** |Layout do canal. |
-| **Canais**<br /><br /> Necessário |**xs:int** |Número (0 ou mais) de canais de áudio. |
-| **SamplingRate**<br /><br /> Necessário |**xs:int** |Taxa de amostragem de áudio em amostras/s ou Hz. |
+| **Canais**<br /><br /> Obrigatório |**xs:int** |Número (0 ou mais) de canais de áudio. |
+| **SamplingRate**<br /><br /> Obrigatório |**xs:int** |Taxa de amostragem de áudio em amostras/s ou Hz. |
 | **Bitrate** |**xs:int** |Taxa média de bits de áudio em bits por segundo, calculada com base no arquivo de ativo. Apenas a carga de fluxo elementar é contada, e a sobrecarga de empacotamento não está incluída nesta contagem. |
 | **BitsPerSample** |**xs:int** |Bits por amostra para o tipo de formato wFormatTag. |
 
@@ -124,18 +124,18 @@ Consulte um exemplo de XML no final deste artigo: [Exemplo de XML](media-service
 ### <a name="attributes"></a>Atributos
 | NOME | Type | DESCRIÇÃO |
 | --- | --- | --- |
-| **FourCC**<br /><br /> Necessário |**xs:string** |Código FourCC de codec de vídeo. |
+| **FourCC**<br /><br /> Obrigatório |**xs:string** |Código FourCC de codec de vídeo. |
 | **Perfil** |**xs: string** |Perfil da faixa de vídeo. |
 | **Level** |**xs: string** |Nível da faixa de vídeo. |
 | **PixelFormat** |**xs: string** |Formato de pixel da faixa de vídeo. |
-| **Largura**<br /><br /> Necessário |**xs:int** |Largura do vídeo codificado em pixels. |
-| **Altura**<br /><br /> Necessário |**xs:int** |Altura do vídeo codificado em pixels. |
-| **DisplayAspectRatioNumerator**<br /><br /> Necessário |**xs: double** |Numerador de taxa de proporção de exibição do vídeo. |
-| **DisplayAspectRatioDenominator**<br /><br /> Necessário |**xs:double** |Denominador de taxa de proporção de exibição do vídeo. |
-| **DisplayAspectRatioDenominator**<br /><br /> Necessário |**xs: double** |Numerador de proporção de amostra de vídeo. |
+| **Largura**<br /><br /> Obrigatório |**xs:int** |Largura do vídeo codificado em pixels. |
+| **Altura**<br /><br /> Obrigatório |**xs:int** |Altura do vídeo codificado em pixels. |
+| **DisplayAspectRatioNumerator**<br /><br /> Obrigatório |**xs: double** |Numerador de taxa de proporção de exibição do vídeo. |
+| **DisplayAspectRatioDenominator**<br /><br /> Obrigatório |**xs:double** |Denominador de taxa de proporção de exibição do vídeo. |
+| **DisplayAspectRatioDenominator**<br /><br /> Obrigatório |**xs: double** |Numerador de proporção de amostra de vídeo. |
 | **SampleAspectRatioNumerator** |**xs: double** |Numerador de proporção de amostra de vídeo. |
 | **SampleAspectRatioNumerator** |**xs:double** |Denominador de proporção de amostra de vídeo. |
-| **FrameRate**<br /><br /> Necessário |**xs:decimal** |Medida de taxa de quadros de vídeo em formato .3f. |
+| **FrameRate**<br /><br /> Obrigatório |**xs:decimal** |Medida de taxa de quadros de vídeo em formato .3f. |
 | **Bitrate** |**xs:int** |Taxa média de bits de vídeo em quilobits por segundo, calculada desde o arquivo de ativo. Apenas a carga de fluxo elementar é contada, e a sobrecarga de empacotamento não está incluída. |
 | **MaxGOPBitrate** |**xs: int** |Taxa de bits média do GOP máximo para esta faixa de vídeo em quilobits por segundo. |
 | **HasBFrames** |**xs:int** |Número de faixas de vídeo de quadros B. |
@@ -148,8 +148,8 @@ Consulte um exemplo de XML no final deste artigo: [Exemplo de XML](media-service
 ### <a name="attributes"></a>Atributos
 | NOME | Type | DESCRIÇÃO |
 | --- | --- | --- |
-| **chave**<br /><br /> Necessário |**xs:string** |A chave no par chave/valor. |
-| **valor**<br /><br /> Necessário |**xs:string** |O valor do par chave/valor. |
+| **chave**<br /><br /> Obrigatório |**xs:string** |A chave no par chave/valor. |
+| **valor**<br /><br /> Obrigatório |**xs:string** |O valor do par chave/valor. |
 
 ## <a name="ProgramType"></a> ProgramType
 **ProgramType** é um tipo global complexo que descreve um programa.  
@@ -157,10 +157,10 @@ Consulte um exemplo de XML no final deste artigo: [Exemplo de XML](media-service
 ### <a name="attributes"></a>Atributos
 | NOME | Type | DESCRIÇÃO |
 | --- | --- | --- |
-| **ProgramId**<br /><br /> Necessário |**xs:int** |Id do Programa |
-| **NumberOfPrograms**<br /><br /> Necessário |**xs:int** |Número de programas. |
-| **PmtPid**<br /><br /> Necessário |**xs:int** |As PMTs (Tabelas de Mapa de Programa) contêm informações sobre programas.  Para saber mais, confira [PMt](https://en.wikipedia.org/wiki/MPEG_transport_stream#PMT). |
-| **PcrPid**<br /><br /> Necessário |**xs: int** |Usado pelo decodificador. Para saber mais, confira [PCR](https://en.wikipedia.org/wiki/MPEG_transport_stream#PCR) |
+| **ProgramId**<br /><br /> Obrigatório |**xs:int** |Id do Programa |
+| **NumberOfPrograms**<br /><br /> Obrigatório |**xs:int** |Número de programas. |
+| **PmtPid**<br /><br /> Obrigatório |**xs:int** |As PMTs (Tabelas de Mapa de Programa) contêm informações sobre programas.  Para saber mais, confira [PMt](https://en.wikipedia.org/wiki/MPEG_transport_stream#PMT). |
+| **PcrPid**<br /><br /> Obrigatório |**xs: int** |Usado pelo decodificador. Para saber mais, confira [PCR](https://en.wikipedia.org/wiki/MPEG_transport_stream#PCR) |
 | **StartPTS** |**xs: long** |Iniciando o carimbo de data/hora de apresentação. |
 | **EndPTS** |**xs: long** |Hora de término do carimbo de data/hora de apresentação. |
 
@@ -172,17 +172,17 @@ Consulte um exemplo de XML no final deste artigo: [Exemplo de XML](media-service
 ### <a name="attributes"></a>Atributos
 | NOME | Type | DESCRIÇÃO |
 | --- | --- | --- |
-| **Padrão**<br /><br /> Necessário |**xs: int** |Defina esse atributo como 1 para indicar que esta é a apresentação padrão. |
-| **Dub**<br /><br /> Necessário |**xs:int** |Defina esse atributo como 1 para indicar que esta é a apresentação dublada. |
-| **Original**<br /><br /> Necessário |**xs: int** |Defina esse atributo como 1 para indicar que esta é a apresentação original. |
-| **Comentário**<br /><br /> Necessário |**xs:int** |Defina esse atributo como 1 para indicar que esta faixa contém comentários. |
-| **Lyrics**<br /><br /> Necessário |**xs:int** |Defina esse atributo como 1 para indicar que esta faixa contém letras. |
-| **Karaoke**<br /><br /> Necessário |**xs:int** |Defina esse atributo como 1 para indicar que ele representa a faixa de karaokê (música em segundo plano, sem vocais). |
-| **Forced**<br /><br /> Necessário |**xs:int** |Defina esse atributo como 1 para indicar que esta é a apresentação forçada. |
-| **HearingImpaired**<br /><br /> Necessário |**xs:int** |Defina esse atributo como 1 para indicar que esta faixa é para as pessoas que estão com dificuldades auditivas. |
-| **VisualImpaired**<br /><br /> Necessário |**xs:int** |Defina esse atributo como 1 para indicar que esta faixa é para os deficientes visuais. |
-| **CleanEffects**<br /><br /> Necessário |**xs: int** |Defina esse atributo como 1 para indicar que esta faixa tem efeitos limpos. |
-| **AttachedPic**<br /><br /> Necessário |**xs: int** |Defina esse atributo como 1 para indicar que esta faixa contém fotos. |
+| **Padrão**<br /><br /> Obrigatório |**xs: int** |Defina esse atributo como 1 para indicar que esta é a apresentação padrão. |
+| **Dub**<br /><br /> Obrigatório |**xs:int** |Defina esse atributo como 1 para indicar que esta é a apresentação dublada. |
+| **Original**<br /><br /> Obrigatório |**xs: int** |Defina esse atributo como 1 para indicar que esta é a apresentação original. |
+| **Comentário**<br /><br /> Obrigatório |**xs:int** |Defina esse atributo como 1 para indicar que esta faixa contém comentários. |
+| **Lyrics**<br /><br /> Obrigatório |**xs:int** |Defina esse atributo como 1 para indicar que esta faixa contém letras. |
+| **Karaoke**<br /><br /> Obrigatório |**xs:int** |Defina esse atributo como 1 para indicar que ele representa a faixa de karaokê (música em segundo plano, sem vocais). |
+| **Forced**<br /><br /> Obrigatório |**xs:int** |Defina esse atributo como 1 para indicar que esta é a apresentação forçada. |
+| **HearingImpaired**<br /><br /> Obrigatório |**xs:int** |Defina esse atributo como 1 para indicar que esta faixa é para as pessoas que estão com dificuldades auditivas. |
+| **VisualImpaired**<br /><br /> Obrigatório |**xs:int** |Defina esse atributo como 1 para indicar que esta faixa é para os deficientes visuais. |
+| **CleanEffects**<br /><br /> Obrigatório |**xs: int** |Defina esse atributo como 1 para indicar que esta faixa tem efeitos limpos. |
+| **AttachedPic**<br /><br /> Obrigatório |**xs: int** |Defina esse atributo como 1 para indicar que esta faixa contém fotos. |
 
 ## <a name="Programs"></a> Elemento Programs
 Elemento de wrapper que contém vários elementos **Program**.  
@@ -641,7 +641,7 @@ Este é um exemplo do arquivo de metadados de entrada.
       </AssetFile>  
     </AssetFiles>  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornecer comentários

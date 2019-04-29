@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 12/11/2018
 ms.author: wolfma
 ms.openlocfilehash: ef68d02f6aa23368962e08af7b35d2b81c0e80bb
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579795"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60480479"
 ---
 ### <a name="neural-voices"></a>Vozes neurais
 

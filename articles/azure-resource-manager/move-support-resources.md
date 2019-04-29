@@ -7,11 +7,11 @@ ms.topic: reference
 ms.date: 03/22/2019
 ms.author: tomfitz
 ms.openlocfilehash: d44b1bf778c7ec9551e2fd30f67083f8dded22d1
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438461"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729283"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
 Este artigo lista se um tipo de recurso do Azure é compatível com a operação de movimentação. Embora um tipo de recurso seja compatível com a operação de movimentação, pode haver condições que impeçam que o recurso seja movido. Para obter detalhes sobre as condições que afetam as operações de movimentação, confira [Move resources to new resource group or subscription](resource-group-move-resources.md) (Mover recursos para um novo grupo de recursos ou assinatura).

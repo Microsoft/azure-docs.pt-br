@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/13/2018
 ms.author: nitinme
 ms.openlocfilehash: eedfd4e3b46a104fdfeed84034536e98b4c6ddaa
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50973672"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60513960"
 ---
 > [!NOTE] 
 > O novo serviço de fala e o SDK estão substituindo o Bing Speech, que não funcionará mais a partir de 15 de outubro de 2019. Para obter informações sobre como alternar para o serviço de fala, consulte [Migrando do Bing Speech para o Speech Service](../articles/cognitive-services/Speech-Service/how-to-migrate-from-bing-speech.md).

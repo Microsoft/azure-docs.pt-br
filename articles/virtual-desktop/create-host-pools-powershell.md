@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
 ms.openlocfilehash: 2af9df4771d58f2288820dad8ef8d7ac84deb8ae
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258463"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60870533"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Criar um pool de host com o PowerShell
 
@@ -115,7 +115,7 @@ Para registrar os agentes da área de trabalho Virtual do Windows, faça o segui
 >[!IMPORTANT]
 >Para ajudar a proteger seu ambiente da Área de Trabalho Virtual do Windows no Azure, recomendamos que você não abra a porta de entrada 3389 nas VMs. A Área de Trabalho Virtual do Windows não exige uma porta de entrada 3389 aberta para que os usuários acessem as VMs do pool de hosts. Caso você precise abrir a porta 3389 para fins de solução de problemas, recomendamos o uso do [acesso just-in-time à VM](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você criou um pool de host, você pode preenchê-lo com os aplicativos remotos. Para saber mais sobre como gerenciar aplicativos na Área de Trabalho Virtual do Windows, confira o tutorial Gerenciar grupos de aplicativos.
 

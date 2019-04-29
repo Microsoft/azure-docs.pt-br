@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: d705993c7cd3816e89da21625dc5b003435b9128
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408146"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60822725"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Escalar verticalmente automaticamente unidade de produtividade do Hub de Eventos do Azure
 Hubs de Eventos do Azure é uma plataforma de streaming de dados altamente escalonável. Assim, o uso dos Hubs de Eventos geralmente aumenta após o início do uso do serviço. Tal uso exige o aumento das [unidades de produtividade](event-hubs-features.md#throughput-units) predeterminadas para dimensionar os Hubs de Eventos e manipular taxas de transferência maiores. O recurso **inflar automaticamente** dos Hubs de Eventos escala verticalmente automaticamente aumentando o número de unidades de taxa de transferência para atender às necessidades de uso. O aumento de unidades de taxa de transferência evita cenários de limitação, nos quais:

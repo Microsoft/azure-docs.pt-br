@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 45208b5c6538ea523a7b87d6dbdeb99e792783ff
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021043"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61261787"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-preview"></a>Copiar dados do Amazon Marketplace Web Service usando o Azure Data Factory (versão prévia)
 
@@ -44,13 +44,13 @@ As propriedades a seguir têm suporte para o serviço vinculado do Amazon Market
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **AmazonMWS** | SIM |
-| endpoint | O endpoint do servidor Amazon MWS (ou seja, mws.amazonservices.com)  | SIM |
-| marketplaceID | A ID do Amazon Marketplace que você deseja recuperar os dados. Para recuperar dados de várias IDs do Marketplace, separe-as com uma vírgula (`,`). (ou seja, A2EUQ1WTGCTBG2)  | SIM |
-| sellerID | A ID do vendedor Amazon.  | SIM |
-| mwsAuthToken | O token de autenticação do Amazon MWS. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
-| accessKeyId | A ID da chave de acesso usada para acessar os dados.  | SIM |
-| SecretKey | A chave secreta usada para acessar os dados. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
+| type | A propriedade type deve ser definida como: **AmazonMWS** | Sim |
+| endpoint | O endpoint do servidor Amazon MWS (ou seja, mws.amazonservices.com)  | Sim |
+| marketplaceID | A ID do Amazon Marketplace que você deseja recuperar os dados. Para recuperar dados de várias IDs do Marketplace, separe-as com uma vírgula (`,`). (ou seja, A2EUQ1WTGCTBG2)  | Sim |
+| sellerID | A ID do vendedor Amazon.  | Sim |
+| mwsAuthToken | O token de autenticação do Amazon MWS. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| accessKeyId | A ID da chave de acesso usada para acessar os dados.  | Sim |
+| SecretKey | A chave secreta usada para acessar os dados. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não  |
 | useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é true.  | Não  |
 | usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conecta por meio de SSL. O valor padrão é true.  | Não  |
@@ -88,7 +88,7 @@ Para copiar dados do Amazon Marketplace Web Service, defina a propriedade type d
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **AmazonMWSObject** | SIM |
+| type | A propriedade type do conjunto de dados deve ser definida como: **AmazonMWSObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -118,7 +118,7 @@ Para copiar dados do Amazon Marketplace Web Service, defina o tipo de fonte na a
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **AmazonMWSSource** | SIM |
+| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **AmazonMWSSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

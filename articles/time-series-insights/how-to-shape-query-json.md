@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/24/2018
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: c076d425a7740bd0eb6398e6b8720fa873f2fc30
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2d42b7ebdee291e7c71351fa2c3a5583a121b79e
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201254"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760670"
 ---
 # <a name="how-to-shape-json-to-maximize-query-performance"></a>Como formatar JSON para maximizar o desempenho da consulta 
 
@@ -164,7 +164,7 @@ Carga JSON de exemplo:
 
 Dados de referência (as propriedades chave são deviceId e series.tagId):
 
-| deviceId | series.tagId | messageId | deviceLocation | Tipo | unit |
+| deviceId | series.tagId | messageId | deviceLocation | tipo | unit |
 | --- | --- | --- | --- | --- | --- |
 | FXXX | pumpRate | DADOS\_LINHA | UE | Taxa de Fluxo | ft3/s |
 | FXXX | oilPressure | DADOS\_LINHA | UE | Pressão de óleo do motor | psi |

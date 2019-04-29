@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
 ms.openlocfilehash: 41220ccdca945610d7d8ca87af0857114e2cef85
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57866285"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60949057"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Preparar destino (VMware para Azure)
 

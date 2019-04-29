@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: d1c65b590fd68f68fdaeb110c0fd00e0c5a6649a
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756461"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127644"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Início Rápido: Experimentar o Content Moderator na Web
 
@@ -65,7 +65,7 @@ Para saber mais sobre como usar a Ferramenta Revisão do Content Moderator, cons
 
 Ou então, continue com as próximas etapas para começar a usar as APIs de moderação em seu código.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Aprenda a usar as próprias APIs de moderação no seu aplicativo.
 - Implemente a moderação de imagem. Use o [console de API](try-image-api.md) ou o [C# quickstart](image-moderation-quickstart-dotnet.md) para varrer imagens e detectar conteúdo adulto e vigoroso usando tags, índices de confiança e outras informações extraídas.

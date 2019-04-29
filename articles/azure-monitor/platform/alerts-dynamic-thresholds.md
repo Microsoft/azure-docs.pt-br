@@ -9,11 +9,11 @@ ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
 ms.openlocfilehash: 772401c286a50774d201703cefcbbc12f0fcf88f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678880"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60775775"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Alertas de Métrica com Limites Dinâmicos no Azure Monitor (Versão Prévia Pública)
 

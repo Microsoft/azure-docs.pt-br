@@ -3,18 +3,19 @@ title: Dispositivos Windows de provisionamento automático com DPS - Azure IoT E
 description: Usar um dispositivo simulado em seu computador Windows para testar o provisionamento automático de dispositivos para o Azure IoT Edge com o serviço de provisionamento de dispositivos
 author: kgremban
 manager: philmea
-ms.author: kgremban
-ms.date: 01/09/2019
+ms.author: v-yiso
+origin.date: 01/09/2019
+ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: aa5e5fba3758fa3983924660b9b5f714d02613c6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158594"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61247535"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Crie e provisione um dispositivo de borda do TPM simulado no Windows
 

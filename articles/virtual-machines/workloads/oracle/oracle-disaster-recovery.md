@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 9f525e68502e32a3f9c7e7cebe6d45627f9077c3
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
-ms.translationtype: HT
+ms.openlocfilehash: 09df1421d6deae6db305cef2a46d6c40d0c12ba3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495002"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60835834"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Recuperação de desastre para um banco de dados Oracle Database 12c em um ambiente do Azure
 
@@ -32,7 +32,7 @@ ms.locfileid: "39495002"
 ## <a name="goals"></a>Metas
 - Projetar a topologia e a configuração para atender aos seus requisitos de recuperação de desastre.
 
-## <a name="scenario-1-primary-and-dr-sites-on-azure"></a>Cenário 1: Sites primário e de recuperação de desastre no Azure
+## <a name="scenario-1-primary-and-dr-sites-on-azure"></a>Cenário 1: Sites primário e recuperação de desastres no Azure
 
 Um cliente tem uma configuração de banco de dados Oracle no site primário. Um site de recuperação de desastre está em uma região diferente. O cliente usa o Oracle Data Guard para recuperação rápida entre esses sites. O site primário também tem um banco de dados secundário para relatórios e outros usos. 
 
@@ -52,13 +52,13 @@ Veja aqui um resumo da configuração do Azure:
 
 ![Captura de tela da página de topologia de recuperação de desastre](./media/oracle-disaster-recovery/oracle_topology_01.png)
 
-## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Cenário 2: Site primário local e site de recuperação de desastre no Azure
+## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Cenário 2: Site primário local e o site de recuperação de desastres no Azure
 
 Um cliente tem uma configuração de banco de dados Oracle local (site primário). Um site de recuperação de desastre reside no Azure. O Oracle Data Guard é usado para recuperação rápida entre esses sites. O site primário também tem um banco de dados secundário para relatórios e outros usos. 
 
 Há duas abordagens para essa configuração.
 
-### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Abordagem 1: Conexões diretas entre o local e o Azure, é necessário abrir as portas TCP no firewall 
+### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Abordagem 1: Conexões diretas entre local e o Azure, é necessário abrir as portas TCP no firewall 
 
 Nós não recomendamos conexões diretas, pois expõem as portas TCP para o mundo exterior.
 
@@ -78,7 +78,7 @@ Veja aqui um resumo da configuração do Azure:
 
 ![Captura de tela da página de topologia de recuperação de desastre](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
-### <a name="approach-2-site-to-site-vpn"></a>Método 2: VPN Site a site
+### <a name="approach-2-site-to-site-vpn"></a>Abordagem 2: VPN site a site
 A VPN site a site é uma abordagem melhor. Para saber mais sobre como configurar uma VPN, veja [Criar uma rede virtual com uma conexão VPN Site a Site usando a CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli).
 
 #### <a name="topology"></a>Topologia
@@ -106,5 +106,5 @@ Veja aqui um resumo da configuração do Azure:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Tutorial: criar VMs altamente disponíveis](../../linux/create-cli-complete.md)
+- [Tutorial: Criar VMs altamente disponíveis](../../linux/create-cli-complete.md)
 - [Explorar exemplos da CLI do Azure de implantação de VM](../../linux/cli-samples.md)

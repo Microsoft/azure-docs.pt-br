@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 5496be93a5241621cd4dc5e873e4386f8ed6c992
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 3cc4933ae70ad1d661835749dd23e7e634ab54f0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195210"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474429"
 ---
 # <a name="public-ip-address-prefix"></a>Prefixo de endereço IP público
 
@@ -49,7 +49,7 @@ Quando você cria recursos de endereço IP público, o Azure atribui um endereç
 ## <a name="scenarios"></a>Cenários
 É possível associar os seguintes recursos a um endereço IP público estático de um prefixo:
 
-|Recurso|Cenário|Etapas|
+|Resource|Cenário|Etapas|
 |---|---|---|
 |Máquinas Virtuais| A associação de IPs públicos de um prefixo às suas máquinas virtuais no Azure reduz a sobrecarga de gerenciamento em relação à lista de permissões de IPs em um firewall. Você pode simplesmente colocar um prefixo de inteiro na lista de permissões com uma única regra de firewall. Ao dimensionar com máquinas virtuais no Azure, você pode associar IPs do mesmo prefixo economizando custos, tempo e sobrecarga de gerenciamento.| Para associar os IPs de um prefixo à sua máquina virtual: 1. [Crie um prefixo.](manage-public-ip-address-prefix.md) 2. [Crie um IP do prefixo.](manage-public-ip-address-prefix.md) 3. [Associe o IP ao adaptador de rede da máquina virtual.](virtual-network-network-interface-addresses.md#add-ip-addresses)
 | Balanceadores de Carga | A associação de IPs públicos de um prefixo à configuração ou à regra de entrada de IP de front-end de um balanceador de carga garante a simplificação do espaço de endereços IP público do Azure. É possível simplificar o cenário limpando as conexões de saída a serem originadas de um intervalo de endereços IP contíguos definido pelo prefixo IP público. | Para associar os IPs de um prefixo ao balanceador de carga: 1. [Crie um prefixo.](manage-public-ip-address-prefix.md) 2. [Crie um IP do prefixo.](manage-public-ip-address-prefix.md) 3. Ao criar o balanceador de carga, selecione ou atualize o IP criado na etapa 2 acima como o IP de front-end do balanceador de carga. |

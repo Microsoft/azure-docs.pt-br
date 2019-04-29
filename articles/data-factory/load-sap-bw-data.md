@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: jingwang
 ms.openlocfilehash: 9a123ed45b5857aa40fc9853a95c528833ba8aa9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523181"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60548489"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse usando o Azure Data Factory
 
@@ -111,7 +111,7 @@ No portal do Azure, vá para seu data factory. Selecione **autor & Monitor** par
 
     ![Exibição de monitoramento do pipeline](media/load-sap-bw-data/pipeline-monitoring.png)
 
-15. Para exibir execuções de atividade que estão associadas com a execução do pipeline, selecione **exibir execuções de atividade** na **ações** coluna. Há apenas uma atividade (atividade de cópia) no pipeline. Assim, você vê apenas uma entrada. Para voltar para o modo de exibição de execuções de pipeline, selecione a **Pipelines** link na parte superior. Selecione **Atualizar** para atualizar a lista.
+15. Para exibir execuções de atividade que estão associadas com a execução do pipeline, selecione **exibir execuções de atividade** na **ações** coluna. Há apenas uma atividade (atividade de cópia) no pipeline, assim, você vê apenas uma entrada. Para voltar para o modo de exibição de execuções de pipeline, selecione a **Pipelines** link na parte superior. Selecione **Atualizar** para atualizar a lista.
 
     ![Tela monitoramento de atividades](media/load-sap-bw-data/activity-monitoring.png)
 

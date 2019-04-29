@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 09/07/2017
 ms.author: ayshak
 ms.openlocfilehash: 7cbab5c6b3a724c2219648873fd45ca6bde90339
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683132"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60731780"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamanhos expansíveis da máquina virtual da série B
 

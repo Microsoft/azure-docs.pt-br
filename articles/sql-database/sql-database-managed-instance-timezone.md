@@ -12,11 +12,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 04/10/2019
 ms.openlocfilehash: 23314e97051da95ab164baeab6e9d089f486351a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489683"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61487386"
 ---
 # <a name="time-zone-in-azure-sql-database-managed-instance-preview"></a>Fuso horário na instância gerenciada do banco de dados SQL do Azure (visualização)
 

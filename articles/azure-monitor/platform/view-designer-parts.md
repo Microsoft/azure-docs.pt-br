@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.openlocfilehash: dead1fae9bc3287ed0fc80c6120914e965ef96dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493018"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61341796"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guia de referência para partes de visualização do Designer de exibição no Azure Monitor
 Usando o Designer de exibição no Azure Monitor, você pode criar uma variedade de modos de exibição personalizados no portal do Azure que pode ajudar você a visualizar os dados em seu espaço de trabalho do Log Analytics. Este artigo é um guia de referência das configurações para as partes de visualização que estão disponíveis em modos de exibição personalizados.
@@ -89,7 +89,7 @@ O cabeçalho exibe um único número que mostra uma contagem de registros de uma
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
 | NOME |O texto que é exibido na parte superior da primeira coluna. |
-| Valor |O texto que é exibido na parte superior da segunda coluna. |
+| Value |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
 
@@ -120,7 +120,7 @@ O cabeçalho tem dois números que exibem uma contagem de registros de consultas
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
 | NOME |O texto que é exibido na parte superior da primeira coluna. |
-| Valor |O texto que é exibido na parte superior da segunda coluna. |
+| Value |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
 
@@ -143,7 +143,7 @@ O cabeçalho exibe um único número que resume uma coluna de valor em uma consu
 | Consultar |A consulta a ser executada para a rosca. A primeira propriedade é um valor de texto e a segunda é um valor numérico. |
 | Navegação clickthrough | Ação executada quando você clica no cabeçalho.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Rosca** |**> Centro** |
-| Texto |O texto que é exibido sob o valor dentro da rosca. |
+| Text |O texto que é exibido sob o valor dentro da rosca. |
 | Operação |A operação a executar na propriedade de valor a resumir como um único valor.<ul><li>Soma: adiciona os valores de todos os registros.</li><li>Percentual: a taxa dos registros retornados pelos valores em **Valores de resultado usados na operação do centro** para o total de registros na consulta.</li></ul> |
 | Valores de resultado usados na operação do centro |Opcionalmente, selecione o sinal de adição (+) para adicionar um ou mais valores. Os resultados da consulta são limitados aos registros com os valores de propriedade que você especifica. Se nenhum valor for adicionado, todos os registros serão incluídos na consulta. |
 | **Opções adicionais** |**> Cores** |
@@ -161,7 +161,7 @@ O cabeçalho exibe um único número que resume uma coluna de valor em uma consu
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
 | NOME |O texto que é exibido na parte superior da primeira coluna. |
-| Valor |O texto que é exibido na parte superior da segunda coluna. |
+| Value |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
 
@@ -193,7 +193,7 @@ O cabeçalho exibe os resultados de duas consultas de log ao longo do tempo como
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
 | NOME |O texto que é exibido na parte superior da primeira coluna. |
-| Valor |O texto que é exibido na parte superior da segunda coluna. |
+| Value |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
 
@@ -209,7 +209,7 @@ O cabeçalho exibe texto estático e um link opcional. A lista exibe um ou mais 
 | Novo Grupo |Selecione este link para criar um novo grupo na exibição, iniciando na exibição atual. |
 | Cor |A cor da tela de fundo do cabeçalho. |
 | **Cabeçalho** | |
-| Imagem |O arquivo de imagem que é exibido no cabeçalho. |
+| Image |O arquivo de imagem que é exibido no cabeçalho. |
 | Rótulo |O texto que é exibido no cabeçalho. |
 | **Cabeçalho** |**> Link** |
 | Rótulo |O texto do link. |
@@ -254,7 +254,7 @@ O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de 
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
 | NOME |O texto que é exibido na parte superior da primeira coluna. |
-| Valor |O texto que é exibido na parte superior da segunda coluna. |
+| Value |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
 
@@ -290,7 +290,7 @@ O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de 
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
 | NOME |O texto que é exibido na parte superior da primeira coluna. |
-| Valor |O texto que é exibido na parte superior da segunda coluna. |
+| Value |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
 

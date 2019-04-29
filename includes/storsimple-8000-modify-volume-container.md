@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 4cffbb1aaa438bac08ec77f576b32a901abacabd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889101"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60724536"
 ---
 > [!NOTE] 
 > Você não pode modificar as configurações de criptografia e as credenciais da conta de armazenamento associadas a um contêiner de volume depois que ele é criado.

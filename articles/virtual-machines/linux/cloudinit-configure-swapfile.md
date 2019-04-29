@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.openlocfilehash: 626fd4739daf2506854c42f16ac986a361ebab38
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769905"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729810"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Usar cloud-init para configurar um arquivo de permuta em uma VM Linux
 Este artigo mostra como usar a [cloud-init](https://cloudinit.readthedocs.io) para configurar o arquivo de permuta em várias distribuições do Linux. O arquivo de permuta tradicionalmente foi configurado pelo Agente Linux (WALA) com base em quais distribuições exigem um.  Este documento detalhará o processo para criar o arquivo de permuta sob demanda durante o tempo de provisionamento usando a cloud-init.  Para obter mais informações de como o cloud-init funciona nativamente no Azure e as distribuições do Linux compatíveis, consulte [Visão geral de cloud-init](using-cloud-init.md)

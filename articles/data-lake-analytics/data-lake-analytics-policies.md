@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: f84cb59e7d4fd7d8301d22348ca066a7f9d9e94e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 64095f6706bb978cd33b8fe7833fe4e65fc3b0f8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048811"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813417"
 ---
 # <a name="manage-azure-data-lake-analytics-using-policies"></a>Gerenciar o Azure Data Lake Analytics usando políticas
 
@@ -68,8 +68,8 @@ Com as políticas no nível do trabalho, você pode controlar o máximo de AUs e
 
 O Data Lake Analytics tem duas políticas que podem ser definidas no nível do trabalho:
 
-* **Limite de AU por trabalho**: os usuários apenas podem enviar trabalhos que tenham até esse número de AUs. Por padrão, esse limite é o mesmo que o limite máximo de AUs da conta.
-* **Prioridade**: os usuários apenas podem enviar trabalhos com prioridade menor ou igual a esse valor. Um número maior indica uma prioridade mais baixa. Por padrão, esse limite é definido como 1, que é a prioridade mais alta possível.
+* **Limite de AU por trabalho**: Os usuários apenas podem enviar trabalhos que tenham até esse número de AUs. Por padrão, esse limite é o mesmo que o limite máximo de AUs da conta.
+* **Prioridade**: Os usuários só podem enviar trabalhos que têm uma prioridade menor do que ou igual a esse valor. Um número maior indica uma prioridade mais baixa. Por padrão, esse limite é definido como 1, que é a prioridade mais alta possível.
 
 Há uma política padrão definida em cada conta. A política padrão aplica-se a todos os usuários da conta. Você pode definir políticas adicionais para usuários e grupos específicos. 
 
@@ -82,10 +82,10 @@ Há uma política padrão definida em cada conta. A política padrão aplica-se 
 1. No portal do Azure, acesse sua conta do Data Lake Analytics.
 2. Clique em **Propriedades**.
 3. Em **Limites de Envio de Trabalho**, clique no botão **Adicionar Política**. Em seguida, selecione ou insira as seguintes configurações:
-    1. **Nome da Política de Computação**: insira um nome de política para lembrá-lo da finalidade da política.
-    2. **Selecionar Usuário ou Grupo**: selecione o usuário ou o grupo ao qual essa política se aplica.
-    3. **Definir o Limite de AUs de Trabalho**: defina o limite de AUs que se aplica ao usuário ou ao grupo selecionado.
-    4. **Definir o Limite de Prioridade**: defina o limite de prioridade que se aplica ao usuário ou ao grupo selecionado.
+    1. **Nome da política de computação**: Insira um nome de política para lembrá-lo da finalidade da política.
+    2. **Selecionar usuário ou grupo**: Selecione o usuário ou grupo que esta política é aplicável.
+    3. **Definir o limite de AU do trabalho**: Defina o limite de AU aplica-se para o usuário ou grupo selecionado.
+    4. **Definir o limite de prioridade**: Defina o limite de prioridade que se aplica para o usuário ou grupo selecionado.
 
 4. Clique em **OK**.
 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
 ms.openlocfilehash: 302445038dc9767bd412e232f62fc5249a1a7f09
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696935"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61296208"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>Melhores práticas para configurar a rede para as cargas de trabalho migradas para o Azure
 

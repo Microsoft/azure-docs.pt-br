@@ -15,11 +15,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 26f0abb48ba268f79167ed5d00e4f96d8b5e5998
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498164"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821868"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-event-processor-host"></a>Receber eventos de Hubs de Eventos do Azure usando o Host do Processador de Eventos
 

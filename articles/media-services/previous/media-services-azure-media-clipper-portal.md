@@ -10,11 +10,11 @@ ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 8c88caefb0909da55de87116a23fa520c1679cc2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990599"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61465808"
 ---
 # <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Criar clipes com o Azure Media Clipper no portal  
 

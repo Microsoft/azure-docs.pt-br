@@ -9,11 +9,11 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: ae9f2b05bfc6ea6315022d04c8d267d916cf282e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59491979"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61451592"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Implantação de dependências para o desenvolvimento local
 
@@ -32,7 +32,7 @@ Este artigo explica como implantar apenas a necessidade de serviços da platafor
    deploy -type local
    ```
 
-2. Siga os prompts para atribuir um nome para o grupo de recursos para sua implantação.  O script implanta apenas as dependências para esse grupo de recursos em sua assinatura do Azure, mas não os serviços micro.  O script também registra um aplicativo no Azure Active Directory.  Isso é necessário para dar suporte à autenticação com base em OAUTH.  Implantação pode levar vários minutos.
+2. Siga os prompts para atribuir um nome para o grupo de recursos para sua implantação.  O script implanta apenas as dependências para esse grupo de recursos em sua assinatura do Azure, mas não os serviços micro.  O script também registra um aplicativo no Azure Active Directory.  Isso é necessário para dar suporte à autenticação com base em OAUTH.  A implantação pode levar vários minutos.
 
 3. Depois que o script for concluído, você pode selecionar para salvar o arquivo. env.  O arquivo. env do ambiente é o arquivo de configuração de todos os serviços e ferramentas que você deseja executar no computador de desenvolvimento.  
 
@@ -50,7 +50,7 @@ O script de implantação tenta registrar aplicativos do AAD no Azure Active Dir
 2. Como alternativa, implante um locatário do AAD privado, reiniciar o script e selecione a usá-lo.
 3. Continue sem autenticação.  Uma vez que você estiver executando seus serviços micro localmente, isso é aceitável, mas não imita os ambientes de produção.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você implantou serviços OPC gêmeo com êxito a um projeto existente, aqui está a próxima etapa sugerida:
 

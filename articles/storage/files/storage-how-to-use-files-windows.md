@@ -2,18 +2,18 @@
 title: Usar um compartilhamento de arquivos do Azure com o Windows | Microsoft Docs
 description: Saiba como usar um compartilhamento de arquivos do Azure com Windows e Windows Server.
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 06/07/2018
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 315bad5c4ffc3d5e8909c86cb8de703e9cb941b0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: ae097cb1c778c0ad60512753ae6ef28da04e8004
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048836"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764384"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Usar um compartilhamento de arquivos do Azure com o Windows
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem fácil de usar da Microsoft. Os compartilhamentos de arquivos do Azure podem ser usados perfeitamente no Windows e no Windows Server. Este artigo aborda as considerações para usar um compartilhamento de arquivos do Azure com Windows e Windows Server.
@@ -237,13 +237,13 @@ A tabela a seguir fornece informações detalhadas sobre o status do SMB 1 em ca
 | Windows Server 2019 (versão prévia)             | Desabilitado             | Remover com recurso do Windows |
 | Windows Server, versões 1709 e posteriores            | Desabilitado             | Remover com recurso do Windows |
 | Windows 10, versões 1709 ou posterior                | Desabilitado             | Remover com recurso do Windows |
-| Windows Server 2016                       | habilitado              | Remover com recurso do Windows |
-| Windows 10 versões 1507, 1607 e 1703 | habilitado              | Remover com recurso do Windows |
-| Windows Server 2012 R2                    | habilitado              | Remover com recurso do Windows | 
-| Windows 8.1                               | habilitado              | Remover com recurso do Windows | 
-| Windows Server 2012                       | habilitado              | Desabilitar no Registro       | 
-| Windows Server 2008 R2                    | habilitado              | Desabilitar no Registro       |
-| Windows 7                                 | habilitado              | Desabilitar no Registro       | 
+| Windows Server 2016                       | Enabled              | Remover com recurso do Windows |
+| Windows 10 versões 1507, 1607 e 1703 | Enabled              | Remover com recurso do Windows |
+| Windows Server 2012 R2                    | Enabled              | Remover com recurso do Windows | 
+| Windows 8.1                               | Enabled              | Remover com recurso do Windows | 
+| Windows Server 2012                       | Enabled              | Desabilitar no Registro       | 
+| Windows Server 2008 R2                    | Enabled              | Desabilitar no Registro       |
+| Windows 7                                 | Enabled              | Desabilitar no Registro       | 
 
 ### <a name="auditing-smb-1-usage"></a>Auditando o uso de protocolos SMB 1
 > Aplica-se a Windows Server 2019 (versão prévia), canal semestral do Windows Server (versões 1709 e 1803), Windows Server 2016, Windows 10 (versões 1507, 1607, 1703, 1709 e 1803), Windows Server 2012 R2 e Windows 8.1

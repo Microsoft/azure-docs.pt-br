@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.openlocfilehash: 18d5e17c4d44d396ca0044fbaf023cb4242555b5
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341282"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60916658"
 ---
 # <a name="your-first-images-search-query"></a>Sua primeira consulta de pesquisa de imagens
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: alkohli
 ms.openlocfilehash: ff2ea89c257a4941c801f3056450e005a9b37039
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996043"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60628857"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Regiões disponíveis para o StorSimple
 

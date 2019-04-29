@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: a13d3b24cd7845de144183d9f2ea825e0e24219f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883710"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60818409"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introdução ao uso do Stream Analytics do Azure: Detecção de fraude em tempo real
 
@@ -403,11 +403,11 @@ No entanto, se estiver pronto e não precisar dos recursos que você criou, voc�
 5. Exclua o hub de evento.
 6. Exclua o namespace do hub de eventos.
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 Para obter mais assistência, experimente o [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você pode continuar este tutorial com o seguinte artigo:
 

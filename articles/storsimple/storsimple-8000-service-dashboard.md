@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.openlocfilehash: d987a4ae170f21532a886552cbe1eb5a0d25fc3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c174f6ce0fb3d40af953be205a7bfcca60fbfeec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108204"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60632902"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Use a folha de resumo do serviço do dispositivo StorSimple 8000 series
 

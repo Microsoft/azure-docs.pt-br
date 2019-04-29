@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
 ms.openlocfilehash: 7f80c8f1773cfeb8ddfb222d068a5c6571c2e5c7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52330679"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564042"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de gravar o código de gerenciamento da CDN, é necessário fazer algumas preparações para habilitar o código a interagir com o Azure Resource Manager. Para fazer essas preparações, é necessário:
@@ -32,7 +32,7 @@ Antes de gravar o código de gerenciamento da CDN, é necessário fazer algumas 
     ![Nomeando o grupo de recursos](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
 ### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Criar o aplicativo do Azure AD e aplicar permissões
-Há duas abordagens para autenticação de aplicativo com o Azure Active Directory: usuários individuais ou uma entidade de serviço. Uma entidade de serviço é semelhante a uma conta de serviço do Windows.  Em vez de conceder permissões particulares de um usuário para interagir com os perfis CDN, as permissões são concedidas à entidade de serviço.  As entidades de serviço, geralmente são utilizadas para processos automatizados não interativos.  Embora este tutorial esteja gravando um aplicativo de console interativo, nos concentraremos na abordagem da entidade de serviço.
+Há duas abordagens de autenticação de aplicativo com o Azure Active Directory: Usuários individuais ou uma entidade de serviço. Uma entidade de serviço é semelhante a uma conta de serviço do Windows.  Em vez de conceder permissões particulares de um usuário para interagir com os perfis CDN, as permissões são concedidas à entidade de serviço.  As entidades de serviço, geralmente são utilizadas para processos automatizados não interativos.  Embora este tutorial esteja gravando um aplicativo de console interativo, nos concentraremos na abordagem da entidade de serviço.
 
 A criação de uma entidade de serviço abarca várias etapas, incluindo o desenvolvimento de um aplicativo do Azure Active Directory.  Para criá-lo, vamos [seguir este tutorial](../articles/active-directory/develop/howto-create-service-principal-portal.md).
 

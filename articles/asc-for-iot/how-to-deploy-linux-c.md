@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/28/2019
 ms.author: mlottner
 ms.openlocfilehash: 0089fd1af6576f9bcdebe4b7f270a573205dea82
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59783493"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61358345"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Implantar a Central de segurança do Azure para o agente de segurança com base em C do IoT para Linux
 
@@ -93,7 +93,7 @@ Verifique o status da implantação executando:
     systemctl status ASCIoTAgent.service
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Leia a [Visão geral](overview.md) do serviço ASC para IoT
 - Saiba mais sobre a [Arquitetura](architecture.md) da ASC para IoT
 - Habilite o [serviço](quickstart-onboard-iot-hub.md)

@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/14/2019
 ms.openlocfilehash: 6a2b3af4240a5c400bd1eaf4fd1e93b09fc702b1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002707"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075232"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Limites de recursos para pools elásticos usando o modelo de compra baseado em DTU
 

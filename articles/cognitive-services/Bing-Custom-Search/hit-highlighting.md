@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
 ms.openlocfilehash: bf87db232484a8ba4fa1e3b8e4de921f152e2345
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237494"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110111"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Usar marcadores de decoração para realçar texto
 

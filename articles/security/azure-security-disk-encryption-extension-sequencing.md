@@ -7,11 +7,11 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/21/2019
 ms.openlocfilehash: e98e501806971f3cf1bec29960ad15ef9c0024fc
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498138"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611261"
 ---
 # <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>Sequenciamento de extensão de conjunto de uso do Azure Disk Encryption com o dimensionamento de máquinas virtuais
 

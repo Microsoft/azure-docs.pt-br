@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: 09fab691ea04ad98472abc4f4dee5ecb4d22e660
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527312"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60721004"
 ---
 # <a name="project-answer-search-v7-reference"></a>Referência da Pesquisa de Resposta de Projeto v7
 
@@ -83,7 +83,7 @@ Veja a seguir os cabeçalhos que podem ser incluídos em uma solicitação e uma
 A solicitação pode incluir os parâmetros de consulta a seguir. Confira a coluna Obrigatório para obter os parâmetros necessários. É necessário codificar os parâmetros de consulta em URL.  
   
   
-|NOME|Valor|Type|Obrigatório|  
+|NOME|Value|Type|Obrigatório|  
 |----------|-----------|----------|--------------|  
 |<a name="mkt" />mkt|O mercado do qual os resultados são obtidos. <br /><br />Para obter uma lista dos possíveis valores de mercado, confira Códigos de mercado.<br /><br /> **OBSERVAÇÃO:** Atualmente, a API de Visualização de URL dá suporte apenas ao mercado e ao idioma en-us.<br /><br />|Cadeia de caracteres|Sim|  
 |<a name="query" />q|A URL a ser visualizada|Cadeia de caracteres|Sim|  
@@ -96,7 +96,7 @@ A solicitação pode incluir os parâmetros de consulta a seguir. Confira a colu
 O esquema de resposta é uma [WebPage] ou uma ErrorResponse, como na API de Pesquisa na Web. Se a solicitação falha, o objeto de nível superior é o objeto [ErrorResponse](#errorresponse).
 
 
-|Objeto|DESCRIÇÃO|  
+|Object|DESCRIÇÃO|  
 |------------|-----------------|  
 |[WebPage]|O objeto JSON de nível superior que contém atributos de visualização.|  
 |[Fact]|O objeto JSON de nível superior que contém os fatos.| 
@@ -119,7 +119,7 @@ Define o erro ocorrido.
 ### <a name="errorresponse"></a>ErrorResponse  
 O objeto de nível superior incluído pela resposta quando a solicitação falha.  
   
-|NOME|Valor|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo.|Cadeia de caracteres|  
 |<a name="errors" />errors|Uma lista de erros que descreve os motivos pelos quais a solicitação falhou.|[Erro](#error)|  
@@ -129,7 +129,7 @@ O objeto de nível superior incluído pela resposta quando a solicitação falha
 ### <a name="license"></a>Licença  
 Define a licença sob a qual a foto ou o texto pode ser usado.  
   
-|NOME|Valor|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
 |Nome|O nome da licença.|Cadeia de caracteres|  
 |url|A URL para um site em que o usuário pode obter mais informações sobre a licença.<br /><br /> Use o nome e a URL para criar um hiperlink.|Cadeia de caracteres|  
@@ -138,19 +138,19 @@ Define a licença sob a qual a foto ou o texto pode ser usado.
 ### <a name="licenseattribution"></a>LicenseAttribution  
 Define uma regra contratual para atribuição de licença.  
   
-|NOME|Valor|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
 |_type|Uma dica de tipo, que é definida como LicenseAttribution.|Cadeia de caracteres|  
 |license|A licença sob a qual o conteúdo pode ser usado.|[Licença](#license)|  
 |licenseNotice|A licença é exibida ao lado do campo de destino. Por exemplo, "Texto sob a licença CC-BY-SA".<br /><br /> Use o nome da licença e a URL no campo `license` para criar um hiperlink para o site que descreve os detalhes da licença. Em seguida, substitua o nome da licença na cadeia de caracteres `licenseNotice` (por exemplo, CC-BY-SA) com o hiperlink recém-criado.|Cadeia de caracteres|  
-|mustBeCloseToContent|Um valor booliano que determina se o conteúdo da regra precisa ser colocado nas proximidades do campo ao qual a regra se aplica. Se for **true**, o conteúdo precisará ser colocado nas proximidades. Se for **false** ou se esse campo não existir, o conteúdo poderá ser colocado em qualquer lugar, a critério do chamador.|BOOLEAN|  
+|mustBeCloseToContent|Um valor booliano que determina se o conteúdo da regra precisa ser colocado nas proximidades do campo ao qual a regra se aplica. Se for **true**, o conteúdo precisará ser colocado nas proximidades. Se for **false** ou se esse campo não existir, o conteúdo poderá ser colocado em qualquer lugar, a critério do chamador.|Boolean|  
 |targetPropertyName|O nome do campo ao qual a regra se aplica.|Cadeia de caracteres|  
   
 
 ### <a name="link"></a>Link  
 Define os componentes de um hiperlink.  
   
-|NOME|Valor|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo.|Cadeia de caracteres|  
 |text|O texto de exibição.|Cadeia de caracteres|  
@@ -160,10 +160,10 @@ Define os componentes de um hiperlink.
 ### <a name="linkattribution"></a>LinkAttribution  
 Define uma regra contratual para atribuição de link.  
   
-|NOME|Valor|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
 |_type|Uma dica de tipo, que é definida como LinkAttribution.|Cadeia de caracteres|  
-|mustBeCloseToContent|Um valor booliano que determina se o conteúdo da regra precisa ser colocado nas proximidades do campo ao qual a regra se aplica. Se for **true**, o conteúdo precisará ser colocado nas proximidades. Se for **false** ou se esse campo não existir, o conteúdo poderá ser colocado em qualquer lugar, a critério do chamador.|BOOLEAN|  
+|mustBeCloseToContent|Um valor booliano que determina se o conteúdo da regra precisa ser colocado nas proximidades do campo ao qual a regra se aplica. Se for **true**, o conteúdo precisará ser colocado nas proximidades. Se for **false** ou se esse campo não existir, o conteúdo poderá ser colocado em qualquer lugar, a critério do chamador.|Boolean|  
 |targetPropertyName|O nome do campo ao qual a regra se aplica.<br /><br /> Se um destino não é especificado, a atribuição se aplica à entidade como um todo e deve ser exibida imediatamente após a apresentação da entidade. Se houver várias regras de atribuição de texto e de link que não especificam um destino, você deverá concatená-las e exibi-las usando um rótulo "Dados de:". Por exemplo, "Dados de <provider name1\> &#124; <provider name2\>".|Cadeia de caracteres|  
 |text|O texto de atribuição.|Cadeia de caracteres|  
 |url|A URL para o site do provedor. Use `text` e a URL para criação do hiperlink.|Cadeia de caracteres|  
@@ -172,10 +172,10 @@ Define uma regra contratual para atribuição de link.
 ### <a name="mediaattribution"></a>MediaAttribution  
 Define uma regra contratual para atribuição de mídia.  
   
-|NOME|Valor|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
 |_type|Uma dica de tipo, que é definida como MediaAttribution.|Cadeia de caracteres|  
-|mustBeCloseToContent|Um valor booliano que determina se o conteúdo da regra precisa ser colocado nas proximidades do campo ao qual a regra se aplica. Se for **true**, o conteúdo precisará ser colocado nas proximidades. Se for **false** ou se esse campo não existir, o conteúdo poderá ser colocado em qualquer lugar, a critério do chamador.|BOOLEAN|  
+|mustBeCloseToContent|Um valor booliano que determina se o conteúdo da regra precisa ser colocado nas proximidades do campo ao qual a regra se aplica. Se for **true**, o conteúdo precisará ser colocado nas proximidades. Se for **false** ou se esse campo não existir, o conteúdo poderá ser colocado em qualquer lugar, a critério do chamador.|Boolean|  
 |targetPropertyName|O nome do campo ao qual a regra se aplica.|Cadeia de caracteres|  
 |url|A URL usada para criação do hiperlink do conteúdo de mídia. Por exemplo, se o destino é uma imagem, use a URL para tornar a imagem clicável.|Cadeia de caracteres|  
   
@@ -186,7 +186,7 @@ Define um editor.
   
 Observe que um editor pode fornecer seu nome, seu site ou ambos.  
   
-|NOME|Valor|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
 |Nome|O nome do editor.|Cadeia de caracteres|  
 |url|A URL para o site do editor.<br /><br /> Observe que o editor pode não fornecer um site.|Cadeia de caracteres|  
@@ -196,12 +196,12 @@ Observe que um editor pode fornecer seu nome, seu site ou ambos.
 ### <a name="webpage"></a>WebPage  
 Define as informações sobre uma página da Web na visualização.  
   
-|NOME|Valor|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|
 |Nome|O título de página, não necessariamente o título HTML|Cadeia de caracteres|
 |url|A URL que foi realmente rastreada (a solicitação pode ter seguido os redirecionamentos)|Cadeia de caracteres|  
-|Descrição|Breve descrição da página e do conteúdo|Cadeia de caracteres|  
-|isFamilyFriendly|Mais preciso para itens no índice da Web; os fetches em tempo real fazem essa detecção baseada somente na URL e não no conteúdo da página|booleano|
+|description|Breve descrição da página e do conteúdo|Cadeia de caracteres|  
+|isFamilyFriendly|Mais preciso para itens no índice da Web; os fetches em tempo real fazem essa detecção baseada somente na URL e não no conteúdo da página|boolean|
 |primaryImageOfPage/contentUrl|A URL de uma imagem representativa a ser incluída na visualização|Cadeia de caracteres| 
   
   
@@ -210,29 +210,29 @@ Define o contexto de consulta usado pelo Bing para a solicitação.
   
 |Elemento|DESCRIÇÃO|Type|  
 |-------------|-----------------|----------|  
-|adultIntent|Um valor booliano que indica se a consulta especificada é direcionada para adultos. O valor é **true** se a consulta é direcionada para adultos; caso contrário, **false**.|BOOLEAN|  
+|adultIntent|Um valor booliano que indica se a consulta especificada é direcionada para adultos. O valor é **true** se a consulta é direcionada para adultos; caso contrário, **false**.|Boolean|  
 |alterationOverrideQuery|A cadeia de caracteres de consulta a ser usada para forçar o Bing a usar a cadeia de caracteres original. Por exemplo, se a cadeia de caracteres de consulta for *velejando na direção do vento*, a cadeia de caracteres de consulta de substituição será *+velejando na direção do vento*. Lembre-se de codificar a cadeia de caracteres de consulta que resulta em *%2Bvelejando+na direção do vento*.<br /><br /> Esse campo é incluído somente se a cadeia de caracteres de consulta original contém um erro de ortografia.|Cadeia de caracteres|  
 |alteredQuery|A cadeia de caracteres de consulta usada pelo Bing para executar a consulta. O Bing usa a cadeia de caracteres de consulta alterada se a cadeia de caracteres de consulta original contém erros de ortografia. Por exemplo, se a cadeia de caracteres de consulta for `saling downwind`, a cadeia de caracteres de consulta alterada será `sailing downwind`.<br /><br /> Esse campo é incluído somente se a cadeia de caracteres de consulta original contém um erro de ortografia.|Cadeia de caracteres|  
-|askUserForLocation|Um valor booliano que indica se o Bing exige o local do usuário para fornecer resultados precisos. Se você especificou o local do usuário usando os cabeçalhos [X-MSEdge-ClientIP](#clientip) e [X-Search-Location](#location), ignore esse campo.<br /><br /> Para consultas com reconhecimento de local, como "clima de hoje" ou "restaurantes próximos ao meu local" que precisam do local do usuário para fornecer resultados precisos, esse campo é definido como **true**.<br /><br /> Para consultas com reconhecimento de local que incluem o local (por exemplo, "clima de Seattle"), esse campo é definido como **false**. Esse campo também é definido como **false** para consultas sem reconhecimento de local, como "campeões de venda".|BOOLEAN|  
+|askUserForLocation|Um valor booliano que indica se o Bing exige o local do usuário para fornecer resultados precisos. Se você especificou o local do usuário usando os cabeçalhos [X-MSEdge-ClientIP](#clientip) e [X-Search-Location](#location), ignore esse campo.<br /><br /> Para consultas com reconhecimento de local, como "clima de hoje" ou "restaurantes próximos ao meu local" que precisam do local do usuário para fornecer resultados precisos, esse campo é definido como **true**.<br /><br /> Para consultas com reconhecimento de local que incluem o local (por exemplo, "clima de Seattle"), esse campo é definido como **false**. Esse campo também é definido como **false** para consultas sem reconhecimento de local, como "campeões de venda".|Boolean|  
 |originalQuery|A cadeia de caracteres de consulta especificada na solicitação.|Cadeia de caracteres|  
 
 ### <a name="identifiable"></a>Identifiable
 
-|NOME|Valor|Type|  
+|NOME|Value|Type|  
 |-------------|-----------------|----------|
 |ID|Um identificador de recurso|Cadeia de caracteres|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Define um grupo de resultados da pesquisa, como linha principal.
 
-|NOME|Valor|Type|  
+|NOME|Value|Type|  
 |-------------|-----------------|----------|
 |itens|Uma lista de resultados da pesquisa a serem exibidos no grupo.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Define um item de resultado da pesquisa a ser exibido.
 
-|NOME|Valor|Type|  
+|NOME|Value|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Um índice baseado em zero do item na resposta a ser exibido. Se o item não incluir esse campo, exiba todos os itens na resposta. Por exemplo, exiba todos os artigos de notícias na resposta Notícias.|Número inteiro|
 |answerType|A resposta que contém o item a ser exibido. Por exemplo, Notícias.<br /><br />Use o tipo para encontrar a resposta no objeto SearchResponse. O tipo é o nome de um campo SearchResponse.<br /><br /> No entanto, use o tipo de resposta somente se esse objeto incluir o campo de valor; caso contrário, ignore-o.|Cadeia de caracteres|
@@ -242,7 +242,7 @@ Define um item de resultado da pesquisa a ser exibido.
 ### <a name="rankingresponse"></a>RankingResponse  
 Define o local em que o conteúdo da página de resultados da pesquisa deve ser colocado e em qual ordem.  
   
-|NOME|Valor|  
+|NOME|Value|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|Os resultados da pesquisa a serem exibidos na linha principal.|  
 |<a name="ranking-pole" />pole|Os resultados da pesquisa que devem receber o tratamento mais visível (por exemplo, exibidos acima da linha principal e da barra lateral).|  
@@ -254,16 +254,16 @@ Define o objeto de nível superior incluído pela resposta quando a solicitaçã
   
 Observe que se o serviço suspeitar de um ataque de negação de serviço, a solicitação será bem-sucedida (o código de status HTTP é 200 OK); no entanto, o corpo da resposta estará vazio.  
   
-|NOME|Valor|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo, que é definida como SearchResponse.|Cadeia de caracteres|  
-|WebPage|Um objeto JSON que define a visualização|cadeia de caracteres|  
+|WebPage|Um objeto JSON que define a visualização|string|  
   
   
 ### <a name="textattribution"></a>TextAttribution  
 Define uma regra contratual para a atribuição de texto sem formatação.  
   
-|NOME|Valor|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
 |_type|Uma dica de tipo, que é definida como TextAttribution.|Cadeia de caracteres|  
 |text|O texto de atribuição.<br /><br /> A atribuição de texto se aplica à entidade como um todo e deve ser exibida imediatamente após a apresentação da entidade. Se houver várias regras de atribuição de texto ou de link que não especificam um destino, você deverá concatená-las e exibi-las usando um rótulo "Dados de:".|Cadeia de caracteres| 

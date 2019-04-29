@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: a4c315d2696b081a4f2ac646d097e76ff9562380
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009473"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60917189"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Suporte de idioma e região para a API de Pesquisa de Imagem do Bing
 

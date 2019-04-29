@@ -15,11 +15,11 @@ ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
 ms.openlocfilehash: ede7e2fe3a2ab4c0dfd4efaea5ec789924968194
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750146"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832189"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Desenvolver e implantar o WebJobs usando o Visual Studio – Serviço de Aplicativo do Azure
 
@@ -238,10 +238,10 @@ As configurações a seguir têm suporte de trabalhos Web:
 
 | **Configuração** | **Tipo**  | **Descrição** |
 | ----------- | --------- | --------------- |
-| `is_in_place` | Todas | Permite que o trabalho seja executado no local sem primeiro ser copiado para uma pasta temporária. Para obter mais informações, consulte [diretório de trabalho de trabalhos Web](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
+| `is_in_place` | Todos | Permite que o trabalho seja executado no local sem primeiro ser copiado para uma pasta temporária. Para obter mais informações, consulte [diretório de trabalho de trabalhos Web](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
 | `is_singleton` | Contínuo | Execute apenas os trabalhos Web em uma única instância quando escalado horizontalmente. Para obter mais informações, consulte [definir um trabalho contínuo como singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
 | `schedule` | Disparado | Execute o trabalho Web em um agendamento de CRON. Para obter mais informações, consulte o [artigo de referência de gatilho de temporizador](../azure-functions/functions-bindings-timer.md#cron-expressions). |
-| `stopping_wait_time`| Todas | Permite o controle do comportamento de desligamento. Para obter mais informações, consulte [desligamento normal](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
+| `stopping_wait_time`| Todos | Permite o controle do comportamento de desligamento. Para obter mais informações, consulte [desligamento normal](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ## <a name="next-steps"></a>Próximas etapas
 

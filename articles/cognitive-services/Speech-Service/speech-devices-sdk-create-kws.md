@@ -12,11 +12,11 @@ ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: b5ace2e741f900dd4ab7ba6518d0956284af35f6
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498224"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61461573"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Criar uma palavra de ativação personalizada usando o serviço de Fala
 

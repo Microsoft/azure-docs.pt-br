@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
 ms.openlocfilehash: 9c97f23c2dfc2b1c0ff794aa20ffb58cd8b8741a
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683895"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60819342"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurar destinos de computação para treinamento de modelo
 
@@ -44,7 +44,7 @@ O Serviço do Azure Machine Learning tem suporte variado nos diferentes destinos
 |[Computação do Azure Machine Learning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
 |[VM remota](#vm) | ✓ | ✓ | ✓ | ✓ |
 |[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
-|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[Análise Azure Data Lake](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Lote do Azure](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
@@ -253,7 +253,7 @@ Para anexar o lote do Azure como um destino de computação, você deve usar o S
 
 -   **Nome de computação do lote do Azure**: Um nome amigável a ser usado para a computação no espaço de trabalho
 -   **Nome de conta do lote do Azure**: O nome da conta do lote do Azure
--   **Grupo de Recursos**: O grupo de recursos que contém a conta do lote do Azure.
+-   **Grupo de recursos**: O grupo de recursos que contém a conta do lote do Azure.
 
 O código a seguir demonstra como anexar o lote do Azure como um destino de computação:
 
@@ -427,7 +427,7 @@ Veja estes notebooks para obter exemplos de treinamento com vários destinos de 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Tutorial: Treinar um modelo](tutorial-train-models-with-aml.md) usa um destino de computação gerenciado para treinar um modelo.
 * Quando você tiver um modelo treinado, aprenda [como e em que local implantar modelos](how-to-deploy-and-where.md).

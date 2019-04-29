@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
 ms.openlocfilehash: 3ad3438f02ead9063a683a39d4ac5823274d55f7
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155160"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61276130"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quais cargas de trabalho posso proteger com o Azure Site Recovery?
 
@@ -105,7 +105,7 @@ O RDS (Serviços da Área de Trabalho Remota) habilita a infraestrutura da área
 |---| --- | --- | --- | --- | --- | --- | --- |
 | **Área de trabalho virtual em pool (não gerenciada)** |Não |Sim |Não  |Sim |Não  |Sim |Não  |
 | **Área de trabalho virtual em pool (gerenciada e sem UPD)** |Não |Sim |Não  |Sim |Não  |Sim |Não  |
-| **Aplicativos remotos e sessões da área de trabalho (sem UDP)** |SIM|sim |sim |sim |sim |sim |SIM |
+| **Aplicativos remotos e sessões da área de trabalho (sem UDP)** |Sim|sim |sim |sim |sim |sim |Sim |
 
 [Configurar a recuperação de desastre para RDS usando o Azure Site Recovery](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 

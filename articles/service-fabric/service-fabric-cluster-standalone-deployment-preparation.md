@@ -14,11 +14,11 @@ ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
 ms.openlocfilehash: e5fa46930a3be3c85cd76e655fac3164cc45d957
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664804"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60544731"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planejar e preparar a implantação de cluster Autônomo do Service Fabric
 

@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
 ms.date: 08/25/2018
 ms.openlocfilehash: 1d3c4039ae823d3797e768af5892333d4d925268
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57789934"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60995828"
 ---
 # <a name="scenario-trigger-logic-apps-with-azure-functions-and-azure-service-bus"></a>Cenário: Disparar aplicativos lógicos com Azure Functions e barramento de serviço do Azure
 
@@ -132,7 +132,7 @@ Em seguida, crie a função que atuará como o gatilho e escutará a fila.
 
    O aplicativo lógico dispara imediatamente após a função receber a mensagem.
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/17/2019
+ms.date: 4/12/2019
 ms.author: b-juche
-ms.openlocfilehash: 3c59fb6abe9c26e6886706dae360ff40787e8faa
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: fc748ee993855c77f25f9b115ea472df4281acec
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549177"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764368"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Criar um volume para Azure NetApp Files
 
@@ -177,7 +177,7 @@ Os arquivos NetApp do Azure dá suporte a volumes SMBv3. Você precisa criar as 
  
     Um volume herda a assinatura, grupo de recursos, atributos de localização de seu pool de capacidade. Para monitorar o status de implantação do volume, você pode usar a guia Notificações.
 
-## <a name="next-steps"></a>Próximas etapas  
+## <a name="next-steps"></a>Próximos passos  
 
 * [Montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configurar a política de exportação para um volume do NFS](azure-netapp-files-configure-export-policy.md)

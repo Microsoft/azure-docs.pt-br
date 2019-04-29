@@ -1,7 +1,6 @@
 ---
 title: Portas usadas pelos serviços do Hadoop em execução no Azure HDInsight
 description: Uma lista de portas usadas pelos serviços do Hadoop em execução no HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: be264be41b198e95dae64730ef31f431ec06a2e7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2d0b8aba95787f179733dd596e783f097cba4299
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715453"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761258"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Portas usadas pelos serviços do Apache Hadoop em execução no HDInsight
 
@@ -44,7 +43,7 @@ Todos os nós em um cluster HDInsight estão localizados em uma Rede Virtual do 
 | Ambari |443 |HTTPS |Interface de usuário da Web do Ambari. Veja [Gerenciar HDInsight usando a interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |API REST do Ambari. Veja [Gerenciar HDInsight usando a API REST do Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) |
 | WebHCat |443 |HTTPS |API REST do HCatalog. Veja [Usar o Apache Hive com Curl](hadoop/apache-hadoop-use-pig-curl.md), [Usar o Apache Pig com Curl](hadoop/apache-hadoop-use-pig-curl.md), [Usar MapReduce com Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
-| HiveServer2 |443 |ODBCODBC |Conecta-se ao Hive usando ODBC. Confira [Connect Excel to HDInsight with the Microsoft ODBC driver (Conectar o Excel ao HDInsight com o driver ODBC da Microsoft)](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
+| HiveServer2 |443 |ODBC |Conecta-se ao Hive usando ODBC. Confira [Connect Excel to HDInsight with the Microsoft ODBC driver (Conectar o Excel ao HDInsight com o driver ODBC da Microsoft)](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
 | HiveServer2 |443 |JDBC |Conecta-se ao ApacheHive usando JDBC. Veja [Conectar-se ao Apache Hive no Azure HDInsight usando o driver JDBC do Hive](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
 Veja a seguir os tipos de cluster específicos que estão disponíveis:
@@ -56,7 +55,7 @@ Veja a seguir os tipos de cluster específicos que estão disponíveis:
 | Servidor do Spark Thrift |443 |HTTPS |Spark |Servidor do Spark Thrift usado para enviar consultas do Hive. Veja [Usar o Beeline com o Apache Hive no HDInsight](hadoop/apache-hadoop-use-hive-beeline.md) |
 | Storm |443 |HTTPS |Storm |Interface de usuário do Storm para Web. Veja [Implantar e gerenciar topologias Apache Storm no HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
-### <a name="authentication"></a>Autenticação
+### <a name="authentication"></a>Authentication
 
 Todos os serviços publicamente expostos na Internet devem ser autenticados:
 

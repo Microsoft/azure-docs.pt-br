@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 38b4aa4c899668a68041f042ce6981ddd8c58219
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884912"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61340189"
 ---
 # <a name="conference-series-entity"></a>Entidade Série de Conferências
 

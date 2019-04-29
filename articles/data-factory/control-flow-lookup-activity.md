@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: bc695bf8398a39460eff9bbe4f791ba92b0fa7e0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 4f0662a71ee14af3c2c1aafee210641fc8b51f1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019294"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60768642"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
 
@@ -53,14 +53,15 @@ As seguintes fontes de dados são compatíveis com a atividade Lookup. O maior n
 ```
 
 ## <a name="type-properties"></a>Propriedades de tipo
-NOME | DESCRIÇÃO | Tipo | Obrigatório?
+
+NOME | DESCRIÇÃO | Type | Obrigatório?
 ---- | ----------- | ---- | --------
-dataset | Fornece a referência de conjunto de dados para a pesquisa. Obtenha detalhes na seção **Propriedades do conjunto de dados** em cada artigo de conector correspondente. | Pares chave/valor | SIM
-fonte | Contém propriedades de origem específicas do banco de dados, as mesmas que as da origem da atividade Copy. Obtenha detalhes na seção **Propriedades da atividade Copy** em cada artigo de conector correspondente. | Pares chave/valor | SIM
-firstRowOnly | Indica se deve-se retornar apenas a primeira linha ou todas as linhas. | BOOLEAN |  Não. O padrão é `true`.
+dataset | Fornece a referência de conjunto de dados para a pesquisa. Obtenha detalhes na seção **Propriedades do conjunto de dados** em cada artigo de conector correspondente. | Pares chave/valor | Sim
+fonte | Contém propriedades de origem específicas do banco de dados, as mesmas que as da origem da atividade Copy. Obtenha detalhes na seção **Propriedades da atividade Copy** em cada artigo de conector correspondente. | Pares chave/valor | Sim
+firstRowOnly | Indica se deve-se retornar apenas a primeira linha ou todas as linhas. | Boolean | Não. O padrão é `true`.
 
 > [!NOTE]
-
+> 
 > * Não há suporte para as colunas de origem com o tipo **ByteArray**.
 > * Não há suporte para **Estrutura** nas definições do conjunto de dados. Para arquivos de formato de texto, use a linha de cabeçalho para fornecer o nome da coluna.
 > * Se sua origem da pesquisa for um arquivo JSON, não haverá suporte para a configuração `jsonPathDefinition` para remodelar o objeto JSON. Os objetos inteiros serão recuperados.

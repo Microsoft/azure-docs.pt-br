@@ -16,11 +16,11 @@ ms.date: 08/28/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a7cd986544dfb1472f5cc8a013fec951dca42a59
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898645"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60523775"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Tutorial: Integração do Azure Active Directory com o Workteam
 
@@ -140,7 +140,7 @@ Nesta seção, você habilitará o único logon do Azure AD no portal do Azure e
 
      ![Workteam SAML](./media/workteam-tutorial/tutorial_workteam_saml.png)
 
-    a. Selecione o **IdP do SAML** como **Azure AD**.
+     a. Selecione o **IdP do SAML** como **Azure AD**.
 
     b. Cole o valor da **URL do Serviço de Logon Único SAML** que você copiou do portal do Azure em **URL do Serviço de Logon Único SAML**.
 
@@ -198,9 +198,9 @@ Para permitir que os usuários do Azure AD façam logon no Workteam, eles precis
 
     ![Novo usuário do Workteam](./media/workteam-tutorial/tutorial_workteam_newuser.png)
 
-    a. Na caixa de texto **Nome**, insira o nome do usuário como **Brendafernandes**.
+     a. Na caixa de texto **Nome**, insira o nome do usuário como **Brendafernandes**.
 
-    b. Na **E-mail** texto, digite o email do usuário, como **Brendafernandes\@contoso.com**.
+    b. Na caixa de texto **Email**, insira o email do usuário como **Brendafernandes\@contoso.com**.
 
     c. Clique em **OK**.
 

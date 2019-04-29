@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: zhshang
 ms.openlocfilehash: f7cc05c8c2a299d809c4386d119fef58fa2548d5
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579233"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61269370"
 ---
 # <a name="performance-guide-for-azure-signalr-service"></a>Guia de desempenho do serviço do Azure SignalR
 
@@ -428,7 +428,7 @@ Para todos os casos listados anteriormente de uso, realizamos testes de desempen
 
 Você pode encontrar as ferramentas de desempenho para o serviço Azure SignalR em [GitHub](https://github.com/Azure/azure-signalr-bench/tree/master/SignalRServiceBenchmarkPlugin).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você obteve uma visão geral do desempenho do serviço do Azure SignalR em cenários de caso de uso típicos.
 

@@ -9,11 +9,11 @@ ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
 ms.openlocfilehash: 9ec310ffaa9d2bb297abde9341bf7b6c2dc763b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995786"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883213"
 ---
 # <a name="troubleshooting-network-performance"></a>Solução de problemas de desempenho de rede
 ## <a name="overview"></a>Visão geral

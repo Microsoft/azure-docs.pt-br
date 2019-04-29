@@ -1,19 +1,18 @@
 ---
 title: SDK do Go do Azure HDInsight
 description: Referência para o SDK do Go do Azure HDInsight
-services: hdinsight
 author: tylerfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: tyfox
 ms.custom: seodec18
-ms.openlocfilehash: b430c69f4ed9206b34f8ca66534aa82e85c0b240
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 2e5b7816fda89e25dcb0de26f526e5187e0640b9
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224780"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098551"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>Versão prévia do SDK de Gerenciamento de Go do HDInsight
 

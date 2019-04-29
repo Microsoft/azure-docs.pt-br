@@ -16,11 +16,11 @@ ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 4024f6fdb40c752ef61f348d15f681e81d81c08c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999767"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596688"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>Criar funções personalizadas para recursos do Azure usando a API REST
 
@@ -58,7 +58,7 @@ Para listar as funções personalizadas em um escopo, use o [definições de fun
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Assinatura |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Substitua *{filter}* com o tipo de função.
 
@@ -82,7 +82,7 @@ Para obter informações sobre uma função personalizada por seu nome de exibi�
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Assinatura |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Substitua *{filter}* com o nome de exibição para a função.
 
@@ -108,7 +108,7 @@ Para obter informações sobre uma função personalizada por seu identificador 
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Assinatura |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Substitua *{roleDefinitionId}* pelo identificador GUID de definição da função.
 
@@ -156,7 +156,7 @@ Para criar uma função personalizada, use [Definições de Função - Criar ou 
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Assinatura |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Substitua *{roleDefinitionId}* pelo identificador GUID de definição da função personalizada.
 
@@ -221,7 +221,7 @@ Para atualizar uma função personalizada, use [Definições de Função - Criar
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Assinatura |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Substitua *{roleDefinitionId}* pelo identificador GUID de definição da função personalizada.
 
@@ -305,7 +305,7 @@ Para excluir uma função personalizada, use [Definições de Função - Excluir
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Assinatura |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Substitua *{roleDefinitionId}* pelo identificador GUID de definição da função personalizada.
 

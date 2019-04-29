@@ -9,13 +9,12 @@ ms.author: mbaldwin
 ms.date: 03/05/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
 ms.openlocfilehash: 642c30c4df233476a8f649f7b5f30d0538b0e83f
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629846"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60635594"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticação serviço a serviço no Azure Key Vault usando o .NET
 

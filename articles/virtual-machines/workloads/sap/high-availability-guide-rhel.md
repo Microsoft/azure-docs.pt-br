@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
 ms.openlocfilehash: b5dea8a64410e23f3b92feb8ce757646435697d3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003404"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61481218"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Alta disponibilidade de máquinas virtuais do Azure para SAP NetWeaver no Red Hat Enterprise Linux
 
@@ -994,7 +994,7 @@ Siga estas etapas para instalar um servidor de aplicativos SAP.
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    </code></pre>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Planejamento e implementação de Máquinas Virtuais do Azure para SAP][planning-guide]
 * [Implantação de Máquinas Virtuais do Azure para SAP][deployment-guide]

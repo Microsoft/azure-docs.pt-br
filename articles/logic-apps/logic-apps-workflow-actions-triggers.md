@@ -10,11 +10,11 @@ ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
 ms.openlocfilehash: bd588eeec8b560411e3fb4b6f84ec8a4a45f08d2
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617912"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844170"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referência para tipos de gatilho e ação na linguagem de definição de fluxo de trabalho para aplicativos lógicos do Azure
 
@@ -50,7 +50,7 @@ Os gatilhos têm esses elementos de nível superior, embora alguns sejam opciona
 
 *Obrigatório*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*nome do gatilho*> | Cadeia de caracteres | O nome do gatilho | 
 | <*tipo de gatilho*> | Cadeia de caracteres | O tipo de gatilho como "Http" ou "ApiConnection" | 
@@ -61,7 +61,7 @@ Os gatilhos têm esses elementos de nível superior, embora alguns sejam opciona
 
 *Opcional*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*matriz com condições*> | Matriz | Uma matriz que contém uma ou mais [condições](#trigger-conditions) que determinam se o fluxo de trabalho deve ser executado. Disponível apenas para gatilhos. | 
 | <*Opções de configuração de tempo de execução*> | Objeto JSON | Você pode alterar o comportamento do tempo de execução do acionador configurando as propriedades `runtimeConfiguration`. Para obter mais informações, consulte [Configurações de tempo de execução](#runtime-config-options). | 
@@ -130,7 +130,7 @@ Esse acionador verifica ou *pesquisa* um terminal usando [APIs gerenciadas pela 
 
 *Obrigatório*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*APIConnection_trigger_name*> | Cadeia de caracteres | O nome do gatilho | 
 | <*connection-name*> | Cadeia de caracteres | O nome da conexão com a API gerenciada usada pelo fluxo de trabalho | 
@@ -142,7 +142,7 @@ Esse acionador verifica ou *pesquisa* um terminal usando [APIs gerenciadas pela 
 
 *Opcional*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*comportamento de repetição*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o código de status 408, 429 e 5XX e todas as exceções de conectividade. Para mais informações, consulte [Políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*parâmetros de consulta*> | Objeto JSON | Quaisquer parâmetros de consulta para incluir na chamada da API. Por exemplo, o `"queries": { "api-version": "2018-01-01" }` objeto adiciona `?api-version=2018-01-01` para a chamada. | 
@@ -224,7 +224,7 @@ Esse acionador envia uma solicitação de assinatura para um endpoint usando uma
 
 *Obrigatório*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*connection-name*> | Cadeia de caracteres | O nome da conexão com a API gerenciada usada pelo fluxo de trabalho | 
 | <*conteúdo do corpo*> | Objeto JSON | Qualquer conteúdo da mensagem para enviar como carga para a API gerenciada | 
@@ -232,7 +232,7 @@ Esse acionador envia uma solicitação de assinatura para um endpoint usando uma
 
 *Opcional*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*comportamento de repetição*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o código de status 408, 429 e 5XX e todas as exceções de conectividade. Para mais informações, consulte [Políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*parâmetros de consulta*> | Objeto JSON | Os parâmetros de consulta para incluir com a chamada à API <p>Por exemplo, o `"queries": { "api-version": "2018-01-01" }` objeto adiciona `?api-version=2018-01-01` para a chamada. | 
@@ -303,7 +303,7 @@ Esse acionador verifica ou pesquisa o terminal especificado com base no agendame
 
 *Obrigatório*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*tipo de método*> | Cadeia de caracteres | O método HTTP a ser usado para sondar o ponto de extremidade especificado: "GET", "PUT", "POST", "PATCH", "DELETE" | 
 | <*endpoint-URL*> | Cadeia de caracteres | A URL HTTP ou HTTPS para o ponto de extremidade para sondar <p>Tamanho máximo da cadeia de caracteres: 2 KB | 
@@ -313,7 +313,7 @@ Esse acionador verifica ou pesquisa o terminal especificado com base no agendame
 
 *Opcional*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*conteúdo do cabeçalho*> | Objeto JSON | Um ou mais cabeçalhos para enviar com uma solicitação <p>Por exemplo, para definir o idioma e o tipo de uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*conteúdo do corpo*> | Cadeia de caracteres | O conteúdo da mensagem para enviar como carga de solicitação | 
@@ -400,7 +400,7 @@ Alguns valores, como <*tipo de método*>, estão disponíveis para ambos os `"su
 
 *Obrigatório*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*tipo de método*> | Cadeia de caracteres | O método HTTP a ser usado para a solicitação de assinatura: "GET", "PUT", "POST", "PATCH" ou "DELETE" | 
 | <*endpoint-subscribe-URL*> | Cadeia de caracteres | O URL do ponto final para onde enviar o pedido de subscrição | 
@@ -408,7 +408,7 @@ Alguns valores, como <*tipo de método*>, estão disponíveis para ambos os `"su
 
 *Opcional*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*tipo de método*> | Cadeia de caracteres | O método HTTP a ser usado para a solicitação de cancelamento: "GET", "PUT", "POST", "PATCH" ou "DELETE" | 
 | <*endpoint-unsubscribe-URL*> | Cadeia de caracteres | A URL do ponto de extremidade para onde enviar a solicitação de cancelamento | 
@@ -494,7 +494,7 @@ Esse acionador é executado com base no agendamento de recorrência especificado
 
 *Obrigatório*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*unidade de tempo*> | Cadeia de caracteres | A unidade de tempo que descreve a frequência com que o gatilho é acionado: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês" | 
 | <*número de unidades de tempo*> | Número inteiro | Um valor que especifica com que frequência o acionador é disparado com base na frequência, que é o número de unidades de tempo a aguardar até que o acionador seja acionado novamente <p>Aqui estão os intervalos mínimos e máximos: <p>- Mês: 1 a 16 meses </br>- Dia: 1 a 500 dias </br>- Hora: 1 a 12.000 horas </br>- Minuto: 1 a 72.000 minutos </br>- Segundo: 1 a 9.999.999 segundos<p>Por exemplo, se o intervalo for 6, e a frequência for "Mês", a recorrência será a cada 6 meses. | 
@@ -502,7 +502,7 @@ Esse acionador é executado com base no agendamento de recorrência especificado
 
 *Opcional*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | Cadeia de caracteres | A data e hora de início neste formato: <p>AAAA-MM-DDThh:mm:ss se você especificar um fuso horário <p>-ou- <p>AAAA-MM-DDThh:mm:ssZ se você não especificar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 14h00, especifique "2017-09-18T14:00:00" e especifique um fuso horário como "Hora Padrão do Pacífico" ou especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Observação:** Essa hora de início deve seguir a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem uma [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não especificar um fuso horário, será necessário adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto que, para agendamentos complexos, o gatilho não é disparado antes da hora de início. Para obter mais informações sobre datas e horas de início, consulte [Criar e agendar tarefas de execução regularmente](../connectors/connectors-native-recurrence.md). | 
 | <*time-zone*> | Cadeia de caracteres | Aplica-se somente quando você especifica uma hora de início, porque o gatilho não aceita [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Especifique o fuso horário que deseja aplicar. | 
@@ -603,7 +603,7 @@ Para chamar esse gatilho, você deve usar a `listCallbackUrl`API, descrita na [A
 
 *Obrigatório*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*nome da propriedade*> | Cadeia de caracteres | O nome de uma propriedade no esquema JSON, que descreve a carga útil | 
 | <*tipo de propriedade*> | Cadeia de caracteres | O tipo da propriedade | 
@@ -611,7 +611,7 @@ Para chamar esse gatilho, você deve usar a `listCallbackUrl`API, descrita na [A
 
 *Opcional*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*tipo de método*> | Cadeia de caracteres | O método que as solicitações de entrada devem usar para chamar seu aplicativo lógico: "GET", "PUT", "POST", "PATCH", "DELETE" |
 | <*relative-path-for-accepted-parameter*> | Cadeia de caracteres | O caminho relativo para o parâmetro que o URL do seu endpoint pode aceitar | 
@@ -776,7 +776,7 @@ As ações têm esses elementos de alto nível, embora alguns sejam opcionais:
 
 *Obrigatório*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------|
 | <*nome da ação*> | Cadeia de caracteres | O nome da ação | 
 | <*tipo de ação*> | Cadeia de caracteres | O tipo de ação, por exemplo, "Http" ou "ApiConnection"| 
@@ -787,7 +787,7 @@ As ações têm esses elementos de alto nível, embora alguns sejam opcionais:
 
 *Opcional*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------|
 | <*comportamento de repetição*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o código de status 408, 429 e 5XX e todas as exceções de conectividade. Para saber mais, confira Políticas de repetição. | 
 | <*Opções de configuração de tempo de execução*> | Objeto JSON | Para algumas ações, você pode alterar o comportamento da ação em tempo de execução, definindo `runtimeConfiguration` propriedades. Para obter mais informações, consulte [Configurações de tempo de execução](#runtime-config-options). | 
@@ -889,7 +889,7 @@ Essa ação envia uma solicitação HTTP para uma [API gerenciada pela Microsoft
 
 *Obrigatório*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*nome da ação*> | Cadeia de caracteres | O nome da ação fornecida pelo conector | 
 | <*nome da API*> | Cadeia de caracteres | O nome da API gerenciada pela Microsoft usada para a conexão | 
@@ -899,7 +899,7 @@ Essa ação envia uma solicitação HTTP para uma [API gerenciada pela Microsoft
 
 *Opcional*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | < *outras propriedades específicas de entrada de ação*> | Objeto JSON | Quaisquer outras propriedades de entrada que se aplicam a essa ação específica | 
 | <*comportamento de repetição*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o código de status 408, 429 e 5XX e todas as exceções de conectividade. Para mais informações, consulte [Políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
@@ -969,7 +969,7 @@ Alguns valores, como <*tipo de método*>, estão disponíveis para ambos os `"su
 
 *Obrigatório*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*nome da ação*> | Cadeia de caracteres | O nome da ação fornecida pelo conector | 
 | <*tipo de método*> | Cadeia de caracteres | O método HTTP a ser usado para se inscrever ou cancelar a inscrição em um ponto de extremidade: "GET", "PUT", "POST", "PATCH" ou "DELETE" | 
@@ -978,7 +978,7 @@ Alguns valores, como <*tipo de método*>, estão disponíveis para ambos os `"su
 
 *Opcional*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*Cancelar assinatura-URL da API*> | Cadeia de caracteres | O URI a ser usado para cancelar a inscrição da API | 
 | <*conteúdo do cabeçalho*> | Objeto JSON | Quaisquer cabeçalhos para enviar a solicitação <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
@@ -1009,7 +1009,7 @@ Em seguida, você pode usar a saída da ação em outras ações.
 
 *Obrigatório* 
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*entradas para compor*> | Qualquer | As entradas para a criação de uma única saída | 
 |||| 
@@ -1072,7 +1072,7 @@ Essa ação chama criado anteriormente [função do Azure](../azure-functions/fu
 
 *Obrigatório*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------|  
 | <*ID da função do Azure*> | Cadeia de caracteres | O ID do recurso para a função do Azure que você deseja chamar. Aqui está o formato para este valor:<p>"/subscriptions/<*Azure-subscription-ID*>/resourceGroups/<*Azure-resource-group*>/providers/Microsoft.Web/sites/<*Azure-function-app-name*>/functions/<*Azure-function-name*>" | 
 | <*tipo de método*> | Cadeia de caracteres | O método HTTP a ser usado para chamar a função: "GET", "PUT", "POST", "PATCH" ou "DELETE" <p>Se não for especificado, o padrão é o método "POST". | 
@@ -1080,7 +1080,7 @@ Essa ação chama criado anteriormente [função do Azure](../azure-functions/fu
 
 *Opcional*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------|  
 | <*conteúdo do cabeçalho*> | Objeto JSON | Nenhum cabeçalho a ser enviado com a chamada <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*conteúdo do corpo*> | Objeto JSON | Qualquer conteúdo da mensagem para enviar a solicitação | 
@@ -1143,7 +1143,7 @@ Essa ação envia uma solicitação ao ponto de extremidade especificado e verif
 
 *Obrigatório*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*tipo de método*> | Cadeia de caracteres | O método a ser usado para enviar a solicitação: "GET", "PUT", "POST", "PATCH" ou "DELETE" | 
 | <*HTTP-or-HTTPS-endpoint-URL*> | Cadeia de caracteres | O ponto de extremidade HTTP ou HTTPS para chamar. Tamanho máximo da cadeia de caracteres: 2 KB | 
@@ -1151,7 +1151,7 @@ Essa ação envia uma solicitação ao ponto de extremidade especificado e verif
 
 *Opcional*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*conteúdo do cabeçalho*> | Objeto JSON | Nenhum cabeçalho a ser enviado com a solicitação <p>Por exemplo, para definir o idioma e o tipo: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*conteúdo do corpo*> | Objeto JSON | Qualquer conteúdo da mensagem para enviar a solicitação | 
@@ -1194,7 +1194,7 @@ Essa ação cria uma cadeia de caracteres de todos os itens em uma matriz e sepa
 
 *Obrigatório*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*array*> | Matriz | A matriz ou expressão que fornece os itens de origem. Se você especificar uma expressão, coloque essa expressão entre aspas duplas. | 
 | <*delimiter*> | Cadeia de caracteres única | O caractere que separa cada item na cadeia de caracteres | 
@@ -1238,7 +1238,7 @@ Essa ação cria campos amigáveis ou *tokens* das propriedades no conteúdo JSO
 
 *Obrigatório*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*Origem do JSON*> | Objeto JSON | O conteúdo JSON que você deseja analisar | 
 | <*JSON-schema*> | Objeto JSON | O esquema JSON que descreve o conteúdo JSON subjacente, que a ação usa para analisar o conteúdo JSON de origem. <p>**Dica**: no Designer de Aplicativos Lógicos, você pode fornecer o esquema ou fornecer uma amostra de conteúdo para que a ação possa gerar o esquema. | 
@@ -1340,7 +1340,7 @@ Essa ação cria uma matriz de itens na outra matriz com base em uma condição 
 
 *Obrigatório*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*array*> | Matriz | A matriz ou expressão que fornece os itens de origem. Se você especificar uma expressão, coloque essa expressão entre aspas duplas. |
 | <*filtro ou condição*> | Cadeia de caracteres | A condição usada para filtrar itens na matriz de origem <p>**Observação**: se nenhum valor atender à condição, a ação criará uma matriz vazia. |
@@ -1381,14 +1381,14 @@ Essa ação cria a carga para a resposta a uma solicitação HTTP.
 
 *Obrigatório*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*código de status de resposta*> | Número inteiro | O código de status HTTP enviado para a solicitação recebida. O código padrão é "200 OK", mas o código pode ser qualquer código de status válido que comece com 2xx, 4xx ou 5xx, mas não com 3xxx. | 
 |||| 
 
 *Opcional*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*cabeçalhos de resposta*> | Objeto JSON | Um ou mais cabeçalhos para incluir com a resposta | 
 | <*corpo de resposta*> | Vários | O corpo da resposta, que pode ser uma string, um objeto JSON ou até mesmo conteúdo binário de uma ação anterior | 
@@ -1456,7 +1456,7 @@ Essa ação cria uma matriz com objetos JSON, transformando itens de outra matri
 
 *Obrigatório* 
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*array*> | Matriz | A matriz ou expressão que fornece os itens de origem. Certifique-se de que você coloque uma expressão entre aspas duplas. <p>**Observação**: se a matriz de origem estiver vazia, a ação criará uma matriz vazia. | 
 | <*key-name*> | Cadeia de caracteres | O nome da propriedade atribuído ao resultado de <*expressão*> <p>Para adicionar uma nova propriedade a todos os objetos na matriz de saída, forneça um <*nome-chave*> para essa propriedade e uma <*expressão*> para o valor da propriedade. <p>Para remover uma propriedade de todos os objetos na matriz, omita o <*nome-chave*> para essa propriedade. | 
@@ -1554,7 +1554,7 @@ Esta ação cria uma tabela CSV ou HTML a partir de uma matriz. Para matrizes co
 
 *Obrigatório* 
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | < CSV *ou* HTML >| Cadeia de caracteres | O formato para a tabela que você deseja criar | 
 | <*array*> | Matriz | A matriz ou expressão que fornece os itens de origem para a tabela <p>**Observação**: se a matriz de origem estiver vazia, a ação criará uma tabela vazia. | 
@@ -1564,7 +1564,7 @@ Esta ação cria uma tabela CSV ou HTML a partir de uma matriz. Para matrizes co
 
 Para especificar ou customizar cabeçalhos e valores de coluna, use a matriz`columns`. Quando os pares `header-value` tiverem o mesmo nome de cabeçalho, seus valores aparecerão na mesma coluna sob esse nome de cabeçalho. Caso contrário, cada cabeçalho exclusivo define uma coluna exclusiva.
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*nome da coluna*> | Cadeia de caracteres | O nome do cabeçalho de uma coluna | 
 | <*valor da coluna*> | Qualquer | O valor nessa coluna | 
@@ -1667,7 +1667,7 @@ Essa ação interrompe a execução de uma instância de fluxo de trabalho, canc
 
 *Obrigatório*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*Status*> | Cadeia de caracteres | O status a ser retornado para a execução: "Falhou", "Cancelado" ou "Êxito" |
 |||| 
@@ -1676,7 +1676,7 @@ Essa ação interrompe a execução de uma instância de fluxo de trabalho, canc
 
 As propriedades para o objeto "runStatus" aplicam-se somente quando a propriedade "runStatus" está configurada para o status "Failed".
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*Erro de código ou nome*> | Cadeia de caracteres | O código ou o nome do erro |
 | <*mensagem de erro*> | Cadeia de caracteres | A mensagem ou o texto que descreve o erro e as ações do usuário do aplicativo pode levar | 
@@ -1737,7 +1737,7 @@ Esta ação pausa a execução do fluxo de trabalho para o intervalo especificad
 
 *Obrigatório*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*número de unidades*> | Número inteiro | Para o **atraso** ação, o número de unidades de espera | 
 | <*interval*> | Cadeia de caracteres | Para a ação **Atrasar**, o intervalo de espera: "Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês" | 
@@ -1810,7 +1810,7 @@ O mecanismo do Logic Apps verifica o acesso ao acionador que você deseja chamar
 
 *Obrigatório*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*Nested---nome do aplicativo lógico*> | Cadeia de caracteres | O nome do aplicativo lógico que você deseja chamar | 
 | <*nome do gatilho*> | Cadeia de caracteres | O nome do gatilho no aplicativo lógico aninhado que você deseja chamar | 
@@ -1821,7 +1821,7 @@ O mecanismo do Logic Apps verifica o acesso ao acionador que você deseja chamar
 
 *Opcional*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------|  
 | <*conteúdo do cabeçalho*> | Objeto JSON | Nenhum cabeçalho a ser enviado com a chamada | 
 | <*conteúdo do corpo*> | Objeto JSON | Qualquer conteúdo da mensagem a ser enviado com a chamada | 
@@ -1887,7 +1887,7 @@ Essa ação de loop itera através de uma matriz e executa ações em cada item 
 
 *Obrigatório* 
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*ação-1... n*> | Cadeia de caracteres | Os nomes das ações que são executados em cada item da matriz | 
 | <*ação-definição-1... n*> | Objeto JSON | As definições das ações que são executados | 
@@ -1896,7 +1896,7 @@ Essa ação de loop itera através de uma matriz e executa ações em cada item 
 
 *Opcional*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*count*> | Número inteiro | Por padrão, as iterações do loop "para cada" são executadas ao mesmo tempo ou em paralelo até o limite [padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite, definindo um novo <*contagem*> de valor, consulte [alterar "loop"for each simultaneidade](#change-for-each-concurrency). | 
 | <*opção de operação*> | Cadeia de caracteres | Para executar um loop "for each" em sequência, em vez de em paralelo, defina <*opção de operação*> para `Sequential` ou <*contagem*> para `1`, mas não ambos. Para obter mais informações, consulte [executar "" for each executa um loop em sequência](#sequential-for-each). | 
@@ -1960,7 +1960,7 @@ Essa ação, *que é uma instrução condicional*, avalia uma expressão que rep
 }
 ```
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*Condição*> | Objeto JSON | A condição, o que pode ser uma expressão, para avaliar | 
 | <*ação-1*> | Objeto JSON | A ação a ser executada quando a <*condição*> é avaliada como verdadeira | 
@@ -2050,7 +2050,7 @@ Esta ação agrupa logicamente as ações em *escopos*, que obtêm seu próprio 
 
 *Obrigatório*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------|  
 | <*interno-ação-1... n*> | Objeto JSON | Uma ou mais ações que são executadas dentro do escopo |
 | <*entradas de ação*> | Objeto JSON | As entradas para cada ação |
@@ -2091,7 +2091,7 @@ Essa ação, também conhecida como *switch statement*, organiza outras ações 
 
 *Obrigatório*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*expression-object-or-token*> | Varia | A expressão, um objeto JSON ou um token para avaliar | 
 | <*nome da ação*> | Cadeia de caracteres | O nome da ação a ser executada para o caso correspondente | 
@@ -2101,7 +2101,7 @@ Essa ação, também conhecida como *switch statement*, organiza outras ações 
 
 *Opcional*
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*default-action-name*> | Cadeia de caracteres | O nome da ação padrão a ser executada quando nenhum caso correspondente existir | 
 | <*definição de ação padrão*> | Objeto JSON | A definição para a ação a ser executada quando não existir nenhum caso correspondente | 
@@ -2217,7 +2217,7 @@ Esta ação de loop contém ações que são executadas até que a condição es
 }
 ```
 
-| Valor | Type | DESCRIÇÃO | 
+| Value | Type | DESCRIÇÃO | 
 |-------|------|-------------| 
 | <*nome da ação*> | Cadeia de caracteres | O nome para a ação que você deseja executar dentro do loop | 
 | <*tipo de ação*> | Cadeia de caracteres | O tipo de ação que você deseja executar | 
@@ -2583,7 +2583,7 @@ Aqui estão os tipos de autenticação que você pode configurar:
 
 Para [autenticação básica](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) usando o Azure Active Directory, sua definição de gatilho ou de ação pode incluir um objeto JSON `authentication`, que tem as propriedades especificadas pela tabela a seguir. Para acessar os valores do parâmetro em tempo de execução, é possível usar a expressão `@parameters('parameterName')`, fornecida pela [Linguagem de Definição de Fluxo de Trabalho](https://aka.ms/logicappsdocs). 
 
-| Propriedade | Obrigatório | Value | DESCRIÇÃO | 
+| Propriedade | Necessário | Value | DESCRIÇÃO | 
 |----------|----------|-------|-------------| 
 | **tipo** | Sim | “Basic” | O tipo de autenticação a ser usado, que é “Basic” aqui | 
 | **username** | Sim | "@parameters('userNameParam')" | O nome de usuário para autenticar o acesso ao ponto de extremidade de serviço de destino |
@@ -2617,7 +2617,7 @@ Neste exemplo de definição de ação HTTP, a seção `authentication` especifi
 
 Para [autenticação baseada em certificado](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) usando o Azure Active Directory, sua definição de gatilho ou de ação pode incluir um objeto JSON `authentication`, que tem as propriedades especificadas pela tabela a seguir. Para acessar os valores do parâmetro em tempo de execução, é possível usar a expressão `@parameters('parameterName')`, fornecida pela [Linguagem de Definição de Fluxo de Trabalho](https://aka.ms/logicappsdocs). Para limites no número de certificados do cliente que você pode usar, confira [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md) (Limites e configuração para Aplicativos Lógicos do Azure).
 
-| Propriedade | Obrigatório | Value | DESCRIÇÃO |
+| Propriedade | Necessário | Value | DESCRIÇÃO |
 |----------|----------|-------|-------------|
 | **tipo** | Sim | "ClientCertificate" | O tipo de autenticação a ser usado para certificados do cliente do protocolo SSL. Embora haja suporte para certificados autoassinados, não há suporte para certificados autoassinados para SSL. |
 | **pfx** | Sim | "@parameters('pfxParam') | O conteúdo codificado na base64 do arquivo PFX (Troca de Informações Pessoais) |
@@ -2651,7 +2651,7 @@ Neste exemplo de definição de ação HTTP, a seção `authentication` especifi
 
 Para [autenticação OAuth do Azure AD](../active-directory/develop/authentication-scenarios.md), sua definição de gatilho ou de ação pode incluir um objeto JSON `authentication`, que tem as propriedades especificadas pela tabela a seguir. Para acessar os valores do parâmetro em tempo de execução, é possível usar a expressão `@parameters('parameterName')`, fornecida pela [Linguagem de Definição de Fluxo de Trabalho](https://aka.ms/logicappsdocs).
 
-| Propriedade | Obrigatório | Value | DESCRIÇÃO |
+| Propriedade | Necessário | Value | DESCRIÇÃO |
 |----------|----------|-------|-------------|
 | **tipo** | Sim | `ActiveDirectoryOAuth` | O tipo de autenticação a ser usado, o que é "ActiveDirectoryOAuth" para o OAuth do Azure AD |
 | **authority** | Não  | <*URL-for-authority-token-issuer*> | A URL para a autoridade que fornece o token de autenticação |

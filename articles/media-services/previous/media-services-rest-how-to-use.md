@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako;johndeu
 ms.openlocfilehash: 549554521570d1d2f27b2da2b36ca1dfde25562f
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293600"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60762502"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Visão geral da API REST das operações dos Serviços de Mídia 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -55,7 +55,7 @@ As seguintes considerações se aplicam ao usar REST.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Os cabeçalhos de solicitação HTTP padrão suportados pelos serviços de mídia
 Para todas as chamadas feitas nos serviços de mídia, há um conjunto de cabeçalhos necessários que você deve incluir na solicitação e também um conjunto de cabeçalhos opcionais você talvez queira incluir. A tabela abaixo lista os cabeçalhos necessários:
 
-| Cabeçalho | Type | Valor |
+| Cabeçalho | Type | Value |
 | --- | --- | --- |
 | Autorização |Portador |Portador é o único mecanismo de autorização aceito. O valor também deve incluir o token de acesso fornecido pelo Microsoft Azure Active Directory. |
 | x-ms-version |Decimal |2.17 (ou versão mais recente)|
@@ -69,7 +69,7 @@ Para todas as chamadas feitas nos serviços de mídia, há um conjunto de cabeç
 
 Este é um conjunto de cabeçalhos opcional:
 
-| Cabeçalho | Type | Valor |
+| Cabeçalho | Type | Value |
 | --- | --- | --- |
 | Data |Data do RFC 1123 |Carimbo de hora da solicitação |
 | Aceitar |Tipo de conteúdo |O conteúdo solicitado para a resposta, como o seguinte:<p> -application/json;odata=verbose<p> - application/atom+xml<p> As respostas podem ter tipos de conteúdo diferentes como uma busca de blob, em que uma resposta bem-sucedida contém o fluxo de blob como carga. |
@@ -83,7 +83,7 @@ Este é um conjunto de cabeçalhos opcional:
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Cabeçalhos de resposta HTTP padrão suportados pelos serviços de mídia
 Este é um conjunto de cabeçalhos que podem ser retornados para você, dependendo do recurso que você solicitou e da ação que você pretende executar.
 
-| Cabeçalho | Type | Valor |
+| Cabeçalho | Type | Value |
 | --- | --- | --- |
 | ID da solicitação |Cadeia de caracteres |Um identificador exclusivo para a operação atual, serviço gerado. |
 | ID da solicitação de cliente |Cadeia de caracteres |Um identificador especificado pelo chamador na solicitação original, se presente. |

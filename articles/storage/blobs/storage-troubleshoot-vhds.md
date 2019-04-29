@@ -2,17 +2,18 @@
 title: Solucionar problemas de discos anexados às VMs do Azure | Microsoft Docs
 description: Fornece links para os recursos de solução de problemas dos VHDs (discos rígidos virtuais) da máquina virtual do Azure.
 services: storage
-author: genlin
+author: WenJason
 ms.service: storage
 ms.topic: article
-ms.date: 10/31/2018
-ms.author: genli
+origin.date: 10/31/2018
+ms.date: 12/10/2018
+ms.author: v-jay
 ms.openlocfilehash: bf1aa75399f28b8dd1732bc9ec09c15e46132939
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414158"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098092"
 ---
 # <a name="troubleshoot-disks-attached-to-azure-vms"></a>Solucionar problemas de discos anexados às VMs do Azure 
 

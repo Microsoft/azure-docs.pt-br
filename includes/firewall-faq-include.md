@@ -9,11 +9,11 @@ ms.date: 3/26/2019
 ms.author: victorh
 ms.custom: include file
 ms.openlocfilehash: b8842ab4bcaf16b7345b25fa9ac4998981d9c458
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013334"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60713585"
 ---
 ### <a name="what-is-azure-firewall"></a>O que é o Firewall do Azure?
 
@@ -139,7 +139,7 @@ Sim. O firewall, a sub-rede, a rede virtual e o endereço IP público devem esta
 
 ### <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Ao configurar DNAT para tráfego entrada de rede, também preciso configurar uma regra de rede correspondente para permitir esse tráfego?
 
- Não. As regras DNAT adicionam implicitamente uma regra de rede correspondente para permitir o tráfego convertido. Você pode substituir esse comportamento adicionando explicitamente uma coleção de regras de rede com regras de negação que correspondem ao tráfego convertido. Para saber mais sobre a lógica de processamento de regra do Firewall do Azure, confira [Lógica de processamento de regra do Firewall no Azure](../articles/firewall/rule-processing.md).
+Não. As regras DNAT adicionam implicitamente uma regra de rede correspondente para permitir o tráfego convertido. Você pode substituir esse comportamento adicionando explicitamente uma coleção de regras de rede com regras de negação que correspondem ao tráfego convertido. Para saber mais sobre a lógica de processamento de regra do Firewall do Azure, confira [Lógica de processamento de regra do Firewall no Azure](../articles/firewall/rule-processing.md).
 
 ### <a name="how-to-wildcards-work-in-an-application-rule-target-fqdn"></a>Como a curingas funcionam em um FQDN de destino da regra de aplicativo?
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 844bd9a88c52fd398fc66c71e59da513c0d7d90d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544317"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60814868"
 ---
 # <a name="grammar-format"></a>Formato de Gramática
 

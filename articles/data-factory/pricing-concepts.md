@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
 ms.openlocfilehash: 80b1f90ee0d9f5003c39eb6a853a07d2d64ca482
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085330"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787423"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Noções básicas de preços do Data Factory por meio de exemplos
 

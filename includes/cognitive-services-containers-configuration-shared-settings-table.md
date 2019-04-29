@@ -5,11 +5,11 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/22/2019
 ms.openlocfilehash: ed512c0f56d8da5cb8e47b20f2495054fdedf020
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740906"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60815391"
 ---
 Esse contêiner tem as seguintes configurações:
 

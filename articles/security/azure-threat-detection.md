@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: 60a0d7c2da25f63d0728dbb86f9a6c2328def811
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245233"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611234"
 ---
 # <a name="azure-advanced-threat-detection"></a>Detecção avançada de ameaças do Azure
 

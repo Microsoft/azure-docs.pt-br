@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 96d16552cfadca9b345d0f0cd0a344249897f571
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020941"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61258429"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Mover dados do SAP HANA usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,12 +60,12 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 
 Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-Servidor | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver usando uma porta personalizada, especifique `server:port`. | string | SIM
-authenticationType | Tipo de autenticação. | cadeia de caracteres. "Básico" ou "Windows" | SIM 
-Nome de Usuário | Nome do usuário que tem acesso ao servidor SAP | string | SIM
-Senha | Senha do usuário. | string | SIM
-gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP HANA. | string | SIM
-encryptedCredential | A cadeia de caracteres de credencial criptografada. | string | Não 
+Servidor | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver usando uma porta personalizada, especifique `server:port`. | cadeia de caracteres | Sim
+authenticationType | Tipo de autenticação. | cadeia de caracteres. "Básico" ou "Windows" | Sim 
+Nome de Usuário | Nome do usuário que tem acesso ao servidor SAP | cadeia de caracteres | Sim
+Senha | Senha do usuário. | cadeia de caracteres | Sim
+gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP HANA. | cadeia de caracteres | Sim
+encryptedCredential | A cadeia de caracteres de credencial criptografada. | cadeia de caracteres | Não 
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
@@ -82,7 +82,7 @@ Quando a fonte na atividade de cópia for do tipo **RelationalSource** (que incl
 
 | Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| query | Especifica a consulta SQL para ler dados da instância do SAP HANA. | Consulta SQL. | SIM |
+| query | Especifica a consulta SQL para ler dados da instância do SAP HANA. | Consulta SQL. | Sim |
 
 ## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>Exemplo JSON: copiar dados do SAP HANA para o Blob do Azure
 O exemplo a seguir fornece as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Este exemplo mostra como copiar dados de um SAP HANA local para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer um dos coletores listados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.  
@@ -297,10 +297,10 @@ NVARCHAR | Cadeia de caracteres
 CLOB | Byte[]
 ALPHANUM | Cadeia de caracteres
 BLOB | Byte[]
-DATE | Datetime
-TIME | timespan
-TIMESTAMP | Datetime
-SECONDDATE | Datetime
+DATE | DateTime
+TIME | TimeSpan
+TIMESTAMP | DateTime
+SECONDDATE | DateTime
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 Há algumas limitações conhecidas ao copiar dados do SAP HANA:

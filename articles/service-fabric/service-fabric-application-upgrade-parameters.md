@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: subramar
 ms.openlocfilehash: 9a93c0993ee45e72b11b023982dfbbe8c6528272
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670610"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614389"
 ---
 # <a name="application-upgrade-parameters"></a>Parâmetros de atualização de aplicativo
 Este artigo descreve os vários parâmetros que se aplicam durante a atualização de um aplicativo do Service Fabric do Azure. Parâmetros de atualização de aplicativo controlam o tempo limite e as verificações de integridade que são aplicadas durante a atualização, e especificam as políticas que devem ser aplicadas quando uma atualização falha. Parâmetros de aplicativo aplicam-se a atualizações usando:
@@ -96,7 +96,7 @@ As atualizações de aplicativos do Service Fabric usando a CLI do Service Fabri
 | --- | --- |
 | application-id  |ID do aplicativo que está sendo atualizado. <br> Normalmente, esse é o nome completo do aplicativo sem o esquema de URI 'fabric:'. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo é ' fabric: / myapp/app1 ', a identidade do aplicativo será ' myapp\~app1' em 6.0 + e "meuaplicativo/Aplicativo1" nas versões anteriores.|
 application-version |Versão do tipo de aplicativo visado pela atualização.|
-parâmetros  |Uma lista codificada em JSON de substituições de parâmetro de aplicativo a serem aplicadas ao atualizar o aplicativo.|
+parameters  |Uma lista codificada em JSON de substituições de parâmetro de aplicativo a serem aplicadas ao atualizar o aplicativo.|
 
 ### <a name="optional-parameters"></a>Parâmetros opcionais
 

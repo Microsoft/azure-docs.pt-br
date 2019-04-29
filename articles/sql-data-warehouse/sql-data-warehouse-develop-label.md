@@ -2,20 +2,20 @@
 title: Usar rótulos para consultas de instrumento no SQL Data Warehouse | Microsoft Docs
 description: Dicas para usar rótulos para consultas de instrumento no SQL Data Warehouse do Azure para desenvolvimento de soluções.
 services: sql-data-warehouse
-author: ronortloff
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: rortloff
-ms.reviewer: igorstan
+ms.component: implement
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.openlocfilehash: 5c60a7dc44471599834c4b1225b397c8e6eabbd5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456452"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61439767"
 ---
 # <a name="using-labels-to-instrument-queries-in-azure-sql-data-warehouse"></a>Usar rótulos para consultas de instrumento no SQL Data Warehouse do Azure
 Dicas para usar rótulos para consultas de instrumento no SQL Data Warehouse do Azure para desenvolvimento de soluções.

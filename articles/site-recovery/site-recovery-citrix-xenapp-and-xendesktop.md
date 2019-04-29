@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310503"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61038161"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>configurar a recuperação de desastres para uma implantação do Citrix XenApp e XenDesktop multicamada
 
@@ -56,9 +56,9 @@ Com a finalidade deste artigo, as implantações do Citrix em máquinas virtuais
 
 **Cenário** | **Para um site secundário** | **Para o Azure**
 --- | --- | ---
-**Hyper-V** | Não está no escopo | SIM
-**VMware** | Não está no escopo | SIM
-**Servidor físico** | Não está no escopo | SIM
+**Hyper-V** | Não está no escopo | Sim
+**VMware** | Não está no escopo | Sim
+**Servidor físico** | Não está no escopo | Sim
 
 ### <a name="versions"></a>Versões
 Os clientes podem implantar componentes do XenApp como máquinas virtuais em execução no Hyper-V ou VMware, ou como servidores físicos. O Azure Site Recovery pode proteger as implantações físicas e virtuais no Azure.
@@ -92,7 +92,7 @@ Os seguintes componentes da implantação do Citrix XenApp precisam ser protegid
 
 Consulte [Proteger o Active Directory e DNS com o Azure Site Recovery](site-recovery-active-directory.md) na orientação para a replicação e configurar de um controlador de domínio no Azure.
 
-**Replicação do servidor de banco de dados SQL**
+**Replicação do servidor do banco de dados SQL**
 
 Consulte [Proteger o SQL Server com a recuperação de desastre do SQL Server e o Azure Site Recovery](site-recovery-sql.md) na orientação técnica detalhada das opções recomendadas para proteger os servidores SQL.
 

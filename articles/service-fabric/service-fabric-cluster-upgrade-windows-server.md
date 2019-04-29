@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 29d034be5999d0bc3f0a244cfa7a5658a4ecce32
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661455"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60711350"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>Atualize a versão do Service Fabric que é executada em seu cluster 
 

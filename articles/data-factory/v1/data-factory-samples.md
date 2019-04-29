@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 03127dc777588f669ef07af52c8f73d986bfe0ea
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020805"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61259998"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - Exemplos
 > [!NOTE]
@@ -105,7 +105,7 @@ Você deve ter os seguintes itens instalados no seu computador:
    3. Escolha a **assinatura do Azure** em que você deseja que o data factory seja criado.
    4. Selecione o **grupo de recursos** para o data factory a ser criado.
    5. Selecione o **Oeste dos EUA**, **Leste dos EUA** ou **Europa Setentrional** como a **região**.
-   6. Clique em **Próximo**.
+   6. Clique em **Avançar**.
 6. Na página **Configurar armazenamentos de dados**, especifique um **Banco de dados SQL do Azure** e **Conta de armazenamento do Azure** (ou) crie banco de dados/armazenamento e clique em Avançar.
 7. Na página **Configurar computação**, selecione os padrões e clique em **Avançar**.
 8. Na página **Resumo** examine as configurações e clique em **Avançar**.

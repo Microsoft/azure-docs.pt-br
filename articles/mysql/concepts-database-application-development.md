@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 946f7011c51b7c6844e023d03e01e4c2043d2578
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544456"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615647"
 ---
 # <a name="application-development-overview-for-azure-database-for-mysql"></a>Visão geral de desenvolvimento de aplicativo para o Banco de Dados do Azure para MySQL 
 Este artigo discute considerações de design que um desenvolvedor deve seguir ao escrever o código de um aplicativo para se conectar ao Banco de Dados do Azure para MySQL. 
@@ -33,7 +33,7 @@ O Banco de Dados do Azure para MySQL gerencia os recursos disponíveis para um s
 ## <a name="security"></a>Segurança
 O Banco de Dados do Azure para MySQL fornece recursos para limitar o acesso, proteger os dados, configurar usuários e funções e monitorar atividades em um banco de dados MySQL.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 O Banco de Dados do Azure para MySQL dá suporte à autenticação de usuários e logons do servidor.
 
 ## <a name="resiliency"></a>Resiliência

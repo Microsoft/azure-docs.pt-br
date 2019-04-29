@@ -9,11 +9,11 @@ ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 8da233088389797271541b1aae55ec2e842f252d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53381350"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60398665"
 ---
 ## <a name="extended-iot-scenarios"></a>Cenários de IoT estendidos
 
@@ -28,7 +28,7 @@ Use outras ferramentas e serviços do Azure. Depois de conectar o dispositivo ao
 | [Visualizar dados do sensor](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)                      | Microsoft Power BI                 |
 | [Visualizar dados do sensor](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)                      | Aplicativos Web do Azure                      |
 | [Previsão meteorológica usando dados de sensor](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)      | Azure Machine Learning             |
-| [Detecção de anomalias e reação automáticas](../articles/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md) | Aplicativo Lógico do Azure                   |
+| [Detecção de anomalias e reação automáticas](../articles/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md) | Aplicativos Lógicos do Azure                   |
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 12/06/2017
 ms.author: aljo
 ms.openlocfilehash: 63630f5c4799e9272601f431671abc78ec86a238
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669003"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622335"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Hospedar um aplicativo Node.js no Azure Service Fabric
 
@@ -52,7 +52,7 @@ Você pode criar qualquer tipo de serviço Service Fabric na próxima caixa de d
 
 Nomeie o serviço **MyGuestService** e defina as opções à direita com os seguintes valores:
 
-| Configuração                   | Valor |
+| Configuração                   | Value |
 | ------------------------- | ------ |
 | Pasta do Pacote de Código       | _&lt;a pasta com seu aplicativo Node.js&gt;_ |
 | Comportamento do Pacote de Código     | Copiar o conteúdo da pasta para o projeto |

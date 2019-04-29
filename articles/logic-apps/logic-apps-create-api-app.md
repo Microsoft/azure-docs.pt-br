@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
 ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895848"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60681793"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Criar APIs personalizadas que podem ser chamadas dos Aplicativos Lógicos do Azure
 
@@ -224,7 +224,7 @@ Para disponibilizar seu APIs personalizadas para outros usuários de aplicativos
 
 Para disponibilizar suas APIs personalizadas para todos os usuários em Aplicativos Lógicos, Microsoft Flow e Microsoft PowerApps, você deve adicionar a segurança, registrar suas APIs como conectores de Aplicativos Lógicos e designar os conectores para o [programa Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 * Para obter ajuda específica com APIs personalizadas, entre em contato com [ customapishelp@microsoft.com ](mailto:customapishelp@microsoft.com).
 

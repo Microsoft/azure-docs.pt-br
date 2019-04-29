@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 04/23/2019
 ms.author: carlrab
-ms.openlocfilehash: 9b961436c81282381f963d16c6c6dd5f289d1259
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e6d702c7a3194f07f9d04139acbc9b6101b296ea
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495098"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759461"
 ---
 # <a name="sql-database-release-notes"></a>Notas de versão do banco de dados SQL
 
@@ -45,6 +45,22 @@ Este artigo lista os novos recursos e melhorias no serviço de banco de dados SQ
 |Análise de SQL|Para obter informações, consulte [análise de SQL do Azure](../azure-monitor/insights/azure-sql.md)|
 | Suporte a fuso horário para instâncias gerenciadas|Para obter mais informações, consulte [fuso horário no banco de dados de instância gerenciada do SQL](sql-database-managed-instance-timezone.md)|
 |||
+
+## <a name="april-2019"></a>Abril de 2019
+
+### <a name="service-improvements"></a>Melhorias nos serviços
+
+| Melhorias nos serviços | Detalhes |
+| --- | --- |
+| Pontos de extremidade públicos para a instância gerenciada | Para obter mais informações, consulte [usando o Azure SQL Database managed instância forma segura com o ponto de extremidade público](sql-database-managed-instance-public-endpoint-securely.md)
+| Suporte a fuso horário para a instância gerenciada | Para obter mais informações, consulte [fuso horário no banco de dados de instância gerenciada do SQL (versão prévia)](sql-database-managed-instance-timezone.md)
+
+### <a name="documentation-improvements"></a>Melhorias na documentação
+
+| Melhorias na documentação | Detalhes |
+| --- | --- |
+| Pontos de extremidade públicos para a instância gerenciada | Para obter mais informações, consulte [usando o Azure SQL Database managed instância forma segura com o ponto de extremidade público](sql-database-managed-instance-public-endpoint-securely.md)
+| Suporte a fuso horário para a instância gerenciada | Para obter mais informações, consulte [fuso horário no banco de dados de instância gerenciada do SQL (versão prévia)](sql-database-managed-instance-timezone.md)
 
 ## <a name="march-2019"></a>Março de 2019
 

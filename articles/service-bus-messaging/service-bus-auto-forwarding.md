@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 85ab5e3bb963ee692e5b70af3eb90cc68cec361f
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: MT
+ms.openlocfilehash: 86fa7f62230c0ae0530b67ff2384942c876083d4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593379"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098585"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Encadeando entidades do Barramento de Serviço com o encaminhamento automático
 
@@ -46,6 +46,10 @@ Você também pode usar o encaminhamento automático para separar os remetentes 
 ![Cenário de encaminhamento automático][1]
 
 Se Brenda entrar de férias, sua fila pessoal, em vez do tópico ERP, ficará cheia. Nesse cenário, como um representante de vendas não recebeu nenhuma mensagem, nenhum dos tópicos ERP atingirá a cota.
+
+> [!NOTE]
+> Quando o encaminhamento automático está configurado, o valor para AutoDeleteOnIdle no destino é automaticamente definido como o valor máximo do tipo de dados.
+> Isso é feito para garantir que haja sempre um destino para encaminhar a mensagem.
 
 ## <a name="autoforwarding-considerations"></a>Considerações sobre o encaminhamento automático
 

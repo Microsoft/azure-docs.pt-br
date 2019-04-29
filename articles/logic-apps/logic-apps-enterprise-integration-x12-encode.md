@@ -10,12 +10,12 @@ ms.reviewer: jonfan, divswa, LADocs
 ms.topic: article
 ms.assetid: a01e9ca9-816b-479e-ab11-4a984f10f62d
 ms.date: 01/27/2017
-ms.openlocfilehash: 3ed5cb61fef5f07913f11c4e4df309d720d5b901
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 871d6d2b2019372bd258f8909ed0feeeddac4af7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60427339"
+ms.locfileid: "62106497"
 ---
 # <a name="encode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Codificar mensagens X12 nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 

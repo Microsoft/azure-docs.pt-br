@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: dc4ab9237929df3610d4dd53786bb98903fa5593
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342387"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61067319"
 ---
 # <a name="share-your-custom-search-instance"></a>Compartilhar sua instância de Pesquisa Personalizada
 

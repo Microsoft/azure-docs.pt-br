@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 62187ddbe587a81038f8424b079e3c0c313d1ae2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58887089"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60620253"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>Início Rápido: Obter a lista de texto em fala vozes usando Node. js
 
@@ -143,7 +143,7 @@ node get-voices.js
 
 Remova todas as informações confidenciais do código-fonte do seu aplicativo de exemplo, como as chaves de assinatura.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Explorar exemplos do Node.js no GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NodeJS)

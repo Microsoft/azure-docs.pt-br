@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: e85beea4250b5ac5f4defd0b918786079d3dbe3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892652"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60553684"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -160,7 +160,7 @@ O Video Indexer usa um modelo de pagamento conforme o uso, com base na duração
 
 ### <a name="when-am-i-billed-for-using-video-indexer"></a>Quando sou cobrado para usar o indexador de vídeo?
 
-Ao enviar um vídeo a serem indexados, o usuário definirá a indexação para análise de vídeo, análise de áudio ou ambos. Isso determinará quais SKUs serão cobrados. Se houver um erro de nível crítico durante o processamento, um código de erro será retornado como uma resposta. Nesse caso, não há cobrança.  Um erro crítico pode ser causado por um bug em nosso código ou tem uma falha crítica em uma dependência interna do serviço. Erros como extração errado de identificação ou as informações não são considerados críticos e uma resposta é retornada. Em qualquer caso em que uma resposta válida (código de erro não) é retornada, a cobrança ocorre.
+Ao enviar um vídeo para ser indexado, o usuário definirá a indexação como análise de vídeo, análise de áudio ou ambos. Isso determinará quais SKUs serão cobradas. Se houver um erro de nível crítico durante o processamento, um código de erro retornará como resposta. Neste caso não haverá cobrança.  Um erro crítico pode ocorrer devido a um bug em nosso código ou uma falha crítica em uma dependência interna do serviço. Erros como identificação incorreta ou extração de insight não são considerados críticos e haverá retorno de resposta. Haverá cobrança no caso de uma resposta válida (código sem erro) retornar.
  
 ### <a name="does-video-indexer-offer-a-free-trial"></a>O Video Indexer oferece uma avaliação gratuita?
 

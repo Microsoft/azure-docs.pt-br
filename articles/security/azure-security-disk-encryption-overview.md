@@ -8,11 +8,11 @@ ms.author: mbaldwin
 ms.date: 03/16/2019
 ms.custom: seodec18
 ms.openlocfilehash: 66d788aec83e3e57a49b063f2ca80484360f639d
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295276"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60612087"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption para VMs IaaS
 

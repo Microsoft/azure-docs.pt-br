@@ -14,11 +14,11 @@ ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
 ms.openlocfilehash: d8a11a3289037602535d1b5727d041e376012bd8
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502433"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60837822"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Conectar-se a um serviço seguro com o proxy inverso
 
@@ -35,14 +35,14 @@ O proxy reverso identifica-se aos serviços usando seu certificado. Para cluster
 Os serviços podem implementar a lógica para verificar o certificado apresentado pelo proxy reverso. Os serviços podem especificar os detalhes do certificado de cliente aceito como definições de configuração no pacote de configuração. Isso pode ser lido em tempo de execução e usado para validar o certificado apresentado pelo proxy reverso. Consulte [Gerenciar parâmetros do aplicativo](service-fabric-manage-multiple-environment-app-configuration.md) para adicionar as definições de configuração. 
 
 ### <a name="reverse-proxy-verifying-the-services-identity-via-the-certificate-presented-by-the-service"></a>Proxy reverso verificando a identidade do serviço por meio do certificado apresentado pelo serviço:
-O proxy reverso suporta as seguintes políticas para executar a validação do certificado de servidor dos certificados apresentados pelos serviços: Nenhum, ServiceCommonNameAndIssuer e ServiceCertificateThumbprints.
+Proxy reverso suporta as seguintes políticas para executar a validação de certificado de servidor dos certificados apresentados pelos serviços: Nenhum, ServiceCommonNameAndIssuer e ServiceCertificateThumbprints.
 Para selecionar a política para o proxy reverso usar, especifique o **ApplicationCertificateValidationPolicy** na **ApplicationGateway/Http** seção sob [fabricSettings](service-fabric-cluster-fabric-settings.md).
 
 A próxima seção mostra detalhes de configuração para cada uma dessas opções.
 
 ### <a name="service-certificate-validation-options"></a>Opções de validação do certificado de serviço 
 
-- **Nenhum**: o proxy reverso ignora a verificação do certificado de serviço com proxy e estabelece a conexão segura. Esse é o comportamento padrão.
+- **Nenhum**: Proxy reverso ignora a verificação do certificado de serviço com proxy e estabelece a conexão segura. Esse é o comportamento padrão.
 Especifique o **ApplicationCertificateValidationPolicy** com o valor **None** no [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) seção.
 
    ```json
@@ -63,7 +63,7 @@ Especifique o **ApplicationCertificateValidationPolicy** com o valor **None** no
    }
    ```
 
-- **ServiceCommonNameAndIssuer**: proxy reverso verifica o certificado apresentado pelo serviço com base no nome comum do certificado e a impressão digital do emissor imediato: especifique o **ApplicationCertificateValidationPolicy** com o valor **ServiceCommonNameAndIssuer** no [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) seção.
+- **ServiceCommonNameAndIssuer**: Proxy reverso verifica o certificado apresentado pelo serviço com base no nome comum do certificado e a impressão digital do emissor imediato: Especifique o **ApplicationCertificateValidationPolicy** com o valor **ServiceCommonNameAndIssuer** no [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) seção.
 
    ```json
    {
@@ -110,7 +110,7 @@ Especifique o **ApplicationCertificateValidationPolicy** com o valor **None** no
    }
    ```
 
-- **ServiceCertificateThumbprints**: o proxy reverso verificará se o certificado de serviço com proxy tem base em sua impressão digital. Você pode optar por acessar certificados autoassinados dessa rota quando os serviços estiverem configurados com: especifique o **ApplicationCertificateValidationPolicy** com o valor **ServiceCertificateThumbprints** na seção [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
+- **ServiceCertificateThumbprints**: Proxy reverso verificará se o certificado de serviço com proxy com base em sua impressão digital. Você pode optar por acessar certificados autoassinados dessa rota quando os serviços estiverem configurados com: Especifique o **ApplicationCertificateValidationPolicy** com o valor **ServiceCertificateThumbprints** no [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) seção.
 
    ```json
    {

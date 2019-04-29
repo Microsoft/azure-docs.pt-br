@@ -13,11 +13,11 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 02/04/2019
 ms.openlocfilehash: a8e9dfe70e300e6b1d0d50aae60660644f2ab31d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794551"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61313875"
 ---
 # <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>Configurar a detecção de ameaças (versão prévia) na instância gerenciada do Banco de Dados SQL do Azure
 
@@ -39,7 +39,7 @@ A [detecção de ameaças](sql-database-threat-detection-overview.md) faz parte 
 
    ![detecção de ameaças](./media/sql-database-managed-instance-threat-detection/threat-detection.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre a [detecção de ameaças](sql-database-threat-detection-overview.md).
 - Para saber mais sobre instâncias gerenciadas, confira [O que é uma instância gerenciada](sql-database-managed-instance.md).

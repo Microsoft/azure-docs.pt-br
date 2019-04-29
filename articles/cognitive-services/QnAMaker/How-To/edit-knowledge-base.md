@@ -12,11 +12,11 @@ ms.date: 03/26/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 22d408204b69e0a564103efd29468c6f0d68d93a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577197"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61374345"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Editar uma base de dados de conhecimento no QnA Maker
 

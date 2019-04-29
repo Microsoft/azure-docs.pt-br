@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 86dcd39ad7b9f1e207e9254ec72698db3998bbd6
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320473"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61400467"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiar dados do MongoDB usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,14 +54,14 @@ As propriedades a seguir têm suporte para o serviço vinculado do MongoDB:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo |A propriedade type deve ser definida como: **MongoDb** |SIM |
-| Servidor |Endereço IP ou nome do host do servidor MongoDB. |SIM |
+| type |A propriedade type deve ser definida como: **MongoDb** |Sim |
+| Servidor |Endereço IP ou nome do host do servidor MongoDB. |Sim |
 | porta |A porta TCP usada pelo servidor MongoDB para ouvir conexões de cliente. |Não (o padrão é 27017) |
-| databaseName |Nome do banco de dados MongoDB que você deseja acessar. |SIM |
-| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados MongoDB.<br/>Valores permitidos são: **Básico** e **Anônimo**. |SIM |
+| databaseName |Nome do banco de dados MongoDB que você deseja acessar. |Sim |
+| authenticationType | Tipo de autenticação usado para se conectar ao banco de dados MongoDB.<br/>Valores permitidos são: **Básico** e **Anônimo**. |Sim |
 | Nome de Usuário |Conta de usuário para acessar o MongoDB. |Sim (se a autenticação básica for usada). |
 | Senha |Senha do usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim (se a autenticação básica for usada). |
-| authSource |Nome do banco de dados MongoDB que você deseja usar para verificar suas credenciais para autenticação. | Não. Para a autenticação Básica, o padrão é usar a conta do administrador e o banco de dados especificado, usando a propriedade databaseName. |
+| authSource |Nome do banco de dados MongoDB que você deseja usar para verificar suas credenciais para autenticação. |Não. Para a autenticação Básica, o padrão é usar a conta do administrador e o banco de dados especificado, usando a propriedade databaseName. |
 | enableSsl | Especifica se as conexões com o servidor são criptografadas usando SSL. O valor padrão é falso.  | Não  |
 | allowSelfSignedServerCert | Especifica se deve permitir os certificados autoassinados do servidor. O valor padrão é falso.  | Não  |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime auto-hospedado ou o Integration Runtime do Azure (se seu armazenamento de dados estiver publicamente acessível). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
@@ -97,8 +97,8 @@ Para obter uma lista completa de seções e propriedades disponíveis para defin
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **MongoDbCollection** | SIM |
-| collectionName |Nome da coleção no banco de dados MongoDB. |SIM |
+| type | A propriedade type do conjunto de dados deve ser definida como: **MongoDbCollection** | Sim |
+| collectionName |Nome da coleção no banco de dados MongoDB. |Sim |
 
 **Exemplo:**
 
@@ -128,7 +128,7 @@ As propriedades a seguir têm suporte na seção **source** da atividade de cóp
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **MongoDbSource** | SIM |
+| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **MongoDbSource** | Sim |
 | query |Utiliza a consulta SQL-92 personalizada para ler os dados. Por exemplo: select * from MyTable. |Não (se "collectionName" no conjunto de dados for especificada) |
 
 **Exemplo:**
@@ -177,15 +177,15 @@ Ao copiar dados do MongoDB, os seguintes mapeamentos são usados de tipos de dad
 | Tipo de dados do MongoDB | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
 | Binário |Byte[] |
-| BOOLEAN |BOOLEAN |
-| Data |Datetime |
-| NumberDouble |Duplo |
+| Boolean |Boolean |
+| Data |DateTime |
+| NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |Cadeia de caracteres |
 | Cadeia de caracteres |Cadeia de caracteres |
 | UUID |Guid |
-| Objeto |Renormalizado para colunas simples com “_" como separador aninhado |
+| Object |Renormalizado para colunas simples com “_" como separador aninhado |
 
 > [!NOTE]
 > Para saber mais sobre o suporte para matrizes usando tabelas virtuais, consulte a seção [Suporte para tipos complexos usando tabelas virtuais](#support-for-complex-types-using-virtual-tables).

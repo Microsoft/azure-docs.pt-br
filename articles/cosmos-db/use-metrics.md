@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.reviewer: sngun
 ms.openlocfilehash: ff6e0b6084eebf236d01b4dd00a46897687938c2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034719"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60765768"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitore e depure com métricas no Azure Cosmos DB
 

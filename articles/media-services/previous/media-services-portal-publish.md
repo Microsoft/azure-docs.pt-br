@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 2639d47a6c9d8da53c9d6bccde0d317698d5d9fd
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58257952"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61127835"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publicar conteúdo no Portal do Azure  
 > [!div class="op_single_selector"]

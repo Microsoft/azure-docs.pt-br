@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
 ms.openlocfilehash: e5d7e2bfe1ee4e3ca248f40701aa65e757fc4d74
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795495"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60812867"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Estratégias empresariais para um aplicativo LUIS
 Examine essas estratégias de design para seu aplicativo empresarial.

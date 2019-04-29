@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: robinsh
 ms.openlocfilehash: 556c10cc5ec5e528857a120dadb16c2a10202ed3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788954"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61250468"
 ---
 # <a name="get-started-with-device-management-netnet"></a>Introdução ao gerenciamento de dispositivos (.NET/.NET)
 

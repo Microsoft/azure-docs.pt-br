@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 855ea6c34082b859bb5b5b6e69b3e3f2fa54eb4a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
-ms.translationtype: HT
+ms.openlocfilehash: b36d721896bd7b4f95d831eded500a96969937c5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056456"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631882"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Especificações técnicas e conformidade para o dispositivo StorSimple
 
@@ -37,14 +37,14 @@ O compartimento EBOD usa um PCM de 580 W e o compartimento principal usa um PCM 
 | --- | --- | --- |
 | Alimentação de saída máxima |580 W |764 |
 | Frequência |50/60 Hz |50/60 Hz |
-| Seleção de faixa de tensão |Faixa automática: 90-264 V AC, 47/63 Hz |Faixa automática: 90- 264 V AC, 47/63 Hz |
+| Seleção de faixa de tensão |Variação automática: 90 – 264 V AC, 47/63 Hz |Variação automática: 90- 264 V AC, 47/63 Hz |
 | Corrente de entrada máxima |20 A |20 A |
 | Correção de fator de potência |Voltagem de entrada nominal >95% |Voltagem de entrada nominal >95% |
 | Harmônicas |Atende EN61000-3-2 |Atende EN61000-3-2 |
 | Saída |Tensão de espera de 5V \@ 2.0 A |Tensão de espera de 5V \@ 2.7 A |
 | +5V \@ 42 A |+5V \@ 40 A | |
 | +12V \@ 38 A |+12V \@ 38 A | |
-| Conectado com a máquina ligada |SIM |SIM |
+| Conectado com a máquina ligada |Sim |Sim |
 | Interruptores e LEDs |Interruptor LIGA/DESLIGA CA e quatro LEDs indicadores de status |Interruptor LIGA/DESLIGA CA e seis LEDs indicadores de status |
 | Refrigeração do compartimento |Ventiladores de refrigeração axial com controle de velocidade variável de ventilador |Ventiladores de refrigeração axial com controle de velocidade variável de ventilador |
 
@@ -149,7 +149,7 @@ O dispositivo Microsoft Azure StorSimple está em conformidade com os seguintes 
 
 O dispositivo Microsoft Azure StorSimple atende às seguintes classificações de segurança:
 
-* Aprovação do tipo de produto do sistema: UL, cUL, CE
+* Aprovação de tipo de produto do sistema: UL, cUL, CE
 * Conformidade de segurança: UL 60950, IEC 60950, EN 60950
 
 ## <a name="emc-compliance"></a>Conformidade com EMC
@@ -160,8 +160,8 @@ O dispositivo Microsoft Azure StorSimple atende às classificações EMC a segui
 
 O dispositivo é compatível com EMC em relação aos níveis de emissões conduzidas e irradiadas.
 
-* Níveis de limite de emissões conduzidas: CFR 47 Parte 15B classe A EN55022 Classe A CISPR Classe A
-* Níveis de limite de emissões irradiadas: CFR 47 Parte 15B classe A EN55022 Classe A CISPR Classe A
+* Níveis de limite de emissões de realizada: CFR 47 Parte 15B classe A EN55022 Classe A CISPR classe A
+* Por radiação níveis de limite de emissões: CFR 47 Parte 15B classe A EN55022 Classe A CISPR classe A
 
 ### <a name="harmonics-and-flicker"></a>Harmônicas e cintilação
 

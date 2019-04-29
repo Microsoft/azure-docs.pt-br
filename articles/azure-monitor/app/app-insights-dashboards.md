@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: afbf2bc32aa737eb5f6dde41035b206d6e260252
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813748"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60767397"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navegação e painéis no portal do Application Insights
 Após de ter [Configurado o Application Insights no seu projeto](../../azure-monitor/app/app-insights-overview.md), os dados de telemetria sobre desempenho e uso do aplicativo aparecerá no recurso do Application Insights do projeto no [portal do Azure](https://portal.azure.com).

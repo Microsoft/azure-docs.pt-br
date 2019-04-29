@@ -8,11 +8,11 @@ ms.topic: reference
 ms.date: 01/12/2019
 ms.author: spelluru
 ms.openlocfilehash: 4994063dfc3bce88489f70969c06bf36b591f907
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536242"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561669"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Esquema de eventos para assinatura da Grade de Eventos do Azure para hubs de eventos
 
@@ -34,7 +34,7 @@ Para obter uma lista de scripts de exemplo e tutoriais, consulte [Origem do even
 
 As assinaturas do Azure agora podem emitir eventos de gerenciamento do Azure Resource Manager, como quando uma VM é criada ou uma conta de armazenamento é excluída.
 
-| Tipo de evento | Descrição |
+| Tipo de evento | DESCRIÇÃO |
 | ---------- | ----------- |
 | Microsoft.Resources.ResourceActionCancel | Gerado quando a ação no recurso é cancelada. |
 | Microsoft.Resources.ResourceActionFailure | Gerado quando ocorre falha na ação no recurso. |
@@ -234,31 +234,31 @@ O exemplo a seguir mostra o esquema para um **ResourceActionSuccess** eventos. O
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Digite | Descrição |
+| Propriedade | Type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| topic | cadeia de caracteres | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
-| assunto | cadeia de caracteres | Caminho definido pelo fornecedor para o assunto do evento. |
-| eventType | cadeia de caracteres | Um dos tipos de evento registrados para a origem do evento. |
-| eventTime | cadeia de caracteres | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| id | cadeia de caracteres | Identificador exclusivo do evento. |
-| dados | objeto | Dados de evento de assinatura. |
-| dataVersion | cadeia de caracteres | A versão de esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | cadeia de caracteres | A versão do esquema dos metadados de eventos. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
+| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
+| eventType | string | Um dos tipos de evento registrados para a origem do evento. |
+| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| ID | string | Identificador exclusivo do evento. |
+| data | objeto | Dados de evento de assinatura. |
+| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Digite | Descrição |
+| Propriedade | Type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
 | autorização | objeto | A autorização solicitada para a operação. |
 | declarações | objeto | As propriedades da declaração. Para obter mais informações, consulte [especificação JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
-| correlationId | cadeia de caracteres | Uma ID de operação para solução de problemas. |
+| correlationId | string | Uma ID de operação para solução de problemas. |
 | httpRequest | objeto | Os detalhes da operação. Esse objeto é apenas incluído ao atualizar um recurso existente ou excluir um recurso. |
-| ResourceProvider | cadeia de caracteres | O provedor de recursos para a operação. |
-| resourceUri | cadeia de caracteres | O URI do recurso na operação. |
-| operationName | cadeia de caracteres | A operação que foi feita. |
-| status | cadeia de caracteres | O status da operação. |
-| subscriptionId | cadeia de caracteres | A ID da assinatura do recurso. |
-| tenantId | cadeia de caracteres | A ID do locatário do recurso. |
+| ResourceProvider | string | O provedor de recursos para a operação. |
+| resourceUri | string | O URI do recurso na operação. |
+| operationName | string | A operação que foi feita. |
+| status | string | O status da operação. |
+| subscriptionId | string | A ID da assinatura do recurso. |
+| tenantId | string | A ID do locatário do recurso. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

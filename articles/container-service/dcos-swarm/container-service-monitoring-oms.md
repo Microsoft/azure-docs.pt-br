@@ -10,11 +10,11 @@ ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
 ms.openlocfilehash: 290141136672729060f5156d645c47ac303fa0c3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110963"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60810096"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>(PRETERIDO) Monitorar um cluster DC/OS do Serviço de Contêiner do Azure com Log Analytics
 

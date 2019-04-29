@@ -10,11 +10,11 @@ ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 2f3d08a32384cea815f096f51b24eea596d0d118
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742228"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871158"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>Como indexar grandes conjuntos de dados no Azure Search
 

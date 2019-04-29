@@ -4,17 +4,18 @@ description: Saiba como adicionar um bloco markdown a um painel do Azure para ex
 services: azure-portal
 keywords: ''
 author: kfollis
-ms.author: kfollis
-ms.date: 01/25/2019
+ms.author: v-biyu
+origin.date: 01/25/2019
+ms.date: 03/04/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: ec8cbddda4137656a53fd4968c451cd413959274
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110776"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551545"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Usar um bloco markdown em painéis do Azure para mostrar conteúdo personalizado
 
@@ -28,7 +29,7 @@ ms.locfileid: "58110776"
 
 2. Na **Galeria de Blocos**, localize o bloco chamado **Markdown** e clique em **Adicionar**. O bloco é adicionado ao painel e a janela **Editar Markdown** é exibida.
 
-1. Edite os campos **Título**, **Subtítulo** e **Conteúdo** para personalizar o bloco. No exemplo mostrado aqui, o bloco markdown foi editado para exibir informações personalizadas de suporte técnico.
+3. Edite os campos **Título**, **Subtítulo** e **Conteúdo** para personalizar o bloco. No exemplo mostrado aqui, o bloco markdown foi editado para exibir informações personalizadas de suporte técnico.
 
    ![Captura de tela mostrando o modo de exibição de edição do bloco markdown](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
 

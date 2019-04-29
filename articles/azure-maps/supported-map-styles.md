@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 76ab49c7f28260249483bf3bc4387e8cbaca13b2
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570531"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60767144"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Categorias compatíveis com o Azure Mapas
 O Azure Mapas dá suporte a vários estilos de mapa internos diferentes, como descrito abaixo.

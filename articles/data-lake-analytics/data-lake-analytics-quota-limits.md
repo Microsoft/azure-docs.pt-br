@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 4629b52f3b2c9e351ddc2a68a40c5178a9a73950
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: d3601fd8c32c70cf828cd08fada71258ec8fa5d4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048248"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60812663"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Ajustar cotas e limites no Azure Data Lake Analytics
 
@@ -22,7 +22,7 @@ Saiba como ajustar e aumentar as cotas e os limites em contas do ADLA (Azure Dat
 
 ## <a name="azure-subscriptions-limits"></a>Limites das assinaturas do Azure
 
-**Número máximo de contas do ADLA por assinatura por região:** 5
+**Número máximo de contas do ADLA por assinatura por região:**  5
 
 Você recebe o erro "Você atingiu o número máximo de contas do Data Lake Analytics permitidas (5) na região sob o nome da assinatura" ao tentar criar a sexta conta do ADLA. 
 
@@ -32,18 +32,18 @@ Se você deseja ultrapassar esse limite, tente estas opções:
 
 ## <a name="default-adla-account-limits"></a>Limites padrão da conta do ADLA
 
-**Número máximo de AUs (Unidades de Análise) por conta:** 32
+**Número máximo de unidades de análise (AUs) por conta:** 32
 
 Esse é o número máximo de AUs que podem ser executadas simultaneamente em sua conta. Se o número total de AUs em execução em todos os trabalhos exceder esse limite, novos trabalhos serão colocados na fila automaticamente. Por exemplo: 
 
 * Caso você tenha um só trabalho em execução com 32 AUs, ao enviar um segundo trabalho, ele permanecerá na fila até que o primeiro trabalho seja concluído.
 * Se você já tiver quatro trabalhos em execução e cada um deles estiver usando 8 AUs, ao adicionar um quinto trabalho que precise de 8 AUs, ele permanecerá na fila até que 8 AUs fiquem disponíveis.
 
-**Número máximo de AUs (Unidades de Análise) por trabalho:** 32
+**Número máximo de unidades de análise (AUs) por trabalho:** 32
 
 Esse é o número máximo padrão de AUs que cada trabalho individual pode receber em sua conta. Os trabalhos que recebem mais do que esse limite serão rejeitados, a menos que o remetente seja afetado por uma política de computação (limite de envio de trabalho) que forneça uma quantidade maior de AUs por trabalho. O limite superior desse valor é o limite de AU da conta.
 
-**Número máximo de trabalhos U-SQL simultâneos por conta:**  20
+**Número máximo de trabalhos de U-SQL simultâneos por conta:** 20
 
 Esse é o número máximo de trabalhos que podem ser executados simultaneamente em sua conta. Exceder esse valor faz com que os trabalhos mais recentes sejam enfileirados automaticamente.
 

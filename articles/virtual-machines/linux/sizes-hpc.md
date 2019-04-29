@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 70dca655d5300fcd34b4198093e136f6a971963b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 44b965bd60d976d4d28dc5e31d78a1c838d4ee02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344482"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542159"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Tamanhos de máquina virtual de computação de alto desempenho
 
@@ -33,8 +33,10 @@ ms.locfileid: "49344482"
 
 ### <a name="mpi"></a>MPI 
 
-Há suporte para apenas as versões 5.x do Intel MPI. Versões posteriores (2017, 2018) da biblioteca de tempo de execução do Intel MPI não são compatíveis com os drivers RDMA do Azure para Linux.
+Há suporte para apenas as versões 5.x do Intel MPI.
 
+> [!NOTE]
+> Em versões posteriores (2017, 2018) do tempo de execução do Intel MPI biblioteca pode ou não ser compatível com os drivers de RDMA do Linux do Azure.
 
 ### <a name="distributions"></a>Distribuições
  

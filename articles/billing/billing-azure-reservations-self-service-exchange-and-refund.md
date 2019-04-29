@@ -13,17 +13,17 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 54578746ea8029a760663edc456660f98358abc5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009303"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615981"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>As trocas de autoatendimento e os reembolsos para reservas do Azure
 
-Reservas do Azure fornecem flexibilidade para atender às suas necessidades em constante evolução. Você pode trocar uma reserva para reserva outra do mesmo tipo. Você também pode reembolso de uma reserva, de até US $50.000 USD por ano, se você não precisar mais dela.
+Reservas do Azure fornecem flexibilidade para atender às suas necessidades em constante evolução. Você pode trocar uma reserva por outra do mesmo tipo. Você também poderá pedir reembolso de uma reserva, de até USD 50.000 por ano, se não precisar mais dela.
 
-Recurso de troca e Cancelar Self-service não está disponível para clientes do US Government Enterprise Agreement. Há suporte para outros tipos de assinatura do governo dos EUA incluindo pagamento conforme o uso e o CSP.
+Os recursos de cancelamento e troca de autoatendimento não estão disponíveis para clientes do US Government Enterprise Agreement. Há suporte para outros tipos de assinatura do governo dos EUA incluindo pagamento conforme o uso e o CSP.
 
 Você deve ter acesso de proprietário no pedido de reserva para trocar ou reembolso de uma reserva existente.
 
@@ -33,7 +33,7 @@ Você pode trocar sua reserva com três etapas rápidas na [portal do Azure](htt
 
 1. Selecione as reservas de que você deseja reembolso e clique em **Exchange**.  
     ![Imagem de exemplo que mostra as reservas para retornar](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
-2. Selecione o produto VM que você deseja comprar e digite uma quantidade. Certifique-se de que o novo total de compra é maior que o total de retorno. [Determinar o tamanho correto antes de adquirir](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
+2. Selecione o produto de VM que você deseja comprar e digite uma quantidade. Certifique-se de que o novo total de compra é maior que o total de retorno. [Determinar o tamanho correto antes de adquirir](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
     ![Imagem de exemplo que mostra o produto VM para aquisição com o exchange](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
 3. Revise e conclua a transação.  
     ![Imagem de exemplo que mostra o produto VM para aquisição com uma troca, Concluindo o retorno](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)

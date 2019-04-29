@@ -2,23 +2,19 @@
 title: Métodos de criação de certificado
 description: Maneiras de criar um certificado no Key Vault.
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 53b4d03ac8f5d22595d3a4e840a04583f7ec963d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995532"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640815"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de criação de certificado
 

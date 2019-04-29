@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
 ms.openlocfilehash: 11d0648ee5090f02cb96c2d42a8d90cc3ea0ed28
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551331"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60853296"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configurar um aplicativo PHP de Linux para o serviço de aplicativo do Azure
 
@@ -105,7 +105,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>Acessar variáveis de ambiente
 
-No serviço de aplicativo, você pode [definir configurações do aplicativo](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) fora do seu código do aplicativo. Em seguida, você pode acessá-los usando o padrão [GETENV ()](https://secure.php.net/manual/function.getenv.php) padrão. Por exemplo, para acessar uma configuração de aplicativo chamada `DB_HOST`, use o seguinte código:
+No Serviço de Aplicativo, você pode [definir configurações de aplicativo](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) fora do código do aplicativo. Em seguida, você pode acessá-los usando o padrão [GETENV ()](https://secure.php.net/manual/function.getenv.php) padrão. Por exemplo, para acessar uma configuração de aplicativo chamada `DB_HOST`, use o seguinte código:
 
 ```php
 getenv("DB_HOST")
@@ -252,7 +252,7 @@ Você pode ignorar com segurança esta mensagem. `/robots933456.txt` é um camin
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: Aplicativo PHP com MySQL](tutorial-php-mysql-app.md)
+> [Tutorial: Aplicativo PHP com o MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
-> [Perguntas Frequentes do serviço de aplicativo Linux](app-service-linux-faq.md)
+> [Perguntas frequentes sobre o Serviço de Aplicativo no Linux](app-service-linux-faq.md)

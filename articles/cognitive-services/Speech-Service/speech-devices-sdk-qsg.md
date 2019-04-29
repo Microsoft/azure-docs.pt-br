@@ -12,11 +12,11 @@ ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 0d520a9dc8d60a386d25694d441931fbc3ed38e4
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352061"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61457401"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Introdução ao SDK de Dispositivos de Fala
 

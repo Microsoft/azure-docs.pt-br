@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 28b4667a9ceb4b3534d85ba28668f06c750e22c5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112250"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703806"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Fortaleça sua postura de segurança com a Central de Segurança do Azure
 Este artigo ajuda você a fortalecer sua postura de segurança. Use os recursos de monitoramento da Central de Segurança do Azure para garantir que a segurança do recurso seja a mais justa possível e monitorar a conformidade com as políticas.

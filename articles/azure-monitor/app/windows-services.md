@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
 ms.openlocfilehash: 85764c0ee5b8ed117fb191657d54abe5bd10a703
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116544"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60784360"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Configurar manualmente o Application Insights para aplicativos .NET
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi
 ms.openlocfilehash: 34b9fadc976d3f37612f59a7fc8520c48b178f5c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009013"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709343"
 ---
 # <a name="marketplace-faqs"></a>Perguntas frequentes sobre o Marketplace
 
@@ -488,7 +488,7 @@ As dependências não são gerenciadas automaticamente para ofertas do Azure Mar
 
 O Azure Marketplace está disponível para clientes Microsoft Azure nos seguintes países:
 
-Argélia, Argentina, Austrália, Áustria, Bahrein, Belarus, Bélgica, Brasil, Bulgária, Canadá, Chile, Colômbia, Costa Rica, Croácia, Chipre, República Tcheca, Dinamarca, República Dominicana, Equador, Egito, El Salvador, Estônia, Finlândia, França, Alemanha, Grécia , Guatemala, Hong Kong, Hungria, Islândia, Índia, Indonésia, Irlanda, Israel, Itália, Japão, Jordânia, Cazaquistão, Quênia, Kuwait, Letônia, Liechtenstein, Lituânia, Luxemburgo, Macedônia do Norte, Malásia, Malta, México, Montenegro, Marrocos, Países Baixos, Nova Zelândia, Nigéria, Noruega, Omã, Paquistão, Panamá, Paraguai, Peru, Filipinas, Polônia, Portugal, Porto Rico, Catar, Romênia, Rússia, Arábia Saudita, Sérvia, Cingapura, Eslováquia, Eslovênia, África do Sul, Sul da Coreia, Espanha, Sri Lanka, Suécia, Suíça, Taiwan, Tailândia, Trinidad e Tobago, Tunísia, Turquia, Ucrânia, Reino Emirados Árabes Unidos, Reino Unido, Estados Unidos, Uruguai e Venezuela.
+Argélia, Argentina, Austrália, Áustria, Bahrein, Belarus, Bélgica, Brasil, Bulgária, Canadá, Chile, Colômbia, Costa Rica, Croácia, Chipre, República Tcheca, Dinamarca, República Dominicana, Equador, Egito, El Salvador, Estônia, Finlândia, França, Alemanha, Grécia , Guatemala, Hong Kong, Hungria, Islândia, Índia, Indonésia, Irlanda, Israel, Itália, Japão, Jordânia, Cazaquistão, Quênia, Kuwait, Letônia, Liechtenstein, Lituânia, Luxemburgo, Macedônia Norte, Malásia, Malta, México, Montenegro, Marrocos, países baixos, novo Zelândia, Nigéria, Noruega, Omã, Paquistão, Panamá, Paraguai, Peru, Filipinas, Polônia, Portugal, Porto Rico, Catar, Romênia, Rússia, Arábia Saudita, Sérvia, Cingapura, Eslováquia, Eslovênia, África do Sul, Sul da Coreia, Espanha, Sri Lanka, Suécia, Suíça, Taiwan, Tailândia, Trinidad e Tobago, Tunísia, Turquia, Ucrânia, Reino Emirados Árabes Unidos, Reino Unido, Estados Unidos, Uruguai e Venezuela.
 
 **Como posso definir minha disponibilidade geográfica para habilitar a vender em países diferentes?**
 
@@ -652,7 +652,7 @@ As compras feitas no Azure Marketplace não podem ser retornadas, mas podem ser 
 
 Os clientes devem entrar em contato diretamente com o distribuidor quanto a problemas técnicos relacionados ao serviço do Marketplace. No Azure Marketplace, você pode encontrar as informações de contato do distribuidor e/ou um link para o website de suporte na página de **detalhes da solução**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Visite a página [ do Azure Marketplace e do AppSource Publisher Guide ](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
 

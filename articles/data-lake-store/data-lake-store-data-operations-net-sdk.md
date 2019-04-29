@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 02091f1b650e3e9932f9924bf36a5841861d3b1e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876948"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60878844"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operações de sistema de arquivos no Azure Data Lake Storage Gen1 usando o SDK do .NET
 > [!div class="op_single_selector"]
@@ -45,9 +45,9 @@ O exemplo de código disponível [no GitHub](https://github.com/Azure-Samples/da
 2. No menu **Arquivo**, clique em **Novo** e em **Projeto**.
 3. Em **Novo Projeto**, digite ou selecione os seguintes valores:
 
-   | Propriedade | Valor |
+   | Propriedade | Value |
    | --- | --- |
-   | Categoria |Modelos/Visual C#/Windows |
+   | Category |Modelos/Visual C#/Windows |
    | Modelo |Aplicativo de console |
    | NOME |CreateADLApplication |
 
@@ -90,7 +90,7 @@ O exemplo de código disponível [no GitHub](https://github.com/Azure-Samples/da
 
 Nas seções restantes do artigo, você pode ver como usar o métodos do .NET disponíveis para executar operações como autenticação, carregamento de arquivos, etc.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 * Para autenticação do usuário final para seu aplicativo, veja [Autenticação de usuário final com o Data Lake Storage Gen1 usando o SDK do .NET](data-lake-store-end-user-authenticate-net-sdk.md).
 * Para autenticação de serviço a serviço do aplicativo, confira [Autenticação de serviço a serviço com o Data Lake Storage Gen1 usando o SDK do .NET](data-lake-store-service-to-service-authenticate-net-sdk.md).

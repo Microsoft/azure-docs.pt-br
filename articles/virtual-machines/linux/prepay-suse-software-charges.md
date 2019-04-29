@@ -13,13 +13,13 @@ ms.workload: na
 ms.date: 04/12/2019
 ms.author: banders
 ms.openlocfilehash: e15dcdbbcaed32d836bb751ef93ce17e90bd6905
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011088"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60771236"
 ---
-# <a name="prepay-for-azure-software-plans"></a>Pagar antecipadamente por planos de software do Azure
+# <a name="prepay-for-azure-software-plans"></a>Pagar antecipadamente planos de software do Azure
 
 Quando você paga antecipadamente para o uso de software do SUSE e RedHat no Azure, você pode economizar dinheiro ao longo de seus custos de pagamento conforme o uso. Os descontos se aplicam somente aos medidores SUSE e o RedHat e não sobre o uso de máquina virtual. Você pode comprar reservas para máquinas virtuais separadamente para economizar ainda mais.
 

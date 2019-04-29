@@ -3,8 +3,8 @@ title: Executar a detecção de invasão de rede com o Observador de Rede do Azu
 description: Este artigo descreve como usar o Observador de Rede do Azure e ferramentas de software livre para executar a detecção de invasão de rede
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: 41b039c6598334d49b9ddb0608d7ad2ae045b223
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901263"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115476"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Executar a detecção de invasão de rede com o Observador de Rede e ferramentas de software livre
 

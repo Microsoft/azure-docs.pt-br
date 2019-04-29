@@ -16,15 +16,15 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a61dcca1f78b6ba444a2deefcf6b8bb4fd5c5087
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121971"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60581188"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Fazer backup de volumes ou compartilhamentos no StorSimple Virtual Array
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 O StorSimple Virtual Array é um dispositivo virtual local de armazenamento em nuvem híbrida que pode ser configurado como servidor de arquivos ou um servidor iSCSI. A matriz virtual permite ao usuário criar backups agendados e manuais de todos os volumes ou compartilhamentos no dispositivo. Quando configurado como um servidor de arquivos, ele também permite a recuperação em nível de item. Este tutorial descreve como criar backups agendados e manuais e realizar a recuperação em nível de item para restaurar um arquivo excluído na matriz virtual.
 

@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
 ms.openlocfilehash: adedc8bc1f574ae089f2a11033fab4f390c57a9a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087016"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60714776"
 ---
 # <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Busca de ameaças com na visualização do Azure Sentinel
 
 > [!IMPORTANT]
-> Sentinela do Azure está atualmente em visualização pública.
+> No momento, o Azure Sentinel está em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Se você for um investigador que queiram ser proativo sobre como consultar as ameaças à segurança, o Azure Sentinel poderosa caçar ferramentas de pesquisa e consulta de ameaças à segurança apresentar em fontes de dados da sua organização. Mas Montanhas de dados que podem ser difíceis de analisar e filtrar eventos significativos de gerar seus sistemas e dispositivos de segurança. Para ajudar a segurança analistas procure proativamente novas anomalias que não foram detectadas por seus aplicativos de segurança, o Azure Sentinel' consultas internas procura orientá-lo para fazer as perguntas certas a localizar problemas nos dados que você já tem em sua rede. 
@@ -68,7 +68,7 @@ Com a procura de sentinela do Azure, você pode tirar proveito dos recursos a se
 
  
 
-## <a name="query-language"></a>Linguagem da consulta 
+## <a name="query-language"></a>Idioma de consulta 
 
 Procura no Azure Sentinel baseia-se a linguagem de consulta do Log Analytics do Azure. Para obter mais informações sobre a linguagem de consulta e os operadores com suporte, consulte [referência de linguagem de consulta](https://docs.loganalytics.io/docs/Language-Reference/).
 
@@ -128,7 +128,7 @@ Crie uma nova consulta de procura:
 1. Clique em **nova consulta** e selecione **salvar**.
 2. Preencha todos os campos em branco e selecione **salvar**.
 
-   ![Nova consulta](./media/tutorial-hunting/new-query.png)
+   ![Nova Consulta](./media/tutorial-hunting/new-query.png)
 
 Clonar e modificar uma consulta existente de procura:
 
@@ -143,7 +143,7 @@ Clonar e modificar uma consulta existente de procura:
    ![consulta personalizada](./media/tutorial-hunting/custom-query.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você aprendeu a executar uma investigação de procura com Sentinel do Azure. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
+Neste artigo, você aprendeu a executar uma investigação de procura com Sentinel do Azure. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 
 
 - [Usar notebooks para executar campanhas de procura automatizado](notebooks.md)

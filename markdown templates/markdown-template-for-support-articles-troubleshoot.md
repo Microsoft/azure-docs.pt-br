@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: mm/dd/yyyy
 ms.author: Your MSFT alias or your full email address;semicolon separates two or more
 ms.openlocfilehash: 46a7bc52e94189b932b0475e80f55d880a2e3ee9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58191633"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61215945"
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>Título (máximo 120 caracteres, a palavra-chave primária de destino)
 *Use palavras-chave secundárias de 2 a 3 na descrição.*
@@ -66,7 +66,7 @@ Esses erros {} | {Problemas} ocorrem porque {um motivo muito geral}.
 
 *Em geral, desde que o erro não indica "não há suporte para o tamanho VM solicitado", você pode sempre tentar novamente mais tarde, como recursos suficientes podem ter sido liberados para cima no cluster para acomodar a solicitação. Se o problema é que não há suporte para o tamanho de VM solicitado, tente usar um tamanho VM diferente; Caso contrário, a única opção é remover a restrição de fixação.*
 
-## <a name="troubleshooting-steps"></a>Etapas de solução de problemas
+## <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
 *Listar as soluções na ordem de usabilidade e simplicidade, o que significa que a forma mais simples, a solução mais eficaz e útil deve ir primeiro.*
 
 *Selecione uma das versões que se aplicam à sua situação.*

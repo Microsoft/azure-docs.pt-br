@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
-ms.openlocfilehash: 6665ea8bc4016c9d64005f9c742115cf785ed5ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f06e213dbae31c9d7c4e212d605cc962aba71d2d
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842126"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766551"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens X12 para Enterprise Integration B2B nos Aplicativos Lógicos do Azure com Enterprise Integration Pack
 
@@ -53,11 +53,11 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
 4. Selecione **Visão geral** e, em seguida, selecione o bloco de **Contratos**. 
    Se não tiver um bloco de Contratos, primeiro adicione o bloco. 
 
-   ![Escolha o bloco de "Contratos"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+   ![Escolha o bloco de "Contratos"](./media/logic-apps-enterprise-integration-x12/agreement-1.png)
 
 5. Em **Contratos**, escolha **Adicionar**.
 
-   ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
+   ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-x12/agreement-2.png)     
 
 6. Em **Adicionar**, insira um **Nome** para o seu contrato. 
    Quanto ao tipo de contrato, selecione **X12**. 
@@ -122,7 +122,7 @@ Escolha um esquema para cada tipo de transação (ST1) e o Aplicativo de remeten
 
 | Propriedade | DESCRIÇÃO |
 | --- | --- |
-| Versão |Selecione a versão X12 |
+| Version |Selecione a versão X12 |
 | Tipo de Transação (ST01) |Selecione o tipo de transação |
 | Aplicativo do Remetente (GS02) |Selecione o aplicativo do remetente |
 | Esquema |Seleciona o arquivo de esquema que você deseja usar. Os esquemas são adicionados em sua conta de integração. |
@@ -216,7 +216,7 @@ Agora o contrato está pronto para lidar com mensagens de saída de acordo com a
 
 | Propriedade | DESCRIÇÃO |
 | --- | --- |
-| Versão |Selecione a versão X12 |
+| Version |Selecione a versão X12 |
 | Tipo de Transação (ST01) |Selecione o tipo de transação |
 | Esquema |Selecione o esquema a ser usado. Esquema estão localizados na sua conta de integração. Se você selecionar o esquema pela primeira vez, ele configurará automaticamente o tipo de transação e a versão  |
 

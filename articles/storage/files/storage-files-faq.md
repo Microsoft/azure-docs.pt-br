@@ -2,18 +2,18 @@
 title: Perguntas frequentes sobre o Azure Files| Microsoft Docs
 description: Encontre respostas para perguntas frequentes sobre o Arquivos do Azure.
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.date: 01/02/2019
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 561c8c9d942210a9bbdc70feff9bc468fa69967e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 77f07394eb895c08ef3e366bd486b4270714c2fc
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995858"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766270"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre o Azure Files
 [ Os arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do {SM} protocolo [de padrão do setor](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Também é possível armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando a Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
@@ -254,7 +254,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 * <a id="expressroute-not-required"></a>
 **Preciso usar o Azure ExpressRoute para me conectar aos Arquivos do Azure ou para usar a Sincronização de arquivos do Azure localmente?**  
 
-     Não. O ExpressRoute não é necessário para acessar um compartilhamento de arquivos do Azure. Se você está montando um compartilhamento de arquivos do Azure diretamente localmente, basta ter a porta 445 (TCP de saída) aberta para acesso à Internet (essa é a porta pela qual o SMB se comunica). Se você está usando a Sincronização de Arquivos do Azure, basta ter a porta 443 (TCP de saída) para acesso HTTPS (não é necessário usar SMB). No entanto, você *pode* usar ExpressRoute com qualquer uma dessas opções de acesso.
+    Não. O ExpressRoute não é necessário para acessar um compartilhamento de arquivos do Azure. Se você está montando um compartilhamento de arquivos do Azure diretamente localmente, basta ter a porta 445 (TCP de saída) aberta para acesso à Internet (essa é a porta pela qual o SMB se comunica). Se você está usando a Sincronização de Arquivos do Azure, basta ter a porta 443 (TCP de saída) para acesso HTTPS (não é necessário usar SMB). No entanto, você *pode* usar ExpressRoute com qualquer uma dessas opções de acesso.
 
 * <a id="mount-locally"></a>
 **Como posso montar o compartilhamento de arquivos do Azure no meu computador local?**  
@@ -357,7 +357,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 
 * <a id="need-larger-share"></a>
 **Preciso de um compartilhamento de arquivos maior que o oferecido atualmente pelo serviço Arquivos do Azure. Posso aumentar o tamanho do meu compartilhamento de arquivos do Azure?**  
-     Não. O tamanho máximo de um compartilhamento de arquivos do Azure é 5 TiB. Atualmente, esse é um limite fixo que não pode ser ajustado. Estamos trabalhando em uma solução para aumentar o tamanho do compartilhamento para 100 TiB, mas não temos uma previsão para compartilhar neste momento.
+    Não. O tamanho máximo de um compartilhamento de arquivos do Azure é 5 TiB. Atualmente, esse é um limite fixo que não pode ser ajustado. Estamos trabalhando em uma solução para aumentar o tamanho do compartilhamento para 100 TiB, mas não temos uma previsão para compartilhar neste momento.
 
 * <a id="open-handles-quota"></a>
 **Quantos clientes podem acessar simultaneamente o mesmo arquivo?**   
@@ -386,7 +386,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 
 * <a id="nested-shares"></a>
 **Eu posso configurar compartilhamentos aninhados? Em outras palavras, um compartilhamento em um compartilhamento?**  
-     Não. O compartilhamento de arquivos *é* o driver virtual que você pode montar; portanto, não há suporte para compartilhamentos aninhados.
+    Não. O compartilhamento de arquivos *é* o driver virtual que você pode montar; portanto, não há suporte para compartilhamentos aninhados.
 
 * <a id="ibm-mq"></a>
 **Como posso usar os Arquivos do Azure com o IBM MQ?**  

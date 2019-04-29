@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: amishu
 ms.openlocfilehash: 75eaea22c4809eda78e54514961d13113b4a5f3a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59012443"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60696844"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Habilitar o registro no SDK de fala
 

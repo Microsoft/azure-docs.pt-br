@@ -9,11 +9,11 @@ ms.date: 11/06/2018
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: cf03233c6a92b7fd1b782f8128787bfda5582f7d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243188"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60893298"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB 
 

@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: c6baa9f8330338c1e5fdc9ee0b5a8cc8b344e871
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006489"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61435890"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>Projeto acústica Unreal e integração de Wwise
 Estas instruções fornecem as etapas detalhadas de integração do pacote de plug-in do projeto acústica em seu projeto de jogo existente Unreal e Wwise. 

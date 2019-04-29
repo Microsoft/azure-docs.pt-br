@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
 ms.openlocfilehash: 33ca6c36cd11d53a3c50a8374181c511fd2f8c3e
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549077"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648120"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Controle de Versão nas Funções Duráveis (Azure Functions)
 
@@ -142,7 +142,7 @@ Todas as entidades do Armazenamento do Azure são nomeadas com base no valor de 
 > [!NOTE]
 > Essa estratégia funciona melhor quando você usa gatilhos de webhook e HTTP para funções de orquestrador. Para os gatilhos não HTTP, como filas ou Hubs de eventos, a definição do gatilho deve [derivam de uma configuração de aplicativo](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) que seja atualizada como parte da operação de troca.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Saiba como lidar com problemas de desempenho e escala](durable-functions-perf-and-scale.md)

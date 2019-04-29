@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 9ee4a9fb5c63061eed32389b5672652aad01208a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c0f8da779ca656cf357c418b8766a53307643695
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994921"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764351"
 ---
 # <a name="api-management-authentication-policies"></a>Políticas de autenticação de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -49,7 +49,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 ### <a name="elements"></a>Elementos  
   
-|NOME|DESCRIÇÃO|Necessário|  
+|NOME|DESCRIÇÃO|Obrigatório|  
 |----------|-----------------|--------------|  
 |authentication-basic|Elemento raiz.|Sim|  
   
@@ -73,18 +73,23 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 ### <a name="policy-statement"></a>Declaração de política  
   
 ```xml  
-<authentication-certificate thumbprint="thumbprint" />  
+<authentication-certificate thumbprint="thumbprint" certificate-id="resource name"/>  
 ```  
   
-### <a name="example"></a>Exemplo  
+### <a name="examples"></a>Exemplos  
   
+Este exemplo de cliente certificado é identificado por sua impressão digital.
 ```xml  
-<authentication-certificate thumbprint="....." />  
+<authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />  
+``` 
+Neste exemplo o certificado do cliente é identificado por nome de recurso.
+```xml  
+<authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
 ```  
-  
+
 ### <a name="elements"></a>Elementos  
   
-|NOME|DESCRIÇÃO|Necessário|  
+|NOME|DESCRIÇÃO|Obrigatório|  
 |----------|-----------------|--------------|  
 |authentication-certificate|Elemento raiz.|Sim|  
   
@@ -92,7 +97,8 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |NOME|DESCRIÇÃO|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|impressão digital|A impressão digital do certificado do cliente.|Sim|N/D|  
+|impressão digital|A impressão digital do certificado do cliente.|Tanto `thumbprint` ou `certificate-id` deve estar presente.|N/D|  
+|certificate-id|O nome do recurso de certificado.|Tanto `thumbprint` ou `certificate-id` deve estar presente.|N/D|  
   
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
@@ -118,7 +124,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 ### <a name="elements"></a>Elementos  
   
-|NOME|DESCRIÇÃO|Necessário|  
+|NOME|DESCRIÇÃO|Obrigatório|  
 |----------|-----------------|--------------|  
 |identidade gerenciada autenticação |Elemento raiz.|Sim|  
   

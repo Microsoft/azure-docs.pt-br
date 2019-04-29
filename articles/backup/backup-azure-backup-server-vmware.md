@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
 ms.openlocfilehash: 6fb95d43bff79ca91988549114daa91e5d41f358
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319356"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60649499"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Faça backup de VMs VMware com o Servidor de Backup do Azure
 
@@ -27,7 +27,7 @@ Este artigo explica como:
 - Adicione o servidor ESXi ou vCenter ao Servidor de Backup do Azure.
 - Configure um grupo de proteção que contenha as VMs do VMware de que você deseja fazer backup, especifique as configurações de backup e agende o backup.
 
-## <a name="before-you-start"></a>Antes de iniciar
+## <a name="before-you-start"></a>Antes de começar
 - Verifique se você está executando uma versão do vCenter/ESXi com suporte para backup – versões 5.5, 6.0 e 6.5.
 - Verifique se que você configurou o Servidor de Backup do Azure. Caso contrário, [faça isso](backup-azure-microsoft-azure-backup.md) antes de começar. Você deve estar executando o Servidor de Backup do Azure com as atualizações mais recentes.
 
@@ -37,7 +37,7 @@ Este artigo explica como:
 Por padrão, o Servidor de Backup do Azure se comunica com servidores VMware via HTTPS. Para configurar a conexão HTTPS, baixe o certificado de AC (autoridade de certificação) do VMware e importe-o para o Servidor de Backup do Azure.
 
 
-### <a name="before-you-start"></a>Antes de iniciar
+### <a name="before-you-start"></a>Antes de começar
 
 - Se você não quiser usar HTTPS, poderá [desabilitar a configuração padrão](backup-azure-backup-server-vmware.md).
 - Você normalmente se conecta de um navegador no computador do Servidor de Backup do Azure para o servidor vCenter/ESXi usando o cliente Web vSphere. Na primeira vez em que você fizer isso, a conexão não será segura e mostrará o seguinte.
@@ -140,7 +140,7 @@ O Servidor de Backup do Azure precisa de uma conta de usuário com permissões p
 
      ![Hierarquia de privilégios pai-filho](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
 
-### <a name="role-permissions"></a>Permissões da função
+### <a name="role-permissions"></a>Permissões de função
 **6.5/6.0** | **5.5**
 --- | ---
 Datastore.AllocateSpace | Datastore.AllocateSpace

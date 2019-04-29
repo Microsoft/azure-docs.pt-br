@@ -29,11 +29,11 @@ ms.author:
 - btalb
 - prachank
 ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426436"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61032444"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP ajuste de desempenho para VMs do Azure
 
@@ -386,6 +386,6 @@ Além disso, tenha em mente que alguns retransmissão e ACKs duplicados são nor
 
 Ainda assim, esses tipos de pacote são indicações de que a taxa de transferência TCP não estiver obtendo o máximo desempenho, pelos motivos discutidos em outras seções deste artigo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu sobre ajuste de desempenho de TCP/IP para VMs do Azure, você talvez queira ler sobre outras considerações para o [planejamento de redes virtuais](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) ou [Saiba mais sobre como conectar e configurar as redes virtuais ](https://docs.microsoft.com/en-us/azure/virtual-network/).

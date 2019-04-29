@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: spelluru
 ms.openlocfilehash: a0e054be3ab7d4818ac323eb5fb93968f57eca4f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181309"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60565490"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Mapear campos personalizados para o esquema de Grade de Eventos
 

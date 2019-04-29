@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: a42a2ec36d9ce4fb9c139dfddcde0fe0c188c888
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210345"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60707762"
 ---
 # <a name="introduction-to-entities"></a>Introdução a Entidades
 
@@ -93,7 +93,7 @@ Crie agora uma segunda ação.
 
 ![](../media/tutorial3_entities.PNG)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Entidade esperada](./05-expected-entity.md)

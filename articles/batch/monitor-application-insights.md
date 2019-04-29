@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
 ms.openlocfilehash: 42ea8398fa1a8b1fbc42108d1165dc17da2c34d7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473455"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60618520"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorar e depurar um aplicativo .NET do Lote do Azure com o Application Insights
 

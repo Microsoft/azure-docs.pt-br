@@ -9,12 +9,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
-ms.openlocfilehash: 5a07ea4d1d27dcc054d64cb4ce8893a13adc4aad
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 394ec230b836d55e4ce29a444566221c14efe296
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007654"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63762803"
 ---
 # <a name="geographic-availability-and-currency-support"></a>Disponibilidade geográfica e suporte de moedas
 
@@ -117,7 +117,7 @@ As ofertas do Marketplace do Azure podem ser compradas em regiões 141 geográfi
 | Noruega                              | NÃO        | NOK          |
 | Omã                                | OM        | USD          |
 | Paquistão                            | PK        | USD          |
-| Palestina                           | PS        | USD          |
+| Autoridade Palestina               | PS        | USD          |
 | Panamá                              | PA        | USD          |
 | Paraguai                            | PY        | USD          |
 | Peru                                | PE        | USD          |

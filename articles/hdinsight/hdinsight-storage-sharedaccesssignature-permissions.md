@@ -1,7 +1,6 @@
 ---
 title: Restringir o acesso usando Assinaturas de Acesso Compartilhado – HDInsight do Azure
 description: Saiba como usar Assinaturas de Acesso Compartilhado para restringir o acesso do HDInsight a dados armazenados em blobs de armazenamento do Azure.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: d248db787db1e3945fb632c6770d45e4bf9a8f02
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
-ms.translationtype: MT
+ms.openlocfilehash: 7fa46e3a5f0ed6504e4bc927caa0378d75fcc4a7
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360989"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763401"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usar Assinaturas de Acesso Compartilhado do Armazenamento do Azure para restringir o acesso a dados no HDInsight
 
@@ -291,7 +290,7 @@ Uma vez conectado ao cluster, use as etapas a seguir para verificar se você só
 * Deve conter pelo menos um caractere não alfanumérico.
 * Deve conter pelo menos uma letra maiúscula ou minúscula.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você aprendeu a adicionar armazenamento de acesso limitado ao seu cluster HDInsight, conheça outras maneiras de trabalhar com dados no cluster:
 

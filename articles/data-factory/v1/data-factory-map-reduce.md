@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 715c595f7a8757842ddf10de1c5d5c0a905e9d53
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110521"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824211"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Chamar Programas MapReduce da Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -118,7 +118,7 @@ Você pode baixar um exemplo para usar a atividade do MapReduce HDInsight em: [E
 ## <a name="running-the-word-count-program"></a>Executando o programa de contagem de palavras
 O pipeline neste exemplo executa o programa de contagem de palavras de mapa/redução no cluster do Azure HDInsight.   
 
-### <a name="linked-services"></a>Serviços Vinculados
+### <a name="linked-services"></a>Serviços vinculados
 Primeiro, crie um serviço vinculado para vincular o armazenamento do Azure que é usado pelo cluster do Azure HDInsight à fábrica de dados do Azure. Se você copiar/colar o código a seguir, não se esqueça de substituir o **nome da conta** e a **chave de conta** pelo nome e chave do Armazenamento do Azure. 
 
 #### <a name="azure-storage-linked-service"></a>Serviço vinculado de armazenamento do Azure
@@ -153,7 +153,7 @@ Em seguida, você cria um serviço vinculado para vincular seu cluster do HDInsi
 }
 ```
 
-### <a name="datasets"></a>Conjuntos de Dados
+### <a name="datasets"></a>Conjunto de dados
 #### <a name="output-dataset"></a>Conjunto de dados de saída
 O pipeline neste exemplo não tem entradas. Especifique um conjunto de dados de saída para a atividade do HDInsight MapReduce. Esse conjunto de dados é apenas um conjunto fictício exigido para direcionar a agenda de pipeline.  
 
@@ -182,9 +182,9 @@ O pipeline neste exemplo não tem entradas. Especifique um conjunto de dados de 
 ### <a name="pipeline"></a>Pipeline
 O pipeline neste exemplo tem apenas uma atividade que é do tipo: HDInsightMapReduce. Algumas das propriedades importantes no JSON são: 
 
-| Propriedade | Notes |
+| Propriedade | Observações |
 |:--- |:--- |
-| tipo |O tipo deve ser definido como **HDInsightMapReduce**. |
+| Tipo |O tipo deve ser definido como **HDInsightMapReduce**. |
 | className |Nome da classe é: **wordcount** |
 | jarFilePath |Caminho para o arquivo jar que contém a classe. Se você copiar/colar o código a seguir, não se esqueça de alterar o nome do cluster. |
 | jarLinkedService |Serviço vinculado do Armazenamento do Azure que contém o arquivo jar. Esse serviço vinculado faz referência ao armazenamento que está associado ao cluster do HDInsight. |
@@ -246,7 +246,7 @@ Você pode usar a atividade MapReduce para executar programas Spark no cluster H
 [Developer Reference]: https://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: https://portal.azure.com
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 * [Atividade de Hive](data-factory-hive-activity.md)
 * [Atividade Pig](data-factory-pig-activity.md)
 * [Atividade de Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md)

@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.openlocfilehash: 935635c474190413545d1a2731c367a691bfa56d
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010253"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61363137"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Entender o registro de identidade no Hub IoT
 
@@ -105,7 +105,7 @@ Propriedades: As propriedades do sistema de mensagens são fixadas previamente c
 
 Mensagem de notificação para dispositivo:
 
-| NOME | Valor |
+| NOME | Value |
 | --- | --- |
 |$content-type | aplicativo/json |
 |$iothub-enqueuedtime |  Hora em que a notificação foi enviada |
@@ -141,7 +141,7 @@ Corpo: Esta seção está no formato JSON e representa o gêmeo da identidade de
 ```
 Mensagem de notificação para módulo:
 
-| NOME | Valor |
+| NOME | Value |
 | --- | --- |
 $content-type | aplicativo/json |
 $iothub-enqueuedtime |  Hora em que a notificação foi enviada |

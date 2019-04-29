@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: raynew
 ms.openlocfilehash: f77069592fb34caf409b387f5c8452159f55e296
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311502"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60553231"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Hyper-V para o Azure
 

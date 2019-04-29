@@ -8,11 +8,11 @@ ms.date: 1/8/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 2f0bd0a20b866d342802014f1034a7ed9d939d53
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792235"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831344"
 ---
 # <a name="url-path-based-routing-overview"></a>Visão geral do Roteamento Baseado em Caminho de URL
 

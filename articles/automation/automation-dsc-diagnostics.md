@@ -10,11 +10,11 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 0dad74f75fd7b73e7dab0b2dddbdfda193d5b2ec
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445791"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61073923"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Encaminhar configuração de estado de automação do Azure relatando dados para logs do Azure Monitor
 
@@ -136,8 +136,8 @@ O diagnóstico da automação do Azure cria duas categorias de registros nos log
 | ConfigurationMode | Como a configuração é aplicada ao nó. Os valores possíveis são __"ApplyOnly"__,__"ApplyandMonitior"__ e __"ApplyandAutoCorrect"__. <ul><li>__ApplyOnly__: O DSC somente aplica a configuração e nada mais, exceto se uma nova configuração for enviada por push ao nó de destino ou quando uma nova configuração é efetuada por pull de um servidor. Depois da aplicação inicial de uma nova configuração, o DSC não procura descompasso de um estado previamente configurado. O DSC tenta aplicar a configuração até que seja bem-sucedida antes __ApplyOnly__ entrar em vigor. </li><li> __ApplyAndMonitor__: Esse é o valor padrão. O LCM aplica as novas configurações. Depois da aplicação inicial de uma nova configuração, se o nó de destino tiver um descompasso do estado desejado, o DSC relatará a discrepância nos logs. O DSC tenta aplicar a configuração até que seja bem-sucedida antes __ApplyAndMonitor__ entrar em vigor.</li><li>__ApplyAndAutoCorrect__: O DSC aplica novas configurações. Depois da aplicação inicial de uma nova configuração, se o nó de destino tiver um descompasso do estado desejado, o DSC relatará a discrepância nos logs e, em seguida, reaplicará a configuração atual.</li></ul> |
 | HostName_s | O nome do nó gerenciado. |
 | IPAddress | O endereço IPv4 do nó gerenciado. |
-| Category | DscNodeStatus |
-| Resource | O nome da conta de Automação do Azure. |
+| Categoria | DscNodeStatus |
+| Recurso | O nome da conta de Automação do Azure. |
 | Tenant_g | GUID que identifica o locatário para o Chamador. |
 | NodeId_g |A GUID que identifica o nó gerenciado. |
 | DscReportId_g |A GUID que identifica o relatório. |
@@ -162,8 +162,8 @@ O diagnóstico da automação do Azure cria duas categorias de registros nos log
 | OperationName |DscResourceStatusData|
 | ResultType |Se o recurso está em conformidade. |
 | NodeName_s |O nome do nó gerenciado. |
-| Category | DscNodeStatus |
-| Resource | O nome da conta de Automação do Azure. |
+| Categoria | DscNodeStatus |
+| Recurso | O nome da conta de Automação do Azure. |
 | Tenant_g | GUID que identifica o locatário para o Chamador. |
 | NodeId_g |A GUID que identifica o nó gerenciado. |
 | DscReportId_g |A GUID que identifica o relatório. |

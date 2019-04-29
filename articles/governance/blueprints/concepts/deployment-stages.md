@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: d7000813b51fb9c9aae9a21cbded3ae0028e83f4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796626"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60684685"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Etapas de uma implantação de blueprint
 
@@ -58,7 +58,7 @@ Uma falha de acesso por uma implantação costuma ser o resultado do nível de a
 
 Depois que as implantações estiverem concluídas, plantas Revoga os direitos do **atribuído pelo sistema** identidade gerenciada da assinatura. Em seguida, o serviço de planos gráficos Revoga os direitos da assinatura. Remoção de direitos impede plantas de um proprietário permanente em uma assinatura.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como usar [parâmetros estáticos e dinâmicos](parameters.md).
 - Saiba como personalizar a [ordem de sequenciamento de blueprint](sequencing-order.md).

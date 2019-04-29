@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: panosper
 ms.openlocfilehash: 24b98ce8cd2c587f0d39390954eb8a64747ca2ab
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868320"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60653935"
 ---
 # <a name="creating-custom-voice-fonts"></a>Criar fontes de voz personalizadas
 

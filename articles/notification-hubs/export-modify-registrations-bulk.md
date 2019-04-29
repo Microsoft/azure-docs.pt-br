@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: jowargo
 ms.openlocfilehash: c24fcd5f007b641bb594bb07348491f70c03ea41
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490836"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60623979"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exportar e importar registros de Hubs de notificação do Azure em massa
 Há cenários em que é necessário para criar ou modificar grandes números de registros em um hub de notificação. Alguns desses cenários são atualizações de marcas após computações em lote ou a migração de uma implementação de push existente para usar os Hubs de notificação.

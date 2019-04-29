@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 8ab2c73030c0860fc709a774b9fd84d20a6d7c99
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785558"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60903886"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Encontrar um endereço usando o serviço de pesquisa do Azure Maps
 
@@ -58,7 +58,7 @@ A maioria das consultas de pesquisa é padronizada para `maxFuzzyLevel=1` para o
 
     ![Pesquisa Difusa](./media/how-to-search-for-address/fuzzy_search_params.png)
 
-    | Chave | Valor |
+    | Chave | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<sua chave de mapas do Azure\> |
@@ -72,7 +72,7 @@ A maioria das consultas de pesquisa é padronizada para `maxFuzzyLevel=1` para o
 
 5. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
 
-    | Chave | Valor |
+    | Chave | Value |
     |------------------|-------------------------|
     | countrySet | EUA |
   
@@ -84,7 +84,7 @@ A maioria das consultas de pesquisa é padronizada para `maxFuzzyLevel=1` para o
 
     ![Pesquisa Difusa](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
-    | Chave | Valor |
+    | Chave | Value |
     |-----|------------|
     | lat | 47.620525 |
     | long | -122.349274 |
@@ -108,7 +108,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
   
     ![Pesquisa de Endereço](./media/how-to-search-for-address/address_search_params.png)
   
-    | Chave | Valor |
+    | Chave | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<sua chave de mapas do Azure\> |
@@ -125,7 +125,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
 
 6. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
 
-    | Chave | Valor |
+    | Chave | Value |
     |-----|------------|
     | typeahead | verdadeiro |
 
@@ -149,7 +149,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
   
     ![Parâmetros de Pesquisa Invertida de Endereço](./media/how-to-search-for-address/reverse_address_search_params.png)
   
-    | Chave | Valor |
+    | Chave | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<sua chave de mapas do Azure\> |
@@ -161,7 +161,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
   
 5. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
 
-    | Chave | Valor |
+    | Chave | Value |
     |-----|------------|
     | número | verdadeiro |
 
@@ -169,7 +169,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
   
 6. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
 
-    | Chave | Valor |
+    | Chave | Value |
     |-----|------------|
     | returnSpeedLimit | verdadeiro |
   
@@ -177,7 +177,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
 
 7. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
 
-    | Chave | Valor |
+    | Chave | Value |
     |-----|------------|
     | returnRoadUse | verdadeiro |
 
@@ -185,7 +185,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
 
 8. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
 
-    | Chave | Valor |
+    | Chave | Value |
     |-----|------------|
     | roadUse | verdadeiro |
 
@@ -207,7 +207,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
   
 3. Clique em **Params** e digite os seguinte pares Chave/Valor para uso como parâmetros de consulta ou de caminho na URL da solicitação:
   
-    | Chave | Valor |
+    | Chave | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<sua chave de mapas do Azure\> |
@@ -215,6 +215,6 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
   
 4. Clique em **Enviar** e analise o corpo da resposta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Explore a documentação da [API do serviço de pesquisa do Azure Maps](https://docs.microsoft.com/rest/api/maps/search).

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
 ms.openlocfilehash: ca754f197a46fc41b6f1b432611a2177ec0afafa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857032"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61374756"
 ---
 # <a name="collaborate-on-your-knowledge-base"></a>Colaborar com sua base de dados de conhecimento
 
@@ -47,7 +47,7 @@ Agora quando a pessoa com a qual você compartilhou o serviço QnA Maker, fizer 
 
 Lembre-se de que não é possível compartilhar uma base de Conhecimento específica em um serviço do QnA Maker. Se desejar um controle de acesso mais granular, considere distribuir as bases de dados de conhecimento em diferentes serviços do QnA Maker.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Testar uma base de dados de conhecimento](./test-knowledge-base.md)

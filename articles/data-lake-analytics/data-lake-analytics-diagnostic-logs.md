@@ -9,11 +9,11 @@ ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959113"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60616478"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acessando os logs de diagnóstico do Azure Data Lake Analytics
 
@@ -129,7 +129,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 | --- | --- | --- |
 | tempo real |Cadeia de caracteres |O carimbo de data/hora (em UTC) do log |
 | ResourceId |Cadeia de caracteres |O identificador do recurso em que a operação ocorreu |
-| categoria |Cadeia de caracteres |A categoria do log. Por exemplo, **Solicitações**. |
+| category |Cadeia de caracteres |A categoria do log. Por exemplo, **Solicitações**. |
 | operationName |Cadeia de caracteres |Nome da operação que está registrada. Por exemplo, GetAggregatedJobHistory. |
 | resultType |Cadeia de caracteres |O status da operação, por exemplo, 200. |
 | callerIpAddress |Cadeia de caracteres |O endereço IP do cliente que está fazendo a solicitação |
@@ -181,7 +181,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 | --- | --- | --- |
 | tempo real |Cadeia de caracteres |O carimbo de data/hora (em UTC) do log |
 | ResourceId |Cadeia de caracteres |O identificador do recurso em que a operação ocorreu |
-| categoria |Cadeia de caracteres |A categoria do log. Por exemplo, **Auditoria**. |
+| category |Cadeia de caracteres |A categoria do log. Por exemplo, **Auditoria**. |
 | operationName |Cadeia de caracteres |Nome da operação que está registrada. Por exemplo, JobSubmitted. |
 | resultType |Cadeia de caracteres |Um substatus para o status do trabalho (operationName). |
 | resultSignature |Cadeia de caracteres |Detalhes adicionais sobre o status do trabalho (operationName). |

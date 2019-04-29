@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 5d47b938560fb1bd15adfe1a1c2d35b7359d47a3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57977404"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61339107"
 ---
 # <a name="graph-search-method"></a>Método de pesquisa de grafo
 
@@ -30,7 +30,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 
 ## <a name="request-parameters"></a>Parâmetros de solicitação  
 
-NOME     | Valor | Obrigatório?  | DESCRIÇÃO
+NOME     | Value | Obrigatório?  | DESCRIÇÃO
 -----------|-----------|---------|--------
 **modo**       | Cadeia de caracteres de texto | Sim | Nome do modo que você quer usar. O valor é *json* ou *lambda*.
 

@@ -15,11 +15,11 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2f06b884cb1213e9d2cabff4e6e2b97a60339a6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58862855"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60935749"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guia de administração do Atlassian Jira e Confluence para Azure Active Directory
 
@@ -180,7 +180,7 @@ O plug-in funciona apenas com as versões locais do Jira e Confluence.
 
 ### <a name="does-the-plug-in-work-on-cloud-versions"></a>O plug-in funciona em versões da nuvem?
 
- Não. O plug-in é compatível apenas com as versões locais do Jira e Confluence.
+Não. O plug-in é compatível apenas com as versões locais do Jira e Confluence.
 
 ### <a name="which-versions-of-jira-and-confluence-does-the-plug-in-support"></a>Com quais versões locais do Jira e do Confluence o plug-in é compatível?
 
@@ -224,7 +224,7 @@ Nós testamos este plug-in apenas em Jira e Confluence de instalações em servi
 
 ### <a name="does-the-plug-in-work-with-idps-other-than-azure-ad"></a>O plug-in funciona com IdPs diferente do Microsoft Azure Active Directory?
 
- Não. Ele funciona apenas com o Microsoft Azure Active Directory.
+Não. Ele funciona apenas com o Microsoft Azure Active Directory.
 
 ### <a name="what-version-of-saml-does-the-plug-in-work-with"></a>Com qual versão do SAML o plug-in funciona?
 
@@ -232,12 +232,12 @@ Funciona com SAML 2.0.
 
 ### <a name="does-the-plug-in-do-user-provisioning"></a>O plug-in realiza provisionamento de usuário?
 
- Não. O plug-in fornece apenas SSO baseado em SAML 2.0. O usuário deve ser provisionado no aplicativo antes de entrar com SSO.
+Não. O plug-in fornece apenas SSO baseado em SAML 2.0. O usuário deve ser provisionado no aplicativo antes de entrar com SSO.
 
 ### <a name="does-the-plug-in-support-cluster-versions-of-jira-and-confluence"></a>O plug-in é compartível com versões de cluster do Jira e do Confluence o plug-in é compatível?
 
- Não. O plug-in funciona apenas com as versões locais do Jira e Confluence.
+Não. O plug-in funciona apenas com as versões locais do Jira e Confluence.
 
 ### <a name="does-the-plug-in-work-with-http-versions-of-jira-and-confluence"></a>O plug-in funciona com versões HTTP do Jira e do Confluence?
 
- Não. O plug-in funciona apenas com instalações habilitadas para HTTPS.
+Não. O plug-in funciona apenas com instalações habilitadas para HTTPS.

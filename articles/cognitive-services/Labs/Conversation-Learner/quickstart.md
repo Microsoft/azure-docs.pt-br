@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: 743b4d4888738579a023e879dc7b6e95cd23ccc7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994366"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60708355"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Como criar um modelo de Aprendiz de Conversa usando Node.js
 
@@ -167,7 +167,7 @@ Este projeto adotou o [Código de Conduta Microsoft Open Source](https://opensou
 - [conversationlearner-ui](https://github.com/Microsoft/ConversationLearner-UI)
 - [conversationlearner-webchat](https://github.com/Microsoft/ConversationLearner-WebChat)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Olá, Mundo](./tutorials/01-hello-world.md)

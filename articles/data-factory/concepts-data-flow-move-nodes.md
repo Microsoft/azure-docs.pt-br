@@ -8,11 +8,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.openlocfilehash: d82b32e876144a626333f3df1481c5fce9862067
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732170"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61268610"
 ---
 # <a name="mapping-data-flow-move-nodes"></a>Nós de movimentação de fluxo de dados de mapeamento
 

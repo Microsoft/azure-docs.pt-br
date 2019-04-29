@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
 ms.openlocfilehash: 18cd5a86cc2f52567c5f320719d1a9f21b377ed4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791704"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60921263"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Solucionar problemas de ativação de máquina virtual do Windows Azure
 
@@ -124,7 +124,7 @@ Uma ativação bem-sucedida retorna informações semelhantes à seguinte:
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>Criei o Windows Server 2016 a partir do Azure Marketplace. É necessário configurar a chave KMS para ativação do Windows Server 2016? 
 
  
- Não. A imagem no Azure Marketplace já possui a chave de instalação de cliente KMS adequada configurada. 
+Não. A imagem no Azure Marketplace já possui a chave de instalação de cliente KMS adequada configurada. 
 
 ### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>A ativação do Windows funciona da mesma maneira independentemente se a VM estiver usando o Benefício de Uso Híbrido do Azure (HUB) ou não? 
 

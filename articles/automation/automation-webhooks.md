@@ -10,11 +10,11 @@ ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 153bb0304102906f7be64ae55dd0e0f6bb8d7146
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224883"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61304522"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Iniciar um runbook de Automação do Azure com um webhook
 
@@ -35,7 +35,7 @@ A tabela a seguir descreve as propriedades que devem ser configuradas para um we
 | NOME |Você pode fornecer qualquer nome que desejar para um webhook já que ele não aparece para o cliente. Ele é usado apenas por você para identificar o runbook na Automação do Azure. <br> Como melhor prática, você deve atribuir ao webhook um nome relacionado ao cliente que o utiliza. |
 | URL |A URL do webhook é o endereço exclusivo que um cliente chama um HTTP POST para iniciar o runbook vinculado ao webhook. Ele é gerado automaticamente quando você cria o webhook. Você não pode especificar uma URL personalizada. <br> <br> A URL contém um token de segurança que permite que o runbook seja invocado por um sistema de terceiros sem autenticação adicional. Por esse motivo, ele deve ser tratado como uma senha. Por motivos de segurança, você pode exibir apenas a URL no Portal do Azure no momento em que o webhook é criado. Anote a URL em um local seguro para uso futuro. |
 | Data de validade |Como um certificado, cada webhook tem uma data de validade após a qual ele não pode mais ser usado. A data de expiração pode ser modificada após a criação do webhook, contanto que ele não esteja expirado. |
-| habilitado |Um webhook é habilitado por padrão quando ele é criado. Se você defini-lo como Desabilitado, nenhum cliente poderá usá-lo. Você pode definir a propriedade **Habilitado** quando você cria o webhook ou a qualquer momento quando ele é criado. |
+| Enabled |Um webhook é habilitado por padrão quando ele é criado. Se você defini-lo como Desabilitado, nenhum cliente poderá usá-lo. Você pode definir a propriedade **Habilitado** quando você cria o webhook ou a qualquer momento quando ele é criado. |
 
 ### <a name="parameters"></a>parâmetros
 

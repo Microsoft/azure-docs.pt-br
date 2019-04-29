@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
 ms.openlocfilehash: 9e7a5772dd1e10abf43eddf0548833d625ecfb24
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652160"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742103"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipos de endereço IP e métodos de alocação (clássico) no Azure
 Você pode atribuir endereços IP aos recursos do Azure para se comunicar com outros recursos do Azure, sua rede local e a Internet. Há dois tipos de endereços IP que você pode usar no Azure: público e privado.
@@ -87,7 +87,7 @@ O [Application Gateway](../application-gateway/application-gateway-introduction.
 ### <a name="at-a-glance"></a>Visão rápida
 A tabela a seguir mostra cada tipo de recurso com os métodos de alocação possíveis (dinâmico/estático) e capacidade de atribuir vários endereços IP públicos.
 
-| Recurso | Dinâmico | estático | Vários endereços IP |
+| Resource | Dinâmico | estático | Vários endereços IP |
 | --- | --- | --- | --- |
 | serviço de nuvem |Sim |sim |Sim |
 | Instância de função de PaaS ou VM de IaaS |Sim |Não |Não  |
@@ -137,7 +137,7 @@ Você pode atribuir um endereço IP privado para a configuração de **front end
 ### <a name="at-a-glance"></a>Visão rápida
 A tabela a seguir mostra cada tipo de recurso com os métodos de alocação possíveis (dinâmico/estático) e capacidade de atribuir vários endereços IP privados.
 
-| Recurso | Dinâmico | estático | Vários endereços IP |
+| Resource | Dinâmico | estático | Vários endereços IP |
 | --- | --- | --- | --- |
 | VM (em uma VNet ou um serviço de nuvem *autônomo*) |Sim |sim |Sim |
 | Instância de função de PaaS (em uma VNet ou um serviço de nuvem *autônomo*) |Sim |Não |Não  |
@@ -162,7 +162,7 @@ Na maioria dos casos, endereços IP públicos são gratuitos. Há um custo nomin
 ## <a name="differences-between-resource-manager-and-classic-deployments"></a>Diferenças entre as implantações do Gerenciador de recursos e clássica
 A seguir está uma comparação dos recursos de endereçamento IP no Gerenciador de Recursos com o modelo de implantação clássico.
 
-|  | Recurso | Clássico | Gerenciador de Recursos |
+|  | Resource | Clássico | Gerenciador de Recursos |
 | --- | --- | --- | --- |
 | **Endereço IP público** |***VM*** |Conhecido como um ILPIP (somente dinâmico) |Conhecido como um IP público (dinâmico ou estático) |
 |  ||Atribuído a uma VM IaaS ou a uma instância de função de PaaS |Associado à NIC da VM |

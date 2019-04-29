@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: juliako
 ms.openlocfilehash: 07b3c806dc5df5f93bee3206cbca53485675e7dd
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872396"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560312"
 ---
 # <a name="find-exact-moments-within-videos"></a>Localizar os minutos exatos nos vídeos
 
@@ -25,14 +25,14 @@ Este tópico mostra as opções de pesquisa que permitem que você localize os m
 
     No exemplo a seguir, podemos pesquisar todos os vídeos que falam sobre a segurança e na qual Satya é exibida,
 
-    ![Pesquisa](./media/video-indexer-search/video-indexer-search01.png)
+    ![Search](./media/video-indexer-search/video-indexer-search01.png)
 3. Pesquise os insights resumidos do vídeo.
 
     Em seguida, é possível pesquisar dentro de um vídeo clicando em **Reproduzir** no vídeo. Em seguida, é possível pesquisar no vídeo selecionando a guia **Pesquisar**. 
 
     No exemplo a seguir, vamos procurar "segura" dentro do vídeo selecionado.
 
-    ![Pesquisa](./media/video-indexer-search/video-indexer-search02.png)
+    ![Search](./media/video-indexer-search/video-indexer-search02.png)
 
     Se você clicar em um dos resultados, o player direcionará você até esse momento no vídeo. É possível obter a exibição do player/insights e a sincronização no seu aplicativo. Para obter mais informações, consulte [Embed Video Indexer widgets into your application](video-indexer-embed-widgets.md) (Inserir widgets do Video Indexer em seu aplicativo). 
 4. Pesquise a análise detalhada do vídeo.
@@ -43,7 +43,7 @@ Este tópico mostra as opções de pesquisa que permitem que você localize os m
     
     O exemplo a seguir, procuramos o texto "realidade misturada". Também aplicamos filtros adicionais, conforme mostrado na tela abaixo.
     
-    ![Pesquisa](./media/video-indexer-search/video-indexer-search03.png)
+    ![Search](./media/video-indexer-search/video-indexer-search03.png)
 
 ## <a name="next-steps"></a>Próximas etapas 
 

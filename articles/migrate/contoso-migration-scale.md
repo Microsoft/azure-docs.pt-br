@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: bd1761ecf16bbfb0d3fdc354ab1b9fa1f42f9c17
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 9253051d907a811ffedad3a714112c9b25543a35
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328567"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60667377"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso – escala uma migração para o Azure
 
@@ -293,6 +293,7 @@ A Contoso precisa descobrir como implantar esses componentes com base em conside
 **Servidor de processo** | A Contoso implantará um servidor de processo dedicado autônomo com capacidade para replicar de 100 a 200 VMs:<br/><br/> CPU: 16 vCPUs (2 soquetes * 8 núcleos @ 2,5 GHz)<br/><br/> Memória: 32 GB<br/><br/> Disco de cache: 1 TB<br/><br/> Taxa de alteração de dados: 1 TB a 2 TB.<br/><br/> O servidor de processo vai trabalhar duro, assim, deve estar localizado em um host ESXi que possa lidar com a E/S de disco, o tráfego de rede e a CPU necessários para a replicação. A Contoso considerará um host dedicado para essa finalidade. 
 **Rede** | A Contoso examinou a atual infraestrutura de VPN site a site e decidiu implementar o Azure ExpressRoute. A implementação é crítica porque reduzirá a latência e melhorará a largura de banda para a região Leste dos EUA 2 do Azure primária da Contoso.<br/><br/> **Monitoramento**: A Contoso precisará monitorar cuidadosamente os dados que fluem do servidor de processo. Se os dados sobrecarregarem a largura de banda de rede, a Contoso considerará a [limitação da largura de banda do servidor de processo](../site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 **Armazenamento do Azure** | Para a migração, a Contoso deve identificar o tipo e o número certos de contas de armazenamento do Azure de destino.  O Site Recovery replica dados de VM para o armazenamento do Azure.<br/><br/> O Site Recovery pode replicar contas de armazenamento standard ou premium (SSD).<br/><br/> Para decidir sobre o armazenamento, a Contoso deve examinar os [limites de armazenamento](../virtual-machines/windows/disks-types.md), além do fator de crescimento esperado e do aumento no uso ao longo do tempo. Dada a velocidade e a prioridade das migrações, a Contoso decidiu usar SSDs premium<br/><br/>
+
 A Contoso tomou a decisão de usar Managed Disks para todas as VMs implantadas no Azure.  O IOPS necessário determinará se os discos serão Standard HDD, Standard SSD ou Premium (SSD).<br/><br/>
 
 #### <a name="data-migration-service"></a>Serviço de Migração de Dados
@@ -379,7 +380,7 @@ A Contoso contará com a Central de Segurança do Azure para proteção avançad
 
 ### <a name="monitoring"></a>Monitoramento
 
-A Contoso precisa de visibilidade sobre a integridade e o desempenho de aplicativos, infraestrutura e dados migrados recentemente agora em execução no Azure. A Contoso aproveitará as ferramentas de monitoramento de nuvem do Azure internas, como Azure Monitor, Log Analytics e Application Insights.
+A Contoso precisa de visibilidade sobre a integridade e o desempenho de aplicativos, infraestrutura e dados migrados recentemente agora em execução no Azure. A Contoso aproveitará internos nuvem do Azure, ferramentas como o Azure Monitor, espaço de trabalho do Log Analytics e Application Insights de monitoramento.
  
 - Usando essas ferramentas, a Contoso pode coletar dados de fontes e facilmente obter insights avançados. Por exemplo, a Contoso pode calibrar a utilização de memória e disco da CPU para suas VMs, exibir aplicativos e dependências de rede em diversas VMs e acompanhar o desempenho do aplicativo.
 - A Contoso usará essas ferramentas de monitoramento de nuvem para agir e integrar soluções de serviço.

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
 ms.openlocfilehash: 2f27105aed940f0411abaa534cb09adf0be34bfe
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008301"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60830307"
 ---
 # <a name="how-an-application-gateway-works"></a>Como funciona um gateway de aplicativo
 
@@ -66,6 +66,6 @@ Os valores válidos para x-forwarded-proto são HTTP ou HTTPS. X-forwarded-port 
 
 Você pode configurar o gateway de aplicativo para modificar os cabeçalhos usando [cabeçalhos HTTP reescrever](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) ou para modificar o caminho URI usando uma configuração de substituição de demarcador. No entanto, a menos que configurado para fazer isso, todas as solicitações de entrada são transmitidas por proxy para o back-end.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Saiba mais sobre componentes do gateway de aplicativo](application-gateway-components.md)

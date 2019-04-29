@@ -11,11 +11,11 @@ ms.custom: vs-azure
 ms.topic: article
 ms.date: 03/30/2017
 ms.openlocfilehash: 9cd1946d8fa670764bcc95b82298d07cc70417bd
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191316"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60684101"
 ---
 # <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Visão geral: Azure Serverless com aplicativos lógicos do Azure e o Azure Functions
 

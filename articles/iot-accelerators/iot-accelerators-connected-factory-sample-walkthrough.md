@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 950d248d2525f053981c8642ee2d39021b9a0494
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490352"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61449866"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Passo a passo do acelerador de solução da Fábrica Conectada
 

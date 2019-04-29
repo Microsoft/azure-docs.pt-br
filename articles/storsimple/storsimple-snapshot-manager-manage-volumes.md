@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
-ms.openlocfilehash: 2c0b211bced99d272a73a7b018a22f99d8d58aa9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 260dfdd4b8fe7c277358fa5773029ea9a532740a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111714"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61077407"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Usar o StorSimple Snapshot Manager para exibir e gerenciar volumes
 ## <a name="overview"></a>Visão geral
@@ -91,9 +91,9 @@ Use o procedimento a seguir para exibir informações sobre volumes locais e do 
    
     ![Configurar as colunas](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
    
-   | Coluna de resultados | Descrição |
+   | Coluna de resultados | DESCRIÇÃO |
    |:--- |:--- |
-   |  Nome |A coluna **Nome** contém a letra da unidade atribuída a cada volume descoberto. |
+   |  NOME |A coluna **Nome** contém a letra da unidade atribuída a cada volume descoberto. |
    |  Dispositivo |A coluna **Dispositivo** contém o endereço IP do dispositivo conectado ao computador host. |
    |  Nome do Volume do Dispositivo |A coluna **Nome do Volume do Dispositivo** contém o nome do volume do dispositivo ao qual o volume selecionado pertence. Esse é o nome do volume definido no portal do Azure para o volume específico. |
    |  Caminhos de acesso |A coluna **Caminhos de Acesso** exibe o caminho de acesso ao volume. Esta é a letra da unidade ou ponto de montagem no qual o volume está acessível para o computador host. |
@@ -155,8 +155,8 @@ Antes de começar:
 ## <a name="configure-and-back-up-a-dynamic-mirrored-volume"></a>Configurar e fazer backup de um volume espelhado dinâmico
 Conclua as seguintes etapas para configurar o backup de um volume espelhado dinâmico:
 
-* Etapa 1: usar o Gerenciamento de Disco para criar um volume espelhado dinâmico. 
-* Etapa 2: usar o StorSimple Snapshot Manager para configurar o backup.
+* Etapa 1: Use o gerenciamento de disco para criar um volume espelhado dinâmico. 
+* Etapa 2: Usar o StorSimple Snapshot Manager para configurar o backup.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 Antes de começar:
@@ -165,7 +165,7 @@ Antes de começar:
 * Instale e configure o StorSimple Snapshot Manager. Para saber mais, vá até [Implantar o StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 * Configure dois volumes no dispositivo StorSimple. (Nos exemplos, os volumes disponíveis são **Disco 1** e **Disco 2**.) 
 
-### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>Etapa 1: Usar o Gerenciamento de Disco para criar um volume espelhado dinâmico
+### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>Etapa 1: Use o gerenciamento de disco para criar um volume espelhado dinâmico
 O Gerenciamento de Disco é um utilitário do sistema para gerenciar discos rígidos e os volumes ou partições que eles contêm. Para saber mais sobre o Gerenciamento de Disco, vá até [Gerenciamento de Disco](https://technet.microsoft.com/library/cc770943.aspx) no site do Microsoft TechNet.
 
 #### <a name="to-create-a-dynamic-mirrored-volume"></a>Para criar um volume espelhado dinâmico

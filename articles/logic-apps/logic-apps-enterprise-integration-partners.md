@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
 ms.date: 07/08/2016
-ms.openlocfilehash: 20ca5e06cd1cd0d0abfe6d31f622cd6b61b4178f
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 137ed89c276338b534cad8fdf81ec31b5e5610b5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125254"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845873"
 ---
 # <a name="add-trading-partners-for-integration-accounts-in-azure-logic-apps-with-enterprise-integration-pack"></a>Adicionar parceiros comerciais para contas de integração nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 

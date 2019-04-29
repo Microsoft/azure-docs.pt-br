@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
 ms.openlocfilehash: 41cc1d6638871f26ae942e724a402e17f52150fc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872020"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60811022"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importar os dados de treinamento para o Azure Machine Learning Studio de diferentes fontes de dados
 
@@ -65,9 +65,9 @@ Você pode especificar explicitamente ou alterar os cabeçalhos e tipos de dados
 Os seguintes tipos de dados são reconhecidos pelo Studio:
 
 * Cadeia de caracteres
-* Inteiro
-* Duplo
-* Booleano
+* Número inteiro
+* Double
+* Boolean
 * DateTime
 * TimeSpan
 
@@ -84,8 +84,8 @@ Os módulos do Machine Learning Studio dão suporte a conjuntos de dados com at�
 
 Os seguintes tipos de dados podem ser expandidos para conjuntos de dados maiores durante a normalização de recursos e são limitados a menos de 10 GB:
 
-* Esparso
-* Categórica
+* Esparsos
+* Categóricos
 * Cadeias de caracteres
 * Dados binários
 
@@ -132,7 +132,7 @@ Usando o módulo [Importar Dados][import-data], você poderá acessar dados de u
 
 * Uma URL da Web usando HTTP
 * Hadoop usando HiveQL
-* Armazenamento de blob do Azure
+* Armazenamento do blob do Azure
 * Tabela do Azure
 * Banco de dados SQL do Azure ou SQL Server na VM do Azure
 * Banco de dados local do SQL Server
@@ -156,7 +156,7 @@ As fontes de dados online com suporte são detalhadas na tabela a seguir. Esta t
 ### <a name="supported-online-data-sources"></a>Fontes de dados online com suporte
 O módulo **Importar Dados** do Azure Machine Learning Studio é compatível com as seguintes fontes de dados:
 
-| Fonte de Dados | Descrição | Parâmetros |
+| Fonte de dados | DESCRIÇÃO | parâmetros |
 | --- | --- | --- |
 | URL da Web via HTTP |Lê dados nos formatos de valores separados por vírgula (CSV), de valores separados por tabulação (TSV), de arquivo de relação de atributo (ARFF) e de Máquinas de Vetores de Suporte (SVM-light), de qualquer URL da Web que use HTTP |<b>URL</b>: especifica o nome completo do arquivo, incluindo a URL do site e o nome do arquivo com qualquer extensão. <br/><br/><b>Formato de dados</b>: especifica um dos formatos de dados compatíveis: CSV, TSV, ARFF ou SVM-light. Se os dados tiverem uma linha de cabeçalho, serão usados para atribuir nomes de coluna. |
 | Hadoop/HDFS |Lê dados do armazenamento distribuído no Hadoop. Você especifica os dados desejados usando o HiveQL, uma linguagem de consulta do tipo SQL. O HiveQL também pode ser usado para agregar dados e executar a filtragem deles antes de serem adicionados ao Studio. |<b>Consulta do banco de dados Hive</b>: especifica a consulta do Hive usada para gerar os dados.<br/><br/><b>URI do servidor HCatalog</b>: especifica o nome do cluster usando o formato *&lt;nome do seu cluster&gt;.azurehdinsight.net.*<br/><br/><b>Nome da conta de usuário do Hadoop</b>: especifica o nome da conta de usuário do Hadoop usada para provisionar o cluster.<br/><br/><b>Senha da conta de usuário do Hadoop</b>: especifica as credenciais usadas para provisionar o cluster. Para obter mais informações, veja [Criar clusters Hadoop no HDInsight](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).<br/><br/><b>Local dos dados de saída</b>: especifica se os dados são armazenados em um HDFS (Sistema de Arquivos Distribuído Hadoop) ou no Azure. <br/><ul>Se você armazenar dados de saída no HDFS, especifique o URI do servidor HDFS. (Use o nome do cluster HDInsight sem o prefixo HTTPS://). <br/><br/>Se você armazenar os dados de saída no Azure, deverá especificar o nome da conta de armazenamento do Azure, a chave de acesso de Armazenamento e o nome do contêiner do Armazenamento.</ul> |

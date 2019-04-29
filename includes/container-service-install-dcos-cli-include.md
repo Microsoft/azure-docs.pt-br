@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/10/2016
 ms.author: rogardle
-ms.openlocfilehash: a8ea47f158c0d666340815d2e039995c7483257f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e2601d5200f0b8ebcfb856bffb871f01b3acb215
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22877251"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60557506"
 ---
 > [!NOTE]
 > Isso é para trabalhar com clusters ACS baseados no DC/OS. Não é necessário fazer isso para clusters ACS baseados no Swarm.

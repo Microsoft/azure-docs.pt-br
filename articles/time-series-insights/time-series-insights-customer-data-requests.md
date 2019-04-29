@@ -10,11 +10,11 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
 ms.openlocfilehash: 30f6b1fd953f89170a18d56bf0353c643853074e
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60880701"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumo dos recursos de solicitação de dados do cliente
 

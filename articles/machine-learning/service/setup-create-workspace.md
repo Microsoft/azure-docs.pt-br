@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
 ms.date: 04/19/2019
-ms.openlocfilehash: cc6c93420e939e90e12b989def491199fd2c6b15
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: ca43a6cff6a32a30d93e42f6a6624439b2fe83a7
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006991"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766816"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Criar um espaço de trabalho do serviço de Azure Machine Learning
 
@@ -73,7 +73,7 @@ As instruções neste artigo instalará todos os pacotes que você precisa execu
 
 ### <a name="create-an-isolated-python-environment"></a>Criar um ambiente isolado do Python
 
-1. Abra uma janela de linha de comando e crie um ambiente do Conda chamado *myenv* e instale o Python 3.6.5. O SDK do Azure Machine Learning funcionará com o Python 3.5.2 ou posterior, mas os componentes de aprendizado de máquina automatizado não serão totalmente funcionais no Python 3.7.  Levará vários minutos para criar o ambiente enquanto os componentes e pacotes são baixados.
+1. Abra um Prompt do Anaconda, em seguida, criar um novo ambiente de conda chamado *myenv* e instale o Python 3.6.5. O SDK do Azure Machine Learning funcionará com o Python 3.5.2 ou posterior, mas os componentes de aprendizado de máquina automatizado não serão totalmente funcionais no Python 3.7.  Levará vários minutos para criar o ambiente enquanto os componentes e pacotes são baixados. 
 
     ```shell
     conda create -n myenv python=3.6.5
@@ -194,7 +194,7 @@ Para criar um espaço de trabalho com a CLI, consulte [Use a extensão CLI do se
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Não importa como ele foi criado, você pode exibir em seu espaço de trabalho do [portal do Azure](https://portal.azure.com/).  Ver [exibir um espaço de trabalho](how-to-manage-workspace.md#view) para obter detalhes.
 

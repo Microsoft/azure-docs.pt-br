@@ -3,8 +3,8 @@ title: Introdução à exibição do grupo de segurança no Observador de Rede d
 description: Esta página fornece uma visão geral da capacidade de exibição da segurança do Observador de Rede
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: ad27ab85-9d84-4759-b2b9-e861ef8ea8d8
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: jdial
-ms.openlocfilehash: 15f6bd0d7da63924e52db8ec7e2cbb0ee7483f82
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.author: kumud
+ms.openlocfilehash: aae57603dea9b7142956065dd65727e59014dcb7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391531"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60684313"
 ---
 # <a name="introduction-to-network-security-group-view-in-azure-network-watcher"></a>Introdução à exibição do grupo de segurança da rede no Observador de Rede do Azure
 
@@ -35,7 +35,7 @@ As regras podem ser selecionadas e uma nova folha é aberta para mostrar o Grupo
 
 ![busca detalhada][2]
 
-### <a name="next-steps"></a>Próximas etapas
+### <a name="next-steps"></a>Próximos passos
 
 Saiba como fazer a auditoria das configurações do Grupo de Segurança da Rede visitando [Auditar as configurações do Grupo de Segurança da Rede com o PowerShell](network-watcher-nsg-auditing-powershell.md)
 

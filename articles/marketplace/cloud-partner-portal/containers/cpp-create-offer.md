@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 3b2a34a5ed2c6b57bfce0b9a4cf35cdf14cff9c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900073"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473019"
 ---
 # <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Criar uma nova oferta de contêiner com o Portal do Cloud Partner
 

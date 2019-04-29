@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 682c9e209c4fa4a9f4971af5da901faf1ec58c22
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889736"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60735712"
 ---
 # <a name="register-in-dev-center"></a>Registrar no Centro de Desenvolvimento  
 Abra uma nova sessão de navegação InPrivate do Internet Explorer ou Anônima do Chrome para garantir que você não tenha se conectado em uma conta pessoal.  
@@ -77,7 +77,7 @@ Abra uma nova sessão de navegação InPrivate do Internet Explorer ou Anônima 
 
     | Modelo de cobrança | Próximas etapas |  
     |:--- |:--- |  
-    | Gratuito | Acesse o para Portal do Cloud Partner.<ul> <li>Para publicar no Azure Marketplace, visite a página Portal do Cloud Partner localizada em [cloudpartner.azure.com](https://cloudpartner.azure.com).</li> </ul> |  
+    | Grátis | Acesse o para Portal do Cloud Partner.<ul> <li>Para publicar no Azure Marketplace, visite a página Portal do Cloud Partner localizada em [cloudpartner.azure.com](https://cloudpartner.azure.com).</li> </ul> |  
     | Comercial (transações) | Atualizar as informações da sua conta.<ul> <li>Para saber mais sobre como adicionar informações de conta, visite a seção [Como adicionar informações bancárias e fiscais](#add-bank-information).</li> </ul> |  
 
     *   Um exemplo de uma oferta comercial é uma oferta de VM com o modelo de cobrança por hora.  
@@ -176,7 +176,7 @@ As informações bancárias e fiscais são necessárias para todas as ofertas co
 * **Por que meu aplicativo do Centro de Desenvolvimento é rejeitado?**
   > A empresa de verificação de terceiros (Duns & Bradstreet) não pôde entrar em contato com você pelo número de telefone fornecido. Entre em contato com o suporte em [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) para reiniciar o processo de verificação
 
-> ou
+> ou o
 > 
 > O registro da conta foi rejeitado com base em problemas geográficos. As empresas com subsidiárias baseadas em locais diferentes da sede precisarão de apenas uma conta do Centro de Desenvolvimento.
  
@@ -187,7 +187,7 @@ As informações bancárias e fiscais são necessárias para todas as ofertas co
   > Você não poderá publicar ofertas de transação sem preencher as informações fiscais e bancárias em sua conta do Centro de Desenvolvimento.  Para saber mais sobre como adicionar informações de conta, visite [Como adicionar informações bancárias e fiscais](https://docs.microsoft.com/azure/marketplace/register-dev-center).
 
 * **Posso alterar a conta de logon da Microsoft do Centro de Desenvolvimento?**
-  > Nº. Depois de criar um Centro de Desenvolvimento, a conta do proprietário não pode ser alterada. Você teria que começar com uma conta totalmente nova do Centro de Desenvolvimento com a conta da Microsoft desejada.
+  > Não. Depois de criar um Centro de Desenvolvimento, a conta do proprietário não pode ser alterada. Você teria que começar com uma conta totalmente nova do Centro de Desenvolvimento com a conta da Microsoft desejada.
 
 * **Onde devo contatar o suporte sobre problemas com relação ao registro do Centro de Desenvolvimento?**
   Para acessar o suporte, visite a página de suporte de desenvolvedor do Windows localizada em [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: d342cff6d322195ee88a74215f814be7d702aa5e
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294120"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60761949"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Como obter uma instância do Processador de Mídia
 > [!div class="op_single_selector"]

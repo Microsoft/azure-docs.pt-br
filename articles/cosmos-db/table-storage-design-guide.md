@@ -9,11 +9,11 @@ author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
 ms.openlocfilehash: 84749332c5b7ab5fec2905c0fc36d89863adc3d2
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960200"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60579176"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guia de design de Tabela do Armazenamento do Azure: Criar tabelas escalonáveis e de alto desempenho
 

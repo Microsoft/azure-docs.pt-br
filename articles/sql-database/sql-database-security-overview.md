@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 04/11/2019
-ms.openlocfilehash: cb4ff203a69e04aeaff6d446d6ce3719f4158305
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f466a1c3fd0b2d527fc4ab407d096f6bb9b7d8b9
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001075"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766915"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma visão geral dos recursos de segurança do Banco de Dados SQL do Azure
 
@@ -66,19 +66,17 @@ A autenticação é o processo de provar que o usuário é quem diz ser. O Banco
 > [!IMPORTANT]
 > O gerenciamento de bancos de dados e servidores no Azure é controlado pelas atribuições de função da sua conta de usuário do portal. Para saber mais sobre esse artigo, confira [Controle de acesso baseado em função no Portal do Azure](../role-based-access-control/overview.md). O controle do acesso com regras de firewall *não* se aplica a **uma instância gerenciada**. Para obter mais informações sobre a configuração de rede necessária, confira o seguinte artigo sobre [conectar-se a uma instância gerenciada](sql-database-managed-instance-connect-app.md).
 
-A autorização refere-se às permissões atribuídas a um usuário em um Banco de Dados SQL do Azure e determina o que o usuário tem permissão para fazer. As permissões são controladas pela adição de contas de usuário a [funções de banco de dados](/sql/relational-databases/security/authentication-access/database-level-roles) que definem permissões de nível de banco de dados ou concessão ao usuário de determinadas [permissões de nível de objeto](/sql/relational-databases/security/permissions-database-engine). Para saber mais, confira [Logins and users](sql-database-manage-logins.md) (Logons e usuários)
+## <a name="authorization"></a>Autorização
 
-Como melhor prática, adicione usuários à função com os privilégios mínimos necessários para fazer sua função de trabalho. A conta do administrador do servidor é um membro da função db_owner, que tem permissões abrangentes e deve ser concedida aos usuários com cuidado. Ao usar aplicativos com o Banco de Dados SQL do Azure, use [Funções de Aplicativo](/sql/relational-databases/security/authentication-access/application-roles) com permissões limitadas. Isso garante que o aplicativo que se conecta ao banco de dados tem os privilégios mínimos exigidos pelo aplicativo.
+A autorização refere-se às permissões atribuídas a um usuário em um Banco de Dados SQL do Azure e determina o que o usuário tem permissão para fazer. As permissões são controladas pela adição de contas de usuário [funções de banco de dados](/sql/relational-databases/security/authentication-access/database-level-roles) e atribuindo permissões de nível de banco de dados para essas funções ou concedendo ao usuário determinado [permissões de nível de objeto](/sql/relational-databases/security/permissions-database-engine). Para saber mais, confira [Logins and users](sql-database-manage-logins.md) (Logons e usuários)
+
+Como prática recomendada, crie funções personalizadas quando necessário. Adicione usuários à função com os privilégios mínimos necessários para fazer sua função de trabalho. Não atribua permissões diretamente aos usuários. A conta de administrador do servidor é um membro da função db_owner interno, que tem permissões abrangentes e deve ser concedida apenas a alguns usuários com direitos administrativos. Para aplicativos de banco de dados SQL, use o [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) para especificar o contexto de execução do módulo chamado ou use [funções de aplicativo](/sql/relational-databases/security/authentication-access/application-roles) com permissões limitadas. Essa prática garante que o aplicativo que se conecta ao banco de dados tem os privilégios mínimos necessários para o aplicativo. Essas práticas recomendadas a seguir também promove a separação de funções.
 
 ### <a name="row-level-security"></a>Segurança em nível de linha
 
-A segurança em nível de linha permite que os clientes controlem o acesso a linhas em uma tabela de banco de dados com base nas características do usuário que está executando uma consulta (por exemplo, associação ao grupo ou contexto de execução). Para saber mais, confira [Segurança em nível de linha](/sql/relational-databases/security/row-level-security).
+A segurança em nível de linha permite que os clientes controlem o acesso a linhas em uma tabela de banco de dados com base nas características do usuário que está executando uma consulta (por exemplo, associação ao grupo ou contexto de execução). Segurança de nível de linha também pode ser usada para implementar os conceitos de segurança personalizada com base no rótulo. Para saber mais, confira [Segurança em nível de linha](/sql/relational-databases/security/row-level-security).
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
-
-  Este método de autenticação usa um nome de usuário e senha. 
-
-Para obter uma visão geral de permissões no Banco de Dados SQL do Azure, confira [Logins and users](sql-database-manage-logins.md#permissions) (Logons e usuários)
 
 ## <a name="threat-protection"></a>Proteção contra ameaças
 
@@ -159,7 +157,7 @@ Para obter mais informações, confira [Introdução à descoberta e classifica�
 
 Além dos recursos e funcionalidades acima, que podem ajudar seu aplicativo a atender a vários requisitos de segurança, o Banco de Dados SQL do Azure também participa de auditorias regulares e foi certificado em relação a vários padrões de conformidade. Para obter mais informações, consulte o [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde você pode encontrar a lista mais atual das certificações de conformidade do banco de dados SQL.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma discussão sobre o uso de recursos de controle de acesso no Banco de Dados SQL, veja [Controlar o acesso](sql-database-control-access.md).
 - Para uma discussão sobre auditoria de banco de dados, consulte [Auditoria de Banco de Dados SQL](sql-database-auditing.md).

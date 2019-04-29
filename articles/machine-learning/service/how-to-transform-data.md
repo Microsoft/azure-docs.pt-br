@@ -13,11 +13,11 @@ ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: d2bd271557ae0deefeb12a2dc7343c46fbd35363
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58847606"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60817550"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformar dados com o SDK de preparação de dados do Azure Machine Learning
 
@@ -496,7 +496,7 @@ dflow.head(2)
 |0|ALABAMA|Jefferson County|Jefferson County, Alabama|1.019200e+10|1.0|
 |1|ALABAMA|Jefferson County|Jefferson County, Alabama|1.019200e+10|0,0|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Consulte o SDK [visão geral](https://aka.ms/data-prep-sdk) para padrões de design e exemplos de uso
 * Consulte o SDK do Azure Machine Learning Data Prep [tutorial](tutorial-data-prep.md) para obter um exemplo de resolver um cenário específico

@@ -10,11 +10,11 @@ manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
 ms.openlocfilehash: e3738980206277587ca367339d75da4f3faa643a
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651814"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61316822"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analisadores para processamento de texto no Azure Search
 
@@ -40,7 +40,7 @@ Ele é usado automaticamente em cada campo pesquisável. Você pode substituir o
 
 A lista a seguir descreve quais analisadores estão disponíveis no Azure Search.
 
-| Categoria | DESCRIÇÃO |
+| Category | DESCRIÇÃO |
 |----------|-------------|
 | [Analisador Lucene padrão](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Padrão. Nenhuma especificação ou a configuração é necessária. Esse analisador de uso geral funciona bem para a maioria dos idiomas e cenários.|
 | Analisadores predefinidos | Oferecidos como um produto acabado destinado a ser usado no estado em que se encontra. <br/>Há dois tipos: especializado e de idioma. O que os torna "predefinidos" é que você os referencia por nome, sem nenhuma configuração ou personalização. <br/><br/>[Analisadores especializados (independentes de idioma)](index-add-custom-analyzers.md#AnalyzerTable) são usados quando as entradas de texto exigem processamento especializado ou o mínimo de processamento. Analisadores de idioma não predefinidos incluem **Asciifolding**, **Palavra-chave**, **Padrão**, **Simples**, **Interromper**, **Espaço em branco**.<br/><br/>[Analisadores de idioma](index-add-language-analyzers.md) são usados quando você precisa de suporte linguístico avançado para idiomas individuais. O Azure Search dá suporte a 35 analisadores de idioma Lucene e 50 analisadores de processamento de idioma natural Microsoft. |

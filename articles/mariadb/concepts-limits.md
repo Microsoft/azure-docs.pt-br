@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: e191c656c5485377f62073f52dec0b3dbee7537b
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616264"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61041268"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitações no Banco de Dados do Azure para o MariaDB
 As seções a seguir descrevem a capacidade, suporte do mecanismo de armazenamento, suporte de privilégio, suporte à instrução de manipulação de dados e limites funcionais no serviço do banco de dados.
@@ -40,7 +40,7 @@ Quando as conexões excederem o limite, você poderá receber o seguinte erro:
 
 ## <a name="storage-engine-support"></a>Suporte do mecanismo de armazenamento
 
-### <a name="supported"></a>Suportado
+### <a name="supported"></a>Com suporte
 - [InnoDB](https://mariadb.com/kb/en/library/xtradb-and-innodb/)
 - [MEMORY](https://mariadb.com/kb/en/library/memory-storage-engine/)
 
@@ -58,7 +58,7 @@ Quando as conexões excederem o limite, você poderá receber o seguinte erro:
 
 ## <a name="data-manipulation-statement-support"></a>Suporte à instrução de manipulação de dados
 
-### <a name="supported"></a>Suportado
+### <a name="supported"></a>Com suporte
 - `LOAD DATA INFILE` tem suporte, mas o parâmetro `[LOCAL]` deve ser especificado e direcionado para um caminho UNC (armazenamento do Azure montado por meio do SMB).
 
 ### <a name="unsupported"></a>Sem suporte

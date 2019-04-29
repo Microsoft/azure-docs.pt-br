@@ -12,11 +12,11 @@ ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: d40330f257694e81704bf6fffa1fd2df8ed86c06
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858035"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61376022"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adicionar bate-papo à base de dados de conhecimento
 
@@ -24,7 +24,8 @@ Adicionar bate-papo ao seu bot o torna mais comunicativo e interessante. O recur
 
 Esse conjunto de dados contém cerca de 100 cenários de bate-papo na voz de três personas – o profissional, o amigo e o comediante. Escolha a persona que mais se assemelha à voz do seu bot. Dada uma consulta de usuário, o QnA Maker tenta correspondê-la às perguntas e respostas do bate-papo conhecido mais próximo. 
 
-Veja alguns exemplos das diferentes personalidades: <!-- added quotes so acrolinx doesn't score these sentences -->
+Alguns exemplos das personalidades diferentes:
+<!-- added quotes so acrolinx doesn't score these sentences -->
 |Consulta do usuário|O profissional|O amigo|O comediante|
 |--|--|--|--|
 |`You are awesome`|`I aim to serve.`|`That's so nice of you!`|`Flattery. I like it.`|

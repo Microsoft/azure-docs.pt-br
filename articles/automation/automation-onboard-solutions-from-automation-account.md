@@ -10,11 +10,11 @@ ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: 41f0607908cde94ca08a4c4dfce0a47032eefbb3
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578434"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739147"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário
 
@@ -32,7 +32,7 @@ Escolha o espaço de trabalho do Log Analytics e a conta de automação e clique
 
 ![Integrar a solução de Inventário](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-Ao habilitar soluções, somente determinadas regiões têm suporte para vincular um espaço de trabalho do Log Analytics e uma conta de automação.
+Ao habilitar soluções, somente determinadas regiões têm suporte para vincular um espaço de trabalho do Log Analytics e uma Conta de Automação.
 
 A tabela abaixo mostra os mapeamentos com suporte:
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 03/13/2019
 ms.author: erikre
-ms.openlocfilehash: c92789c12f4454f5d76590e5323b78223b49c97f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4bf76ac0bdd59764815f18a40a3e243d7cf9d920
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113054"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60616947"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gerenciar os custos com os Orçamentos do Azure
 

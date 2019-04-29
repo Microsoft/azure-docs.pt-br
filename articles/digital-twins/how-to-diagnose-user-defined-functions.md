@@ -10,11 +10,11 @@ ms.date: 12/27/2018
 ms.author: stefanmsft
 ms.custom: seodec18
 ms.openlocfilehash: 6122cd4507ed0883d1b78ca519269c25098e55ff
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961407"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60924849"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Como depurar funções definidas pelo usuário em Gêmeos Digitais do Azure
 

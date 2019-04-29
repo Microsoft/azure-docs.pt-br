@@ -10,11 +10,11 @@ ms.service: automation
 ms.subservice: update-management
 manager: carmonm
 ms.openlocfilehash: 075cf254dbf7c5d03f1afac64315f6c6f773159c
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60150108"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60597803"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Entenda os resultados da verificação de agente no Gerenciamento de Atualizações do Azure
 

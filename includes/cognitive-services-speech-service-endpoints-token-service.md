@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/08/2018
 ms.author: wolfma
 ms.openlocfilehash: 26a6fd1da13c8b346e016615e7843ee6722e2c99
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713649"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60487222"
 ---
 Região| Ponto de extremidade de serviço de token
 -|-

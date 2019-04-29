@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 787d9ef509bcafeb6a21d4b0ec952ea1eb4fd52b
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805139"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776804"
 ---
 # <a name="upgrading-code-to-the-latest-platform"></a>Atualizando o código para a plataforma mais recente
 
@@ -35,6 +35,6 @@ Os binários da plataforma do Dynamics 365 for Operations como AOS (Servidor de 
 2. Base do aplicativo
 3. Conceitos básicos de teste
 
-**Importante**: para migrar para a plataforma mais recente do Dynamics 365 for Operations, sua implementação do Dynamics 365 for Operations não pode ter nenhuma personalização (sobreposição de camadas) de qualquer um dos pacotes AOT que pertencem à plataforma. Essa restrição foi introduzida na atualização de plataforma 3 para que as atualizações contínuas pudessem ser feitas para a plataforma. Se você estiver executando em uma plataforma mais antiga do que a atualização de plataforma 3, confira o Atualizando para a atualização de plataforma 3 de uma seção de build mais antigo no final deste artigo.
+**Importante**: Para mover para o mais recente do Dynamics 365 para a plataforma de operações, o Dynamics 365 para implementação de operações não pode ter todas as personalizações (sobreposição) de qualquer um dos pacotes AOT que pertencem à plataforma. Essa restrição foi introduzida na atualização de plataforma 3 para que as atualizações contínuas pudessem ser feitas para a plataforma. Se você estiver executando em uma plataforma mais antiga do que a atualização de plataforma 3, confira o Atualizando para a atualização de plataforma 3 de uma seção de build mais antigo no final deste artigo.
 
 Para saber mais sobre Atualização de código, confira [aqui](https://docs.microsoft.com/dynamics365/operations/dev-itpro/migration-upgrade/upgrade-latest-platform-update).

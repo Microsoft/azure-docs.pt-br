@@ -9,11 +9,11 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 64559f653ba8a466de7bec10db34383b508e3e4b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361299"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60947396"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurar a recuperação de desastre de VMs locais do Hyper-V em nuvens do VMM para o Azure
 
@@ -140,6 +140,6 @@ A Recuperação de Site verifica se você tem uma ou mais contas de armazenament
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Realizar uma simulação de recuperação de desastre](tutorial-dr-drill-azure.md)

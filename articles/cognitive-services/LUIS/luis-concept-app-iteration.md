@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: diberry
 ms.openlocfilehash: 67bcb33727bc808f5e5bea701daffc77dde736ff
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337474"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813774"
 ---
 # <a name="authoring-cycle-for-your-luis-app"></a>Ciclo de criação de seu aplicativo LUIS
 O LUIS aprende melhor em um ciclo iterativo de alterações de modelo, exemplos de expressão, publicação e coleta de dados de consultas de ponto de extremidade. 
@@ -47,6 +47,6 @@ Quando você conclui um ciclo de criação, é possível começar novamente. Com
 ## <a name="batch-testing"></a>Teste de lote
 O teste de lote é uma maneira de ver quantas declarações de exemplo são classificadas pelo LUIS. Os exemplos devem ser novos para o LUIS e devem estar rotulados corretamente com a intenção e as entidades que você deseja que o LUIS localize. Os resultados de teste indicam o quão bem seria o desempenho do LUIS nesse conjunto de declarações. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Conheça conceitos sobre [colaboração](luis-concept-collaborator.md).

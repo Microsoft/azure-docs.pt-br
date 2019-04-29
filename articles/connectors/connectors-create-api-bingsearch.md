@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 7146e59eabf9e30fa263f957f1c546414ad0fe26
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60952495"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Encontre notícias com a Pesquisa do Bing e os Aplicativos Lógicos do Azure
 

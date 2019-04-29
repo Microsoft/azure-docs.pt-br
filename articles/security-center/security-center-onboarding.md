@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 19/02/2019
 ms.author: monhaber
 ms.openlocfilehash: ef6b476e2c85715e86ef4c1cfe1194bb25cade28
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665484"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60704144"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Integração à Central de Segurança do Azure Standard para uma segurança aprimorada
 Atualize para a Central de Segurança Standard para aproveitar o gerenciamento de segurança aprimorado e a proteção contra ameaças para suas cargas de trabalho de nuvem híbrida.  Você pode experimentar o Standard gratuitamente. Para saber mais, confira a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) da Central de Segurança.

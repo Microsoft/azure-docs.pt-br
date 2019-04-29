@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 45699c267d1009c4884dd164fd3f2950d6d5f555
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b05d1f36d1e74b3d915e216676859654fbcbacf3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108214"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60578620"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Substituir um controlador EBOD em seu dispositivo StorSimple
 
@@ -54,7 +54,7 @@ Antes de substituir o módulo do controlador EBOD com falha em seu dispositivo S
    
      **Figura 1** Parte posterior do módulo EBOD
    
-   | Rótulo | Descrição |
+   | Rótulo | DESCRIÇÃO |
    |:--- |:--- |
    | 1 |LED de falha |
    | 2 |LED de energia |
@@ -86,7 +86,7 @@ O procedimento e a tabela a seguir explicam como instalar um módulo do controla
    
     **Figura 4**. Reconectando os cabos
    
-   | Rótulo | Descrição |
+   | Rótulo | DESCRIÇÃO |
    |:--- |:--- |
    | 1 |Compartimento principal |
    | 2 |PCM 0 |

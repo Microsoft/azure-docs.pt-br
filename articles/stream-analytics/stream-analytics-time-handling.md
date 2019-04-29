@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: 2a59a81b0894cbf58c5d3ab5a5569f4749b64b00
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 0eb4b77964aa3c07bac2af615a26c3a9199525de
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543280"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760850"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Noções básicas sobre a manipulação de horas no Azure Stream Analytics
 
@@ -26,7 +26,7 @@ Para um melhor quadro de discussão, vamos definir alguns conceitos informativos
 
 - **Tempo de processamento**: o momento em que o evento atinge o sistema de processamento e é observado. Por exemplo, quando o sensor de uma cabine de pedágio detecta o carro e o sistema do computador leva alguns segundos para processar os dados.
 
-- **Marca-d'água**: o marcador da hora de um evento que indica todos os eventos até o ponto em que entraram no processador de streaming. As marcas-d'água permitem que o sistema indique claramente o andamento da ingestão dos eventos. Pela natureza dos fluxos, os dados do evento de entrada nunca param, de modo que as marcas-d'água indicam o andamento até um determinado ponto no fluxo.
+- **Marca-d'água**: Um marcador de tempo do evento que indica até que ponto os eventos tiverem sido inseridos para o processador de streaming. As marcas-d'água permitem que o sistema indique claramente o andamento da ingestão dos eventos. Pela natureza dos fluxos, os dados do evento de entrada nunca param, de modo que as marcas-d'água indicam o andamento até um determinado ponto no fluxo.
 
    O conceito de marca-d'água é importante. As marcas-d'água permitem que o Stream Analytics determine quando o sistema pode gerar resultados completos, corretos e repetíveis que não precisem ser retraídos. O processamento pode ser feito de forma garantida, além de ser previsível e repetível. Por exemplo, se uma recontagem precisa ser feita por alguma condição de tratamento de erro, as marcas-d'água são pontos seguros de partida e término.
 

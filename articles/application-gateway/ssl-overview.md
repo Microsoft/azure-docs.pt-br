@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
 ms.openlocfilehash: 92799019d13de71d911767d8e400598513587667
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258387"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60715208"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Visão geral de terminação SSL e SSL de ponta a ponta com o Gateway de aplicativo
 

@@ -17,11 +17,11 @@ ms.date: 07/27/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e80a2e554d31ad85ddb1111f84a96e1814c3969f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194641"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60638491"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veracode"></a>Tutorial: Integração do Azure Active Directory ao Veracode
 

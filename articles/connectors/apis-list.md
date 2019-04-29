@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 59c8effb4c5feae99755b7937f4796e8f11fde46
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 221bcbfb2517efae41005641321a651dfdf8e39f
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895876"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759433"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores de Aplicativos Lógicos do Azure
 
@@ -117,7 +117,7 @@ Aqui estão os conectores para criar soluções de B2B (business-to-business) co
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![Ícone da API][as2-icon]<br/>**Decodificação</br> de AS2**][as2-decode-doc] | [![Ícone da API][as2-icon]<br/>**Codificação</br> de AS2**][as2-encode-doc] | [![Ícone da API][edifact-icon]<br/>**Decodificação</br> de EDIFACT**][edifact-decode-doc] | [![Ícone da API][edifact-icon]<br/>**Codificação</br> de EDIFACT**][edifact-encode-doc] | 
+| [![Ícone da API][as2-icon]<br/>**Decodificação</br> de AS2**][as2-doc] | [![Ícone da API][as2-icon]<br/>**Codificação</br> de AS2**][as2-doc] | [![Ícone da API][edifact-icon]<br/>**Decodificação</br> de EDIFACT**][edifact-decode-doc] | [![Ícone da API][edifact-icon]<br/>**Codificação</br> de EDIFACT**][edifact-encode-doc] | 
 | [![Ícone da API][flat-file-decode-icon]<br/>**Decodificação</br> de arquivo simples**][flat-file-decode-doc] | [![Ícone da API][flat-file-encode-icon]<br/>**Codificação</br> de arquivo simples**][flat-file-encode-doc] | [![Ícone da API][integration-account-icon]<br/>**Conta<br/>de integração**][integration-account-doc] | [![Ícone da API][liquid-icon]<br/>**Transformações**</br>**líquidas**][json-liquid-transform-doc] | 
 | [![Ícone da API][x12-icon]<br/>**Decodificação</br> de X12**][x12-decode-doc] | [![Ícone da API][x12-icon]<br/>**Codificação</br> de X12**][x12-encode-doc] | [![Ícone da API][xml-transform-icon]<br/>**Transformações de** </br>**XML**][xml-transform-doc] | [![Ícone da API][xml-validate-icon]<br/>**Validação de <br/>XML**][xml-validate-doc] |  
 ||||| 
@@ -167,7 +167,7 @@ As conexões podem acessar o serviço de destino ou o sistema para desde que o s
 Para chamar as APIs que executam o código personalizado ou não estão disponíveis como conectores, você pode estender a plataforma dos Aplicativos Lógicos [criando Aplicativos de API personalizados](../logic-apps/logic-apps-create-api-app.md). Você também pode [criar conectores personalizados](../logic-apps/custom-connector-overview.md) para *qualquer* API REST ou baseadas em SOAP, o que torna essas APIs disponíveis para qualquer aplicativo lógico em sua assinatura do Azure.
 Para tornar Aplicativos de API personalizado ou conectores público disponíveis para qualquer pessoa para uso no Azure, você pode [enviar conectores para certificação da Microsoft](../logic-apps/custom-connector-submit-certification.md).
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
@@ -257,8 +257,6 @@ Para tornar Aplicativos de API personalizado ou conectores público disponíveis
 
 <!--Enterprise Intregation Pack doc links-->
 [as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Saiba mais sobre a integração corporativa do AS2."
-[as2-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-as2-decode.md "Saiba mais sobre a decodificação AS2 de integração corporativa"
-[as2-encode-doc]:../logic-apps/logic-apps-enterprise-integration-as2-encode.md "Saiba mais sobre a codificação AS2 de integração corporativa"
 [edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Saiba mais sobre a decodificação EDIFACT de integração corporativa"
 [edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Saiba mais sobre a codificação EDIFACT de integração corporativa"
 [flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Saiba mais sobre o arquivo simples de integração corporativa."

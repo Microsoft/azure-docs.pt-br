@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: ae29451e3f7ec263f296e69656a5c66045334687
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "58115890"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61126714"
 ---
 1. Entre em sua assinatura do Azure usando as etapas listadas em [Conectar-se ao Azure pela CLI clássica do Azure](/cli/azure/authenticate-azure-cli).
 

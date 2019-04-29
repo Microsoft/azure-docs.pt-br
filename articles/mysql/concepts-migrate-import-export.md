@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/01/2018
 ms.openlocfilehash: fa72037c8f54271f5651667765c5d5e2e9c03619
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545511"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60838027"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrar o banco de dados MySQL usando importação e exportação
 Este artigo explica duas abordagens comuns de importação e exportação de dados para um Banco de Dados do Azure para MySQL Server usando o MySQL Workbench. 
@@ -83,7 +83,7 @@ O seguinte exemplo exporta a tabela para um arquivo CSV:
 O seguinte exemplo importa a tabela de um arquivo CSV:
 1. Clique com o botão direito do mouse na tabela do banco de dados a ser importada. 
 2. Procure e selecione o arquivo CSV a ser importado e, em seguida, clique no botão **Avançar**. 
-3. Selecione a tabela de destino (nova ou existente) e marque ou desmarque a caixa de seleção **Truncar tabela antes da importação**. Clique em **Próximo**.
+3. Selecione a tabela de destino (nova ou existente) e marque ou desmarque a caixa de seleção **Truncar tabela antes da importação**. Clique em **Avançar**.
 4. Selecione a codificação e as colunas a serem importadas e, em seguida, clique em **Avançar**. 
 5. Na página **Importar dados**, clique em **Avançar**. O assistente importa os dados de acordo.
 

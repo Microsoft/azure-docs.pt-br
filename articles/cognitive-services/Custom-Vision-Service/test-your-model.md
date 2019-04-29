@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
 ms.openlocfilehash: d516cee81aef66ec58399cb5ff23c89db16bf2ab
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350429"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60816646"
 ---
 # <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Testar e treinar novamente um modelo com o Serviço de Visão Personalizada
 

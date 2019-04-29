@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: apimpm
-ms.openlocfilehash: 73609e802eceea6aa94d77cef6ca1d654264973d
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 2bde63bb668188936b3dd3cf5ecbf3b8c604eb95
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265000"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564300"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Tratamento de erro em políticas de Gerenciamento de API
 
@@ -73,19 +73,19 @@ A seção de política `on-error` pode ser usada em qualquer escopo. Os editores
 -   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)  
 -   [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON)  
   
-## <a name="lasterror"></a>LastError
+## <a name="lasterror"></a>lastError
 
  Quando ocorre um erro e o controle salta para a seção de política `on-error` o erro é armazenado na propriedade [context.LastError](api-management-policy-expressions.md#ContextVariables),que pode ser acessada por políticas na seção `on-error`. LastError tem as propriedades a seguir.  
   
-| NOME     | type   | DESCRIÇÃO                                                                                               | Obrigatório |
+| NOME     | Type   | DESCRIÇÃO                                                                                               | Obrigatório |
 |----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| `Source`   | string | Indica o elemento em que ocorreu o erro. Pode ser o nome de uma etapa do pipeline interno ou política.     | sim      |
-| `Reason`   | string | Código de erro amigável para computadores, que pode ser usado no tratamento de erro.                                       | Não        |
-| `Message`  | string | Descrição de erro legível por humanos.                                                                         | sim      |
-| `Scope`    | string | Nome do escopo em que ocorreu o erro e pode ser um dos "global", "produto", "api" ou "operação" | Não        |
-| `Section`  | string | Nome da seção em que ocorreu o erro. Valores possíveis: "inbound", "backend", "outbound" ou "on-error".       | Não        |
-| `Path`     | string | Especifica a política aninhada, por exemplo "choose[3]/when[2]".                                                        | Não        |
-| `PolicyId` | string | O valor do atributo `id`, se especificado pelo cliente, na política em que ocorreu o erro             | Não        |
+| Fonte   | string | Indica o elemento em que ocorreu o erro. Pode ser o nome de uma etapa do pipeline interno ou política.     | Sim      |
+| Motivo   | string | Código de erro amigável para computadores, que pode ser usado no tratamento de erro.                                       | Não        |
+| Mensagem  | string | Descrição de erro legível por humanos.                                                                         | Sim      |
+| Escopo    | string | Nome do escopo em que ocorreu o erro e pode ser um dos "global", "produto", "api" ou "operação" | Não        |
+| Seção  | string | Nome da seção em que ocorreu o erro. Valores possíveis: "inbound", "backend", "outbound" ou "on-error".       | Não        |
+| Caminho     | string | Especifica a política aninhada, por exemplo "choose[3]/when[2]".                                                        | Não        |
+| PolicyId | string | O valor do atributo `id`, se especificado pelo cliente, na política em que ocorreu o erro             | Não        |
 
 > [!TIP]
 > É possível acessar o código de status por meio de context.Response.StatusCode.  

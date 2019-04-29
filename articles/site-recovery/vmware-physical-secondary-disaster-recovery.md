@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
 ms.openlocfilehash: 1a61a825ce223282e85c9262c613814530ba130f
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527295"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60565884"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurar a recuperação de desastre de máquinas virtuais VMware locais ou de servidores físicos para um site secundário
 
@@ -51,7 +51,7 @@ o  Para máquinas físicas, siga este [tutorial](./physical-azure-disaster-recov
 **Componentes necessários** |Serviço de mobilidade em máquinas replicadas. Servidor de configuração no local, servidor de processo, servidor de destino master. Servidor no processo temporário no Azure para failback.|Servidor de mobilidade, Servidor de Processo, Servidor de Configuração e Destino Master
 **Configuração e orquestração** |Cofre de Serviços de Recuperação no portal do Azure | Usando o vContinuum 
 **Replicado** |Disco (Windows e Linux) |Volume – Windows<br> Disco-Linux
-**Cluster de disco compartilhado** |Sem suporte|Suportado
+**Cluster de disco compartilhado** |Sem suporte|Com suporte
 **Limites de variação de dados (em média)** |Dados de 10 MB/s por disco<br> Dados de 25MB/s por VM<br> [Saiba mais](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > Dados de 10 MB/s por disco  <br> > Dados de 25MB/s por VM
 **Monitoramento** |Do portal do Azure|Do CX (Servidor de Configuração)
 **Matriz de suporte** | [Clique aqui para obter detalhes](./vmware-physical-azure-support-matrix.md)|[Baixar a matriz compatível do ASR Scout](https://aka.ms/asr-scout-cm)

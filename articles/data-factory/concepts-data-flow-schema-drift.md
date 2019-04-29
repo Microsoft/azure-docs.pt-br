@@ -8,11 +8,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547137"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61261794"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Descompasso do Esquema do Fluxo de Dados do Mapeamento
 
@@ -71,6 +71,6 @@ Você pode testar isso com a amostra "Taxi Demo" do Fluxo de Dados do Azure Data
 
 Quando você gera novas colunas com padrões de coluna, você pode acessar essas novas colunas posteriormente no seu transformações de fluxo de dados usando a função de expressão "byName".
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 No [linguagem de expressão de fluxo de dados](data-flow-expression-functions.md) você encontrará recursos adicionais para os padrões de coluna e o descompasso do esquema incluindo "byName" e "byPosition".

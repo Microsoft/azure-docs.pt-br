@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: b6ef5a5c12bb766fb7106d5c7a8189c4b92980d2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880195"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60877247"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operações de gerenciamento de conta no Azure Data Lake Storage Gen1 usando Python
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ pip install azure-datalake-store
 
 3. Salve as alterações a mysample.py.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 Nesta seção, falamos sobre as diferentes maneiras de autenticação com o Azure AD. As opções disponíveis são:
 
@@ -130,7 +130,7 @@ O trecho de código a seguir primeiro cria o cliente da conta do Data Lake Stora
     adlsAcctClient.account.delete(adlsAccountName)
     
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Operações de filesystem no Data Lake Storage Gen1 usando Python](data-lake-store-data-operations-python.md).
 
 ## <a name="see-also"></a>Consulte também

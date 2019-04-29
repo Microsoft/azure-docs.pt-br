@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
 ms.openlocfilehash: 35d12d0114f9677905c85a9df94ecd074e5f8f75
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729516"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60925793"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Conectividade do dispositivo e entrada de telemetria
 
@@ -67,7 +67,7 @@ Você pode personalizar o payload e o formato de mensagem do dispositivo para at
 
  O conteúdo da carga útil de uma **Mensagem** pode ser um dado arbitrário de até 256 KB de tamanho. Existem alguns requisitos esperados para as propriedades do tipo [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet). A tabela mostra as propriedades obrigatórias e opcionais com suporte do sistema.
 
-| Nome da propriedade | Valor | Obrigatório | DESCRIÇÃO |
+| Nome da propriedade | Value | Obrigatório | DESCRIÇÃO |
 |---|---|---|---|
 | **DigitalTwins-Telemetry** | 1.0 | Sim | Um valor constante que identifica uma mensagem para o sistema. |
 | **DigitalTwins-SensorHardwareId** | `string(72)` | Sim | Um identificador exclusivo do sensor que envia a **Mensagem**. Esse valor deve corresponder a uma propriedade **HardwareId** do objeto para o sistema para processá-lo. Por exemplo, `00FF0643BE88-CO2`. |

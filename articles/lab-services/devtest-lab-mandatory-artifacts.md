@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: spelluru
 ms.openlocfilehash: 090236ec3647c7c3e38eb862780a615f854e952b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795399"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60562102"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Especifique artefatos obrigatórios para o seu laboratório no Azure DevTest Labs
 Como um proprietário de um laboratório, você pode especificar obrigatórios artefatos que são aplicados a cada máquina criada no laboratório. Imagine um cenário em que você deseja que cada máquina em seu laboratório seja conectada à sua rede corporativa. Nesse caso, cada usuário do laboratório teria que adicionar um artefato de junção de domínio durante a criação da máquina virtual para garantir que a máquina estivesse conectada ao domínio corporativo. Em outras palavras, os usuários do laboratório teriam essencialmente que recriar uma máquina caso esquecessem de aplicar artefatos obrigatórios em sua máquina. Como proprietário de um laboratório, você faz o domínio unir o artefato como um artefato obrigatório em seu laboratório. Esta etapa garante que cada máquina esteja conectada à rede corporativa e economizando tempo e esforço para os usuários do laboratório.
@@ -84,6 +84,6 @@ Agora, como usuário de laboratório, você pode visualizar a lista de artefatos
 
     ![Criar uma VM – artefatos obrigatórios](media/devtest-lab-mandatory-artifacts/create-vm-artifacts.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Saiba como [adicionar um repositório de artefatos Git a um laboratório](devtest-lab-add-artifact-repo.md).
 

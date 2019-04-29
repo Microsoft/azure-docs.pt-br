@@ -16,11 +16,11 @@ ms.date: 06/21/2018
 ms.author: magattus
 ms.custom: ''
 ms.openlocfilehash: 7768dde424aedc295b53512db50c9dfc9db9ab8c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091463"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60635628"
 ---
 # <a name="migrate-an-azure-cdn-profile-from-standard-verizon-to-premium-verizon"></a>Migre um perfil Azure CDN do Verizon Standard para o Verizon Premium
 
@@ -37,12 +37,12 @@ Para atualizar um perfil **Azure CDN Standard do Verizon**, entre em contato com
 ## <a name="profile-comparison"></a>Comparação de perfil
 **Perfis Azure CDN Premium do Verizon** têm duas diferenças principais dos perfis **Azure CDN Standard do Verizon**:
 - Para determinados recursos do Azure CDN como [compressão](cdn-improve-performance.md), [regras de cache](cdn-caching-rules.md), e [filtragem de geografia](cdn-restrict-access-by-country.md), você não pode usar a interface do Azure CDN, você deve usar o portal do Verizon através botão **Gerenciar**.
-- API: Ao contrário do Verizon Standard, você não pode usar a API para controlar os recursos que são acessados pelo portal Verizon Premium. No entanto, você pode usar a API para controlar outros recursos comuns, como criar / excluir um ponto de extremidade, limpar / carregar ativos armazenados em cache e ativar / desativar um domínio personalizado.
-- Preços: o Verizon Premium tem uma estrutura de preço diferente para transferência de dados diferente do Verizon Standard. Para obter mais informações, consulte [Preços de Rede de Distribuição de Conteúdo](https://azure.microsoft.com/pricing/details/cdn/).
+- API: Ao contrário de com Verizon Standard, você não pode usar a API para controlar os recursos que são acessados a partir do portal da Verizon Premium. No entanto, você pode usar a API para controlar outros recursos comuns, como criar / excluir um ponto de extremidade, limpar / carregar ativos armazenados em cache e ativar / desativar um domínio personalizado.
+- Preço: Verizon Premium tem uma estrutura de preço diferente para transferências de dados que Verizon Standard. Para obter mais informações, consulte [Preços de Rede de Distribuição de Conteúdo](https://azure.microsoft.com/pricing/details/cdn/).
 
 **Perfis Azure CDN Premium do Verizon** têm os seguintes recursos adicionais:
-- [Autenticação do Token](cdn-token-auth.md): permite que os usuários obtenham e usem um token para buscar recursos seguros.
-- [Mecanismo de regras](cdn-rules-engine.md): O mecanismo de regras da CDN do Azure permite que você personalize como as solicitações HTTP são manipuladas.
+- [Autenticação de token](cdn-token-auth.md): Permite aos usuários obter e usar um token para buscar recursos seguros.
+- [Mecanismo de regras](cdn-rules-engine.md): Permite que você personalize como as solicitações HTTP são manipuladas.
 - Ferramentas de análise avançada:
    - [Análise HTTP detalhada](cdn-advanced-http-reports.md)
    - [Análise de desempenho do Edge](cdn-edge-performance.md)

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 504158f248cde3a399475cdec99de3e6a4ebfcc5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276841"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60598017"
 ---
 # <a name="install-packages-from-within-a-notebook"></a>Instalar pacotes de dentro de um notebook
 

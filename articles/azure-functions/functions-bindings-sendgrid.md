@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: 663283c4dff16194dea78afbf5dd393f1fa833b1
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823800"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437916"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Associações do SendGrid no Azure Functions
 
@@ -251,7 +251,7 @@ Para ver um exemplo completo, consulte [Exemplo de C#](#c-example).
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `SendGrid`.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `SendGrid` atributo.
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
@@ -288,7 +288,7 @@ Esta seção descreve as definições de configuração globais disponíveis par
 
 |Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------| 
-|from|n/d|Endereço de email do remetente em todas as funções.| 
+|de|n/d|Endereço de email do remetente em todas as funções.| 
 
 
 ## <a name="next-steps"></a>Próximas etapas

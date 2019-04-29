@@ -8,11 +8,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.openlocfilehash: 3802a8475d8a39a2f275dbc7fcf21ce69892a117
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728770"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61262221"
 ---
 # <a name="mapping-data-flow-transformation-optimize-tab"></a>Guia Otimizar Transformação de Fluxo de Dados de Mapeamento
 

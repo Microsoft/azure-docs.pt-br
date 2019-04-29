@@ -8,11 +8,11 @@ ms.author: mbaldwin
 ms.date: 04/16/2019
 ms.custom: seodec18
 ms.openlocfilehash: 2a5fb822a84792cec059aa6c78b66b3a628f25af
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679271"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611283"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Perguntas frequentes do Azure Disk Encryption para VMs de IaaS
 
@@ -43,7 +43,7 @@ Azure Disk Encryption tem suporte em um subconjunto do [distribuições do Linux
 
 Distribuições do Linux e de servidor que não são endossadas pelo Azure não dão suporte a Azure Disk Encryption e, desses endossadas, somente os seguintes distribuições e versões de suportam Azure Disk Encryption:
 
-| Distribuição Linux | Versão | Tipo de volume suportado para criptografia|
+| Distribuição Linux | Version | Tipo de volume suportado para criptografia|
 | --- | --- |--- |
 | Ubuntu | 18.04| SO e disco de dados |
 | Ubuntu | 16.04| SO e disco de dados |

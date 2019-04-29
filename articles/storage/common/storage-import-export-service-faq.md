@@ -9,11 +9,11 @@ ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: ee2917c64843c8ab137e0122d63a328d6c19fedb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867568"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478565"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Serviço de Importação/Exportação do Microsoft Azure: perguntas frequentes 
 A seguir, são apresentadas as perguntas e respostas que você pode ter ao utilizar o serviço de Importação/Exportação do Microsoft Azure para transferir dados ao Armazenamento do Microsoft Azure. As perguntas e respostas são organizadas nas seguintes categorias:
@@ -44,18 +44,18 @@ Sim. Para obter mais informações, acesse [Fluxo de trabalho de backup offline 
 
 ### <a name="can-i-purchase-drives-for-importexport-jobs-from-microsoft"></a>Posso comprar unidades para trabalhos de importação/exportação da Microsoft?
 
- Não. É necessário enviar suas próprias unidades para trabalhos de importação e exportação.
+Não. É necessário enviar suas próprias unidades para trabalhos de importação e exportação.
 
 
 ## <a name="preparing-disks-for-importexport"></a>Preparar discos para importação/exportação
 
 ### <a name="can-i-skip-the-drive-preparation-step-for-an-import-job-can-i-prepare-a-drive-without-copying"></a>Posso ignorar a etapa de preparação da unidade para um trabalho de importação? Posso preparar uma unidade sem copiar?
 
- Não. Qualquer unidade utilizada para importar dados deve ser preparada usando a ferramenta WAImportExport do Azure. Use a ferramenta para também copiar dados para a unidade.
+Não. Qualquer unidade utilizada para importar dados deve ser preparada usando a ferramenta WAImportExport do Azure. Use a ferramenta para também copiar dados para a unidade.
 
 ### <a name="do-i-need-to-perform-any-disk-preparation-when-creating-an-export-job"></a>Preciso executar alguma preparação de disco ao criar um trabalho de exportação?
 
- Não. Alguns pré-testes são recomendados. Para verificar o número de discos necessários, use o comando PreviewExport da ferramenta WAImportExport. Para obter mais informações, consulte [Visualizando o uso da unidade para um trabalho de exportação](https://msdn.microsoft.com/library/azure/dn722414.aspx). O comando ajuda a visualizar o uso da unidade para os blobs selecionados, com base no tamanho das unidades que você vai utilizar. Além disso, verifique se é possível ler e gravar no disco rígido enviado para o trabalho de exportação.
+Não. Alguns pré-testes são recomendados. Para verificar o número de discos necessários, use o comando PreviewExport da ferramenta WAImportExport. Para obter mais informações, consulte [Visualizando o uso da unidade para um trabalho de exportação](https://msdn.microsoft.com/library/azure/dn722414.aspx). O comando ajuda a visualizar o uso da unidade para os blobs selecionados, com base no tamanho das unidades que você vai utilizar. Além disso, verifique se é possível ler e gravar no disco rígido enviado para o trabalho de exportação.
 
 ## <a name="importexport-jobs"></a>Trabalhos de Importação/Exportação
 
@@ -117,7 +117,7 @@ O data center do Azure devolverá a unidade que não estiver em conformidade com
 
 ### <a name="does-the-service-format-the-drives-before-returning-them"></a>O serviço formata as unidades antes de devolvê-las?
 
- Não. Todas as unidades são criptografadas com o BitLocker.
+Não. Todas as unidades são criptografadas com o BitLocker.
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>Como posso acessar dados importados por este serviço?
 
@@ -132,7 +132,7 @@ Ao preparar um disco rígido para um trabalho de importação, o destino é espe
 Depende. Ao preparar a unidade, você pode especificar se os arquivos de destino devem ser substituídos ou ignorados usando o campo no arquivo CSV chamado Disposition:<rename|no-overwrite|overwrite>. Por padrão, o serviço renomeia os novos arquivos em vez de substituir os blobs ou arquivos existentes.
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>A ferramenta WAImportExport é compatível com sistemas operacionais de 32 bits?
- Não. A ferramenta WAImportExport só é compatível com o sistema de operacional do Windows de 64 bits. Para obter uma lista completa do SO com suporte, acesse [Sistemas Operacionais com Suporte](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements). 
+Não. A ferramenta WAImportExport só é compatível com o sistema de operacional do Windows de 64 bits. Para obter uma lista completa do SO com suporte, acesse [Sistemas Operacionais com Suporte](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements). 
 
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Qual é o Blob de Blocos máximo e o Tamanho do Blob de Páginas com suporte pela Importação/Exportação do Microsoft Azure?

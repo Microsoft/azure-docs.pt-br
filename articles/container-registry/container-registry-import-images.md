@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/06/2019
 ms.author: danlep
 ms.openlocfilehash: b8a2280fe82e0f4be8e2812f5494150927642692
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417727"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60827282"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importar imagens de contêiner para um registro de contêiner
 

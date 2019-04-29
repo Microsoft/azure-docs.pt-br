@@ -13,11 +13,11 @@ ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: a615ab26e4ea046ced70ce2c154a0c304b741986
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138340"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550865"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Ativar práticas de implantação seguras com o Azure Deployment Manager (visualização privada)
 

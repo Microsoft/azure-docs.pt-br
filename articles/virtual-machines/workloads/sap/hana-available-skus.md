@@ -15,11 +15,11 @@ ms.date: 11/20/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b80f872c82061c0cb87f4f1e2714183e71cf02cd
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448119"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60794012"
 ---
 # <a name="available-skus-for-hli"></a>SKUs disponíveis para HLI
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: b8c21b908ca9162a7e44c7af1e222babc6ee1eb7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265598"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631919"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Perfil e ID de usuário do Azure Notebooks
 
@@ -66,7 +66,7 @@ Para editar seu perfil, use o comando **Editar Informações de Perfil** na sua 
 | Configurações de privacidade | Fornece dois comandos:<ul><li>**Exportar Meu Perfil**: cria e baixa um arquivo *.zip* contendo todas as informações que o Azure Notebooks salva no seu perfil, incluindo fotos, informações de perfil e logs de segurança.</li><li>**Excluir Minha Conta**: Exclui permanentemente todas as suas informações pessoais armazenadas no Azure Notebooks.</li></ul> |
 | Ativar Recursos do Site | Permite controlar aspectos do comportamento do Azure Notebooks:<ul><li>**Front-end unificado para notebooks**: permite inicialização mais rápida do notebook e melhor persistência.</li><li>**Executar em JupyterLab por padrão**: Por padrão, o Azure Notebooks oferece uma interface do usuário simples adequada para a maioria dos usuários. O JupyterLab fornece uma interface mais avançada, porém mais complexa para usuários experientes.</li><li>**Site VNext**: permite o layout da Web modernizado mostrado nesta documentação.</li></ul> |
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Próximas etapas  
 
 > [!div class="nextstepaction"]
 > [Tutorial: criar e executar um Jupyter Notebook para fazer uma regressão linear](tutorial-create-run-jupyter-notebook.md)

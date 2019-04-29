@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
 ms.openlocfilehash: 943f3a4739e5dffb2a7d218bf3a82a4e882538a6
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075661"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60625492"
 ---
 # <a name="office-365-dynamics-365-power-apps-and-power-bi-offer-publishing-guide"></a>Guia de publicação de oferta do Office 365, do Dynamics 365, do Power Apps e do Power BI
 

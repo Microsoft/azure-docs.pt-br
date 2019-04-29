@@ -2,7 +2,6 @@
 title: Configuração de cluster para Apache Hadoop, Apache Spark, Apache Kafka, Apache HBase ou R Server – Azure HDInsight
 description: Configure clusters Hadoop, Kafka, Spark, HBase, R Server ou Storm para HDInsight em um navegador, na CLI clássica do Azure, no Azure PowerShell, na REST ou no SDK.
 keywords: instalação de cluster hadoop, instalação de cluster kafka, instalação de cluster spark, o que é um cluster no hadoop
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 01/28/2019
-ms.openlocfilehash: 33a882e8543f1a57afe9207f7a7263ec39530a0c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 3ccff4409dde92a23ccdbb1c31af687449bf9d48
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817913"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766389"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configure os clusters no HDInsight com o Apache Hadoop, o Apache Spark, o Apache Kafka e muito mais
 

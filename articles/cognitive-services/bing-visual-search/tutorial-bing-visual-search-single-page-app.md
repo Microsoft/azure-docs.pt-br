@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: aahi
 ms.openlocfilehash: 084aad5540a2bd56d98e343639a45c16f786e599
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496549"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829592"
 ---
 # <a name="create-a-visual-search-single-page-web-app"></a>Criar um aplicativo Web de página única da Pesquisa Visual
 

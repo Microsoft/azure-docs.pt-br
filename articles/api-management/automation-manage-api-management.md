@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 642353218960e2e995d717260ae82b6dbd7c2612
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727053"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60880104"
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>Gerenciando o Gerenciamento de API do Azure usando a Automação do Azure
 Este guia apresenta o serviço de Automação do Azure e como ele pode ser usado para simplificar o gerenciamento do Gerenciamento de API.
@@ -38,7 +38,7 @@ Veja alguns exemplos de uso do Gerenciamento de API com o Powershell:
 
 * [Exemplos do Azure PowerShell para Gerenciamento de API](https://docs.microsoft.com/azure/api-management/powershell-samples)
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode ser usada para gerenciar o Gerenciamento de API do Azure, siga estes links para obter mais informações.
 
 * Veja o [tutorial de introdução](../automation/automation-first-runbook-graphical.md)da Automação do Azure.

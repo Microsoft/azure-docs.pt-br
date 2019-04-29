@@ -13,11 +13,11 @@ ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
 ms.openlocfilehash: 6557f3a4129076c1e8708208e5d4e0d4f53dcec3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000548"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60741727"
 ---
 # <a name="import-or-export-configuration-data"></a>Importar ou exportar dados de configuração
 
@@ -70,4 +70,4 @@ Exportar dados usando o [portal do Azure](https://aka.ms/azconfig/portal) ou o [
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Criar um aplicativo web ASP.NET Core](./quickstart-aspnet-core-app.md)  
+> [Criar um aplicativo Web ASP.NET Core](./quickstart-aspnet-core-app.md)  

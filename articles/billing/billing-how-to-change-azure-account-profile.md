@@ -17,11 +17,11 @@ ms.date: 05/11/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ecf39623c70441e4b726221b4e92e2492370a9bc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57846745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60918333"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Alterar as informações de perfil de conta do Azure, como email de contato, endereço e número de telefone
 
@@ -46,7 +46,7 @@ Sim. O administrador da conta é a pessoa que configura a conta do Azure e quem 
 
 ### <a name="does-updating-my-profile-email-also-update-my-login-email-address"></a>Atualizar meu email do perfil também atualiza meu endereço de email de logon?
 
- Não. Atualizar o endereço de email do perfil não atualiza seu endereço de email de logon. Para alterar seu endereço de email de logon, você precisa transferir a propriedade da conta.
+Não. Atualizar o endereço de email do perfil não atualiza seu endereço de email de logon. Para alterar seu endereço de email de logon, você precisa transferir a propriedade da conta.
 
 ### <a name="does-updating-my-profile-address-also-update-my-credit-card-billing-address"></a>Atualizar meu endereço do perfil também atualiza meu endereço de cobrança do cartão de crédito?
 

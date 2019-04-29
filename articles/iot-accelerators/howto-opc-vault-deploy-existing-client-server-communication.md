@@ -9,14 +9,14 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495287"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450657"
 ---
 # <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>Proteger o OPC UA cliente e o aplicativo de servidor OPC UA 
-Cofre de OPC é um microsserviço que pode configurar, registrar e gerenciar o ciclo de vida de certificado para o servidor OPC UA e aplicativos de cliente na nuvem. Este artigo mostra como proteger um cliente OPC UA e um OPC UA aplicativo de servidor com um novo par de chaves e o certificado usando o Cofre de OPC.
+O OPC Vault é um microsserviço que pode configurar, registrar e gerenciar o ciclo de vida do certificado para aplicativos servidor e cliente da UA de OPC na nuvem. Este artigo mostra como proteger um cliente OPC UA e um OPC UA aplicativo de servidor com um novo par de chaves e o certificado usando o Cofre de OPC.
 
 Na configuração a seguir, o cliente OPC está testando a conectividade com o PLC OPC. Por padrão, a conectividade não é possível porque ambos os componentes ainda não foram provisionados com os certificados à direita. Neste fluxo de trabalho, não use os certificados autoassinados de componentes do OPC UA e assiná-las por meio do Cofre de OPC. Consulte o [plataforma de teste](howto-opc-vault-deploy-existing-client-plc-communication.md). Em vez disso, essa plataforma de teste provisiona os componentes com um novo certificado, bem como com uma nova chave privada que são gerados pelo Cofre de OPC. Algumas informações básicas sobre a segurança do OPC UA podem ser encontradas neste [white paper](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf). As informações completas podem ser encontradas na especificação do OPC UA.
 
@@ -148,7 +148,7 @@ docker-compose -f testbed.yml up
 - Cliente de teste OPC vai usar chamadas de método direto do hub IOT e chamadas de método OPC para configurar o publicador de OPC para publicar/cancelar a publicação de nós do servidor de teste OPC.
 - Assista a saída para mensagens de erro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu como implantar o OPC cofre a um projeto existente, aqui está a próxima etapa sugerida:
 

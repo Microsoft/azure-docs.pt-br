@@ -3,8 +3,8 @@ title: Como visualizar os padrões de tráfego de rede com ferramentas de softwa
 description: Esta página descreve como usar a captura de pacote do observador de rede com CapAnalysis para visualizar os padrões de tráfego para e de suas VMs.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 936d881b-49f9-4798-8e45-d7185ec9fe89
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 7b1e1383e8e244a7cdb30be1e08514a6a4dd7b14
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: kumud
+ms.openlocfilehash: 7c239bbf577645ddb8ab12c525d1b3a8832421df
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36302226"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60680464"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Como visualizar padrões de tráfego de rede de e para suas VMs usando ferramentas de software livre
 
@@ -92,7 +92,7 @@ O CapAnalysis oferece várias opções para visualizar sua captura de pacote, ca
 
 O recurso de captura de pacote do observador de rede e permite que você capture os dados necessários para executar uma análise forense e compreender melhor o tráfego de rede. Nesse cenário, mostramos como as capturas de pacote do Observador de Rede podem ser facilmente integradas a ferramentas de visualização de software livre. Usando ferramentas de software livre, como o CapAnalysis, para visualizar a captura de pacotes, você pode realizar inspeções de pacotes minuciosas e identificar rapidamente as tendências do seu tráfego de rede.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre logs de fluxo NSG, acesse [Logs de fluxo NSG](network-watcher-nsg-flow-logging-overview.md)
 

@@ -8,11 +8,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 8b584e06697f9f4212fe0d1d59c29e4670a87eda
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008606"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61002100"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Fontes de dados com suporte no Catálogo de Dados do Azure
 
@@ -67,10 +67,8 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
       <td>✓</td>
       <td>✓</td>
       <td>
-        <font size="2">
       </td>
       <td>
-        <font size="2">
       </td>
     </tr>
     <tr>

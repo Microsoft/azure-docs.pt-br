@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: f302cbfa7152ae30be434f560c0c39056d40f9f4
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615754"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60885595"
 ---
 # <a name="generate-a-device-connection-string-to-connect-to-an-azure-iot-central-application"></a>Gerar uma cadeia de caracteres de conexão de dispositivo para se conectar a um aplicativo do Azure IoT Central
 

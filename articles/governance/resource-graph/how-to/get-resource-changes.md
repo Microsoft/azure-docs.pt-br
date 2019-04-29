@@ -1,5 +1,5 @@
 ---
-title: Obter as alterações de recursos
+title: Obter alterações de recurso
 description: Entender como encontrar quando um recurso foi alterado e obter uma lista das propriedades que foi alterada.
 services: resource-graph
 author: DCtheGeek
@@ -8,20 +8,20 @@ ms.date: 04/20/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: f4618e945db443e8d7cf9fdcc49e20e5a09ebd39
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 0ae85b45dfcd80056316ed5f2099aab4057d24c8
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013360"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760817"
 ---
-# <a name="get-resource-changes"></a>Obter as alterações de recursos
+# <a name="get-resource-changes"></a>Obter alterações de recurso
 
 Recursos sejam alterados durante o curso de uso diário, reconfiguração e até mesma reimplantação.
 Alterações podem vir de um indivíduo ou por um processo automatizado. A maioria das alterações ocorre por design, mas às vezes não é. Com os últimos 14 dias de histórico de alterações, o gráfico de recursos do Azure permite que você:
 
-- Encontre quando foram detectadas alterações na propriedade de um Gerenciador de recursos do Azure.
-- Veja o que as propriedades alteradas como parte desse evento de alteração.
+- Localize quando as alterações foram detectadas em uma propriedade do Azure Resource Manager.
+- Veja quais propriedades foram alteradas como parte do evento de alterações.
 
 Detecção de alteração e os detalhes são importantes para os cenários de exemplo a seguir:
 
@@ -39,7 +39,7 @@ Este artigo mostra como coletar essas informações por meio do SDK do gráfico 
 
 ## <a name="find-when-changes-were-detected"></a>Encontrar quando as alterações foram detectadas
 
-A primeira etapa em ver o que mudou em um recurso é encontrar os eventos de alteração relacionados a esse recurso dentro de uma janela de tempo. Esta etapa é feita por meio de [resourceChanges](/rest/api/azureresourcegraph/resourceChanges) ponto de extremidade REST.
+A primeira etapa em ver o que mudou em um recurso é encontrar os eventos de alteração relacionados a esse recurso dentro de uma janela de tempo. Esta etapa é feita por meio de **resourceChanges** ponto de extremidade REST.
 
 O **resourceChanges** ponto de extremidade requer dois parâmetros no corpo da solicitação:
 
@@ -95,7 +95,7 @@ O evento de alteração ocorreu em algum ponto nessa janela de tempo.
 
 ## <a name="see-what-properties-changed"></a>Consulte as propriedades alteradas
 
-Com o **changeId** da **resourceChanges** ponto de extremidade, o [resourceChangeDetails](/rest/api/azureresourcegraph/resourceChangeDetails) ponto de extremidade REST, em seguida, é usado para obter informações específicas de evento de alteração.
+Com o **changeId** da **resourceChanges** ponto de extremidade, o **resourceChangeDetails** ponto de extremidade REST, em seguida, é usado para obter informações específicas de evento de alteração.
 
 O **resourceChangeDetails** ponto de extremidade requer dois parâmetros no corpo da solicitação:
 
@@ -108,7 +108,6 @@ Exemplo de corpo de solicitação:
 {
     "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
     "changeId": "53dc0515-b86b-4bc2-979b-e4694ab4a556"
-    }
 }
 ```
 
@@ -224,7 +223,7 @@ A resposta é semelhante a este exemplo:
 
 Para comparar os resultados por meio de programação, comparar os **conteúdo** parte de cada um para determinar a diferença. Se você comparar todo o instantâneo, o **carimbo de hora** sempre mostra como uma diferença, apesar de que está sendo esperada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte o idioma em uso no [consultas Starter](../samples/starter.md).
 - Consulte avançada usa na [consultas avançadas](../samples/advanced.md).

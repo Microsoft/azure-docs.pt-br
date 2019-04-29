@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: spelluru
 ms.openlocfilehash: 4d2ba11181977f1976b5ae933e8b93a92424fa96
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56809105"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60695263"
 ---
 # <a name="use-classroom-labs-for-trainings"></a>Usar laboratórios de sala de aula para treinamentos
 Você pode configurar um laboratório para treinamento. Laboratórios de sala de aula do Azure Lab Services permitem que você criar um laboratório para treinamento em que cada estagiário usa ambientes idênticos e isolados para treinamento. Você pode aplicar políticas para garantir que os ambientes de treinamento estejam disponíveis para cada estagiário apenas quando necessário e contém recursos suficientes, como máquinas virtuais, para o treinamento. 

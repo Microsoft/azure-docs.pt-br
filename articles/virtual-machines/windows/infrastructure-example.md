@@ -17,11 +17,11 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ddbaed6704fd32f7fd4fe5a790424cbf829d2f1c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932850"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540364"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Passo a passo da infraestrutura do Azure de exemplo para VMs Windows
 Este artigo explica como criar uma infraestrutura de aplicativo de exemplo. Fornecemos detalhes de como projetar uma infraestrutura para um repositório online simples que reúne todas as diretrizes e decisões sobre convenções de nomenclatura, conjuntos de disponibilidade, redes virtuais e balanceadores de carga, bem como a implantação de fato das VMs (máquinas virtuais).
@@ -72,8 +72,8 @@ Como a rede virtual não precisa de conectividade contínua com a rede local da 
 
 Criaram uma rede virtual somente em nuvem com as seguintes configurações usando o portal do Azure:
 
-* Name: AZOS-USE-VN01
-* Local: Leste dos EUA 2
+* Nome: AZOS-USE-VN01
+* Localização: Leste dos EUA 2
 * Espaço de endereço da rede virtual: 10.0.0.0/8
 * Primeira sub-rede:
   * Nome: FrontEnd

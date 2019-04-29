@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
 ms.openlocfilehash: 2ccdd337d5c01a0ac0253fe1d1e131fa4e6d51a7
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608904"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782983"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funções lógicas para modelos do Azure Resource Manager
 
@@ -39,9 +39,9 @@ Verifica se todos os valores de parâmetros são verdadeiros.
 
 | Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |booleano |O primeiro valor para verificar se é verdadeiro. |
-| arg2 |Sim |booleano |O segundo valor para verificar se é verdadeiro. |
-| argumentos adicionais |Não  |booleano |Argumentos adicionais para verificar se são verdadeiros. |
+| arg1 |Sim |boolean |O primeiro valor para verificar se é verdadeiro. |
+| arg2 |Sim |boolean |O segundo valor para verificar se é verdadeiro. |
+| argumentos adicionais |Não  |boolean |Argumentos adicionais para verificar se são verdadeiros. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -75,7 +75,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| NOME | Tipo | Valor |
+| NOME | Tipo | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | Falso |
 | orExampleOutput | Bool | True |
@@ -128,7 +128,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| NOME | Tipo | Valor |
+| NOME | Tipo | Value |
 | ---- | ---- | ----- |
 | trueString | Bool | True |
 | falseString | Bool | Falso |
@@ -145,7 +145,7 @@ Retorna um valor com base em se uma condição é verdadeira ou falsa.
 
 | Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| condition |Sim |booleano |O valor para verificar se é true ou false. |
+| condition |Sim |boolean |O valor para verificar se é true ou false. |
 | trueValue |Sim | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é verdadeira. |
 | falseValue |Sim | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é falsa. |
 
@@ -186,11 +186,11 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| NOME | Tipo | Valor |
+| NOME | Tipo | Value |
 | ---- | ---- | ----- |
 | yesOutput | Cadeia de caracteres | Sim |
 | noOutput | Cadeia de caracteres | não |
-| objectOutput | Objeto | { "test": "value1" } |
+| objectOutput | Object | { "test": "value1" } |
 
 O seguinte [modelo de exemplo](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) mostra como usar essa função com expressões que só são válidas condicionalmente.
 
@@ -250,7 +250,7 @@ Converte o valor booliano em seu valor oposto.
 
 | Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |booleano |O valor a ser convertido. |
+| arg1 |Sim |boolean |O valor a ser convertido. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -284,7 +284,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| NOME | Tipo | Valor |
+| NOME | Tipo | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | Falso |
 | orExampleOutput | Bool | True |
@@ -308,7 +308,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| NOME | Tipo | Valor |
+| NOME | Tipo | Value |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -322,9 +322,9 @@ Verifica se qualquer valor do parâmetro é verdadeiro.
 
 | Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |booleano |O primeiro valor para verificar se é verdadeiro. |
-| arg2 |Sim |booleano |O segundo valor para verificar se é verdadeiro. |
-| argumentos adicionais |Não  |booleano |Argumentos adicionais para verificar se são verdadeiros. |
+| arg1 |Sim |boolean |O primeiro valor para verificar se é verdadeiro. |
+| arg2 |Sim |boolean |O segundo valor para verificar se é verdadeiro. |
+| argumentos adicionais |Não  |boolean |Argumentos adicionais para verificar se são verdadeiros. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -358,13 +358,13 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| NOME | Tipo | Valor |
+| NOME | Tipo | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | Falso |
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | Falso |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 * Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).

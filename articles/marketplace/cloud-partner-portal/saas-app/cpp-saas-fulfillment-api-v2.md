@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 437009079c1bebe3694aaa26f945bd726b3c9fb9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010559"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60594726"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>Versão de APIs de preenchimento SaaS 2 
 
@@ -744,6 +744,6 @@ Ponto de extremidade do host: `https://marketplaceapi.microsoft.com/api` Versão
 Qualquer uma das chamadas à API neste artigo podem ser feitas para o ponto de extremidade do host fictício. Você pode esperar obter os dados fictícios, como uma resposta.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Os desenvolvedores também programaticamente podem recuperar e manipulação de cargas de trabalho, ofertas e publisher perfis usando o [as APIs REST do Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview).

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 8b558fca964f33d47d331e007329d1bae2626877
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881249"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60878094"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Autenticação de usuário final com Azure Data Lake Storage Gen1 usando Java
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ Neste artigo, você aprende como usar o SDK do Java para fazer autenticação de
 
 O SDK do Data Lake armazenamento Gen1 fornece métodos convenientes que permitem que você gerencie os tokens de segurança necessários para se comunicar com a conta do Data Lake armazenamento Gen1. No entanto, o SDK não exige que apenas esses métodos sejam usados. Você pode usar qualquer outro meio de obter o token, como usar o [SDK do Azure Active Directory](https://github.com/AzureAD/azure-activedirectory-library-for-java) ou seu próprio código personalizado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu como usar a autenticação de usuário final para autenticar com o Azure Data Lake Storage Gen1 usando SDK do Java. Agora você pode consultar os artigos a seguir que descrevem como usar o SDK do Java para trabalhar com o Azure Data Lake Storage Gen1.
 
 * [Operações de dados no Data Lake Storage Gen1 usando SDK do Java](data-lake-store-get-started-java-sdk.md)

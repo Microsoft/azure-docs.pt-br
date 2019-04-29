@@ -12,11 +12,11 @@ ms.date: 02/25/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: e4849487c2dd9330dbf9e6b6cf0ed4d1b6b96020
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958092"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60637511"
 ---
 # <a name="deprecated-cognitive-search-skills"></a>Habilidades preteridas da pesquisa cognitiva
 

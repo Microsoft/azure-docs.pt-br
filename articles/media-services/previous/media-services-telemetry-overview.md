@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 8e8b493881662483e66dd835d1cc68a471b18454
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58803287"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60545513"
 ---
 # <a name="azure-media-services-telemetry"></a>Telemetria dos Serviços de Mídia do Azure  
 
@@ -74,7 +74,7 @@ Isso permite a eficiência de muitas consultas comuns:
 
 Os dados de telemetria são armazenados de forma agregada em uma tabela, "TelemetryMetrics20160321", em que "20160321" é a data de criação da tabela. O sistema de telemetria cria uma tabela separada para cada dia novo com base em 00:00 UTC. A tabela é usada para armazenar valores recorrentes, como taxa de bits de ingestão dentro de um determinado intervalo de tempo, bytes enviados etc. 
 
-Propriedade|Valor|Exemplos/notas
+Propriedade|Value|Exemplos/notas
 ---|---|---
 PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>A ID da conta está incluída na chave de partição para simplificar os fluxos de trabalho nos quais várias contas dos Serviços de Mídia gravam na mesma conta de armazenamento.
 RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>A chave de linha começa com o número de segundos para meia-noite a fim de permitir n consultas de estilo superior dentro de uma partição. Para saber mais, confira [este artigo](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern). 
@@ -95,7 +95,7 @@ Há três tipos de entradas de dados telemétricos específicos à entidade, cad
 
 **Ponto de Extremidade de Streaming**
 
-Propriedade|Valor|Exemplos
+Propriedade|Value|Exemplos
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
@@ -114,7 +114,7 @@ E2ELatency|Latência média de ponta a ponta|250
 
 **Canal dinâmico**
 
-Propriedade|Valor|Exemplos/notas
+Propriedade|Value|Exemplos/notas
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
@@ -139,7 +139,7 @@ Healthy|True, se <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingC
 
 **Arquivamento dinâmico**
 
-Propriedade|Valor|Exemplos/notas
+Propriedade|Value|Exemplos/notas
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199

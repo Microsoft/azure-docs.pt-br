@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 36e1bb77be1e825e42f0e5d25457214a8b5f882d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045655"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60758719"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Gerenciar permissões do banco de dados do Azure Data Explorer
 
@@ -74,6 +74,6 @@ O Azure Data Explorer tem as seguintes funções:
 
     A saída do comando mostra a lista de usuários existentes e as funções às quais eles estão atribuídos no banco de dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Gravar consultas](write-queries.md)

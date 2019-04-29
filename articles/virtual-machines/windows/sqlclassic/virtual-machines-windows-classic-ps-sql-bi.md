@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
 ms.openlocfilehash: 29e851772e665b4130ee58b04c264d55bcd54523
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317775"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60609471"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Business Intelligence do SQL Server em máquinas virtuais do Azure
 > [!IMPORTANT] 
@@ -76,13 +76,13 @@ A tabela a seguir resume os recursos de Business Intelligence instalados nas ima
 * SQL Server 2012 SP3 Enterprise
 * SQL Server 2012 SP3 Standard
 
-| Recurso de BI do SQL Server | Instalado na galeria de imagens | Anotações |
+| Recurso de BI do SQL Server | Instalado na galeria de imagens | Observações |
 | --- | --- | --- |
 | **Modo nativo do Reporting Services** |Sim |Instalado, mas exige configuração, incluindo a URL do Gerenciador de relatórios. Consulte a seção [Configurar o Reporting Services](#configure-reporting-services). |
-| **Modo SharePoint do Reporting Services** |Não |A imagem da galeria de Máquinas Virtuais do Microsoft Azure não inclui o SharePoint ou os arquivos de instalação do SharePoint. <sup>1</sup> |
+| **Modo SharePoint do Reporting Services** |Não  |A imagem da galeria de Máquinas Virtuais do Microsoft Azure não inclui o SharePoint ou os arquivos de instalação do SharePoint. <sup>1</sup> |
 | **Multidimensional e mineração de dados do Analysis Services (OLAP)** |Sim |Instalado e configurado como a instância padrão do Analysis Services |
-| **Tabela do Analysis Services** |Não |Com suporte em imagens do SQL Server 2012, 2014 e 2016, mas não está instalado por padrão. Instale outra instância do Analysis Services. Consulte a seção Instalar outros serviços e recursos do SQL Server neste tópico. |
-| **Power Pivot do Analysis Services para SharePoint** |Não |A imagem da galeria de Máquinas Virtuais do Microsoft Azure não inclui o SharePoint ou os arquivos de instalação do SharePoint. <sup>1</sup> |
+| **Tabela do Analysis Services** |Não  |Com suporte em imagens do SQL Server 2012, 2014 e 2016, mas não está instalado por padrão. Instale outra instância do Analysis Services. Consulte a seção Instalar outros serviços e recursos do SQL Server neste tópico. |
+| **Power Pivot do Analysis Services para SharePoint** |Não  |A imagem da galeria de Máquinas Virtuais do Microsoft Azure não inclui o SharePoint ou os arquivos de instalação do SharePoint. <sup>1</sup> |
 
 <sup>1</sup> Para saber mais sobre o SharePoint e as máquinas virtuais do Azure, consulte Arquiteturas do [Microsoft Azure](https://technet.microsoft.com/library/dn635309.aspx) para SharePoint 2013 e Implantação do [SharePoint em máquinas virtuais do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=34598).
 
@@ -224,7 +224,7 @@ Se você quiser se conectar ao portal da Web ou ao Gerenciador de Relatórios pa
 
 1. Criar um ponto de extremidade para a máquina virtual da porta TCP 80 Para saber mais, consulte a seção [Pontos de extremidade de máquina virtual e portas de firewall](#virtual-machine-endpoints-and-firewall-ports) neste documento.
 2. Abra a porta 80 no firewall da máquina virtual.
-3. Navegue até o portal da Web ou até o gerenciador de relatórios usando o **Nome DNS** da Máquina Virtual do Azure como o nome do servidor na URL. Por exemplo:
+3. Navegue até o portal da Web ou até o gerenciador de relatórios usando o **Nome DNS** da Máquina Virtual do Azure como o nome do servidor na URL. Por exemplo: 
    
     **Servidor de relatório**: http://uebi.cloudapp.net/reportserver  **Portal da Web**: http://uebi.cloudapp.net/reports
    
@@ -317,7 +317,7 @@ Esta seção resume os pontos de extremidade de máquina virtual do Microsoft Az
   * Crie pontos de extremidade de máquina virtual para as portas indicadas (*).
 * Se a máquina virtual for ingressada em um domínio usando um túnel VPN, por exemplo, a Rede Virtual do Azure, os pontos de extremidade não serão necessários. No entanto, abra as portas no firewall na VM.
   
-  | Porta | Digite | Descrição |
+  | Porta | Type | DESCRIÇÃO |
   | --- | --- | --- |
   | **80** |TCP |Acesso remoto ao servidor de relatório (*). |
   | **1433** |TCP |SQL Server Management Studio (*). |

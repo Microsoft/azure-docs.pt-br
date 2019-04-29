@@ -12,11 +12,11 @@ ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 3c5874625ee9d1932c401238c1586ad89d5d206d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856715"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60539767"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Obter o SDK de Dispositivos de Fala dos Serviços Cognitivos
 

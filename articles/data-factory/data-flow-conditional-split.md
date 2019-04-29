@@ -8,11 +8,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
 ms.openlocfilehash: a4ea79e05165dfae4f79aa6473a07151ba7c00fc
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727801"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60627620"
 ---
 # <a name="azure-data-factory-mapping-data-flow-conditional-split-transformation"></a>Transformação de Divisão Condicional do Fluxo de Dados de Mapeamento do Azure Data Factory
 

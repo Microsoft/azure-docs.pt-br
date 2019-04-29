@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315207"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60817162"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Conecte-se ao conteúdo do Banco de Dados SQL do Azure e indexe-o usando indexadores do Azure Search
 
@@ -305,7 +305,7 @@ O indexador do SQL expõe várias definições de configuração:
 
 | Configuração | Tipo de dados | Finalidade | Valor padrão |
 | --- | --- | --- | --- |
-| queryTimeout |cadeia de caracteres |Define o tempo limite de execução da consulta SQL |5 minutos ("00:05:00") |
+| queryTimeout |string |Define o tempo limite de execução da consulta SQL |5 minutos ("00:05:00") |
 | disableOrderByHighWaterMarkColumn |bool |Faz com que a consulta SQL usada pela política de marca d'água alta omita a cláusula ORDER BY. Consulte [Política de marca d'água alta](#HighWaterMarkPolicy) |falso |
 
 Essas configurações são usadas no objeto `parameters.configuration` na definição do indexador. Por exemplo, para definir o tempo limite da consulta para 10 minutos, crie ou atualize o indexador com a seguinte configuração:
@@ -328,7 +328,7 @@ Não diretamente. Não recomendamos nem damos suporte a uma conexão direta, poi
 
 **P: Posso usar o indexador SQL do Azure com outros bancos de dados que não sejam o SQL Server executados no IaaS do Azure?**
 
- Não. Não damos suporte a esse cenário, pois não testamos o indexador com nenhum outro banco de dados que não o SQL Server.  
+Não. Não damos suporte a esse cenário, pois não testamos o indexador com nenhum outro banco de dados que não o SQL Server.  
 
 **P: Posso criar vários indexadores executados com base em um agendamento?**
 

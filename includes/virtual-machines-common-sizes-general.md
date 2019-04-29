@@ -9,11 +9,11 @@ ms.date: 10/08/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: b4e255f35761924f46714f1844d8fbe1b2e70956
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551614"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542095"
 ---
 Os tamanhos de VM para uso geral fornecem uma relação de CPU para memória equilibrada. Ideal para teste e desenvolvimento, bancos de dados pequenos a médios e servidores Web de tráfego baixo a médio. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento para tamanhos neste agrupamento. 
 
@@ -31,7 +31,7 @@ Os tamanhos de VM para uso geral fornecem uma relação de CPU para memória equ
   
 ## <a name="b-series"></a>Série B
 
-Armazenamento Premium:  Suportado
+Armazenamento Premium:  Com suporte
 
 Cache de Armazenamento Premium:  Sem suporte
 
@@ -56,9 +56,9 @@ Os exemplos de casos de uso incluem servidores de desenvolvimento e teste, servi
 
 ACU: 160-190
 
-Armazenamento Premium:  Suportado
+Armazenamento Premium:  Com suporte
 
-Cache de Armazenamento Premium:  Suportado
+Cache de Armazenamento Premium:  Com suporte
 
 Os tamanhos da série Dsv3 são baseados no processador Intel Xeon® E5-2673 v3 (Haswell) de 2.4 GHz ou no processador mais recente Intel XEON ® E5-2673 v4 (Broadwell) de 2.3 GHz que podem atingir 3.5 GHz com a Tecnologia Intel Turbo Boost 2.0, e utilizam armazenamento premium. Os tamanhos da série Dsv3 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção.
 
@@ -102,9 +102,9 @@ O armazenamento do disco de dados é faturado separadamente das máquinas virtua
 
 ACU: 210-250
 
-Armazenamento Premium:  Suportado
+Armazenamento Premium:  Com suporte
 
-Cache de Armazenamento Premium:  Suportado
+Cache de Armazenamento Premium:  Com suporte
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência de disco sem cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -151,9 +151,9 @@ Cache de Armazenamento Premium:  Sem suporte
 
 ## <a name="dc-series"></a>Série DC
 
-Armazenamento Premium: Suportado
+Armazenamento Premium: Com suporte
 
-Cache de Armazenamento Premium: Suportado
+Cache de Armazenamento Premium: Com suporte
 
 
 

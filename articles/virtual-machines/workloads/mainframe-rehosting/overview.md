@@ -11,11 +11,11 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: c1d7b52bdce77ca108781a999a8a85b3e3fca0b8
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004407"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61487437"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Mainframe rehosting em máquinas virtuais do Azure
 
@@ -110,7 +110,7 @@ O Azure governamental ganhos uma autoridade provisória de funcionamento (P-ATO)
 
 Para começar, baixe [nuvem do Microsoft Azure governamental para aplicativos de mainframe](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/en-us/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Peça ao nosso [parceiros](partner-workloads.md) para ajudá-lo a migrar ou hospedar novamente seus aplicativos de mainframe. Para obter orientações detalhadas sobre como escolher uma solução de parceiro, consulte o [plataforma modernização Alliance](https://www.platformmodernization.org/pages/mainframe.aspx) site.
 

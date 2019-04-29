@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
 ms.openlocfilehash: 83c5e1405c402a1c6c98f9dbcaaf74891eb75e6d
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330628"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437746"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Arquitetura do Azure Blockchain Workbench
 

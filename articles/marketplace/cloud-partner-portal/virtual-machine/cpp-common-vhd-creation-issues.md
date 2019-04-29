@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/02/2018
 ms.author: hascipio; v-divte; v-miclar
 ms.openlocfilehash: 381f88c4641417bceca0f988d4b1a187aedaa642
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327299"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744186"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Problemas comuns durante a criação do VHD (Perguntas Frequentes)
 

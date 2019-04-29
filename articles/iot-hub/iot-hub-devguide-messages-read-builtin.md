@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 827d7d9a3d584342703a84dd2a42e5cda9b3a656
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579403"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61363953"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para a nuvem do ponto de extremidade interno
 
@@ -50,7 +50,7 @@ Quando você usar SDKs dos Hubs de eventos ou integrações de produtos que não
 
 No portal, o campo de ponto de extremidade compatível com Hub de eventos contém uma cadeia de caracteres de conexão dos Hubs de eventos completa que se parece com: **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**. Se o SDK que você está usando requer outros valores, em seguida, eles seria:
 
-| NOME | Valor |
+| NOME | Value |
 | ---- | ----- |
 | Ponto de extremidade | sb://abcd1234namespace.servicebus.windows.net/ |
 | Nome do host | abcd1234namespace.servicebus.windows.net |

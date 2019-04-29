@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 06/30/2017
 ms.author: stewu
 ms.openlocfilehash: a8a50db5ece242bc00a28e66e21c863388950d6f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756828"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437546"
 ---
 # <a name="tuning-azure-data-lake-storage-gen1-for-performance"></a>Ajustando o Azure Data Lake Storage Gen1 para desempenho
 

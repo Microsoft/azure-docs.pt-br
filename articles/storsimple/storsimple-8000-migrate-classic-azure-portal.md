@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 3cce18fa1890fc9e518294e294cc43e0e55065aa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002502"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631525"
 ---
 # <a name="migrate-subscriptions-and-storage-accounts-associated-with-storsimple-device-manager-service"></a>Migrar assinaturas e contas de armazenamento associadas ao serviço Gerenciador de Dispositivos do StorSimple
 

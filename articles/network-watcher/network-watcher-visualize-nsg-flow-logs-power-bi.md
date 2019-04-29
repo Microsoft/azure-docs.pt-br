@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
 ms.openlocfilehash: 6df49f9cd308f4bb9b1fef6e5860872526ce8bb7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079019"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60860661"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualização de logs de fluxo do grupo de segurança de rede com o Power BI
 
@@ -44,7 +44,7 @@ Ao usar os visuais fornecidos no modelo, você pode examinar:
 
 O modelo fornecido é editável para que possa modificá-lo e adicionar elementos visuais ou dados novos ou editar consultas para atender às suas necessidades.
 
-## <a name="setup"></a>Instalar
+## <a name="setup"></a>Configuração
 
 Antes de começar, você deve habilitar o registro em log de fluxo do grupo de segurança de rede em um ou mais grupos de segurança de rede em sua conta. Para obter instruções sobre como habilitar os logs de fluxo de Segurança de Rede, consulte o seguinte artigo: [Introdução ao log de fluxo dos Grupos de Segurança de Rede](network-watcher-nsg-flow-logging-overview.md).
 
@@ -111,7 +111,7 @@ Mostramos neste cenário que somos capazes de visualizar e compreender o tráfeg
 
 Fique à vontade para personalizar esse modelo para adequá-lo às suas necessidades. Há várias maneiras de usar o Power BI com logs de fluxo do grupo de segurança de rede. 
 
-## <a name="notes"></a>Notes
+## <a name="notes"></a>Observações
 
 * Os logs, por padrão, são armazenados em `https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`
 
@@ -121,7 +121,7 @@ Fique à vontade para personalizar esse modelo para adequá-lo às suas necessid
 
 * Se você tiver uma quantidade grande de logs, recomendamos que estude uma solução que use outro tipo de armazenamento de dados, como o Data Lake ou o SQL server.
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como visualizar os logs de fluxo NSG com a pilha elástica visitando [Visualizar registros de fluxo de NSG do Observador de Rede do Azure usando ferramentas de software livre](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 

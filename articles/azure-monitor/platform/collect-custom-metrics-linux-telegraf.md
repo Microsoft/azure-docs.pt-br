@@ -1,19 +1,19 @@
 ---
 title: Coletar métricas personalizadas para uma VM do Linux com o Agente InfluxData Telegraf
 description: Coletar métricas personalizadas para uma VM do Linux com o Agente InfluxData Telegraf
-author: anirudhcavale
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: ancav
+ms.topic: howto
+ms.date: 01/21/19
+ms.author: v-lingwu
 ms.subservice: metrics
 ms.openlocfilehash: 14415b88cd6036642442ef9ae23e8dee301bb908
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775604"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60741471"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Coletar métricas personalizadas para uma VM do Linux com o Agente InfluxData Telegraf
 
@@ -132,6 +132,5 @@ Quando o grupo de recursos, a máquina virtual e todos os recursos relacionados 
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
-
 
 

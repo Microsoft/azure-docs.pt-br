@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
 ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107450"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648186"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de backup offline no Backup do Azure
 O Backup do Azure tem vários mecanismos internos eficientes que reduzem os custos de armazenamento e de rede durante os primeiros backups 'completos' de dados no Azure. Os primeiros backups "completos" transferem grandes quantidades de dados e, portanto, exigem mais largura de banda em comparação com os backups subsequentes, que transferem apenas os deltas/incrementais. Durante o processo de propagação offline, o Backup do Azure pode usar discos para carregar os dados de backup offline no Azure.
@@ -65,7 +65,7 @@ Antes de iniciar o fluxo de trabalho de Backup Offline, execute os seguintes pr�
 * Ao enviar discos para o Azure, use apenas SSD de 2,5 polegadas ou discos rígidos internos SATA II/III de 2,5 ou 3,5 polegadas. Você pode usar discos rígidos de até 10 TB. Confira a [documentação da Importação/Exportação do Azure](../storage/common/storage-import-export-requirements.md#supported-hardware) para saber o conjunto mais recente de unidades às quais o serviço dá suporte.
 * As unidades SATA precisam estar conectadas a um computador (conhecido como *computador de cópia*) de onde é realizada a cópia de dados de backup do *local de preparo* para as unidades SATA. Verifique se o BitLocker está habilitado no *computador de cópia*.
 
-## <a name="workflow"></a>Fluxo de Trabalho
+## <a name="workflow"></a>Fluxo de trabalho
 Esta seção descreve o fluxo de trabalho de backup offline para que os dados possam ser entregues a um datacenter do Azure e carregados no Armazenamento do Azure. Se você tiver dúvidas sobre o serviço de importação ou sobre qualquer aspecto do processo, confira a [Documentação de visão geral do serviço de importação](../storage/common/storage-import-export-service.md).
 
 ## <a name="initiate-offline-backup"></a>Iniciar o backup offline
@@ -119,7 +119,7 @@ O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são env
 
     ```.\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>```
 
-    | Parâmetro | Descrição |
+    | Parâmetro | DESCRIÇÃO |
     | --- | --- |
     | s:&lt;*Caminho do Local de Preparo*&gt; |A entrada obrigatória usada para fornecer o caminho para o local de preparo inserido no fluxo de trabalho de **Iniciar backup offline**. |
     | p:&lt;*Caminho para PublishSettingsFile*&gt; |A entrada opcional usada para fornecer o caminho para o arquivo **Configurações de Publicação do Azure** inserido no fluxo de trabalho de **Iniciar o backup offline**. |

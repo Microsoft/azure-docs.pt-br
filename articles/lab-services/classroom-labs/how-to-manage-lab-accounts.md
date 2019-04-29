@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: spelluru
 ms.openlocfilehash: f1194d8385d1e7ddcb906d0c8c3a2b56648e2547
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120815"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60696274"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Gerenciar contas de laboratório no Azure Lab Services 
 Nos serviços de laboratório do Azure, uma conta de laboratório é um contêiner para tipos de laboratório gerenciado, como laboratórios de sala de aula. Um administrador configura uma conta de laboratório no Azure Lab Services e fornece acesso aos proprietários de laboratório que podem criar laboratórios na conta. Este artigo descreve como criar uma conta de laboratório, exibir todas as contas de laboratório ou excluir uma conta de laboratório.
@@ -38,7 +38,7 @@ As etapas a seguir ilustram como usar o portal do Azure para criar uma conta de 
     2. Selecione a **Assinatura do Azure** na qual você quer criar a conta de laboratório.
     3. Para **Grupo de recursos**, selecione **Criar novo** e digite um nome para o grupo de recursos.
     4. Para **Local**, selecione um local/região em que você deseja que a conta de laboratório seja criada. 
-    5. Para **rede virtual do par**, selecione uma rede virtual do par (VNet) para a rede do laboratório. Os laboratórios criados nessa conta estão conectados à rede virtual selecionada e tem acesso aos recursos na rede virtual selecionada. 
+    5. Para **Emparelhar rede virtual**, selecione uma VNet (rede virtual) de emparelhamento para a rede de laboratório. Os laboratórios criados nesta conta são conectados à VNet selecionada e têm acesso aos recursos na rede virtual selecionada. 
     7. Para o campo **Permitir que o criador de laboratório escolha a localização do laboratório**, especifique se deseja que os criadores de laboratório possam selecionar uma localização para o laboratório. Por padrão, a opção está desabilitada. Quando ela estiver desabilitada, os criadores de laboratório não poderão especificar uma localização para o laboratório que estão criando. Os laboratórios são criados na localização geográfica mais próxima da conta de laboratório. Quando ela estiver habilitada, um criador de laboratório poderá selecionar uma localização no momento da criação de um laboratório.      
     8. Selecione **Criar**. 
 

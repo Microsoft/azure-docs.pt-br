@@ -11,11 +11,11 @@ ms.date: 10/23/2017
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 695fdfba1573ff97b05f8e8b50a05bef9dbf48de
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58846167"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61289597"
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>Como filtrar por idioma no Azure Search 
 

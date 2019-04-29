@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
 ms.openlocfilehash: fdb2bed76a8e23a6034a57b3a5f1358c26e9e990
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093432"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450256"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Conecte o dispositivo ao acelerador da solução de monitoramento remoto (Node.js)
 

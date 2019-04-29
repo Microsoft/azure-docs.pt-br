@@ -2,7 +2,7 @@
 title: Eventos de falha de tarefa em lote do Azure | Documentos do Microsoft
 description: Referência de evento de falha de tarefa de lote.
 services: batch
-author: laurenhughes
+author: dlepow
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -10,14 +10,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/20/2017
-ms.author: lahugh
+origin.date: 04/20/2017
+ms.date: 05/15/2018
+ms.author: v-junlch
 ms.openlocfilehash: f37769ceb761b8c8bc4834568813bb1b7af7f66a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458985"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60549981"
 ---
 # <a name="task-fail-event"></a>Evento de falha da tarefa
 
@@ -92,3 +93,5 @@ ms.locfileid: "55458985"
 |exitCode|Int32|O código de saída da tarefa.|
 |retryCount|Int32|O número de vezes que a tarefa foi repetida pelo serviço em lotes. A tarefa será repetida se a saída tiver um código de saída diferente de zero, até a MaxTaskRetryCount especificada.|
 |requeueCount|Int32|O número de vezes que a tarefa foi colocada em fila novamente pelo serviço em lotes, como resultado de uma solicitação de usuário.<br /><br /> Quando o usuário remove nós de um pool (redimensionando ou reduzindo o pool) ou quando o trabalho é desabilitado, o usuário pode especificar que as tarefas em execução nos nós sejam colocadas novamente na fila de execução. Essa contagem controla quantas vezes a tarefa foi colocada novamente em fila por esses motivos.|
+
+<!-- Update_Description: update metedata properties -->

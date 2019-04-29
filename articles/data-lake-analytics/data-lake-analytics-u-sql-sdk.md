@@ -9,11 +9,11 @@ ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
 ms.openlocfilehash: 14908225e78b79cb748e712ae23643ddde4a4242
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089957"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813500"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Executar e testar U-SQL com o SDK do U-SQL do Azure Data Lake
 
@@ -340,26 +340,26 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 |Propriedade|Type|DESCRIÇÃO|
 |--------|----|-----------|
-|AlgebraPath|cadeia de caracteres|O caminho para o arquivo de álgebra (o arquivo de álgebra é um dos resultados da compilação)|
-|CodeBehindReferences|cadeia de caracteres|Se o script tiver referências code-behind adicionais, especifique os caminhos separados por “;”|
-|CppSdkDir|cadeia de caracteres|Diretório do CppSDK|
-|CurrentDir|cadeia de caracteres|Diretório atual|
-|DataRoot|cadeia de caracteres|Caminho da raiz de dados|
-|DebuggerMailPath|cadeia de caracteres|O caminho para o slot de correio do depurador|
+|AlgebraPath|string|O caminho para o arquivo de álgebra (o arquivo de álgebra é um dos resultados da compilação)|
+|CodeBehindReferences|string|Se o script tiver referências code-behind adicionais, especifique os caminhos separados por “;”|
+|CppSdkDir|string|Diretório do CppSDK|
+|CurrentDir|string|Diretório atual|
+|DataRoot|string|Caminho da raiz de dados|
+|DebuggerMailPath|string|O caminho para o slot de correio do depurador|
 |GenerateUdoRedirect|bool|Se quisermos gerar a configuração de substituição do redirecionamento de carregamento do assembly|
 |HasCodeBehind|bool|Se o script tiver code-behind|
-|InputDir|cadeia de caracteres|Diretório dos dados de entrada|
-|MessagePath|cadeia de caracteres|Caminho do arquivo de despejo da mensagem|
-|OutputDir|cadeia de caracteres|Diretório dos dados de saída|
+|InputDir|string|Diretório dos dados de entrada|
+|MessagePath|string|Caminho do arquivo de despejo da mensagem|
+|OutputDir|string|Diretório dos dados de saída|
 |Paralelismo|int|Paralelismo para executar a álgebra|
 |ParentPid|int|PID do pai no qual o serviço monitora a saída, definido como 0 ou negativo para ignorar|
-|ResultPath|cadeia de caracteres|Caminho do arquivo de despejo do resultado|
-|RuntimeDir|cadeia de caracteres|Diretório do tempo de execução|
-|ScriptPath|cadeia de caracteres|Local em que o script pode ser encontrado|
+|ResultPath|string|Caminho do arquivo de despejo do resultado|
+|RuntimeDir|string|Diretório do tempo de execução|
+|ScriptPath|string|Local em que o script pode ser encontrado|
 |Shallow|bool|Compilação superficial ou não|
-|TempDir|cadeia de caracteres|Diretório temporário|
-|UseDataBase|cadeia de caracteres|Especifique o banco de dados a ser usado para o registro de assembly temporário code-behind, mestre por padrão|
-|WorkDir|cadeia de caracteres|Diretório de trabalho preferencial|
+|TempDir|string|Diretório temporário|
+|UseDataBase|string|Especifique o banco de dados a ser usado para o registro de assembly temporário code-behind, mestre por padrão|
+|WorkDir|string|Diretório de trabalho preferencial|
 
 
 **Método**

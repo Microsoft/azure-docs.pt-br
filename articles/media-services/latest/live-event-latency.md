@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 30cd77799837f9b1ef08a9c609e518fd679b9b15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 393b87aeed759950b946ccb45a008da9af4b7ebe
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322294"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766848"
 ---
 # <a name="live-event-latency-in-media-services"></a>Latência do Evento ao Vivo nos Serviços de Mídia
 
@@ -27,7 +27,7 @@ Este artigo mostra como definir baixa latência em um [Evento ao Vivo](https://d
 Para usar o novo recurso **LowLatency**, você pode definir as **StreamOptionsFlag** à **LowLatency** sobre o **LiveEvent**. Ao criar [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) para reprodução HLS, defina [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) como 1. Depois que o fluxo está em execução, você pode usar o [Player de Mídia do Azure](https://ampdemo.azureedge.net/) (AMP- página de demonstração) e defina as opções de reprodução para usar a baixa latência heurística "perfil".
 
 > [!NOTE]
-> Atualmente, o LowLatency HeuristicProfile no Player de Mídia do Azure foi projetado para reproduzir fluxos no protocolo DASH ou HLS com CMAF. Se você estiver direcionando os dispositivos iOS ou MacOS por meio do HLS com o TS (por exemplo, `format=m3u8-aapl` ou `format=m3u8-aapl-v3`), não use essa configuração, pois AMP usa diretamente o player original fornecido pelo sistema operacional para esse caso.
+> Atualmente, o LowLatency HeuristicProfile no Player de mídia do Azure foi projetado para reproduzir fluxos no protocolo de MPEG-DASH, com o formato CSF ou CMAF (por exemplo, `format=mdp-time-csf` ou `format=mdp-time-cmaf`). 
 
 O exemplo de .NET a seguir mostra como definir **LowLatency** sobre o **LiveEvent**:
 
@@ -75,7 +75,7 @@ A tabela a seguir mostra os resultados comuns de latência (quando o sinalizador
 > [!NOTE]
 > A latência de ponta a ponta pode variar, dependendo das condições de rede local ou com a introdução de uma camada de cache da CDN. Você deve testar as configurações exatas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral da transmissão ao vivo](live-streaming-overview.md)
 - [Tutorial de live streaming](stream-live-tutorial-with-api.md)

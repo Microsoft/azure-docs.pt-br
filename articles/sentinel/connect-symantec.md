@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 1a6843fb1668307aa442011233999c648901d404
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793465"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60714533"
 ---
 # <a name="connect-your-symantec-icdx-appliance"></a>Conectar seu dispositivo ICDX Symantec 
 
@@ -52,7 +52,7 @@ Pode levar mais de 20 minutos até que seus logs comecem a aparecer no Log Analy
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu como se conectar a Symantec ICDX a Sentinela do Azure. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [Obtenha visibilidade sobre seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Introdução ao [detecção de ameaças com o Azure Sentinel](tutorial-detect-threats.md).

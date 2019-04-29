@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5fbc407a9792d033037fdaa2b14f4055d94c15ab
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: b367b6e7126a442dc68646ff52a29c955f50b798
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38701935"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631100"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Desembalar, montar em rack e cabear o dispositivo StorSimple 8100.
 ## <a name="overview"></a>Visão geral
@@ -157,7 +157,7 @@ A próxima etapa é fazer o cabeamento do dispositivo para recebimento de energi
 ## <a name="cable-your-storsimple-8100-device"></a>Cabear o dispositivo StorSimple 8100
 Os procedimentos a seguir explicam como cabear o dispositivo StorSimple 8100 para conexões de energia, rede e serial.
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 Antes de começar o cabeamento do dispositivo, você precisará dos seguintes itens:
 
 * Seu dispositivo de armazenamento totalmente desempacotado e montado no rack.
@@ -236,11 +236,11 @@ Execute as etapas a seguir para cabear a porta serial.
 2. Identifique o controlador ativo no backplane do dispositivo. Um LED azul piscante indica que o controlador está ativo.
 3. Use os cabos seriais fornecidos (se necessário, o conversor serial USB para seu laptop) e conecte o console ou o computador (com emulação de terminal para o dispositivo) com a porta serial do controlador ativo.
 4. Instale os drivers de USB seriais (fornecidos com o dispositivo) em seu computador.
-5. Configure a conexão serial da seguinte maneira: 115.200 bauds, 8 bits de dados, 1 bit de parada, sem paridade e controle de fluxo definida como Nenhum.
+5. Configure a conexão serial como se segue: 115.200 bauds, 8 bits de dados, 1 bit de parada, sem paridade e fluxo de controlam definida como nenhum.
 6. Verifique se a conexão está funcionando pressionando Enter no console. Um menu de console serial deve aparecer.
 
 > [!NOTE]
-> **Gerenciamento Noturno**: quando o dispositivo for instalado em um data center remoto ou em uma sala de computadores com acesso limitado, certifique-se de que as conexões seriais com ambos os controladores sempre estejam conectadas a um comutador de console serial ou equipamento semelhante. Isso permite operações de suporte e controle remoto fora de banda se houver interrupções na rede ou falhas inesperadas.
+> **Gerenciamento noturno**: Quando o dispositivo é instalado em um data center remoto ou em uma sala de computadores com acesso limitado, certifique-se de que as conexões seriais com ambos os controladores sempre são conectadas a um comutador de console serial ou equipamento similar. Isso permite operações de suporte e controle remoto fora de banda se houver interrupções na rede ou falhas inesperadas.
 > 
 > 
 

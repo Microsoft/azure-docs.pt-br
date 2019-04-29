@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 7a7f5f6738b4bc96b6248deb062c7b3f63048148
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309666"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61335581"
 ---
 # <a name="project-acoustics-azure-batch-account-setup"></a>Configuração da conta de lote do Azure do projeto acústica
 Estas instruções descrevem como configurar uma conta do lote do Azure para uso com o projeto acústica Unity e Unreal integrações de mecanismo.
 
-## <a name="get-an-azure-subscription"></a>Obtenha uma assinatura do Azure
+## <a name="get-an-azure-subscription"></a>Obter uma assinatura do Azure
 Uma [assinatura do Azure](https://azure.microsoft.com/free/) é necessária antes de configurar contas do lote e armazenamento. Se você estiver se inscrevendo pela primeira vez, o Azure fornece alguns recursos gratuitos de tempo limitado e o crédito de US $200.
 
 ## <a name="create-azure-batch-and-storage-accounts"></a>Criar contas de lote e armazenamento do Azure
@@ -62,6 +62,6 @@ As contas do Azure Batch são aprovisionadas na criação de contas com um limit
 
 ![Página de captura de tela de cota do Azure](media/azure-quotas.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Integrar o plug-in do projeto acústica em seu [Unity](unity-integration.md) ou [Unreal](unreal-integration.md) projeto
 

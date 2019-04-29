@@ -1,19 +1,18 @@
 ---
 title: Usar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight
 description: Saiba como usar o armazenamento do Azure Data Lake Gen2 com clusters de HDInsight do Azure.
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 43f335bdd8b918fa717d9084d3c9c30d97920c10
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 6452e73b2429ab89a466b1c3b59cc892eca31205
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004951"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766930"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Usar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight
 
@@ -69,7 +68,7 @@ Atribuir a identidade gerenciada para o **proprietário de dados do armazenament
         ![Configurações da identidade para usar o Data Lake Storage Gen2 com o Azure HDInsight](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
         
 > [!Note]
-> Você pode adicionar uma ou mais contas do Data Lake armazenamento Gen2 como armazenamento secundário no mesmo cluster. Basta repetir as etapas acima em cada conta do Data Lake armazenamento Gen2 que você deseja adicionar usando a mesma identidade gerenciada.
+> Para adicionar uma conta do Data Lake armazenamento Gen2 secundária, no nível da conta de armazenamento, basta atribua a identidade gerenciada criada anteriormente para a nova conta de armazenamento Gen2 de armazenamento do Data Lake que você deseja adicionar. Lembre-se de que a adição de uma conta do Data Lake armazenamento Gen2 secundária por meio da folha de "contas de armazenamento adicionais" no HDInsight não é suportado. 
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>Criar um cluster com o Data Lake armazenamento Gen2 por meio da CLI do Azure
 

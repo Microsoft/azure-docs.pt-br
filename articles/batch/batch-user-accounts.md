@@ -16,11 +16,11 @@ ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 000495ab84990f15885c254b472be7863c75da58
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877509"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60549845"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas em contas de usuário no Lote
 

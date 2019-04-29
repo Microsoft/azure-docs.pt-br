@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
 ms.openlocfilehash: da165634f5323183b633ee3c8a59e0d2607e8ef1
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409739"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60586503"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Práticas recomendadas de segurança para as cargas de trabalho IaaS no Azure
 

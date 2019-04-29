@@ -8,13 +8,13 @@ ms.author: zarhoads
 ms.date: 05/11/2018
 ms.topic: conceptual
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
-keywords: 'Docker, Kubernetes, Azure, AKS, serviço Kubernetes do Azure, contêineres, Helm, malha de serviço, o roteamento de malha do serviço, kubectl, k8s '
+keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
 ms.openlocfilehash: 0dfe88966deeb4dcf0196aa1f1584a06794b36a7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773258"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60686317"
 ---
 # <a name="use-kubectl-with-an-azure-dev-space"></a>Usar kubectl com um Azure Dev Space
 

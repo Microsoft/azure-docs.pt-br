@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: b5ba5fadd229fa7119f9af791f7eaedbc984c92a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457183"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60584940"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>FAQ (perguntas frequentes) sobre ferramentas de banco de dados elástico
 
@@ -55,6 +55,6 @@ Sim, um fragmento é um banco de dados individual e, portanto, um fragmento pode
 
 ## <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>A ferramenta de divisão e mesclagem provisiona (ou exclui) um banco de dados durante uma operação de divisão ou mesclagem
 
- Não. Para operações de **divisão** , o banco de dados de destino deve existir com o esquema apropriado e ser registrado com o Gerenciador de mapa do fragmento.  Para operações de **mesclagem** , você deve excluir o fragmento do Gerenciador do mapa de fragmento e, em seguida, excluir o banco de dados.
+Não. Para operações de **divisão** , o banco de dados de destino deve existir com o esquema apropriado e ser registrado com o Gerenciador de mapa do fragmento.  Para operações de **mesclagem** , você deve excluir o fragmento do Gerenciador do mapa de fragmento e, em seguida, excluir o banco de dados.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

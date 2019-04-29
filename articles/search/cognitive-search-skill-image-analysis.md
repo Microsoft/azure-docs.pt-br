@@ -12,11 +12,11 @@ ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 5e2c92c22f98913da0e3668ceb84b212cc48396a
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650973"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61341670"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Habilidade cognitiva de Análise de Imagens
 

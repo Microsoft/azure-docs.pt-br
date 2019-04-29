@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
 ms.openlocfilehash: 43dc76e6d1e1ec2a6167f1d3e3cc7b8780f843db
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551316"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60850147"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Configurar um aplicativo do Node. js do Linux para o serviço de aplicativo do Azure
 
@@ -137,7 +137,7 @@ Quando terminar com a depuração, pare o depurador selecionando **desconectar**
 
 ## <a name="access-environment-variables"></a>Acessar variáveis de ambiente
 
-No serviço de aplicativo, você pode [definir configurações do aplicativo](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) fora do seu código do aplicativo. Em seguida, você pode acessá-los usando o padrão do Node. js. Por exemplo, para acessar uma configuração de aplicativo chamada `NODE_ENV`, use o seguinte código:
+No Serviço de Aplicativo, você pode [definir configurações de aplicativo](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) fora do código do aplicativo. Em seguida, você pode acessá-los usando o padrão do Node. js. Por exemplo, para acessar uma configuração de aplicativo chamada `NODE_ENV`, use o seguinte código:
 
 ```javascript
 process.env.NODE_ENV
@@ -258,7 +258,7 @@ Quando um aplicativo Node. js em funcionamento se comporta de forma diferente no
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: Aplicativo Node. js com MongoDB](tutorial-nodejs-mongodb-app.md)
+> [Tutorial: Aplicativo Node.js com o MongoDB](tutorial-nodejs-mongodb-app.md)
 
 > [!div class="nextstepaction"]
-> [Perguntas Frequentes do serviço de aplicativo Linux](app-service-linux-faq.md)
+> [Perguntas frequentes sobre o Serviço de Aplicativo no Linux](app-service-linux-faq.md)

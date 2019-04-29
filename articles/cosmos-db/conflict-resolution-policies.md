@@ -8,11 +8,11 @@ ms.date: 03/24/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: ebea55f769ca16bfa344d0a100fe16cec6d784d0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684218"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60892584"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Tipos e políticas de resolução de conflitos
 

@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: bda3df3ce869d7717f572f72c38472e7eae4a0ef
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437421"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60567207"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Mover dados de e para o Azure Cosmos DB usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -484,16 +484,16 @@ O Azure Cosmos DB é um repositório NoSQL para documentos JSON, em que estrutur
 ## <a name="appendix"></a>Apêndice
 1. **Pergunta:** A Atividade de Cópia dá suporte à atualização de registros existentes?
 
-    **Resposta:**  Não.
+    **Resposta:** Não.
 2. **Pergunta:** Como uma nova tentativa de cópia para o Azure Cosmos DB lida com os registros já copiados?
 
     **Resposta:** Se os registros tiverem um campo "ID" e a operação de cópia tentar inserir um registro com a mesma ID, a operação de cópia vai gerar um erro.
 3. **Pergunta:** O Data Factory dá suporte ao [intervalo ou particionamento de dados com base em hash](../../cosmos-db/sql-api-partition-data.md)?
 
-    **Resposta:**  Não.
+    **Resposta:** Não.
 4. **Pergunta:** Posso especificar mais de uma coleção do Azure Cosmos DB para uma tabela?
 
-    **Resposta:**  Não. Somente uma coleção pode ser especificada no momento.
+    **Resposta:** Não. Somente uma coleção pode ser especificada no momento.
 
 ## <a name="performance-and-tuning"></a>Desempenho e Ajuste
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.

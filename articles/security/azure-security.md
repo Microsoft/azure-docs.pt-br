@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: ed57d72d32ba82a37036c9af77590bd4e93db8d9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904245"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610502"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à Segurança do Azure
 ## <a name="overview"></a>Visão geral
@@ -106,7 +106,7 @@ O [Assistente do Azure](https://docs.microsoft.com/azure/advisor/) é um consult
 A [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro) ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
 Além disso, a Central de Segurança do Azure ajuda com operações de segurança, fornecendo um único painel que mostra alertas e recomendações para ação imediata. Geralmente, você pode corrigir problemas com um único clique dentro do console da Central de Segurança do Azure.
-## <a name="applications"></a>APLICATIVOS
+## <a name="applications"></a>Aplicativos
 A seção fornece outras informações sobre os principais recursos em segurança do aplicativo e informações de resumo sobre esses recursos.
 
 ### <a name="web-application-vulnerability-scanning"></a>Verificação de vulnerabilidades de aplicativos Web

@@ -17,11 +17,11 @@ ms.date: 01/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: aeb97d661d330ed6afb3ca5e5e1eb924dacc4024
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096292"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60607708"
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Backup automatizado para SQL Server em Máquinas Virtuais do Azure (Clássico)
 > [!div class="op_single_selector"]
@@ -67,7 +67,7 @@ Para usar o Backup Automatizado, considere os seguintes pré-requisitos:
 ## <a name="settings"></a>Configurações
 A tabela a seguir descreve as opções que podem ser configuradas para Backup Automatizado. Para VMs clássicas, você deve usar o PowerShell para definir essas configurações.
 
-| Configuração | Intervalo (Padrão) | Descrição |
+| Configuração | Intervalo (Padrão) | DESCRIÇÃO |
 | --- | --- | --- |
 | **Backup Automatizado** |Habilitar/desabilitar (Desabilitado) |Habilita ou desabilita o Backup Automatizado de uma VM do Azure que executa o SQL Server 2014 Standard ou Enterprise. |
 | **Período de retenção** |Um a 30 dias (30 dias) |O número de dias para manter um backup. |

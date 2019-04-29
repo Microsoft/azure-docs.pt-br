@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
 ms.openlocfilehash: f407d87249c44ad3a4773b2cd8fc85ee09506ceb
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445651"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60921353"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Console serial da máquina virtual para Linux
 

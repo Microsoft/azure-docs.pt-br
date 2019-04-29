@@ -10,11 +10,11 @@ ms.topic: reference
 ms.service: service-fabric-mesh
 manager: subramar
 ms.openlocfilehash: 08e842f5b91bd0ca5f8e8b2a7866f3f9a689ac28
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998984"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60811624"
 ---
 # <a name="maven-plugin-for-service-fabric-mesh"></a>Plug-in do Maven para a Malha do Azure Service Fabric
 

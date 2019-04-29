@@ -2,7 +2,7 @@
 title: Eventos de início de tarefa em lote do Azure | Microsoft Docs
 description: Referência de evento de início de tarefa de lote.
 services: batch
-author: laurenhughes
+author: dlepow
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -10,14 +10,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/20/2017
-ms.author: lahugh
+origin.date: 04/20/2017
+ms.date: 05/15/2018
+ms.author: v-junlch
 ms.openlocfilehash: d50a0a7082e409084fd966370934a638ca9bb013
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474421"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60549862"
 ---
 # <a name="task-start-event"></a>Evento de início da tarefa
 
@@ -70,7 +71,7 @@ ms.locfileid: "55474421"
 
 |Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
-|numberOfInstances|int|O número de nós de computação que a tarefa precisa.|
+|numberOfInstances|Int|O número de nós de computação que a tarefa precisa.|
 
 ###  <a name="constraints"></a> restrições
 
@@ -83,3 +84,5 @@ ms.locfileid: "55474421"
 |Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
 |retryCount|Int32|O número de vezes que a tarefa foi repetida pelo serviço em lotes. A tarefa será repetida se a saída tiver um código de saída diferente de zero, até a MaxTaskRetryCount especificada|
+
+<!-- Update_Description: update metedata properties -->

@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: alavital
 ms.custom: ''
 ms.openlocfilehash: feb7fcdd9005ef131acadfc63defbe4caeaca014
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57991923"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60576522"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Usar alertas de custo para monitorar o uso e os gastos
 
@@ -49,7 +49,7 @@ Suporte para tipos de alerta depende do tipo de conta do Azure que você tenha (
 
 ## <a name="view-cost-alerts"></a>Exibir alertas de custo
 
-Para exibir alertas de custo, abra o escopo desejado no portal do Azure e selecione **orçamentos** no menu. Use o **escopo** com conteúdo malicioso para alternar para um escopo diferente. Selecione **custo alertas** no menu. Para obter mais informações sobre escopos, consulte [entender e trabalhar com escopos](understand-work-scopes.md).
+Para exibir alertas de custo, abra o escopo desejado no portal do Azure e selecione **orçamentos** no menu. Use o **escopo** com conteúdo malicioso para alternar para um escopo diferente. Selecione **custo alertas** no menu. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
 
 ![Imagem de exemplo de alertas mostrados no Gerenciamento de Custos](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 

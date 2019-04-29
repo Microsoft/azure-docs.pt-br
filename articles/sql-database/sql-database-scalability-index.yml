@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7ee79da6219452ace4f7e71bd670de3cfdc968fb
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232357"
 documentType: LandingData
 title: Banco de Dados SQL do Azure – escalabilidade
 metadata:
@@ -12,49 +6,49 @@ metadata:
   title: Banco de Dados SQL do Azure – escalabilidade
   meta.description: Learn how to scale your Azure SQL Database.
   services: sql-database
-  ms.subservice: scale-out
-  author: jovanpop-msft
-  manager: craigg
+  author: WenJason
+  manager: digimobile
   requires-business-manager-approval: false
   ms.service: sql-database
   ms.tgt_pltfrm: na
-  ms.devlang: 
+  ms.devlang: null
   ms.topic: overview
-  ms.date: 01/25/2019
-  ms.author: jovanpop-msft
+  origin.date: 01/25/2019
+  ms.date: 02/25/2019
+  ms.author: v-jay
 sections:
-- items:
-  - type: paragraph
-    text: O Banco de Dados SQL do Azure permite que você dimensione facilmente o banco de dados adicionando mais poder de computação (escalar verticalmente) ou adicionar mais unidades de banco de dados (expansão).
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: paragraph
+        text: O Banco de Dados SQL do Azure permite que você dimensione facilmente o banco de dados adicionando mais poder de computação (escalar verticalmente) ou adicionar mais unidades de banco de dados (expansão).
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - title: Escalar verticalmente
+            href: /sql-database/sql-database-scale-resources
+            html: <p>Adicione ou remova recursos em seu Banco de Dados SQL para encontrar a melhor relação entre preço e desempenho ou atenuar problemas de desempenho.</p>
+          - title: Escala de leitura
+            href: /sql-database/sql-database-read-scale-out
+            html: '<p>A camada comercialmente crítica fornece uma réplica gratuita do banco de dados, na qual você pode executar relatórios, análises e outras consultas somente leitura em uma cópia dos dados.</p>'
+          - title: Fragmentação do banco de dados
+            href: /sql-database/sql-database-elastic-scale-introduction
+            html: <p>Você pode usar vários fragmentos de bancos de dados para expandir seu banco de dados além dos limites máximos de armazenamento e de computação para bancos de dados individuais.</p>
+          - title: Consultas elásticas
+            href: /sql-database/sql-database-elastic-query-overview
+            html: <p>As consultas elásticas permitem executar consultas Transact-SQL padrão em um conjunto de fragmentos de banco de dados distribuídos globalmente.</p>
+          - title: Transações elásticas
+            href: /sql-database/sql-database-elastic-transactions-overview
+            html: <p>Use transações distribuídas globalmente para garantir o acesso transacionalmente consistente a seus dados distribuídos.</p>
+          - title: Trabalhos entre banco de dados
+            href: /sql-database/elastic-jobs-overview
+            html: <p>Mantenha um conjunto de bancos de dados usando trabalhos elásticos entre diferentes bancos de dados.</p>
+  - title: Mais recursos
     items:
-    - title: Escalar verticalmente
-      href: /azure/sql-database/sql-database-scale-resources
-      html: <p>Adicione ou remova recursos em seu Banco de Dados SQL para encontrar a melhor relação entre preço e desempenho ou atenuar problemas de desempenho.</p>
-    - title: Escala de leitura
-      href: /azure/sql-database/sql-database-read-scale-out
-      html: <p>A camada comercialmente crítica fornece uma réplica gratuita do banco de dados, na qual você pode executar relatórios, análises e outras consultas somente leitura em uma cópia dos dados.</p>
-    - title: Fragmentação do banco de dados
-      href: /azure/sql-database/sql-database-elastic-scale-introduction
-      html: <p>Você pode usar vários fragmentos de bancos de dados para expandir seu banco de dados além dos limites máximos de armazenamento e de computação para bancos de dados individuais.</p>
-    - title: Consultas elásticas
-      href: /azure/sql-database/sql-database-elastic-query-overview
-      html: <p>As consultas elásticas permitem executar consultas Transact-SQL padrão em um conjunto de fragmentos de banco de dados distribuídos globalmente.</p>
-    - title: Transações elásticas
-      href: /azure/sql-database/sql-database-elastic-transactions-overview
-      html: <p>Use transações distribuídas globalmente para garantir o acesso transacionalmente consistente a seus dados distribuídos.</p>
-    - title: Trabalhos entre banco de dados
-      href: /azure/sql-database/elastic-jobs-overview
-      html: <p>Mantenha um conjunto de bancos de dados usando trabalhos elásticos entre diferentes bancos de dados.</p>
-- title: Mais recursos
-  items:
-  - type: paragraph
-    text: Saiba mais sobre recursos adicionais que podem ajudar você a dimensionar seus dados.
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine">Servidor vinculado</a> é um recurso de mecanismo de banco de dados do SQL Server de núcleo que lhe permite executar consultas distribuídas do código Transact-SQL para outros mecanismos de banco de dados.
-    - html: A <a href="sql-database-geo-replication-overview.md">replicação geográfica</a> permite que você coloque qualquer número de réplicas legíveis em regiões diferentes.
+      - type: paragraph
+        text: Saiba mais sobre recursos adicionais que podem ajudar você a dimensionar seus dados.
+      - type: list
+        style: ordered
+        items:
+          - html: '<a href="https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine">Servidor vinculado</a> é um recurso de mecanismo de banco de dados do SQL Server de núcleo que lhe permite executar consultas distribuídas do código Transact-SQL para outros mecanismos de banco de dados.'
+          - html: A <a href="sql-database-geo-replication-overview.md">replicação geográfica</a> permite que você coloque qualquer número de réplicas legíveis em regiões diferentes.

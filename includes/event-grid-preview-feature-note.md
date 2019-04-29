@@ -9,13 +9,13 @@ ms.date: 11/06/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 85a1579e32b4c216f234f77c76316bedeaea77b0
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285800"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60565489"
 ---
-Esse recurso está em versão prévia. Para utilizá-lo, será necessário instalar um módulo ou extensão de versão prévia.
+Esse recurso está em visualização. Para usá-lo, você deve instalar uma extensão ou módulo de visualização.
 
 ### <a name="install-extension-for-azure-cli"></a>Instalar extensão para CLI do Azure
 

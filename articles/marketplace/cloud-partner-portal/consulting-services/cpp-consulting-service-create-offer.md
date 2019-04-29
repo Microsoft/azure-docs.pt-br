@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
 ms.openlocfilehash: f130f20643ba80bf706b8b5ba8f4b7eab0acaa59
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231437"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865385"
 ---
 # <a name="create-an-offer"></a>Criar uma oferta
 

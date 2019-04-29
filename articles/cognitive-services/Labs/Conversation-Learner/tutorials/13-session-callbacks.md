@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: 246b87e46029c2bf4d7361540939181b3b209acc
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219101"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60635647"
 ---
 # <a name="how-to-use-session-callbacks-with-a-conversation-learner-model"></a>Como usar retornos de chamada da sessão com um modelo de Aprendiz de Conversa
 
@@ -103,7 +103,7 @@ Quatro ações são definidas no Modelo. As Ações existentes são exibidas na 
 9. Clique no botão "OK".
 10. Clique no botão "Teste Concluído".
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Chamadas de API](./14-api-calls.md)

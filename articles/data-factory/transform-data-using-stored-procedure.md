@@ -11,11 +11,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 806654b7586895b62b014a49b8b3a00fb18f008f
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575881"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764400"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformar dados usando a atividade de procedimento armazenado do SQL Server no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +65,7 @@ Aqui está o formato JSON para definir uma Atividade de Procedimento Armazenado:
 
 A seguinte tabela descreve essas propriedades JSON:
 
-| Propriedade                  | Descrição                              | Obrigatório |
+| Propriedade                  | DESCRIÇÃO                              | Obrigatório |
 | ------------------------- | ---------------------------------------- | -------- |
 | nome                      | Nome da atividade                     | Sim      |
 | descrição               | Texto que descreve qual a utilidade da atividade | Não       |

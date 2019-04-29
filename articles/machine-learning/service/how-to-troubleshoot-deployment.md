@@ -12,11 +12,11 @@ ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 815be7400e0a0560ace7e07b317aeb25c2feacd5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450967"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60817426"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Solucionando problemas de implantações de serviço AKS e ACI do Azure Machine Learning
 
@@ -252,7 +252,7 @@ Isso imprime o caminho local (relativo ao `/var/azureml-app`) no contêiner em q
 Definir o nível de log como DEBUG poderá fazer com que as informações adicionais sobre a causa sejam registradas, o que podem ser útil para identificar a falha.
 
 ## <a name="function-fails-runinputdata"></a>Falha de função: run(input_data)
-Se o serviço for implantado com êxito, mas falhar quando você publicar dados no ponto de extremidade de pontuação, você poderá adicionar o erro capturando instrução na função `run(input_data)` de modo que ele retorne a mensagem de erro detalhada em vez disso. Por exemplo:
+Se o serviço for implantado com êxito, mas falhar quando você publicar dados no ponto de extremidade de pontuação, você poderá adicionar o erro capturando instrução na função `run(input_data)` de modo que ele retorne a mensagem de erro detalhada em vez disso. Por exemplo: 
 
 ```python
 def run(input_data):

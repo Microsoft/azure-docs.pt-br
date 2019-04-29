@@ -2,16 +2,17 @@
 title: Importar e exportar um arquivo de zona de domínio para DNS do Azure usando CLI do Azure | Microsoft Docs
 description: Saiba como importar e exportar um arquivo de zona DNS para o DNS do Azure usando a CLI do Azure
 services: dns
-author: vhorne
+author: WenJason
 ms.service: dns
-ms.date: 4/3/2019
-ms.author: victorh
+origin.date: 4/3/2019
+ms.date: 04/15/2019
+ms.author: v-jay
 ms.openlocfilehash: 25445415141372e1f231549c5b8f8575a89363c6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905402"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61293058"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importar e exportar um arquivo de zona DNS usando a CLI do Azure
 
@@ -114,19 +115,19 @@ Para verificar a zona DNS após importar o arquivo, você pode usar qualquer um 
         "nsRecords": [
           {
             "additionalProperties": {},
-            "nsdname": "ns1-03.azure-dns.com."
+            "nsdname": "ns1-03.azure-dns.cn."
           },
           {
             "additionalProperties": {},
-            "nsdname": "ns2-03.azure-dns.net."
+            "nsdname": "ns2-03.azure-dns.cn."
           },
           {
             "additionalProperties": {},
-            "nsdname": "ns3-03.azure-dns.org."
+            "nsdname": "ns3-03.azure-dns.cn."
           },
           {
             "additionalProperties": {},
-            "nsdname": "ns4-03.azure-dns.info."
+            "nsdname": "ns4-03.azure-dns.cn."
           }
         ],
         "resourceGroup": "myresourcegroup",
@@ -137,9 +138,9 @@ Para verificar a zona DNS após importar o arquivo, você pode usar qualquer um 
     ```
 
     ```cmd
-    nslookup www.contoso.com ns1-03.azure-dns.com
+    nslookup www.contoso.com ns1-03.azure-dns.cn
 
-        Server: ns1-01.azure-dns.com
+        Server: ns1-01.azure-dns.cn
         Address:  40.90.4.1
 
         Name:www.contoso.com

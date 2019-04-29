@@ -9,11 +9,11 @@ ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 06e6e491fa1e9a047527efb78149855b125771ef
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49960256"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60543749"
 ---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Faça backup dos discos não gerenciados de VM do Azure com instantâneos incrementais
 ## <a name="overview"></a>Visão geral
@@ -58,7 +58,7 @@ Se as condições a seguir forem atendidas,
 * O blob foi criado em 1º de janeiro de 2016 ou posteriormente.
 * O blob não foi substituído por [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) ou [Copiar Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) entre dois instantâneos.
 
-**Observação**: este recurso está disponível para os Blobs de Página do Azure Premium e Standard.
+**Observação**: Esse recurso está disponível para Blobs de páginas do Azure Standard e Premium.
 
 Quando você tem uma estratégia de backup personalizada usando instantâneos, copiar os instantâneos de uma conta de armazenamento para outra pode ser um processo lento que consome muito espaço de armazenamento. Em vez de copiar todo o instantâneo para uma conta de armazenamento de backup, você pode gravar a diferença em um blob de páginas de backup. Dessa forma, o tempo para copiar e o espaço para armazenar backups são reduzidos substancialmente.
 

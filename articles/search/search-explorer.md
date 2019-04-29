@@ -10,11 +10,11 @@ ms.date: 01/10/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 85e574a56380384b10d0916385a8816fd26c2eeb
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244793"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61292314"
 ---
 # <a name="search-explorer-for-querying-data-in-azure-search"></a>Gerenciador de pesquisa para consultar dados no Azure Search 
 

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: diberry
 ms.openlocfilehash: 1333aefc145e95223624f42a28ec0bb31ab70065
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011751"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60828115"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configurar contêineres de docker de Análise de Texto
 
@@ -51,7 +51,7 @@ Essa configuração pode ser localizada no seguinte local:
 
 Você precisará adicionar o `text/analytics/v2.0` roteamento para o URI do ponto de extremidade, conforme mostrado no exemplo a seguir de BILLING_ENDPOINT_URI.
 
-|Necessário| NOME | Tipo de dados | DESCRIÇÃO |
+|Obrigatório| NOME | Tipo de dados | DESCRIÇÃO |
 |--|------|-----------|-------------|
 |Sim| `Billing` | Cadeia de caracteres | URI do ponto de extremidade de cobrança<br><br>Exemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.1` |
 
@@ -152,7 +152,7 @@ Os seguintes exemplos de docker são para o contêiner de análise de sentimento
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel:Default=Information
   ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Reveja [Como instalar e executar contêineres](how-tos/text-analytics-how-to-install-containers.md)
 * Use mais [Contêineres de Serviços Cognitivos](../cognitive-services-container-support.md)

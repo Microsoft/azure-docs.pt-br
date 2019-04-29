@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/02/2017
-ms.openlocfilehash: 11fbec81e88eec6c7daa9136eb5421387b79d71c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: f0591b47ce7ba6837f300088c856c0098fb66710
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124327"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60998791"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Erros e soluções B2B para os Aplicativos Lógicos do Azure
 
@@ -34,7 +34,7 @@ Este artigo ajuda você a solucionar problemas de erros que podem ocorrer em cen
 
 |   |   | 
 |---|---|
-| Descrição do erro | Não foi encontrado nenhum contrato com as identidades: 'AS2Identity'::'Partner1' e 'AS2Identity'::'Partner3' | 
+| Descrição do erro | Nenhum contrato encontrado com identidades: 'AS2Identity':: 'Partner1' e 'AS2Identity':: 'Partner3' | 
 | Ação do usuário | AS2-From ou AS2-To inválido configurado para o contrato. </br>Corrigir os cabeçalhos "AS2-From" ou "AS2-To" da mensagem AS2 ou o contrato para corresponder as IDs do AS2 nos cabeçalhos de mensagem AS2 com as configurações de contrato. |
 |   |   |     
 
@@ -145,7 +145,7 @@ Por exemplo:
 
 |   |   | 
 |---|---|
-| Descrição do erro | InvalidTemplate. Não é possível processar as expressões da linguagem do modelo nas entradas da ação “Flat_File_Decoding” na linha “1” e coluna “1902”: “A propriedade obrigatória “content” espera um valor, mas recebeu nulo. Caminho “”.”. |
+| Descrição do erro | InvalidTemplate. Não é possível processar as expressões de linguagem do modelo em ação "Flat_File_Decoding" entradas na linha '1' e coluna "1902": ' Necessária a propriedade 'content' espera um valor, mas recebeu nulo. Caminho “”.”. |
 | Ação do usuário | Esse erro indica que a mensagem de entrada não contém um corpo. |
 |   |   | 
 

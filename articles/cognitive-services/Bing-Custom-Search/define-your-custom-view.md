@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: c4cb93e39a67e13646a339af6ac999a8fd96b383
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234808"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129631"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configure sua experiência de Pesquisa Personalizada do Bing
 
@@ -129,7 +129,7 @@ Por padrão, as páginas da Web só estão fixadas na parte superior dos resulta
 > [!NOTE]
 > Todas as comparações entre a consulta de pesquisa do usuário e a consulta de pesquisa da fixação diferenciam maiúsculas de minúsculas.
 
-| Valor | DESCRIÇÃO                                                                          |
+| Value | DESCRIÇÃO                                                                          |
 |---------------|----------------------------------------------------------------------------------|
 | Começa com | A fixação é uma correspondência se a cadeia de caracteres de consulta do usuário começa com a cadeia de caracteres de consulta da fixação |
 | Termina com   | A fixação é uma correspondência se a cadeia de caracteres de consulta do usuário termina com a cadeia de caracteres de consulta da fixação.  |
@@ -155,7 +155,7 @@ Se você inscreveu-se na Pesquisa Personalizada no nível apropriado (consulte a
 - Aumentar e rebaixar contam como dois ajustes na classificação.
 - Para cada instância de pesquisa personalizada, o número máximo de fixações que você pode fazer é limitado a 200.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Chamar sua pesquisa personalizada](./search-your-custom-view.md)
 - [Configurar a experiência de interface do usuário hospedada](./hosted-ui.md)

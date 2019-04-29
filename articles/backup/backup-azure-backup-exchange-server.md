@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: kasinh
 ms.openlocfilehash: ef976667ec580ea75dd1b8566c7bdddf35eeb0fc
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298306"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60647191"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Fazer backup de um servidor do Exchange no Backup do Azure com o System Center 2012 R2 DPM
 Este artigo descreve como configurar um servidor do System Center 2012 R2 DPM (Data Protection Manager) para fazer backup de um servidor do Microsoft Exchange no Backup do Azure.  
@@ -61,7 +61,7 @@ Execute estas etapas para instalar o agente de proteção do DPM no servidor do 
 
    * Desejo a proteção de curto prazo usando Disco.
    * Desejo a proteção online.
-6. Clique em **Próximo**.
+6. Clique em **Avançar**.
 7. Escolha a opção **Executar Eseutil para verificar a integridade dos dados** se você quiser verificar a integridade dos bancos de dados do Exchange Server.
 
     Depois de escolher essa opção, a verificação de consistência do backup será executada no servidor DPM a fim de evitar o tráfego de E/S gerado pela execução do comando **eseutil** no servidor Exchange.
@@ -71,7 +71,7 @@ Execute estas etapas para instalar o agente de proteção do DPM no servidor do 
    > ![erro de eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. Clique em **Próximo**.
+8. Clique em **Avançar**.
 9. Escolha o banco de dados para **Copiar o Backup** e clique em **Próximo**.
 
    > [!NOTE]

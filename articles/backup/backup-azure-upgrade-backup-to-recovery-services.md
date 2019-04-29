@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 1/4/2018
 ms.author: sogup
 ms.openlocfilehash: b4ecebc6bef7f49a23455c7a85f25680df087a95
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530749"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848328"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação
 
@@ -113,7 +113,7 @@ Depois de atualizar para um cofre dos Serviços de Recuperação, configure rela
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="does-the-upgrade-plan-affect-my-ongoing-backups"></a>O plano de atualização afeta meus backups em andamento?
- Não. Os backups em andamento continuam sem interrupções durante e após a atualização.
+Não. Os backups em andamento continuam sem interrupções durante e após a atualização.
 
 ### <a name="if-i-dont-plan-on-upgrading-soon-what-happens-to-my-vaults"></a>O que acontecerá com meus cofres se eu não planejar atualizar em breve?
 Como todos os novos recursos se aplicam apenas aos cofres dos Serviços de Recuperação, insistimos que você atualize seus cofres. A partir de 1º de setembro de 2017, a Microsoft começará a atualização automática dos cofres de backup para cofres dos Serviços de Recuperação. Após 30 de novembro de 2017, você não poderá mais criar cofres de backup usando o PowerShell. Seu cofre pode ser atualizado automaticamente a qualquer momento até esse prazo. A Microsoft recomenda que você atualize seu cofre assim que possível.
@@ -125,16 +125,16 @@ Atualize suas ferramentas para o modelo de implantação do Resource Manager. Os
 Isso depende do número de recursos que estão sendo atualizados. Para implantações menores (algumas dezenas de instâncias protegidas), a atualização inteira deve levar menos de 20 minutos. Para implantações maiores, deve levar um máximo de uma hora.
 
 ### <a name="can-i-roll-back-after-upgrading"></a>Posso reverter após a atualização?
- Não. Não há suporte para reversão após os recursos terem sido atualizados com êxito.
+Não. Não há suporte para reversão após os recursos terem sido atualizados com êxito.
 
 ### <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-upgrade"></a>Posso validar minha assinatura ou recursos para ver se eles podem ser atualizados?
 Sim. A primeira etapa na atualização valida se os recursos podem ser atualizados. No caso de falha na validação dos pré-requisitos, você recebe mensagens para todos os motivos pelos quais a atualização não pode ser concluída.
 
 ### <a name="can-i-upgrade-my-csp-based-backup-vault"></a>Posso atualizar meu cofre de Backup baseado em CSP?
- Não. No momento não é possível atualizar os cofres de backup baseados em CSP. Adicionaremos suporte para atualizar os cofres de backup baseados em CSP nas próximas versões.
+Não. No momento não é possível atualizar os cofres de backup baseados em CSP. Adicionaremos suporte para atualizar os cofres de backup baseados em CSP nas próximas versões.
 
 ### <a name="can-i-view-my-classic-vault-post-upgrade"></a>Posso exibir meu cofre clássico após a atualização?
- Não. Você não pode exibir nem gerenciar o cofre clássico pós-atualização. Você só poderá usar o novo portal do Azure para todas as ações de gerenciamento no cofre.
+Não. Você não pode exibir nem gerenciar o cofre clássico pós-atualização. Você só poderá usar o novo portal do Azure para todas as ações de gerenciamento no cofre.
 
 ### <a name="my-upgrade-failed-but-the-machine-that-held-the-agent-requiring-updating-doesnt-exist-anymore-what-do-i-do-in-such-a-case"></a>Ocorreu falha na minha atualização, mas o computador que mantinha o agente que exigia a atualização não existe mais. O que devo fazer nesse caso?
 Se você precisar usar o armazenamento, os backups desse computador para retenção de longo prazo, você não poderá atualizar o cofre. Nas versões futuras, adicionaremos suporte para atualizar esse cofre.

@@ -13,11 +13,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 3852b2d18b48be63cbc612159facb6273f23dc2b
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575572"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848072"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do Hive do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,8 +58,8 @@ Se você é novo no Azure Data Factory, leia a [Introduction to Azure Data Facto
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 | Propriedade            | DESCRIÇÃO                                                  | Obrigatório |
 | ------------------- | ------------------------------------------------------------ | -------- |
-| Nome                | Nome da atividade                                         | Sim      |
-| Descrição         | Texto que descreve qual a utilidade da atividade                | Não        |
+| nome                | Nome da atividade                                         | Sim      |
+| descrição         | Texto que descreve qual a utilidade da atividade                | Não       |
 | Tipo                | Para a atividade do Hive, o tipo de atividade é HDinsightHive        | Sim      |
 | linkedServiceName   | Referência ao cluster do HDInsight registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | Sim      |
 | scriptLinkedService | Referência a um serviço vinculado do Armazenamento do Azure usado para armazenar o script do Hive a ser executado. Se você não especificar esse serviço vinculado, será usado o serviço vinculado do Armazenamento do Azure definido no serviço vinculado do HDInsight. | Não        |

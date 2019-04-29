@@ -9,11 +9,11 @@ ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 9f7c82a2bd35f06da096fa0dd9d5d1fa4d08011e
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549162"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60838923"
 ---
 No Cloud Shell, crie um [aplicativo Web](../articles/app-service/overview.md) no plano do Serviço de Aplicativo do `myAppServicePlan`. Você pode fazer isso usando o comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). No exemplo a seguir, substitua  *\<app-name >* com um nome de aplicativo exclusivo globalmente (os caracteres válidos são `a-z`, `0-9`, e `-`).
 

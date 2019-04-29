@@ -10,14 +10,14 @@ ms.custom: develop apps
 ms.topic: include
 ms.date: 07/13/2018
 ms.author: ninarn
-ms.openlocfilehash: 07bbba28b7e1b048ef3a4e1afa4db255967dc093
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
-ms.translationtype: HT
+ms.openlocfilehash: 8d0f9899dbb7599340b8d15ca010a0157011fb9e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117266"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60202064"
 ---
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 
 2. Na lista à esquerda, selecione **Todos os serviços**.
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/15/2018
 ms.author: jomolesk
 ms.openlocfilehash: d2e3b4b199065510d244d384ff69d5231bef5919
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244427"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60609060"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-analytics-for-uk-nhs"></a>Blueprint de Segurança e Conformidade do Azure: Análise de dados para NHS do Reino Unido
 
@@ -185,7 +185,7 @@ O [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polyba
 ### <a name="azure-active-directory-setup"></a>Configuração do Azure Active Directory
 O [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) é essencial para gerenciar a implantação e provisionar acesso para pessoas que interagem com o ambiente. Um Windows Server Active Directory existente pode ser integrado ao Azure Active Directory com [quatro cliques](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Os clientes também podem associar a infraestrutura implantada (os controladores de domínio) do Active Directory a um Azure Active Directory existente fazendo da infraestrutura do Active Directory implantada um subdomínio de uma floresta do Azure Active Directory.
 
-## <a name="disclaimer"></a>Isenção de responsabilidade
+## <a name="disclaimer"></a>Aviso de isenção de responsabilidade
 
  - Este documento serve apenas para fins informativos. A MICROSOFT NÃO FORNECE NENHUMA GARANTIA, EXPRESSA, IMPLÍCITA OU REGULAMENTAR, QUANTO ÀS INFORMAÇÕES PRESENTES NESTE DOCUMENTO. Este documento é fornecido "no estado em que se encontra". As informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio. Os clientes que estão lendo este documento arcarão com o risco de usá-lo.
  - Este documento não fornece aos clientes nenhum direito legal a qualquer propriedade intelectual de qualquer produto ou solução da Microsoft.

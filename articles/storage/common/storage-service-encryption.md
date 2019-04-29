@@ -1,90 +1,61 @@
 ---
-title: Criptografia do Serviço de Armazenamento do Azure para dados em repouso | Microsoft Docs
-description: Use o recurso de Criptografia do Serviço de Armazenamento do Microsoft Azure para criptografar o p Azure Managed Disks, Azure Files, Azure Queue e Azure Table no lado do serviço ao armazenar os dados e descriptografá-los ao recuperar os dados.
+title: Criptografia de armazenamento do Azure para dados em repouso | Microsoft Docs
+description: O armazenamento do Azure protege seus dados criptografando-os automaticamente antes persisti-los para a nuvem. Todos os dados no armazenamento do Azure, em blobs, discos, arquivos, filas ou tabelas, são criptografados e descriptografados de maneira transparente usando criptografia AES de 256 bits e é compatível com o FIPS 140-2.
 services: storage
-author: lakasa
+author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/01/2018
-ms.author: lakasa
+ms.date: 04/16/2019
+ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 059091315c378ab6e2bb857e580c02df968b5092
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 211cfeb3aba29245e154f4a7db86fb4a3659c36f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457166"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60730814"
 ---
-# <a name="azure-storage-service-encryption-for-data-at-rest"></a>Criptografia do Serviço de Armazenamento do Azure para dados em repouso
-A criptografia de serviço de armazenamento do Azure para dados em repouso ajuda a proteger seus dados para atender aos compromissos de segurança e conformidade da organização. Com esse recurso, a plataforma de armazenamento do Azure criptografa automaticamente seus dados antes de persistir no Azure Managed Disks, Blob do Azure, Fila, Armazenamento de Tabela ou Arquivos do Azure e descriptografa os dados antes de recuperá-los. A manipulação de criptografia, criptografia em repouso, descriptografia e gerenciamento de chaves na Criptografia do Serviço de Armazenamento é transparente para os usuários. Todos os dados gravados na plataforma de armazenamento do Azure são criptografados por meio da [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uma das mais fortes cifras de bloco disponíveis.
+# <a name="azure-storage-encryption-for-data-at-rest"></a>Criptografia de armazenamento do Azure para dados em repouso
 
-A Criptografia do Serviço de Armazenamento está habilitada para todas as contas de armazenamento novas e existentes e não pode ser desabilitada. Como os dados são protegidos por padrão, você não precisa modificar o código nem os aplicativos para aproveitar a Criptografia do Serviço de Armazenamento.
+O armazenamento do Azure criptografa automaticamente seus dados quando persisti-los para a nuvem. A criptografia protege seus dados e para ajudar você a atender aos seus compromissos de conformidade e segurança organizacionais. Dados no armazenamento do Azure são criptografados e descriptografados de maneira transparente usando 256 bits [a criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), um dos codificadores de blocos potentes e é compatível com o FIPS 140-2. Criptografia de armazenamento do Azure é semelhante a criptografia do BitLocker no Windows.
 
-O recurso criptografa os dados automaticamente em:
+Criptografia de armazenamento do Azure está habilitada para todas as contas de armazenamento novas e existentes e não pode ser desabilitada. Porque seus dados são protegidos por padrão, você não precisa modificar seu código ou aplicativos para tirar proveito da criptografia de armazenamento do Azure. Contas de armazenamento são criptografadas independentemente do seu nível de desempenho (standard ou premium) ou o modelo de implantação (Azure Resource Manager ou clássico). Todas as opções de redundância de armazenamento do Azure dá suporte à criptografia, e todas as cópias de uma conta de armazenamento são criptografadas. Todos os recursos de armazenamento do Azure são criptografados, incluindo blobs, discos, arquivos, filas e tabelas.
 
-- Serviços do Armazenamento do Azure:
-    - Azure Managed Disks
-    - Armazenamento de Blobs do Azure
-    - Arquivos do Azure
-    - Armazenamento de Filas do Azure
-    - Armazenamento de Tabelas do Azure.  
-- Ambos os níveis de desempenho (Standard e Premium).
-- Ambos os modelos de implantação (Azure Resource Manager e clássico).
+A criptografia não afeta o desempenho do armazenamento do Azure. Não há nenhum custo adicional para a criptografia de armazenamento do Azure.
 
-A Criptografia de Serviço de Armazenamento não afeta o desempenho dos serviços de armazenamento do Azure.
+Para obter mais informações sobre os módulos criptográficos subjacente de criptografia de armazenamento do Azure, consulte [Cryptography API: Próxima Geração](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
 
-Use chaves de criptografia gerenciadas pela Microsoft com a Criptografia do Serviço de Armazenamento ou suas próprias chaves de criptografia. Para obter mais informações sobre como usar suas próprias chaves, consulte [Criptografia do Serviço de Armazenamento usando chaves gerenciadas pelo cliente no Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
+## <a name="key-management"></a>Gerenciamento de chaves
 
-## <a name="view-encryption-settings-in-the-azure-portal"></a>Exibir as configurações de criptografia no portal do Azure
-Para exibir as configurações da Criptografia do Serviço de Armazenamento, entre no [portal do Azure](https://portal.azure.com) e selecione uma conta de armazenamento. No painel **CONFIGURAÇÕES**, selecione a configuração **Criptografia**.
+Você pode contar com chaves gerenciadas pela Microsoft para a criptografia de sua conta de armazenamento, ou você pode gerenciar a criptografia com suas próprias chaves, junto com o Azure Key Vault.
 
-![Captura de tela do portal mostrando a configuração de Criptografia](./media/storage-service-encryption/image1.png)
+### <a name="microsoft-managed-keys"></a>Chaves gerenciadas pela Microsoft
 
-## <a name="faq-for-storage-service-encryption"></a>Perguntas frequentes sobre a Criptografia do Serviço de Armazenamento
-**Como criptografo os dados em uma conta de armazenamento do Resource Manager?**  
-A Criptografia de Serviço de Armazenamento está habilitada para todas as contas de armazenamento - clássicas e Gerenciador de Recursos, todos os arquivos existentes na conta de armazenamento criada antes da habilitação da criptografia serão criptografados retroativamente por um processo de criptografia em segundo plano.
+Por padrão, sua conta de armazenamento usa chaves de criptografia gerenciadas pela Microsoft. Você pode ver as configurações de criptografia para sua conta de armazenamento do **criptografia** seção o [portal do Azure](https://portal.azure.com), conforme mostrado na imagem a seguir.
 
-**A criptografia de serviço de armazenamento está ativada por padrão quando eu crio uma conta de armazenamento?**  
-Sim, a Criptografia do Serviço de Armazenamento está habilitada para todas as contas de armazenamento e para todos os serviços de armazenamento do Azure.
+![Exibir conta criptografada com chaves gerenciadas pela Microsoft](media/storage-service-encryption/encryption-microsoft-managed-keys.png)
 
-**Eu tenho uma conta de armazenamento do Resource Manager. Posso habilitar a Criptografia do Serviço de Armazenamento nela?**  
-A Criptografia de Serviço de Armazenamento é habilitada por padrão em todas as contas de armazenamento existentes do Resource Manager. Isso é suportado para armazenamento de Blobs do Azure, arquivos do Azure, armazenamento de fila do Azure, armazenamento de tabela. 
+### <a name="customer-managed-keys"></a>Chaves gerenciadas pelo cliente
 
-**Posso desativar a criptografia na minha conta de armazenamento?**  
-A criptografia é habilitada por padrão, e não há nenhuma provisão para desabilitar a criptografia para sua conta de armazenamento. 
+Você pode gerenciar a criptografia de armazenamento do Azure com chaves gerenciadas pelo cliente. Chaves gerenciadas pelo cliente oferecem mais flexibilidade para criar, girar, desabilitar e revogar os controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados. 
 
-**Quanto mais custa o armazenamento do Azure se a criptografia do serviço de armazenamento é habilitada?**  
-Não há nenhum custo adicional.
+Use o Azure Key Vault para gerenciar suas chaves e auditar o uso. Você pode criar suas próprias chaves e armazená-los em um cofre de chaves, ou você pode usar as APIs do Azure Key Vault para gerar chaves. A conta de armazenamento e o cofre de chaves devem estar na mesma região, mas podem estar em assinaturas diferentes. Para obter mais informações sobre o Azure Key Vault, consulte [o que é o Azure Key Vault?](../../key-vault/key-vault-overview.md).
 
-**Posso usar minhas próprias chaves de criptografia?**  
-Sim, para o armazenamento de BLOBs do Azure e arquivos do Azure, você pode usar suas próprias chaves de criptografia. Chaves gerenciadas pelo cliente não são atualmente suportadas pelo Azure Managed Disks. Para obter mais informações, consulte [Criptografia do Serviço de Armazenamento usando chaves gerenciadas pelo cliente no Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
+Para revogar o acesso a chaves gerenciadas pelo cliente, consulte [PowerShell do Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) e [CLI do Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). Revogando o acesso efetivamente bloqueia o acesso a todos os dados na conta de armazenamento, pois a chave de criptografia não é acessível pelo armazenamento do Azure.
 
-**Pode revogar o acesso às chaves de criptografia?**  
-Sim, se você [usar suas próprias chaves de criptografia](storage-service-encryption-customer-managed-keys.md) no Cofre de Chaves do Azure.
+Para saber como usar chaves gerenciadas pelo cliente com o armazenamento do Azure, consulte um dos seguintes artigos:
 
-**Qual é a diferença entre a Criptografia de Serviço de Armazenamento e a Criptografia de Disco do Azure?**  
-A Criptografia de Disco do Azure fornece integração entre soluções baseadas em SO, como BitLocker e DM-Crypt, e o Azure KeyVault. A Criptografia de Serviço de Armazenamento fornece criptografia nativamente na camada da plataforma de armazenamento do Azure, abaixo da máquina virtual.
+- [Configurar chaves gerenciadas pelo cliente para criptografia de armazenamento do Azure do portal do Azure](storage-encryption-keys-portal.md)
+- [Configurar chaves gerenciadas pelo cliente para criptografia de armazenamento do Azure do PowerShell](storage-encryption-keys-powershell.md)
+- [Usar chaves gerenciadas pelo cliente com a criptografia de armazenamento do Azure da CLI do Azure](storage-encryption-keys-cli.md)
 
-**Eu tenho uma conta de armazenamento clássica. Posso habilitar a Criptografia do Serviço de Armazenamento nela?**  
-A Criptografia de Serviço de Armazenamento está habilitada para todas as contas de armazenamento (clássica e Gerenciador de Recursos).
+> [!NOTE]  
+> Não há suporte para chaves gerenciadas pelo cliente para [discos gerenciados do Azure](../../virtual-machines/windows/managed-disks-overview.md).
 
-**Como posso criptografar dados em minha conta de armazenamento clássica?**  
-Com a criptografia ativada por padrão, todos os dados armazenados nos serviços de armazenamento do Azure são criptografados automaticamente. 
+## <a name="azure-storage-encryption-versus-disk-encryption"></a>Criptografia de armazenamento do Azure em comparação com a criptografia de disco
 
-**Posso criar contas de armazenamento com a criptografia de serviço de armazenamento ativada usando o Azure PowerShell e a CLI do Azure?**  
-A Criptografia de Serviço de Armazenamento é ativada por padrão no momento da criação de qualquer conta de armazenamento (clássica ou Gerenciador de Recursos). Verifique as propriedades da conta usando o Azure PowerShell e a CLI do Azure.
-
-**Minha conta de armazenamento está configurada para ser replicada de modo geo-redundante. Com a Criptografia do Serviço de Armazenamento, minha cópia redundante também será criptografada?**  
-Sim, todas as cópias da conta de armazenamento são criptografadas. Há suporte para todas as opções de redundância – armazenamento com redundância local, armazenamento com redundância de zona, armazenamento com redundância geográfica e armazenamento com redundância geográfica com acesso de leitura.
-
-**A criptografia de serviço de armazenamento é permitida apenas em regiões específicas?**  
-Criptografia do serviço de armazenamento está disponível em todas as regiões.
-
-**Armazenamento de serviço de criptografia FIPS 140-2 é compatível?**  
-Sim, a criptografia do serviço de armazenamento é FIPS 140-2. Para obter mais informações sobre os módulos criptográficos subjacentes à Criptografia do Serviço de Armazenamento, veja [API de Criptografia: Próxima Geração](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
-
-**Como posso contatar alguém se eu tiver problemas ou quiser fazer comentários?**  
-Entre em contato com [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) para quaisquer problemas ou comentários relacionados à criptografia de serviço de armazenamento.
+Com a criptografia de armazenamento do Azure, todas as contas de armazenamento do Azure e os recursos que eles contêm são criptografados, incluindo os blobs de páginas que dão suporte a discos de máquina virtual do Azure. Além disso, os discos de máquina virtual do Azure podem ser criptografados com [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md). O Azure Disk Encryption usa o padrão da indústria [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) no Windows e [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) no Linux para fornecer soluções de criptografia com base no sistema operacional que são integradas ao Azure Key Vault.
 
 ## <a name="next-steps"></a>Próximas etapas
-O Armazenamento do Azure fornece um conjunto abrangente de funcionalidades de segurança que, juntas, ajudam os desenvolvedores a criar aplicativos seguros. Para obter mais informações, consulte o [Guia de segurança de armazenamento](../storage-security-guide.md).
+
+- [O que é o Cofre da Chave do Azure?](../../key-vault/key-vault-overview.md)

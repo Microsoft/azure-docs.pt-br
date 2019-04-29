@@ -9,11 +9,11 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: a57085fa37efd56a46b740d8cbc4278dc53cf39f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795416"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60683182"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Entender o ciclo de vida de um Blueprint do Azure
 
@@ -100,7 +100,7 @@ Quando um blueprint é atribuído, a atribuição pode ser atualizada. Há vári
 
 Para saber como, confira [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como usar [parâmetros estáticos e dinâmicos](parameters.md).
 - Saiba como personalizar a [ordem de sequenciamento de blueprint](sequencing-order.md).

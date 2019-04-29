@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/14/2019
 ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116768"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60556870"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usar a restauração geográfica para recuperar um aplicativo SaaS multilocatário de backups de banco de dados
 
@@ -313,7 +313,7 @@ Quando um banco de dados é repatriado, o banco de dados secundário na região 
 
 Na etapa 8, os recursos na região de recuperação, incluindo os servidores de recuperação e pools, são excluídos.
 
-## <a name="run-the-repatriation-script"></a>Executar o script repatriação
+## <a name="run-the-repatriation-script"></a>Executar o script de repatriação
 Vamos imaginar que a interrupção foi resolvida e executar o script de repatriação.
 
 Se você seguiu o tutorial, o script reativa imediatamente o Fabrikam Jazz club e o Dogwood Dojo na região original porque eles não foram modificados. Em seguida, ele repatria o novo locatário, Hawthorn Hall, e o Contoso Concert Hall porque ele foi modificado. O script também repatria o catálogo, que foi atualizado quando Hawthorn Hall foi provisionado.

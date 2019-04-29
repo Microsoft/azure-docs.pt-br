@@ -3,19 +3,20 @@ title: Filtragem de conteúdo ofensivo - API de tradução de texto
 titlesuffix: Azure Cognitive Services
 description: Use a API de tradução de texto de filtragem de conteúdo ofensivo.
 services: cognitive-services
-author: v-pawal
+author: Jann-Skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.author: v-jansko
+origin.date: 02/21/2019
+ms.date: 03/12/2019
+ms.author: v-junlch
 ms.openlocfilehash: bd7a05f2f597d1882293387e5aac8e4d7367d051
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916624"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60880023"
 ---
 # <a name="add-profanity-filtering-with-the-translator-text-api"></a>Adicionar conteúdo ofensivo filtragem com a API de tradução de texto
 
@@ -32,6 +33,7 @@ O método Translate () usa o parâmetro “options”, que contém o novo elemen
 | Marked | Palavras impróprias cercadas por marcas XML \<profanação >... \</profanity >. | 彼は変態です。 | Ele é um \<profanity>jerk\</profanity >. |
 | Deleted | Palavras impróprias são removidas da saída sem substituição. | 彼は。 | Ele é um. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 > [!div class="nextstepaction"]
 > [Aplicar filtragem de linguagem obscena com a chamada à API de Tradução](reference/v3-0-translate.md)
+

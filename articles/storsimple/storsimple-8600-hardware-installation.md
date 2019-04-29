@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5a8b460441323cb668a3d9939cce434636afc44d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: be3f68a00647840801e7c205d7abb34b718bd61c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38718998"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630811"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Desembalar, montar em rack e cabear o dispositivo StorSimple 8600.
 ## <a name="overview"></a>Visão geral
@@ -168,7 +168,7 @@ A próxima etapa é fazer o cabeamento do dispositivo para recebimento de energi
 ## <a name="cable-your-storsimple-8600-device"></a>Cabear o dispositivo StorSimple 8600
 Os procedimentos a seguir explicam como cabear o dispositivo StorSimple 8600 para conexões de energia, rede e serial.
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 Antes de começar a cabear o dispositivo, você precisará dos seguintes itens:
 
 * O compartimento principal e o compartimento EBOD completamente desempacotados
@@ -260,7 +260,7 @@ Execute as etapas a seguir para cabear a porta serial.
 6. Verifique se a conexão está funcionando pressionando Enter no console. Um menu de console serial deve aparecer.
 
 > [!NOTE]
-> **Gerenciamento Noturno:** quando o dispositivo for instalado em um data center remoto ou em uma sala de computadores com acesso limitado, certifique-se de que as conexões seriais com ambos os controladores sempre estejam conectadas a um comutador de console serial ou equipamento semelhante. Isso permite operações de suporte e controle remoto fora de banda em caso de interrupção na rede ou falhas inesperadas.
+> **Gerenciamento noturno:** Quando o dispositivo é instalado em um data center remoto ou em uma sala de computadores com acesso limitado, certifique-se de que as conexões seriais com ambos os controladores sempre são conectadas a um comutador de console serial ou equipamento similar. Isso permite operações de suporte e controle remoto fora de banda em caso de interrupção na rede ou falhas inesperadas.
 > 
 > 
 

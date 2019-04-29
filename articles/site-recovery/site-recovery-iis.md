@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: aa42371692cd5d0dc96835db5b66fe0877b90665
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320490"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61280347"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurar a recuperação de desastre para um aplicativo Web baseado em IIS de várias camadas
 
@@ -60,10 +60,10 @@ Para os exemplos neste artigo, usamos máquinas virtuais VMware com o IIS 7.5 no
 
 Cenário | Para um site secundário | Para o Azure
 --- | --- | ---
-Hyper-V | SIM | SIM
-VMware | SIM | SIM
-Servidor físico | Não  | SIM
-Azure|ND|SIM
+Hyper-V | Sim | Sim
+VMware | Sim | Sim
+Servidor físico | Não  | Sim
+Azure|ND|Sim
 
 ## <a name="replicate-virtual-machines"></a>Replicar máquinas virtuais
 

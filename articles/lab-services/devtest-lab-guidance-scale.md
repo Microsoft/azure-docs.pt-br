@@ -14,11 +14,11 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 25a088686c739c53feadd6354baf75f3147bdc33
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431182"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561482"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Expanda sua infraestrutura do Azure DevTest Labs
 Antes de implementar o DevTest Labs em escala empresarial, há vários pontos de decisão essenciais. Conhecer a fundo esses pontos de decisão ajuda uma organização a tomar decisões de design no futuro. No entanto, esses pontos não devem impedir uma organização de iniciar uma prova de conceito. As três principais áreas para o planejamento inicial de expansão são:

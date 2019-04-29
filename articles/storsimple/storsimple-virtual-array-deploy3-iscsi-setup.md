@@ -15,17 +15,17 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 5d3525952ec09474d60618c4f99138cef1fce57a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317503"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61416784"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Implantar o StorSimple Virtual Array — configurar como um servidor iSCSI por meio do portal do Azure
 
 ![fluxo do processo de instalação iscsi](./media/storsimple-virtual-array-deploy3-iscsi-setup/iscsi4.png)
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Este tutorial de implantação se aplica ao Microsoft Azure StorSimple Virtual Array. Este tutorial descreve como executar a instalação inicial, registrar o servidor iSCSI do StorSimple, concluir a configuração do dispositivo e, em seguida, criar, montar, inicializar e formatar volumes em seu servidor iSCSI da Matriz Virtual StorSimple. 
 
@@ -64,7 +64,7 @@ Use as instruções passo a passo a seguir para preparar e configurar sua Matriz
     ![Página de entrada](./media/storsimple-virtual-array-deploy3-iscsi-setup/image4.png)
 3. Você será levado à página **Inicial** . Esta página descreve as várias configurações necessárias para configurar e registrar o dispositivo virtual com o serviço Gerenciador de Dispositivos StorSimple. Observe que **Configurações de rede**, **Configurações de proxy Web** e **Configurações de hora** são opcionais. As únicas configurações obrigatórias são as **Configurações do dispositivo** e **Configurações de nuvem**.
    
-    ![Home page](./media/storsimple-virtual-array-deploy3-iscsi-setup/image5.png)
+    ![Página inicial](./media/storsimple-virtual-array-deploy3-iscsi-setup/image5.png)
 4. Na página **Configurações de rede**, em **Interfaces de rede**, DATA 0 será configurado automaticamente para você. Cada interface de rede é definida por padrão para obter um endereço IP automaticamente (DHCP). Assim, um endereço IP, a sub-rede e gateway serão atribuídos automaticamente (tanto para IPv4 quanto para IPv6).
    
     Já que planeja implantar o dispositivo como um servidor iSCSI (para provisionar o armazenamento em bloco), recomendamos desabilitar a opção **Obter endereço IP automaticamente** e configurar endereços IP estáticos.

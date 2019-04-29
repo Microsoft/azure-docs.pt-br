@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/21/2018
 ms.author: atsenthi
 ms.openlocfilehash: 3e892e443f5e3309add48f939f26ba14eaf5a51b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670397"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614197"
 ---
 # <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Atribuir uma política de acesso de segurança a pontos de extremidade HTTP e HTTPS
 Se você aplicar uma política run-as a um serviço e o manifesto do serviço declarar recursos de ponto de extremidade, você deverá especificar um **SecurityAccessPolicy**.  O **SecurityAccessPolicy** garante que portas alocadas para esses pontos de extremidade sejam restritos corretamente para a conta de usuário que o serviço é executado. Caso contrário, o **http.sys** não terá acesso ao serviço e você receberá uma falha com chamadas do cliente. O exemplo a seguir aplica a conta Customer1 a um ponto de extremidade chamado **EndpointName**, concedendo a ele direitos de acesso completo.

@@ -8,11 +8,11 @@ ms.date: 03/24/2019
 ms.author: dharmas
 ms.reviewer: sngun
 ms.openlocfilehash: b645fe210e7eeb073380dcadefead3e1b4d7ccc0
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407429"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60926373"
 ---
 # <a name="globally-scale-provisioned-throughput"></a>Taxa de transferência provisionada para dimensionamento global 
 

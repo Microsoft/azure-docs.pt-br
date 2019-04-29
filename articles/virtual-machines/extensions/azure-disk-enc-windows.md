@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
 ms.openlocfilehash: 46699fb1add42d23a11234d5cd05e4a9627a91fd
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983456"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800048"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption para Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -77,23 +77,23 @@ O Azure Disk Encryption exige conectividade com a Internet para acesso ao Active
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| NOME | Valor/Exemplo | Tipo de Dados |
+| Nome | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
-| publicador | Microsoft.Azure.Security | cadeia de caracteres |
-| Tipo | AzureDiskEncryptionForWindows| cadeia de caracteres |
+| apiVersion | 2015-06-15 | date |
+| publicador | Microsoft.Azure.Security | string |
+| tipo | AzureDiskEncryptionForWindows| string |
 | typeHandlerVersion | 1.0, 1.1, 2.2 (VMSS) | int |
 | (opcional) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (opcional) AADClientSecret | Senha | cadeia de caracteres |
-| (opcional) AADClientCertificate | impressão digital | cadeia de caracteres |
-| EncryptionOperation | EnableEncryption | cadeia de caracteres | 
-| KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | cadeia de caracteres |
-| KeyEncryptionKeyURL | url | cadeia de caracteres |
-| KeyVaultResourceId | uri de recurso | cadeia de caracteres |
-| KekVaultResourceId | uri de recurso | cadeia de caracteres |
-| KeyVaultURL | url | cadeia de caracteres |
-| SequenceVersion | uniqueidentifier | cadeia de caracteres |
-| VolumeType | Sistema operacional, Dados, Tudo | cadeia de caracteres |
+| (opcional) AADClientSecret | Senha | string |
+| (opcional) AADClientCertificate | impressão digital | string |
+| EncryptionOperation | EnableEncryption | string | 
+| KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | string |
+| KeyEncryptionKeyURL | url | string |
+| KeyVaultResourceId | uri de recurso | string |
+| KekVaultResourceId | uri de recurso | string |
+| KeyVaultURL | url | string |
+| SequenceVersion | uniqueidentifier | string |
+| VolumeType | Sistema operacional, Dados, Tudo | string |
 
 ## <a name="template-deployment"></a>Implantação de modelo
 Para obter um exemplo de implantação de modelo, consulte [Criar uma nova VM do Windows criptografada de imagem da galeria](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image).
@@ -104,7 +104,7 @@ As instruções podem ser encontradas na última [documentação da CLI do Azure
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
-### <a name="troubleshoot"></a>Solucionar problemas
+### <a name="troubleshoot"></a>Solução de problemas
 
 Consulte o [Guia de solução de problemas do Azure Disk Encryption](../../security/azure-security-disk-encryption-tsg.md).
 

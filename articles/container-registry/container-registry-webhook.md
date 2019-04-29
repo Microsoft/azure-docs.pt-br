@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: danlep
 ms.openlocfilehash: 0a3d2d0e858dc052095c0a58287970d10c06f0ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099841"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787235"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Como usar webhooks do Registro de Contêiner do Azure
 
@@ -33,7 +33,7 @@ Para obter detalhes sobre solicitações de webhook, consulte [Azure Container R
 1. Selecione **Adicionar** na barra de ferramentas do webhook.
 1. Preencha o formulário *Criar webhook* com as seguintes informações:
 
-| Valor | DESCRIÇÃO |
+| Value | DESCRIÇÃO |
 |---|---|
 | NOME | O nome que você deseja dar ao webhook. Ele pode conter apenas letras e números e deve ser de 5 a 50 caracteres de comprimento. |
 | URI de serviço | O URI para que o webhook deveria enviar notificações POST. |

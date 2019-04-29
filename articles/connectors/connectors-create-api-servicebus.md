@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232708"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105573"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Trocar mensagens na nuvem com o Barramento de Serviço do Azure e os Aplicativos Lógicos do Azure
 
@@ -74,7 +74,7 @@ Confirme se seu aplicativo lógico tem permissões para acessar o namespace do B
 
 1. Para adicionar um *gatilho* para um aplicativo lógico em branco, na caixa de pesquisa, insira "Barramento de Serviço do Azure" como filtro. Na lista de gatilhos, selecione o gatilho desejado. 
 
-   Por exemplo, para disparar um aplicativo lógico quando um novo item for enviado para uma fila de Barramento de Serviço, selecione este gatilho: **Quando uma mensagem é recebida em uma fila (preenchimento automático)**
+   Por exemplo, para acionar o aplicativo lógico quando um novo item for enviado para uma fila do barramento de serviço, selecione este gatilho: **Quando uma mensagem é recebida em uma fila (conclusão automática)**
 
    ![Selecionar um gatilho do Barramento de Serviço](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
@@ -118,14 +118,14 @@ Confirme se seu aplicativo lógico tem permissões para acessar o namespace do B
 
 1. Forneça os detalhes necessários para seu gatilho ou ação. Neste exemplo, siga as etapas relevantes para seu gatilho ou ação: 
 
-   * **Para o exemplo de gatilho**: defina o intervalo de sondagem e a frequência para verificação da fila.
+   * **Para o gatilho de exemplo**: Defina o intervalo de sondagem e a frequência para verificar a fila.
 
      ![Configurar intervalo de sondagem](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
      Quando terminar, continue compilando o fluxo de trabalho do aplicativo lógico, adicionando as ações que deseja. Por exemplo, pode adicionar uma ação que envia um email quando uma nova mensagem chega.
      Quando o gatilho verifica sua fila e localiza uma nova mensagem, seu aplicativo lógico executa as ações selecionadas para a mensagem encontrada.
 
-   * **Para o exemplo de ação**: digite o conteúdo da mensagem e outros detalhes. 
+   * **Para a ação de exemplo**: Insira o conteúdo da mensagem e outros detalhes. 
 
      ![Fornecer o conteúdo e os detalhes da mensagem](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 
@@ -137,7 +137,7 @@ Confirme se seu aplicativo lógico tem permissões para acessar o namespace do B
 
 Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explicados na descrição da OpenAPI do conector (anteriormente conhecido como Swagger), veja a [página de referência](/connectors/servicebus/) do conector.
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).

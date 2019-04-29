@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 3c008e77116a9b42a2ea137069529c5e241adddd
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56212923"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61456831"
 ---
 Você pode [dimensionar automaticamente](../articles/azure-monitor/platform/autoscale-best-practices.md) suas [VMs (máquinas virtuais)](../articles/virtual-machines/windows/overview.md) quando usa [conjuntos de dimensionamento de máquinas virtuais](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) e o [recurso de dimensionamento automático do Azure Monitor](../articles/azure-monitor/platform/autoscale-overview.md). Suas VMs precisam ser membros de um conjunto de dimensionamento definido para serem dimensionadas automaticamente. Este artigo fornece informações que permitem a você entender melhor como dimensionar suas VMs vertical e horizontalmente usando métodos automáticos e manuais.
 

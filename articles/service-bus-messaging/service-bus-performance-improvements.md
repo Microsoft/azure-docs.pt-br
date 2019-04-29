@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
 ms.openlocfilehash: f5ce8a237bc2ba7fe15acfcd6afa0edcda7ef713
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996009"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60589655"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Práticas recomendadas para melhorias de desempenho usando o Sistema de Mensagens do Barramento de Serviço
 
@@ -249,7 +249,7 @@ Para maximizar a taxa de transferência, experimente as etapas a seguir:
 * Defina a contagem de pré-busca como 20 vezes a taxa de recebimento esperada em segundos. Essa contagem reduz o número de transmissões de protocolo de cliente do Barramento de Serviço.
 * Use um tópico particionado para obter desempenho e disponibilidade aprimorados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre como otimizar o desempenho do Barramento de Serviço, veja [Entidades de mensagens particionadas][Partitioned messaging entities].
 

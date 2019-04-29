@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: mbullwin
 ms.openlocfilehash: a6e7e8e01ccb623a3ff340c318c9c238c919cb38
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026942"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61298577"
 ---
 # <a name="abnormal-rise-in-exception-volume-preview"></a>Aumento anormal no volume de exceção (visualização)
 

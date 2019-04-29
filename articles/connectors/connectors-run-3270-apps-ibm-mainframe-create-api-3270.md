@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
 ms.openlocfilehash: 7388dc0c61dad9c31da0c178febcee4c8481bc50
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313185"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60538756"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrar aplicativos com base em tela 3270 em mainframes da IBM com o Azure usando o conector do IBM 3270 e aplicativos lógicos do Azure
 
@@ -183,7 +183,7 @@ Nesse modo, você pode definir o fluxo ou etapas para navegar pelas telas do seu
 
 1. Sob **escolher novo nome do plano**, insira um nome para seu plano. Dos **tipo** , selecione o tipo de plano:
 
-   | Tipo de plano | Descrição |
+   | Tipo de plano | DESCRIÇÃO |
    |-----------|-------------|
    | **Processo** | Para planos combinados ou autônomo |
    | **Conectar** | Para conectar-se planos |
@@ -359,33 +359,33 @@ Quando você concluir todas essas etapas, você pode usar a ação que você cri
 
 1. Se nenhuma conexão existir ainda, forneça as informações necessárias para sua conexão e escolha **criar**.
 
-   | Propriedade | Necessário | Value | Descrição |
+   | Propriedade | Necessário | Value | DESCRIÇÃO |
    |----------|----------|-------|-------------|
    | **Nome da Conexão** | Sim | <*connection-name*> | O nome para a sua conexão |
    | **ID da conta de integração** | Sim | <*integration-account-name*> | Nome da sua conta de integração |
    | **URL de SAS de conta de integração** | Sim | <*integration-account-SAS-URL*> | URL de assinatura de acesso compartilhado (SAS) da sua conta de integração, que você pode gerar das configurações da sua conta de integração no portal do Azure. <p>1. Em sua integração de conta de menu, em **as configurações**, selecione **URL de retorno de chamada**. <br>2. No painel direito, copie o **URL de retorno de chamada gerada** valor. |
    | **Servidor** | Sim | <*TN3270-server-name*> | O nome do servidor para seu serviço TN3270 |
-   | **Porta** | Não | <*TN3270-server-port*> | A porta usada pelo servidor TN3270. Se deixado em branco, o conector usa `23` como o valor padrão. |
-   | **Tipo de dispositivo** | Não | <*IBM-terminal-model*> | O nome do modelo ou um número para o terminal da IBM para emular. Se deixado em branco, o conector usa valores padrão. |
-   | **Página de código** | Não | <*code-page-number*> | O número de página de código para o host. Se deixado em branco, o conector usa `37` como o valor padrão. |
-   | **Nome da unidade lógica** | Não | <*logical-unit-name*> | O nome da unidade lógica específica para a solicitação do host |
-   | **Habilitar SSL?** | Não | Ativar ou desativar | Ligar ou desligar a criptografia SSL. |
-   | **Validar o certificado de ssl do host?** | Não | Ativar ou desativar | Ativar ou desativar a validação para o certificado do servidor. |
+   | **Porta** | Não  | <*TN3270-server-port*> | A porta usada pelo servidor TN3270. Se deixado em branco, o conector usa `23` como o valor padrão. |
+   | **Tipo de dispositivo** | Não  | <*IBM-terminal-model*> | O nome do modelo ou um número para o terminal da IBM para emular. Se deixado em branco, o conector usa valores padrão. |
+   | **Página de código** | Não  | <*code-page-number*> | O número de página de código para o host. Se deixado em branco, o conector usa `37` como o valor padrão. |
+   | **Nome da unidade lógica** | Não  | <*logical-unit-name*> | O nome da unidade lógica específica para a solicitação do host |
+   | **Habilitar SSL?** | Não  | Ativar ou desativar | Ligar ou desligar a criptografia SSL. |
+   | **Validar o certificado de ssl do host?** | Não  | Ativar ou desativar | Ativar ou desativar a validação para o certificado do servidor. |
    ||||
 
-   Por exemplo:
+   Por exemplo: 
 
    ![Propriedades da conexão](./media/connectors-create-api-3270/connection-properties.png)
 
 1. Forneça as informações necessárias para a ação:
 
-   | Propriedade | Necessário | Value | Descrição |
+   | Propriedade | Necessário | Value | DESCRIÇÃO |
    |----------|----------|-------|-------------|
    | **Nome de Hidx** | Sim | <*HIDX-file-name*> | Selecione o arquivo HIDX 3270 que você deseja usar. |
    | **Nome do método** | Sim | <*method-name*> | Selecione o método no arquivo HIDX que você deseja usar. Depois de selecionar um método, o **adicionar novo parâmetro** lista é exibida para que você possa selecionar os parâmetros a serem usados com esse método. |
    ||||
 
-   Por exemplo:
+   Por exemplo: 
 
    **Selecione o arquivo HIDX**
 

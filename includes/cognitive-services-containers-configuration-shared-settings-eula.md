@@ -5,11 +5,11 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/02/2019
 ms.openlocfilehash: 04b7031382d7ed611822a3dd721dfa09f01bce74
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741121"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60599401"
 ---
 A configuração `Eula` indica que você aceitou a licença para o contêiner. Você deve especificar um valor para essa definição de configuração e o valor deve ser definido como `accept`.
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: 16efb97569aabbea28065b03e9944d6881c39eee
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886818"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60895356"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Idiomas e regiões compatíveis com a API de Verificação Ortográfica do Bing
 

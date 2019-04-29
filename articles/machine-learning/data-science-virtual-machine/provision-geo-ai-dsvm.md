@@ -17,11 +17,11 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
 ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59008831"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60578500"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Provisionar uma Máquina Virtual de Inteligência Artificial Geográfica no Azure 
 
@@ -91,7 +91,7 @@ Após a inscrição para qualquer uma paga ou gratuita ArcGIS conta de avaliaç�
 
 Depois de entrar na área de trabalho do ArcGIS Pro com sua conta do ArcGIS, você estará pronto para começar a usar as ferramentas de ciência de dados instaladas e configuradas na VM para seus projetos de aprendizado de máquina e análise Geoespacial.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Comece a usar a VM de Ciência de Dados de IA Geográfica com diretrizes dos seguintes tópicos:
 
