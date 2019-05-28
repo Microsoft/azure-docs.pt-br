@@ -69,10 +69,10 @@ A tabela a seguir fornece a descrição para elementos JSON específicos do serv
 | --- | --- | --- |
 | type |A propriedade type deve ser definida como: **OnPremisesOdbc** |Sim |
 | connectionString |A parte da credencial que não está relacionada ao acesso da cadeia de conexão e uma credencial criptografada opcional. Veja os exemplos nas seções a seguir. <br/><br/>Você pode especificar a cadeia de conexão com um padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` ou usar DSN (nome da fonte de dados) do sistema que você configurou no computador do gateway com o `"DSN=<name of the DSN>;"` (é necessário ainda especificar a parte de credencial no serviço vinculado adequadamente). |Sim |
-| credencial |A parte da credencial de acesso da cadeia de conexão especificada no formato propriedade-valor específico do driver. Exemplo: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Não |
+| credential |A parte da credencial de acesso da cadeia de conexão especificada no formato propriedade-valor específico do driver. Exemplo: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Não |
 | authenticationType |Tipo de autenticação usado para se conectar ao armazenamento de dados ODBC. Os valores possíveis são: Anônimo e Básico. |Sim |
-| Nome de Usuário |Especifique o nome de usuário se você estiver usando a autenticação Básica. |Não  |
-| Senha |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Não  |
+| userName |Especifique o nome de usuário se você estiver usando a autenticação Básica. |Não  |
+| password |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Não  |
 | gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao armazenamento de dados ODBC. |Sim |
 
 ### <a name="using-basic-authentication"></a>Usando a autenticação Básica
