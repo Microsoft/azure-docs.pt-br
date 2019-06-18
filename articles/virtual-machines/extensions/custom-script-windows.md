@@ -105,12 +105,12 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 | Nome | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publicador | Microsoft.Compute | cadeia de caracteres |
-| type | CustomScriptExtension | cadeia de caracteres |
+| publicador | Microsoft.Compute | string |
+| type | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
 | fileUris (por exemplo) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | timestamp (exemplo) | 123456789 | Inteiro de 32 bits |
-| commandToExecute (por exemplo) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | cadeia de caracteres |
+| commandToExecute (por exemplo) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
 | storageAccountName (por exemplo) | examplestorageacct | string |
 | storageAccountKey (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | cadeia de caracteres |
 
